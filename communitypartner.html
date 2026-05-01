@@ -1,0 +1,100 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Community Partners - Yorkseed",
+  description: "Yorkseed community partners and event collaborators.",
+};
+
+type Partner = {
+  name: string;
+  logo: string;
+};
+
+const communityPartners: Partner[] = [
+  { name: "Ethereum France", logo: "/partners/ethereum-france.jpg" },
+  { name: "Kryptosphere", logo: "/partners/kryptosphere.jpg" },
+];
+
+const eventPartners: Partner[] = [
+  { name: "NSTR", logo: "/partners/events/d6778a95.svg" },
+  { name: "Event partner", logo: "/partners/events/539f04ca.png" },
+  { name: "Conspicuis", logo: "/partners/events/392d8577.jpg" },
+  { name: "Elpis", logo: "/partners/events/b5c42c8a.png" },
+  { name: "Health Board Advisors", logo: "/partners/events/cee4817b.png" },
+  { name: "Nosto", logo: "/partners/events/d409d3bc.jpg" },
+  { name: "Start Paris", logo: "/partners/events/a64085b4.jpg" },
+  { name: "CLA", logo: "/partners/events/2f86c051.png" },
+  { name: "Hyperion Strategies", logo: "/partners/events/03c7716d.png" },
+  { name: "AB", logo: "/partners/events/621ccd55.jpg" },
+  { name: "Shopify", logo: "/partners/events/9db774fb.png" },
+  { name: "Tavern", logo: "/partners/events/e94227df.png" },
+  { name: "Mimir", logo: "/partners/events/8cf2be29.png" },
+  { name: "EdgeCraft Group", logo: "/partners/events/08b46f37.jpg" },
+  { name: "ZAGO", logo: "/partners/events/4c1d832b.jpg" },
+  { name: "Calstudio", logo: "/partners/events/68ca2547.jpg" },
+  { name: "NEAR", logo: "/partners/events/3c23f3dc.jpg" },
+  { name: "Cuculi", logo: "/partners/events/ed41e325.png" },
+  { name: "Event partner", logo: "/partners/events/096eee42.png" },
+  { name: "Irregular Hours", logo: "/partners/events/b96f43c3.jpg" },
+  { name: "FF", logo: "/partners/events/7ed23568.png" },
+  { name: "BlockchainCenter.com", logo: "/partners/events/01bc1441.jpg" },
+  { name: "Startup Fuel", logo: "/partners/events/7fa3bef8.jpg" },
+  { name: "Ordinals", logo: "/partners/events/bfc2b399.png" },
+  { name: "Supermoon Camp", logo: "/partners/events/0537aff8.jpg" },
+  { name: "VNTR Capital", logo: "/partners/events/b9a25c1b.jpg" },
+  { name: "The Startup Station", logo: "/partners/events/57cfba33.jpg" },
+  { name: "DEV.PRO", logo: "/partners/events/5417c25d.jpg" },
+  { name: "How Women Invest", logo: "/partners/events/0f76bc86.jpg" },
+  { name: "Introstars", logo: "/partners/events/9a4b0295.png" },
+  { name: "SeedLegals", logo: "/partners/events/9235854c.png" },
+  { name: "Kryptosphere", logo: "/partners/events/b6c2a2e4.jpg" },
+  { name: "Tison", logo: "/partners/events/93aa1e83.png" },
+  { name: "Fusion42", logo: "/partners/events/20784c90.png" },
+  { name: "HKTDC", logo: "/partners/events/ac1d782d.jpg" },
+  { name: "Kairos", logo: "/partners/events/8d625c3f.jpg" },
+  { name: "The Female Founders Lab", logo: "/partners/events/cbb81d89-2.png" },
+  { name: "AI GTM", logo: "/partners/events/ade04c6e.png" },
+  { name: "MedStartr Venture Fund", logo: "/partners/events/4444af00.png" },
+  { name: "Y", logo: "/partners/events/b5418b4c.jpg" },
+  { name: "AINNO-MARK LABS", logo: "/partners/events/7738af8c.png" },
+  { name: "Singular", logo: "/partners/events/137b31c9.png" },
+  { name: "Genesis III", logo: "/partners/events/338f14c8.png" },
+  { name: "Pulse", logo: "/partners/events/a96e4d0a.jpg" },
+  { name: "Krippit", logo: "/partners/events/2b4b3f56.png" },
+  { name: "Wollen Labs", logo: "/partners/events/f1c9de1a.png" },
+  { name: "Creatant", logo: "/partners/events/58387e06.png" },
+];
+
+function LogoTile({ partner, featured = false }: { partner: Partner; featured?: boolean }) {
+  return (
+    <div
+      className={`flex items-center justify-center rounded-[8px] border border-[var(--border)] bg-white transition hover:-translate-y-0.5 hover:border-[var(--border2)] hover:shadow-[var(--sh2)] ${
+        featured ? "min-h-[132px] p-6" : "min-h-[118px] p-5"
+      }`}
+      aria-label={partner.name}
+    >
+      <img
+        src={partner.logo}
+        alt={partner.name}
+        className={`w-auto object-contain ${featured ? "max-h-[74px] max-w-[220px]" : "max-h-[68px] max-w-[88%]"}`}
+      />
+    </div>
+  );
+}
+
+export default function CommunityPartnersPage() {
+  return (
+    <main className="min-h-screen bg-white text-[var(--text)]">
+      <nav className="sticky top-0 z-20 border-b border-[var(--border)] bg-white/95 px-5 py-4 backdrop-blur sm:px-8 lg:px-12">
+        <div className="mx-auto flex max-w-[1080px] items-center justify-between gap-6">
+          <Link href="/partners" className="flex items-center">
+            <img
+              src="/Yorkseedlogowhitetransparent.png"
+              alt="Yorkseed"
+              className="h-8 w-auto"
+            />
+          </Link>
+          <Link
+            href="/partners"
+            className="rounded-[6px] border border-[var(--border)] px-4 py-2 text-[12px] font-medium text-[var(--t2)] transition hover:border-[var(--border2)] hover:text-[var(--text)]"
