@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Our Story — Yorkseed</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --ink:#111111;--ink2:#222222;--ink3:#555555;--ink4:#888888;
+  --white:#ffffff;--off-white:#fafafa;--light-grey:#f5f5f5;--mid-grey:#e8e8e8;
+  --red:#e53030;--red-dim:rgba(229,48,48,.07);--red-border:rgba(229,48,48,.2);
+  --gold:#b89a5a;--gold-dim:rgba(184,154,90,.08);--gold-border:rgba(184,154,90,.2);
+  --border:rgba(0,0,0,.07);--border2:rgba(0,0,0,.12);
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --mono:'DM Mono',monospace;
+}
+body{font-family:var(--sans);font-weight:300;background:var(--white);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 6vw;height:64px;background:rgba(255,255,255,.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.n-logo{display:flex;align-items:center}
+.n-links{display:flex;align-items:center;gap:28px;font-size:12.5px;font-weight:400;color:var(--ink3);letter-spacing:.02em}
+.n-links a:hover{color:var(--ink)}
+.n-links a.active{color:var(--ink);font-weight:500}
+.n-apply{background:var(--red);color:var(--white);padding:9px 20px;border-radius:6px;font-size:12.5px;font-weight:400;letter-spacing:.04em;transition:opacity .2s}
+.n-apply:hover{opacity:.88}
+@media(max-width:680px){.n-links{display:none}}
+
+/* HERO */
+.about-hero{padding:120px 6vw 80px;background:var(--white);border-bottom:1px solid var(--border);max-width:900px;margin:0 auto}
+.about-eyebrow{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink4);margin-bottom:24px;display:flex;align-items:center;gap:10px}
+.about-eyebrow-line{width:20px;height:1px;background:var(--gold);opacity:.5}
+.about-hero h1{font-family:var(--serif);font-size:clamp(36px,5vw,64px);font-weight:400;line-height:1.08;letter-spacing:-.02em;color:var(--ink);margin-bottom:24px}
+.about-hero h1 em{font-style:italic;color:var(--red)}
+.about-hero-sub{font-size:17px;color:var(--ink3);line-height:1.85;max-width:620px;font-weight:300}
+
+/* SHARED */
+.sec{padding:80px 6vw}
+.sec-inner{max-width:860px;margin:0 auto}
+.kicker{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.kicker::before{content:'';display:block;width:16px;height:1px;background:var(--red);opacity:.5}
+.sh2{font-family:var(--serif);font-size:clamp(26px,3.5vw,42px);font-weight:300;line-height:1.15;letter-spacing:-.01em;color:var(--ink);margin-bottom:18px}
+.sh2 em{font-style:italic;color:var(--red)}
+.body-text{font-size:15px;color:var(--ink3);line-height:1.9;font-weight:300;max-width:660px}
+.body-text + .body-text{margin-top:20px}
+.body-text strong{color:var(--ink);font-weight:500}
+
+/* ORIGIN STORY */
+.story-wrap{max-width:860px;margin:0 auto}
+.story-lead{font-family:var(--serif);font-size:clamp(20px,2.5vw,30px);font-weight:300;font-style:italic;line-height:1.5;color:var(--ink);margin-bottom:36px;padding-bottom:36px;border-bottom:1px solid var(--border)}
+.story-body{font-size:15px;color:var(--ink3);line-height:1.9;font-weight:300;max-width:680px}
+.story-body p{margin-bottom:22px}
+.story-body p:last-child{margin-bottom:0}
+.story-body strong{color:var(--ink);font-weight:500}
+
+/* TIMELINE */
+.timeline{display:flex;flex-direction:column;gap:0;max-width:760px;margin:0 auto}
+.tl-item{display:flex;gap:32px;padding:32px 0;border-top:1px solid var(--border)}
+.tl-item:last-child{border-bottom:1px solid var(--border)}
+.tl-year{font-family:var(--serif);font-size:28px;font-weight:300;color:var(--red);min-width:70px;line-height:1;padding-top:4px;letter-spacing:-.02em}
+.tl-content h3{font-family:var(--serif);font-size:18px;font-weight:400;margin-bottom:8px;letter-spacing:-.01em}
+.tl-content p{font-size:13.5px;color:var(--ink3);line-height:1.75;font-weight:300}
+
+/* FOUNDER */
+.founder-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;max-width:860px;margin:0 auto}
+@media(max-width:700px){.founder-grid{grid-template-columns:1fr;gap:36px}}
+.founder-quote{font-family:var(--serif);font-size:clamp(18px,2.5vw,26px);font-weight:300;font-style:italic;line-height:1.55;color:var(--ink);margin-bottom:24px}
+.founder-quote::before{content:'\201C';color:var(--red);opacity:.5;font-size:36px;line-height:0;vertical-align:-.3em;margin-right:4px}
+.founder-attr{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4)}
+.founder-body{font-size:14px;color:var(--ink3);line-height:1.85;font-weight:300}
+.founder-body p{margin-bottom:18px}
+.founder-body p:last-child{margin-bottom:0}
+
+/* VISION */
+.vision-items{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden;max-width:860px;margin:0 auto}
+.vision-item{background:var(--white);padding:28px 24px}
+.vision-n{font-family:var(--serif);font-size:40px;font-weight:300;color:var(--mid-grey);line-height:1;margin-bottom:14px;letter-spacing:-.02em}
+.vision-title{font-size:14px;font-weight:500;color:var(--ink);margin-bottom:8px;letter-spacing:-.01em}
+.vision-desc{font-size:12.5px;color:var(--ink3);line-height:1.7;font-weight:300}
+
+/* PRESS */
+.press-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;max-width:860px;margin:0 auto 32px}
+.press-card{background:var(--off-white);border:1px solid var(--border);border-radius:8px;padding:24px}
+.press-outlet{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink4);margin-bottom:12px}
+.press-headline{font-family:var(--serif);font-size:16px;font-weight:400;line-height:1.4;color:var(--ink);margin-bottom:10px;letter-spacing:-.01em}
+.press-desc{font-size:12.5px;color:var(--ink3);line-height:1.7;font-weight:300;margin-bottom:14px}
+.press-link{font-size:11.5px;color:var(--red);font-weight:500;letter-spacing:.02em}
+.press-chips{display:flex;flex-wrap:wrap;gap:7px;max-width:860px;margin:0 auto}
+.press-chip{background:var(--off-white);border:1px solid var(--border);border-radius:3px;padding:5px 12px;font-family:var(--mono);font-size:9.5px;color:var(--ink3);letter-spacing:.03em}
+
+/* AWARDS */
+.awards-list{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden;max-width:860px;margin:0 auto}
+.award-row{background:var(--white);padding:22px 26px;display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap}
+.award-year{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--red);min-width:40px;padding-top:3px}
+.award-body{}
+.award-title{font-size:14px;font-weight:500;color:var(--ink);margin-bottom:4px}
+.award-src{font-size:12px;color:var(--ink3);font-weight:300}
+
+/* CTA */
+.about-cta{background:var(--ink);padding:88px 6vw;text-align:center}
+.about-cta-inner{max-width:560px;margin:0 auto}
+.cta-eyebrow{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.18);margin-bottom:28px;display:flex;align-items:center;justify-content:center;gap:10px}
+.cta-eyebrow-line{width:18px;height:1px;background:var(--gold);opacity:.4}
+.about-cta h2{font-family:var(--serif);font-size:clamp(28px,4vw,46px);font-weight:300;color:rgba(255,255,255,.88);letter-spacing:-.01em;line-height:1.12;margin-bottom:16px}
+.about-cta h2 em{font-style:italic;color:var(--red)}
+.cta-rule{width:28px;height:1px;background:var(--gold);opacity:.35;margin:20px auto}
+.about-cta p{color:rgba(255,255,255,.35);font-size:14px;max-width:400px;margin:0 auto 36px;line-height:1.85;font-weight:300}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-white{background:var(--white);color:var(--ink);border:none;border-radius:6px;padding:14px 28px;font-size:13px;font-weight:400;letter-spacing:.04em;display:inline-block;cursor:pointer}
+.btn-outline-dark{background:transparent;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.5);border-radius:6px;padding:14px 28px;font-size:13px;display:inline-block;cursor:pointer}
+
+/* FOOTER */
+footer{background:var(--ink2);padding:40px 6vw 28px;border-top:1px solid rgba(255,255,255,.05)}
+.foot-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px}
+.foot-links{display:flex;gap:22px;flex-wrap:wrap}
+.foot-links a{font-size:11.5px;color:rgba(255,255,255,.55);transition:color .2s;letter-spacing:.02em}
+.foot-links a:hover{color:#fff}
+.foot-copy{width:100%;text-align:center;font-family:var(--mono);font-size:9px;color:rgba(255,255,255,.35);margin-top:26px;letter-spacing:.06em;text-transform:uppercase}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="n-logo">
+    <img src="https://yorkseed.co/assets/images/gallery02/91ba5bda.png" alt="Yorkseed" style="height:24px;width:auto;display:block;filter:invert(1) sepia(1) saturate(5) hue-rotate(314deg) brightness(.15)"/>
+  </a>
+  <div class="n-links">
+    <a href="/">Home</a>
+    <a href="/about.html" class="active">Our Story</a>
+    <a href="https://yorkseed.co/#press">Press</a>
+    <a href="https://luma.com/yorkseed">Events</a>
+    <a href="https://yorkseed.co/#about">Global Hubs</a>
+  </div>
+  <a href="https://app.yorkseed.co/pricing" class="n-apply">Request access</a>
+</nav>
+
+<!-- HERO -->
+<div style="padding-top:64px">
+  <div class="about-hero">
+    <div class="about-eyebrow"><div class="about-eyebrow-line"></div>Network est. 2023 · Platform launched 2026</div>
+    <h1>From a train ride<br/>to a <em>global venture network.</em></h1>
+    <p class="about-hero-sub">Yorkseed started as a spontaneous act of generosity — a spreadsheet shared on a train to help founders navigate SXSW. What followed was unexpected, unstoppable, and is still growing.</p>
+  </div>
+</div>
+
+<!-- ORIGIN STORY -->
+<div class="sec" style="background:var(--off-white);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="story-wrap">
+    <div class="kicker">How we started</div>
+    <div class="story-lead">"It started with a train ride."</div>
+    <div class="story-body">
+      <p>During a three-hour journey from New York City to Washington, DC, our founder <strong>Jessica Sophia Wong</strong> created what would become the viral SXSW 2023 "Unofficial Events" master list — a curated spreadsheet of badge-free events happening across Austin. What began as a spontaneous project quickly became one of the most shared grassroots resources of the week.</p>
+      <p>Armed with a printed QR code, she walked the streets of Austin inviting founders and investors to scan and access the list. Within hours, it spread across the ecosystem. The signal was immediate and overwhelming.</p>
+      <p>With just one hour of planning, she hosted an exclusive <strong>Founders × Investors SXSW Mixer</strong>. It sold out immediately, with attendees turned away at the door.</p>
+      <p>Upon returning to New York, she expanded the concept — beginning with an Earth Day Charity Brunch and a curated WhatsApp group connecting founders and investors. That proof of concept evolved into <strong>Yorkseed™</strong>: an exclusive global venture network uniting high-caliber founders, strategic investors, and ecosystem leaders across major innovation hubs.</p>
+      <p>Today, Yorkseed connects a curated global network of founders, investors, and capital allocators across 50+ hubs and the world's most important innovation gatherings. Membership is selective. Every application is reviewed. Every member is re-verified annually.</p>
+      <p><em style="font-family:var(--serif);font-size:16px;color:var(--ink)">Access is intentional. Connections are curated. Relationships compound.</em></p>
+    </div>
+  </div>
+</div>
+
+<!-- TIMELINE -->
+<div class="sec" style="background:var(--white)">
+  <div class="sec-inner">
+    <div class="kicker">The journey</div>
+    <h2 class="sh2" style="margin-bottom:48px">Building year by year</h2>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-year">2023</div>
+        <div class="tl-content">
+          <h3>The viral spreadsheet</h3>
+          <p>A spontaneous SXSW spreadsheet goes viral. One printed QR code, one sold-out mixer, one Earth Day Brunch, and the first curated WhatsApp group connecting founders and investors. Yorkseed™ is born. Recognized at Gracie Mansion — NYC Mayor's Office Emerging Business Leader Award.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2024</div>
+        <div class="tl-content">
+          <h3>The network scales globally</h3>
+          <p>Yorkseed Venture Summits in New York and Toronto. Conference delegations to SXSW, Web Summit Lisbon, NFT.NYC, and more. Expert Sessions launch. 50+ global hubs activated. Featured in YRB Magazine, Pollen8, and Crypto Reporter. United Nations SDGs Bunchful Innovation Award.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2025</div>
+        <div class="tl-content">
+          <h3>Global presence and recognition</h3>
+          <p>Jessica serves as Mission Leader for France at the Asian Financial Forum in Hong Kong. China Daily interview. Delegations to CES Las Vegas, VivaTech Paris, GITEX Dubai, Web Summit Lisbon, and more. The Super Connectors Podcast — featured by Mediashotz, Little Black Book, and Roastbrief. Yorkseed House at SXSW launches. Le Café du Geek feature in Paris.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2026</div>
+        <div class="tl-content">
+          <h3>The platform launches</h3>
+          <p>Yorkseed launches its full membership platform — AI tools, member-controlled introductions, full privacy controls, and 2FA security. Handshake Summit at CSW70 at the United Nations. Women Future Forward at Google Campus, SXSW Austin. The Yorkseed Summit goes global. Yorkseed Capital in development.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year" style="color:var(--gold)">Next</div>
+        <div class="tl-content">
+          <h3>What's coming</h3>
+          <p>Yorkseed Capital — selective SPV co-investments for qualified network members. The flagship Yorkseed Summit — a global convening of founders, institutional capital, and ecosystem operators. Expanding Hub Directors across new cities. More family office and institutional conference partnerships on the radar.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOUNDER -->
+<div class="sec" style="background:var(--light-grey);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="founder-grid">
+    <div>
+      <div class="kicker">The founder</div>
+      <div class="founder-quote">Yorkseed is not an event company. It is a venture platform built on trust, access, and long-term relationship capital.</div>
+      <div class="founder-attr" style="margin-bottom:28px">Jessica Sophia Wong · Founder & CEO · Yorkseed</div>
+      <div class="founder-body">
+        <p>Jessica Sophia Wong built Yorkseed from a spreadsheet and a belief: that the right connection at the right moment changes everything — and that too many serious founders and investors are locked out of those moments not by ability, but by access.</p>
+        <p>In venture capital, credibility often comes from pedigrees — MBAs, investment banking, big tech. Jessica had none of that. What she had was a QR code, a gift for connecting people, and a willingness to walk the streets of Austin and invite strangers to scan a link.</p>
+        <p>That instinct — to open rooms rather than gatekeep them — is the foundation of everything Yorkseed is and is becoming.</p>
+      </div>
+    </div>
+    <div>
+      <div class="kicker">What we believe</div>
+      <h2 class="sh2" style="font-size:clamp(20px,2.5vw,30px);margin-bottom:24px">The values that<br/><em>shape the network</em></h2>
+      <div style="display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden">
+        <div style="background:var(--white);padding:20px 22px"><div style="font-size:13px;font-weight:500;color:var(--ink);margin-bottom:5px">Access is intentional</div><div style="font-size:12px;color:var(--ink3);line-height:1.65;font-weight:300">We review every application. Every member is re-verified annually. Quality over quantity, always.</div></div>
+        <div style="background:var(--white);padding:20px 22px"><div style="font-size:13px;font-weight:500;color:var(--ink);margin-bottom:5px">Privacy is yours</div><div style="font-size:12px;color:var(--ink3);line-height:1.65;font-weight:300">Every member controls their own visibility. You decide who sees you, who can reach you, and when.</div></div>
+        <div style="background:var(--white);padding:20px 22px"><div style="font-size:13px;font-weight:500;color:var(--ink);margin-bottom:5px">Connections are curated</div><div style="font-size:12px;color:var(--ink3);line-height:1.65;font-weight:300">Intro requests require acceptance from both parties. No one reaches you without your consent.</div></div>
+        <div style="background:var(--white);padding:20px 22px"><div style="font-size:13px;font-weight:500;color:var(--ink);margin-bottom:5px">Relationships compound</div><div style="font-size:12px;color:var(--ink3);line-height:1.65;font-weight:300">Every introduction, every event, every tool run deepens your position in the global ecosystem.</div></div>
+        <div style="background:var(--white);padding:20px 22px"><div style="font-size:13px;font-weight:500;color:var(--ink);margin-bottom:5px">Signal over scale</div><div style="font-size:12px;color:var(--ink3);line-height:1.65;font-weight:300">We are not building a database. We are building a trusted network of serious, active, intentional people.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT'S COMING -->
+<div class="sec" style="background:var(--white)">
+  <div class="sec-inner">
+    <div class="kicker">What's coming</div>
+    <h2 class="sh2" style="margin-bottom:14px">The vision beyond<br/><em>the network</em></h2>
+    <p class="body-text" style="margin-bottom:48px">Yorkseed is evolving from a global network into a full venture infrastructure platform. The connections we've built are the foundation. What we're building next puts capital, tools, and global presence behind them.</p>
+    <div class="vision-items">
+      <div class="vision-item">
+        <div class="vision-n">01</div>
+        <div class="vision-title">Yorkseed Capital</div>
+        <div class="vision-desc">Selective, deal-by-deal co-investments via SPVs. Opportunities offered privately to qualified investors within the network. Not publicly solicited.</div>
+      </div>
+      <div class="vision-item">
+        <div class="vision-n">02</div>
+        <div class="vision-title">The Yorkseed Summit</div>
+        <div class="vision-desc">A flagship global convening of founders, institutional capital, ecosystem operators, and decision-makers. Curated, globally connected, high-signal.</div>
+      </div>
+      <div class="vision-item">
+        <div class="vision-n">03</div>
+        <div class="vision-title">Yorkseed House</div>
+        <div class="vision-desc">Our flagship SXSW activation — a private, curated gathering for global founders, investors, family offices, and ecosystem leaders. Not open to the public.</div>
+      </div>
+      <div class="vision-item">
+        <div class="vision-n">04</div>
+        <div class="vision-title">Global Hub Expansion</div>
+        <div class="vision-desc">Hub Directors in new cities across Africa, Southeast Asia, Latin America, and Eastern Europe. Yorkseed everywhere venture actually happens.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRESS -->
+<div class="sec" style="background:var(--off-white);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="sec-inner">
+    <div class="kicker">Press & recognition</div>
+    <h2 class="sh2" style="margin-bottom:14px">Recognized globally.<br/><em>Trusted by the ecosystem.</em></h2>
+    <p class="body-text" style="margin-bottom:48px">From a SXSW spreadsheet to a global venture infrastructure platform — covered across three continents in three years.</p>
+
+    <div class="press-grid">
+      <div class="press-card">
+        <div class="press-outlet">China Daily · Jan 2025</div>
+        <div class="press-headline">Yorkseed Founder Featured at Asian Financial Forum, Hong Kong</div>
+        <div class="press-desc">Jessica Sophia Wong, serving as Mission Leader for the French Delegation, was featured in an exclusive China Daily video interview at the 18th Asian Financial Forum — attended by 3,600+ policymakers and business leaders from 50+ countries.</div>
+        <a href="https://www.linkedin.com/posts/jessicasophia_its-been-an-exciting-start-to-january-i-activity-7284271813411368961--VkB" target="_blank" class="press-link">View on LinkedIn →</a>
+      </div>
+      <div class="press-card">
+        <div class="press-outlet">Pollen8 · 2024</div>
+        <div class="press-headline">Viral Community Turned Venture Network: The Story of Yorkseed™</div>
+        <div class="press-desc">What began as a viral spreadsheet at SXSW 2023 has evolved into a global venture network spanning 50+ hubs worldwide. Jessica's story is one of authenticity, resilience, and intentional community-building.</div>
+        <a href="https://www.pollen8.app/community-insight/1697" target="_blank" class="press-link">Read the full article →</a>
+      </div>
+      <div class="press-card">
+        <div class="press-outlet">Workspace Global · Jun 2025</div>
+        <div class="press-headline">What Happens When Founders and Investors Stop Pitching and Start Listening</div>
+        <div class="press-desc">The Yorkseed London Expert Session proved that the most powerful rooms don't always come with spotlights — they're built through intentional conversation and curated access.</div>
+        <a href="https://www.workspaceglobal.com/post/what-happens-when-founders-and-investors-stop-pitching-and-start-listening" target="_blank" class="press-link">Read the full article →</a>
+      </div>
+      <div class="press-card">
+        <div class="press-outlet">YRB Magazine · Jun 2024</div>
+        <div class="press-headline">Yorkseed Venture Summit — New York Tech Week Edition</div>
+        <div class="press-desc">YRB highlighted the Yorkseed Venture Summit with StartupFuel at Polsinelli's offices in NYC as a standout of New York Tech Week 2024, underscoring Yorkseed's fast-growing influence in venture.</div>
+        <a href="https://yrbmag.com/event-recap-yorkseed-venture-summit-with-startupfuel-new-york-techweek-edition/" target="_blank" class="press-link">Read the full recap →</a>
+      </div>
+      <div class="press-card">
+        <div class="press-outlet">Le Café du Geek · 2025</div>
+        <div class="press-headline">Deux New-Yorkaises Secouent Paris: Club Y et Yorkseed Réinventent L'écosystème Startup Européen</div>
+        <div class="press-desc">How two New Yorkers, Iva Skojo and Jessica Sophia Wong, are reshaping Europe's startup ecosystem from Paris through Club Y and Yorkseed.</div>
+        <a href="https://lecafedugeek.fr" target="_blank" class="press-link">Read the full article →</a>
+      </div>
+      <div class="press-card">
+        <div class="press-outlet">Mediashotz / Little Black Book / Roastbrief · May 2025</div>
+        <div class="press-headline">The Super Connectors Podcast — Jessica Sophia Wong Featured</div>
+        <div class="press-desc">Jessica featured across three international publications for her appearance on The Super Connectors video podcast series, sharing the unfiltered journey of building Yorkseed from a SXSW spreadsheet to a global venture platform.</div>
+        <a href="https://mediashotz.co.uk/the-super-connectors-pod-ldn-delivers-post-production-for-video-podcast/" target="_blank" class="press-link">Read on Mediashotz →</a>
+      </div>
+    </div>
+
+    <div style="margin-top:32px">
+      <p style="font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink4);margin-bottom:14px">Also featured in</p>
+      <div class="press-chips">
+        <span class="press-chip">Gracie Mansion · NYC Mayor's Office</span>
+        <span class="press-chip">China Daily</span>
+        <span class="press-chip">YRB Magazine</span>
+        <span class="press-chip">Workspace Global</span>
+        <span class="press-chip">Pollen8</span>
+        <span class="press-chip">Le Café du Geek</span>
+        <span class="press-chip">Mediashotz</span>
+        <span class="press-chip">Little Black Book</span>
+        <span class="press-chip">Roastbrief</span>
+        <span class="press-chip">Crypto Reporter</span>
+        <span class="press-chip">Vanguard Nigeria</span>
+        <span class="press-chip">Luminary · Women Future Forward</span>
+        <span class="press-chip">How Cool Is This? Podcast</span>
+        <span class="press-chip">Startup Legends Podcast</span>
+        <span class="press-chip">The Super Connectors Podcast</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AWARDS -->
+<div class="sec" style="background:var(--white)">
+  <div class="sec-inner">
+    <div class="kicker">Awards & recognition</div>
+    <h2 class="sh2" style="margin-bottom:40px">Milestones that<br/><em>matter</em></h2>
+    <div class="awards-list">
+      <div class="award-row">
+        <div class="award-year">2023</div>
+        <div class="award-body">
+          <div class="award-title">Emerging NYC Business Leader Award — Gracie Mansion, NYC Mayor's Office</div>
+          <div class="award-src">NYC Innovation Night: Conversations at Gracie Mansion · April 2023 · Hosted by the Gracie Mansion Conservancy with NYC's Chief Technology Officer</div>
+        </div>
+      </div>
+      <div class="award-row">
+        <div class="award-year">2023</div>
+        <div class="award-body">
+          <div class="award-title">United Nations SDGs Bunchful Innovation Award</div>
+          <div class="award-src">Future of Philanthropy World Summit · Lincoln Center, New York City · World Kindness Day · Leaders from 50+ countries</div>
+        </div>
+      </div>
+      <div class="award-row">
+        <div class="award-year">2025</div>
+        <div class="award-body">
+          <div class="award-title">Mission Leader for France — Asian Financial Forum</div>
+          <div class="award-src">Hong Kong · January 2025 · 3,600+ attendees from 50+ countries · Partnered with Hong Kong Trade Development Council</div>
+        </div>
+      </div>
+      <div class="award-row">
+        <div class="award-year">2025</div>
+        <div class="award-body">
+          <div class="award-title">Founder Square — Top 25 Founders (Year-End Edition)</div>
+          <div class="award-src">2025 Year-End Edition · Global recognition for impact in the venture ecosystem</div>
+        </div>
+      </div>
+      <div class="award-row">
+        <div class="award-year">2026</div>
+        <div class="award-body">
+          <div class="award-title">Handshake Summit & Awards — CSW70, United Nations</div>
+          <div class="award-src">Commission on the Status of Women · UN Church Center, New York · March 2026 · 200+ global leaders</div>
+        </div>
+      </div>
+      <div class="award-row">
+        <div class="award-year">2026</div>
+        <div class="award-body">
+          <div class="award-title">Women Future Forward — Google Campus, SXSW Austin</div>
+          <div class="award-src">Fireside conversation: "Building While Flying" · March 2026 · 15 leading women-focused organizations</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="about-cta">
+  <div class="about-cta-inner">
+    <div class="cta-eyebrow"><div class="cta-eyebrow-line"></div>Private membership · Application-based<div class="cta-eyebrow-line"></div></div>
+    <h2>Be part of<br/>what's being <em>built.</em></h2>
+    <div class="cta-rule"></div>
+    <p>Yorkseed is not finished. It is growing — deliberately, selectively, globally. If you are serious about what you are building or deploying, this is where you belong.</p>
+    <div class="cta-btns">
+      <a href="https://app.yorkseed.co/pricing" class="btn-white">Request access →</a>
+      <a href="https://app.yorkseed.co/login" class="btn-outline-dark">Already a member</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="foot-inner">
+    <div><img src="https://yorkseed.co/assets/images/gallery02/91ba5bda.png" alt="Yorkseed" style="height:24px;width:auto;display:block;opacity:.7"/></div>
+    <div class="foot-links">
+      <a href="/">Home</a>
+      <a href="/about.html">Our Story</a>
+      <a href="https://yorkseedventures.com">Ventures</a>
+      <a href="https://yorkseedsummit.com">Summit</a>
+      <a href="https://luma.com/yorkseed">Events</a>
+      <a href="https://pulse.yorkseed.co">Newsletter</a>
+      <a href="mailto:info@yorkseed.co">Contact</a>
+      <a href="https://x.com/yorkseed">Twitter</a>
+      <a href="https://instagram.com/yorkseed">Instagram</a>
+      <a href="https://linkedin.com/company/yorkseed">LinkedIn</a>
+      <a href="https://shop.yorkseed.co">Shop</a>
+    </div>
+  </div>
+  <div class="foot-copy">© 2026 Yorkseed™ · The Venture Infrastructure Platform · Network est. 2023 · Platform launched 2026 · All rights reserved</div>
+</footer>
+
+</body>
+</html>
