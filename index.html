@@ -198,6 +198,18 @@ footer{background:var(--ink2);padding:40px 6vw 28px;border-top:1px solid rgba(25
 .foot-links a:hover{color:#fff}
 .foot-copy{width:100%;text-align:center;font-family:var(--mono);font-size:9px;color:rgba(255,255,255,.35);margin-top:26px;letter-spacing:.06em;text-transform:uppercase}
 
+/* UPCOMING EVENTS */
+.upcoming{background:var(--white);border-top:1px solid var(--border)}
+.upcoming-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin-top:32px}
+.event-card{background:var(--off-white);border:1px solid var(--border);border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:10px;transition:border-color .2s,background .2s}
+.event-card:hover{background:var(--white);border-color:var(--border2)}
+.event-date{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+.event-name{font-family:var(--serif);font-size:17px;font-weight:400;color:var(--ink);line-height:1.25;letter-spacing:-.01em}
+.event-loc{font-size:12px;color:var(--ink4);font-weight:300}
+.upcoming-cta{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-top:28px;padding-top:24px;border-top:1px solid var(--border)}
+.upcoming-note{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4)}
+.event-loading{font-family:var(--mono);font-size:11px;color:var(--ink4);letter-spacing:.06em;text-transform:uppercase;padding:32px 0;text-align:center}
+
 /* ===================== RESPONSIVE: TABLET (iPad) ===================== */
 @media(max-width:1024px){
   .sec{padding:64px 5vw}
@@ -741,6 +753,66 @@ footer{background:var(--ink2);padding:40px 6vw 28px;border-top:1px solid rgba(25
     <span class="press-chip">Crypto Reporter</span>
   </div>
 </section>
+
+<!-- UPCOMING EVENTS -->
+<section class="sec upcoming">
+  <div class="kicker">What's on</div>
+  <h2 class="sh2">Upcoming events<br/>across the <em>network</em></h2>
+  <p class="ssub" style="margin-bottom:0">Curated gatherings for founders, investors, and ecosystem builders — at conferences and in cities worldwide. Open to Yorkseed members.</p>
+  <div class="upcoming-grid" id="luma-events">
+    <div class="event-loading">Loading upcoming events…</div>
+  </div>
+  <div class="upcoming-cta">
+    <div class="upcoming-note">All events · RSVP required · Member priority access</div>
+    <a href="https://luma.com/yorkseed" target="_blank" rel="noopener" class="btn-white" style="font-size:12.5px;padding:11px 24px">View all events →</a>
+  </div>
+</section>
+
+<script>
+(async function loadLumaEvents() {
+  const grid = document.getElementById('luma-events');
+  if (!grid) return;
+
+  const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+  function fmtDate(iso) {
+    const d = new Date(iso);
+    if (isNaN(d)) return '';
+    return MONTHS[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+  }
+
+  // Luma public calendar API
+  const url = 'https://api.lu.ma/public/v1/calendar/list-events?calendar_api_id=cal-lNnC3WMmNa2xd13&pagination_limit=6';
+
+  try {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('fetch failed');
+    const data = await res.json();
+    const entries = Array.isArray(data.entries) ? data.entries : [];
+
+    if (!entries.length) {
+      grid.innerHTML = '<div class="event-loading">No upcoming events found.</div>';
+      return;
+    }
+
+    grid.innerHTML = entries.slice(0, 6).map(function(e) {
+      var ev = e.event || e;
+      var name = ev.name || ev.title || 'Untitled event';
+      var start = ev.start_at || ev.starts_at || ev.date || '';
+      var loc = (ev.geo_address_info && ev.geo_address_info.city_state) || ev.location || (ev.geo_address_json && ev.geo_address_json.city) || 'Online';
+      var href = ev.url ? (ev.url.indexOf('http') === 0 ? ev.url : 'https://lu.ma/' + ev.url) : 'https://luma.com/yorkseed';
+      return '<a href="' + href + '" target="_blank" rel="noopener" class="event-card" style="text-decoration:none">' +
+        '<div class="event-date">' + fmtDate(start) + '</div>' +
+        '<div class="event-name">' + name + '</div>' +
+        '<div class="event-loc">' + loc + '</div>' +
+        '</a>';
+    }).join('');
+  } catch(err) {
+    // Fallback — just show the link
+    grid.innerHTML = '<div class="event-loading">Visit lu.ma/yorkseed to see upcoming events.</div>';
+  }
+})();
+</script>
 
 <!-- CTA -->
 <section class="cta">
