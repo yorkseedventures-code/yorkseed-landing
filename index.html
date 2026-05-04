@@ -892,22 +892,51 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;background:rgba(
   </div>
 </section>
 
-<!-- UPCOMING EVENTS -->
-<section class="sec upcoming">
-  <div class="kicker">What's on</div>
-  <h2 class="sh2">Upcoming events<br/>across the <em>network</em></h2>
-  <p class="ssub" style="margin-bottom:32px">Curated gatherings for founders, investors, and ecosystem builders — at conferences and in cities worldwide. Open to Yorkseed members.</p>
+<script>
+(async function loadLumaEvents() {
+  const grid = document.getElementById('luma-events');
+  if (!grid) return;
 
-  <a href="https://luma.com/yorkseed" target="_blank" rel="noopener" class="events-banner-link">
-    <img src="https://s6.imgcdn.dev/YfLVgg.jpg" alt="Yorkseed Upcoming Events — Global Venture Network" class="events-banner-img" />
-    <div class="events-banner-overlay">
-      <span class="events-banner-cta">View all events →</span>
-    </div>
-  </a>
+  const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
-  <div class="upcoming-cta">
-    <div class="upcoming-note">All events · RSVP required · Member priority access</div>
-    <a href="https://luma.com/yorkseed" target="_blank" rel="noopener" class="btn-white" style="font-size:12.5px;padding:11p
+  function fmtDate(iso) {
+    const d = new Date(iso);
+    if (isNaN(d)) return '';
+    return MONTHS[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+  }
+
+  // Luma public calendar API
+  const url = 'https://api.lu.ma/public/v1/calendar/list-events?calendar_api_id=cal-lNnC3WMmNa2xd13&pagination_limit=6';
+
+  try {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('fetch failed');
+    const data = await res.json();
+    const entries = Array.isArray(data.entries) ? data.entries : [];
+
+    if (!entries.length) {
+      grid.innerHTML = '<div class="event-loading">No upcoming events found.</div>';
+      return;
+    }
+
+    grid.innerHTML = entries.slice(0, 6).map(function(e) {
+      var ev = e.event || e;
+      var name = ev.name || ev.title || 'Untitled event';
+      var start = ev.start_at || ev.starts_at || ev.date || '';
+      var loc = (ev.geo_address_info && ev.geo_address_info.city_state) || ev.location || (ev.geo_address_json && ev.geo_address_json.city) || 'Online';
+      var href = ev.url ? (ev.url.indexOf('http') === 0 ? ev.url : 'https://lu.ma/' + ev.url) : 'https://luma.com/yorkseed';
+      return '<a href="' + href + '" target="_blank" rel="noopener" class="event-card" style="text-decoration:none">' +
+        '<div class="event-date">' + fmtDate(start) + '</div>' +
+        '<div class="event-name">' + name + '</div>' +
+        '<div class="event-loc">' + loc + '</div>' +
+        '</a>';
+    }).join('');
+  } catch(err) {
+    // Fallback — just show the link
+    grid.innerHTML = '<div class="event-loading">Visit lu.ma/yorkseed to see upcoming events.</div>';
+  }
+})();
+</script>
 
 <!-- CTA -->
 <section class="cta">
