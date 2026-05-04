@@ -105,7 +105,7 @@ a{color:inherit;text-decoration:none}
 
 /* WHO */
 .who{background:var(--off-white)}
-.who-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden}
 .who-card{background:var(--white);padding:34px 28px;transition:background .2s}
 .who-card:hover{background:var(--off-white)}
 .who-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
@@ -142,7 +142,7 @@ a{color:inherit;text-decoration:none}
 
 /* NUMBERS */
 .numbers{background:var(--white)}
-.numbers-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.numbers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .num-card{padding:26px 24px;background:var(--off-white);border:1px solid var(--border);border-radius:8px}
 .num-label{font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink4);margin-bottom:12px}
 .num-n{font-family:var(--serif);font-size:52px;font-weight:300;line-height:1;margin-bottom:12px;letter-spacing:-.02em;color:var(--red)}
@@ -163,7 +163,7 @@ a{color:inherit;text-decoration:none}
 
 /* PROOF */
 .proof{background:var(--white);border-top:1px solid var(--border)}
-.proof-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin-bottom:24px}
+.proof-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:24px}
 .proof-card{background:var(--off-white);border:1px solid var(--border);border-radius:8px;padding:26px}
 .proof-q{font-family:var(--serif);font-style:italic;font-size:17px;color:var(--ink);line-height:1.65;margin-bottom:20px;font-weight:300}
 .proof-q::before{content:'\201C';color:var(--red);opacity:.6;font-size:24px;line-height:0;vertical-align:-.32em;margin-right:3px}
@@ -382,7 +382,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;background:rgba(
 .n-drawer-ctas .n-apply{text-align:center;display:block;padding:13px}
 .n-drawer-ctas .n-signin{text-align:center;display:block;padding:12px;border:1px solid var(--border2);border-radius:6px;color:var(--ink3)}
 @media(max-width:900px){.n-center{display:none}.n-right .n-signin{display:none}.n-ham{display:flex}}
-@media(max-width:500px){.n-right .n-apply{display:none}}</style>
+@media(max-width:500px){.n-right .n-apply{display:none}}
+@media(max-width:860px){.who-grid,.steps,.traction-grid{grid-template-columns:repeat(2,1fr)}.numbers-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.who-grid,.steps,.traction-grid,.numbers-grid,.partner-grid,.contact-grid,.press-grid,.microsite-grid,.proof-grid{grid-template-columns:1fr}}
+</style>
 </head>
 </head>
 <body>
@@ -735,11 +738,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;background:rgba(
 </section>
 
 <!-- GLOBAL -->
-<div style="padding:0 6vw 72px">
-  <div style="max-width:900px;margin:0 auto">
-    <img src="https://s6.imgcdn.dev/Yfdxrd.jpg" alt="Yorkseed — Global Gatherings" style="width:100%;display:block;border-radius:12px;border:1px solid rgba(0,0,0,.07);object-fit:cover;max-height:480px"/>
-  </div>
-</div>
+<div style="width:100%;overflow:hidden"><img src="https://s6.imgcdn.dev/Yfdxrd.jpg" alt="Yorkseed — Global Gatherings" style="width:100%;display:block;"/></div>
 
 <section class="sec global" id="global">
   <div class="kicker">Global presence</div>
