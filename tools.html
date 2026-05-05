@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Free Venture Tools — SAFE & Convertible Note Calculators | Yorkseed</title>
+<meta name="description" content="Free SAFE note and convertible note calculators for founders. Model conversion price, shares issued, and ownership at your next priced round. No sign-up required."/>
+<meta name="keywords" content="SAFE note calculator, convertible note calculator, startup funding calculator, equity conversion, valuation cap, discount rate, shares issued, founder tools, free venture tools"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://yorkseed.co/tools"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://yorkseed.co/tools"/>
+<meta property="og:title" content="Free Venture Tools — SAFE & Convertible Note Calculators | Yorkseed"/>
+<meta property="og:description" content="Free SAFE note and convertible note calculators for founders. Model conversion price, shares issued, and ownership at your next priced round."/>
+<meta property="og:image" content="https://s6.imgcdn.dev/Yfq1dl.png"/>
+<meta property="og:site_name" content="Yorkseed"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@yorkseed"/>
+<meta name="twitter:title" content="Free Venture Tools — SAFE & Convertible Note Calculators | Yorkseed"/>
+<meta name="twitter:description" content="Free SAFE note and convertible note calculators for founders. No sign-up required."/>
+<meta name="twitter:image" content="https://s6.imgcdn.dev/Yfq1dl.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --ink:#111111;
+  --ink2:#222222;
+  --ink3:#555555;
+  --ink4:#888888;
+  --white:#ffffff;
+  --off-white:#fafafa;
+  --light-grey:#f5f5f5;
+  --mid-grey:#e8e8e8;
+  --red:#e53030;
+  --red-dim:rgba(229,48,48,.07);
+  --red-border:rgba(229,48,48,.2);
+  --gold:#b89a5a;
+  --gold-dim:rgba(184,154,90,.08);
+  --gold-border:rgba(184,154,90,.2);
+  --border:rgba(0,0,0,.07);
+  --border2:rgba(0,0,0,.12);
+  --green:#16a34a;
+  --amber:#d97706;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --mono:'DM Mono',monospace;
+}
+body{font-family:var(--sans);font-weight:300;background:var(--white);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+
+/* NAV — exact copy from site */
+nav{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 5vw;height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.n-logo{font-family:var(--serif);font-size:21px;font-weight:400;letter-spacing:.05em;color:var(--ink);display:flex;align-items:center;gap:12px}
+.n-center{display:flex;align-items:center;gap:6px}
+.n-link{font-size:13px;color:var(--ink3);padding:7px 12px;border-radius:5px;transition:color .15s,background .15s;font-weight:300}
+.n-link:hover{color:var(--ink);background:var(--light-grey)}
+.n-link.active{color:var(--red);font-weight:400}
+.n-drop{position:relative}
+.n-drop-btn{background:none;border:none;cursor:pointer;font-family:var(--sans);font-size:13px;color:var(--ink3);padding:7px 12px;border-radius:5px;display:flex;align-items:center;gap:5px;font-weight:300;transition:color .15s,background .15s}
+.n-drop-btn:hover{color:var(--ink);background:var(--light-grey)}
+.n-drop-arrow{display:flex;align-items:center;transition:transform .2s}
+.n-drop.open .n-drop-arrow{transform:rotate(180deg)}
+.n-menu{display:none;position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);background:var(--white);border:1px solid var(--border);border-radius:10px;padding:6px;min-width:320px;box-shadow:0 8px 30px rgba(0,0,0,.07);z-index:200}
+.n-drop.open .n-menu{display:block}
+.n-item{display:flex;align-items:flex-start;gap:12px;padding:10px 12px;border-radius:7px;transition:background .15s}
+.n-item:hover{background:var(--off-white)}
+.n-item-icon{font-size:18px;flex-shrink:0;margin-top:1px}
+.n-item-title{font-size:13px;font-weight:500;color:var(--ink);margin-bottom:2px}
+.n-item-desc{font-size:11px;color:var(--ink4);line-height:1.45}
+.n-right{display:flex;align-items:center;gap:8px}
+.n-signin{font-size:13px;color:var(--ink3);padding:7px 14px;border-radius:5px;font-weight:300;transition:color .15s}
+.n-signin:hover{color:var(--ink)}
+.n-apply{background:var(--ink);color:var(--white);font-size:13px;padding:8px 18px;border-radius:5px;font-weight:400;letter-spacing:.02em;transition:opacity .15s}
+.n-apply:hover{opacity:.85}
+.n-ham{display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:8px;width:36px}
+.n-ham span{display:block;height:1.5px;background:var(--ink);border-radius:2px;transition:all .25s}
+.n-ham.open span:nth-child(1){transform:translateY(5.5px) rotate(45deg)}
+.n-ham.open span:nth-child(2){opacity:0}
+.n-ham.open span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
+.n-drawer{display:none;position:fixed;top:64px;left:0;right:0;bottom:0;background:var(--white);z-index:299;overflow-y:auto;padding:20px 5vw 40px;border-top:1px solid var(--border)}
+.n-drawer.open{display:block}
+.n-drawer-section{margin-bottom:24px}
+.n-drawer-label{font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink4);margin-bottom:10px;padding:0 4px}
+.n-drawer-link{display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:8px;font-size:14px;color:var(--ink3);transition:background .15s}
+.n-drawer-link:hover{background:var(--off-white);color:var(--ink)}
+.n-drawer-ctas{display:flex;gap:8px;flex-direction:column;margin-top:8px}
+@media(max-width:780px){.n-center{display:none}.n-ham{display:flex}}
+
+/* PAGE HERO */
+.page-hero{padding:120px 6vw 72px;border-bottom:1px solid var(--border);background:var(--white)}
+.page-hero-inner{max-width:760px;margin:0 auto;text-align:center}
+.kicker{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:18px;display:flex;align-items:center;justify-content:center;gap:10px}
+.kicker::before,.kicker::after{content:'';display:block;width:16px;height:1px;background:var(--red);opacity:.5}
+.page-h1{font-family:var(--serif);font-size:clamp(30px,4vw,50px);font-weight:300;line-height:1.1;letter-spacing:-.02em;color:var(--ink);margin-bottom:18px}
+.page-h1 em{font-style:italic;color:var(--red)}
+.page-sub{font-size:15px;color:var(--ink3);line-height:1.85;max-width:560px;margin:0 auto 36px;font-weight:300}
+.page-rule{width:36px;height:1px;background:var(--red);opacity:.3;margin:0 auto 36px}
+.free-badge{display:inline-flex;align-items:center;gap:8px;background:var(--red-dim);border:1px solid var(--red-border);border-radius:100px;padding:6px 16px;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+
+/* TAB SWITCHER */
+.tool-tabs{max-width:960px;margin:0 auto;padding:0 6vw}
+.tab-bar{display:flex;gap:0;border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:40px;background:var(--off-white)}
+.tab-btn{flex:1;padding:13px 20px;font-family:var(--sans);font-size:13px;font-weight:400;color:var(--ink3);background:none;border:none;cursor:pointer;transition:background .15s,color .15s;letter-spacing:.01em;border-right:1px solid var(--border)}
+.tab-btn:last-child{border-right:none}
+.tab-btn.active{background:var(--ink);color:var(--white)}
+.tab-btn:not(.active):hover{background:var(--white);color:var(--ink)}
+
+/* CALCULATOR SECTIONS */
+.calc-section{display:none;max-width:960px;margin:0 auto;padding:0 6vw 80px}
+.calc-section.active{display:block}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:680px){.calc-grid{grid-template-columns:1fr}}
+
+/* CARD */
+.calc-card{background:var(--off-white);border:1px solid var(--border);border-radius:10px;padding:24px;display:flex;flex-direction:column;gap:16px}
+.calc-card-title{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+.calc-icon{width:30px;height:30px;border-radius:7px;display:flex;align-items:center;justify-content:center;color:var(--white);font-family:var(--mono);font-size:13px;font-weight:400;flex-shrink:0}
+.calc-title-text .t{font-size:14px;font-weight:500;color:var(--ink)}
+.calc-title-text .s{font-size:11px;color:var(--ink4);margin-top:1px}
+
+/* FIELD */
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);font-weight:400}
+.field input,.field select{width:100%;padding:10px 13px;border:1px solid var(--border2);border-radius:6px;font-family:var(--mono);font-size:13px;color:var(--ink);background:var(--white);outline:none;transition:border-color .15s;-webkit-appearance:none}
+.field input:focus,.field select:focus{border-color:var(--red)}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+
+/* DIVIDER */
+.field-divider{height:1px;background:var(--border);margin:4px 0}
+.field-section-label{font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink4);margin-bottom:2px}
+
+/* NOTE BOX */
+.note-box{background:var(--white);border:1px solid var(--gold-border);border-radius:7px;padding:12px 14px;font-size:12px;color:var(--ink3);line-height:1.65}
+.note-box.warn{border-color:rgba(217,119,6,.22)}
+.note-box.danger{border-color:rgba(229,48,48,.18);background:var(--red-dim)}
+
+/* RESULTS CARD */
+.results-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:24px;display:flex;flex-direction:column;gap:0}
+.results-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:260px;gap:8px;color:var(--ink4);text-align:center}
+.results-empty .big{font-family:var(--serif);font-size:42px;opacity:.18}
+.results-empty .msg{font-size:12.5px}
+.result-section-label{font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink4);margin-bottom:14px}
+.result-row{display:flex;align-items:center;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--border)}
+.result-row:last-child{border-bottom:none}
+.result-label{font-size:12.5px;color:var(--ink3)}
+.result-value{font-family:var(--mono);font-size:13px;font-weight:400;color:var(--ink)}
+.result-value.green{color:var(--green)}
+.result-value.amber{color:var(--amber)}
+.result-value.red{color:var(--red)}
+
+/* STAT BLOCKS */
+.stat-blocks{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.stat-block{background:var(--off-white);border:1px solid var(--border);border-radius:8px;padding:14px 16px}
+.stat-block .sl{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink4);margin-bottom:6px}
+.stat-block .sv{font-family:var(--serif);font-size:26px;font-weight:300;color:var(--ink);line-height:1}
+.stat-block .sh{font-size:11px;color:var(--ink4);margin-top:4px}
+
+/* INSIGHT BOX */
+.insight-box{background:var(--off-white);border:1px solid var(--border);border-radius:8px;padding:14px 16px;margin-top:12px}
+.insight-box .il{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink4);margin-bottom:10px}
+.insight-row{display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;font-size:12px;color:var(--ink3);line-height:1.55}
+.insight-row:last-child{margin-bottom:0}
+.insight-dot{width:5px;height:5px;border-radius:50%;background:var(--green);flex-shrink:0;margin-top:5px}
+.insight-dot.warn{background:var(--amber)}
+
+/* UPGRADE STRIP */
+.upgrade-strip{background:var(--ink);border-radius:10px;padding:28px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;margin:0 6vw 80px;max-width:960px;margin-left:auto;margin-right:auto}
+.upgrade-strip-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.us-left .ut{font-family:var(--serif);font-size:20px;font-weight:300;color:rgba(255,255,255,.88);margin-bottom:5px}
+.us-left .us{font-size:12.5px;color:rgba(255,255,255,.35);line-height:1.6;font-weight:300}
+.us-tools{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px}
+.us-tool-chip{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.08);border-radius:100px;padding:3px 10px;font-family:var(--mono);font-size:9px;letter-spacing:.05em;color:rgba(255,255,255,.4)}
+.us-btn{background:var(--red);color:var(--white);padding:12px 24px;border-radius:6px;font-size:13px;font-weight:400;letter-spacing:.03em;white-space:nowrap;transition:opacity .15s;flex-shrink:0}
+.us-btn:hover{opacity:.88}
+@media(max-width:600px){.upgrade-strip{flex-direction:column;text-align:center}.us-tools{justify-content:center}}
+
+/* FOOTER SAME AS SITE */
+footer{}
+
+/* MOBILE TAB BAR */
+.m-tab-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:290;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid var(--border);height:calc(56px + env(safe-area-inset-bottom,0));padding-bottom:env(safe-area-inset-bottom,0)}
+.m-tab-bar-inner{display:flex;align-items:center;height:56px;max-width:500px;margin:0 auto}
+.m-tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:var(--ink4);font-size:9.5px;font-family:var(--mono);letter-spacing:.04em;text-transform:uppercase;padding:0 4px;transition:color .15s;text-decoration:none;border:none;background:none;cursor:pointer}
+.m-tab.active,.m-tab:active{color:var(--red)}
+.m-tab-join{flex:1;display:flex;align-items:center;justify-content:center}
+.m-tab-join a{background:var(--red);color:var(--white);font-size:12px;font-weight:400;padding:9px 14px;border-radius:6px;letter-spacing:.02em}
+@media(max-width:680px){.m-tab-bar{display:flex}body{padding-bottom:56px}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="n-logo"><img src="data:image/png;base64,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" alt="Yorkseed" style="height:24px;width:auto;display:block;"/></a>
+    <div class="n-center">
+      <a href="/" class="n-link">Home</a>
+      <div class="n-drop" id="ecosDrop">
+        <button class="n-drop-btn" onclick="toggleDrop()" aria-haspopup="true">Ecosystem <span class="n-drop-arrow"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="n-menu" role="menu">
+          <a href="https://app.yorkseed.co/pricing" class="n-item"><span class="n-item-icon">🌐</span><div class="n-item-body"><div class="n-item-title">Yorkseed Connect</div><div class="n-item-desc">The platform — membership, deal flow, tools &amp; introductions</div></div></a>
+          <a href="/capital.html" class="n-item"><span class="n-item-icon">💼</span><div class="n-item-body"><div class="n-item-title">Yorkseed Capital</div><div class="n-item-desc">Private SPV co-investments for qualified investors</div></div></a>
+          <a href="/events.html" class="n-item"><span class="n-item-icon">🎯</span><div class="n-item-body"><div class="n-item-title">Events &amp; Passport Series</div><div class="n-item-desc">Curated gatherings across global innovation hubs</div></div></a>
+          <a href="https://yorkseedsummit.com" class="n-item" target="_blank"><span class="n-item-icon">🏛️</span><div class="n-item-body"><div class="n-item-title">Yorkseed Summit</div><div class="n-item-desc">Our flagship global convening of founders &amp; capital</div></div></a>
+          <a href="https://pulse.yorkseed.co" class="n-item" target="_blank"><span class="n-item-icon">📰</span><div class="n-item-body"><div class="n-item-title">Yorkseed Insider</div><div class="n-item-desc">The venture newsletter — free &amp; paid tiers</div></div></a>
+          <a href="/hubs.html" class="n-item"><span class="n-item-icon">📍</span><div class="n-item-body"><div class="n-item-title">Global Hubs</div><div class="n-item-desc">50+ city hubs across 5 continents</div></div></a>
+        </div>
+      </div>
+      <a href="/events.html" class="n-link">Events</a>
+      <a href="/hubs.html" class="n-link">Hubs</a>
+      <a href="/tools.html" class="n-link active">Free Tools</a>
+      <a href="/partners.html" class="n-link">Partners</a>
+      <a href="/contact.html" class="n-link">Contact</a>
+    </div>
+    <div class="n-right">
+      <a href="https://app.yorkseed.co/login" class="n-signin">Sign in</a>
+      <a href="https://app.yorkseed.co/pricing" class="n-apply">Join</a>
+      <button class="n-ham" id="hamBtn" onclick="toggleDrawer()" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="n-drawer" id="navDrawer">
+    <div class="n-drawer-section">
+      <div class="n-drawer-label">Navigate</div>
+      <a href="/" class="n-drawer-link"><span>🏠</span><span>Home</span></a>
+      <a href="/about.html" class="n-drawer-link"><span>📖</span><span>Our Story</span></a>
+      <a href="/events.html" class="n-drawer-link"><span>🎯</span><span>Events</span></a>
+      <a href="/hubs.html" class="n-drawer-link"><span>📍</span><span>Global Hubs</span></a>
+      <a href="/tools.html" class="n-drawer-link"><span>🧮</span><span>Free Tools</span></a>
+      <a href="/partners.html" class="n-drawer-link"><span>🤝</span><span>Partners</span></a>
+      <a href="/press.html" class="n-drawer-link"><span>📡</span><span>Press &amp; Traction</span></a>
+      <a href="/contact.html" class="n-drawer-link"><span>✉️</span><span>Contact</span></a>
+    </div>
+    <div class="n-drawer-section">
+      <div class="n-drawer-label">The Ecosystem</div>
+      <a href="https://app.yorkseed.co/pricing" class="n-drawer-link"><span>🌐</span><span>Yorkseed Connect</span></a>
+      <a href="/capital.html" class="n-drawer-link"><span>💼</span><span>Yorkseed Capital</span></a>
+      <a href="https://yorkseedsummit.com" class="n-drawer-link"><span>🏛️</span><span>Yorkseed Summit</span></a>
+      <a href="https://pulse.yorkseed.co" class="n-drawer-link"><span>📰</span><span>Yorkseed Insider</span></a>
+    </div>
+    <div class="n-drawer-ctas">
+      <a href="https://app.yorkseed.co/pricing" class="n-apply">Join Yorkseed</a>
+      <a href="https://app.yorkseed.co/login" class="n-signin">Sign in</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="kicker">Free Resources</div>
+    <h1 class="page-h1">Venture calculators.<br><em>No sign-up required.</em></h1>
+    <div class="page-rule"></div>
+    <p class="page-sub">Model your SAFE conversion, convertible note dilution, and equity outcomes before you sign anything. Built for founders who need clarity, not complexity.</p>
+    <span class="free-badge">✦ Completely free &nbsp;·&nbsp; No account needed</span>
+  </div>
+</section>
+
+<!-- TOOL TABS -->
+<div style="padding:48px 6vw 0;max-width:960px;margin:0 auto;">
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('safe',this)">SAFE Note Calculator</button>
+    <button class="tab-btn" onclick="switchTab('conv',this)">Convertible Note Calculator</button>
+  </div>
+</div>
+
+<!-- SAFE CALCULATOR -->
+<div class="calc-section active" id="tab-safe">
+  <div class="calc-grid">
+    <!-- INPUTS -->
+    <div class="calc-card">
+      <div class="calc-card-title">
+        <div class="calc-icon" style="background:#6366f1">S</div>
+        <div class="calc-title-text">
+          <div class="t">SAFE Note Calculator</div>
+          <div class="s">Model conversion at your next priced round</div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="s-inv">Investment amount ($)</label>
+        <input type="text" id="s-inv" placeholder="e.g. 250,000" oninput="calcSafe()"/>
+      </div>
+      <div class="field">
+        <label for="s-cap">Valuation cap ($)</label>
+        <input type="text" id="s-cap" placeholder="e.g. 5,000,000" oninput="calcSafe()"/>
+      </div>
+      <div class="field">
+        <label for="s-disc">Discount rate (%)</label>
+        <input type="text" id="s-disc" placeholder="e.g. 20" oninput="calcSafe()"/>
+      </div>
+
+      <div class="field-divider"></div>
+      <div class="field-section-label">Priced round details</div>
+
+      <div class="field">
+        <label for="s-pre">Pre-money valuation at next round ($)</label>
+        <input type="text" id="s-pre" placeholder="e.g. 10,000,000" oninput="calcSafe()"/>
+      </div>
+      <div class="field">
+        <label for="s-shares">Existing shares outstanding</label>
+        <input type="text" id="s-shares" placeholder="e.g. 10,000,000" oninput="calcSafe()"/>
+      </div>
+
+      <div class="field">
+        <label for="s-mfn">MFN clause?</label>
+        <select id="s-mfn" onchange="calcSafe()">
+          <option value="no">No MFN clause</option>
+          <option value="yes">Yes — MFN clause included</option>
+        </select>
+      </div>
+
+      <div class="note-box warn" id="s-mfn-note" style="display:none">
+        MFN (Most Favoured Nation): if a future SAFE is issued on better terms, this investor automatically gets those terms. Founder-unfriendly — negotiate it out if possible.
+      </div>
+
+      <div class="note-box">
+        SAFE converts at the <strong>lower</strong> of the cap price or discounted price. If neither applies, it converts at the round price with no benefit to the investor.
+      </div>
+    </div>
+
+    <!-- RESULTS -->
+    <div id="safe-results">
+      <div class="results-card" style="min-height:300px">
+        <div class="results-empty" id="safe-empty">
+          <div class="big">S</div>
+          <div class="msg">Fill in the inputs to model SAFE conversion</div>
+        </div>
+        <div id="safe-output" style="display:none">
+          <div class="result-section-label">Conversion summary</div>
+          <div class="result-row"><span class="result-label">Conversion method</span><span class="result-value" id="s-method">—</span></div>
+          <div class="result-row"><span class="result-label">Conversion price per share</span><span class="result-value" id="s-price">—</span></div>
+          <div class="result-row"><span class="result-label">Shares issued to investor</span><span class="result-value" id="s-issued">—</span></div>
+          <div class="result-row"><span class="result-label">Investor ownership post-conversion</span><span class="result-value" id="s-ownership">—</span></div>
+          <div class="result-row"><span class="result-label">Effective entry valuation</span><span class="result-value" id="s-effective">—</span></div>
+        </div>
+      </div>
+
+      <div class="stat-blocks" id="safe-stats" style="display:none">
+        <div class="stat-block">
+          <div class="sl">Ownership granted</div>
+          <div class="sv" id="s-stat-own">—</div>
+          <div class="sh" id="s-stat-own-note">—</div>
+        </div>
+        <div class="stat-block">
+          <div class="sl">Shares issued</div>
+          <div class="sv" id="s-stat-shares">—</div>
+        </div>
+      </div>
+
+      <div class="insight-box" id="safe-insights" style="display:none">
+        <div class="il">Investor benefit analysis</div>
+        <div id="safe-insights-body"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONVERTIBLE NOTE CALCULATOR -->
+<div class="calc-section" id="tab-conv">
+  <div class="calc-grid">
+    <!-- INPUTS -->
+    <div class="calc-card">
+      <div class="calc-card-title">
+        <div class="calc-icon" style="background:#0ea5e9">C</div>
+        <div class="calc-title-text">
+          <div class="t">Convertible Note Calculator</div>
+          <div class="s">Principal + accrued interest → shares</div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="c-principal">Principal ($)</label>
+        <input type="text" id="c-principal" placeholder="e.g. 500,000" oninput="calcConv()"/>
+      </div>
+      <div class="field">
+        <label for="c-rate">Annual interest rate (%)</label>
+        <input type="text" id="c-rate" placeholder="e.g. 8" oninput="calcConv()"/>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="c-issue">Issue date</label>
+          <input type="date" id="c-issue" oninput="calcConv()"/>
+        </div>
+        <div class="field">
+          <label for="c-maturity">Maturity date</label>
+          <input type="date" id="c-maturity" oninput="calcConv()"/>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="c-cap">Valuation cap ($)</label>
+        <input type="text" id="c-cap" placeholder="e.g. 6,000,000" oninput="calcConv()"/>
+      </div>
+      <div class="field">
+        <label for="c-disc">Discount rate (%)</label>
+        <input type="text" id="c-disc" placeholder="e.g. 20" oninput="calcConv()"/>
+      </div>
+
+      <div class="field-divider"></div>
+      <div class="field-section-label">Priced round details</div>
+
+      <div class="field">
+        <label for="c-pre">Pre-money valuation at next round ($)</label>
+        <input type="text" id="c-pre" placeholder="e.g. 12,000,000" oninput="calcConv()"/>
+      </div>
+      <div class="field">
+        <label for="c-shares">Existing shares outstanding</label>
+        <input type="text" id="c-shares" placeholder="e.g. 10,000,000" oninput="calcConv()"/>
+      </div>
+
+      <div class="field">
+        <label for="c-action">At maturity (if no qualifying round)</label>
+        <select id="c-action" onchange="calcConv()">
+          <option value="convert">Auto-converts at cap/discount</option>
+          <option value="repay">Repayable on demand</option>
+          <option value="extend">Extended by mutual agreement</option>
+        </select>
+      </div>
+
+      <div class="note-box danger" id="c-repay-note" style="display:none">
+        If the note matures without a qualifying round, the investor can demand repayment. Factor this into your fundraising timeline.
+      </div>
+
+      <div class="note-box">
+        Unlike a SAFE, a convertible note accrues interest. The full amount (principal + interest) converts into equity — investors get slightly more shares than the headline investment suggests.
+      </div>
+    </div>
+
+    <!-- RESULTS -->
+    <div id="conv-results">
+      <div class="results-card" style="min-height:300px">
+        <div class="results-empty" id="conv-empty">
+          <div class="big">C</div>
+          <div class="msg">Fill in the inputs to model note conversion</div>
+        </div>
+        <div id="conv-output" style="display:none">
+          <div class="result-section-label">Interest &amp; principal</div>
+          <div class="result-row"><span class="result-label">Principal</span><span class="result-value" id="c-r-principal">—</span></div>
+          <div class="result-row"><span class="result-label">Term</span><span class="result-value" id="c-r-term">—</span></div>
+          <div class="result-row"><span class="result-label">Accrued interest</span><span class="result-value" id="c-r-interest">—</span></div>
+          <div class="result-row"><span class="result-label">Total converting amount</span><span class="result-value" id="c-r-total">—</span></div>
+
+          <div class="result-section-label" style="margin-top:18px">Conversion</div>
+          <div class="result-row"><span class="result-label">Conversion method</span><span class="result-value" id="c-method">—</span></div>
+          <div class="result-row"><span class="result-label">Conversion price per share</span><span class="result-value" id="c-price">—</span></div>
+          <div class="result-row"><span class="result-label">Shares issued to investor</span><span class="result-value" id="c-issued">—</span></div>
+          <div class="result-row"><span class="result-label">Investor ownership post-conversion</span><span class="result-value" id="c-ownership">—</span></div>
+          <div class="result-row"><span class="result-label">Effective entry valuation</span><span class="result-value" id="c-effective">—</span></div>
+        </div>
+      </div>
+
+      <div class="stat-blocks" id="conv-stats" style="display:none">
+        <div class="stat-block">
+          <div class="sl">Ownership granted</div>
+          <div class="sv" id="c-stat-own">—</div>
+          <div class="sh" id="c-stat-own-note">—</div>
+        </div>
+        <div class="stat-block">
+          <div class="sl">Total converting</div>
+          <div class="sv" id="c-stat-total">—</div>
+          <div class="sh" id="c-stat-interest-note">—</div>
+        </div>
+      </div>
+
+      <div class="note-box danger" id="conv-maturity-warn" style="display:none;margin-top:10px">
+        ⚠ This note is approaching or past maturity. If no qualifying round has occurred, the investor may be able to demand repayment or force conversion.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- UPGRADE STRIP -->
+<div class="upgrade-strip">
+  <div class="us-left">
+    <div class="ut">Want 15 more tools like these?</div>
+    <div class="us">Investor match engine, deal readiness score, term sheet decoder, cap table modeler, runway planner — and more. Included with Core membership.</div>
+    <div class="us-tools">
+      <span class="us-tool-chip">Investor Match</span>
+      <span class="us-tool-chip">Deal Readiness Score</span>
+      <span class="us-tool-chip">Term Sheet Decoder</span>
+      <span class="us-tool-chip">Cap Table</span>
+      <span class="us-tool-chip">Runway Planner</span>
+      <span class="us-tool-chip">Valuation Estimator</span>
+      <span class="us-tool-chip">+ 9 more</span>
+    </div>
+  </div>
+  <a href="https://app.yorkseed.co/pricing" class="us-btn">Apply for access →</a>
+</div>
+
+<!-- FOOTER -->
+<footer style="background:var(--ink2);padding:28px 6vw 20px;border-top:1px solid rgba(255,255,255,.05);">
+  <div style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px 14px;">
+    <a href="https://app.yorkseed.co/login" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Platform</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/about.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">About</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/tools.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Free Tools</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/hubs.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Global Hubs</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/events.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Events</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/contact.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Contact</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://x.com/yorkseed" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Twitter</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://instagram.com/yorkseed" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Instagram</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://linkedin.com/company/yorkseed" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">LinkedIn</a>
+  </div>
+  <div style="text-align:center;margin-top:8px;margin-bottom:6px;"><img src="https://s6.imgcdn.dev/YfqM8w.png" alt="Yorkseed" style="height:36px;width:auto;display:inline-block;"/></div>
+  <div style="width:100%;text-align:center;font-family:var(--mono,'DM Mono',monospace);font-size:9px;color:rgba(255,255,255,.25);letter-spacing:.06em;text-transform:uppercase;">© 2026 Yorkseed™ · The Venture Infrastructure Platform · Network est. 2023 · Platform launched 2026 · All rights reserved</div>
+</footer>
+
+<!-- MOBILE BOTTOM TAB -->
+<div id="moreMenu" style="display:none;position:fixed;bottom:calc(56px + env(safe-area-inset-bottom,0));left:0;right:0;z-index:399;background:rgba(255,255,255,.98);backdrop-filter:blur(20px);border-top:1px solid rgba(0,0,0,.07);padding:16px 5vw 20px">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+    <a href="/about.html" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:#fafafa;border:1px solid rgba(0,0,0,.07);border-radius:8px;text-decoration:none;color:#111"><span style="font-size:18px">📖</span><span style="font-size:13px">Our Story</span></a>
+    <a href="/press.html" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:#fafafa;border:1px solid rgba(0,0,0,.07);border-radius:8px;text-decoration:none;color:#111"><span style="font-size:18px">📡</span><span style="font-size:13px">Press</span></a>
+    <a href="/capital.html" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:#fafafa;border:1px solid rgba(0,0,0,.07);border-radius:8px;text-decoration:none;color:#111"><span style="font-size:18px">💼</span><span style="font-size:13px">Capital</span></a>
+    <a href="/contact.html" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:#fafafa;border:1px solid rgba(0,0,0,.07);border-radius:8px;text-decoration:none;color:#111"><span style="font-size:18px">✉️</span><span style="font-size:13px">Contact</span></a>
+    <a href="https://app.yorkseed.co/login" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:#fafafa;border:1px solid rgba(0,0,0,.07);border-radius:8px;text-decoration:none;color:#111"><span style="font-size:18px">🔑</span><span style="font-size:13px">Sign in</span></a>
+    <a href="https://yorkseedsummit.com" target="_blank" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:#fafafa;border:1px solid rgba(0,0,0,.07);border-radius:8px;text-decoration:none;color:#111"><span style="font-size:18px">🏛️</span><span style="font-size:13px">Summit</span></a>
+  </div>
+</div>
+<div id="moreOverlay" onclick="toggleMoreMenu()" style="display:none;position:fixed;inset:0;z-index:398;background:rgba(0,0,0,.2)"></div>
+<nav class="m-tab-bar" aria-label="Mobile navigation">
+  <div class="m-tab-bar-inner">
+    <a href="/" class="m-tab"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg><span>Home</span></a>
+    <a href="/events.html" class="m-tab"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>Events</span></a>
+    <a href="/hubs.html" class="m-tab"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg><span>Hubs</span></a>
+    <div class="m-tab-join"><a href="https://app.yorkseed.co/pricing">Join&nbsp;→</a></div>
+    <a href="/tools.html" class="m-tab active"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></svg><span>Tools</span></a>
+    <a href="javascript:void(0)" class="m-tab" onclick="toggleMoreMenu()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1.2" fill="currentColor"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/><circle cx="12" cy="19" r="1.2" fill="currentColor"/></svg><span>More</span></a>
+  </div>
+</nav>
+
+<script>
+// ── NAV ──────────────────────────────────────────────────────────────────────
+function toggleDrop(){var d=document.getElementById('ecosDrop');d.classList.toggle('open')}
+function toggleDrawer(){var h=document.getElementById('hamBtn');var d=document.getElementById('navDrawer');h.classList.toggle('open');d.classList.toggle('open');document.body.style.overflow=d.classList.contains('open')?'hidden':''}
+function toggleMoreMenu(){var m=document.getElementById('moreMenu');var o=document.getElementById('moreOverlay');var open=m.style.display==='block';m.style.display=open?'none':'block';o.style.display=open?'none':'block'}
+document.addEventListener('click',function(e){var d=document.getElementById('ecosDrop');if(d&&!d.contains(e.target))d.classList.remove('open')});
+
+// ── TABS ──────────────────────────────────────────────────────────────────────
+function switchTab(id, btn) {
+  document.querySelectorAll('.calc-section').forEach(function(s){s.classList.remove('active')});
+  document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active')});
+  document.getElementById('tab-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ── HELPERS ──────────────────────────────────────────────────────────────────
+function n(id){return Number(document.getElementById(id).value.replace(/[,$%]/g,''))||0}
+function fmtD(v){return !v||!isFinite(v)?'—':new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(v)}
+function fmtP(v){return !v||!isFinite(v)?'—':v.toFixed(2)+'%'}
+function fmtN(v){return !v||!isFinite(v)?'—':Math.round(v).toLocaleString()}
+function set(id,val,cls){var el=document.getElementById(id);el.textContent=val;el.className='result-value'+(cls?' '+cls:'')}
+
+// ── SAFE ─────────────────────────────────────────────────────────────────────
+function calcSafe(){
+  var mfn=document.getElementById('s-mfn').value;
+  document.getElementById('s-mfn-note').style.display=mfn==='yes'?'block':'none';
+
+  var inv=n('s-inv'), capV=n('s-cap'), disc=n('s-disc'), pre=n('s-pre'), shares=n('s-shares');
+
+  var pricePerShare=shares>0&&pre>0?pre/shares:0;
+  var capPrice=capV>0&&shares>0?capV/shares:0;
+  var discountPrice=pricePerShare>0&&disc>0?pricePerShare*(1-disc/100):0;
+
+  var conversionPrice=0, method='';
+  if(capPrice>0&&discountPrice>0){
+    if(capPrice<=discountPrice){conversionPrice=capPrice;method='Valuation cap';}
+    else{conversionPrice=discountPrice;method=disc+'% discount';}
+  } else if(capPrice>0){conversionPrice=capPrice;method='Valuation cap';}
+  else if(discountPrice>0){conversionPrice=discountPrice;method=disc+'% discount';}
+  else if(pricePerShare>0){conversionPrice=pricePerShare;method='No cap or discount — converts at round price';}
+
+  var sharesIssued=conversionPrice>0&&inv>0?inv/conversionPrice:0;
+  var postShares=shares+sharesIssued;
+  var ownershipPct=postShares>0?(sharesIssued/postShares)*100:0;
+  var effectiveVal=conversionPrice>0&&shares>0?conversionPrice*shares:0;
+  var hasResult=inv>0&&conversionPrice>0&&shares>0;
+
+  var empty=document.getElementById('safe-empty');
+  var output=document.getElementById('safe-output');
+  var stats=document.getElementById('safe-stats');
+  var insights=document.getElementById('safe-insights');
+
+  if(!hasResult){
+    empty.style.display='flex';output.style.display='none';stats.style.display='none';insights.style.display='none';
+    return;
+  }
+
+  empty.style.display='none';output.style.display='block';stats.style.display='grid';
+
+  set('s-method',method);
+  set('s-price',fmtD(conversionPrice));
+  set('s-issued',fmtN(sharesIssued));
+  set('s-ownership',fmtP(ownershipPct),ownershipPct>25?'amber':'green');
+  set('s-effective',fmtD(effectiveVal));
+  document.getElementById('s-stat-own').textContent=fmtP(ownershipPct);
+  document.getElementById('s-stat-own-note').textContent=ownershipPct>20?'Above typical range':'Within normal range';
+  document.getElementById('s-stat-shares').textContent=fmtN(sharesIssued);
+
+  var capAdv=capPrice>0&&pricePerShare>0&&capPrice<pricePerShare;
+  var discAdv=discountPrice>0&&pricePerShare>0&&discountPrice<pricePerShare;
+
+  if(capAdv||discAdv){
+    insights.style.display='block';
+    var body='';
+    if(capAdv){
+      var pct=((pricePerShare-capPrice)/pricePerShare)*100;
+      body+='<div class="insight-row"><div class="insight-dot"></div><div>Cap price ('+fmtD(capPrice)+') is <strong>'+pct.toFixed(1)+'%</strong> below round price — investor benefits from the cap.</div></div>';
+    }
+    if(discAdv){
+      var pct2=((pricePerShare-discountPrice)/pricePerShare)*100;
+      body+='<div class="insight-row"><div class="insight-dot"></div><div>Discount gives investor <strong>'+pct2.toFixed(1)+'%</strong> below the round price.</div></div>';
+    }
+    document.getElementById('safe-insights-body').innerHTML=body;
+  } else {
+    insights.style.display='none';
+  }
+}
+
+// ── CONVERTIBLE NOTE ─────────────────────────────────────────────────────────
+function calcConv(){
+  var action=document.getElementById('c-action').value;
+  document.getElementById('c-repay-note').style.display=action==='repay'?'block':'none';
+
+  var p=n('c-principal'), rate=n('c-rate'), capV=n('c-cap'), disc=n('c-disc'), pre=n('c-pre'), shares=n('c-shares');
+  var issueDate=document.getElementById('c-issue').value;
+  var maturityDate=document.getElementById('c-maturity').value;
+
+  var months=0, accruedInterest=0, totalOwed=p;
+  if(issueDate&&maturityDate){
+    var start=new Date(issueDate), end=new Date(maturityDate);
+    if(!isNaN(start.getTime())&&!isNaN(end.getTime())){
+      months=(end.getFullYear()-start.getFullYear())*12+(end.getMonth()-start.getMonth());
+      accruedInterest=p*(rate/100)*(months/12);
+      totalOwed=p+accruedInterest;
+    }
+  } else if(rate>0&&p>0){
+    months=12; accruedInterest=p*(rate/100); totalOwed=p+accruedInterest;
+  }
+
+  var pricePerShare=shares>0&&pre>0?pre/shares:0;
+  var capPrice=capV>0&&shares>0?capV/shares:0;
+  var discountPrice=pricePerShare>0&&disc>0?pricePerShare*(1-disc/100):0;
+
+  var conversionPrice=0, method='';
+  if(capPrice>0&&discountPrice>0){
+    conversionPrice=Math.min(capPrice,discountPrice);
+    method=capPrice<=discountPrice?'Valuation cap':disc+'% discount';
+  } else if(capPrice>0){conversionPrice=capPrice;method='Valuation cap';}
+  else if(discountPrice>0){conversionPrice=discountPrice;method=disc+'% discount';}
+  else if(pricePerShare>0){conversionPrice=pricePerShare;method='Converts at round price (no cap/discount)';}
+
+  var sharesIssued=conversionPrice>0&&totalOwed>0?totalOwed/conversionPrice:0;
+  var postShares=shares+sharesIssued;
+  var ownershipPct=postShares>0?(sharesIssued/postShares)*100:0;
+  var effectiveVal=conversionPrice>0&&shares>0?conversionPrice*shares:0;
+  var hasResult=p>0&&conversionPrice>0&&shares>0;
+  var isNearMaturity=months>0&&months<=3;
+
+  var empty=document.getElementById('conv-empty');
+  var output=document.getElementById('conv-output');
+  var stats=document.getElementById('conv-stats');
+  var matWarn=document.getElementById('conv-maturity-warn');
+
+  if(!hasResult){
+    empty.style.display='flex';output.style.display='none';stats.style.display='none';matWarn.style.display='none';
+    return;
+  }
+
+  empty.style.display='none';output.style.display='block';stats.style.display='grid';
+
+  set('c-r-principal',fmtD(p));
+  set('c-r-term',months>0?months+' months':'12 months (assumed)');
+  set('c-r-interest',fmtD(accruedInterest),accruedInterest>0?'amber':'');
+  set('c-r-total',fmtD(totalOwed));
+  set('c-method',method);
+  set('c-price',fmtD(conversionPrice));
+  set('c-issued',fmtN(sharesIssued));
+  set('c-ownership',fmtP(ownershipPct),ownershipPct>25?'amber':'green');
+  set('c-effective',fmtD(effectiveVal));
+
+  document.getElementById('c-stat-own').textContent=fmtP(ownershipPct);
+  document.getElementById('c-stat-own-note').textContent=ownershipPct>20?'Above typical range':'Within normal range';
+  document.getElementById('c-stat-total').textContent=fmtD(totalOwed);
+  document.getElementById('c-stat-interest-note').textContent=accruedInterest>0?'Incl. '+fmtD(accruedInterest)+' interest':'No interest accrued';
+
+  matWarn.style.display=isNearMaturity?'block':'none';
+}
+</script>
+</body>
+</html>
