@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Free SAFE Note Calculator & Convertible Note Calculator for Founders | Yorkseed</title>
+<title>Free Startup Funding Calculators — SAFE, Convertible Note, ASA/SeedFAST, BSA Air | Yorkseed</title>
+<meta name="description" content="Free calculators for SAFE notes (post-money, YC standard), convertible notes, UK ASA/SeedFAST, and French BSA Air. Model equity conversion before you sign."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
@@ -11,12 +12,13 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 :root{
-  --ink:#111111;--ink2:#222222;--ink3:#555555;--ink4:#888888;
-  --white:#ffffff;--off-white:#fafafa;--light-grey:#f5f5f5;
-  --red:#e53030;--red-dim:rgba(229,48,48,.07);--red-border:rgba(229,48,48,.2);
+  --ink:#111111; --ink2:#222222; --ink3:#555555; --ink4:#888888;
+  --white:#ffffff; --off-white:#fafafa; --light-grey:#f5f5f5;
+  --border:rgba(0,0,0,.07); --border2:rgba(0,0,0,.12);
+  --red:#e53030; --red-dim:rgba(229,48,48,.07); --red-border:rgba(229,48,48,.2);
+  --green:#16a34a; --amber:#d97706;
   --gold-border:rgba(184,154,90,.2);
-  --border:rgba(0,0,0,.07);--border2:rgba(0,0,0,.12);
-  --green:#16a34a;--amber:#d97706;
+  --blue:#3b82f6; --blue-dim:rgba(59,130,246,.06); --blue-border:rgba(59,130,246,.2);
   --serif:'Playfair Display',Georgia,serif;
   --sans:'DM Sans',system-ui,sans-serif;
   --mono:'DM Mono',monospace;
@@ -24,16 +26,17 @@ html{scroll-behavior:smooth}
 body{font-family:var(--sans);font-weight:300;background:var(--white);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 
-nav.top{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+/* NAV */
+nav.topnav{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
 .nav-inner{max-width:1280px;margin:0 auto;padding:0 5vw;height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.n-logo{font-family:var(--serif);font-size:21px;font-weight:400;letter-spacing:.05em}
+.n-logo{font-family:var(--serif);font-size:21px;font-weight:400;letter-spacing:.05em;color:var(--ink)}
 .n-center{display:flex;align-items:center;gap:6px}
 .n-link{font-size:13px;color:var(--ink3);padding:7px 12px;border-radius:5px;transition:color .15s,background .15s;font-weight:300}
 .n-link:hover{color:var(--ink);background:var(--light-grey)}
 .n-link.active{color:var(--red);font-weight:400}
 .n-right{display:flex;align-items:center;gap:8px}
 .n-signin{font-size:13px;color:var(--ink3);padding:7px 14px;border-radius:5px;font-weight:300}
-.n-apply{background:var(--ink);color:var(--white);font-size:13px;padding:8px 18px;border-radius:5px;font-weight:400;transition:opacity .15s}
+.n-apply{background:var(--ink);color:var(--white);font-size:13px;padding:8px 18px;border-radius:5px;font-weight:400;letter-spacing:.02em;transition:opacity .15s}
 .n-apply:hover{opacity:.85}
 .n-ham{display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:8px;width:36px}
 .n-ham span{display:block;height:1.5px;background:var(--ink);border-radius:2px;transition:all .25s}
@@ -42,122 +45,141 @@ nav.top{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;background:r
 .n-ham.open span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
 .n-drawer{display:none;position:fixed;top:64px;left:0;right:0;bottom:0;background:var(--white);z-index:299;overflow-y:auto;padding:20px 5vw 40px;border-top:1px solid var(--border)}
 .n-drawer.open{display:block}
-.n-drawer-link{display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:8px;font-size:14px;color:var(--ink3);transition:background .15s;margin-bottom:4px}
+.n-drawer-section{margin-bottom:24px}
+.n-drawer-label{font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink4);margin-bottom:10px;padding:0 4px}
+.n-drawer-link{display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:8px;font-size:14px;color:var(--ink3);transition:background .15s}
 .n-drawer-link:hover{background:var(--off-white);color:var(--ink)}
-.n-drawer-ctas{display:flex;gap:8px;flex-direction:column;margin-top:16px}
+.n-drawer-ctas{display:flex;gap:8px;flex-direction:column;margin-top:8px}
 @media(max-width:780px){.n-center{display:none}.n-ham{display:flex}}
 
+/* HERO */
 .page-hero{padding:120px 6vw 72px;border-bottom:1px solid var(--border)}
 .page-hero-inner{max-width:760px;margin:0 auto;text-align:center}
 .kicker{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:18px;display:flex;align-items:center;justify-content:center;gap:10px}
 .kicker::before,.kicker::after{content:'';display:block;width:16px;height:1px;background:var(--red);opacity:.5}
-.page-h1{font-family:var(--serif);font-size:clamp(30px,4vw,50px);font-weight:300;line-height:1.1;letter-spacing:-.02em;margin-bottom:18px}
+.page-h1{font-family:var(--serif);font-size:clamp(28px,4vw,48px);font-weight:300;line-height:1.1;letter-spacing:-.02em;margin-bottom:18px}
 .page-h1 em{font-style:italic;color:var(--red)}
-.page-sub{font-size:15px;color:var(--ink3);line-height:1.85;max-width:560px;margin:0 auto 36px;font-weight:300}
-.page-rule{width:36px;height:1px;background:var(--red);opacity:.3;margin:0 auto 36px}
+.page-sub{font-size:15px;color:var(--ink3);line-height:1.85;max-width:560px;margin:0 auto 28px;font-weight:300}
+.page-rule{width:36px;height:1px;background:var(--red);opacity:.3;margin:0 auto 28px}
 .free-badge{display:inline-flex;align-items:center;gap:8px;background:var(--red-dim);border:1px solid var(--red-border);border-radius:100px;padding:6px 16px;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.region-badges{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:14px}
+.region-badge{display:inline-flex;align-items:center;gap:6px;background:var(--off-white);border:1px solid var(--border2);border-radius:100px;padding:5px 14px;font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink4)}
 
-.tool-wrap{max-width:960px;margin:0 auto;padding:48px 6vw 0}
-.tab-bar{display:flex;border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:40px;background:var(--off-white)}
-.tab-btn{flex:1;padding:13px 16px;font-family:var(--sans);font-size:13px;font-weight:400;color:var(--ink3);background:none;border:none;cursor:pointer;transition:background .15s,color .15s;border-right:1px solid var(--border)}
+/* TABS */
+.tool-tabs-wrap{max-width:980px;margin:0 auto;padding:40px 5vw 0}
+.tab-bar{display:flex;border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:36px;background:var(--off-white)}
+.tab-btn{flex:1;padding:11px 10px;font-family:var(--sans);font-size:12px;font-weight:400;color:var(--ink3);background:none;border:none;border-right:1px solid var(--border);cursor:pointer;transition:background .15s,color .15s;letter-spacing:.01em;line-height:1.3;text-align:center}
 .tab-btn:last-child{border-right:none}
 .tab-btn.active{background:var(--ink);color:var(--white)}
 .tab-btn:not(.active):hover{background:var(--white);color:var(--ink)}
+.tab-btn .flag{font-size:15px;display:block;margin-bottom:2px}
+@media(max-width:600px){.tab-btn{font-size:10px;padding:9px 4px}}
 
-.calc-section{display:none;max-width:960px;margin:0 auto;padding:0 6vw 80px}
+/* CALC SECTION */
+.calc-section{display:none;max-width:980px;margin:0 auto;padding:0 5vw 80px}
 .calc-section.active{display:block}
 .calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-@media(max-width:680px){.calc-grid{grid-template-columns:1fr}}
+@media(max-width:700px){.calc-grid{grid-template-columns:1fr}}
 
-.calc-card{background:var(--off-white);border:1px solid var(--border);border-radius:10px;padding:24px;display:flex;flex-direction:column;gap:14px}
-.calc-card-title{display:flex;align-items:center;gap:10px}
-.calc-icon{width:30px;height:30px;border-radius:7px;display:flex;align-items:center;justify-content:center;color:var(--white);font-family:var(--mono);font-size:13px;flex-shrink:0}
-.ct-t{font-size:14px;font-weight:500;color:var(--ink)}
-.ct-s{font-size:11px;color:var(--ink4);margin-top:1px}
+/* CARD */
+.calc-card{background:var(--off-white);border:1px solid var(--border);border-radius:10px;padding:22px;display:flex;flex-direction:column;gap:14px}
+.card-header{display:flex;align-items:center;gap:10px}
+.card-icon{width:30px;height:30px;border-radius:7px;display:flex;align-items:center;justify-content:center;color:var(--white);font-family:var(--mono);font-size:13px;flex-shrink:0}
+.card-title{font-size:14px;font-weight:500;color:var(--ink)}
+.card-sub{font-size:11px;color:var(--ink4);margin-top:1px}
 
-.field{display:flex;flex-direction:column;gap:6px}
-.field label{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4)}
-.field input,.field select{width:100%;padding:10px 13px;border:1px solid var(--border2);border-radius:6px;font-family:var(--mono);font-size:13px;color:var(--ink);background:var(--white);outline:none;transition:border-color .15s;-webkit-appearance:none}
+/* FIELD */
+.field{display:flex;flex-direction:column;gap:5px}
+.field label{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4)}
+.field input,.field select{width:100%;padding:9px 12px;border:1px solid var(--border2);border-radius:6px;font-family:var(--mono);font-size:13px;color:var(--ink);background:var(--white);outline:none;transition:border-color .15s;-webkit-appearance:none}
 .field input:focus,.field select:focus{border-color:var(--red)}
 .field-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .field-divider{height:1px;background:var(--border);margin:2px 0}
-.field-section-label{font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink4)}
+.section-label{font-family:var(--mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink4)}
 
-.note-box{border-radius:7px;padding:12px 14px;font-size:12px;color:var(--ink3);line-height:1.65}
-.note-box.gold{background:var(--white);border:1px solid var(--gold-border)}
-.note-box.warn{background:#fffbeb;border:1px solid rgba(217,119,6,.25)}
-.note-box.danger{background:var(--red-dim);border:1px solid var(--red-border)}
-.note-box.info{background:rgba(59,130,246,.04);border:1px solid rgba(59,130,246,.2)}
+/* NOTE BOXES */
+.note{border-radius:7px;padding:11px 13px;font-size:11.5px;color:var(--ink3);line-height:1.65}
+.note.gold{background:var(--white);border:1px solid var(--gold-border)}
+.note.warn{background:#fffbeb;border:1px solid rgba(217,119,6,.25)}
+.note.danger{background:var(--red-dim);border:1px solid var(--red-border)}
+.note.info{background:var(--blue-dim);border:1px solid var(--blue-border)}
+.note.uk{background:#f0f7ff;border:1px solid #bfdbfe}
+.note.fr{background:#fff7f0;border:1px solid #fed7aa}
 
-.results-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:24px}
-.results-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:260px;gap:8px;color:var(--ink4);text-align:center}
-.results-empty .big{font-family:var(--serif);font-size:42px;opacity:.18}
-.results-empty .msg{font-size:12.5px}
-.result-section-label{font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink4);margin-bottom:14px}
-.result-row{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)}
+/* RESULTS */
+.results-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:22px}
+.results-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:240px;gap:8px;color:var(--ink4);text-align:center}
+.results-empty .big{font-family:var(--serif);font-size:42px;opacity:.15}
+.results-empty .msg{font-size:12px}
+.result-section-label{font-family:var(--mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink4);margin-bottom:12px}
+.result-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
 .result-row:last-child{border-bottom:none}
-.result-label{font-size:12.5px;color:var(--ink3);flex:1}
-.result-value{font-family:var(--mono);font-size:13px;color:var(--ink);text-align:right;flex-shrink:0}
+.result-label{font-size:12px;color:var(--ink3)}
+.result-value{font-family:var(--mono);font-size:12.5px;color:var(--ink)}
 .result-value.green{color:var(--green)}
 .result-value.amber{color:var(--amber)}
 .result-value.red{color:var(--red)}
 
+/* STAT BLOCKS */
 .stat-blocks{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
-.stat-block{background:var(--off-white);border:1px solid var(--border);border-radius:8px;padding:14px 16px}
-.stat-block .sl{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink4);margin-bottom:6px}
-.stat-block .sv{font-family:var(--serif);font-size:26px;font-weight:300;color:var(--ink);line-height:1}
-.stat-block .sh{font-size:11px;color:var(--ink4);margin-top:4px}
+.stat-block{background:var(--off-white);border:1px solid var(--border);border-radius:8px;padding:13px 15px}
+.stat-block .sl{font-family:var(--mono);font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink4);margin-bottom:5px}
+.stat-block .sv{font-family:var(--serif);font-size:24px;font-weight:300;line-height:1}
+.stat-block .sh{font-size:10.5px;color:var(--ink4);margin-top:4px}
 
-.insight-box{background:var(--off-white);border:1px solid var(--border);border-radius:8px;padding:14px 16px;margin-top:12px}
-.insight-box .il{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink4);margin-bottom:10px}
-.insight-row{display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;font-size:12px;color:var(--ink3);line-height:1.55}
+/* INSIGHT BOX */
+.insight-box{background:var(--off-white);border:1px solid var(--border);border-radius:8px;padding:13px 15px;margin-top:12px}
+.insight-box .il{font-family:var(--mono);font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink4);margin-bottom:8px}
+.insight-row{display:flex;align-items:flex-start;gap:8px;margin-bottom:5px;font-size:11.5px;color:var(--ink3);line-height:1.55}
 .insight-row:last-child{margin-bottom:0}
-.insight-dot{width:5px;height:5px;border-radius:50%;background:var(--green);flex-shrink:0;margin-top:5px}
-.insight-dot.warn{background:var(--amber)}
-.insight-dot.danger{background:var(--red)}
+.dot{width:5px;height:5px;border-radius:50%;background:var(--green);flex-shrink:0;margin-top:5px}
+.dot.warn{background:var(--amber)}
+.dot.info{background:var(--blue)}
 
-.add-safe-btn{background:none;border:1px dashed var(--border2);border-radius:6px;padding:8px 14px;font-family:var(--mono);font-size:11px;color:var(--ink4);cursor:pointer;width:100%;transition:all .15s}
-.add-safe-btn:hover{border-color:var(--ink3);color:var(--ink)}
-.remove-btn{background:none;border:none;cursor:pointer;color:var(--ink4);font-size:16px;padding:4px 8px;border-radius:4px;transition:color .15s}
-.remove-btn:hover{color:var(--red)}
+/* SECTION HEADING */
+.section-heading{margin-bottom:6px}
+.section-heading h2{font-family:var(--serif);font-size:20px;font-weight:300;letter-spacing:-.01em}
+.section-heading h2 em{font-style:italic;color:var(--ink3);font-size:16px}
+.section-heading p{font-size:11.5px;color:var(--ink4);margin-top:4px;margin-bottom:18px;line-height:1.6}
 
-.stack-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:8px}
-.stack-table th{font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);padding:6px 8px;text-align:left;border-bottom:2px solid var(--border)}
-.stack-table td{padding:8px;border-bottom:1px solid var(--border);color:var(--ink3)}
-.stack-table td:not(:first-child){font-family:var(--mono);font-size:12px;text-align:right}
-.stack-table tr.below-cap td{background:rgba(217,119,6,.04)}
-.stack-table tbody tr:last-child td{border-bottom:none}
-
-.upgrade-strip{background:var(--ink);border-radius:10px;padding:28px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;max-width:960px;margin:0 auto 80px}
-.us-left .ut{font-family:var(--serif);font-size:20px;font-weight:300;color:rgba(255,255,255,.88);margin-bottom:5px}
-.us-left .us{font-size:12.5px;color:rgba(255,255,255,.35);line-height:1.6}
+/* UPGRADE STRIP */
+.upgrade-strip{background:var(--ink);border-radius:10px;padding:26px 30px;display:flex;align-items:center;justify-content:space-between;gap:24px;max-width:980px;margin:0 auto 80px;margin-left:auto;margin-right:auto;width:calc(100% - 10vw)}
+.us-left .ut{font-family:var(--serif);font-size:19px;font-weight:300;color:rgba(255,255,255,.88);margin-bottom:5px}
+.us-left .us{font-size:12px;color:rgba(255,255,255,.35);line-height:1.6}
 .us-tools{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px}
-.us-tool-chip{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.08);border-radius:100px;padding:3px 10px;font-family:var(--mono);font-size:9px;color:rgba(255,255,255,.4)}
-.us-btn{background:var(--red);color:var(--white);padding:12px 24px;border-radius:6px;font-size:13px;font-weight:400;white-space:nowrap;transition:opacity .15s;flex-shrink:0}
+.us-chip{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.08);border-radius:100px;padding:3px 10px;font-family:var(--mono);font-size:9px;color:rgba(255,255,255,.4)}
+.us-btn{background:var(--red);color:var(--white);padding:11px 22px;border-radius:6px;font-size:13px;font-weight:400;white-space:nowrap;transition:opacity .15s;flex-shrink:0}
 .us-btn:hover{opacity:.88}
 @media(max-width:600px){.upgrade-strip{flex-direction:column;text-align:center}.us-tools{justify-content:center}}
 
-.faq-item{border-bottom:1px solid var(--border);cursor:pointer;background:var(--white);transition:background .15s}
+/* FAQ */
+.faq-wrap{max-width:980px;margin:0 auto;padding:0 5vw 80px}
+.faq-item{border-bottom:1px solid var(--border);cursor:pointer;transition:background .15s}
 .faq-item:last-child{border-bottom:none}
 .faq-item:hover{background:var(--off-white)}
-.faq-q{font-size:14px;font-weight:500;color:var(--ink);padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;user-select:none}
+.faq-q{font-size:13.5px;font-weight:500;color:var(--ink);padding:16px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;user-select:none}
 .faq-q::after{content:"+";font-size:18px;font-weight:300;color:var(--ink4);flex-shrink:0;transition:transform .2s}
 .faq-item.open .faq-q::after{transform:rotate(45deg)}
-.faq-a{display:none;font-size:13px;color:var(--ink3);line-height:1.75;padding:0 20px 18px}
+.faq-a{display:none;font-size:12.5px;color:var(--ink3);line-height:1.75;padding:0 18px 16px;font-weight:300}
 .faq-item.open .faq-a{display:block}
 
+/* FOOTER */
+footer{background:var(--ink2);padding:24px 6vw 20px;border-top:1px solid rgba(255,255,255,.05)}
+
+/* MOBILE TAB BAR */
 .m-tab-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:290;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);border-top:1px solid var(--border);height:calc(56px + env(safe-area-inset-bottom,0));padding-bottom:env(safe-area-inset-bottom,0)}
 .m-tab-bar-inner{display:flex;align-items:center;height:56px;max-width:500px;margin:0 auto}
-.m-tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:var(--ink4);font-size:9.5px;font-family:var(--mono);letter-spacing:.04em;text-transform:uppercase;padding:0 4px;transition:color .15s;text-decoration:none;border:none;background:none;cursor:pointer}
+.m-tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:var(--ink4);font-size:9px;font-family:var(--mono);letter-spacing:.03em;text-transform:uppercase;text-decoration:none;border:none;background:none;cursor:pointer}
 .m-tab.active{color:var(--red)}
 .m-tab-join{flex:1;display:flex;align-items:center;justify-content:center}
-.m-tab-join a{background:var(--red);color:var(--white);font-size:12px;font-weight:400;padding:9px 14px;border-radius:6px}
+.m-tab-join a{background:var(--red);color:var(--white);font-size:12px;font-weight:400;padding:8px 14px;border-radius:6px}
 @media(max-width:680px){.m-tab-bar{display:flex}body{padding-bottom:56px}}
 </style>
 </head>
 <body>
 
-<nav class="top">
+<!-- NAV -->
+<nav class="topnav">
   <div class="nav-inner">
     <a href="/" class="n-logo">Yorkseed</a>
     <div class="n-center">
@@ -171,54 +193,84 @@ nav.top{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;background:r
     <div class="n-right">
       <a href="https://app.yorkseed.co/login" class="n-signin">Sign in</a>
       <a href="https://app.yorkseed.co/pricing" class="n-apply">Join</a>
-      <button class="n-ham" id="hamBtn" onclick="toggleDrawer()"><span></span><span></span><span></span></button>
+      <button class="n-ham" id="hamBtn" onclick="toggleDrawer()" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
   <div class="n-drawer" id="navDrawer">
-    <a href="/" class="n-drawer-link">🏠 Home</a>
-    <a href="/events.html" class="n-drawer-link">🎯 Events</a>
-    <a href="/hubs.html" class="n-drawer-link">📍 Hubs</a>
-    <a href="/tools.html" class="n-drawer-link">🧮 Free Tools</a>
-    <a href="/contact.html" class="n-drawer-link">✉️ Contact</a>
-    <div class="n-drawer-ctas"><a href="https://app.yorkseed.co/pricing" class="n-apply" style="text-align:center;padding:12px">Join Yorkseed</a></div>
+    <div class="n-drawer-section">
+      <div class="n-drawer-label">Navigate</div>
+      <a href="/" class="n-drawer-link"><span>🏠</span><span>Home</span></a>
+      <a href="/events.html" class="n-drawer-link"><span>🎯</span><span>Events</span></a>
+      <a href="/hubs.html" class="n-drawer-link"><span>📍</span><span>Global Hubs</span></a>
+      <a href="/tools.html" class="n-drawer-link"><span>🧮</span><span>Free Tools</span></a>
+      <a href="/contact.html" class="n-drawer-link"><span>✉️</span><span>Contact</span></a>
+    </div>
+    <div class="n-drawer-ctas">
+      <a href="https://app.yorkseed.co/pricing" class="n-apply">Join Yorkseed</a>
+      <a href="https://app.yorkseed.co/login" class="n-signin">Sign in</a>
+    </div>
   </div>
 </nav>
 
+<!-- HERO -->
 <section class="page-hero">
   <div class="page-hero-inner">
     <div class="kicker">Free Resources</div>
     <h1 class="page-h1">Venture calculators.<br><em>No sign-up required.</em></h1>
     <div class="page-rule"></div>
-    <p class="page-sub">Model your SAFE conversion, convertible note dilution, and equity outcomes before you sign anything. Built for founders who need clarity, not complexity.</p>
+    <p class="page-sub">Model equity conversion for SAFE notes, convertible notes, UK ASA / SeedFAST, and French BSA Air — before you sign anything.</p>
     <span class="free-badge">✦ Completely free &nbsp;·&nbsp; No account needed</span>
+    <div class="region-badges">
+      <span class="region-badge">🌍 US SAFE (YC post-money)</span>
+      <span class="region-badge">📄 Convertible Note</span>
+      <span class="region-badge">🇬🇧 ASA / SeedFAST</span>
+      <span class="region-badge">🇫🇷 BSA Air</span>
+    </div>
   </div>
 </section>
 
-<div class="tool-wrap">
-  <div class="tab-bar">
-    <button class="tab-btn active" onclick="switchTab('safe',this)">SAFE Note</button>
-    <button class="tab-btn" onclick="switchTab('multi',this)">Multi-SAFE Stack</button>
-    <button class="tab-btn" onclick="switchTab('conv',this)">Convertible Note</button>
+<!-- TAB BAR -->
+<div class="tool-tabs-wrap">
+  <div class="tab-bar" role="tablist">
+    <button class="tab-btn active" onclick="switchTab('safe',this)" role="tab">
+      <span class="flag">🌍</span>SAFE Note<br><span style="font-size:9px;opacity:.7">YC post-money</span>
+    </button>
+    <button class="tab-btn" onclick="switchTab('conv',this)" role="tab">
+      <span class="flag">📄</span>Convertible Note<br><span style="font-size:9px;opacity:.7">Principal + interest</span>
+    </button>
+    <button class="tab-btn" onclick="switchTab('asa',this)" role="tab">
+      <span class="flag">🇬🇧</span>ASA / SeedFAST<br><span style="font-size:9px;opacity:.7">UK standard</span>
+    </button>
+    <button class="tab-btn" onclick="switchTab('bsa',this)" role="tab">
+      <span class="flag">🇫🇷</span>BSA Air<br><span style="font-size:9px;opacity:.7">French standard</span>
+    </button>
   </div>
 </div>
 
-<!-- ════════════════════════════════════════
-     TAB 1: SINGLE SAFE
-     ════════════════════════════════════════ -->
+<!-- ════════════════════════════════════════════════════════════
+     TAB 1 — SAFE (Post-money, YC standard)
+     ════════════════════════════════════════════════════════════ -->
 <div class="calc-section active" id="tab-safe">
-  <h2 style="font-family:var(--serif);font-size:22px;font-weight:300;margin-bottom:4px">SAFE Note Calculator <em style="font-style:italic;color:var(--ink3);font-size:17px">— post-money cap (YC standard)</em></h2>
-  <p style="font-size:12px;color:var(--ink4);margin-bottom:20px">Correctly handles the "round below cap" edge case. Investor always converts at whichever gives them the lowest price.</p>
+  <div class="section-heading">
+    <h2>SAFE Note Calculator <em>— post-money cap (YC standard)</em></h2>
+    <p>
+      Used primarily in the US. Ownership % = Investment ÷ Post-money cap — locked at signing.<br>
+      e.g. $1M on a $10M cap = exactly <strong>10%</strong>, regardless of share count.<br>
+      <strong>Exception:</strong> if the next round valuation is <em>below</em> the cap, the investor converts at the round price and may receive <em>more</em> than the headline ownership %.
+    </p>
+  </div>
   <div class="calc-grid">
+    <!-- INPUTS -->
     <div class="calc-card">
-      <div class="calc-card-title">
-        <div class="calc-icon" style="background:#6366f1">S</div>
-        <div><div class="ct-t">SAFE Note Inputs</div><div class="ct-s">Post-money valuation cap (YC standard)</div></div>
+      <div class="card-header">
+        <div class="card-icon" style="background:#6366f1">S</div>
+        <div><div class="card-title">SAFE Note Inputs</div><div class="card-sub">Post-money valuation cap model</div></div>
       </div>
       <div class="field"><label>Investment amount ($)</label><input type="text" id="s-inv" placeholder="e.g. 1,000,000" oninput="calcSafe()"/></div>
       <div class="field"><label>Post-money valuation cap ($)</label><input type="text" id="s-cap" placeholder="e.g. 10,000,000" oninput="calcSafe()"/></div>
-      <div class="field"><label>Discount rate (% — optional)</label><input type="text" id="s-disc" placeholder="e.g. 20" oninput="calcSafe()"/></div>
+      <div class="field"><label>Discount (% off round price — optional)</label><input type="text" id="s-disc" placeholder="e.g. 20 (leave blank if none)" oninput="calcSafe()"/></div>
       <div class="field-divider"></div>
-      <div class="field-section-label">Priced round details</div>
+      <div class="section-label" style="margin-bottom:8px">Next priced round (for discount comparison)</div>
       <div class="field"><label>Pre-money valuation at next round ($)</label><input type="text" id="s-pre" placeholder="e.g. 15,000,000" oninput="calcSafe()"/></div>
       <div class="field"><label>Existing shares outstanding</label><input type="text" id="s-shares" placeholder="e.g. 10,000,000" oninput="calcSafe()"/></div>
       <div class="field">
@@ -228,119 +280,75 @@ nav.top{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;background:r
           <option value="yes">Yes — MFN clause included</option>
         </select>
       </div>
-      <div class="note-box danger" id="s-mfn-note" style="display:none">⚠ <strong>MFN active:</strong> any future SAFE on better terms upgrades this one automatically.</div>
-      <div class="note-box info">
-        <strong>Three conversion scenarios:</strong><br>
-        1. Round &gt; cap → investor uses <em>cap price</em> (gets their locked ownership %)<br>
-        2. Round ≤ cap → investor uses <em>round price</em> (gets <strong>more</strong> than locked %)<br>
-        3. Discount set → investor uses whichever price is <em>lowest</em>
+      <div class="note warn" id="s-mfn-note" style="display:none">
+        <strong>MFN (Most Favoured Nation):</strong> if you issue a later SAFE on better terms, this investor automatically upgrades. Founder-unfriendly — negotiate out if possible.
+      </div>
+      <div class="note info">
+        <strong>Note on terminology:</strong> A "20% discount" means the investor pays 20% less than the round price (80% of round price). YC uses "discount rate" to mean the rate itself (e.g. 80%) — this calculator uses the simpler term: just enter <em>20</em> to mean 20% off.
+      </div>
+      <div class="note gold">
+        <strong>Post-money cap formula:</strong> Ownership % = Investment ÷ Cap. If the round valuation is below the cap, the SAFE converts at the lower round price — which means the investor gets <em>more</em> shares than the headline % implies.
       </div>
     </div>
+    <!-- RESULTS -->
     <div>
       <div class="results-card">
-        <div class="results-empty" id="safe-empty"><div class="big">S</div><div class="msg">Fill in the inputs to model SAFE conversion</div></div>
+        <div class="results-empty" id="safe-empty"><div class="big">S</div><div class="msg">Fill in the inputs to model conversion</div></div>
         <div id="safe-output" style="display:none">
-          <div class="result-section-label">Ownership locked at signing</div>
-          <div class="result-row"><span class="result-label">Cap-implied ownership %</span><span class="result-value green" id="s-cap-own">—</span></div>
-          <div id="s-round-section">
-            <div class="result-section-label" style="margin-top:16px">At conversion</div>
-            <div class="result-row"><span class="result-label">Conversion scenario</span><span class="result-value" id="s-scenario" style="font-size:11px;max-width:200px;text-align:right;white-space:normal">—</span></div>
-            <div class="result-row"><span class="result-label">Conversion price / share</span><span class="result-value" id="s-price">—</span></div>
-            <div class="result-row" id="s-disc-row" style="display:none"><span class="result-label">Discount price / share</span><span class="result-value" id="s-disc-price">—</span></div>
-            <div class="result-row"><span class="result-label">Shares issued to investor</span><span class="result-value" id="s-issued">—</span></div>
-            <div class="result-row"><span class="result-label">Post-conversion total shares</span><span class="result-value" id="s-post-shares">—</span></div>
-            <div class="result-row"><span class="result-label">Actual post-conversion ownership</span><span class="result-value" id="s-actual-own">—</span></div>
-          </div>
+          <div class="result-section-label">Ownership (cap route)</div>
+          <div class="result-row"><span class="result-label">Ownership locked at signing</span><span class="result-value" id="s-ownership-locked">—</span></div>
+          <div class="result-row"><span class="result-label">Conversion scenario</span><span class="result-value" id="s-scenario">—</span></div>
+          <div class="result-row"><span class="result-label">Active conversion method</span><span class="result-value" id="s-method">—</span></div>
+          <div class="result-row"><span class="result-label">Conversion price / share</span><span class="result-value" id="s-price">—</span></div>
+          <div class="result-row"><span class="result-label">Shares issued</span><span class="result-value" id="s-issued">—</span></div>
+          <div class="result-row"><span class="result-label">Post-conversion total shares</span><span class="result-value" id="s-post-shares">—</span></div>
+          <div class="result-row"><span class="result-label">Actual ownership post-conversion</span><span class="result-value" id="s-ownership">—</span></div>
+          <div class="result-row" id="s-disc-row" style="display:none"><span class="result-label">Discount price / share</span><span class="result-value" id="s-discount-price">—</span></div>
         </div>
       </div>
       <div class="stat-blocks" id="safe-stats" style="display:none">
-        <div class="stat-block"><div class="sl">Locked ownership %</div><div class="sv" id="s-stat-own">—</div><div class="sh">at signing (cap ÷ inv)</div></div>
-        <div class="stat-block"><div class="sl">Actual post-conv %</div><div class="sv" id="s-stat-actual">—</div><div class="sh" id="s-stat-note">—</div></div>
+        <div class="stat-block"><div class="sl">Cap ownership %</div><div class="sv" id="s-stat-own">—</div><div class="sh" id="s-stat-own-note">locked at signing</div></div>
+        <div class="stat-block"><div class="sl">Shares issued</div><div class="sv" id="s-stat-shares">—</div><div class="sh" id="s-stat-shares-note">—</div></div>
       </div>
       <div class="insight-box" id="safe-insights" style="display:none">
-        <div class="il">Founder insight</div>
+        <div class="il">Insight</div>
         <div id="safe-insights-body"></div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ════════════════════════════════════════
-     TAB 2: MULTI-SAFE STACK
-     ════════════════════════════════════════ -->
-<div class="calc-section" id="tab-multi">
-  <h2 style="font-family:var(--serif);font-size:22px;font-weight:300;margin-bottom:4px">Multi-SAFE Stack Calculator</h2>
-  <p style="font-size:12px;color:var(--ink4);margin-bottom:20px">Model cumulative dilution from multiple SAFEs at different caps — the real complexity Anthony mentioned. Each SAFE's conversion dilutes all the others.</p>
-  <div class="calc-grid">
-    <div class="calc-card">
-      <div class="calc-card-title">
-        <div class="calc-icon" style="background:#8b5cf6">M</div>
-        <div><div class="ct-t">SAFE Stack Inputs</div><div class="ct-s">Up to 5 SAFEs + Series A details</div></div>
-      </div>
-      <div class="field-section-label">Series A priced round</div>
-      <div class="field"><label>Pre-money valuation ($)</label><input type="text" id="m-pre" placeholder="e.g. 15,000,000" oninput="calcMulti()"/></div>
-      <div class="field"><label>Existing shares outstanding</label><input type="text" id="m-shares" placeholder="e.g. 10,000,000" oninput="calcMulti()"/></div>
-      <div class="field"><label>New money raised in round ($)</label><input type="text" id="m-raise" placeholder="e.g. 5,000,000" oninput="calcMulti()"/></div>
-      <div class="field-divider"></div>
-      <div class="field-section-label" style="margin-bottom:10px">Post-money SAFEs (YC standard)</div>
-      <div id="safe-rows"></div>
-      <button class="add-safe-btn" onclick="addSafeRow()" id="add-btn">+ Add another SAFE</button>
-      <div class="note-box warn" style="margin-top:4px">
-        Where a round valuation falls below any SAFE's cap, that investor converts at the round price — getting <em>more</em> shares than their cap ownership implied. This increases total dilution beyond the sum of cap percentages.
-      </div>
-    </div>
-    <div>
-      <div class="results-card">
-        <div class="results-empty" id="multi-empty"><div class="big">M</div><div class="msg">Add SAFE details and round info to see stacked dilution</div></div>
-        <div id="multi-output" style="display:none">
-          <div class="result-section-label">Per-SAFE conversion breakdown</div>
-          <div style="overflow-x:auto">
-            <table class="stack-table">
-              <thead><tr><th>SAFE</th><th>Invested</th><th>Cap %</th><th>Conv. price</th><th>Shares</th><th>Actual %</th></tr></thead>
-              <tbody id="stack-tbody"></tbody>
-            </table>
-          </div>
-          <div class="result-section-label" style="margin-top:20px">Post-round cap table</div>
-          <div class="result-row"><span class="result-label">Total SAFE investment</span><span class="result-value" id="m-total-inv">—</span></div>
-          <div class="result-row"><span class="result-label">New round investment</span><span class="result-value" id="m-round-inv">—</span></div>
-          <div class="result-row"><span class="result-label">Total shares issued to SAFEs</span><span class="result-value" id="m-safe-shares">—</span></div>
-          <div class="result-row"><span class="result-label">Shares issued in new round</span><span class="result-value" id="m-round-shares">—</span></div>
-          <div class="result-row"><span class="result-label">Total post-round shares</span><span class="result-value" id="m-total-shares">—</span></div>
-          <div class="result-row"><span class="result-label">Founder ownership post-round</span><span class="result-value red" id="m-founder-own">—</span></div>
-          <div class="result-row"><span class="result-label">All SAFE investors combined</span><span class="result-value amber" id="m-all-safe-own">—</span></div>
-          <div class="result-row"><span class="result-label">New round investors</span><span class="result-value" id="m-round-own">—</span></div>
-        </div>
-      </div>
-      <div class="insight-box" id="multi-insights" style="display:none">
-        <div class="il">Stack dilution insight</div>
-        <div id="multi-insights-body"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ════════════════════════════════════════
-     TAB 3: CONVERTIBLE NOTE
-     ════════════════════════════════════════ -->
+<!-- ════════════════════════════════════════════════════════════
+     TAB 2 — CONVERTIBLE NOTE
+     ════════════════════════════════════════════════════════════ -->
 <div class="calc-section" id="tab-conv">
-  <h2 style="font-family:var(--serif);font-size:22px;font-weight:300;margin-bottom:4px">Convertible Note Calculator <em style="font-style:italic;color:var(--ink3);font-size:17px">— principal + interest to shares</em></h2>
-  <p style="font-size:12px;color:var(--ink4);margin-bottom:20px">Convertible notes are debt — interest accrues and converts alongside principal.</p>
+  <div class="section-heading">
+    <h2>Convertible Note Calculator <em>— principal + interest → shares</em></h2>
+    <p>Convertible notes are debt instruments. They accrue interest (simple or compound), which converts alongside principal. Common globally but especially in the US and Europe.</p>
+  </div>
   <div class="calc-grid">
     <div class="calc-card">
-      <div class="calc-card-title">
-        <div class="calc-icon" style="background:#0ea5e9">C</div>
-        <div><div class="ct-t">Convertible Note Inputs</div><div class="ct-s">Uses pre-money cap (standard for conv notes)</div></div>
+      <div class="card-header">
+        <div class="card-icon" style="background:#0ea5e9">C</div>
+        <div><div class="card-title">Convertible Note Inputs</div><div class="card-sub">Principal + accrued interest → shares</div></div>
       </div>
       <div class="field"><label>Principal ($)</label><input type="text" id="c-principal" placeholder="e.g. 500,000" oninput="calcConv()"/></div>
       <div class="field"><label>Annual interest rate (%)</label><input type="text" id="c-rate" placeholder="e.g. 8" oninput="calcConv()"/></div>
+      <div class="field">
+        <label>Interest type</label>
+        <select id="c-interest-type" onchange="calcConv()">
+          <option value="simple">Simple interest</option>
+          <option value="compound">Compound interest (annual)</option>
+        </select>
+      </div>
       <div class="field-row">
         <div class="field"><label>Issue date</label><input type="date" id="c-issue" oninput="calcConv()"/></div>
         <div class="field"><label>Maturity date</label><input type="date" id="c-maturity" oninput="calcConv()"/></div>
       </div>
       <div class="field"><label>Valuation cap ($)</label><input type="text" id="c-cap" placeholder="e.g. 6,000,000" oninput="calcConv()"/></div>
-      <div class="field"><label>Discount rate (%)</label><input type="text" id="c-disc" placeholder="e.g. 20" oninput="calcConv()"/></div>
+      <div class="field"><label>Discount (% off round price — optional)</label><input type="text" id="c-disc" placeholder="e.g. 20" oninput="calcConv()"/></div>
       <div class="field-divider"></div>
-      <div class="field-section-label">Priced round details</div>
+      <div class="section-label" style="margin-bottom:8px">Priced round details</div>
       <div class="field"><label>Pre-money valuation at next round ($)</label><input type="text" id="c-pre" placeholder="e.g. 12,000,000" oninput="calcConv()"/></div>
       <div class="field"><label>Existing shares outstanding</label><input type="text" id="c-shares" placeholder="e.g. 10,000,000" oninput="calcConv()"/></div>
       <div class="field">
@@ -351,8 +359,8 @@ nav.top{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;background:r
           <option value="extend">Extended by mutual agreement</option>
         </select>
       </div>
-      <div class="note-box danger" id="c-repay-note" style="display:none">⚠ Investor can demand repayment of principal + accrued interest at maturity.</div>
-      <div class="note-box gold">Unlike a SAFE, a convertible note accrues interest. The <strong>full amount (principal + interest)</strong> converts into equity — investors receive more shares than the headline investment suggests.</div>
+      <div class="note danger" id="c-repay-note" style="display:none">⚠ If no qualifying round occurs, the investor may demand repayment of principal + all accrued interest. Factor this into your fundraising timeline.</div>
+      <div class="note gold">Unlike a SAFE, the full <strong>principal + accrued interest</strong> converts. Investors receive more shares than the headline investment implies. Choose simple or compound interest to match your note terms.</div>
     </div>
     <div>
       <div class="results-card">
@@ -361,13 +369,14 @@ nav.top{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;background:r
           <div class="result-section-label">Interest &amp; principal</div>
           <div class="result-row"><span class="result-label">Principal</span><span class="result-value" id="c-r-principal">—</span></div>
           <div class="result-row"><span class="result-label">Term</span><span class="result-value" id="c-r-term">—</span></div>
-          <div class="result-row"><span class="result-label">Accrued interest</span><span class="result-value amber" id="c-r-interest">—</span></div>
+          <div class="result-row"><span class="result-label">Interest type</span><span class="result-value" id="c-r-itype">—</span></div>
+          <div class="result-row"><span class="result-label">Accrued interest</span><span class="result-value" id="c-r-interest">—</span></div>
           <div class="result-row"><span class="result-label">Total converting amount</span><span class="result-value" id="c-r-total">—</span></div>
-          <div class="result-section-label" style="margin-top:18px">Conversion</div>
+          <div class="result-section-label" style="margin-top:16px">Conversion</div>
           <div class="result-row"><span class="result-label">Conversion method</span><span class="result-value" id="c-method">—</span></div>
           <div class="result-row"><span class="result-label">Conversion price / share</span><span class="result-value" id="c-price">—</span></div>
-          <div class="result-row"><span class="result-label">Shares issued to investor</span><span class="result-value" id="c-issued">—</span></div>
-          <div class="result-row"><span class="result-label">Post-conversion ownership</span><span class="result-value" id="c-ownership">—</span></div>
+          <div class="result-row"><span class="result-label">Shares issued</span><span class="result-value" id="c-issued">—</span></div>
+          <div class="result-row"><span class="result-label">Investor ownership post-conversion</span><span class="result-value" id="c-ownership">—</span></div>
           <div class="result-row"><span class="result-label">Effective entry valuation</span><span class="result-value" id="c-effective">—</span></div>
         </div>
       </div>
@@ -375,94 +384,221 @@ nav.top{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;background:r
         <div class="stat-block"><div class="sl">Ownership granted</div><div class="sv" id="c-stat-own">—</div><div class="sh" id="c-stat-own-note">—</div></div>
         <div class="stat-block"><div class="sl">Total converting</div><div class="sv" id="c-stat-total">—</div><div class="sh" id="c-stat-interest-note">—</div></div>
       </div>
-      <div class="note-box danger" id="conv-maturity-warn" style="display:none;margin-top:10px"></div>
+      <div class="note danger" id="conv-maturity-warn" style="display:none;margin-top:10px"></div>
     </div>
   </div>
 </div>
 
-<!-- UPGRADE -->
-<div style="padding:0 6vw">
-  <div class="upgrade-strip">
-    <div class="us-left">
-      <div class="ut">Want 15 more tools like these?</div>
-      <div class="us">Investor match engine, deal readiness score, term sheet decoder, cap table modeler, runway planner — included with Core membership.</div>
-      <div class="us-tools">
-        <span class="us-tool-chip">Investor Match</span><span class="us-tool-chip">Term Sheet Decoder</span><span class="us-tool-chip">Cap Table</span><span class="us-tool-chip">Runway Planner</span><span class="us-tool-chip">+ 11 more</span>
+<!-- ════════════════════════════════════════════════════════════
+     TAB 3 — ASA / SeedFAST (UK)
+     ════════════════════════════════════════════════════════════ -->
+<div class="calc-section" id="tab-asa">
+  <div class="section-heading">
+    <h2>ASA / SeedFAST Calculator <em>— UK standard</em></h2>
+    <p>
+      In the UK, founders don't use SAFEs. The standard instruments are the <strong>ASA (Advance Subscription Agreement)</strong> and <strong>SeedFAST</strong>.<br>
+      Both convert at a <strong>pre-money valuation</strong> — not post-money like a YC SAFE. The discount and cap apply to the pre-money valuation at the qualifying round.
+    </p>
+  </div>
+  <div class="calc-grid">
+    <div class="calc-card">
+      <div class="card-header">
+        <div class="card-icon" style="background:#1d4ed8">🇬🇧</div>
+        <div><div class="card-title">ASA / SeedFAST Inputs</div><div class="card-sub">Converts at pre-money valuation cap</div></div>
+      </div>
+      <div class="field"><label>Investment amount (£ or $)</label><input type="text" id="a-inv" placeholder="e.g. 250,000" oninput="calcAsa()"/></div>
+      <div class="field"><label>Valuation cap (pre-money)</label><input type="text" id="a-cap" placeholder="e.g. 5,000,000" oninput="calcAsa()"/></div>
+      <div class="field"><label>Discount (% off round price — optional)</label><input type="text" id="a-disc" placeholder="e.g. 20 (leave blank if none)" oninput="calcAsa()"/></div>
+      <div class="field-divider"></div>
+      <div class="section-label" style="margin-bottom:8px">Qualifying round details</div>
+      <div class="field"><label>Pre-money valuation at qualifying round</label><input type="text" id="a-pre" placeholder="e.g. 8,000,000" oninput="calcAsa()"/></div>
+      <div class="field"><label>Existing shares outstanding</label><input type="text" id="a-shares" placeholder="e.g. 10,000,000" oninput="calcAsa()"/></div>
+      <div class="note uk">
+        <strong>ASA / SeedFAST key differences vs SAFE:</strong><br>
+        • Converts at a <strong>pre-money cap</strong> (not post-money)<br>
+        • Commonly used with SEIS/EIS — ensure your structure is SEIS/EIS compatible<br>
+        • No interest, no maturity date (similar to SAFE in that respect)<br>
+        • Cap and discount apply to the pre-money valuation at the qualifying round<br>
+        • Investor gets whichever gives the lower price (more shares)
       </div>
     </div>
-    <a href="https://app.yorkseed.co/pricing" class="us-btn">Apply for access →</a>
+    <div>
+      <div class="results-card">
+        <div class="results-empty" id="asa-empty"><div class="big">🇬🇧</div><div class="msg">Fill in the inputs to model ASA / SeedFAST conversion</div></div>
+        <div id="asa-output" style="display:none">
+          <div class="result-section-label">Conversion summary</div>
+          <div class="result-row"><span class="result-label">Conversion method</span><span class="result-value" id="a-method">—</span></div>
+          <div class="result-row"><span class="result-label">Conversion price / share</span><span class="result-value" id="a-price">—</span></div>
+          <div class="result-row"><span class="result-label">Shares issued</span><span class="result-value" id="a-issued">—</span></div>
+          <div class="result-row"><span class="result-label">Post-conversion total shares</span><span class="result-value" id="a-post-shares">—</span></div>
+          <div class="result-row"><span class="result-label">Investor ownership post-conversion</span><span class="result-value" id="a-ownership">—</span></div>
+          <div class="result-row"><span class="result-label">Effective entry valuation (pre-money)</span><span class="result-value" id="a-effective">—</span></div>
+          <div class="result-row" id="a-disc-row" style="display:none"><span class="result-label">Discount price / share</span><span class="result-value" id="a-discount-price">—</span></div>
+        </div>
+      </div>
+      <div class="stat-blocks" id="asa-stats" style="display:none">
+        <div class="stat-block"><div class="sl">Ownership %</div><div class="sv" id="a-stat-own">—</div><div class="sh" id="a-stat-own-note">post-conversion</div></div>
+        <div class="stat-block"><div class="sl">Shares issued</div><div class="sv" id="a-stat-shares">—</div><div class="sh" id="a-stat-shares-note">—</div></div>
+      </div>
+      <div class="insight-box" id="asa-insights" style="display:none">
+        <div class="il">Insight</div>
+        <div id="asa-insights-body"></div>
+      </div>
+    </div>
   </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════
+     TAB 4 — BSA AIR (France)
+     ════════════════════════════════════════════════════════════ -->
+<div class="calc-section" id="tab-bsa">
+  <div class="section-heading">
+    <h2>BSA Air Calculator <em>— French standard</em></h2>
+    <p>
+      In France, the standard early-stage instrument is the <strong>BSA Air (Bon de Souscription d'Actions — Accord d'Investissement Rapide)</strong>.<br>
+      Like the UK ASA, it converts at a <strong>pre-money valuation cap</strong>. A discount can be applied to the qualifying round price. No interest, no maturity date.
+    </p>
+  </div>
+  <div class="calc-grid">
+    <div class="calc-card">
+      <div class="card-header">
+        <div class="card-icon" style="background:#dc2626">🇫🇷</div>
+        <div><div class="card-title">BSA Air Inputs</div><div class="card-sub">Converts at pre-money valuation cap</div></div>
+      </div>
+      <div class="field"><label>Investment amount (€ or $)</label><input type="text" id="b-inv" placeholder="e.g. 200,000" oninput="calcBsa()"/></div>
+      <div class="field"><label>Valuation cap (pre-money)</label><input type="text" id="b-cap" placeholder="e.g. 4,000,000" oninput="calcBsa()"/></div>
+      <div class="field"><label>Discount (% off round price — optional)</label><input type="text" id="b-disc" placeholder="e.g. 20 (leave blank if none)" oninput="calcBsa()"/></div>
+      <div class="field-divider"></div>
+      <div class="section-label" style="margin-bottom:8px">Qualifying round details</div>
+      <div class="field"><label>Pre-money valuation at qualifying round</label><input type="text" id="b-pre" placeholder="e.g. 8,000,000" oninput="calcBsa()"/></div>
+      <div class="field"><label>Existing shares outstanding</label><input type="text" id="b-shares" placeholder="e.g. 1,000,000" oninput="calcBsa()"/></div>
+      <div class="note fr">
+        <strong>BSA Air key features:</strong><br>
+        • Converts at a <strong>pre-money cap</strong> (same as ASA, different to YC SAFE)<br>
+        • A French SAS or SA legal structure is typically required<br>
+        • No interest accrual, no maturity date<br>
+        • BSA Air can qualify for preferential French tax treatment (under certain conditions)<br>
+        • The discount is applied to the share price at the qualifying round
+      </div>
+    </div>
+    <div>
+      <div class="results-card">
+        <div class="results-empty" id="bsa-empty"><div class="big">🇫🇷</div><div class="msg">Fill in the inputs to model BSA Air conversion</div></div>
+        <div id="bsa-output" style="display:none">
+          <div class="result-section-label">Conversion summary</div>
+          <div class="result-row"><span class="result-label">Conversion method</span><span class="result-value" id="b-method">—</span></div>
+          <div class="result-row"><span class="result-label">Conversion price / share</span><span class="result-value" id="b-price">—</span></div>
+          <div class="result-row"><span class="result-label">Shares issued</span><span class="result-value" id="b-issued">—</span></div>
+          <div class="result-row"><span class="result-label">Post-conversion total shares</span><span class="result-value" id="b-post-shares">—</span></div>
+          <div class="result-row"><span class="result-label">Investor ownership post-conversion</span><span class="result-value" id="b-ownership">—</span></div>
+          <div class="result-row"><span class="result-label">Effective entry valuation (pre-money)</span><span class="result-value" id="b-effective">—</span></div>
+          <div class="result-row" id="b-disc-row" style="display:none"><span class="result-label">Discount price / share</span><span class="result-value" id="b-discount-price">—</span></div>
+        </div>
+      </div>
+      <div class="stat-blocks" id="bsa-stats" style="display:none">
+        <div class="stat-block"><div class="sl">Ownership %</div><div class="sv" id="b-stat-own">—</div><div class="sh" id="b-stat-own-note">post-conversion</div></div>
+        <div class="stat-block"><div class="sl">Shares issued</div><div class="sv" id="b-stat-shares">—</div><div class="sh" id="b-stat-shares-note">—</div></div>
+      </div>
+      <div class="insight-box" id="bsa-insights" style="display:none">
+        <div class="il">Insight</div>
+        <div id="bsa-insights-body"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- UPGRADE STRIP -->
+<div class="upgrade-strip">
+  <div class="us-left">
+    <div class="ut">Want 15 more tools like these?</div>
+    <div class="us">Investor match engine, deal readiness score, term sheet decoder, cap table modeler, runway planner — and more.</div>
+    <div class="us-tools">
+      <span class="us-chip">Investor Match</span>
+      <span class="us-chip">Deal Readiness Score</span>
+      <span class="us-chip">Term Sheet Decoder</span>
+      <span class="us-chip">Cap Table</span>
+      <span class="us-chip">Runway Planner</span>
+      <span class="us-chip">+ 10 more</span>
+    </div>
+  </div>
+  <a href="https://app.yorkseed.co/pricing" class="us-btn">Apply for access →</a>
 </div>
 
 <!-- FAQ -->
-<section style="max-width:960px;margin:0 auto;padding:0 6vw 80px">
-  <div class="kicker" style="justify-content:flex-start;margin-bottom:16px">FAQ</div>
-  <h2 style="font-family:var(--serif);font-size:clamp(22px,3vw,34px);font-weight:300;line-height:1.15;letter-spacing:-.02em;margin-bottom:36px">SAFE notes & convertible notes<br/><em style="font-style:italic">explained simply</em></h2>
+<div class="faq-wrap">
+  <div style="font-family:var(--mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:14px;display:flex;align-items:center;gap:10px;">
+    <span style="width:14px;height:1px;background:var(--red);display:block;opacity:.5"></span>FAQ<span style="width:14px;height:1px;background:var(--red);display:block;opacity:.5"></span>
+  </div>
+  <h2 style="font-family:var(--serif);font-size:clamp(20px,3vw,32px);font-weight:300;margin-bottom:28px;letter-spacing:-.015em;">Instruments explained<br><em style="font-style:italic;color:var(--ink3)">simply</em></h2>
   <div style="border:1px solid var(--border);border-radius:10px;overflow:hidden">
     <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">What is a post-money SAFE and how is it different from pre-money?</div>
-      <div class="faq-a">A <strong>post-money SAFE</strong> (YC standard since 2018) locks the investor's ownership % at signing: Ownership = Investment ÷ Post-money cap. $1M on a $10M cap = exactly 10%. A <strong>pre-money SAFE</strong> calculates ownership at conversion based on share count, typically yielding slightly less (e.g. 9.09% on the same numbers). Post-money SAFEs now represent ~85% of all SAFEs signed globally per Carta 2024 data.</div>
+      <div class="faq-q">What is the difference between a post-money SAFE and a pre-money SAFE?</div>
+      <div class="faq-a">A <strong>post-money SAFE</strong> (YC standard since 2018) locks the investor's ownership at signing: Ownership % = Investment ÷ Cap. A $1M investment on a $10M cap guarantees exactly 10%, regardless of share count. A <strong>pre-money SAFE</strong> (older format) calculates ownership at conversion using existing shares — the investor typically ends up with slightly less than expected (e.g. 9.09% instead of 10%). Post-money is more transparent and is now the global standard for SAFEs.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">What does "20% discount" mean — is it different to "discount rate"?</div>
+      <div class="faq-a">Yes — and this trips everyone up. A <strong>"20% discount"</strong> means the investor pays 20% less than the round price (they pay 80% of the round price per share). YC uses the term <strong>"discount rate"</strong> to mean 80% — because that is the rate at which conversion happens. This calculator uses the more intuitive plain-English version: just enter 20 if the investor gets 20% off.</div>
     </div>
     <div class="faq-item" onclick="toggleFaq(this)">
       <div class="faq-q">What happens if the next round valuation is below the SAFE cap?</div>
-      <div class="faq-a">This is the edge case most calculators miss. If the round valuation is below (or equal to) the cap, the cap no longer helps — the investor converts at the lower <em>round price</em>. This means they get <em>more shares</em> than the cap-implied ownership % — because their fixed investment converts at a cheaper price. For example: $1M on a $10M cap (10% locked). But if the round comes in at $6M pre-money, the investor converts at the round price and ends up owning more than 10%.</div>
+      <div class="faq-a">If the qualifying round's pre-money valuation is <em>below</em> the cap, the SAFE converts at the round price (not the cap price). This means the investor gets a larger ownership % than the headline cap implied — because they're converting at a lower price. This is the correct behaviour for post-money SAFEs and is important for founders raising multiple SAFEs to model carefully.</div>
     </div>
     <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">Why does stacking multiple SAFEs get complicated?</div>
-      <div class="faq-a">When multiple SAFEs convert simultaneously, each one's share issuance dilutes the others and the founders. A SAFE at a lower cap converts at a lower price (more shares), which reduces everyone else's percentage. The total dilution from stacked SAFEs is always higher than the simple sum of their cap ownership percentages. Use the Multi-SAFE Stack tab above to model this accurately.</div>
+      <div class="faq-q">What is an ASA or SeedFAST and why is it used in the UK instead of a SAFE?</div>
+      <div class="faq-a">UK companies cannot easily issue SAFEs because the SAFE structure is optimised for US Delaware C-Corps. UK founders use <strong>Advance Subscription Agreements (ASA)</strong> or <strong>SeedFASTs</strong> instead — both are legally similar to SAFEs but adapted for UK company law. A key difference is that ASAs/SeedFASTs convert at a <strong>pre-money valuation cap</strong>, not post-money. They are also commonly structured to be SEIS/EIS compatible, which gives investors significant UK tax reliefs.</div>
     </div>
     <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">What is the difference between a SAFE note and a convertible note?</div>
-      <div class="faq-a">(1) Convertible notes accrue interest; SAFEs do not. (2) Convertible notes have a maturity date; SAFEs do not. (3) Convertible notes are technically debt; SAFEs are not. Both can include a valuation cap and discount rate. Convertible notes result in more shares for investors due to accrued interest.</div>
+      <div class="faq-q">What is a BSA Air and how does it work in France?</div>
+      <div class="faq-a">A <strong>BSA Air (Bon de Souscription d'Actions — Accord d'Investissement Rapide)</strong> is the French equivalent of the SAFE/ASA. It is issued by French SAS or SA companies and gives investors the right to subscribe to shares at a future qualifying round. Like the ASA, it converts at a <strong>pre-money valuation cap</strong>. A discount can be negotiated. No interest accrues and there is no maturity date. Under certain conditions it can qualify for preferential French tax treatment.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Should I use simple or compound interest for a convertible note?</div>
+      <div class="faq-a"><strong>Simple interest</strong> is far more common for convertible notes and is the default assumption unless your term sheet explicitly states otherwise. Simple interest = Principal × Rate × Years. <strong>Compound interest</strong> accrues interest on top of previously accrued interest — it results in more shares being issued to the investor and is generally more investor-friendly. Always check your note terms and clarify with your lawyer.</div>
     </div>
     <div class="faq-item" onclick="toggleFaq(this)">
       <div class="faq-q">What is an MFN clause?</div>
-      <div class="faq-a">MFN (Most Favoured Nation) means if the company later issues a SAFE on better terms, the original investor automatically receives those better terms. It is founder-unfriendly. Per Carta 2024 data, MFN clauses appear primarily in institutional side letters (funds), not from angels.</div>
-    </div>
-    <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">What happens to a convertible note at maturity?</div>
-      <div class="faq-a">If no qualifying priced round occurs by maturity: (1) investor demands repayment of principal + interest; (2) note auto-converts at cap/discount; or (3) both parties agree to extend. Always clarify this in the term sheet. Build your fundraising timeline around the maturity date.</div>
+      <div class="faq-a">MFN stands for Most Favoured Nation. An MFN clause means that if you later issue another SAFE (or ASA/BSA Air) on better terms, the original investor automatically receives those better terms retroactively. It is considered founder-unfriendly because it creates uncertainty about the economics of future fundraises. Negotiate it out if you can — particularly if you plan to raise from multiple angels before a priced round.</div>
     </div>
   </div>
-</section>
+</div>
 
-<footer style="background:var(--ink2);padding:28px 6vw 20px">
-  <div style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px 14px">
-    <a href="https://app.yorkseed.co/login" style="font-size:11px;color:rgba(255,255,255,.45)">Platform</a><span style="color:rgba(255,255,255,.15)"> · </span>
-    <a href="/tools.html" style="font-size:11px;color:rgba(255,255,255,.45)">Free Tools</a><span style="color:rgba(255,255,255,.15)"> · </span>
-    <a href="/events.html" style="font-size:11px;color:rgba(255,255,255,.45)">Events</a><span style="color:rgba(255,255,255,.15)"> · </span>
-    <a href="/contact.html" style="font-size:11px;color:rgba(255,255,255,.45)">Contact</a><span style="color:rgba(255,255,255,.15)"> · </span>
-    <a href="https://x.com/yorkseed" style="font-size:11px;color:rgba(255,255,255,.45)">Twitter</a><span style="color:rgba(255,255,255,.15)"> · </span>
-    <a href="https://linkedin.com/company/yorkseed" style="font-size:11px;color:rgba(255,255,255,.45)">LinkedIn</a>
+<!-- FOOTER -->
+<footer>
+  <div style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:5px 12px">
+    <a href="https://app.yorkseed.co/login" style="font-size:11px;color:rgba(255,255,255,.4)">Platform</a><span style="color:rgba(255,255,255,.15);font-size:10px">·</span>
+    <a href="/tools.html" style="font-size:11px;color:rgba(255,255,255,.4)">Free Tools</a><span style="color:rgba(255,255,255,.15);font-size:10px">·</span>
+    <a href="/hubs.html" style="font-size:11px;color:rgba(255,255,255,.4)">Global Hubs</a><span style="color:rgba(255,255,255,.15);font-size:10px">·</span>
+    <a href="/events.html" style="font-size:11px;color:rgba(255,255,255,.4)">Events</a><span style="color:rgba(255,255,255,.15);font-size:10px">·</span>
+    <a href="/contact.html" style="font-size:11px;color:rgba(255,255,255,.4)">Contact</a><span style="color:rgba(255,255,255,.15);font-size:10px">·</span>
+    <a href="https://x.com/yorkseed" style="font-size:11px;color:rgba(255,255,255,.4)">Twitter</a><span style="color:rgba(255,255,255,.15);font-size:10px">·</span>
+    <a href="https://linkedin.com/company/yorkseed" style="font-size:11px;color:rgba(255,255,255,.4)">LinkedIn</a>
   </div>
-  <div style="text-align:center;margin-top:14px;font-family:var(--mono);font-size:9px;color:rgba(255,255,255,.25);letter-spacing:.06em;text-transform:uppercase">© 2026 Yorkseed™ · The Venture Infrastructure Platform · All rights reserved</div>
+  <div style="text-align:center;margin-top:12px;font-family:var(--mono);font-size:9px;color:rgba(255,255,255,.2);letter-spacing:.06em;text-transform:uppercase">© 2026 Yorkseed™ · The Venture Infrastructure Platform · All rights reserved</div>
 </footer>
 
+<!-- MOBILE NAV -->
 <nav class="m-tab-bar">
   <div class="m-tab-bar-inner">
-    <a href="/" class="m-tab"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/></svg><span>Home</span></a>
-    <a href="/events.html" class="m-tab"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>Events</span></a>
-    <a href="/hubs.html" class="m-tab"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg><span>Hubs</span></a>
+    <a href="/" class="m-tab"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/></svg><span>Home</span></a>
+    <a href="/events.html" class="m-tab"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>Events</span></a>
+    <a href="/hubs.html" class="m-tab"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg><span>Hubs</span></a>
     <div class="m-tab-join"><a href="https://app.yorkseed.co/pricing">Join →</a></div>
-    <a href="/tools.html" class="m-tab active"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></svg><span>Tools</span></a>
-    <a href="/contact.html" class="m-tab"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1.2" fill="currentColor"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/><circle cx="12" cy="19" r="1.2" fill="currentColor"/></svg><span>More</span></a>
+    <a href="/tools.html" class="m-tab active"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></svg><span>Tools</span></a>
+    <a href="/contact.html" class="m-tab"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1.2" fill="currentColor"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/><circle cx="12" cy="19" r="1.2" fill="currentColor"/></svg><span>More</span></a>
   </div>
 </nav>
 
 <script>
-// ══ UTILITIES ════════════════════════════════════════════════════
-function n(id){ var el=document.getElementById(id); return el?Number(el.value.replace(/[,$%\s]/g,''))||0:0 }
-function nv(v){ return Number(String(v||'').replace(/[,$%\s]/g,''))||0 }
-function fmtD(v,dec){ if(v===null||v===undefined||!isFinite(v))return'—'; return new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',minimumFractionDigits:dec===undefined?0:dec,maximumFractionDigits:dec===undefined?0:dec}).format(v); }
-function fmtP(v){ return(v===null||!isFinite(v))?'—':v.toFixed(2)+'%' }
-function fmtN(v){ return(!v||!isFinite(v))?'—':Math.round(v).toLocaleString() }
-function set(id,val,cls){ var el=document.getElementById(id);if(!el)return;el.textContent=val;el.className='result-value'+(cls?' '+cls:''); }
-function toggleFaq(el){ el.classList.toggle('open') }
-function toggleDrawer(){
-  var h=document.getElementById('hamBtn'),d=document.getElementById('navDrawer');
-  h.classList.toggle('open');d.classList.toggle('open');
-  document.body.style.overflow=d.classList.contains('open')?'hidden':'';
-}
+// ── Helpers ───────────────────────────────────────────────────────────────────
+function n(id){return Number((document.getElementById(id)||{value:''}).value.replace(/[,$€£%\s]/g,''))||0}
+function fmtD(v,dec){if(!v||!isFinite(v))return'—';return new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',minimumFractionDigits:dec==null?0:dec,maximumFractionDigits:dec==null?2:dec}).format(v)}
+function fmtP(v){if(v==null||!isFinite(v))return'—';return v.toFixed(2)+'%'}
+function fmtN(v){if(!v||!isFinite(v))return'—';return Math.round(v).toLocaleString()}
+function set(id,val,cls){var el=document.getElementById(id);if(!el)return;el.textContent=val;el.className='result-value'+(cls?' '+cls:'')}
+function show(id,on){var el=document.getElementById(id);if(el)el.style.display=on?'block':'none'}
+function showGrid(id,on){var el=document.getElementById(id);if(el)el.style.display=on?'grid':'none'}
+function toggleFaq(el){el.classList.toggle('open')}
+function toggleDrawer(){var h=document.getElementById('hamBtn'),d=document.getElementById('navDrawer');h.classList.toggle('open');d.classList.toggle('open');document.body.style.overflow=d.classList.contains('open')?'hidden':''}
 function switchTab(id,btn){
   document.querySelectorAll('.calc-section').forEach(function(s){s.classList.remove('active')});
   document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active')});
@@ -470,279 +606,287 @@ function switchTab(id,btn){
   btn.classList.add('active');
 }
 
-// ══ SINGLE SAFE ════════════════════════════════════════════════
+// ══════════════════════════════════════════════════════════════════════════════
+// TAB 1 — SAFE (Post-money YC standard)
 //
-// Post-money SAFE — YC standard
-//
-// At signing: capOwnership% = investment / postMoneyValuationCap  [locked]
-//
-// At conversion:
-//   roundPrice    = preMoney / existingShares
-//   capPrice      = (postMoneyValuationCap - investment) / existingShares
-//                   [price that gives investor exactly capOwnership%]
-//
-//   Scenario A — round > cap:  convPrice = capPrice
-//   Scenario B — round ≤ cap:  convPrice = roundPrice  (investor gets MORE than cap%)
-//   If discount set:            discPrice = roundPrice * (1 - disc%)
-//                               convPrice = min(applicable, discPrice)
-//
-//   sharesIssued = investment / convPrice
-//   actualOwn%   = sharesIssued / (existingShares + sharesIssued)
-//
+// Core logic:
+//   capOwnership  = inv / cap                      (e.g. 0.10 = 10%)
+//   Scenario A — round valuation >= cap:
+//     sharesIssued = capOwnership × existingShares / (1 - capOwnership)
+//     price        = inv / sharesIssued
+//   Scenario B — round valuation < cap (converts at round price):
+//     roundPrice   = preMoney / existingShares
+//     sharesIssued = inv / roundPrice
+//   Discount route: discPrice = roundPrice × (1 - disc/100)
+//     give investor whichever of [capPrice, discPrice] is LOWER (more shares)
+// ══════════════════════════════════════════════════════════════════════════════
 function calcSafe(){
-  var mfn = document.getElementById('s-mfn').value;
-  document.getElementById('s-mfn-note').style.display = mfn==='yes'?'block':'none';
+  var mfn=document.getElementById('s-mfn').value;
+  show('s-mfn-note', mfn==='yes');
 
-  var inv    = n('s-inv');
-  var capV   = n('s-cap');
-  var disc   = n('s-disc');
-  var pre    = n('s-pre');
-  var shares = n('s-shares');
+  var inv=n('s-inv'), cap=n('s-cap'), disc=n('s-disc'), pre=n('s-pre'), shares=n('s-shares');
 
-  var empty=document.getElementById('safe-empty'), output=document.getElementById('safe-output');
-  var stats=document.getElementById('safe-stats'), insights=document.getElementById('safe-insights');
+  if(!inv||!cap){
+    show('safe-empty',true);show('safe-output',false);showGrid('safe-stats',false);show('safe-insights',false);
+    return;
+  }
 
-  if(!inv||!capV){ empty.style.display='flex';output.style.display='none';stats.style.display='none';insights.style.display='none';return; }
+  // Cap ownership % (locked at signing)
+  var capOwn = inv/cap;           // e.g. 0.10
+  var capOwnPct = capOwn*100;     // e.g. 10.00
 
-  var capOwnershipPct = (inv/capV)*100;
-  var hasRound = pre>0 && shares>0;
-  var scenario='', convPrice=0, sharesIssued=0, actualOwnPct=0, postShares=0, discPrice=0;
+  // Determine scenario
+  var scenario='', method='', finalShares=null, finalPrice=null, totalPost=0, actualOwnPct=capOwnPct;
 
-  if(hasRound){
-    var roundPrice   = pre/shares;
-    var capPrice     = (capV-inv)/shares;  // price giving investor exactly capOwnership%
-    var discPrice2   = disc>0 ? roundPrice*(1-disc/100) : 0;
+  var hasRoundData = pre>0 && shares>0;
+  var roundPrice   = hasRoundData ? pre/shares : 0;
 
-    var applicablePrice, aboveCap;
-    if(roundPrice>capPrice && capPrice>0){
-      applicablePrice=capPrice; aboveCap=true;
-      scenario='Round above cap → cap price applies';
+  // Cap-implied price (needs share count)
+  var capImpliedPrice=0, capShares=0;
+  if(shares>0){
+    totalPost     = shares/(1-capOwn);
+    capShares     = totalPost - shares;
+    capImpliedPrice = inv/capShares;
+  }
+
+  // Discount price
+  var discPrice=0, discShares=0;
+  if(disc>0 && roundPrice>0){
+    discPrice  = roundPrice*(1-disc/100);
+    discShares = inv/discPrice;
+  }
+
+  if(hasRoundData){
+    if(pre >= cap){
+      // Round valuation >= cap → cap route (or discount if better)
+      scenario = 'Round valuation ≥ cap → cap price applies';
+      if(discShares>0 && discShares>capShares){
+        finalShares=discShares; finalPrice=discPrice; method=disc+'% discount (lower price)';
+      } else {
+        finalShares=capShares; finalPrice=capImpliedPrice; method='Valuation cap';
+      }
+      totalPost = shares + finalShares;
+      actualOwnPct = (finalShares/totalPost)*100;
     } else {
-      applicablePrice=roundPrice; aboveCap=false;
-      scenario='Round at/below cap → round price applies (investor gets >'+ fmtP(capOwnershipPct)+')';
+      // Round valuation < cap → converts at round price (investor gets more than cap %)
+      scenario = 'Round valuation < cap → converts at round price (investor gets more than '+ fmtP(capOwnPct)+')';
+      if(discPrice>0 && discPrice<roundPrice){
+        finalShares=discShares; finalPrice=discPrice; method=disc+'% discount (below round price)';
+      } else {
+        finalShares=inv/roundPrice; finalPrice=roundPrice; method='Round price (below cap)';
+      }
+      totalPost = shares + finalShares;
+      actualOwnPct = (finalShares/totalPost)*100;
     }
-
-    discPrice = discPrice2;
-    if(discPrice2>0 && discPrice2<applicablePrice){
-      convPrice=discPrice2;
-      scenario+=' · Discount wins';
-    } else {
-      convPrice=applicablePrice;
-      if(discPrice2>0) scenario+=' · Cap/round wins over discount';
-    }
-
-    sharesIssued = inv/convPrice;
-    postShares   = shares+sharesIssued;
-    actualOwnPct = (sharesIssued/postShares)*100;
+  } else if(shares>0){
+    // Have shares but no round valuation
+    scenario = 'No round valuation entered — showing cap route only';
+    finalShares=capShares; finalPrice=capImpliedPrice; method='Valuation cap';
+    totalPost=shares+finalShares;
+    actualOwnPct=(finalShares/totalPost)*100;
+  } else {
+    // Only cap — show ownership % only
+    scenario = 'Enter share count for full detail';
+    method='Valuation cap (post-money)';
   }
 
-  empty.style.display='none'; output.style.display='block'; stats.style.display='grid';
-  document.getElementById('s-round-section').style.display=hasRound?'':'none';
+  show('safe-empty',false);show('safe-output',true);showGrid('safe-stats',true);
 
-  set('s-cap-own', fmtP(capOwnershipPct), capOwnershipPct>25?'amber':'green');
+  set('s-ownership-locked', fmtP(capOwnPct), capOwnPct>25?'amber':'green');
+  set('s-scenario', scenario);
+  set('s-method', method);
+  set('s-price', finalPrice?fmtD(finalPrice,4):'Enter share count above');
+  set('s-issued', finalShares?fmtN(finalShares):'Enter share count above');
+  set('s-post-shares', totalPost>0?fmtN(totalPost):'—');
+  set('s-ownership', fmtP(actualOwnPct), actualOwnPct>25?'amber':'green');
 
-  if(hasRound){
-    set('s-scenario', scenario);
-    set('s-price', fmtD(convPrice,4));
-    set('s-issued', fmtN(sharesIssued));
-    set('s-post-shares', fmtN(postShares));
-    set('s-actual-own', fmtP(actualOwnPct), actualOwnPct>25?'amber':'green');
-    if(disc>0&&discPrice>0){ document.getElementById('s-disc-row').style.display=''; set('s-disc-price',fmtD(discPrice,4)); }
-    else{ document.getElementById('s-disc-row').style.display='none'; }
-  }
+  if(disc>0&&discPrice>0){
+    show('s-disc-row',true);
+    set('s-discount-price',fmtD(discPrice,4));
+  } else { show('s-disc-row',false); }
 
-  document.getElementById('s-stat-own').textContent    = fmtP(capOwnershipPct);
-  document.getElementById('s-stat-actual').textContent = hasRound?fmtP(actualOwnPct):'—';
-  var noteText='—', actualEl=document.getElementById('s-stat-actual');
-  if(hasRound){
-    if(actualOwnPct>capOwnershipPct+0.01){ noteText='More than cap% — round below cap'; actualEl.style.color='var(--amber)'; }
-    else { noteText='Matches cap% as expected'; actualEl.style.color='var(--green)'; }
-  }
-  document.getElementById('s-stat-note').textContent=noteText;
+  document.getElementById('s-stat-own').textContent=fmtP(capOwnPct);
+  document.getElementById('s-stat-shares').textContent=finalShares?fmtN(finalShares):'—';
+  document.getElementById('s-stat-shares-note').textContent=totalPost>0?'of '+fmtN(totalPost)+' total':'—';
 
   var body='';
-  body+='<div class="insight-row"><div class="insight-dot"></div><div>Ownership locked at signing: <strong>'+fmtP(capOwnershipPct)+'</strong></div></div>';
-  if(hasRound){
-    var roundPrice3=pre/shares, capPrice3=(capV-inv)/shares;
-    if(roundPrice3<=capPrice3){
-      body+='<div class="insight-row"><div class="insight-dot warn"></div><div>⚠ Round valuation is below the cap — investor converts at round price and gets <strong>'+fmtP(actualOwnPct-capOwnershipPct)+' more</strong> than their locked ownership.</div></div>';
-    } else {
-      var saving=((roundPrice3-capPrice3)/roundPrice3*100);
-      body+='<div class="insight-row"><div class="insight-dot"></div><div>Round above cap — investor gets a <strong>'+saving.toFixed(1)+'% better price</strong> than new round investors.</div></div>';
-    }
+  body+='<div class="insight-row"><div class="dot"></div><div>Ownership locked at signing: <strong>'+fmtP(capOwnPct)+'</strong> based on post-money cap.</div></div>';
+  if(hasRoundData && pre<cap){
+    body+='<div class="insight-row"><div class="dot warn"></div><div>Round valuation is <strong>below the cap</strong> — investor converts at the round price and receives <strong>more</strong> than '+fmtP(capOwnPct)+'.</div></div>';
   }
-  if(mfn==='yes') body+='<div class="insight-row"><div class="insight-dot danger"></div><div>MFN clause active — any future SAFE on better terms automatically upgrades this one.</div></div>';
+  if(hasRoundData && pre>cap){
+    var upPct=((pre-cap)/cap)*100;
+    body+='<div class="insight-row"><div class="dot"></div><div>Round valuation is <strong>'+upPct.toFixed(0)+'% above the cap</strong> — the cap is protecting the investor\'s upside.</div></div>';
+  }
+  if(capOwnPct>20) body+='<div class="insight-row"><div class="dot warn"></div><div>Ownership above 20% on a single SAFE is on the high side — consider how multiple SAFEs stack.</div></div>';
+  if(mfn==='yes') body+='<div class="insight-row"><div class="dot warn"></div><div>MFN clause active — future SAFEs on better terms will automatically apply to this investor.</div></div>';
 
-  if(body){ insights.style.display='block'; document.getElementById('safe-insights-body').innerHTML=body; }
-  else insights.style.display='none';
+  show('safe-insights',!!body);
+  if(body) document.getElementById('safe-insights-body').innerHTML=body;
 }
 
-// ══ MULTI-SAFE STACK ════════════════════════════════════════════
-var safeRowCount=0, MAX_SAFES=5;
-
-function addSafeRow(){
-  if(safeRowCount>=MAX_SAFES)return;
-  safeRowCount++;
-  var idx=safeRowCount;
-  var container=document.getElementById('safe-rows');
-  var row=document.createElement('div');
-  row.id='safe-row-'+idx;
-  row.style.cssText='background:var(--white);border:1px solid var(--border);border-radius:8px;padding:14px;margin-bottom:10px';
-  row.innerHTML=
-    '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">'+
-    '<span style="font-family:var(--mono);font-size:10px;color:var(--ink4);text-transform:uppercase;letter-spacing:.1em">SAFE '+idx+'</span>'+
-    '<button class="remove-btn" onclick="removeSafeRow('+idx+')">✕</button>'+
-    '</div>'+
-    '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">'+
-    '<div class="field"><label>Investment ($)</label><input type="text" id="m-inv-'+idx+'" placeholder="e.g. 500,000" oninput="calcMulti()"/></div>'+
-    '<div class="field"><label>Post-money cap ($)</label><input type="text" id="m-cap-'+idx+'" placeholder="e.g. 8,000,000" oninput="calcMulti()"/></div>'+
-    '</div>';
-  container.appendChild(row);
-  if(safeRowCount>=MAX_SAFES)document.getElementById('add-btn').style.display='none';
-  calcMulti();
-}
-
-function removeSafeRow(idx){
-  var row=document.getElementById('safe-row-'+idx);
-  if(row)row.remove();
-  document.getElementById('add-btn').style.display='';
-  if(safeRowCount>=MAX_SAFES)safeRowCount--;
-  calcMulti();
-}
-
-function calcMulti(){
-  var pre=n('m-pre'), shares=n('m-shares'), raise=n('m-raise');
-  var empty=document.getElementById('multi-empty'), output=document.getElementById('multi-output');
-  var insights=document.getElementById('multi-insights');
-
-  var safes=[];
-  for(var i=1;i<=MAX_SAFES;i++){
-    var invEl=document.getElementById('m-inv-'+i), capEl=document.getElementById('m-cap-'+i);
-    if(!invEl||!capEl)continue;
-    var inv2=nv(invEl.value), cap2=nv(capEl.value);
-    if(inv2>0&&cap2>0)safes.push({inv:inv2,cap:cap2,idx:i});
-  }
-
-  if(safes.length===0||!pre||!shares){ empty.style.display='flex';output.style.display='none';insights.style.display='none';return; }
-
-  var roundPrice=pre/shares;
-  var totalSafeShares=0, rows=[], totalInv=0;
-
-  for(var j=0;j<safes.length;j++){
-    var s=safes[j];
-    var capOwn=(s.inv/s.cap)*100;
-    var capPrice=(s.cap-s.inv)/shares;
-    var belowCap=roundPrice<=capPrice;
-    var convPrice2=belowCap?roundPrice:capPrice;
-    var si=s.inv/convPrice2;
-    totalSafeShares+=si; totalInv+=s.inv;
-    rows.push({idx:s.idx,inv:s.inv,cap:s.cap,capOwn:capOwn,convPrice:convPrice2,sharesIssued:si,belowCap:belowCap});
-  }
-
-  var roundSharesIssued=raise>0?raise/roundPrice:0;
-  var totalShares=shares+totalSafeShares+roundSharesIssued;
-  var founderOwn=(shares/totalShares)*100;
-  var allSafeOwn=(totalSafeShares/totalShares)*100;
-  var roundOwn=raise>0?(roundSharesIssued/totalShares)*100:0;
-
-  var tbody=document.getElementById('stack-tbody');
-  tbody.innerHTML='';
-  for(var k=0;k<rows.length;k++){
-    var r=rows[k];
-    var actualPct=(r.sharesIssued/totalShares)*100;
-    var tr=document.createElement('tr');
-    if(r.belowCap)tr.className='below-cap';
-    tr.innerHTML=
-      '<td>SAFE '+r.idx+'<br><span style="font-size:10px;color:'+(r.belowCap?'var(--amber)':'var(--green)')+'">'+(r.belowCap?'⚠ Round below cap':'Cap applies')+'</span></td>'+
-      '<td>'+fmtD(r.inv)+'</td>'+
-      '<td>'+fmtP(r.capOwn)+'</td>'+
-      '<td>'+fmtD(r.convPrice,4)+'</td>'+
-      '<td>'+fmtN(r.sharesIssued)+'</td>'+
-      '<td><strong>'+fmtP(actualPct)+'</strong></td>';
-    tbody.appendChild(tr);
-  }
-
-  empty.style.display='none'; output.style.display='block';
-  set('m-total-inv',fmtD(totalInv));
-  set('m-round-inv',raise>0?fmtD(raise):'—');
-  set('m-safe-shares',fmtN(totalSafeShares));
-  set('m-round-shares',raise>0?fmtN(roundSharesIssued):'—');
-  set('m-total-shares',fmtN(totalShares));
-  set('m-founder-own',fmtP(founderOwn),founderOwn<50?'amber':'');
-  set('m-all-safe-own',fmtP(allSafeOwn));
-  set('m-round-own',raise>0?fmtP(roundOwn):'—');
-
-  var insBody='';
-  insBody+='<div class="insight-row"><div class="insight-dot"></div><div>Combined SAFE dilution: <strong>'+fmtP(allSafeOwn)+'</strong> of the post-round cap table</div></div>';
-  var sumCaps=rows.reduce(function(a,r){return a+r.capOwn},0);
-  insBody+='<div class="insight-row"><div class="insight-dot"></div><div>Sum of cap ownership %s = <strong>'+fmtP(sumCaps)+'</strong> vs actual combined = <strong>'+fmtP(allSafeOwn)+'</strong> — the difference is the stacking effect</div></div>';
-  var belowCapCount=rows.filter(function(r){return r.belowCap}).length;
-  if(belowCapCount>0) insBody+='<div class="insight-row"><div class="insight-dot warn"></div><div>⚠ <strong>'+belowCapCount+' SAFE(s)</strong> converting at round price (round below their cap) — these investors got more than their cap-implied ownership</div></div>';
-  if(founderOwn<50) insBody+='<div class="insight-row"><div class="insight-dot warn"></div><div>Founder ownership falls below 50% post-round — consider implications for control and future rounds</div></div>';
-
-  insights.style.display='block'; document.getElementById('multi-insights-body').innerHTML=insBody;
-}
-
-// ══ CONVERTIBLE NOTE ════════════════════════════════════════════
+// ══════════════════════════════════════════════════════════════════════════════
+// TAB 2 — CONVERTIBLE NOTE
+// ══════════════════════════════════════════════════════════════════════════════
 function calcConv(){
   var action=document.getElementById('c-action').value;
-  document.getElementById('c-repay-note').style.display=action==='repay'?'block':'none';
+  var itype=document.getElementById('c-interest-type').value;
+  show('c-repay-note', action==='repay');
 
   var p=n('c-principal'), rate=n('c-rate'), capV=n('c-cap'), disc=n('c-disc'), pre=n('c-pre'), shares=n('c-shares');
-  var issueDate=document.getElementById('c-issue').value, maturityDate=document.getElementById('c-maturity').value;
+  var issueDate=document.getElementById('c-issue').value;
+  var matDate=document.getElementById('c-maturity').value;
 
-  var months=0, accruedInterest=0, totalOwed=p, matDate=null;
-  var today=new Date();
-
-  if(issueDate&&maturityDate){
-    var start=new Date(issueDate), end=new Date(maturityDate);
-    if(!isNaN(start.getTime())&&!isNaN(end.getTime())){
-      months=(end.getFullYear()-start.getFullYear())*12+(end.getMonth()-start.getMonth());
-      accruedInterest=p*(rate/100)*(months/12); totalOwed=p+accruedInterest; matDate=end;
+  var months=0, years=0, accruedInterest=0, totalOwed=p;
+  var matDateObj=null;
+  if(issueDate&&matDate){
+    var s=new Date(issueDate),e=new Date(matDate);
+    if(!isNaN(s)&&!isNaN(e)){
+      months=(e.getFullYear()-s.getFullYear())*12+(e.getMonth()-s.getMonth());
+      years=months/12;
+      matDateObj=e;
+      if(itype==='compound'){
+        accruedInterest = p*Math.pow(1+rate/100,years) - p;
+      } else {
+        accruedInterest = p*(rate/100)*years;
+      }
+      totalOwed=p+accruedInterest;
     }
-  } else if(rate>0&&p>0){ months=12; accruedInterest=p*(rate/100); totalOwed=p+accruedInterest; }
+  } else if(rate>0&&p>0){
+    months=12; years=1;
+    accruedInterest = itype==='compound' ? p*Math.pow(1+rate/100,1)-p : p*(rate/100);
+    totalOwed=p+accruedInterest;
+  }
 
-  var pricePerShare=(shares>0&&pre>0)?pre/shares:0;
+  var roundPrice=(shares>0&&pre>0)?pre/shares:0;
   var capPrice=(capV>0&&shares>0)?capV/shares:0;
-  var discountPrice=(pricePerShare>0&&disc>0)?pricePerShare*(1-disc/100):0;
+  var discountPrice=(roundPrice>0&&disc>0)?roundPrice*(1-disc/100):0;
 
-  var conversionPrice=0, method='';
-  if(capPrice>0&&discountPrice>0){ conversionPrice=Math.min(capPrice,discountPrice); method=capPrice<=discountPrice?'Valuation cap':disc+'% discount'; }
-  else if(capPrice>0){ conversionPrice=capPrice; method='Valuation cap'; }
-  else if(discountPrice>0){ conversionPrice=discountPrice; method=disc+'% discount'; }
-  else if(pricePerShare>0){ conversionPrice=pricePerShare; method='Converts at round price'; }
+  var convPrice=0, method='';
+  if(capPrice>0&&discountPrice>0){convPrice=Math.min(capPrice,discountPrice);method=capPrice<=discountPrice?'Valuation cap':disc+'% discount';}
+  else if(capPrice>0){convPrice=capPrice;method='Valuation cap';}
+  else if(discountPrice>0){convPrice=discountPrice;method=disc+'% discount';}
+  else if(roundPrice>0){convPrice=roundPrice;method='Round price (no cap/discount)';}
 
-  var sharesIssued=(conversionPrice>0&&totalOwed>0)?totalOwed/conversionPrice:0;
+  var sharesIssued=(convPrice>0&&totalOwed>0)?totalOwed/convPrice:0;
   var postShares=shares+sharesIssued;
-  var ownershipPct=(postShares>0)?(sharesIssued/postShares)*100:0;
-  var effectiveVal=(conversionPrice>0&&shares>0)?conversionPrice*shares:0;
-  var hasResult=p>0&&conversionPrice>0&&shares>0;
-  var monthsToMat=matDate?Math.round((matDate-today)/(1000*60*60*24*30)):null;
-  var isNear=monthsToMat!==null&&monthsToMat<=3;
+  var ownPct=postShares>0?(sharesIssued/postShares)*100:0;
+  var effectiveVal=(convPrice>0&&shares>0)?convPrice*shares:0;
+  var hasResult=p>0&&convPrice>0&&shares>0;
+  var today=new Date();
+  var mthsLeft=matDateObj?Math.round((matDateObj-today)/(1000*60*60*24*30)):null;
+  var nearMat=mthsLeft!==null&&mthsLeft<=3;
 
-  var empty=document.getElementById('conv-empty'), output=document.getElementById('conv-output');
-  var stats=document.getElementById('conv-stats'), matW=document.getElementById('conv-maturity-warn');
+  if(!hasResult){
+    show('conv-empty',true);show('conv-output',false);showGrid('conv-stats',false);show('conv-maturity-warn',false);
+    return;
+  }
+  show('conv-empty',false);show('conv-output',true);showGrid('conv-stats',true);
 
-  if(!hasResult){ empty.style.display='flex';output.style.display='none';stats.style.display='none';matW.style.display='none';return; }
+  set('c-r-principal',fmtD(p,0));
+  set('c-r-term',months>0?months+' months':'12 months (assumed)');
+  set('c-r-itype',itype==='compound'?'Compound (annual)':'Simple');
+  set('c-r-interest',fmtD(accruedInterest,0),accruedInterest>0?'amber':'');
+  set('c-r-total',fmtD(totalOwed,0));
+  set('c-method',method);
+  set('c-price',fmtD(convPrice,4));
+  set('c-issued',fmtN(sharesIssued));
+  set('c-ownership',fmtP(ownPct),ownPct>25?'amber':'green');
+  set('c-effective',fmtD(effectiveVal,0));
 
-  empty.style.display='none'; output.style.display='block'; stats.style.display='grid';
-  set('c-r-principal',fmtD(p)); set('c-r-term',months>0?months+' months':'12 months (assumed)');
-  set('c-r-interest',fmtD(accruedInterest)); set('c-r-total',fmtD(totalOwed));
-  set('c-method',method); set('c-price',fmtD(conversionPrice,4));
-  set('c-issued',fmtN(sharesIssued)); set('c-ownership',fmtP(ownershipPct),ownershipPct>25?'amber':'green');
-  set('c-effective',fmtD(effectiveVal));
+  document.getElementById('c-stat-own').textContent=fmtP(ownPct);
+  document.getElementById('c-stat-own-note').textContent=ownPct>20?'Above typical range':'Within normal range';
+  document.getElementById('c-stat-total').textContent=fmtD(totalOwed,0);
+  document.getElementById('c-stat-interest-note').textContent=accruedInterest>0?'Incl. '+fmtD(accruedInterest,0)+' interest':'No interest accrued';
 
-  document.getElementById('c-stat-own').textContent         =fmtP(ownershipPct);
-  document.getElementById('c-stat-own-note').textContent    =ownershipPct>20?'Above typical range':'Within normal range';
-  document.getElementById('c-stat-total').textContent       =fmtD(totalOwed);
-  document.getElementById('c-stat-interest-note').textContent=accruedInterest>0?'Incl. '+fmtD(accruedInterest)+' interest':'No interest accrued';
-
-  matW.style.display=isNear?'block':'none';
-  if(isNear)matW.textContent='⚠ This note matures in ~'+monthsToMat+' month'+(monthsToMat===1?'':'s')+'. Secure a round or extension before then.';
+  show('conv-maturity-warn',nearMat);
+  if(nearMat){document.getElementById('conv-maturity-warn').textContent='⚠ This note matures in ~'+mthsLeft+' month'+(mthsLeft===1?'':'s')+'. If no qualifying round occurs, the investor may demand repayment or force conversion.';}
 }
 
-// Init with 2 SAFE rows
-window.addEventListener('DOMContentLoaded',function(){ addSafeRow(); addSafeRow(); });
+// ══════════════════════════════════════════════════════════════════════════════
+// TAB 3 — ASA / SeedFAST (UK) — Pre-money cap
+// ══════════════════════════════════════════════════════════════════════════════
+function calcAsa(){
+  var inv=n('a-inv'), cap=n('a-cap'), disc=n('a-disc'), pre=n('a-pre'), shares=n('a-shares');
+
+  if(!inv||(!cap&&!pre&&!shares)){
+    show('asa-empty',true);show('asa-output',false);showGrid('asa-stats',false);show('asa-insights',false);
+    return;
+  }
+  preMoneyCalc('a',inv,cap,disc,pre,shares,'asa');
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+// TAB 4 — BSA Air (France) — Pre-money cap
+// ══════════════════════════════════════════════════════════════════════════════
+function calcBsa(){
+  var inv=n('b-inv'), cap=n('b-cap'), disc=n('b-disc'), pre=n('b-pre'), shares=n('b-shares');
+
+  if(!inv||(!cap&&!pre&&!shares)){
+    show('bsa-empty',true);show('bsa-output',false);showGrid('bsa-stats',false);show('bsa-insights',false);
+    return;
+  }
+  preMoneyCalc('b',inv,cap,disc,pre,shares,'bsa');
+}
+
+// Shared pre-money cap calculation (used by both ASA and BSA Air)
+function preMoneyCalc(prefix,inv,cap,disc,pre,shares,tab){
+  var roundPrice=(shares>0&&pre>0)?pre/shares:0;
+  var capPrice=(cap>0&&shares>0)?cap/shares:0;
+  var discPrice=(roundPrice>0&&disc>0)?roundPrice*(1-disc/100):0;
+
+  // Investor gets whichever gives MORE shares (LOWER price)
+  var convPrice=0, method='';
+  if(capPrice>0&&discPrice>0){
+    convPrice=Math.min(capPrice,discPrice);
+    method=capPrice<=discPrice?'Valuation cap (pre-money)':disc+'% discount';
+  } else if(capPrice>0){convPrice=capPrice;method='Valuation cap (pre-money)';}
+  else if(discPrice>0){convPrice=discPrice;method=disc+'% discount';}
+  else if(roundPrice>0){convPrice=roundPrice;method='Round price (no cap/discount)';}
+
+  var sharesIssued=(convPrice>0&&inv>0)?inv/convPrice:0;
+  var postShares=shares+sharesIssued;
+  var ownPct=postShares>0?(sharesIssued/postShares)*100:0;
+  var effectiveVal=(convPrice>0&&shares>0)?convPrice*shares:0;
+  var hasResult=inv>0&&convPrice>0&&shares>0;
+
+  if(!hasResult){
+    show(tab+'-empty',true);show(tab+'-output',false);showGrid(tab+'-stats',false);show(tab+'-insights',false);
+    return;
+  }
+  show(tab+'-empty',false);show(tab+'-output',true);showGrid(tab+'-stats',true);
+
+  set(prefix+'-method',method);
+  set(prefix+'-price',fmtD(convPrice,4));
+  set(prefix+'-issued',fmtN(sharesIssued));
+  set(prefix+'-post-shares',fmtN(postShares));
+  set(prefix+'-ownership',fmtP(ownPct),ownPct>25?'amber':'green');
+  set(prefix+'-effective',fmtD(effectiveVal,0));
+
+  if(discPrice>0){
+    show(prefix+'-disc-row',true);
+    set(prefix+'-discount-price',fmtD(discPrice,4));
+  } else { show(prefix+'-disc-row',false); }
+
+  document.getElementById(prefix+'-stat-own').textContent=fmtP(ownPct);
+  document.getElementById(prefix+'-stat-own-note').textContent=ownPct>20?'Above typical range':'Within normal range';
+  document.getElementById(prefix+'-stat-shares').textContent=fmtN(sharesIssued);
+  document.getElementById(prefix+'-stat-shares-note').textContent='of '+fmtN(postShares)+' total';
+
+  var body='';
+  body+='<div class="insight-row"><div class="dot"></div><div>Investor ownership: <strong>'+fmtP(ownPct)+'</strong> post-conversion.</div></div>';
+  if(cap>0&&pre>0&&pre>cap){
+    var uplift=((pre-cap)/cap)*100;
+    body+='<div class="insight-row"><div class="dot"></div><div>Round valuation is <strong>'+uplift.toFixed(0)+'% above the cap</strong> — the cap is protecting significant investor upside.</div></div>';
+  }
+  if(cap>0&&pre>0&&pre<cap){
+    body+='<div class="insight-row"><div class="dot warn"></div><div>Round valuation is <strong>below the cap</strong> — investor converts at round price, getting more shares than cap implied.</div></div>';
+  }
+  if(ownPct>20) body+='<div class="insight-row"><div class="dot warn"></div><div>Ownership above 20% is on the high side — model how multiple instruments stack before your qualifying round.</div></div>';
+
+  show(tab+'-insights',!!body);
+  if(body) document.getElementById(tab+'-insights-body').innerHTML=body;
+}
 </script>
 </body>
 </html>
