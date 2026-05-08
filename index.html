@@ -201,7 +201,7 @@ img{display:block;max-width:100%}
 .n-drawer-ctas{display:flex;flex-direction:column;gap:10px;margin-top:24px}
 .n-drawer-ctas .n-apply{text-align:center;display:block;padding:13px}
 .n-drawer-ctas .n-signin{text-align:center;display:block;padding:12px;border:1px solid var(--border2);border-radius:6px;color:var(--ink3)}
-@media(max-width:900px){.n-center{display:none}.n-right .n-signin{display:none}.n-ham{display:flex}}
+@media(max-width:900px){.site-nav{display:none}.n-center{display:none}.n-right .n-signin{display:none}.n-ham{display:flex}}
 @media(max-width:500px){.n-right .n-apply{display:none}}
 
 /* ─── HERO ─── */
@@ -555,14 +555,14 @@ footer{background:var(--ink2);padding:28px 6vw 20px;border-top:1px solid rgba(25
 .footer-copy{text-align:center;font-family:var(--mono);font-size:8.5px;color:rgba(255,255,255,.2);letter-spacing:.06em;text-transform:uppercase}
 
 /* ─── MOBILE TAB BAR ─── */
-.m-tab-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:400;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid var(--border);padding:0 0 env(safe-area-inset-bottom,0)}
+.m-tab-bar{display:none;position:fixed;top:0;left:0;right:0;z-index:400;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:env(safe-area-inset-top,0) 0 0}
 .m-tab-bar-inner{display:flex;align-items:stretch;height:56px}
 .m-tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-decoration:none;color:var(--ink4);font-family:var(--mono);font-size:8.5px;letter-spacing:.06em;text-transform:uppercase;-webkit-tap-highlight-color:transparent;padding:0 2px}
 .m-tab.active{color:var(--red)}
 .m-tab.active svg{stroke:var(--red)}
 .m-tab-join{flex:1;display:flex;align-items:center;justify-content:center;padding:0 6px}
 .m-tab-join a{background:var(--red);color:#fff;border-radius:6px;font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;padding:8px 14px;display:block}
-@media(max-width:900px){.m-tab-bar{display:block}body{padding-bottom:calc(56px + env(safe-area-inset-bottom,0))}}
+@media(max-width:900px){.m-tab-bar{display:block}body{padding-bottom:0;padding-top:calc(56px + env(safe-area-inset-top,0))}}
 
 /* ─── RESPONSIVE ─── */
 @media(max-width:860px){.eco-grid{grid-template-columns:repeat(2,1fr)}}
@@ -1071,7 +1071,7 @@ document.addEventListener('click',function(e){var d=document.getElementById('eco
 
 
 <!-- MOBILE BOTTOM TAB BAR -->
-<div id="moreMenu" style="display:none;position:fixed;bottom:calc(56px + env(safe-area-inset-bottom,0));left:0;right:0;z-index:399;background:rgba(255,255,255,.98);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid rgba(0,0,0,.07);padding:16px 5vw 20px">
+<div id="moreMenu" style="display:none;position:fixed;top:calc(56px + env(safe-area-inset-top,0));left:0;right:0;z-index:399;background:rgba(255,255,255,.98);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.07);padding:16px 5vw 20px">
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
     <a href="/about.html" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:#fafafa;border:1px solid rgba(0,0,0,.07);border-radius:8px;text-decoration:none;color:#111"><span style="font-size:18px">📖</span><span style="font-size:13px;font-weight:400">Our Story</span></a>
     <a href="/press.html" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:#fafafa;border:1px solid rgba(0,0,0,.07);border-radius:8px;text-decoration:none;color:#111"><span style="font-size:18px">📡</span><span style="font-size:13px;font-weight:400">Press</span></a>
