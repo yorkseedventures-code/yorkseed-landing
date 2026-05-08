@@ -468,6 +468,420 @@ img{display:block;max-width:100%}
 @media(max-width:900px){.statement-inner{grid-template-columns:1fr;gap:36px;padding-right:0}.statement-image{display:none}}
 @media(max-width:600px){.statement{padding:56px 5vw}}
 
+
+/* ─── WHY WE BUILT THIS ─── */
+.why{background:var(--ink);padding:96px 6vw;text-align:center;position:relative;overflow:hidden}
+.why::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px);background-size:52px 52px;pointer-events:none}
+.why-inner{position:relative;max-width:740px;margin:0 auto}
+.why-label{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:28px;display:flex;align-items:center;justify-content:center;gap:16px}
+.why-label-line{flex:0 0 24px;height:1px;background:rgba(255,255,255,.15)}
+.why-lede{font-family:var(--serif);font-size:clamp(20px,2.8vw,32px);font-weight:300;font-style:italic;line-height:1.6;color:rgba(255,255,255,.75);letter-spacing:-.01em;margin-bottom:28px}
+.why-rule{width:28px;height:1px;background:var(--gold);opacity:.35;margin:0 auto 28px}
+.why-body{font-size:15px;color:rgba(255,255,255,.45);line-height:1.9;font-weight:300;max-width:580px;margin:0 auto 32px}
+.why-body p+p{margin-top:16px}
+.why-closer{font-family:var(--serif);font-size:clamp(16px,2.2vw,22px);font-weight:300;color:rgba(255,255,255,.7);font-style:italic;margin-bottom:24px}
+.why-rule{width:28px;height:1px;background:var(--gold);opacity:.3;margin:0 auto 20px}
+.why-sig{font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.5);letter-spacing:.06em}
+.why-sig-role{font-size:10px;color:rgba(255,255,255,.25);margin-top:4px;letter-spacing:.04em}
+.why-footer{display:flex;align-items:flex-start;justify-content:space-between;gap:40px;margin-top:48px;padding-top:40px;border-top:1px solid rgba(255,255,255,.06)}
+.why-footer-left{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,.25);letter-spacing:.08em;text-transform:uppercase;line-height:2;text-align:left}
+.why-footer-right{font-size:13px;color:rgba(255,255,255,.3);line-height:1.8;text-align:right;max-width:320px}
+.why-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:5px 14px;font-family:var(--mono);font-size:9.5px;color:rgba(255,255,255,.35);letter-spacing:.1em;text-transform:uppercase;margin-bottom:24px}
+@media(max-width:640px){.why{padding:64px 20px}.why-footer{flex-direction:column;gap:24px}.why-footer-right{text-align:left}}
+
+/* ─── WHAT IS CONNECT ─── */
+.what-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+@media(max-width:800px){.what-grid{grid-template-columns:1fr;gap:48px}}
+.what-body{font-size:15px;color:var(--ink3);line-height:1.9;font-weight:300;margin-bottom:32px}
+.what-body p+p{margin-top:14px}
+.r{color:var(--red);font-style:italic}
+.what-aside{display:flex;flex-direction:column;gap:1px;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.what-aside-row{display:flex;align-items:flex-start;gap:16px;padding:18px 20px;background:var(--white);border-bottom:1px solid var(--border);transition:background .15s}
+.what-aside-row:last-child{border-bottom:none}
+.what-aside-row:hover{background:var(--off)}
+.what-aside-icon{font-size:20px;flex-shrink:0;margin-top:2px}
+.what-aside-title{font-size:13.5px;font-weight:500;color:var(--ink);margin-bottom:3px}
+.what-aside-desc{font-size:12.5px;color:var(--ink3);line-height:1.6;font-weight:300}
+
+/* ─── TIERS ─── */
+.tiers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
+@media(max-width:900px){.tiers-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:580px){.tiers-grid{grid-template-columns:1fr;gap:14px}}
+.tier-card{background:var(--off);border:1px solid var(--border);border-radius:12px;padding:28px 24px;display:flex;flex-direction:column;gap:14px;transition:box-shadow .2s}
+.tier-card:hover{box-shadow:0 4px 24px rgba(0,0,0,.07)}
+.tier-card.featured{background:var(--ink2);border-color:var(--ink3)}
+.tier-num{font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--ink4);text-transform:uppercase}
+.tier-card.featured .tier-num{color:rgba(255,255,255,.25)}
+.tier-name{font-family:var(--serif);font-size:20px;font-weight:400;color:var(--ink)}
+.tier-tag{display:inline-block;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:3px 10px;border-radius:4px;background:var(--off);color:var(--ink3);border:1px solid var(--border)}
+.tier-prices-both{display:flex;align-items:center;gap:12px}
+.tier-price-opt{flex:1}
+.tier-price{font-family:var(--mono);font-size:26px;font-weight:500;color:var(--ink);line-height:1}
+.tier-card.featured .tier-price{color:rgba(255,255,255,.9)}
+.tier-price-period{font-size:13px;font-weight:300;color:var(--ink3)}
+.tier-price-label{font-family:var(--mono);font-size:10px;color:var(--ink4);margin-top:4px;letter-spacing:.05em}
+.tier-prices-sep{font-size:11px;color:var(--ink4);flex-shrink:0}
+.tier-price-alt{font-family:var(--mono);font-size:13px;color:var(--ink3);letter-spacing:.03em}
+.tier-desc{font-size:13px;color:var(--ink3);line-height:1.7;font-weight:300}
+.tier-card.featured .tier-desc{color:rgba(255,255,255,.5)}
+.tier-features{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;flex:1}
+.tier-features li{font-size:12.5px;color:var(--ink3);line-height:1.5;padding-left:16px;position:relative;font-weight:300}
+.tier-features li::before{content:'·';position:absolute;left:0;color:var(--red);font-weight:700}
+.tier-card.featured .tier-features li{color:rgba(255,255,255,.45)}
+.tier-note{font-family:var(--mono);font-size:10px;color:var(--ink4);letter-spacing:.05em}
+.tier-card.featured .tier-note{color:rgba(255,255,255,.2)}
+.tier-cta{display:block;text-align:center;padding:11px;border-radius:7px;font-size:13px;font-weight:500;text-decoration:none;transition:all .15s;margin-top:auto;background:var(--ink);color:var(--white)}
+.tier-cta:hover{opacity:.85}
+.tier-cta-dark{background:var(--ink2);color:var(--white)}
+.tier-cta-dark:hover{background:var(--ink3)}
+.tier-cta-outline{background:transparent;color:var(--ink);border:1.5px solid var(--border)}
+.tier-cta-outline:hover{border-color:var(--ink);background:var(--off)}
+
+/* ─── ROLES ─── */
+.roles{background:var(--off)}
+.roles-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-top:48px}
+@media(max-width:700px){.roles-grid{grid-template-columns:1fr}}
+.role-card{background:var(--white);padding:28px 24px;display:flex;flex-direction:column;gap:10px;transition:background .15s}
+.role-card:hover{background:var(--off)}
+.role-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.role-id{font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--ink4);text-transform:uppercase}
+.role-tier{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:4px;background:var(--off);color:var(--ink4);border:1px solid var(--border)}
+.role-card h3{font-family:var(--serif);font-size:18px;font-weight:400;color:var(--ink)}
+.role-sub{font-family:var(--mono);font-size:10px;color:var(--ink4);letter-spacing:.05em}
+.role-card>p{font-size:13px;color:var(--ink3);line-height:1.7;font-weight:300}
+.role-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px}
+.role-list li{font-size:12px;color:var(--ink3);padding-left:14px;position:relative;font-weight:300}
+.role-list li::before{content:'·';position:absolute;left:0;color:var(--red);font-weight:700}
+
+/* ─── HOW IT WORKS ─── */
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:48px}
+@media(max-width:860px){.how-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:540px){.how-grid{grid-template-columns:1fr}}
+.how-step{display:flex;flex-direction:column;gap:12px}
+.how-n{font-family:var(--mono);font-size:32px;font-weight:400;color:var(--border);line-height:1}
+.how-step h3{font-family:var(--serif);font-size:17px;font-weight:400;color:var(--ink)}
+.how-step p{font-size:13.5px;color:var(--ink3);line-height:1.75;font-weight:300}
+
+/* ─── TOOLS SECTION ─── */
+.tools-sec{background:var(--ink2)}
+.tools-inner{max-width:1060px;margin:0 auto}
+.tools-header{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;margin-bottom:40px;flex-wrap:wrap}
+.tools-header-left{}
+.tools-kicker{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.tools-kicker::before{content:'';display:block;width:16px;height:1px;background:var(--red);opacity:.4}
+.tools-h2{font-family:var(--serif);font-size:clamp(28px,3.5vw,44px);font-weight:300;color:rgba(255,255,255,.88);line-height:1.08;letter-spacing:-.015em}
+.tools-h2 em{font-style:italic;color:var(--red)}
+.tools-sub{font-size:15px;color:rgba(255,255,255,.35);line-height:1.8;font-weight:300;max-width:400px}
+.tools-big-n{font-family:var(--mono);font-size:clamp(48px,7vw,80px);font-weight:400;color:rgba(255,255,255,.07);line-height:1;letter-spacing:-.04em;flex-shrink:0}
+.tool-body{padding:20px 20px 20px 0}
+.tools-free-callout{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:20px 24px;margin-top:24px;display:flex;align-items:flex-start;gap:16px}
+.tools-free-icon{font-size:22px;flex-shrink:0;margin-top:2px}
+.tools-free-left{}
+.tools-free-title{font-size:13.5px;font-weight:500;color:rgba(255,255,255,.75);margin-bottom:4px}
+.tools-free-desc{font-size:12.5px;color:rgba(255,255,255,.35);line-height:1.65;font-weight:300}
+
+/* ─── MISC ─── */
+.hero-breadcrumb{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:rgba(255,255,255,.3);margin-bottom:24px;display:flex;align-items:center;gap:8px}
+.hero-breadcrumb a{color:rgba(255,255,255,.3);text-decoration:none}
+.hero-breadcrumb a:hover{color:rgba(255,255,255,.6)}
+.hero-breadcrumb-sep{color:rgba(255,255,255,.15)}
+.btn-outline-white{display:inline-flex;align-items:center;gap:6px;background:transparent;border:1.5px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.08em;padding:10px 22px;border-radius:6px;text-decoration:none;transition:all .15s}
+.btn-outline-white:hover{border-color:rgba(255,255,255,.5);color:white}
+.n-item-body{flex:1}
+
+
+.how{background:var(--white)}
+.tiers{background:var(--light,#f5f4f1)}
+.what{background:var(--white)}
+
+/* ══════════════════════════════════════════
+   MOBILE OPTIMIZATION — comprehensive pass
+   Target: phones ≤ 480px, small tablets ≤ 768px
+   ══════════════════════════════════════════ */
+
+/* ── Base touch / tap friendliness ── */
+@media(max-width:768px){
+  /* Comfortable tap targets for CTAs and nav items */
+  .btn-primary,.btn-ghost,.btn-connect,.btn-small,.btn-outline-white,
+  .n-apply,.n-signin,.tier-cta,.m-tab,.n-drawer-link{min-height:44px}
+  /* Prevent tiny text */
+  body{font-size:15px;line-height:1.65}
+  /* Tighten section padding */
+  .sec{padding:56px 5vw}
+  /* Hero */
+  .hero{padding:80px 5vw 52px;min-height:auto}
+  .hero-h1{font-size:clamp(30px,7.5vw,48px);letter-spacing:-.02em}
+  .hero-sub{font-size:15px;max-width:100%}
+  .hero-actions{flex-direction:column;align-items:stretch;gap:10px;margin-bottom:48px}
+  .hero-actions .btn-primary,
+  .hero-actions .btn-ghost{
+    text-align:center;padding:16px 24px;font-size:14px;justify-content:center;
+  }
+  .hero-stats{flex-wrap:wrap}
+  .hs{flex:1 1 calc(50% - 1px);min-width:0}
+  /* Hero breadcrumb */
+  .hero-breadcrumb{font-size:9px}
+  /* Divider shorter on mobile */
+  .hero-divider{height:36px;margin:24px auto}
+
+  /* Section headings */
+  .sh2{font-size:clamp(24px,6vw,36px);margin-bottom:14px}
+  .ssub{font-size:14px;margin-bottom:36px;line-height:1.75}
+  .kicker{font-size:9px;letter-spacing:.16em}
+
+  /* ── Why section ── */
+  .why{padding:64px 5vw}
+  .why-footer{flex-direction:column;gap:20px}
+  .why-footer-right{text-align:left;max-width:100%}
+  .why-lede{font-size:clamp(18px,4.5vw,24px)}
+  .why-body{font-size:14px}
+  .why-badge{font-size:9px;text-align:left}
+
+  /* ── What is connect ── */
+  .what-grid{grid-template-columns:1fr;gap:36px}
+  .what-body{font-size:14px}
+
+  /* ── Network section ── */
+  .network-grid{grid-template-columns:1fr;gap:36px}
+
+  /* ── Ecosystem pillars ── */
+  .eco-grid{grid-template-columns:1fr}
+
+  /* ── Who section ── */
+  .who-grid{grid-template-columns:1fr}
+
+  /* ── Roles ── */
+  .roles-grid{grid-template-columns:1fr}
+  .role-card{padding:22px 18px}
+  .role-head{flex-wrap:wrap;gap:8px}
+
+  /* ── Intelligence suite / tools ── */
+  .tools-sec{padding:56px 5vw}
+  .tools-inner{padding:0}
+  .tools-header{flex-direction:column;align-items:flex-start;gap:16px;margin-bottom:28px}
+  .tools-big-n{font-size:24px;align-self:flex-end;margin-top:0;opacity:.35}
+  .tools-h2{font-size:clamp(24px,6vw,36px)}
+  .tools-sub{font-size:14px;max-width:100%}
+  .tools-grid{grid-template-columns:1fr;gap:6px}
+  .tool-body{padding:16px 16px 16px 0}
+  .tool-card .tool-name{font-size:13px}
+  .tools-free-callout{flex-direction:column;gap:14px;padding:18px}
+  .tools-free-callout .btn-outline-white{align-self:flex-start;width:auto}
+
+  /* ── Tiers ── */
+  .tiers-grid{grid-template-columns:1fr;gap:12px;margin-top:32px}
+  .tier-card{padding:22px 20px}
+  .tier-prices-both{flex-direction:row;gap:8px}
+  .tier-price{font-size:22px}
+
+  /* ── How it works ── */
+  .how-grid{grid-template-columns:1fr;gap:28px;margin-top:32px}
+  .how-n{font-size:24px}
+
+  /* ── Global / numbers ── */
+  .global-grid{grid-template-columns:1fr;gap:32px}
+  .numbers-grid{grid-template-columns:1fr 1fr}
+
+  /* ── Statement ── */
+  .statement{padding:56px 5vw}
+  .statement-inner{grid-template-columns:1fr;gap:24px;padding-right:0}
+  .statement-image{display:none}
+
+  /* ── CTA section ── */
+  .cta{padding:64px 5vw}
+  .cta-btns{flex-direction:column;align-items:stretch;gap:10px}
+  .cta-btns .btn-primary,
+  .cta-btns .btn-ghost{text-align:center;justify-content:center;padding:16px 24px}
+
+  /* ── Connect section ── */
+  .connect-inner{padding:64px 5vw}
+  .connect-cta-row{flex-direction:column;gap:16px}
+  .connect-cta-row .btn-connect{align-self:stretch;text-align:center;justify-content:center}
+
+  /* ── Manifesto ── */
+  .manifesto{padding:64px 5vw}
+  .manifesto blockquote{font-size:clamp(18px,4.5vw,26px)}
+
+  /* ── Press row ── */
+  .press-row{padding:16px 18px}
+
+  /* ── Global CTA cards ── */
+  .global-cta-card{flex-direction:column;gap:12px}
+  .global-cta-card .btn-small{align-self:stretch;text-align:center;justify-content:center}
+
+  /* ── Footer ── */
+  footer{padding:24px 5vw 16px}
+
+  /* ── Band ── */
+  .band{padding:12px 5vw;gap:6px}
+
+  /* ── City pills ── */
+  .pill{font-size:10.5px;padding:4px 11px}
+}
+
+/* ── Phones ≤ 480px – extra tightening ── */
+@media(max-width:480px){
+  .sec{padding:48px 4.5vw}
+  .hero{padding:72px 4.5vw 44px}
+  .hero-h1{font-size:clamp(26px,8vw,36px)}
+  .hero-eyebrow{font-size:8px;letter-spacing:.12em;margin-bottom:24px}
+  .sh2{font-size:clamp(22px,7vw,30px)}
+  .ssub{font-size:13.5px;margin-bottom:28px}
+  .numbers-grid{grid-template-columns:1fr}
+  .hs{flex:1 1 100%;border-right:none;border-bottom:1px solid rgba(255,255,255,.06)}
+  .hs:last-child{border-bottom:none}
+  .tier-prices-both{flex-wrap:wrap}
+  .why-badge{font-size:8.5px;padding:4px 10px}
+  .tools-big-n{margin-top:-32px}
+  .connect-inner{padding:48px 4.5vw}
+  .cta{padding:52px 4.5vw}
+  .manifesto{padding:52px 4.5vw}
+  .statement{padding:48px 4.5vw}
+}
+
+/* ── Smooth scrolling & scroll snap nicety ── */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+
+/* ══════════════════════════════════════════
+   MOBILE COMPACTION
+   ══════════════════════════════════════════ */
+
+/* ── Why: read-more toggle ── */
+@media(max-width:768px){
+  .why-collapse-wrap{position:relative}
+  .why-body-collapse{
+    max-height:96px;
+    overflow:hidden;
+    transition:max-height .4s cubic-bezier(.4,0,.2,1);
+  }
+  .why-body-collapse.open{max-height:800px}
+  .why-fade{
+    position:absolute;
+    bottom:0;left:0;right:0;
+    height:56px;
+    pointer-events:none;
+    transition:opacity .3s;
+    background:linear-gradient(to bottom,transparent,var(--ink));
+  }
+  .why-collapse-wrap.open .why-fade{opacity:0}
+  .why-readmore{
+    display:flex;
+    align-items:center;
+    gap:5px;
+    font-size:11.5px;
+    font-weight:500;
+    color:var(--red);
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    background:none;
+    border:none;
+    padding:12px 0 4px;
+    cursor:pointer;
+  }
+  .why-readmore-arrow{transition:transform .28s cubic-bezier(.4,0,.2,1)}
+  .why-readmore.open .why-readmore-arrow{transform:rotate(180deg)}
+}
+@media(min-width:769px){.why-readmore,.why-fade{display:none}}
+
+/* ── Roles: accordion on mobile ── */
+@media(max-width:768px){
+  .roles-grid{gap:0;border-top:1px solid var(--border,rgba(0,0,0,.08))}
+  .role-card{
+    border-radius:0;
+    border-bottom:1px solid var(--border,rgba(0,0,0,.08));
+    padding:0;
+    cursor:pointer;
+  }
+  .role-card-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 18px;
+    gap:12px;
+  }
+  .role-card-header-left{display:flex;flex-direction:column;gap:3px}
+  .role-accordion-arrow{
+    flex-shrink:0;
+    width:20px;height:20px;
+    display:flex;align-items:center;justify-content:center;
+    color:var(--ink4,#888);
+    transition:transform .25s;
+  }
+  .role-card.open .role-accordion-arrow{transform:rotate(180deg)}
+  .role-card-body{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .35s ease;
+    padding:0 18px;
+  }
+  .role-card.open .role-card-body{max-height:500px;padding-bottom:20px}
+  /* Hide old markup structure on mobile, show new */
+  .role-card .role-head{display:none}
+  .role-card h3{display:none}
+  .role-card .role-sub{display:none}
+  .role-card > p{display:none}
+  .role-card > ul{display:none}
+  .role-card-body p,.role-card-body ul{display:block}
+  .role-card-body .role-sub{display:block;font-size:11px;color:var(--ink4);margin-bottom:10px}
+  .role-card-body ul{margin-top:10px}
+  .role-accordion-title{font-size:14px;font-weight:500;color:var(--ink)}
+  .role-accordion-meta{display:flex;align-items:center;gap:8px}
+  .role-accordion-id{font-size:10px;color:var(--ink4);letter-spacing:.06em}
+}
+@media(min-width:769px){
+  .role-card-header{display:none}
+  .role-card-body{max-height:none!important;overflow:visible!important;padding:0!important}
+}
+
+/* ── Tools: readable single-column rows on mobile ── */
+@media(max-width:768px){
+  .tools-grid{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+    margin-bottom:24px;
+    border-radius:10px;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.08);
+  }
+  .tool-card{
+    flex-direction:row;
+    align-items:stretch;
+    border-radius:0;
+    border:none;
+    border-bottom:1px solid rgba(255,255,255,.06);
+    background:rgba(255,255,255,.03);
+    min-height:auto;
+  }
+  .tool-card:last-child{border-bottom:none}
+  .tool-stripe{
+    width:3px;
+    min-width:3px;
+    align-self:stretch;
+    border-radius:0;
+  }
+  .tool-body{
+    padding:12px 14px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    flex:1;
+  }
+  .tool-name{font-size:13px;font-weight:500;color:rgba(255,255,255,.88);line-height:1.3;margin-bottom:2px}
+  .tool-text{flex:1;min-width:0}
+  .tool-desc{font-size:11.5px;color:rgba(255,255,255,.45);line-height:1.4;margin-bottom:0}
+  .tool-badge{font-size:9.5px;padding:3px 8px;white-space:nowrap;flex-shrink:0}
+}
+
+/* ── Fix font loading flash on mobile ── */
+@media(max-width:768px){
+  .hero-h1,.sh2,.connect-h2,.tools-h2,.cta h2,.manifesto blockquote,.why-lede,
+  .statement-text,.network-claim,.eco-title,.who-card h3,.role-card h3,.how-step h3{
+    font-display:swap;
+  }
+}
+
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -612,13 +1026,20 @@ img{display:block;max-width:100%}
       We kept watching people look for capital, connections, and resources in a circle that only went one way.
     </blockquote>
     <div class="why-rule"></div>
-    <div class="why-body">
-      <p>Most platforms are built for one side of the table. Founders only. Investors only. We built Yorkseed after watching the entire global venture ecosystem up close — what was working, what was broken, and what was missing for every player in it.</p>
-      <p>Serious founders struggle to raise — not because they aren't ready, but because their local ecosystem has no relevant capital, and the signal they're trying to send gets buried in noise. In a world where warm introductions are everything, cold outreach rarely lands. The right investor is out there. Getting to them is the problem.</p>
-      <p>On the other side, investors face the same wall from the other direction. Quality deal flow is hard to find when you're drowning in pitches that don't fit your thesis, your stage, or your sector. The great founders exist. Finding them — reliably, efficiently, across markets — is what's broken.</p>
-      <p>And the networks that were supposed to solve this? Built for one side. Local by default. Passive in design. A database of people hoping someone else makes the move.</p>
-      <p class="why-closer">Yorkseed is the answer to both sides at once — the first multi-directional platform where founders get to the right investors, investors find quality deal flow, and every other player in the ecosystem has infrastructure built specifically for their role.</p>
+    <div class="why-collapse-wrap" id="whyWrap">
+      <div class="why-body why-body-collapse" id="whyBody">
+        <p>Most platforms are built for one side of the table. Founders only. Investors only. We built Yorkseed after watching the entire global venture ecosystem up close — what was working, what was broken, and what was missing for every player in it.</p>
+        <p>Serious founders struggle to raise — not because they aren't ready, but because their local ecosystem has no relevant capital, and the signal they're trying to send gets buried in noise. In a world where warm introductions are everything, cold outreach rarely lands. The right investor is out there. Getting to them is the problem.</p>
+        <p>On the other side, investors face the same wall from the other direction. Quality deal flow is hard to find when you're drowning in pitches that don't fit your thesis, your stage, or your sector. The great founders exist. Finding them — reliably, efficiently, across markets — is what's broken.</p>
+        <p>And the networks that were supposed to solve this? Built for one side. Local by default. Passive in design. A database of people hoping someone else makes the move.</p>
+        <p class="why-closer">Yorkseed is the answer to both sides at once — the first multi-directional platform where founders get to the right investors, investors find quality deal flow, and every other player in the ecosystem has infrastructure built specifically for their role.</p>
+      </div>
+      <div class="why-fade"></div>
     </div>
+    <button class="why-readmore" id="whyReadMore" onclick="(function(){var w=document.getElementById('whyWrap'),b=document.getElementById('whyBody'),t=document.getElementById('whyReadMore'),s=document.getElementById('whySpan');b.classList.toggle('open');w.classList.toggle('open');t.classList.toggle('open');s.textContent=b.classList.contains('open')?'Read less':'Read more'})()">
+      <span id="whySpan">Read more</span>
+      <svg class="why-readmore-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
     <div class="why-rule"></div>
     <div class="why-footer">
       <div class="why-footer-left">
@@ -691,7 +1112,15 @@ img{display:block;max-width:100%}
   <h2 class="sh2">Every seat at<br/>the <em>venture table</em></h2>
   <p class="ssub">Six distinct roles. Purpose-built for each — with full privacy controls and member-controlled introductions across all of them.</p>
   <div class="roles-grid">
-    <div class="role-card">
+    <div class="role-card" onclick="toggleRole(this)">
+      <div class="role-card-header">
+        <div class="role-card-header-left">
+          <div class="role-accordion-meta"><span class="role-accordion-id">01</span><span class="role-tier" style="color:var(--red);border-color:var(--red-border);background:var(--red-dim)">B2B · B2C</span></div>
+          <div class="role-accordion-title">Founders</div>
+        </div>
+        <div class="role-accordion-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </div>
+      <div class="role-card-body">
       <div class="role-head">
         <div class="role-id">01 · Founders</div>
         <span class="role-tier" style="color:var(--red);border-color:var(--red-border);background:var(--red-dim)">B2B · B2C</span>
@@ -708,8 +1137,16 @@ img{display:block;max-width:100%}
         <li>Capital Runway Planner and Fundraising Timeline Builder</li>
         <li>Free SAFE &amp; Convertible Note Calculators</li>
       </ul>
-    </div>
-    <div class="role-card">
+      </div>
+    <div class="role-card" onclick="toggleRole(this)">
+      <div class="role-card-header">
+        <div class="role-card-header-left">
+          <div class="role-accordion-meta"><span class="role-accordion-id">02</span><span class="role-tier" style="color:var(--gold);border-color:var(--gold-border);background:var(--gold-dim)">Angels · VCs</span></div>
+          <div class="role-accordion-title">Investors</div>
+        </div>
+        <div class="role-accordion-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </div>
+      <div class="role-card-body">
       <div class="role-head">
         <div class="role-id">02 · Investors</div>
         <span class="role-tier" style="color:var(--gold);border-color:var(--gold-border);background:var(--gold-dim)">Angels · VCs</span>
@@ -726,8 +1163,16 @@ img{display:block;max-width:100%}
         <li>Burn Multiple Calculator</li>
         <li>Annual re-verification of all members you interact with</li>
       </ul>
-    </div>
-    <div class="role-card">
+      </div>
+    <div class="role-card" onclick="toggleRole(this)">
+      <div class="role-card-header">
+        <div class="role-card-header-left">
+          <div class="role-accordion-meta"><span class="role-accordion-id">03</span><span class="role-tier" style="color:var(--ink3);border-color:var(--border2)">Institutional</span></div>
+          <div class="role-accordion-title">LPs · CVCs · FoFs</div>
+        </div>
+        <div class="role-accordion-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </div>
+      <div class="role-card-body">
       <div class="role-head">
         <div class="role-id">03 · LPs · CVCs · FoFs</div>
         <span class="role-tier" style="color:var(--ink3);border-color:var(--border2)">Institutional</span>
@@ -743,8 +1188,16 @@ img{display:block;max-width:100%}
         <li>Global conference presence and activations</li>
         <li>2FA security — your identity fully protected</li>
       </ul>
-    </div>
-    <div class="role-card">
+      </div>
+    <div class="role-card" onclick="toggleRole(this)">
+      <div class="role-card-header">
+        <div class="role-card-header-left">
+          <div class="role-accordion-meta"><span class="role-accordion-id">04</span><span class="role-tier" style="color:var(--ink3);border-color:var(--border2)">Emerging · Established</span></div>
+          <div class="role-accordion-title">Fund Managers</div>
+        </div>
+        <div class="role-accordion-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </div>
+      <div class="role-card-body">
       <div class="role-head">
         <div class="role-id">04 · Fund Managers</div>
         <span class="role-tier" style="color:var(--ink3);border-color:var(--border2)">Emerging · Established</span>
@@ -759,8 +1212,16 @@ img{display:block;max-width:100%}
         <li>Co-investment deal flow and syndication</li>
         <li>Conference activations and investor salons</li>
       </ul>
-    </div>
-    <div class="role-card">
+      </div>
+    <div class="role-card" onclick="toggleRole(this)">
+      <div class="role-card-header">
+        <div class="role-card-header-left">
+          <div class="role-accordion-meta"><span class="role-accordion-id">05</span><span class="role-tier" style="color:var(--ink3);border-color:var(--border2)">Circles · Portfolios</span></div>
+          <div class="role-accordion-title">Accelerators &amp; Programs</div>
+        </div>
+        <div class="role-accordion-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </div>
+      <div class="role-card-body">
       <div class="role-head">
         <div class="role-id">05 · Accelerators &amp; Programs</div>
         <span class="role-tier" style="color:var(--ink3);border-color:var(--border2)">Circles · Portfolios</span>
@@ -775,8 +1236,16 @@ img{display:block;max-width:100%}
         <li>Demo day and showcase infrastructure</li>
         <li>Enterprise partnership and co-branding</li>
       </ul>
-    </div>
-    <div class="role-card">
+      </div>
+    <div class="role-card" onclick="toggleRole(this)">
+      <div class="role-card-header">
+        <div class="role-card-header-left">
+          <div class="role-accordion-meta"><span class="role-accordion-id">06</span><span class="role-tier" style="color:var(--ink3);border-color:var(--border2)">Ecosystem</span></div>
+          <div class="role-accordion-title">Operators &amp; Advisors</div>
+        </div>
+        <div class="role-accordion-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </div>
+      <div class="role-card-body">
       <div class="role-head">
         <div class="role-id">06 · Operators &amp; Advisors</div>
         <span class="role-tier" style="color:var(--ink3);border-color:var(--border2)">Ecosystem</span>
@@ -790,7 +1259,7 @@ img{display:block;max-width:100%}
         <li>Introductions to founders and investors seeking advisors</li>
         <li>Global hub and conference access</li>
       </ul>
-    </div>
+      </div>
   </div>
 </section>
 
@@ -806,21 +1275,21 @@ img{display:block;max-width:100%}
       <div class="tools-big-n">15+</div>
     </div>
     <div class="tools-grid">
-      <div class="tool-card"><div class="tool-stripe" style="background:var(--red)"></div><div class="tool-body"><div class="tool-name">Signal One-Liner Generator</div><div class="tool-desc">Investor-ready pitch lines in seconds</div><span class="tool-badge" style="background:var(--red-dim);color:var(--red)">Founder</span></div></div>
-      <div class="tool-card"><div class="tool-stripe" style="background:var(--red)"></div><div class="tool-body"><div class="tool-name">Investor One-Pager Builder</div><div class="tool-desc">Structured for capital conversations</div><span class="tool-badge" style="background:var(--red-dim);color:var(--red)">Founder</span></div></div>
-      <div class="tool-card"><div class="tool-stripe" style="background:var(--red)"></div><div class="tool-body"><div class="tool-name">Investor Match Engine</div><div class="tool-desc">Find the right investor profile for your raise</div><span class="tool-badge" style="background:var(--red-dim);color:var(--red)">Founder</span></div></div>
-      <div class="tool-card"><div class="tool-stripe" style="background:var(--red)"></div><div class="tool-body"><div class="tool-name">Valuation Estimator</div><div class="tool-desc">Pre-money range by stage and sector</div><span class="tool-badge" style="background:var(--red-dim);color:var(--red)">Founder</span></div></div>
-      <div class="tool-card"><div class="tool-stripe" style="background:var(--red)"></div><div class="tool-body"><div class="tool-name">Deal Readiness Score</div><div class="tool-desc">100-point investor readiness assessment</div><span class="tool-badge" style="background:var(--red-dim);color:var(--red)">Founder</span></div></div>
-      <div class="tool-card"><div class="tool-stripe" style="background:var(--red)"></div><div class="tool-body"><div class="tool-name">Fundraising Timeline Builder</div><div class="tool-desc">Work backwards from your close date</div><span class="tool-badge" style="background:var(--red-dim);color:var(--red)">Founder</span></div></div>
-      <div class="tool-card"><div class="tool-stripe" style="background:var(--red)"></div><div class="tool-body"><div class="tool-name">Term Sheet Decoder</div><div class="tool-desc">Plain-English clause-by-clause analysis</div><span class="tool-badge" style="background:var(--red-dim);color:var(--red)">Founder</span></div></div>
-      <div class="tool-card"><div class="tool-stripe" style="background:var(--red)"></div><div class="tool-body"><div class="tool-name">Cap Table Explainer</div><div class="tool-desc">Model ownership and dilution scenarios</div><span class="tool-badge" style="background:var(--red-dim);color:var(--red)">Founder</span></div></div>
-      <div class="tool-card"><div class="tool-stripe" style="background:var(--red)"></div><div class="tool-body"><div class="tool-name">Capital Runway Planner</div><div class="tool-desc">How long can you operate?</div><span class="tool-badge" style="background:var(--red-dim);color:var(--red)">Founder</span></div></div>
-      <div class="tool-card"><div class="tool-stripe" style="background:rgba(176,141,87,.7)"></div><div class="tool-body"><div class="tool-name">Investor Vetter</div><div class="tool-desc">Fit score and red flag analysis on any investor</div><span class="tool-badge" style="background:var(--gold-dim);color:var(--gold)">All roles</span></div></div>
-      <div class="tool-card"><div class="tool-stripe" style="background:rgba(176,141,87,.7)"></div><div class="tool-body"><div class="tool-name">Advisor Finder &amp; Scorecard</div><div class="tool-desc">Find and evaluate advisors systematically</div><span class="tool-badge" style="background:var(--gold-dim);color:var(--gold)">All roles</span></div></div>
-      <div class="tool-card"><div class="tool-stripe" style="background:rgba(255,255,255,.25)"></div><div class="tool-body"><div class="tool-name">Fund Diligence Engine</div><div class="tool-desc">AI diligence report and Yorkseed score on any fund</div><span class="tool-badge" style="background:rgba(255,255,255,.06);color:rgba(255,255,255,.4)">Investor · LP</span></div></div>
-      <div class="tool-card"><div class="tool-stripe" style="background:rgba(255,255,255,.25)"></div><div class="tool-body"><div class="tool-name">Burn Multiple Calculator</div><div class="tool-desc">Efficiency score: spend vs growth</div><span class="tool-badge" style="background:rgba(255,255,255,.06);color:rgba(255,255,255,.4)">Investor · Founder</span></div></div>
-      <div class="tool-card"><div class="tool-stripe" style="background:#16a34a"></div><div class="tool-body"><div class="tool-name">SAFE Note Calculator</div><div class="tool-desc">Model conversion price, shares issued &amp; ownership at next round</div><span class="tool-badge" style="background:rgba(22,163,74,.12);color:#4ade80">Free · All members</span></div></div>
-      <div class="tool-card"><div class="tool-stripe" style="background:#16a34a"></div><div class="tool-body"><div class="tool-name">Convertible Note Calculator</div><div class="tool-desc">Principal + accrued interest to shares, includes maturity risk flags</div><span class="tool-badge" style="background:rgba(22,163,74,.12);color:#4ade80">Free · All members</span></div></div>
+      <div class="tool-card"><div class="tool-stripe" style="background:var(--red)"></div><div class="tool-body"><div class="tool-text"><div class="tool-name">Signal One-Liner Generator</div><div class="tool-desc">Investor-ready pitch lines in seconds</div></div><span class="tool-badge" style="background:var(--red-dim);color:var(--red)">Founder</span></div></div>
+      <div class="tool-card"><div class="tool-stripe" style="background:var(--red)"></div><div class="tool-body"><div class="tool-text"><div class="tool-name">Investor One-Pager Builder</div><div class="tool-desc">Structured for capital conversations</div></div><span class="tool-badge" style="background:var(--red-dim);color:var(--red)">Founder</span></div></div>
+      <div class="tool-card"><div class="tool-stripe" style="background:var(--red)"></div><div class="tool-body"><div class="tool-text"><div class="tool-name">Investor Match Engine</div><div class="tool-desc">Find the right investor profile for your raise</div></div><span class="tool-badge" style="background:var(--red-dim);color:var(--red)">Founder</span></div></div>
+      <div class="tool-card"><div class="tool-stripe" style="background:var(--red)"></div><div class="tool-body"><div class="tool-text"><div class="tool-name">Valuation Estimator</div><div class="tool-desc">Pre-money range by stage and sector</div></div><span class="tool-badge" style="background:var(--red-dim);color:var(--red)">Founder</span></div></div>
+      <div class="tool-card"><div class="tool-stripe" style="background:var(--red)"></div><div class="tool-body"><div class="tool-text"><div class="tool-name">Deal Readiness Score</div><div class="tool-desc">100-point investor readiness assessment</div></div><span class="tool-badge" style="background:var(--red-dim);color:var(--red)">Founder</span></div></div>
+      <div class="tool-card"><div class="tool-stripe" style="background:var(--red)"></div><div class="tool-body"><div class="tool-text"><div class="tool-name">Fundraising Timeline Builder</div><div class="tool-desc">Work backwards from your close date</div></div><span class="tool-badge" style="background:var(--red-dim);color:var(--red)">Founder</span></div></div>
+      <div class="tool-card"><div class="tool-stripe" style="background:var(--red)"></div><div class="tool-body"><div class="tool-text"><div class="tool-name">Term Sheet Decoder</div><div class="tool-desc">Plain-English clause-by-clause analysis</div></div><span class="tool-badge" style="background:var(--red-dim);color:var(--red)">Founder</span></div></div>
+      <div class="tool-card"><div class="tool-stripe" style="background:var(--red)"></div><div class="tool-body"><div class="tool-text"><div class="tool-name">Cap Table Explainer</div><div class="tool-desc">Model ownership and dilution scenarios</div></div><span class="tool-badge" style="background:var(--red-dim);color:var(--red)">Founder</span></div></div>
+      <div class="tool-card"><div class="tool-stripe" style="background:var(--red)"></div><div class="tool-body"><div class="tool-text"><div class="tool-name">Capital Runway Planner</div><div class="tool-desc">How long can you operate?</div></div><span class="tool-badge" style="background:var(--red-dim);color:var(--red)">Founder</span></div></div>
+      <div class="tool-card"><div class="tool-stripe" style="background:rgba(176,141,87,.7)"></div><div class="tool-body"><div class="tool-text"><div class="tool-name">Investor Vetter</div><div class="tool-desc">Fit score and red flag analysis on any investor</div></div><span class="tool-badge" style="background:var(--gold-dim);color:var(--gold)">All roles</span></div></div>
+      <div class="tool-card"><div class="tool-stripe" style="background:rgba(176,141,87,.7)"></div><div class="tool-body"><div class="tool-text"><div class="tool-name">Advisor Finder &amp; Scorecard</div><div class="tool-desc">Find and evaluate advisors systematically</div></div><span class="tool-badge" style="background:var(--gold-dim);color:var(--gold)">All roles</span></div></div>
+      <div class="tool-card"><div class="tool-stripe" style="background:rgba(255,255,255,.25)"></div><div class="tool-body"><div class="tool-text"><div class="tool-name">Fund Diligence Engine</div><div class="tool-desc">AI diligence report and Yorkseed score on any fund</div></div><span class="tool-badge" style="background:rgba(255,255,255,.06);color:rgba(255,255,255,.4)">Investor · LP</span></div></div>
+      <div class="tool-card"><div class="tool-stripe" style="background:rgba(255,255,255,.25)"></div><div class="tool-body"><div class="tool-text"><div class="tool-name">Burn Multiple Calculator</div><div class="tool-desc">Efficiency score: spend vs growth</div></div><span class="tool-badge" style="background:rgba(255,255,255,.06);color:rgba(255,255,255,.4)">Investor · Founder</span></div></div>
+      <div class="tool-card"><div class="tool-stripe" style="background:#16a34a"></div><div class="tool-body"><div class="tool-text"><div class="tool-name">SAFE Note Calculator</div><div class="tool-desc">Model conversion price, shares issued &amp; ownership at next round</div></div><span class="tool-badge" style="background:rgba(22,163,74,.12);color:#4ade80">Free · All members</span></div></div>
+      <div class="tool-card"><div class="tool-stripe" style="background:#16a34a"></div><div class="tool-body"><div class="tool-text"><div class="tool-name">Convertible Note Calculator</div><div class="tool-desc">Principal + accrued interest to shares, includes maturity risk flags</div></div><span class="tool-badge" style="background:rgba(22,163,74,.12);color:#4ade80">Free · All members</span></div></div>
     </div>
     <div class="tools-free-callout">
       <div class="tools-free-left">
@@ -1025,6 +1494,16 @@ function toggleDrawer(){var h=document.getElementById('hamBtn');var d=document.g
 function toggleMoreMenu(){var m=document.getElementById('moreMenu');var o=document.getElementById('moreOverlay');var open=m.style.display==='block';m.style.display=open?'none':'block';o.style.display=open?'none':'block';document.body.style.overflow=open?'':'hidden'}
 // Close more menu on outside click
 document.addEventListener('click',function(e){var m=document.getElementById('moreMenu');if(m&&m.style.display==='block'&&!m.contains(e.target)&&!e.target.closest('.m-tab')){toggleMoreMenu();}});
+</script>
+
+<script>
+function toggleRole(card){
+  var isOpen=card.classList.contains('open');
+  // Close all
+  document.querySelectorAll('.role-card.open').forEach(function(c){c.classList.remove('open')});
+  // Open clicked if it wasn't open
+  if(!isOpen){card.classList.add('open')}
+}
 </script>
 
 <!-- YORKSEED CONCIERGE -->
