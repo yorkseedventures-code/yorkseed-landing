@@ -144,7 +144,7 @@ a{text-decoration:none;color:inherit}
 
 
 
-@media(max-width:680px){}
+
 
 /* SHARED */
 .sec{padding:72px 6vw}
@@ -214,7 +214,7 @@ h1 em{font-style:italic;color:var(--red)}
 .btn-outline-sm:hover{border-color:var(--ink);color:var(--ink)}
 
 /* FOOTER */
-footer{}
+
 
 
 
@@ -264,6 +264,125 @@ footer{}
 @media(max-width:500px){.n-right .n-apply{display:none}}
 @media(max-width:860px){.numbers-grid{grid-template-columns:repeat(2,1fr)}.traction-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:560px){.numbers-grid,.partner-grid,.contact-grid,.press-grid,.microsite-grid,.proof-grid{grid-template-columns:1fr}}
+
+
+/* ===================== PREMIUM FOOTER ===================== */
+.footer-premium{
+  background:#171717;
+  border-top:1px solid rgba(255,255,255,.06);
+  padding:64px 6vw 28px;
+}
+
+.footer-premium-inner{
+  max-width:1200px;
+  margin:0 auto;
+}
+
+.footer-premium-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:70px;
+  flex-wrap:wrap;
+  margin-bottom:46px;
+}
+
+.footer-premium-brand{
+  max-width:380px;
+}
+
+.footer-premium-logo-wrap{
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  height:40px;
+  margin-bottom:18px;
+}
+
+.footer-premium-logo{
+  height:78px;
+  width:auto;
+  object-fit:contain;
+  margin-top:-19px;
+  margin-bottom:-19px;
+}
+
+.footer-premium-brand p{
+  color:rgba(255,255,255,.42);
+  font-size:13px;
+  line-height:1.85;
+  font-weight:300;
+}
+
+.footer-premium-cols{
+  display:flex;
+  gap:70px;
+  flex-wrap:wrap;
+}
+
+.footer-premium-col{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.footer-premium-label{
+  font-family:var(--mono);
+  font-size:8.5px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.22);
+  margin-bottom:8px;
+}
+
+.footer-premium-col a{
+  color:rgba(255,255,255,.56);
+  font-size:12.5px;
+  transition:color .15s ease;
+}
+
+.footer-premium-col a:hover{
+  color:#fff;
+}
+
+.footer-premium-bottom{
+  border-top:1px solid rgba(255,255,255,.06);
+  padding-top:22px;
+  text-align:center;
+  font-family:var(--mono);
+  font-size:8px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.18);
+  line-height:1.7;
+}
+
+@media(max-width:720px){
+  .footer-premium{
+    padding:56px 6vw 26px;
+  }
+
+  .footer-premium-top{
+    flex-direction:column;
+    gap:38px;
+  }
+
+  .footer-premium-cols{
+    width:100%;
+    justify-content:space-between;
+    gap:34px;
+  }
+
+  .footer-premium-logo-wrap{
+    height:36px;
+  }
+
+  .footer-premium-logo{
+    height:70px;
+    margin-top:-17px;
+    margin-bottom:-17px;
+  }
+}
 
 /* ===================== MOBILE BOTTOM TAB BAR ===================== */
 .m-tab-bar{
@@ -656,17 +775,68 @@ footer{}
   </div>
 
 </div>
+
 <!-- FOOTER -->
-<footer style="background:var(--ink2);padding:28px 6vw 20px;border-top:1px solid rgba(255,255,255,.05);">
-  <div style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px 14px;">
-    
-    <a href="https://app.yorkseed.co/login" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Platform</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/about.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">About</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/hubs.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Global Hubs</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/tools.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;">Free Tools</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/events.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Events</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/partners.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Partners</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/press.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Press</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://yorkseedventures.com" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Ventures</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://yorkseedsummit.com" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Summit</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://luma.com/yorkseed" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Events</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://pulse.yorkseed.co" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Newsletter</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/contact.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Contact</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="mailto:info@yorkseed.co" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Email us</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://yorkseed.co" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">yorkseed.co</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://x.com/yorkseed" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Twitter</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://instagram.com/yorkseed" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Instagram</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://linkedin.com/company/yorkseed" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">LinkedIn</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://facebook.com/profile/yorkseed" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Facebook</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://www.crunchbase.com/organization/yorkseed" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Crunchbase</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://whatsapp.com/channel/0029Vaf0wiU3wtbBcxTEFD0h" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">WhatsApp</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://shop.yorkseed.co" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Shop</a>
+<footer class="footer-premium">
+  <div class="footer-premium-inner">
+
+    <div class="footer-premium-top">
+
+      <div class="footer-premium-brand">
+        <a href="/" class="footer-premium-logo-wrap" aria-label="Yorkseed home">
+          <img src="https://s6.imgcdn.dev/Yt5tnl.png" alt="Yorkseed" class="footer-premium-logo"/>
+        </a>
+
+        <p>
+          Global venture infrastructure platform connecting founders,
+          investors, and institutional ecosystems.
+        </p>
+      </div>
+
+      <div class="footer-premium-cols">
+
+        <div class="footer-premium-col">
+          <div class="footer-premium-label">Platform</div>
+          <a href="/connect">Connect</a>
+          <a href="/tools">Tools</a>
+          <a href="/events">Events</a>
+          <a href="/hubs">Hubs</a>
+        </div>
+
+        <div class="footer-premium-col">
+          <div class="footer-premium-label">Ecosystem</div>
+          <a href="/capital">Capital</a>
+          <a href="https://yorkseedsummit.com">Summit</a>
+          <a href="https://pulse.yorkseed.co">Insider</a>
+          <a href="/press">Press</a>
+        </div>
+
+        <div class="footer-premium-col">
+          <div class="footer-premium-label">Company</div>
+          <a href="/about">About</a>
+          <a href="/partners">Partners</a>
+          <a href="/contact">Contact</a>
+          <a href="https://app.yorkseed.co/login">Sign in</a>
+        </div>
+
+        <div class="footer-premium-col">
+          <div class="footer-premium-label">Social</div>
+          <a href="https://linkedin.com/company/yorkseed">LinkedIn</a>
+          <a href="https://x.com/yorkseed">X / Twitter</a>
+          <a href="https://instagram.com/yorkseed">Instagram</a>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="footer-premium-bottom">
+      © 2026 Yorkseed™ · The Venture Infrastructure Platform · Network est. 2023 · Platform launched 2026 · All rights reserved
+    </div>
+
   </div>
-  <div style="text-align:center;margin-top:8px;margin-bottom:6px;">
-    <img src="https://s6.imgcdn.dev/YfqM8w.png" alt="Yorkseed" style="height:36px;width:auto;display:inline-block;" />
-  </div>
-  <div style="width:100%;text-align:center;font-family:var(--mono,'DM Mono',monospace);font-size:9px;color:rgba(255,255,255,.25);margin-top:0;letter-spacing:.06em;text-transform:uppercase;">© 2026 Yorkseed™ · The Venture Infrastructure Platform · Network est. 2023 · Platform launched 2026 · All rights reserved</div>
 </footer>
+
 
 <script>
 function toggleDrop(){var d=document.getElementById('ecosDrop');d.classList.toggle('open')}
