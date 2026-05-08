@@ -331,7 +331,8 @@ img{display:block;max-width:100%}
 }
 .tool-card:hover{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.14)}
 .tool-stripe{width:3px;flex-shrink:0}
-.tool-.tool-name{font-size:13px;font-weight:500;color:rgba(255,255,255,.82);margin-bottom:4px}
+.tool-name{font-size:13px;font-weight:500;color:rgba(255,255,255,.82);margin-bottom:4px}
+.tool-text{display:block}
 .tool-desc{font-size:11.5px;color:rgba(255,255,255,.3);line-height:1.55;margin-bottom:10px;font-weight:300}
 .tool-badge{font-family:var(--mono);font-size:8px;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:3px;display:inline-block}
 .connect-cta-row{
@@ -563,7 +564,7 @@ img{display:block;max-width:100%}
 .how-step p{font-size:13.5px;color:var(--ink3);line-height:1.75;font-weight:300}
 
 /* ─── TOOLS SECTION ─── */
-.tools-sec{background:var(--ink2)}
+.tools-sec{background:var(--ink2);padding:96px 6vw}
 .tools-inner{max-width:1060px;margin:0 auto}
 .tools-header{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;margin-bottom:40px;flex-wrap:wrap}
 .tools-header-left{}
@@ -830,7 +831,23 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 }
 @media(min-width:769px){
   .role-card-header{display:none}
-  .role-card-body{max-height:none!important;overflow:visible!important;padding:0!important}
+  .role-card{cursor:default;padding:0}
+  .role-card-body{
+    max-height:none!important;
+    overflow:visible!important;
+    padding:28px 24px!important;
+    display:flex!important;
+    flex-direction:column;
+    gap:10px;
+    height:100%;
+    box-sizing:border-box;
+  }
+  .role-card .role-head{display:flex!important}
+  .role-card h3{display:block!important}
+  .role-card .role-sub{display:block!important}
+  .role-card-body > p{display:block!important}
+  .role-card-body > ul{display:block!important}
+  .roles-grid{gap:1px;border-top:none}
 }
 
 /* ── Tools: readable single-column rows on mobile ── */
@@ -1138,6 +1155,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
         <li>Free SAFE &amp; Convertible Note Calculators</li>
       </ul>
       </div>
+    </div>
     <div class="role-card" onclick="toggleRole(this)">
       <div class="role-card-header">
         <div class="role-card-header-left">
@@ -1164,6 +1182,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
         <li>Annual re-verification of all members you interact with</li>
       </ul>
       </div>
+    </div>
     <div class="role-card" onclick="toggleRole(this)">
       <div class="role-card-header">
         <div class="role-card-header-left">
@@ -1189,6 +1208,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
         <li>2FA security — your identity fully protected</li>
       </ul>
       </div>
+    </div>
     <div class="role-card" onclick="toggleRole(this)">
       <div class="role-card-header">
         <div class="role-card-header-left">
@@ -1213,6 +1233,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
         <li>Conference activations and investor salons</li>
       </ul>
       </div>
+    </div>
     <div class="role-card" onclick="toggleRole(this)">
       <div class="role-card-header">
         <div class="role-card-header-left">
@@ -1237,6 +1258,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
         <li>Enterprise partnership and co-branding</li>
       </ul>
       </div>
+    </div>
     <div class="role-card" onclick="toggleRole(this)">
       <div class="role-card-header">
         <div class="role-card-header-left">
