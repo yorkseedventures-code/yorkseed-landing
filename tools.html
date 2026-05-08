@@ -7,7 +7,10 @@
 <meta name="description" content="Free calculators for SAFE notes (post-money, YC standard), convertible notes, UK ASA/SeedFAST, and French BSA Air. Model equity conversion before you sign."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+<noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/></noscript>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -27,7 +30,7 @@ body{font-family:var(--sans);font-weight:300;background:var(--white);color:var(-
 a{color:inherit;text-decoration:none}
 
 /* NAV */
-nav.topnav{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+nav.topnav{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;background:rgba(255,255,255,.97);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
 .nav-inner{max-width:1280px;margin:0 auto;padding:0 5vw;height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px}
 .n-logo{display:flex;align-items:center;flex-shrink:0}
 .n-center{display:flex;align-items:center;gap:6px}
@@ -167,7 +170,7 @@ nav.topnav{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;backgroun
 footer{background:var(--ink2);padding:24px 6vw 20px;border-top:1px solid rgba(255,255,255,.05)}
 
 /* MOBILE TAB BAR */
-.m-tab-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:290;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);border-top:1px solid var(--border);height:calc(56px + env(safe-area-inset-bottom,0));padding-bottom:env(safe-area-inset-bottom,0)}
+.m-tab-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:290;background:rgba(255,255,255,.97);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border-top:1px solid var(--border);height:calc(56px + env(safe-area-inset-bottom,0));padding-bottom:env(safe-area-inset-bottom,0)}
 .m-tab-bar-inner{display:flex;align-items:center;height:56px;max-width:500px;margin:0 auto}
 .m-tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:var(--ink4);font-size:9px;font-family:var(--mono);letter-spacing:.03em;text-transform:uppercase;text-decoration:none;border:none;background:none;cursor:pointer}
 .m-tab.active{color:var(--red)}
