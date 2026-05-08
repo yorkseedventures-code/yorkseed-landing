@@ -127,10 +127,7 @@
   ]
 }
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
-<noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/></noscript>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--ink:#111;--ink3:#555;--ink4:#888;--white:#fff;--off:#fafafa;--mid:#e8e8e8;--red:#e53030;--gold:#b89a5a;--border:rgba(0,0,0,.07);--border2:rgba(0,0,0,.12);--serif:'Playfair Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;--mono:'DM Mono',monospace}
@@ -716,8 +713,36 @@ function toggleMoreMenu(){var m=document.getElementById('moreMenu');var o=docume
 document.addEventListener('click',function(e){var m=document.getElementById('moreMenu');if(m&&m.style.display==='block'&&!m.contains(e.target)&&!e.target.closest('.m-tab')){toggleMoreMenu();}});
 </script>
 
-<script src="https://cdn.popupsmart.com/bundle.js" data-id="80692" async defer></script>
 <!-- YORKSEED CONCIERGE -->
 <script src="https://www.noupe.com/embed/01993ebbf4a3715c8678cf86a04826af1681.js" async defer></script>
+
+<style>
+/* PopupSmart mobile override — prevent full-screen takeover */
+#popupsmart-container-22825,
+[id^="popupsmart-container"] {
+  position: fixed !important;
+  bottom: 70px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  top: auto !important;
+  width: calc(100% - 32px) !important;
+  max-width: 420px !important;
+  height: auto !important;
+  max-height: 220px !important;
+  z-index: 9999 !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,.18) !important;
+}
+[id^="popupsmart-container"] * {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 220px !important;
+  position: relative !important;
+  left: auto !important;
+  top: auto !important;
+}
+</style>
+<script src="https://cdn.popupsmart.com/bundle.js" data-id="80692" async defer></script>
 </body>
 </html>
