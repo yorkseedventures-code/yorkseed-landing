@@ -17,7 +17,10 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Yorkseed","url":"https://yorkseed.co","description":"The curated global venture network for founders, investors, and institutional partners.","foundingDate":"2023","founder":{"@type":"Person","name":"Jessica Sophia Wong"},"sameAs":["https://www.linkedin.com/company/yorkseed","https://twitter.com/yorkseed"]}</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MN9TDJSXN0"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MN9TDJSXN0');</script>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+<noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/></noscript>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -78,22 +81,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(255,255,255,
 @media(max-width:500px){.n-right .n-apply{display:none}}
 
 /* ─── HERO ─── */
-.hero{min-height:80vh;min-height:80svh;background:var(--ink2);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 6vw 56px;position:relative;overflow:hidden}
+.hero{min-height:100vh;min-height:100svh;background:var(--ink2);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 6vw 64px;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(200,55,45,.08) 0%,transparent 70%),radial-gradient(ellipse 60% 40% at 20% 100%,rgba(176,141,87,.05) 0%,transparent 60%);pointer-events:none}
 .hero-inner{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center}
 .hero-eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:24px;font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.28);opacity:0;animation:fadeUp .8s .1s forwards;-webkit-animation:fadeUp .8s .1s forwards}
 .hero-eyebrow-line{width:20px;height:1px;background:var(--gold);opacity:.5}
-.hero-h1{font-family:var(--serif);font-size:clamp(36px,5.5vw,68px);font-weight:300;line-height:1.06;letter-spacing:-.03em;color:rgba(255,255,255,.9);max-width:860px;opacity:0;animation:fadeUp .9s .25s forwards;-webkit-animation:fadeUp .9s .25s forwards}
+.hero-h1{font-family:var(--serif);font-size:clamp(36px,5.5vw,72px);font-weight:300;line-height:1.06;letter-spacing:-.03em;color:rgba(255,255,255,.9);max-width:860px;opacity:0;animation:fadeUp .9s .25s forwards;-webkit-animation:fadeUp .9s .25s forwards}
 .hero-h1 em{font-style:italic;color:var(--red);font-weight:300}
 .hero-divider{width:1px;height:36px;background:linear-gradient(to bottom,rgba(176,141,87,.45),transparent);margin:20px auto;opacity:0;animation:fadeUp .6s .5s forwards;-webkit-animation:fadeUp .6s .5s forwards}
-.hero-sub{font-size:clamp(15px,1.8vw,18px);color:rgba(255,255,255,.38);max-width:520px;line-height:1.85;margin-bottom:36px;font-weight:300;opacity:0;animation:fadeUp .8s .6s forwards;-webkit-animation:fadeUp .8s .6s forwards}
+.hero-sub{font-size:clamp(15px,1.8vw,19px);color:rgba(255,255,255,.38);max-width:560px;line-height:1.85;margin-bottom:36px;font-weight:300;opacity:0;animation:fadeUp .8s .6s forwards;-webkit-animation:fadeUp .8s .6s forwards}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-bottom:48px;opacity:0;animation:fadeUp .8s .75s forwards;-webkit-animation:fadeUp .8s .75s forwards}
-.btn-primary{background:var(--red);color:#fff;padding:14px 32px;border-radius:6px;font-family:var(--sans);font-size:13px;font-weight:400;letter-spacing:.05em;display:inline-block;transition:opacity .2s,transform .15s}
+.btn-primary{background:var(--red);color:#fff;padding:15px 36px;border-radius:6px;font-family:var(--sans);font-size:13px;font-weight:400;letter-spacing:.05em;display:inline-block;transition:opacity .2s,transform .15s}
 .btn-primary:hover{opacity:.88;transform:translateY(-1px)}
-.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.45);padding:14px 28px;border-radius:6px;font-size:13px;font-weight:300;display:inline-block;transition:border-color .2s,color .2s}
+.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.45);padding:15px 32px;border-radius:6px;font-size:13px;font-weight:300;display:inline-block;transition:border-color .2s,color .2s}
 .btn-ghost:hover{border-color:rgba(255,255,255,.32);color:rgba(255,255,255,.72)}
-.hero-stats{display:flex;border:1px solid rgba(255,255,255,.08);border-radius:8px;overflow:hidden;width:100%;max-width:580px;background:rgba(255,255,255,.03);opacity:0;animation:fadeUp .8s .9s forwards;-webkit-animation:fadeUp .8s .9s forwards}
-.hs{flex:1;padding:18px 8px;text-align:center;border-right:1px solid rgba(255,255,255,.06)}
+.hero-stats{display:flex;border:1px solid rgba(255,255,255,.08);border-radius:8px;overflow:hidden;width:100%;max-width:620px;background:rgba(255,255,255,.03);opacity:0;animation:fadeUp .8s .9s forwards;-webkit-animation:fadeUp .8s .9s forwards}
+.hs{flex:1;padding:20px 10px;text-align:center;border-right:1px solid rgba(255,255,255,.06)}
 .hs:last-child{border-right:none}
 .hs-n{font-family:var(--mono);font-size:20px;font-weight:400;color:rgba(255,255,255,.8);line-height:1;margin-bottom:5px}
 .hs-l{font-family:var(--mono);font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.25)}
@@ -101,9 +104,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(255,255,255,
 @-webkit-keyframes fadeUp{from{opacity:0;-webkit-transform:translateY(14px)}to{opacity:1;-webkit-transform:translateY(0)}}
 
 /* ─── BAND ─── */
-.band{background:var(--light);border-top:1px solid var(--mid);border-bottom:1px solid var(--mid);padding:13px 6vw;font-size:12px;color:var(--ink3);line-height:1.8;font-weight:300}
-.band-l{font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink4);margin-right:8px}
-.band-more{display:inline-block;background:var(--white);border:1px solid var(--mid);border-radius:100px;padding:3px 11px;font-size:10.5px;margin-left:4px}
+.band{background:var(--light);border-top:1px solid var(--mid);border-bottom:1px solid var(--mid);padding:14px 6vw;display:flex;align-items:center;flex-wrap:wrap;gap:6px;font-size:12px;color:var(--ink3);line-height:1.8;font-weight:300}
+.band-l{font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink4);margin-right:8px;white-space:nowrap}
+.pill{background:var(--white);border:1px solid var(--mid);border-radius:100px;padding:5px 14px;font-size:11px;color:var(--ink3);white-space:nowrap}
 
 /* ─── MANIFESTO ─── */
 .manifesto{background:var(--ink);padding:80px 6vw;text-align:center;position:relative}
@@ -114,7 +117,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(255,255,255,
 .manifesto-attr{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.22)}
 
 /* ─── NETWORK ─── */
-.sec{padding:88px 6vw}
+.sec{padding:96px 6vw}
 .kicker{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:18px;display:flex;align-items:center;gap:10px}
 .kicker::before{content:'';display:block;width:14px;height:1px;background:var(--red);opacity:.4}
 .network{background:var(--white)}
@@ -339,8 +342,17 @@ footer{background:var(--ink2);padding:28px 6vw 20px;border-top:1px solid rgba(25
 <!-- CITY BAND -->
 <div class="band">
   <span class="band-l">Active across</span>
-  New York · London · Paris · Lisbon · Dubai · Singapore · Toronto · Hong Kong · Berlin · Austin · San Francisco · Amsterdam · Helsinki · São Paulo · Sydney · Miami · Tel Aviv
-  <span class="band-more">+ 33 more cities</span>
+  <span class="pill">🇺🇸 New York</span>
+  <span class="pill">🇬🇧 London</span>
+  <span class="pill">🇫🇷 Paris</span>
+  <span class="pill">🇵🇹 Lisbon</span>
+  <span class="pill">🇦🇪 Dubai</span>
+  <span class="pill">🇸🇬 Singapore</span>
+  <span class="pill">🇨🇦 Toronto</span>
+  <span class="pill">🇭🇰 Hong Kong</span>
+  <span class="pill">🇩🇪 Berlin</span>
+  <span class="pill">🇺🇸 Austin</span>
+  <span class="pill">+ 40 more cities</span>
 </div>
 
 <!-- MANIFESTO -->
@@ -529,7 +541,7 @@ footer{background:var(--ink2);padding:28px 6vw 20px;border-top:1px solid rgba(25
 </footer>
 
 <!-- MOBILE MORE MENU -->
-<div id="moreMenu" style="display:none;position:fixed;bottom:calc(56px + env(safe-area-inset-bottom,0));left:0;right:0;z-index:399;background:rgba(255,255,255,.98);backdrop-filter:blur(20px);border-top:1px solid rgba(0,0,0,.07);padding:16px 5vw 20px">
+<div id="moreMenu" style="display:none;position:fixed;bottom:calc(56px + env(safe-area-inset-bottom,0));left:0;right:0;z-index:399;background:rgba(255,255,255,.98);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border-top:1px solid rgba(0,0,0,.07);padding:16px 5vw 20px">
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
     <a href="/about.html" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:#fafafa;border:1px solid rgba(0,0,0,.07);border-radius:8px;color:#111;font-size:13px"><span style="font-size:18px">📖</span>Our Story</a>
     <a href="/press.html" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:#fafafa;border:1px solid rgba(0,0,0,.07);border-radius:8px;color:#111;font-size:13px"><span style="font-size:18px">📡</span>Press</a>
@@ -566,6 +578,6 @@ document.addEventListener('click',function(e){
 </script>
 
 <script src="https://cdn.popupsmart.com/bundle.js" data-id="80692" async defer></script>
-<script src="https://www.noupe.com/embed/01993ebbf4a3715c8678cf86a04826af1681.js"></script>
+<script src="https://www.noupe.com/embed/01993ebbf4a3715c8678cf86a04826af1681.js" async defer></script>
 </body>
 </html>
