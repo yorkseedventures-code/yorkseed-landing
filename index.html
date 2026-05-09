@@ -358,9 +358,14 @@ img{display:block;max-width:100%}
 .network{background:var(--white)}
 .network-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
 @media(max-width:800px){.network-grid{grid-template-columns:1fr;gap:48px}}
-.network-claim{font-family:var(--serif);font-size:clamp(26px,3.5vw,44px);font-weight:300;line-height:1.12;letter-spacing:-.015em;color:var(--ink);margin-bottom:22px}
+.network-claim{font-family:var(--serif);font-size:clamp(26px,3.5vw,44px);font-weight:300;line-height:1.12;letter-spacing:-.015em;color:var(--ink);margin-bottom:28px}
 .network-claim em{font-style:italic;color:var(--red)}
-.network-.network-body+.network-.network-body:last-of-type{margin-bottom:32px}
+.network-body{font-size:15px;color:var(--ink3);line-height:1.9;font-weight:300;margin-bottom:18px}
+.network-body:last-of-type{margin-bottom:36px}
+@media(max-width:768px){
+  .network-claim{font-size:clamp(24px,6vw,36px);margin-bottom:22px}
+  .network-body{font-size:14px;line-height:1.85;margin-bottom:16px}
+}
 .network-pillars{display:flex;flex-direction:column;gap:1px;border:1px solid var(--border);border-radius:10px;overflow:hidden}
 .pillar{
   display:flex;align-items:flex-start;gap:18px;
@@ -581,6 +586,18 @@ img{display:block;max-width:100%}
 .statement-image img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;opacity:.7}
 @media(max-width:900px){.statement-inner{grid-template-columns:1fr;gap:36px;padding-right:0}.statement-image{display:none}}
 @media(max-width:600px){.statement{padding:56px 5vw}}
+
+/* ── MOBILE LAYOUT FIXES ── */
+@media(max-width:768px){
+  /* Fix black gap: stack editorial, give image real height */
+  .editorial-grid{grid-template-columns:1fr!important;min-height:auto!important}
+  .editorial-img{position:relative!important;height:200px}
+  .editorial-img img{position:absolute!important}
+  /* Fix global presence: stack columns */
+  .global-grid{grid-template-columns:1fr!important;gap:32px!important}
+  /* Tighten section padding */
+  .global-grid > div:first-child{padding-bottom:0}
+}
 
 </style>
 <!-- Google Analytics -->
@@ -807,7 +824,7 @@ img{display:block;max-width:100%}
 
 <!-- ─── EDITORIAL STATEMENT ─── -->
 <div style="background:#111;overflow:hidden;">
-  <div style="display:grid;grid-template-columns:1fr 1fr;align-items:stretch;min-height:480px;">
+  <div style="display:grid;grid-template-columns:1fr 1fr;align-items:stretch;min-height:480px;" class="editorial-grid">
     <div style="padding:72px 48px 72px 6vw;display:flex;flex-direction:column;justify-content:center;max-width:600px;margin:0 auto 0 auto;">
       <div style="font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:16px;">Yorkseed · est. 2023</div>
       <div style="width:24px;height:1px;background:var(--gold);opacity:.4;margin-bottom:20px;"></div>
@@ -819,7 +836,7 @@ img{display:block;max-width:100%}
         to make it matter.
       </div>
     </div>
-    <div style="overflow:hidden;position:relative;">
+    <div class="editorial-img" style="overflow:hidden;position:relative;">
       <img src="https://s6.imgcdn.dev/YtyMMt.jpg" alt="Yorkseed" style="position:absolute;top:0;right:0;bottom:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;"/>
     </div>
   </div>
@@ -1064,6 +1081,7 @@ document.addEventListener('click',function(e){var d=document.getElementById('eco
 <div id="moreMenu" style="display:none;position:fixed;top:calc(56px + env(safe-area-inset-top,0));left:0;right:0;z-index:399;background:rgba(255,255,255,.98);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.07);padding:16px 5vw 20px">
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
     <a href="/about.html" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:#fafafa;border:1px solid rgba(0,0,0,.07);border-radius:8px;text-decoration:none;color:#111"><span style="font-size:18px">📖</span><span style="font-size:13px;font-weight:400">Our Story</span></a>
+    <a href="/connect.html" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:rgba(196,49,37,.05);border:1px solid rgba(196,49,37,.2);border-radius:8px;text-decoration:none;color:#111"><span style="font-size:18px">🔗</span><span style="font-size:13px;font-weight:500;color:#c43125">Connect</span></a>
     <a href="/press.html" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:#fafafa;border:1px solid rgba(0,0,0,.07);border-radius:8px;text-decoration:none;color:#111"><span style="font-size:18px">📡</span><span style="font-size:13px;font-weight:400">Press</span></a>
     <a href="/capital.html" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:#fafafa;border:1px solid rgba(0,0,0,.07);border-radius:8px;text-decoration:none;color:#111"><span style="font-size:18px">💼</span><span style="font-size:13px;font-weight:400">Capital</span></a>
     <a href="/contact.html" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:#fafafa;border:1px solid rgba(0,0,0,.07);border-radius:8px;text-decoration:none;color:#111"><span style="font-size:18px">✉️</span><span style="font-size:13px;font-weight:400">Contact</span></a>
