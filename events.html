@@ -517,17 +517,58 @@ function renderArchive(archive){
 }
 
 // ─── INIT ─────────────────────────────────────────────────────────────────────
+function isPast(ev){
+  if(!ev.dateISO) return false;
+  // Compare date only (ignore time) so event stays visible on the day itself
+  const today = new Date();
+  today.setHours(0,0,0,0);
+  return new Date(ev.dateISO) < today;
+}
+
 async function init(){
   try{
     const res=await fetch('events.json');
     if(!res.ok) throw new Error('fetch failed');
     const data=await res.json();
-    const upcoming=data.upcoming||[];
-    const featured=upcoming.find(e=>e.featured);
-    const rest=upcoming.filter(e=>!e.featured);
+
+    // Split upcoming into still-future and now-past
+    const allUpcoming=data.upcoming||[];
+    const stillUpcoming=allUpcoming.filter(e=>!isPast(e));
+    const autoArchived=allUpcoming.filter(e=>isPast(e));
+
+    // Render upcoming
+    const featured=stillUpcoming.find(e=>e.featured);
+    const rest=stillUpcoming.filter(e=>!e.featured);
     if(featured) document.getElementById('featuredContainer').innerHTML=renderFeatured(featured);
     if(rest.length) document.getElementById('upcomingGrid').innerHTML=rest.map(renderUpcomingCard).join('');
-    document.getElementById('archiveContainer').innerHTML=renderArchive(data.archive||[]);
+
+    // Merge auto-archived events into the archive data under the correct year
+    const archive=data.archive||[];
+    autoArchived.forEach(ev=>{
+      const year=new Date(ev.dateISO).getFullYear();
+      let yearBlock=archive.find(y=>y.year===year);
+      if(!yearBlock){
+        yearBlock={year,groups:[]};
+        archive.unshift(yearBlock);
+        archive.sort((a,b)=>b.year-a.year);
+      }
+      // Add as a group if not already there
+      const groupLabel=ev.city||ev.location||'Event';
+      let group=yearBlock.groups.find(g=>g.label===groupLabel);
+      if(!group){
+        group={label:groupLabel,events:[]};
+        yearBlock.groups.unshift(group);
+      }
+      group.events.unshift({
+        type:ev.type,
+        title:ev.title,
+        location:ev.location,
+        date:ev.date,
+        lumaUrl:ev.lumaUrl||''
+      });
+    });
+
+    document.getElementById('archiveContainer').innerHTML=renderArchive(archive);
   }catch(err){
     console.error('events.json load error:',err);
   }
