@@ -328,7 +328,8 @@ h1 em{font-style:italic;color:var(--red)}
     <div class="section-eyebrow">Upcoming events</div>
 
     <div id="featuredContainer"></div>
-<div class="upcoming-grid" id="upcomingGrid"></div>
+
+    <div class="upcoming-grid" id="upcomingGrid"></div>
 
     <div class="luma-cta">
       <div class="luma-cta-text"><strong>More events coming soon.</strong> Follow Yorkseed on Luma to get notified as new events are announced across 50+ cities.</div>
@@ -534,9 +535,14 @@ async function init(){
     const stillUpcoming=allUpcoming.filter(e=>!isPast(e));
     const autoArchived=allUpcoming.filter(e=>isPast(e));
 
-    // Render upcoming
-    const featured=stillUpcoming.find(e=>e.featured);
-    const rest=stillUpcoming.filter(e=>!e.featured);
+    // Auto-sort by dateISO, earliest is always featured
+    stillUpcoming.sort((a,b)=>{
+      if(!a.dateISO) return 1;
+      if(!b.dateISO) return -1;
+      return new Date(a.dateISO)-new Date(b.dateISO);
+    });
+    const featured=stillUpcoming[0]||null;
+    const rest=stillUpcoming.slice(1);
     if(featured) document.getElementById('featuredContainer').innerHTML=renderFeatured(featured);
     if(rest.length) document.getElementById('upcomingGrid').innerHTML=rest.map(renderUpcomingCard).join('');
 
