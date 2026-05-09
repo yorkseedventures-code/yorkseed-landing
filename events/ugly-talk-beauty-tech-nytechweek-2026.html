@@ -68,7 +68,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(255,255,255,
 @media(max-width:500px){.n-right .n-apply{display:none}}
 
 .event-hero{padding-top:64px;position:relative;overflow:hidden;min-height:460px;display:flex;align-items:flex-end;background:#1a0a14}
-.event-hero-bg{position:absolute;inset:0;background-image:url('https://greyjournal.net/wp-content/uploads/2026/04/square-69f8b24acf6722357a509457.jpeg');background-size:cover;background-position:center;opacity:.35}
+.event-hero-bg{position:absolute;inset:0;overflow:hidden}
+.event-hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center;opacity:.55;display:block}
 .event-hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,10,20,.2) 0%,rgba(26,10,20,.88) 100%)}
 .event-hero-inner{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:52px 6vw;width:100%}
 .event-breadcrumb{font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:20px;display:flex;align-items:center;gap:8px}
@@ -219,7 +220,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(255,255,255,
 
 <!-- HERO -->
 <div class="event-hero">
-  <div class="event-hero-bg"></div>
+  <div class="event-hero-bg"><img src="https://greyjournal.net/wp-content/uploads/2026/04/square-69f8b24acf6722357a509457.jpeg" alt="" referrerpolicy="no-referrer"/></div>
   <div class="event-hero-overlay"></div>
   <div class="event-hero-inner">
     <div class="event-breadcrumb"><a href="/events.html">Events</a><span>›</span><span>NY Tech Week 2026</span></div>
