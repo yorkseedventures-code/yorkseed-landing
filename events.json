@@ -1,0 +1,190 @@
+{
+  "upcoming": [
+    {
+      "slug": "nyftw-new-york-2026",
+      "featured": true,
+      "type": "passport",
+      "title": "New York Founders & Tech Week Mixer",
+      "city": "New York",
+      "country": "USA",
+      "location": "New York, USA",
+      "venue": "TBA",
+      "date": "Jun 2026",
+      "dateISO": "2026-06-01",
+      "format": "In-Person",
+      "spots": "Limited seats",
+      "description": "Join Yorkseed for an exclusive evening of curated conversations during New York Tech Week — connecting founders, investors, and operators from across the global ecosystem.",
+      "lumaUrl": "https://lu.ma/yorkseed",
+      "coverGradient": "linear-gradient(135deg,#1a1209 0%,#2e1e0a 40%,#3d2810 100%)",
+      "coverImage": ""
+    },
+    {
+      "slug": "milan-ai-week-2026",
+      "featured": false,
+      "type": "passport",
+      "title": "Milan AI Week Founders Soirée",
+      "city": "Milan",
+      "country": "Italy",
+      "location": "Milan, Italy",
+      "venue": "TBA",
+      "date": "Oct 2026",
+      "dateISO": "2026-10-01",
+      "format": "In-Person",
+      "spots": "Limited seats",
+      "description": "An intimate gathering of AI founders and investors during Milan AI Week.",
+      "lumaUrl": "https://lu.ma/yorkseed",
+      "coverGradient": "linear-gradient(135deg,#0a0f1a 0%,#0e1e2e 40%,#102030 100%)",
+      "coverImage": ""
+    },
+    {
+      "slug": "vivatech-paris-2026",
+      "featured": false,
+      "type": "passport",
+      "title": "VivaTech Paris — Venture Circle",
+      "city": "Paris",
+      "country": "France",
+      "location": "Paris, France",
+      "venue": "TBA",
+      "date": "May 2026",
+      "dateISO": "2026-05-20",
+      "format": "In-Person",
+      "spots": "Limited seats",
+      "description": "A curated founders and investors gathering alongside VivaTech, Europe's biggest tech and startup event.",
+      "lumaUrl": "https://lu.ma/yorkseed",
+      "coverGradient": "linear-gradient(135deg,#0f0a1a 0%,#1e102e 40%,#251230 100%)",
+      "coverImage": ""
+    }
+  ],
+  "archive": [
+    {
+      "year": 2026,
+      "groups": [
+        {
+          "label": "Davos",
+          "events": [
+            { "type": "passport", "title": "Java & Journeys: Conversations That Inspire Change", "location": "Davos, Switzerland", "date": "Jan 20", "lumaUrl": "https://lu.ma/xu08ovdx" }
+          ]
+        },
+        {
+          "label": "SXSW Austin",
+          "events": [
+            { "type": "house", "title": "Yorkseed House @ SXSW", "location": "Austin, USA", "date": "Mar 9", "lumaUrl": "https://lu.ma/y7g0vtqw" },
+            { "type": "house", "title": "Investor Panel: Beyond The Check", "location": "Austin, USA", "date": "Mar 9", "lumaUrl": "https://lu.ma/a5gl17sq" },
+            { "type": "passport", "title": "Walk And Talk Edition", "location": "Austin, USA", "date": "Mar 11", "lumaUrl": "https://lu.ma/39ib9p5l" },
+            { "type": "passport", "title": "SXSW Coffee & Connections", "location": "Austin, USA", "date": "Mar 12", "lumaUrl": "https://lu.ma/lucoh8ks" }
+          ]
+        },
+        {
+          "label": "SXSW London · London Tech Week",
+          "events": [
+            { "type": "passport", "title": "Brunch and Network", "location": "London, UK", "date": "Jun 9", "lumaUrl": "https://lu.ma/if2fv3hb" }
+          ]
+        },
+        {
+          "label": "New York Tech Week",
+          "events": [
+            { "type": "passport", "title": "Web3 Connect Social Hour", "location": "New York, USA", "date": "Jun 2", "lumaUrl": "https://lu.ma/omif6mtc" },
+            { "type": "passport", "title": "Venture Salon: A Curated Evening for Founders & Investors", "location": "New York, USA", "date": "Jun 3", "lumaUrl": "https://lu.ma/zqhk7bt1" }
+          ]
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "groups": [
+        {
+          "label": "Web Summit Lisbon",
+          "events": [
+            { "type": "passport", "title": "Capital Conversations: Investor-Only Brunch", "location": "Lisbon, Portugal", "date": "Nov 12", "lumaUrl": "https://lu.ma/wu37v0kc" },
+            { "type": "passport", "title": "Whispers & Ventures: Speakeasy Soirée", "location": "Lisbon, Portugal", "date": "Nov 12", "lumaUrl": "https://lu.ma/qbmdx7i3" },
+            { "type": "passport", "title": "Web Summit Unplugged: Venture Ecosystem Nightcap", "location": "Lisbon, Portugal", "date": "Nov 13", "lumaUrl": "https://lu.ma/nni1ypey" },
+            { "type": "passport", "title": "Morning Wellness Recharge for Founders, VCs & Execs", "location": "Lisbon, Portugal", "date": "Nov 14", "lumaUrl": "https://lu.ma/ewxl8swx" },
+            { "type": "passport", "title": "Yorkseeders Cocktails Night Out", "location": "Lisbon, Portugal", "date": "Nov 14", "lumaUrl": "https://lu.ma/xuruolg5" }
+          ]
+        },
+        {
+          "label": "Expert Sessions",
+          "events": [
+            { "type": "expert", "title": "How to Raise in a Non-ZIRP Era", "location": "Virtual", "date": "Apr 10", "lumaUrl": "https://lu.ma/pst24lkc" },
+            { "type": "expert", "title": "Navigating the Legalities of Funds", "location": "Virtual", "date": "May 3", "lumaUrl": "https://lu.ma/yorkseedlumia" },
+            { "type": "expert", "title": "Legal Perspectives on Fundraising", "location": "Virtual", "date": "May 17", "lumaUrl": "https://lu.ma/yorkseedlumia2" },
+            { "type": "expert", "title": "Invaluable Insights into Term Sheets", "location": "Virtual", "date": "Jul 11", "lumaUrl": "https://lu.ma/qklwc44r" },
+            { "type": "expert", "title": "A Guide to Venture Studios", "location": "Virtual", "date": "Jul 25", "lumaUrl": "https://lu.ma/jqy8ic9e" },
+            { "type": "expert", "title": "A Guide to Business Partnerships", "location": "Virtual", "date": "Sep 9", "lumaUrl": "https://lu.ma/4nzo1mmq" },
+            { "type": "expert", "title": "A Guide to Fund Formation", "location": "Virtual", "date": "Oct 17", "lumaUrl": "https://lu.ma/jfxqr4h1" }
+          ]
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "groups": [
+        {
+          "label": "SXSW Austin",
+          "events": [
+            { "type": "passport", "title": "SXSW Pre-Game", "location": "Austin, USA", "date": "Mar 7", "lumaUrl": "https://lu.ma/Yorkseedsxswpregame2024" },
+            { "type": "passport", "title": "Walk And Talk Edition", "location": "Austin, USA", "date": "Mar 9", "lumaUrl": "https://lu.ma/5n9fae3d" },
+            { "type": "passport", "title": "Unfiltered Mental Health Chat", "location": "Austin, USA", "date": "Mar 11", "lumaUrl": "https://lu.ma/44hs472d" },
+            { "type": "passport", "title": "Crowdfunding | Customer Acquisition", "location": "Austin, USA", "date": "Mar 12", "lumaUrl": "https://lu.ma/uttfunav" },
+            { "type": "passport", "title": "Rejuvenate Post-SXSW with Intentional Connection", "location": "Austin, USA", "date": "Mar 18", "lumaUrl": "https://lu.ma/rejuvenatepostsxsw" }
+          ]
+        },
+        {
+          "label": "New York Spring",
+          "events": [
+            { "type": "passport", "title": "Authentic Connections", "location": "New York, USA", "date": "May 19", "lumaUrl": "https://lu.ma/Yorkseedauthenticconnections" },
+            { "type": "passport", "title": "Authentic Connections (After Hours)", "location": "New York, USA", "date": "May 19", "lumaUrl": "https://lu.ma/g7jlr7zd" }
+          ]
+        },
+        {
+          "label": "New York Tech Week · Venture Summit",
+          "events": [
+            { "type": "summit", "title": "Yorkseed Venture Summit with StartupFuel", "location": "New York, USA", "date": "Jun", "lumaUrl": "https://yrbmag.com/event-recap-yorkseed-venture-summit-with-startupfuel-new-york-techweek-edition/", "linkLabel": "Recap →" }
+          ]
+        },
+        {
+          "label": "NFT.NYC",
+          "events": [
+            { "type": "passport", "title": "Orbis86 × Yorkseed: Future of Tech — Web3 × AI Meet & Greet", "location": "New York, USA", "date": "Apr", "lumaUrl": "https://medium.com/@orbis86/orbis86-yorkseed-meet-and-greet-at-nft-nyc-1b3edc9af293", "linkLabel": "Recap →" }
+          ]
+        },
+        {
+          "label": "SXSW Sydney",
+          "events": [
+            { "type": "passport", "title": "Sydney Walk and Talk Edition", "location": "Sydney, Australia", "date": "Oct 17", "lumaUrl": "https://lu.ma/fngrgosd" }
+          ]
+        },
+        {
+          "label": "Web Summit Lisbon",
+          "events": [
+            { "type": "passport", "title": "Capital Conversations: Investor-Only Brunch", "location": "Lisbon, Portugal", "date": "Nov 12", "lumaUrl": "https://lu.ma/wu37v0kc" }
+          ]
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "groups": [
+        {
+          "label": "SXSW Austin — The Beginning",
+          "events": [
+            { "type": "passport", "title": "Founders × Investors SXSW Mixer — the event that started it all", "location": "Austin, USA", "date": "Mar" }
+          ]
+        },
+        {
+          "label": "New York · Toronto · Venture Summits",
+          "events": [
+            { "type": "summit", "title": "Yorkseed Venture Summit — New York", "location": "New York, USA", "date": "2023" },
+            { "type": "summit", "title": "Yorkseed Venture Summit — Toronto", "location": "Toronto, Canada", "date": "2023" }
+          ]
+        },
+        {
+          "label": "Web Summit Lisbon",
+          "events": [
+            { "type": "passport", "title": "Founders & Investors Soirée × Supermoon × Near Protocol", "location": "Lisbon, Portugal", "date": "Nov", "lumaUrl": "https://www.crypto-reporter.com/press-releases/triumph-for-supermoon-and-yorkseeds-founders-investors-soiree-at-websummit-in-lisbon-with-near-protocol-52897/", "linkLabel": "Recap →" }
+          ]
+        }
+      ]
+    }
+  ]
+}
