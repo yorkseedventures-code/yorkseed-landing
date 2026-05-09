@@ -527,7 +527,7 @@ function isPast(ev){
 
 async function init(){
   try{
-    const res=await fetch('events.json');
+    const res=await fetch('/events.json');
     if(!res.ok) throw new Error('fetch failed');
     const data=await res.json();
 
