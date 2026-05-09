@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Ugly Talk: The Future of Fashion & Beauty Tech #NYTechWeek | Yorkseed</title>
-<meta name="description" content="Beauty tech is booming but getting louder, not clearer. Join Yorkseed and Belong NYC for an unfiltered conversation on what's actually shaping the future of beauty tech. Jun 3, Manhattan."/>
-<meta property="og:title" content="Ugly Talk: The Future of Fashion & Beauty Tech #NYTechWeek"/>
-<meta property="og:description" content="Separate signal from noise. Founders, investors, and beauty tech operators. Wed Jun 3 · 7pm ET · Manhattan."/>
-<meta property="og:image" content="https://partiful.imgix.net/external/user/BkRb8WXVjRTB0FK8gItaihwSjFC3/uaFEtZw7G9gkTrO0jre50?w=1200&h=630&fit=crop"/>
+<title>Venture Vitality: HealthTech Investor Virtual Roundtable | Yorkseed</title>
+<meta name="description" content="An off-the-record virtual tactical roundtable for accredited investors shaping the future of HealthTech. No pitches. Just open collaboration on deal flow, fund performance, and what's actually scaling."/>
+<meta property="og:title" content="Venture Vitality: HealthTech Investor Virtual Roundtable"/>
+<meta property="og:description" content="Off-the-record. 30 select investors. Candid strategy on deal flow, follow-ons, and what's working in HealthTech right now."/>
+<meta property="og:image" content="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/z1/3d93d386-8229-43bf-99a9-c09f4af1fe6c.png"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
 <style>
@@ -67,15 +67,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(255,255,255,
 @media(max-width:900px){.n-center{display:none}.n-right .n-signin{display:none}.n-ham{display:flex}}
 @media(max-width:500px){.n-right .n-apply{display:none}}
 
-.event-hero{padding-top:64px;position:relative;overflow:hidden;min-height:460px;display:flex;align-items:flex-end;background:#1a0a14}
+/* HERO — gold tones for Expert Session */
+.event-hero{padding-top:64px;position:relative;overflow:hidden;min-height:460px;display:flex;align-items:center;background:#0f0d09}
 .event-hero-bg{position:absolute;inset:0;overflow:hidden}
-.event-hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center;opacity:.55;display:block}
-.event-hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,10,20,.2) 0%,rgba(26,10,20,.88) 100%)}
+.event-hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center;opacity:.35;display:block}
+.event-hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,13,9,.3) 0%,rgba(15,13,9,.88) 100%)}
 .event-hero-inner{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:52px 6vw;width:100%}
 .event-breadcrumb{font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:20px;display:flex;align-items:center;gap:8px}
 .event-breadcrumb a{color:rgba(255,255,255,.45);transition:color .15s}
 .event-breadcrumb a:hover{color:rgba(255,255,255,.8)}
-.event-badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;padding:5px 10px;border-radius:3px;background:rgba(200,55,45,.85);color:#fff;margin-bottom:16px}
+.event-badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;padding:5px 10px;border-radius:3px;background:rgba(176,141,87,.85);color:#fff;margin-bottom:16px}
 .event-badge::before{content:'';display:block;width:5px;height:5px;border-radius:50%;background:#fff;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 .event-hero h1{font-family:var(--serif);font-size:clamp(28px,4.5vw,54px);font-weight:400;color:#fff;line-height:1.1;letter-spacing:-.02em;margin-bottom:20px;max-width:700px}
@@ -87,32 +88,31 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(255,255,255,
 @media(max-width:840px){.event-body{grid-template-columns:1fr;padding:32px 6vw}}
 
 .event-section{margin-bottom:40px}
-.event-section-label{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:18px;display:flex;align-items:center;gap:10px}
-.event-section-label::before{content:'';display:block;width:16px;height:1px;background:var(--red);opacity:.5}
+.event-section-label{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.event-section-label::before{content:'';display:block;width:16px;height:1px;background:var(--gold);opacity:.5}
 .event-desc{font-size:15px;color:var(--ink3);line-height:1.85;font-weight:300}
 .event-desc p{margin-bottom:16px}
 .event-desc p:last-child{margin-bottom:0}
 .event-desc strong{font-weight:500;color:var(--ink)}
 
-.expect-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.expect-item{padding:16px;background:var(--off);border:1px solid var(--border);border-radius:8px;display:flex;gap:12px;align-items:flex-start}
-.expect-icon{font-size:18px;flex-shrink:0;margin-top:1px}
-.expect-text{font-size:13px;color:var(--ink3);line-height:1.6}
-.expect-text strong{display:block;font-weight:500;color:var(--ink);margin-bottom:2px}
+.gain-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+@media(max-width:600px){.gain-grid{grid-template-columns:1fr}}
+.gain-card{padding:20px;background:var(--off);border:1px solid var(--border);border-radius:10px}
+.gain-card-title{font-size:13px;font-weight:500;color:var(--ink);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.gain-card-title span{font-size:16px}
+.gain-list{display:flex;flex-direction:column;gap:6px}
+.gain-item{font-size:12px;color:var(--ink4);line-height:1.5;padding-left:12px;position:relative}
+.gain-item::before{content:'·';position:absolute;left:0;color:var(--gold)}
 
 .who-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .who-card{padding:14px 16px;border:1px solid var(--border);border-radius:8px;font-size:13px;color:var(--ink3);line-height:1.5;display:flex;align-items:flex-start;gap:10px}
-.who-card.fit{border-color:var(--red-border);background:var(--red-dim)}
+.who-card.fit{border-color:var(--gold-border);background:var(--gold-dim)}
 .who-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:5px;background:#1a8a5a}
 
 .speaker-card{padding:24px;border:1px solid var(--border);border-radius:10px;background:var(--off);display:flex;gap:20px;align-items:flex-start}
-.speaker-initials{width:52px;height:52px;border-radius:50%;background:var(--red-dim);border:1px solid var(--red-border);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:18px;font-weight:400;color:var(--red);flex-shrink:0}
 .speaker-name{font-size:15px;font-weight:500;color:var(--ink);margin-bottom:3px}
-.speaker-role{font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+.speaker-role{font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
 .speaker-bio{font-size:12.5px;color:var(--ink4);line-height:1.7;font-weight:300}
-
-.questions-list{display:flex;flex-direction:column;gap:10px}
-.question-item{padding:14px 18px;border-left:2px solid var(--red-border);background:var(--off);border-radius:0 8px 8px 0;font-size:13px;color:var(--ink3);line-height:1.6}
 
 .hosts-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .host-card{padding:20px;border:1px solid var(--border);border-radius:10px;background:var(--off)}
@@ -128,10 +128,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(255,255,255,
 .sidebar-meta-icon{font-size:15px;flex-shrink:0;margin-top:1px}
 .sidebar-meta-label{font-family:var(--mono);font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);display:block;margin-bottom:2px}
 .sidebar-meta-val{font-size:13px;color:var(--ink);font-weight:400}
-.sidebar-spots{display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--red-dim);border:1px solid var(--red-border);border-radius:6px;margin-bottom:16px}
-.sidebar-spots-dot{width:7px;height:7px;border-radius:50%;background:var(--red);flex-shrink:0;animation:pulse 2s infinite}
-.sidebar-spots-text{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;color:var(--red)}
-.btn-rsvp{display:block;width:100%;background:var(--red);color:#fff;padding:14px 22px;border-radius:7px;font-size:13px;font-weight:400;letter-spacing:.02em;text-align:center;transition:opacity .15s;cursor:pointer;border:none;font-family:var(--sans);text-decoration:none}
+.sidebar-spots{display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--gold-dim);border:1px solid var(--gold-border);border-radius:6px;margin-bottom:16px}
+.sidebar-spots-dot{width:7px;height:7px;border-radius:50%;background:var(--gold);flex-shrink:0;animation:pulse 2s infinite}
+.sidebar-spots-text{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;color:#7a5c1e}
+.btn-rsvp{display:block;width:100%;background:var(--gold);color:#fff;padding:14px 22px;border-radius:7px;font-size:13px;font-weight:400;letter-spacing:.02em;text-align:center;transition:opacity .15s;cursor:pointer;border:none;font-family:var(--sans);text-decoration:none}
 .btn-rsvp:hover{opacity:.88}
 .btn-rsvp-sub{font-size:11px;color:var(--ink4);text-align:center;margin-top:10px}
 .sidebar-bottom{padding:18px 24px;background:var(--off);border-top:1px solid var(--border)}
@@ -161,7 +161,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(255,255,255,
 .m-tab-join{flex:1;display:flex;align-items:center;justify-content:center;padding:0 6px}
 .m-tab-join a{background:var(--red);color:#fff;border-radius:6px;font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;padding:8px 14px;display:block;text-decoration:none;white-space:nowrap}
 @media(max-width:900px){.m-tab-bar{display:block};body{padding-bottom:calc(56px + env(safe-area-inset-bottom,0))}}
-@media(max-width:500px){.expect-grid,.who-grid,.hosts-grid{grid-template-columns:1fr}}
+@media(max-width:500px){.who-grid,.hosts-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -220,16 +220,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(255,255,255,
 
 <!-- HERO -->
 <div class="event-hero">
-  <div class="event-hero-bg"><img src="https://s6.imgcdn.dev/YtTKFh.jpg" alt="" referrerpolicy="no-referrer"/></div>
+  <div class="event-hero-bg"><img src="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=1400,height=700/uploads/z1/3d93d386-8229-43bf-99a9-c09f4af1fe6c.png" alt="" referrerpolicy="no-referrer"/></div>
   <div class="event-hero-overlay"></div>
   <div class="event-hero-inner">
-    <div class="event-breadcrumb"><a href="/events.html">Events</a><span>›</span><span>NY Tech Week 2026</span></div>
-    <div class="event-badge">● Passport Series · #NYTechWeek</div>
-    <h1>Ugly Talk:<br><em>The Future of Fashion & Beauty Tech</em></h1>
+    <div class="event-breadcrumb"><a href="/events.html">Events</a><span>›</span><span>Expert Sessions</span></div>
+    <div class="event-badge">● Expert Session · Virtual</div>
+    <h1>Venture Vitality:<br><em>HealthTech Investor Roundtable</em></h1>
     <div class="event-meta-strip">
-      <div class="event-meta-item">📅 Tuesday, June 3, 2026 · 6:00–8:00 PM ET</div>
-      <div class="event-meta-item">📍 Belong NYC · 218 Lafayette St, 2nd Floor, SoHo</div>
-      <div class="event-meta-item">🎟 Open registration</div>
+      <div class="event-meta-item">💻 Virtual · Zoom</div>
+      <div class="event-meta-item">🔒 Off the record · 30 select investors</div>
+      <div class="event-meta-item">🎟 Accredited investors only</div>
     </div>
   </div>
 </div>
@@ -239,55 +239,62 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(255,255,255,
   <div>
 
     <div class="event-section">
-      <div class="event-section-label">What's the Ugly Truth</div>
+      <div class="event-section-label">About This Session</div>
       <div class="event-desc">
-        <p>Beauty tech is booming, but growth has made the category louder, not clearer. AI diagnostics, AR try-ons, personalization, and smart devices are pulling more founders into the space — but more innovation also means more hype, more copycats, and more brands fighting for the same customer attention.</p>
-        <p>For founders, a strong product is just the entry fee. The real edge comes from knowing what actually drives <strong>trust, repeat purchase, and loyalty</strong> in a market where branding and novelty can fake momentum. This room is for people who want to separate signal from noise and figure out which trends are truly shaping the future of beauty tech.</p>
+        <p>An off-the-record virtual tactical roundtable for <strong>accredited investors shaping the future of HealthTech</strong>. Whether you're deploying capital in Digital Health, BioTech, MedTech, or FemTech, this session is designed to give you clarity, strategy, and peer insight — beyond the pitch decks.</p>
+        <p>In a market clouded by shrinking exits and capital uncertainty, this is a space for accredited investors to speak candidly about what's working, what's not, and what's coming next.</p>
+        <p><strong>No startup pitches. Just open collaboration.</strong> Hosted by PulsePoint Path, Yorkseed, and Health Board Advisors, this high-trust gathering brings together 30 select investors for a private, actionable conversation on deal flow, fund performance, follow-on strategies, and the real markers of startup success.</p>
       </div>
     </div>
 
     <div class="event-section">
-      <div class="event-section-label">Why You Should Attend</div>
-      <div class="expect-grid">
-        <div class="expect-item"><span class="expect-icon">🎤</span><div class="expect-text"><strong>Hear from a pioneer</strong>What they're building, how they got there, and what they're watching now</div></div>
-        <div class="expect-item"><span class="expect-icon">🔗</span><div class="expect-text"><strong>Connect with builders</strong>Beauty tech founders relentlessly innovating through the noise</div></div>
-        <div class="expect-item"><span class="expect-icon">📊</span><div class="expect-text"><strong>Understand shifting demand</strong>Consumer behavior, what's changing, and what customers want now</div></div>
-        <div class="expect-item"><span class="expect-icon">🧠</span><div class="expect-text"><strong>Signal vs hype</strong>Cut through the noise on AI, diagnostics, personalization, and retention</div></div>
-      </div>
-    </div>
-
-    <div class="event-section">
-      <div class="event-section-label">Who's In This Room</div>
-      <div class="who-grid">
-        <div class="who-card fit"><div class="who-dot"></div>Beauty tech founders</div>
-        <div class="who-card fit"><div class="who-dot"></div>Beauty business owners</div>
-        <div class="who-card fit"><div class="who-dot"></div>Consumer and brand experts</div>
-        <div class="who-card fit"><div class="who-dot"></div>Investors in beauty tech and consumer companies</div>
-      </div>
-    </div>
-
-    <div class="event-section">
-      <div class="event-section-label">Taking the Stage</div>
-      <div class="speaker-card">
-        <img src="https://greyjournal.net/wp-content/uploads/2026/04/Elliot-86-300x300.jpg" alt="Zehra Soysal" referrerpolicy="no-referrer" style="width:56px;height:56px;border-radius:50%;object-fit:cover;flex-shrink:0;border:1px solid var(--border2)"/>
-        <div style="flex:1">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-            <div class="speaker-name" style="margin-bottom:0">Zehra Soysal</div>
-            <img src="https://greyjournal.net/wp-content/uploads/2026/04/savanah_ai_logo-150x150.jpg" alt="Savanah.ai" referrerpolicy="no-referrer" style="height:20px;width:auto;border-radius:3px"/>
+      <div class="event-section-label">What You'll Gain</div>
+      <div class="gain-grid">
+        <div class="gain-card">
+          <div class="gain-card-title"><span>🧠</span>Investor Clarity</div>
+          <div class="gain-list">
+            <div class="gain-item">Raw insights on what's truly scaling in HealthTech today</div>
+            <div class="gain-item">Strategy swaps and deal feedback from seasoned peers</div>
+            <div class="gain-item">A pitch-free environment to challenge assumptions</div>
           </div>
-          <div class="speaker-role">Founder & CEO · Savanah.ai</div>
-          <div class="speaker-bio">Zehra's career began at Google in business strategy, followed by impactful roles at BCG across Europe, the Middle East, and Asia. She played a key role in establishing a tech joint venture with Turkey's largest conglomerate. After earning her MBA from Harvard Business School in 2022, she joined Metaphysic.ai in New York, helping scale operations through its $1.4B acquisition. She is now the founder and CEO of Savanah.ai — a visual AI platform helping brands create e-commerce imagery at scale and optimize conversion.</div>
+        </div>
+        <div class="gain-card">
+          <div class="gain-card-title"><span>🎯</span>Network Alignment</div>
+          <div class="gain-list">
+            <div class="gain-item">High-trust relationships with fellow LPs, angels, and fund managers</div>
+            <div class="gain-item">Frameworks and co-investment opportunities</div>
+            <div class="gain-item">Benchmarking against current market dynamics</div>
+          </div>
+        </div>
+        <div class="gain-card">
+          <div class="gain-card-title"><span>💬</span>Visibility</div>
+          <div class="gain-list">
+            <div class="gain-item">Featured judge opportunity at PulsePoint Path's HealthTech Showdown</div>
+            <div class="gain-item">Spotlighted on the Funding Her Future podcast series</div>
+          </div>
         </div>
       </div>
     </div>
 
     <div class="event-section">
-      <div class="event-section-label">What We Don't Sugarcoat</div>
-      <div class="questions-list">
-        <div class="question-item">In an industry full of noise and competition, how do you separate real signal from hype?</div>
-        <div class="question-item">How do you fight copycats in a market where products move fast and differentiation can disappear overnight?</div>
-        <div class="question-item">What trends actually reflect customer demand — and what are customers burning for now that they weren't asking for before?</div>
-        <div class="question-item">How does AI actually matter here — from diagnostics and personalization to discovery, conversion, and retention?</div>
+      <div class="event-section-label">Who This Is For</div>
+      <div class="who-grid">
+        <div class="who-card fit"><div class="who-dot"></div>Accredited investors deploying in Digital Health, BioTech, MedTech, or FemTech</div>
+        <div class="who-card fit"><div class="who-dot"></div>LPs, angels, and fund managers actively sourcing or co-investing</div>
+        <div class="who-card fit"><div class="who-dot"></div>Strategic advisors and operators with capital market exposure in healthcare</div>
+        <div class="who-card fit"><div class="who-dot"></div>Corporate venture and family office investors with health sector focus</div>
+      </div>
+    </div>
+
+    <div class="event-section">
+      <div class="event-section-label">Featured Host</div>
+      <div class="speaker-card">
+        <img src="https://assets.cdn.filesafe.space/IQ12C8ftHFBhhlaf6q5k/media/6554ff63bcbe6f2e4e297911.jpeg" alt="Sabrina Runbeck" referrerpolicy="no-referrer" style="width:56px;height:56px;border-radius:50%;object-fit:cover;flex-shrink:0;border:1px solid var(--border2)"/>
+        <div style="flex:1">
+          <div class="speaker-name">Sabrina Runbeck, MPH, MHS, PA-C</div>
+          <div class="speaker-role">Co-Founder & CEO · PulsePoint Path</div>
+          <div class="speaker-bio">A dynamic healthcare strategist with 24 years of experience in clinical medicine, public health, executive coaching, and strategic consulting. Having navigated burnout across 11 major healthcare systems, Sabrina now empowers healthcare founders to optimise their business models, enhance visibility, and drive lasting social impact. Host of the top 5% globally ranked Provider's Edge podcast. TEDx speaker featured on FOX, CBS, and ABC.</div>
+        </div>
       </div>
     </div>
 
@@ -295,20 +302,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(255,255,255,
       <div class="event-section-label">Hosted By</div>
       <div class="hosts-grid">
         <div class="host-card">
-          <img src="https://greyjournal.net/wp-content/uploads/2026/04/Yorkseed-300x104.png" alt="Yorkseed" referrerpolicy="no-referrer" style="height:28px;width:auto;object-fit:contain;margin-bottom:10px"/>
-          <div class="host-desc">A global venture platform connecting founders, investors, and operators through curated events and a private deal-flow network.</div>
+          <img src="https://s6.imgcdn.dev/Yt5tnl.png" alt="Yorkseed" style="height:24px;width:auto;object-fit:contain;margin-bottom:10px"/>
+          <div class="host-desc">A curated global venture network connecting founders, investors, and ecosystem leaders across 50+ city hubs worldwide.</div>
         </div>
         <div class="host-card">
-          <img src="https://greyjournal.net/wp-content/uploads/2026/04/belong-nyc-logo-300x150.png" alt="Belong NYC" referrerpolicy="no-referrer" style="height:28px;width:auto;object-fit:contain;margin-bottom:10px"/>
-          <div class="host-desc">Located in the heart of SoHo, Belong is a hospitality-driven space built for people who don't stop — private workspaces, meeting rooms, showers, and recharge areas.</div>
+          <div class="host-name" style="margin-bottom:6px">PulsePoint Path</div>
+          <div class="host-desc">Partners with investors and accelerators to manage, scale, and de-risk their HealthTech portfolio companies — starting with human capital, not business plans.</div>
+          <a href="https://pulsepointpath.com" target="_blank" style="font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--gold);margin-top:8px;display:inline-block">pulsepointpath.com ↗</a>
         </div>
         <div class="host-card">
-          <div class="host-name" style="margin-bottom:6px">Ugly Talk</div>
-          <div class="host-desc">Ugly Talk is a recurring event series exploring the messy, unfiltered realities of building in fast-moving industries — turning the "ouch" moments into actionable insight.</div>
+          <div class="host-name" style="margin-bottom:6px">Health Board Advisors</div>
+          <div class="host-desc">An invite-only community of high-calibre founders, investors, and strategic advisors co-creating the future of healthcare through vetted ventures and co-investments.</div>
+          <a href="https://healthboardadvisors.com" target="_blank" style="font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--gold);margin-top:8px;display:inline-block">healthboardadvisors.com ↗</a>
         </div>
         <div class="host-card">
-          <img src="https://greyjournal.net/wp-content/themes/look-child/assets/grey-journal-logo-black-540.png" alt="GREY Journal" referrerpolicy="no-referrer" style="height:20px;width:auto;object-fit:contain;margin-bottom:10px"/>
-          <div class="host-desc">GREY Journal covers the intersection of entrepreneurship, culture, and innovation — and hosts curated events for founders and operators in major cities.</div>
+          <div class="host-name" style="margin-bottom:6px">Richie Hosein</div>
+          <div class="host-desc">Co-host and ecosystem connector, bringing together investors and operators at the intersection of healthcare and venture capital.</div>
         </div>
       </div>
     </div>
@@ -319,37 +328,38 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(255,255,255,
   <div class="event-sidebar">
     <div class="sidebar-card">
       <div class="sidebar-top">
-        <div class="sidebar-title">Ugly Talk: Fashion & Beauty Tech #NYTechWeek</div>
+        <div class="sidebar-title">Venture Vitality: HealthTech Investor Roundtable</div>
         <div class="sidebar-meta">
           <div class="sidebar-meta-row">
-            <span class="sidebar-meta-icon">📅</span>
-            <div><span class="sidebar-meta-label">Date & Time</span><span class="sidebar-meta-val">Tuesday, June 3, 2026 · 6:00–8:00 PM ET</span></div>
+            <span class="sidebar-meta-icon">💻</span>
+            <div><span class="sidebar-meta-label">Format</span><span class="sidebar-meta-val">Virtual · Zoom · Off the record</span></div>
           </div>
           <div class="sidebar-meta-row">
-            <span class="sidebar-meta-icon">📍</span>
-            <div><span class="sidebar-meta-label">Venue</span><span class="sidebar-meta-val">Belong NYC · 218 Lafayette St, 2nd Floor, SoHo</span></div>
+            <span class="sidebar-meta-icon">👥</span>
+            <div><span class="sidebar-meta-label">Capacity</span><span class="sidebar-meta-val">30 select investors</span></div>
           </div>
           <div class="sidebar-meta-row">
             <span class="sidebar-meta-icon">🎟</span>
-            <div><span class="sidebar-meta-label">Format</span><span class="sidebar-meta-val">In-person · Open registration</span></div>
+            <div><span class="sidebar-meta-label">Access</span><span class="sidebar-meta-val">Accredited investors · Approval required</span></div>
           </div>
         </div>
         <div class="sidebar-spots">
           <div class="sidebar-spots-dot"></div>
-          <div class="sidebar-spots-text">Limited capacity · Free admission</div>
+          <div class="sidebar-spots-text">Expert Session · Limited to 30 investors</div>
         </div>
-        <a href="https://partiful.com/e/68VP2zOWWMpKd3gZsojI" target="_blank" class="btn-rsvp">RSVP →</a>
-        <div class="btn-rsvp-sub">Hosted on Partiful · Free to attend</div>
+        <a href="https://luma.com/4ckvn4sk" target="_blank" class="btn-rsvp">Apply to Attend →</a>
+        <div class="btn-rsvp-sub">Hosted on Luma · Accredited investors only</div>
       </div>
       <div class="sidebar-bottom">
         <div class="sidebar-bottom-label">Tags</div>
         <div class="tag-row">
-          <span class="tag">NY Tech Week</span>
-          <span class="tag">Beauty Tech</span>
-          <span class="tag">Fashion Tech</span>
-          <span class="tag">Passport Series</span>
-          <span class="tag">Consumer</span>
-          <span class="tag">AI</span>
+          <span class="tag">Expert Session</span>
+          <span class="tag">HealthTech</span>
+          <span class="tag">Virtual</span>
+          <span class="tag">Investors</span>
+          <span class="tag">Digital Health</span>
+          <span class="tag">BioTech</span>
+          <span class="tag">FemTech</span>
         </div>
       </div>
     </div>

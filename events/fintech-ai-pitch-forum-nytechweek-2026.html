@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Ugly Talk: The Future of Fashion & Beauty Tech #NYTechWeek | Yorkseed</title>
-<meta name="description" content="Beauty tech is booming but getting louder, not clearer. Join Yorkseed and Belong NYC for an unfiltered conversation on what's actually shaping the future of beauty tech. Jun 3, Manhattan."/>
-<meta property="og:title" content="Ugly Talk: The Future of Fashion & Beauty Tech #NYTechWeek"/>
-<meta property="og:description" content="Separate signal from noise. Founders, investors, and beauty tech operators. Wed Jun 3 · 7pm ET · Manhattan."/>
-<meta property="og:image" content="https://partiful.imgix.net/external/user/BkRb8WXVjRTB0FK8gItaihwSjFC3/uaFEtZw7G9gkTrO0jre50?w=1200&h=630&fit=crop"/>
+<title>Fintech & AI Pitch Forum · NY Tech Week 2026 | Yorkseed</title>
+<meta name="description" content="A curated fintech and AI gathering during New York Tech Week, bringing together founders and investors at the forefront of financial innovation. Application required."/>
+<meta property="og:title" content="Fintech & AI Pitch Forum · NY Tech Week 2026"/>
+<meta property="og:description" content="Curated startup pitches, investor panel, and high-signal networking. Founders raising, investors deploying. Manhattan, June 2026."/>
+<meta property="og:image" content="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/event-covers/jv/f7b941d2-c615-44f9-bbc0-7a03bbbd99c0.png"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
 <style>
@@ -67,10 +67,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(255,255,255,
 @media(max-width:900px){.n-center{display:none}.n-right .n-signin{display:none}.n-ham{display:flex}}
 @media(max-width:500px){.n-right .n-apply{display:none}}
 
-.event-hero{padding-top:64px;position:relative;overflow:hidden;min-height:460px;display:flex;align-items:flex-end;background:#1a0a14}
+.event-hero{padding-top:64px;position:relative;overflow:hidden;min-height:460px;display:flex;align-items:center;background:#0a0f1a}
 .event-hero-bg{position:absolute;inset:0;overflow:hidden}
-.event-hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center;opacity:.55;display:block}
-.event-hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,10,20,.2) 0%,rgba(26,10,20,.88) 100%)}
+.event-hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center;opacity:.4;display:block}
+.event-hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,15,26,.3) 0%,rgba(10,15,26,.85) 100%)}
 .event-hero-inner{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:52px 6vw;width:100%}
 .event-breadcrumb{font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:20px;display:flex;align-items:center;gap:8px}
 .event-breadcrumb a{color:rgba(255,255,255,.45);transition:color .15s}
@@ -103,21 +103,26 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(255,255,255,
 .who-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .who-card{padding:14px 16px;border:1px solid var(--border);border-radius:8px;font-size:13px;color:var(--ink3);line-height:1.5;display:flex;align-items:flex-start;gap:10px}
 .who-card.fit{border-color:var(--red-border);background:var(--red-dim)}
-.who-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:5px;background:#1a8a5a}
+.who-card.nofit{border-color:var(--border);background:var(--off);opacity:.7}
+.who-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.who-dot.green{background:#1a8a5a}
+.who-dot.red{background:#c8372d}
 
 .speaker-card{padding:24px;border:1px solid var(--border);border-radius:10px;background:var(--off);display:flex;gap:20px;align-items:flex-start}
-.speaker-initials{width:52px;height:52px;border-radius:50%;background:var(--red-dim);border:1px solid var(--red-border);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:18px;font-weight:400;color:var(--red);flex-shrink:0}
 .speaker-name{font-size:15px;font-weight:500;color:var(--ink);margin-bottom:3px}
 .speaker-role{font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
 .speaker-bio{font-size:12.5px;color:var(--ink4);line-height:1.7;font-weight:300}
-
-.questions-list{display:flex;flex-direction:column;gap:10px}
-.question-item{padding:14px 18px;border-left:2px solid var(--red-border);background:var(--off);border-radius:0 8px 8px 0;font-size:13px;color:var(--ink3);line-height:1.6}
 
 .hosts-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .host-card{padding:20px;border:1px solid var(--border);border-radius:10px;background:var(--off)}
 .host-name{font-size:14px;font-weight:500;color:var(--ink);margin-bottom:6px}
 .host-desc{font-size:12.5px;color:var(--ink4);line-height:1.65;font-weight:300}
+
+.tickets-grid{display:flex;flex-direction:column;gap:8px}
+.ticket-row{padding:12px 16px;border:1px solid var(--border);border-radius:8px;background:var(--off);display:flex;align-items:center;justify-content:space-between;gap:12px}
+.ticket-name{font-size:13px;font-weight:500;color:var(--ink)}
+.ticket-desc{font-size:11px;color:var(--ink4);margin-top:2px}
+.ticket-badge{font-family:var(--mono);font-size:8px;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:3px;background:var(--gold-dim);color:#7a5c1e;border:1px solid var(--gold-border);flex-shrink:0}
 
 .event-sidebar{position:sticky;top:84px}
 .sidebar-card{border:1px solid var(--border2);border-radius:12px;overflow:hidden;background:var(--white)}
@@ -220,16 +225,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(255,255,255,
 
 <!-- HERO -->
 <div class="event-hero">
-  <div class="event-hero-bg"><img src="https://s6.imgcdn.dev/YtTKFh.jpg" alt="" referrerpolicy="no-referrer"/></div>
+  <div class="event-hero-bg"><img src="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=1400,height=700/event-covers/jv/f7b941d2-c615-44f9-bbc0-7a03bbbd99c0.png" alt="" referrerpolicy="no-referrer"/></div>
   <div class="event-hero-overlay"></div>
   <div class="event-hero-inner">
     <div class="event-breadcrumb"><a href="/events.html">Events</a><span>›</span><span>NY Tech Week 2026</span></div>
     <div class="event-badge">● Passport Series · #NYTechWeek</div>
-    <h1>Ugly Talk:<br><em>The Future of Fashion & Beauty Tech</em></h1>
+    <h1>Fintech & AI<br><em>Pitch Forum</em></h1>
     <div class="event-meta-strip">
-      <div class="event-meta-item">📅 Tuesday, June 3, 2026 · 6:00–8:00 PM ET</div>
-      <div class="event-meta-item">📍 Belong NYC · 218 Lafayette St, 2nd Floor, SoHo</div>
-      <div class="event-meta-item">🎟 Open registration</div>
+      <div class="event-meta-item">📅 New York Tech Week 2026</div>
+      <div class="event-meta-item">📍 Manhattan, New York</div>
+      <div class="event-meta-item">🎟 Application required</div>
     </div>
   </div>
 </div>
@@ -239,55 +244,58 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(255,255,255,
   <div>
 
     <div class="event-section">
-      <div class="event-section-label">What's the Ugly Truth</div>
+      <div class="event-section-label">About This Event</div>
       <div class="event-desc">
-        <p>Beauty tech is booming, but growth has made the category louder, not clearer. AI diagnostics, AR try-ons, personalization, and smart devices are pulling more founders into the space — but more innovation also means more hype, more copycats, and more brands fighting for the same customer attention.</p>
-        <p>For founders, a strong product is just the entry fee. The real edge comes from knowing what actually drives <strong>trust, repeat purchase, and loyalty</strong> in a market where branding and novelty can fake momentum. This room is for people who want to separate signal from noise and figure out which trends are truly shaping the future of beauty tech.</p>
+        <p>A curated fintech and AI gathering during New York Tech Week, bringing together founders and investors operating at the forefront of financial innovation.</p>
+        <p>This is an application-based event designed for those <strong>actively building, raising, and deploying capital</strong> across fintech, AI, payments, wealthtech, and regtech.</p>
+        <p>The evening features a curated lineup of startup pitches from selected founders, followed by an investor panel sharing real perspectives on what is getting funded in today's market. Conversations continue through structured and open networking designed to create meaningful connections and tangible outcomes.</p>
+        <p>Founders interested in pitching will be reviewed in advance, with selected participants moving through a structured evaluation process. The room is intentionally sized to maintain quality, access, and strong signal across attendees.</p>
+        <p><strong>This is not a volume-driven event.</strong> It is built for focused conversations, real alignment, and high-context networking.</p>
       </div>
     </div>
 
     <div class="event-section">
-      <div class="event-section-label">Why You Should Attend</div>
+      <div class="event-section-label">What to Expect</div>
       <div class="expect-grid">
-        <div class="expect-item"><span class="expect-icon">🎤</span><div class="expect-text"><strong>Hear from a pioneer</strong>What they're building, how they got there, and what they're watching now</div></div>
-        <div class="expect-item"><span class="expect-icon">🔗</span><div class="expect-text"><strong>Connect with builders</strong>Beauty tech founders relentlessly innovating through the noise</div></div>
-        <div class="expect-item"><span class="expect-icon">📊</span><div class="expect-text"><strong>Understand shifting demand</strong>Consumer behavior, what's changing, and what customers want now</div></div>
-        <div class="expect-item"><span class="expect-icon">🧠</span><div class="expect-text"><strong>Signal vs hype</strong>Cut through the noise on AI, diagnostics, personalization, and retention</div></div>
+        <div class="expect-item"><span class="expect-icon">🎤</span><div class="expect-text"><strong>Curated startup pitches</strong>Selected fintech and AI founders presenting to the room</div></div>
+        <div class="expect-item"><span class="expect-icon">💼</span><div class="expect-text"><strong>Investor panel</strong>Active angels and venture funds on what's getting funded now</div></div>
+        <div class="expect-item"><span class="expect-icon">🤝</span><div class="expect-text"><strong>Structured networking</strong>Meaningful introductions, not random mingling</div></div>
+        <div class="expect-item"><span class="expect-icon">🥂</span><div class="expect-text"><strong>Light bites & drinks</strong>An evening format built for real conversation</div></div>
       </div>
     </div>
 
     <div class="event-section">
-      <div class="event-section-label">Who's In This Room</div>
+      <div class="event-section-label">Who Should Apply</div>
       <div class="who-grid">
-        <div class="who-card fit"><div class="who-dot"></div>Beauty tech founders</div>
-        <div class="who-card fit"><div class="who-dot"></div>Beauty business owners</div>
-        <div class="who-card fit"><div class="who-dot"></div>Consumer and brand experts</div>
-        <div class="who-card fit"><div class="who-dot"></div>Investors in beauty tech and consumer companies</div>
+        <div class="who-card fit"><div class="who-dot green"></div>Founders currently raising or preparing to raise</div>
+        <div class="who-card fit"><div class="who-dot green"></div>Investors actively deploying or sourcing deal flow</div>
+        <div class="who-card fit"><div class="who-dot green"></div>Builders and operators within fintech and AI</div>
+        <div class="who-card nofit"><div class="who-dot red"></div>Not a fit: attendees not operating in fintech or AI, or primarily looking to network without context</div>
       </div>
     </div>
 
     <div class="event-section">
-      <div class="event-section-label">Taking the Stage</div>
+      <div class="event-section-label">Featured Speaker</div>
       <div class="speaker-card">
-        <img src="https://greyjournal.net/wp-content/uploads/2026/04/Elliot-86-300x300.jpg" alt="Zehra Soysal" referrerpolicy="no-referrer" style="width:56px;height:56px;border-radius:50%;object-fit:cover;flex-shrink:0;border:1px solid var(--border2)"/>
+        <img src="https://assets.cdn.filesafe.space/IQ12C8ftHFBhhlaf6q5k/media/6554ff63bcbe6f2e4e297911.jpeg" alt="Bhuva Shakti" referrerpolicy="no-referrer" style="width:56px;height:56px;border-radius:50%;object-fit:cover;flex-shrink:0;border:1px solid var(--border2)"/>
         <div style="flex:1">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-            <div class="speaker-name" style="margin-bottom:0">Zehra Soysal</div>
-            <img src="https://greyjournal.net/wp-content/uploads/2026/04/savanah_ai_logo-150x150.jpg" alt="Savanah.ai" referrerpolicy="no-referrer" style="height:20px;width:auto;border-radius:3px"/>
+            <div class="speaker-name" style="margin-bottom:0">Bhuva Shakti</div>
+            <img src="https://logo.clearbit.com/getwalletmax.com" alt="Wallet Max" referrerpolicy="no-referrer" style="height:18px;width:auto;border-radius:3px"/>
           </div>
-          <div class="speaker-role">Founder & CEO · Savanah.ai</div>
-          <div class="speaker-bio">Zehra's career began at Google in business strategy, followed by impactful roles at BCG across Europe, the Middle East, and Asia. She played a key role in establishing a tech joint venture with Turkey's largest conglomerate. After earning her MBA from Harvard Business School in 2022, she joined Metaphysic.ai in New York, helping scale operations through its $1.4B acquisition. She is now the founder and CEO of Savanah.ai — a visual AI platform helping brands create e-commerce imagery at scale and optimize conversion.</div>
+          <div class="speaker-role">Founder & CEO · Wallet Max</div>
+          <div class="speaker-bio">With an MBA from Columbia University and three decades as a senior Wall Street executive, Bhuva has managed diverse financial portfolios and launched digital transformation products for investment banks, capital markets, and payment networks. She is the USA Country Director for World Business Angels Investment Forum, Chief Ethics & Culture Officer for Women in AI, and founder of Bhuva's Impact Global. A board director, keynote speaker, and TEDx presenter advancing economic inclusion and climate-fintech partnerships.</div>
         </div>
       </div>
     </div>
 
     <div class="event-section">
-      <div class="event-section-label">What We Don't Sugarcoat</div>
-      <div class="questions-list">
-        <div class="question-item">In an industry full of noise and competition, how do you separate real signal from hype?</div>
-        <div class="question-item">How do you fight copycats in a market where products move fast and differentiation can disappear overnight?</div>
-        <div class="question-item">What trends actually reflect customer demand — and what are customers burning for now that they weren't asking for before?</div>
-        <div class="question-item">How does AI actually matter here — from diagnostics and personalization to discovery, conversion, and retention?</div>
+      <div class="event-section-label">Ticket Types</div>
+      <div class="tickets-grid">
+        <div class="ticket-row"><div><div class="ticket-name">Founders</div><div class="ticket-desc">Active founders only — application required</div></div><span class="ticket-badge">Apply</span></div>
+        <div class="ticket-row"><div><div class="ticket-name">Investors</div><div class="ticket-desc">Angels, VCs, GPs, CVCs, LPs, Family Offices</div></div><span class="ticket-badge">Apply</span></div>
+        <div class="ticket-row"><div><div class="ticket-name">Ecosystem Leaders</div><div class="ticket-desc">Decision makers and executives</div></div><span class="ticket-badge">Apply</span></div>
+        <div class="ticket-row"><div><div class="ticket-name">Partnership: Silver</div><div class="ticket-desc">Logo + mention + newsletter shoutout + 2 guest passes</div></div><span class="ticket-badge">3 left</span></div>
       </div>
     </div>
 
@@ -295,20 +303,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(255,255,255,
       <div class="event-section-label">Hosted By</div>
       <div class="hosts-grid">
         <div class="host-card">
-          <img src="https://greyjournal.net/wp-content/uploads/2026/04/Yorkseed-300x104.png" alt="Yorkseed" referrerpolicy="no-referrer" style="height:28px;width:auto;object-fit:contain;margin-bottom:10px"/>
-          <div class="host-desc">A global venture platform connecting founders, investors, and operators through curated events and a private deal-flow network.</div>
+          <img src="https://s6.imgcdn.dev/Yt5tnl.png" alt="Yorkseed" referrerpolicy="no-referrer" style="height:24px;width:auto;object-fit:contain;margin-bottom:10px"/>
+          <div class="host-desc">A curated global venture network connecting founders, investors, fund managers, and ecosystem leaders across 50+ city hubs worldwide.</div>
         </div>
         <div class="host-card">
-          <img src="https://greyjournal.net/wp-content/uploads/2026/04/belong-nyc-logo-300x150.png" alt="Belong NYC" referrerpolicy="no-referrer" style="height:28px;width:auto;object-fit:contain;margin-bottom:10px"/>
-          <div class="host-desc">Located in the heart of SoHo, Belong is a hospitality-driven space built for people who don't stop — private workspaces, meeting rooms, showers, and recharge areas.</div>
-        </div>
-        <div class="host-card">
-          <div class="host-name" style="margin-bottom:6px">Ugly Talk</div>
-          <div class="host-desc">Ugly Talk is a recurring event series exploring the messy, unfiltered realities of building in fast-moving industries — turning the "ouch" moments into actionable insight.</div>
-        </div>
-        <div class="host-card">
-          <img src="https://greyjournal.net/wp-content/themes/look-child/assets/grey-journal-logo-black-540.png" alt="GREY Journal" referrerpolicy="no-referrer" style="height:20px;width:auto;object-fit:contain;margin-bottom:10px"/>
-          <div class="host-desc">GREY Journal covers the intersection of entrepreneurship, culture, and innovation — and hosts curated events for founders and operators in major cities.</div>
+          <img src="https://logo.clearbit.com/getwalletmax.com" alt="Wallet Max" referrerpolicy="no-referrer" style="height:24px;width:auto;object-fit:contain;margin-bottom:10px"/>
+          <div class="host-desc">An inclusive global community of corporate executives and venture capitalists expanding fundraising access for high-growth startups in technology, AI, fintech, and climate sustainability.</div>
         </div>
       </div>
     </div>
@@ -319,37 +319,37 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(255,255,255,
   <div class="event-sidebar">
     <div class="sidebar-card">
       <div class="sidebar-top">
-        <div class="sidebar-title">Ugly Talk: Fashion & Beauty Tech #NYTechWeek</div>
+        <div class="sidebar-title">Fintech & AI Pitch Forum · #NYTechWeek</div>
         <div class="sidebar-meta">
           <div class="sidebar-meta-row">
             <span class="sidebar-meta-icon">📅</span>
-            <div><span class="sidebar-meta-label">Date & Time</span><span class="sidebar-meta-val">Tuesday, June 3, 2026 · 6:00–8:00 PM ET</span></div>
+            <div><span class="sidebar-meta-label">When</span><span class="sidebar-meta-val">New York Tech Week 2026</span></div>
           </div>
           <div class="sidebar-meta-row">
             <span class="sidebar-meta-icon">📍</span>
-            <div><span class="sidebar-meta-label">Venue</span><span class="sidebar-meta-val">Belong NYC · 218 Lafayette St, 2nd Floor, SoHo</span></div>
+            <div><span class="sidebar-meta-label">Location</span><span class="sidebar-meta-val">Manhattan, New York · Address shared on approval</span></div>
           </div>
           <div class="sidebar-meta-row">
             <span class="sidebar-meta-icon">🎟</span>
-            <div><span class="sidebar-meta-label">Format</span><span class="sidebar-meta-val">In-person · Open registration</span></div>
+            <div><span class="sidebar-meta-label">Format</span><span class="sidebar-meta-val">In-person · Application required</span></div>
           </div>
         </div>
         <div class="sidebar-spots">
           <div class="sidebar-spots-dot"></div>
-          <div class="sidebar-spots-text">Limited capacity · Free admission</div>
+          <div class="sidebar-spots-text">Limited capacity · Application required</div>
         </div>
-        <a href="https://partiful.com/e/68VP2zOWWMpKd3gZsojI" target="_blank" class="btn-rsvp">RSVP →</a>
-        <div class="btn-rsvp-sub">Hosted on Partiful · Free to attend</div>
+        <a href="https://luma.com/1icohbw7?ref=yorkseed" target="_blank" class="btn-rsvp">Apply to Attend →</a>
+        <div class="btn-rsvp-sub">Hosted on Luma · We review every application</div>
       </div>
       <div class="sidebar-bottom">
         <div class="sidebar-bottom-label">Tags</div>
         <div class="tag-row">
           <span class="tag">NY Tech Week</span>
-          <span class="tag">Beauty Tech</span>
-          <span class="tag">Fashion Tech</span>
-          <span class="tag">Passport Series</span>
-          <span class="tag">Consumer</span>
+          <span class="tag">Fintech</span>
           <span class="tag">AI</span>
+          <span class="tag">Passport Series</span>
+          <span class="tag">Pitch Forum</span>
+          <span class="tag">Investors</span>
         </div>
       </div>
     </div>
