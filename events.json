@@ -1,22 +1,40 @@
 {
   "upcoming": [
     {
-      "slug": "venture-salon-nytechweek-2026",
+      "slug": "founding-member-roundtable-q2-2026",
       "featured": false,
-      "type": "passport",
-      "title": "Venture Salon: Founders & Investors",
-      "city": "New York",
-      "country": "USA",
-      "location": "Manhattan, New York",
-      "venue": "TBA · Manhattan",
-      "date": "Friday, Jun 5, 2026 · 5:00 PM ET",
-      "dateISO": "2026-06-05",
-      "format": "Passport Series · In-Person",
-      "spots": "75 seats · Application required",
-      "description": "During NY Tech Week, In Pulse and Yorkseed are bringing together a highly curated group of founders and investors for a private Venture Salon in Manhattan. 75 participants selected by application.",
-      "lumaUrl": "https://partiful.com/e/AIjt9GNmqfJGNSGsOECn",
-      "coverGradient": "linear-gradient(135deg,#0d0d1a 0%,#1a1209 40%,#2a1a08 100%)",
-      "coverImage": "https://partiful.imgix.net/external/user/IEuWNg8MIzV2CNSloIKTDVn6lUj1/IsQjGA0_nlgxMq9QM-bGd?w=800&h=600&fit=crop"
+      "type": "expert",
+      "title": "Yorkseed Connect: Founding Member Roundtable #1",
+      "city": "Virtual",
+      "country": "",
+      "location": "Virtual \u00b7 Google Meet",
+      "venue": "Google Meet",
+      "date": "Thu, May 21, 2026 \u00b7 Q2 Open Preview",
+      "dateISO": "2026-05-21",
+      "format": "Expert Session \u00b7 Virtual",
+      "spots": "Limited seats \u00b7 Application required",
+      "description": "An intimate, high-signal virtual gathering for founders and investors in it for the long game. No panels, no pitches \u2014 just candid conversation among a carefully curated group. One-time open preview before it closes to Founding Members only.",
+      "lumaUrl": "https://luma.com/00dw8nyc",
+      "coverGradient": "linear-gradient(135deg,#0f0d09 0%,#1a160c 40%,#211d10 100%)",
+      "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/event-covers/qu/c4edc191-6633-4f1e-a6b4-bf12bcdfeb61.png"
+    },
+    {
+      "slug": "venture-vitality-healthtech-may-2026",
+      "featured": false,
+      "type": "expert",
+      "title": "Venture Vitality: HealthTech Investor Roundtable",
+      "city": "Virtual",
+      "country": "",
+      "location": "Virtual \u00b7 Zoom",
+      "venue": "Zoom",
+      "date": "Wed, May 21, 2026",
+      "dateISO": "2026-05-21",
+      "format": "Expert Session \u00b7 Virtual",
+      "spots": "30 investors \u00b7 Accredited only",
+      "description": "Off-the-record virtual roundtable for 30 accredited investors in HealthTech. No pitches \u2014 candid strategy on deal flow, fund performance, and what's actually scaling in Digital Health, BioTech, MedTech, and FemTech.",
+      "lumaUrl": "https://luma.com/4ckvn4sk",
+      "coverGradient": "linear-gradient(135deg,#0f0d09 0%,#1a160c 40%,#211d10 100%)",
+      "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/z1/3d93d386-8229-43bf-99a9-c09f4af1fe6c.png"
     },
     {
       "slug": "ugly-talk-beauty-tech-nytechweek-2026",
@@ -26,10 +44,10 @@
       "city": "New York",
       "country": "USA",
       "location": "Manhattan, New York",
-      "venue": "Belong NYC · 218 Lafayette St, 2nd Floor",
-      "date": "Tue, Jun 3, 2026 · 6:00–8:00 PM ET",
+      "venue": "Belong NYC \u00b7 218 Lafayette St, 2nd Floor",
+      "date": "Tue, Jun 3, 2026 \u00b7 6:00\u20138:00 PM ET",
       "dateISO": "2026-06-03",
-      "format": "Passport Series · In-Person",
+      "format": "Passport Series \u00b7 In-Person",
       "spots": "Open registration",
       "description": "Beauty tech is booming but the category is getting louder, not clearer. This room is for founders and investors who want to separate signal from noise and figure out which trends are truly shaping the future of beauty tech.",
       "lumaUrl": "https://partiful.com/e/68VP2zOWWMpKd3gZsojI",
@@ -44,87 +62,51 @@
       "city": "New York",
       "country": "USA",
       "location": "Manhattan, New York",
-      "venue": "TBA · Address shared on approval",
+      "venue": "TBA \u00b7 Address shared on approval",
       "date": "NY Tech Week 2026",
       "dateISO": "2026-06-04",
-      "format": "Passport Series · In-Person",
-      "spots": "Limited capacity · Application required",
-      "description": "Curated fintech and AI startup pitches, investor panel, and high-signal networking during NY Tech Week. Application required — founders raising, investors deploying.",
+      "format": "Passport Series \u00b7 In-Person",
+      "spots": "Limited capacity \u00b7 Application required",
+      "description": "Curated fintech and AI startup pitches, investor panel, and high-signal networking during NY Tech Week. Application required \u2014 founders raising, investors deploying.",
       "lumaUrl": "https://luma.com/1icohbw7?ref=yorkseed",
       "coverGradient": "linear-gradient(135deg,#0a0f1a 0%,#0d1520 40%,#111a26 100%)",
       "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/event-covers/jv/f7b941d2-c615-44f9-bbc0-7a03bbbd99c0.png"
     },
     {
-      "slug": "healthtech-investor-roundtable-2026",
+      "slug": "venture-salon-nytechweek-2026",
+      "featured": false,
+      "type": "passport",
+      "title": "Venture Salon: Founders & Investors",
+      "city": "New York",
+      "country": "USA",
+      "location": "Manhattan, New York",
+      "venue": "TBA \u00b7 Manhattan",
+      "date": "Friday, Jun 5, 2026 \u00b7 5:00 PM ET",
+      "dateISO": "2026-06-05",
+      "format": "Passport Series \u00b7 In-Person",
+      "spots": "75 seats \u00b7 Application required",
+      "description": "During NY Tech Week, In Pulse and Yorkseed are bringing together a highly curated group of founders and investors for a private Venture Salon in Manhattan. 75 participants selected by application.",
+      "lumaUrl": "https://partiful.com/e/AIjt9GNmqfJGNSGsOECn",
+      "coverGradient": "linear-gradient(135deg,#0d0d1a 0%,#1a1209 40%,#2a1a08 100%)",
+      "coverImage": "https://partiful.imgix.net/external/user/IEuWNg8MIzV2CNSloIKTDVn6lUj1/IsQjGA0_nlgxMq9QM-bGd?w=800&h=600&fit=crop"
+    },
+    {
+      "slug": "venture-vitality-healthtech-june-2026",
       "featured": false,
       "type": "expert",
       "title": "Venture Vitality: HealthTech Investor Roundtable",
       "city": "Virtual",
       "country": "",
-      "location": "Virtual · Zoom",
+      "location": "Virtual \u00b7 Zoom",
       "venue": "Zoom",
-      "date": "TBA · 2026",
-      "dateISO": "2026-06-10",
-      "format": "Expert Session · Virtual",
-      "spots": "30 select investors · Application required",
-      "description": "Off-the-record virtual roundtable for accredited investors in Digital Health, BioTech, MedTech, and FemTech. No pitches — just open, high-trust collaboration on deal flow, fund performance, and what's coming next.",
-      "lumaUrl": "https://luma.com/4ckvn4sk",
-      "coverGradient": "linear-gradient(135deg,#0f0d08 0%,#1a1508 40%,#221e0a 100%)",
-      "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/z1/3d93d386-8229-43bf-99a9-c09f4af1fe6c.png"
-    },
-    {
-      "slug": "venture-vitality-healthtech-roundtable-2026",
-      "featured": false,
-      "type": "expert",
-      "title": "Venture Vitality: HealthTech Investor Roundtable",
-      "city": "Virtual",
-      "country": "",
-      "location": "Virtual · Zoom",
-      "venue": "Zoom",
-      "date": "Upcoming · 2026",
-      "dateISO": "2026-06-10",
-      "format": "Expert Session · Virtual",
-      "spots": "30 investors · Accredited only",
-      "description": "Off-the-record virtual roundtable for 30 accredited investors in HealthTech. No pitches — candid strategy on deal flow, fund performance, and what's actually scaling in Digital Health, BioTech, MedTech, and FemTech.",
-      "lumaUrl": "https://luma.com/4ckvn4sk",
+      "date": "Thu, Jun 18, 2026",
+      "dateISO": "2026-06-18",
+      "format": "Expert Session \u00b7 Virtual",
+      "spots": "30 investors \u00b7 Accredited only",
+      "description": "Off-the-record virtual roundtable for 30 accredited investors in HealthTech. No pitches \u2014 candid strategy on deal flow, fund performance, and what's actually scaling in Digital Health, BioTech, MedTech, and FemTech.",
+      "lumaUrl": "https://luma.com/njs0vitk",
       "coverGradient": "linear-gradient(135deg,#0f0d09 0%,#1a160c 40%,#211d10 100%)",
-      "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/z1/3d93d386-8229-43bf-99a9-c09f4af1fe6c.png"
-    },
-    {
-      "slug": "founding-member-roundtable-q2-2026",
-      "featured": false,
-      "type": "expert",
-      "title": "Yorkseed Connect: Founding Member Roundtable #1",
-      "city": "Virtual",
-      "country": "",
-      "location": "Virtual · Google Meet",
-      "venue": "Google Meet",
-      "date": "Thu, May 21, 2026 · Q2 Open Preview",
-      "dateISO": "2026-05-21",
-      "format": "Expert Session · Virtual",
-      "spots": "Limited seats · Application required",
-      "description": "An intimate, high-signal virtual gathering for founders and investors in it for the long game. No panels, no pitches — just candid conversation among a carefully curated group. One-time open preview before it closes to Founding Members only.",
-      "lumaUrl": "https://luma.com/00dw8nyc",
-      "coverGradient": "linear-gradient(135deg,#0f0d09 0%,#1a160c 40%,#211d10 100%)",
-      "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/event-covers/qu/c4edc191-6633-4f1e-a6b4-bf12bcdfeb61.png"
-    },
-    {
-      "slug": "founding-member-roundtable-2",
-      "featured": false,
-      "type": "expert",
-      "title": "Yorkseed Connect: Founding Member Roundtable #2",
-      "city": "Virtual",
-      "country": "",
-      "location": "Virtual · Google Meet",
-      "venue": "Google Meet",
-      "date": "Wed, Aug 19, 2026 · Q3",
-      "dateISO": "2026-08-19",
-      "format": "Expert Session · Virtual",
-      "spots": "Founding Members · Invitation only",
-      "description": "The Q3 Yorkseed Founding Member Roundtable — now closed to Founding Members only. An intimate, high-signal virtual gathering for founders and investors in it for the long game. No panels, no pitches — just candid conversation among a carefully curated group.",
-      "lumaUrl": "https://luma.com/yumckdfg",
-      "coverGradient": "linear-gradient(135deg,#0f0d09 0%,#1a160c 40%,#211d10 100%)",
-      "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/event-covers/7h/e01cbfcc-4a39-4b88-995b-a15a68817051.png"
+      "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/event-covers/qs/499f01a0-3366-4a00-a65e-2435c6472195.png"
     }
   ],
   "archive": [
@@ -177,7 +159,7 @@
           ]
         },
         {
-          "label": "SXSW London · London Tech Week",
+          "label": "SXSW London \u00b7 London Tech Week",
           "events": [
             {
               "type": "passport",
@@ -224,7 +206,7 @@
             },
             {
               "type": "passport",
-              "title": "Whispers & Ventures: Speakeasy Soirée",
+              "title": "Whispers & Ventures: Speakeasy Soir\u00e9e",
               "location": "Lisbon, Portugal",
               "date": "Nov 12",
               "lumaUrl": "https://lu.ma/qbmdx7i3"
@@ -371,7 +353,7 @@
           ]
         },
         {
-          "label": "New York Tech Week · Venture Summit",
+          "label": "New York Tech Week \u00b7 Venture Summit",
           "events": [
             {
               "type": "summit",
@@ -379,7 +361,7 @@
               "location": "New York, USA",
               "date": "Jun",
               "lumaUrl": "https://yrbmag.com/event-recap-yorkseed-venture-summit-with-startupfuel-new-york-techweek-edition/",
-              "linkLabel": "Recap →"
+              "linkLabel": "Recap \u2192"
             }
           ]
         },
@@ -388,11 +370,11 @@
           "events": [
             {
               "type": "passport",
-              "title": "Orbis86 × Yorkseed: Future of Tech — Web3 × AI Meet & Greet",
+              "title": "Orbis86 \u00d7 Yorkseed: Future of Tech \u2014 Web3 \u00d7 AI Meet & Greet",
               "location": "New York, USA",
               "date": "Apr",
               "lumaUrl": "https://medium.com/@orbis86/orbis86-yorkseed-meet-and-greet-at-nft-nyc-1b3edc9af293",
-              "linkLabel": "Recap →"
+              "linkLabel": "Recap \u2192"
             }
           ]
         },
@@ -426,28 +408,28 @@
       "year": 2023,
       "groups": [
         {
-          "label": "SXSW Austin — The Beginning",
+          "label": "SXSW Austin \u2014 The Beginning",
           "events": [
             {
               "type": "passport",
-              "title": "Founders × Investors SXSW Mixer — the event that started it all",
+              "title": "Founders \u00d7 Investors SXSW Mixer \u2014 the event that started it all",
               "location": "Austin, USA",
               "date": "Mar"
             }
           ]
         },
         {
-          "label": "New York · Toronto · Venture Summits",
+          "label": "New York \u00b7 Toronto \u00b7 Venture Summits",
           "events": [
             {
               "type": "summit",
-              "title": "Yorkseed Venture Summit — New York",
+              "title": "Yorkseed Venture Summit \u2014 New York",
               "location": "New York, USA",
               "date": "2023"
             },
             {
               "type": "summit",
-              "title": "Yorkseed Venture Summit — Toronto",
+              "title": "Yorkseed Venture Summit \u2014 Toronto",
               "location": "Toronto, Canada",
               "date": "2023"
             }
@@ -458,11 +440,11 @@
           "events": [
             {
               "type": "passport",
-              "title": "Founders & Investors Soirée × Supermoon × Near Protocol",
+              "title": "Founders & Investors Soir\u00e9e \u00d7 Supermoon \u00d7 Near Protocol",
               "location": "Lisbon, Portugal",
               "date": "Nov",
               "lumaUrl": "https://www.crypto-reporter.com/press-releases/triumph-for-supermoon-and-yorkseeds-founders-investors-soiree-at-websummit-in-lisbon-with-near-protocol-52897/",
-              "linkLabel": "Recap →"
+              "linkLabel": "Recap \u2192"
             }
           ]
         }
