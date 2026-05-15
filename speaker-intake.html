@@ -772,9 +772,11 @@ document.getElementById('speakerForm').addEventListener('submit',function(e){
   var btn=document.getElementById('submitBtn'),label=document.getElementById('submitLabel'),spinner=document.getElementById('submitSpinner');
   btn.disabled=true;label.textContent='Submitting…';spinner.style.display='inline';
 
-  fetch('https://formspree.io/f/mwvydgrb',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
-    .then(function(r){
-      if(r.ok){
+  data.access_key='5c1c96c6-7a4f-4cc7-85d3-4dd79f67e20a';
+  fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
+    .then(function(r){return r.json();})
+    .then(function(res){
+      if(res.success){
         document.getElementById('speakerForm').style.display='none';
         document.getElementById('successState').style.display='block';
         window.scrollTo({top:document.querySelector('.page-body').offsetTop-80,behavior:'smooth'});
