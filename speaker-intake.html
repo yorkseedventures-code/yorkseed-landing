@@ -22,7 +22,7 @@ html{scroll-behavior:smooth}
   --sans:'DM Sans',system-ui,sans-serif;
   --mono:'DM Mono',monospace;
 }
-body{font-family:var(--sans);font-weight:300;background:#f7f6f3;color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{font-family:var(--sans);font-weight:300;background:#f7f6f3;color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden;padding-top:64px}
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
 
@@ -771,16 +771,18 @@ document.getElementById('speakerForm').addEventListener('submit',function(e){
   var btn=document.getElementById('submitBtn'),label=document.getElementById('submitLabel'),spinner=document.getElementById('submitSpinner');
   btn.disabled=true;label.textContent='Submitting…';spinner.style.display='inline';
 
-  // TODO: replace with your endpoint — e.g. Formspree:
-  // fetch('https://formspree.io/f/YOUR_FORM_ID',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
-  //   .then(function(r){if(r.ok)showSuccess();else resetBtn();})
-  //   .catch(resetBtn);
-
-  setTimeout(function(){
-    document.getElementById('speakerForm').style.display='none';
-    document.getElementById('successState').style.display='block';
-    window.scrollTo({top:document.querySelector('.page-body').offsetTop-80,behavior:'smooth'});
-  },1200);
+  fetch('https://formspree.io/f/mwvydgrb',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
+    .then(function(r){
+      if(r.ok){
+        document.getElementById('speakerForm').style.display='none';
+        document.getElementById('successState').style.display='block';
+        window.scrollTo({top:document.querySelector('.page-body').offsetTop-80,behavior:'smooth'});
+      } else {
+        resetBtn();
+        alert('Something went wrong. Please try again.');
+      }
+    })
+    .catch(function(){resetBtn();alert('Network error. Please check your connection and try again.');});
 
   function resetBtn(){btn.disabled=false;label.textContent='Submit application';spinner.style.display='none';}
 });
