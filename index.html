@@ -7,7 +7,7 @@
 <title>Yorkseed — The Private Global Venture Network for Founders & Investors</title>
 <meta name="title" content="Yorkseed — The Curated Global Venture Network"/>
 <meta name="description" content="Yorkseed connects founders, investors, and institutional partners through intelligent deal infrastructure — discovery, diligence, and deal flow in one place, across 50+ cities worldwide. Valois is our private inner Circle for those operating at the highest level."/>
-<meta name="keywords" content="Yorkseed, venture network, startup network, founder network, investor network, NYC startups, New York venture capital, startup community, private equity network, VC network, global startup network, entrepreneur network, deal flow, seed funding, Series A, pre-seed, co-investment, LP, GP, venture infrastructure, startup ecosystem, angel investors, Silicon Alley, NYC founders, US startups, European startups, Asia startups, Middle East startups, LATAM startups, Dubai startups, Singapore startups, London startups, Paris startups, Berlin startups, Toronto startups, Austin startups, Hong Kong startups, early stage, growth stage, fundraising, venture deals, startup deals"/>
+<meta name="keywords" content="Yorkseed, venture network, startup network, founder network, investor network, NYC startups, New York venture capital, startup community, private equity network, VC network, global startup network, entrepreneur network, deal flow, seed funding, Series A, pre-seed, co-investment, LP, GP, venture infrastructure, startup ecosystem, angel investors, Silicon Alley, NYC founders, US startups, European startups, Asia startups, Middle East startups, LATAM startups, Dubai startups, Singapore startups, London startups, Paris startups, Berlin startups, Toronto startups, Austin startups, Hong Kong startups, early stage, growth stage, fundraising, venture deals, startup deals, Valois, Valois private circle, Valois family office network, Valois HNW network, Yorkseed Valois, private capital network, private venture circle, invite-only venture network, Yorkseed Summit, Yorkseed Connect, Yorkseed Capital, Yorkseed Insider, venture intelligence tools, startup tools, SAFE calculator, convertible note calculator, venture calculator, deal calculator, yorkseed.co"/>
 <meta name="author" content="Yorkseed"/>
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
 <link rel="canonical" href="https://yorkseed.co/"/>
@@ -53,11 +53,14 @@
   "@graph": [
     {
       "@type": "WebSite",
-      "name": "Yorkseed",
+      "@id": "https://yorkseed.co/#website",
       "url": "https://yorkseed.co",
+      "name": "Yorkseed",
+      "description": "The private global venture network for founders, investors, and institutional partners.",
+      "publisher": {"@id": "https://yorkseed.co/#organization"},
       "potentialAction": {
         "@type": "SearchAction",
-        "target": "https://app.yorkseed.co/directory?q={search_term_string}",
+        "target": {"@type": "EntryPoint", "urlTemplate": "https://app.yorkseed.co/directory?q={search_term_string}"},
         "query-input": "required name=search_term_string"
       }
     },
@@ -66,66 +69,31 @@
       "@id": "https://yorkseed.co/#organization",
       "name": "Yorkseed",
       "url": "https://yorkseed.co",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://yorkseed.co/og-image.png"
-      },
-      "description": "Yorkseed is the curated global venture network for founders, investors, and institutional partners. Active across 40+ cities including New York, London, Dubai, Singapore, Paris, and Berlin.",
+      "logo": {"@type": "ImageObject", "url": "https://s6.imgcdn.dev/Yfq1dl.png"},
+      "description": "Yorkseed is the private global venture network connecting founders, investors, and institutional partners across 50+ cities. Valois is our private inner Circle.",
       "foundingDate": "2023",
-      "founder": {
-        "@type": "Person",
-        "name": "Jessica Sophia Wong"
-      },
+      "founder": {"@type": "Person", "name": "Jessica Sophia Wong"},
       "sameAs": [
         "https://www.linkedin.com/company/yorkseed",
-        "https://twitter.com/yorkseed"
+        "https://twitter.com/yorkseed",
+        "https://instagram.com/yorkseed",
+        "https://facebook.com/profile/yorkseed",
+        "https://www.crunchbase.com/organization/yorkseed"
       ],
-      "areaServed": [
-        "United States", "United Kingdom", "United Arab Emirates",
-        "Singapore", "France", "Germany", "Canada", "Hong Kong",
-        "Brazil", "Mexico", "Colombia", "Saudi Arabia", "Israel",
-        "India", "Australia", "Japan", "South Korea"
-      ],
-      "knowsAbout": [
-        "Venture Capital", "Startup Ecosystems", "Founder Networks",
-        "Angel Investing", "Deal Flow", "Co-investment",
-        "LP/GP Matching", "Startup Events", "Venture Conferences"
-      ]
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://yorkseed.co/#website",
-      "url": "https://yorkseed.co",
-      "name": "Yorkseed",
-      "description": "The private global venture network for founders, investors, and institutional partners.",
-      "publisher": {"@id": "https://yorkseed.co/#organization"},
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": {
-          "@type": "EntryPoint",
-          "urlTemplate": "https://yorkseed.co/?s={search_term_string}"
-        },
-        "query-input": "required name=search_term_string"
-      }
+      "areaServed": ["United States","United Kingdom","United Arab Emirates","Singapore","France","Germany","Canada","Hong Kong","Brazil","Mexico","Colombia","Saudi Arabia","Israel","India","Australia","Japan","South Korea"],
+      "knowsAbout": ["Venture Capital","Startup Ecosystems","Founder Networks","Angel Investing","Deal Flow","Co-investment","LP/GP Matching","Startup Events","Venture Conferences","SAFE Notes","Convertible Notes"]
     },
     {
       "@type": "WebPage",
       "@id": "https://yorkseed.co/#webpage",
       "url": "https://yorkseed.co/",
       "name": "Yorkseed — The Private Global Venture Network for Founders & Investors",
-      "description": "Yorkseed is the private global venture network connecting founders, investors, and institutional partners across New York, London, Dubai, Singapore, Paris, and 40+ cities. Apply for access.",
+      "description": "Yorkseed connects founders, investors, and institutional partners through intelligent deal infrastructure — discovery, diligence, and deal flow in one place, across 50+ cities worldwide. Valois is our private inner Circle for those operating at the highest level.",
       "isPartOf": {"@id": "https://yorkseed.co/#website"},
       "about": {"@id": "https://yorkseed.co/#organization"},
       "breadcrumb": {
         "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://yorkseed.co/"
-          }
-        ]
+        "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://yorkseed.co/"}]
       }
     }
   ]
@@ -1154,6 +1122,7 @@ document.addEventListener('click',function(e){var d=document.getElementById('eco
     <a href="/contact.html" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:#fafafa;border:1px solid rgba(0,0,0,.07);border-radius:8px;text-decoration:none;color:#111"><span style="font-size:18px">✉️</span><span style="font-size:13px;font-weight:400">Contact</span></a>
     <a href="https://app.yorkseed.co/login" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:#fafafa;border:1px solid rgba(0,0,0,.07);border-radius:8px;text-decoration:none;color:#111"><span style="font-size:18px">🔑</span><span style="font-size:13px;font-weight:400">Sign in</span></a>
     <a href="https://yorkseedsummit.com" target="_blank" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:#fafafa;border:1px solid rgba(0,0,0,.07);border-radius:8px;text-decoration:none;color:#111"><span style="font-size:18px">🏛️</span><span style="font-size:13px;font-weight:400">Summit</span></a>
+    <a href="https://thevalois.com" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:rgba(184,151,106,0.06);border:1px solid rgba(184,151,106,0.25);border-radius:8px;text-decoration:none;color:#8a6e3e"><span style="font-size:18px">🔑</span><span style="font-size:13px;font-weight:500">Valois</span></a>
   </div>
 </div>
 <div id="moreOverlay" onclick="toggleMoreMenu()" style="display:none;position:fixed;inset:0;z-index:398;background:rgba(0,0,0,.2)"></div>
