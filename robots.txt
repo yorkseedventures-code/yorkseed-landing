@@ -3,7 +3,7 @@ Allow: /
 Disallow: /private/
 Disallow: /admin/
 
-# Allow major crawlers explicitly
+# Allow major search crawlers
 User-agent: Googlebot
 Allow: /
 
@@ -24,5 +24,33 @@ Allow: /
 
 User-agent: facebookexternalhit
 Allow: /
+
+# Allow AI training and LLM crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+# LLM context files
+# See /llms.txt and /llms-full.txt for structured AI-readable content
 
 Sitemap: https://yorkseed.co/sitemap.xml
