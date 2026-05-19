@@ -205,7 +205,7 @@ h1 em{font-style:italic;color:var(--red)}
 }
 
 /* ─── COMMUNITY PARTNER SECTION ─────────────────────────────────────────── */
-.partner-section{padding:0 0 28px}
+.partner-section{padding:32px 0 28px;border-top:1px solid var(--border);margin-top:8px}
 .partner-eyebrow{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink4);margin-bottom:16px;display:flex;align-items:center;gap:10px}
 .partner-eyebrow::before{content:'';display:block;width:16px;height:1px;background:var(--border2)}
 .partner-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
@@ -730,18 +730,17 @@ function openModal(idx){
   document.body.style.overflow = 'hidden';
 }
 
+function closeModalFn(){
+  document.getElementById('partnerModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
 function closeModal(e){
-  if(e.target === document.getElementById('partnerModal')){
-    document.getElementById('partnerModal').classList.remove('open');
-    document.body.style.overflow = '';
-  }
+  if(e.target === document.getElementById('partnerModal')) closeModalFn();
 }
 
 document.addEventListener('keydown', e => {
-  if(e.key === 'Escape'){
-    document.getElementById('partnerModal').classList.remove('open');
-    document.body.style.overflow = '';
-  }
+  if(e.key === 'Escape') closeModalFn();
 });
 
 // ─── INIT ─────────────────────────────────────────────────────────────────────
@@ -826,7 +825,7 @@ init();
     <div class="modal-img">
       <img id="modalImg" src="" alt=""/>
       <div class="modal-badge" id="modalBadge">Community Partner</div>
-      <button class="modal-close" onclick="document.getElementById('partnerModal').classList.remove('open')">×</button>
+      <button class="modal-close" onclick="closeModalFn()">×</button>
     </div>
     <div class="modal-body">
       <div class="modal-title" id="modalTitle"></div>
