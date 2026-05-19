@@ -227,18 +227,24 @@
               "type": "community",
               "title": "Speed Pitch: Guaranteed 1:1 Meetings With Investors",
               "location": "New York, USA",
-              "date": "Jun 2026",
-              "lumaUrl": "https://luma.com/yhkdfsjj",
-              "linkLabel": "View \u2192"
+              "date": "NY Tech Week \u00b7 Jun 2026",
+              "lumaUrl": "https://luma.com/i6n7qmte",
+              "linkLabel": "View \u2192",
+              "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/ni/ef91caef-6c1a-4b49-b4a3-f9b836b78b13.png",
+              "description": "Guaranteed 1:1 meetings with top investors for pre-seed to Series A founders. Every founder meets 3 matched investors in 8-min one-on-one meetings. 36 spots only. Hosted by The Startup Station \u2014 Yorkseed is a community partner.",
+              "venue": "New York, NY \u00b7 Address on approval"
             },
             {
               "type": "community",
               "title": "Yacht Party \u00b7 #NYTechWeek Closing Party",
               "location": "Pier 83, New York, USA",
-              "date": "Jun 2026",
+              "date": "NY Tech Week Closing \u00b7 Jun 2026",
               "lumaUrl": "https://luma.com/yachtparty1",
               "linkLabel": "View \u2192",
-              "promoCode": "YORKSEED26"
+              "promoCode": "YORKSEED26",
+              "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/0f/189756b6-0922-458a-8eed-7ca45075a066.png",
+              "description": "The fifth annual NY Tech Week Closing Yacht Party. 1,000+ attendees, DJs, drinks, and rooftop views of the Manhattan skyline. Hosted by The Neo Club & Tavern Community \u2014 Yorkseed is a community partner.",
+              "venue": "Pier 83, W 42nd St & 12th Ave, New York"
             }
           ]
         }
