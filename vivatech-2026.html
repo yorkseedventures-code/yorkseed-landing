@@ -663,7 +663,7 @@ img{display:block;max-width:100%}
         <div class="reg-form-box" id="reg-form-box">
           <div class="reg-form-top"><div class="reg-form-title">Student Delegation Form</div><div class="reg-form-note">Free · 90 seconds · Ticket emailed May–June 2026</div></div>
           <div class="reg-form-body">
-            <form id="vt-form" action="https://api.web3forms.com/submit" method="POST" onsubmit="handleSubmit(event)">
+            <form id="vt-form" onsubmit="handleSubmit(event)">
               <input type="hidden" name="access_key" value="61bd8ccb-15a7-41e7-b710-e3de23892bd3"/>
               <input type="hidden" name="subject" value="Yorkseed × VivaTech 2026 — New Delegation Application"/>
               <input type="hidden" name="redirect" value="false"/>
@@ -922,24 +922,59 @@ function toggleHearOther(sel){
 
 async function handleSubmit(e){
   e.preventDefault();
+  e.stopPropagation();
   var btn = document.getElementById('vt-submit-btn');
   btn.textContent = 'Submitting…'; btn.disabled = true;
   try {
+    var formData = new FormData(e.target);
     var res = await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
-      body: new FormData(e.target)
+      body: formData
     });
     var json = await res.json();
     if(json.success){
-      document.getElementById('reg-form-box').innerHTML='<div style="padding:52px 28px;text-align:center"><div style="font-family:\'Playfair Display\',serif;font-size:42px;font-weight:300;font-style:italic;color:rgba(255,255,255,.85);margin-bottom:16px">You\'re in.</div><div style="width:28px;height:1px;background:#b08d57;opacity:.4;margin:0 auto 18px"></div><p style="font-family:\'DM Sans\',sans-serif;font-size:13.5px;color:rgba(255,255,255,.32);line-height:1.78;font-weight:300;max-width:340px;margin:0 auto">Your VivaTech pass will be emailed by the START Paris team in May–June 2026. Welcome to the Yorkseed × START Paris delegation.</p></div>';
+      document.getElementById('reg-form-box').innerHTML=`
+        <div style="padding:44px 28px;text-align:center">
+          <div style="font-family:'Playfair Display',serif;font-size:48px;font-weight:300;font-style:italic;color:rgba(255,255,255,.88);margin-bottom:12px;letter-spacing:-.03em">You're in.</div>
+          <div style="width:28px;height:1px;background:#b08d57;opacity:.4;margin:0 auto 20px"></div>
+          <p style="font-family:'DM Sans',sans-serif;font-size:14px;color:rgba(255,255,255,.38);line-height:1.8;font-weight:300;max-width:340px;margin:0 auto 32px">
+            We've received your application. The START Paris team will be in touch with your VivaTech pass in May–June 2026 — no further action needed.
+          </p>
+
+          <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:32px">
+
+            <div style="background:rgba(176,141,87,.07);border:1px solid rgba(176,141,87,.18);border-radius:8px;padding:18px 20px;text-align:left">
+              <div style="font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(176,141,87,.6);margin-bottom:8px">While you wait</div>
+              <div style="font-size:13.5px;color:rgba(255,255,255,.65);line-height:1.7;font-weight:300;margin-bottom:14px">Stay sharp. The Yorkseed Pulse covers what's moving in venture, AI, and global tech — curated for builders like you.</div>
+              <a href="https://pulse.yorkseed.co" target="_blank" style="display:inline-block;background:#c8372d;color:#fff;padding:10px 20px;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:12.5px;font-weight:400;letter-spacing:.04em;text-decoration:none">Subscribe to Yorkseed Pulse →</a>
+            </div>
+
+            <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:18px 20px;text-align:left">
+              <div style="font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:8px">Know someone who should come?</div>
+              <div style="font-size:13.5px;color:rgba(255,255,255,.45);line-height:1.7;font-weight:300;margin-bottom:14px">Send them this page — spots are limited and the delegation fills up fast.</div>
+              <button onclick="(function(){var url='https://yorkseed.co/vivatech-2026.html';if(navigator.share){navigator.share({title:'Free VivaTech 2026 pass — Yorkseed × START Paris',url:url})}else{navigator.clipboard.writeText(url).then(function(){var b=document.getElementById('share-btn');b.textContent='Link copied ✓';setTimeout(function(){b.textContent='Copy link to share'},2000)})}})()" id="share-btn" style="background:transparent;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.5);padding:10px 20px;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:12.5px;font-weight:300;cursor:pointer;letter-spacing:.03em">Copy link to share</button>
+            </div>
+
+          </div>
+
+          <div style="background:rgba(75,110,255,.06);border:1px solid rgba(75,110,255,.15);border-radius:8px;padding:18px 20px;text-align:left;margin-bottom:28px">
+            <div style="font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(75,110,255,.6);margin-bottom:8px">Student clubs & universities</div>
+            <div style="font-size:13.5px;color:rgba(255,255,255,.45);line-height:1.7;font-weight:300;margin-bottom:14px">Interested in bringing your club or school to VivaTech as a partner? We'd love to hear from you.</div>
+            <a href="mailto:partnership@yorkseed.co" style="display:inline-block;background:transparent;border:1px solid rgba(75,110,255,.3);color:rgba(255,255,255,.55);padding:10px 20px;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:12.5px;font-weight:300;letter-spacing:.03em;text-decoration:none">partnership@yorkseed.co →</a>
+          </div>
+
+          <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.15)">Yorkseed × START Paris × VivaTech 2026 · Paris, June 17–20</div>
+        </div>
+      `;
     } else {
       btn.textContent = 'Try again'; btn.disabled = false;
-      alert('Something went wrong. Please try again.');
+      alert('Submission error: ' + (json.message || 'Please try again.'));
     }
   } catch(err){
     btn.textContent = 'Try again'; btn.disabled = false;
-    alert('Network error. Please try again.');
+    alert('Network error. Please check your connection and try again.');
   }
+  return false;
 }
 </script>
 </body>
