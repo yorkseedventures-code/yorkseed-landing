@@ -131,8 +131,76 @@ html{scroll-behavior:smooth}
   --mono:'DM Mono',monospace;
 }
 body{font-family:var(--sans);font-weight:300;background:var(--white);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+/* extra top padding when bar is showing so hero content isn't hidden */
+.has-vt-bar .hero{padding-top:136px}
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
+
+/* ─── VIVATECH ANNOUNCEMENT BAR ─── */
+#vt-bar{
+  position:fixed;top:0;left:0;right:0;z-index:600;
+  height:36px;
+  background:var(--ink2);
+  border-bottom:1px solid rgba(255,255,255,.08);
+  display:flex;align-items:center;justify-content:center;
+  transition:transform .3s cubic-bezier(.4,0,.2,1),opacity .3s;
+}
+#vt-bar.hidden{transform:translateY(-100%);opacity:0;pointer-events:none}
+#vt-bar::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,#FF2D78,#C44BFF,#4B6EFF,#00C8FF,#00E5A0,#FFE500,#FF7A00);
+}
+.vt-bar-inner{
+  display:flex;align-items:center;gap:12px;
+  max-width:1280px;width:100%;padding:0 5vw;
+  position:relative;
+}
+.vt-bar-dot{
+  width:5px;height:5px;border-radius:50%;background:#FF2D78;flex-shrink:0;
+  animation:vtDotPulse 2s ease-in-out infinite;
+}
+@keyframes vtDotPulse{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:1;transform:scale(1.4)}}
+.vt-bar-label{
+  font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(255,255,255,.28);white-space:nowrap;
+}
+.vt-bar-sep{width:1px;height:12px;background:rgba(255,255,255,.12);flex-shrink:0}
+.vt-bar-copy{
+  font-family:var(--sans);font-size:12.5px;font-weight:300;
+  color:rgba(255,255,255,.72);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.vt-bar-copy .vt-name{
+  background:linear-gradient(90deg,#FF2D78,#C44BFF,#4B6EFF,#00C8FF);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  font-weight:400;
+}
+.vt-bar-cta{
+  margin-left:auto;flex-shrink:0;
+  font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:rgba(255,255,255,.45);
+  padding:4px 12px;border:1px solid rgba(255,255,255,.14);border-radius:3px;
+  transition:color .15s,border-color .15s;text-decoration:none;white-space:nowrap;
+}
+.vt-bar-cta:hover{color:rgba(255,255,255,.85);border-color:rgba(255,255,255,.3)}
+.vt-bar-close{
+  width:24px;height:24px;display:flex;align-items:center;justify-content:center;
+  margin-left:8px;flex-shrink:0;cursor:pointer;
+  color:rgba(255,255,255,.22);font-size:14px;line-height:1;
+  border:none;background:none;padding:0;transition:color .15s;
+}
+.vt-bar-close:hover{color:rgba(255,255,255,.6)}
+/* Nav shifts down when bar is visible */
+.has-vt-bar .site-nav{top:36px}
+.has-vt-bar .m-tab-bar{top:36px}
+/* Mobile: hide label and sep to save space */
+@media(max-width:600px){.vt-bar-label,.vt-bar-sep{display:none}}
+@media(max-width:440px){.vt-bar-copy{font-size:11px}.vt-bar-cta{padding:3px 8px;font-size:8px}}
+/* On mobile the bar sits above the bottom tab bar, not above the top nav
+   (no top nav on mobile — m-tab-bar is at top instead) */
+@media(max-width:900px){
+  #vt-bar{z-index:500}
+  .has-vt-bar .m-tab-bar{top:36px}
+}
 
 /* ─── NAV ─── */
 .site-nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(255,255,255,.94);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
@@ -529,7 +597,12 @@ img{display:block;max-width:100%}
 .m-tab.active svg{stroke:var(--red)}
 .m-tab-join{flex:1;display:flex;align-items:center;justify-content:center;padding:0 6px}
 .m-tab-join a{background:var(--red);color:#fff;border-radius:6px;font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;padding:8px 14px;display:block}
-@media(max-width:900px){.m-tab-bar{display:block}body{padding-bottom:0;padding-top:calc(56px + env(safe-area-inset-top,0))}}
+@media(max-width:900px){
+  .m-tab-bar{display:block}
+  body{padding-bottom:0;padding-top:calc(56px + env(safe-area-inset-top,0))}
+  /* when bar is showing, push body top padding down by bar height */
+  body.has-vt-bar{padding-top:calc(56px + 36px + env(safe-area-inset-top,0))}
+}
 
 /* ─── RESPONSIVE ─── */
 @media(max-width:860px){.eco-grid{grid-template-columns:repeat(2,1fr)}}
@@ -595,7 +668,23 @@ img{display:block;max-width:100%}
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
 </head>
-<body>
+<body class="has-vt-bar">
+
+<!-- VIVATECH 2026 ANNOUNCEMENT BAR — remove after June 15 -->
+<div id="vt-bar" role="banner" aria-label="VivaTech 2026 announcement">
+  <div class="vt-bar-inner">
+    <span class="vt-bar-dot" aria-hidden="true"></span>
+    <span class="vt-bar-label">Closes June 15</span>
+    <span class="vt-bar-sep" aria-hidden="true"></span>
+    <span class="vt-bar-copy">
+      Yorkseed × START Paris ×
+      <span class="vt-name">VivaTech 2026</span>
+      — Free student pass, Paris · June 17–20
+    </span>
+    <a href="/vivatech-2026.html" class="vt-bar-cta">Claim pass →</a>
+    <button class="vt-bar-close" onclick="dismissVtBar()" aria-label="Dismiss">✕</button>
+  </div>
+</div>
 
 <!-- NAV -->
 
@@ -629,6 +718,13 @@ img{display:block;max-width:100%}
             <div class="n-item-body">
               <div class="n-item-title">Events &amp; Passport Series</div>
               <div class="n-item-desc">Curated gatherings across global innovation hubs</div>
+            </div>
+          </a>
+          <a href="/vivatech-2026.html" class="n-item" style="background:rgba(26,26,26,.03);border:0.5px solid rgba(75,110,255,.18);border-radius:8px;">
+            <span class="n-item-icon">🗼</span>
+            <div class="n-item-body">
+              <div class="n-item-title" style="background:linear-gradient(90deg,#FF2D78,#C44BFF,#4B6EFF,#00C8FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">VivaTech 2026 · Paris</div>
+              <div class="n-item-desc">Free student pass · June 17–20 · Closes June 15</div>
             </div>
           </a>
           <a href="https://yorkseedsummit.com" class="n-item" target="_blank">
@@ -684,6 +780,10 @@ img{display:block;max-width:100%}
       <a href="/" class="n-drawer-link"><span>🏠</span><span>Home</span></a>
       <a href="/about.html" class="n-drawer-link"><span>📖</span><span>Our Story</span></a>
       <a href="/events.html" class="n-drawer-link"><span>🎯</span><span>Events</span></a>
+      <a href="/vivatech-2026.html" class="n-drawer-link" style="border-color:rgba(75,110,255,.2);">
+        <span>🗼</span>
+        <span style="background:linear-gradient(90deg,#FF2D78,#C44BFF,#4B6EFF,#00C8FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:500;">VivaTech 2026 — Free pass</span>
+      </a>
       <a href="/hubs.html" class="n-drawer-link"><span>📍</span><span>Global Hubs</span></a>
       <a href="/nyc.html" class="n-drawer-link"><span>🗽</span><span>NYC Hub</span></a>
       <a href="/nyc-startup-communities.html" class="n-drawer-link"><span>📋</span><span>NYC Startup Communities Guide</span></a>
@@ -1117,6 +1217,37 @@ img{display:block;max-width:100%}
 function toggleDrop(){var d=document.getElementById('ecosDrop');d.classList.toggle('open')}
 function toggleDrawer(){var h=document.getElementById('hamBtn');var d=document.getElementById('navDrawer');h.classList.toggle('open');d.classList.toggle('open');document.body.style.overflow=d.classList.contains('open')?'hidden':''}
 document.addEventListener('click',function(e){var d=document.getElementById('ecosDrop');if(d&&!d.contains(e.target))d.classList.remove('open')});
+
+// VivaTech announcement bar — auto-expires June 21 2026, dismissible
+(function(){
+  var EXPIRY = new Date('2026-06-22T00:00:00+02:00'); // midnight Paris time after June 21
+  var bar = document.getElementById('vt-bar');
+  var dismissed = false;
+  try { dismissed = localStorage.getItem('vt26dismissed') === '1'; } catch(e){}
+
+  function hideBar(){
+    if(!bar) return;
+    bar.classList.add('hidden');
+    document.body.classList.remove('has-vt-bar');
+  }
+
+  // Hide if expired or manually dismissed
+  if(new Date() >= EXPIRY || dismissed){
+    hideBar();
+  }
+
+  // Check every minute in case page stays open past midnight
+  setInterval(function(){
+    if(new Date() >= EXPIRY) hideBar();
+  }, 60000);
+})();
+
+function dismissVtBar(){
+  var bar = document.getElementById('vt-bar');
+  if(bar) bar.classList.add('hidden');
+  document.body.classList.remove('has-vt-bar');
+  try { localStorage.setItem('vt26dismissed','1'); } catch(e){}
+}
 </script>
 
 <script>
