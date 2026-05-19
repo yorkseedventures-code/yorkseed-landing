@@ -3,7 +3,7 @@ Allow: /
 Disallow: /private/
 Disallow: /admin/
 
-# Allow major search crawlers
+# Search engine crawlers
 User-agent: Googlebot
 Allow: /
 
@@ -16,6 +16,12 @@ Allow: /
 User-agent: DuckDuckBot
 Allow: /
 
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
 User-agent: LinkedInBot
 Allow: /
 
@@ -25,7 +31,7 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-# Allow AI training and LLM crawlers
+# AI & LLM crawlers — all explicitly allowed
 User-agent: GPTBot
 Allow: /
 
@@ -44,13 +50,35 @@ Allow: /
 User-agent: Claude-Web
 Allow: /
 
+User-agent: ClaudeBot
+Allow: /
+
 User-agent: PerplexityBot
 Allow: /
 
 User-agent: YouBot
 Allow: /
 
-# LLM context files
-# See /llms.txt and /llms-full.txt for structured AI-readable content
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: iaskspider
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+# LLM context files — structured AI-readable content
+# /llms.txt — concise summary for AI systems
+# /llms-full.txt — complete reference for AI systems
 
 Sitemap: https://yorkseed.co/sitemap.xml
