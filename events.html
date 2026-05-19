@@ -600,8 +600,22 @@ function toggleDrawer(){
 function filterEvents(type,el){
   document.querySelectorAll('.filter-tab').forEach(t=>t.classList.remove('active'));
   el.classList.add('active');
+
+  // Show/hide community partner card section
+  const partnerSection = document.getElementById('partnerSection');
+  if(partnerSection){
+    partnerSection.style.display = (type==='all'||type==='community') ? 'block' : 'none';
+  }
+
+  // Show/hide archive when community-only selected
+  const archiveEl = document.querySelector('.archive');
+  if(archiveEl){
+    archiveEl.style.display = (type==='community') ? 'none' : 'block';
+  }
+
+  // Filter archive rows
   document.querySelectorAll('.event-row').forEach(row=>{
-    if(type==='all'||row.dataset.type===type||(type==='summit'&&(row.dataset.type==='summit'||row.dataset.type==='house'))||false){
+    if(type==='all'||row.dataset.type===type||(type==='summit'&&(row.dataset.type==='summit'||row.dataset.type==='house'))){
       row.style.display='flex';
     }else{
       row.style.display='none';
