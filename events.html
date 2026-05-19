@@ -607,13 +607,7 @@ function filterEvents(type,el){
     partnerSection.style.display = (type==='all'||type==='community') ? 'block' : 'none';
   }
 
-  // Show/hide archive when community-only selected
-  const archiveEl = document.querySelector('.archive');
-  if(archiveEl){
-    archiveEl.style.display = (type==='community') ? 'none' : 'block';
-  }
-
-  // Filter archive rows
+  // Filter archive rows (community rows now included)
   document.querySelectorAll('.event-row').forEach(row=>{
     if(type==='all'||row.dataset.type===type||(type==='summit'&&(row.dataset.type==='summit'||row.dataset.type==='house'))){
       row.style.display='flex';
@@ -683,11 +677,11 @@ function renderArchive(archive){
   return archive.map(yb=>`
     <div class="year-block">
       <div class="year-heading${yb.year>=currentYear?' current':''}">${yb.year}</div>
-      ${yb.groups.filter(g=>g.events.some(ev=>ev.type!=='community')).map(g=>`
+      ${yb.groups.map(g=>`
         <div class="edition-group">
           <div class="edition-label">${g.label}</div>
           <div class="event-table">
-            ${g.events.filter(ev=>ev.type!=='community').map(ev=>`
+            ${g.events.map(ev=>`
               <div class="event-row" data-type="${ev.type}">
                 <span class="event-type ${typeRowClass(ev.type)}">${typeLabel(ev.type)}</span>
                 <div class="event-name">${ev.title}</div>
