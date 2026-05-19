@@ -203,6 +203,38 @@ h1 em{font-style:italic;color:var(--red)}
   .hero-stats{display:none}
   .upcoming-grid{grid-template-columns:1fr}
 }
+
+/* ─── COMMUNITY PARTNER SECTION ─────────────────────────────────────────── */
+.partner-section{padding:0 0 28px}
+.partner-eyebrow{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink4);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.partner-eyebrow::before{content:'';display:block;width:16px;height:1px;background:var(--border2)}
+.partner-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.partner-card{border:1px solid var(--border);border-radius:8px;overflow:hidden;cursor:pointer;transition:border-color .18s,box-shadow .18s;background:var(--white)}
+.partner-card:hover{border-color:var(--border2);box-shadow:0 3px 14px rgba(0,0,0,.07)}
+.partner-card-img{height:100px;background:var(--off);overflow:hidden}
+.partner-card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.partner-card-body{padding:12px 14px}
+.partner-card-badge{font-family:var(--mono);font-size:7.5px;letter-spacing:.1em;text-transform:uppercase;color:#2d6b6d;background:rgba(113,162,164,.1);border:1px solid rgba(113,162,164,.25);border-radius:3px;padding:2px 7px;display:inline-block;margin-bottom:8px}
+.partner-card-title{font-size:12.5px;font-weight:400;color:var(--ink);line-height:1.4;margin-bottom:4px}
+.partner-card-loc{font-family:var(--mono);font-size:9px;color:var(--ink4)}
+
+/* ─── MODAL ──────────────────────────────────────────────────────────────── */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:900;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;visibility:hidden;transition:opacity .22s,visibility .22s}
+.modal-overlay.open{opacity:1;visibility:visible}
+.modal-box{background:var(--white);border-radius:14px;overflow:hidden;max-width:520px;width:100%;max-height:90vh;overflow-y:auto;transform:translateY(12px);transition:transform .22s}
+.modal-overlay.open .modal-box{transform:translateY(0)}
+.modal-img{height:220px;overflow:hidden;position:relative}
+.modal-img img{width:100%;height:100%;object-fit:cover;display:block}
+.modal-badge{position:absolute;top:14px;left:14px;font-family:var(--mono);font-size:8px;letter-spacing:.1em;text-transform:uppercase;background:rgba(0,0,0,.65);color:#fff;padding:4px 10px;border-radius:4px}
+.modal-close{position:absolute;top:12px;right:12px;width:30px;height:30px;background:rgba(0,0,0,.5);color:#fff;border:none;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;line-height:1}
+.modal-body{padding:24px}
+.modal-title{font-family:var(--serif);font-size:20px;font-weight:400;color:var(--ink);line-height:1.3;margin-bottom:8px}
+.modal-meta{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.modal-meta-row{font-size:12.5px;color:var(--ink4);display:flex;align-items:center;gap:8px}
+.modal-desc{font-size:13px;color:var(--ink3);line-height:1.75;font-weight:300;margin-bottom:20px}
+.modal-promo{padding:10px 14px;background:var(--gold-dim);border:1px solid var(--gold-border);border-radius:6px;margin-bottom:16px;font-size:12px;color:#7a5c1e;font-family:var(--mono);letter-spacing:.04em}
+.modal-btn{display:block;width:100%;background:var(--ink);color:#fff;padding:13px;border-radius:7px;font-size:13px;font-weight:400;letter-spacing:.02em;text-align:center;text-decoration:none;transition:opacity .15s}
+.modal-btn:hover{opacity:.8}
 </style>
 </head>
 <body>
@@ -331,6 +363,11 @@ h1 em{font-style:italic;color:var(--red)}
     <div id="featuredContainer"></div>
 
     <div class="upcoming-grid" id="upcomingGrid"></div>
+
+    <div id="partnerSection" class="partner-section" style="display:none">
+      <div class="partner-eyebrow">Community Partner Events</div>
+      <div class="partner-grid" id="partnerGrid"></div>
+    </div>
 
     <div class="luma-cta">
       <div class="luma-cta-text"><strong>More events coming soon.</strong> Follow Yorkseed on Luma to get notified as new events are announced across 50+ cities.</div>
@@ -518,6 +555,63 @@ function renderArchive(archive){
     </div>`).join('');
 }
 
+
+// ─── COMMUNITY PARTNER CARDS ─────────────────────────────────────────────
+const partnerEvents = [];
+
+function renderPartnerCard(ev){
+  const img = ev.coverImage || '';
+  const idx = partnerEvents.push(ev) - 1;
+  return `
+    <div class="partner-card" onclick="openModal(${idx})">
+      <div class="partner-card-img">
+        ${img ? `<img src="${img}" alt="" referrerpolicy="no-referrer"/>` : `<div style="width:100%;height:100%;background:var(--mid)"></div>`}
+      </div>
+      <div class="partner-card-body">
+        <div class="partner-card-badge">Community Partner</div>
+        <div class="partner-card-title">${ev.title}</div>
+        <div class="partner-card-loc">📍 ${ev.location}</div>
+      </div>
+    </div>`;
+}
+
+function openModal(idx){
+  const ev = partnerEvents[idx];
+  document.getElementById('modalImg').src = ev.coverImage || '';
+  document.getElementById('modalImg').style.display = ev.coverImage ? 'block' : 'none';
+  document.getElementById('modalTitle').textContent = ev.title;
+  document.getElementById('modalDesc').textContent = ev.description || '';
+  document.getElementById('modalBtn').href = ev.lumaUrl || '#';
+  const meta = document.getElementById('modalMeta');
+  meta.innerHTML = '';
+  if(ev.date) meta.innerHTML += `<div class="modal-meta-row">📅 ${ev.date}</div>`;
+  if(ev.location) meta.innerHTML += `<div class="modal-meta-row">📍 ${ev.location}</div>`;
+  if(ev.venue && ev.venue !== ev.location) meta.innerHTML += `<div class="modal-meta-row">🏛 ${ev.venue}</div>`;
+  const promo = document.getElementById('modalPromo');
+  if(ev.promoCode){
+    promo.style.display = 'block';
+    promo.textContent = `🎟 Promo code: ${ev.promoCode} — use at checkout`;
+  } else {
+    promo.style.display = 'none';
+  }
+  document.getElementById('partnerModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(e){
+  if(e.target === document.getElementById('partnerModal')){
+    document.getElementById('partnerModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+
+document.addEventListener('keydown', e => {
+  if(e.key === 'Escape'){
+    document.getElementById('partnerModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+});
+
 // ─── INIT ─────────────────────────────────────────────────────────────────────
 function isPast(ev){
   if(!ev.dateISO) return false;
@@ -575,6 +669,17 @@ async function init(){
       });
     });
 
+    // Collect community partner events from archive
+    const communityEvents = [];
+    archive.forEach(yb => yb.groups.forEach(g => g.events.forEach(ev => {
+      if(ev.type === 'community') communityEvents.push({...ev,
+        coverImage: ev.coverImage || 'https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/event-covers/uo/5435e4de-77ff-4a0b-82eb-e5264020fa96.png'
+      });
+    })));
+    if(communityEvents.length){
+      document.getElementById('partnerSection').style.display='block';
+      document.getElementById('partnerGrid').innerHTML = communityEvents.map(renderPartnerCard).join('');
+    }
     document.getElementById('archiveContainer').innerHTML=renderArchive(archive);
   }catch(err){
     console.error('events.json load error:',err);
@@ -582,5 +687,23 @@ async function init(){
 }
 init();
 </script>
+
+<!-- COMMUNITY PARTNER MODAL -->
+<div class="modal-overlay" id="partnerModal" onclick="closeModal(event)">
+  <div class="modal-box">
+    <div class="modal-img">
+      <img id="modalImg" src="" alt=""/>
+      <div class="modal-badge" id="modalBadge">Community Partner</div>
+      <button class="modal-close" onclick="document.getElementById('partnerModal').classList.remove('open')">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-title" id="modalTitle"></div>
+      <div class="modal-meta" id="modalMeta"></div>
+      <div class="modal-desc" id="modalDesc"></div>
+      <div class="modal-promo" id="modalPromo" style="display:none"></div>
+      <a class="modal-btn" id="modalBtn" href="#" target="_blank">View Event →</a>
+    </div>
+  </div>
+</div>
 </body>
 </html>
