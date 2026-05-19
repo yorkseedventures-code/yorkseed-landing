@@ -362,7 +362,7 @@ img{display:block;max-width:100%}
   <div class="nav-vt"></div>
   <div class="nav-inner">
     <div class="nav-brands">
-      <span class="nav-logo">Yorkseed</span>
+      <img src="image0-1-1-2.png" alt="Yorkseed" style="height:28px;width:auto;display:block;"/>
       <span class="nav-sep">×</span>
       <span class="nav-partner">START Paris</span>
       <span class="nav-sep">×</span>
@@ -663,19 +663,95 @@ img{display:block;max-width:100%}
         <div class="reg-form-box" id="reg-form-box">
           <div class="reg-form-top"><div class="reg-form-title">Student Delegation Form</div><div class="reg-form-note">Free · 90 seconds · Ticket emailed May–June 2026</div></div>
           <div class="reg-form-body">
-            <div class="rf-row">
-              <div class="rf"><label>First name</label><input type="text" placeholder="First name"/></div>
-              <div class="rf"><label>Last name</label><input type="text" placeholder="Last name"/></div>
-            </div>
-            <div class="rf"><label>Email</label><input type="email" placeholder="your@university.edu"/></div>
-            <div class="rf"><label>University / School</label><input type="text" placeholder="e.g. Sciences Po, HEC, Polytechnique"/></div>
-            <div class="rf"><label>City</label><input type="text" placeholder="e.g. Paris, London, Berlin"/></div>
-            <div class="rf">
-              <label>What describes you best?</label>
-              <select><option value="" disabled selected>Select one</option><option>Student / recent graduate</option><option>Early-stage founder</option><option>Student building a project</option><option>Aspiring VC / investor</option><option>Tech enthusiast / builder</option></select>
-            </div>
-            <button class="reg-submit" onclick="handleSubmit(this)">Secure my free spot →</button>
-            <div class="reg-fine">You're in once you submit. START Paris emails your VivaTech pass in May–June 2026. No further action needed.</div>
+            <form id="vt-form" action="https://api.web3forms.com/submit" method="POST" onsubmit="handleSubmit(event)">
+              <input type="hidden" name="access_key" value="61bd8ccb-15a7-41e7-b710-e3de23892bd3"/>
+              <input type="hidden" name="subject" value="Yorkseed × VivaTech 2026 — New Delegation Application"/>
+              <input type="hidden" name="redirect" value="false"/>
+
+              <div class="rf-row">
+                <div class="rf"><label>First name *</label><input type="text" name="first_name" placeholder="First name" required/></div>
+                <div class="rf"><label>Last name *</label><input type="text" name="last_name" placeholder="Last name" required/></div>
+              </div>
+              <div class="rf"><label>Email *</label><input type="email" name="email" placeholder="your@university.edu" required/></div>
+              <div class="rf"><label>Phone *</label><input type="tel" name="phone" placeholder="+1 234 567 890" required/></div>
+              <div class="rf-row">
+                <div class="rf"><label>City *</label><input type="text" name="city" placeholder="Paris" required/></div>
+                <div class="rf"><label>Country *</label><input type="text" name="country" placeholder="France" required/></div>
+              </div>
+              <div class="rf"><label>University / School *</label><input type="text" name="university" placeholder="e.g. Sciences Po, HEC, Polytechnique" required/></div>
+              <div class="rf-row">
+                <div class="rf">
+                  <label>Degree level *</label>
+                  <select name="degree" required>
+                    <option value="" disabled selected>Select…</option>
+                    <option>Bachelors</option><option>Masters</option><option>MBA</option><option>PhD</option>
+                  </select>
+                </div>
+                <div class="rf"><label>Program / Major *</label><input type="text" name="program" placeholder="Computer Science, MBA…" required/></div>
+              </div>
+              <div class="rf"><label>Expected graduation *</label><input type="text" name="graduation" placeholder="e.g. June 2027" required/></div>
+              <div class="rf">
+                <label>What describes you best? *</label>
+                <select name="role" required>
+                  <option value="" disabled selected>Select one</option>
+                  <option>Student / recent graduate</option>
+                  <option>Early-stage founder</option>
+                  <option>Student building a project</option>
+                  <option>Aspiring VC / investor</option>
+                  <option>Developer / engineer</option>
+                  <option>Tech enthusiast / builder</option>
+                  <option>Researcher</option>
+                  <option>Community builder / organizer</option>
+                </select>
+              </div>
+              <div class="rf"><label>Building a startup or project? (optional)</label><input type="text" name="startup_desc" placeholder="Briefly describe what you're working on…"/></div>
+              <div class="rf">
+                <label>LinkedIn profile (optional)</label>
+                <input type="text" name="linkedin" placeholder="linkedin.com/in/yourname"/>
+              </div>
+              <div class="rf">
+                <label>Volunteer or intern at Yorkseed? *</label>
+                <select name="volunteer_intern" required>
+                  <option value="" disabled selected>Select one</option>
+                  <option value="Interested in volunteering">Interested in volunteering (unpaid)</option>
+                  <option value="Interested in interning">Interested in interning (unpaid)</option>
+                  <option value="Both — open to either">Both — open to either (unpaid)</option>
+                  <option value="Not interested">Not interested</option>
+                </select>
+                <div style="margin-top:6px;font-family:var(--mono);font-size:8px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.18)">All volunteer & intern positions are unpaid</div>
+              </div>
+              <div class="rf">
+                <label>How did you hear about us? *</label>
+                <select name="hear_about" id="hear_about_select" required onchange="toggleHearOther(this)">
+                  <option value="" disabled selected>Select one</option>
+                  <option>LinkedIn</option>
+                  <option>Friend / referral</option>
+                  <option>Student organization</option>
+                  <option>University</option>
+                  <option>Event</option>
+                  <option>Yorkseed</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="rf" id="hear_other_field" style="display:none">
+                <label>Please specify</label>
+                <input type="text" name="hear_about_other" placeholder="Tell us more…"/>
+              </div>
+
+              <div style="margin:18px 0;padding:14px 16px;background:rgba(176,141,87,.06);border:1px solid rgba(176,141,87,.18);border-radius:6px">
+                <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer">
+                  <input type="checkbox" name="terms" id="terms_check" required style="margin-top:3px;flex-shrink:0;accent-color:#c8372d"/>
+                  <span style="font-size:11.5px;color:rgba(255,255,255,.38);line-height:1.7;font-weight:300">
+                    I agree to be contacted by Yorkseed and START Paris about my application and delegation events.
+                    My data will not be sold or shared with third parties.
+                    I understand that volunteer and intern positions at Yorkseed are unpaid.
+                  </span>
+                </label>
+              </div>
+
+              <button type="submit" class="reg-submit" id="vt-submit-btn">Secure my free spot →</button>
+              <div class="reg-fine" style="margin-top:10px">Spots are limited. START Paris emails your VivaTech pass in May–June 2026.</div>
+            </form>
           </div>
         </div>
       </div>
@@ -778,7 +854,7 @@ img{display:block;max-width:100%}
 <footer class="footer">
   <div class="footer-top">
     <div>
-      <div class="footer-brand-name">Yorkseed × START Paris × <span style="background:var(--vt);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">VivaTech 2026</span></div>
+      <div class="footer-brand-name"><img src="image0-1-1-2.png" alt="Yorkseed" style="height:22px;width:auto;display:inline-block;vertical-align:middle;margin-right:4px"/> × START Paris × <span style="background:var(--vt);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">VivaTech 2026</span></div>
       <div class="footer-brand-tag">Empowering the next generation of founders &amp; builders — one delegation at a time.</div>
       <div class="footer-chips">
         <span class="footer-chip">Yorkseed</span>
@@ -840,17 +916,30 @@ function tf(el){
   if(!was)i.classList.add('open');
 }
 
-function handleSubmit(btn){
-  var b=btn.closest('.reg-form-body'),inputs=b.querySelectorAll('input,select'),ok=true;
-  inputs.forEach(function(i){
-    if(!i.value.trim()){ok=false;i.style.borderColor='rgba(200,55,45,.5)'}
-    else{i.style.borderColor=''}
-  });
-  if(!ok)return;
-  btn.textContent='Submitting…';btn.disabled=true;
-  setTimeout(function(){
-    document.getElementById('reg-form-box').innerHTML='<div style="padding:52px 28px;text-align:center"><div style="font-family:\'Playfair Display\',serif;font-size:42px;font-weight:300;font-style:italic;color:rgba(255,255,255,.85);margin-bottom:16px">You\'re in.</div><div style="width:28px;height:1px;background:#b08d57;opacity:.4;margin:0 auto 18px"></div><p style="font-family:\'DM Sans\',sans-serif;font-size:13.5px;color:rgba(255,255,255,.32);line-height:1.78;font-weight:300;max-width:340px;margin:0 auto">Your VivaTech pass will be emailed by the START Paris team in May–June 2026. Welcome to the Yorkseed × START Paris delegation.</p></div>';
-  },900);
+function toggleHearOther(sel){
+  document.getElementById('hear_other_field').style.display = sel.value === 'Other' ? 'block' : 'none';
+}
+
+async function handleSubmit(e){
+  e.preventDefault();
+  var btn = document.getElementById('vt-submit-btn');
+  btn.textContent = 'Submitting…'; btn.disabled = true;
+  try {
+    var res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: new FormData(e.target)
+    });
+    var json = await res.json();
+    if(json.success){
+      document.getElementById('reg-form-box').innerHTML='<div style="padding:52px 28px;text-align:center"><div style="font-family:\'Playfair Display\',serif;font-size:42px;font-weight:300;font-style:italic;color:rgba(255,255,255,.85);margin-bottom:16px">You\'re in.</div><div style="width:28px;height:1px;background:#b08d57;opacity:.4;margin:0 auto 18px"></div><p style="font-family:\'DM Sans\',sans-serif;font-size:13.5px;color:rgba(255,255,255,.32);line-height:1.78;font-weight:300;max-width:340px;margin:0 auto">Your VivaTech pass will be emailed by the START Paris team in May–June 2026. Welcome to the Yorkseed × START Paris delegation.</p></div>';
+    } else {
+      btn.textContent = 'Try again'; btn.disabled = false;
+      alert('Something went wrong. Please try again.');
+    }
+  } catch(err){
+    btn.textContent = 'Try again'; btn.disabled = false;
+    alert('Network error. Please try again.');
+  }
 }
 </script>
 </body>
