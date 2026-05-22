@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Pitch Application — Yorkseed</title>
+<meta name="description" content="Apply to pitch at a Yorkseed event. We surface high-conviction founders to curated investors across global innovation hubs."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://yorkseed.co/pitch-intake"/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MN9TDJSXN0"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MN9TDJSXN0');</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --ink:#0e0e0e;--ink2:#1a1a1a;--ink3:#555;--ink4:#999;
+  --white:#fff;--off:#fafafa;--light:#f5f4f1;--mid:#e8e6e1;
+  --red:#c8372d;--red-dim:rgba(200,55,45,.06);--red-border:rgba(200,55,45,.18);
+  --gold:#b08d57;--gold-dim:rgba(176,141,87,.07);--gold-border:rgba(176,141,87,.22);
+  --border:rgba(0,0,0,.07);--border2:rgba(0,0,0,.12);
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --mono:'DM Mono',monospace;
+}
+body{font-family:var(--sans);font-weight:300;background:#f7f6f3;color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden;padding-top:64px}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+
+/* ── NAV ── */
+.site-nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(255,255,255,.94);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 5vw;height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.n-logo{display:flex;align-items:center;flex-shrink:0}
+.n-center{display:flex;align-items:center;gap:4px;flex:1;justify-content:center}
+.n-link{font-size:12.5px;font-weight:400;color:var(--ink3);padding:6px 10px;border-radius:5px;transition:color .15s;white-space:nowrap;letter-spacing:.01em}
+.n-link:hover{color:var(--ink)}
+.n-drop{position:relative}
+.n-drop-btn{display:flex;align-items:center;gap:5px;font-size:12.5px;font-weight:400;color:var(--ink3);padding:6px 10px;border-radius:5px;cursor:pointer;background:none;border:none;font-family:inherit;transition:color .15s;letter-spacing:.01em}
+.n-drop-btn:hover,.n-drop.open .n-drop-btn{color:var(--ink)}
+.n-drop-arrow{transition:transform .2s}
+.n-drop.open .n-drop-arrow{transform:rotate(180deg)}
+.n-menu{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(-6px);background:#fff;border:1px solid var(--border2);border-radius:12px;box-shadow:0 12px 40px rgba(0,0,0,.1);padding:10px;width:540px;display:grid;grid-template-columns:1fr 1fr;gap:2px;opacity:0;visibility:hidden;transition:opacity .18s,visibility .18s,transform .18s}
+.n-drop.open .n-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.n-item{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border-radius:8px;transition:background .15s;color:var(--ink)}
+.n-item:hover{background:var(--off)}
+.n-item-icon{font-size:18px;flex-shrink:0;margin-top:1px}
+.n-item-title{font-size:12.5px;font-weight:500;margin-bottom:2px}
+.n-item-desc{font-size:11px;color:var(--ink4);line-height:1.5;font-weight:300}
+.n-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.n-signin{font-size:12.5px;color:var(--ink4);padding:6px 10px;border-radius:5px;transition:color .15s;white-space:nowrap}
+.n-signin:hover{color:var(--ink)}
+.n-apply{background:var(--red);color:#fff;padding:8px 18px;border-radius:6px;font-size:12.5px;font-weight:400;letter-spacing:.02em;transition:opacity .15s;white-space:nowrap}
+.n-apply:hover{opacity:.88}
+.n-ham{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;padding:6px;cursor:pointer;background:none;border:none;border-radius:5px;flex-shrink:0}
+.n-ham span{display:block;height:1.5px;background:var(--ink);border-radius:2px;transition:transform .25s,opacity .25s}
+.n-ham.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.n-ham.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.n-ham.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.n-drawer{position:fixed;inset:64px 0 0 0;background:#fff;z-index:200;transform:translateX(100%);transition:transform .28s cubic-bezier(.4,0,.2,1);overflow-y:auto;padding:20px 6vw 120px}
+.n-drawer.open{transform:translateX(0)}
+.n-drawer-section{margin-bottom:28px}
+.n-drawer-label{font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink4);margin-bottom:10px}
+.n-drawer-link{display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid var(--border);color:var(--ink);font-size:14px;font-weight:400}
+.n-drawer-link:last-child{border-bottom:none}
+.n-drawer-link span:first-child{font-size:20px;flex-shrink:0;width:28px}
+.n-drawer-ctas{display:flex;flex-direction:column;gap:10px;margin-top:24px}
+.n-drawer-ctas .n-apply{text-align:center;display:block;padding:13px}
+.n-drawer-ctas .n-signin{text-align:center;display:block;padding:12px;border:1px solid var(--border2);border-radius:6px;color:var(--ink3)}
+@media(max-width:900px){.site-nav{display:none}.n-center{display:none}.n-right .n-signin{display:none}.n-ham{display:flex}}
+@media(max-width:500px){.n-right .n-apply{display:none}}
+
+/* ── MOBILE TAB BAR ── */
+.m-tab-bar{display:none;position:fixed;top:0;left:0;right:0;z-index:400;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:env(safe-area-inset-top,0) 0 0}
+.m-tab-bar-inner{display:flex;align-items:stretch;height:56px}
+.m-tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-decoration:none;color:var(--ink4);font-family:var(--mono);font-size:8.5px;letter-spacing:.06em;text-transform:uppercase;-webkit-tap-highlight-color:transparent;padding:0 2px}
+.m-tab.active{color:var(--red)}
+.m-tab.active svg{stroke:var(--red)}
+.m-tab-join{flex:1;display:flex;align-items:center;justify-content:center;padding:0 6px}
+.m-tab-join a{background:var(--red);color:#fff;border-radius:6px;font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;padding:8px 14px;display:block}
+@media(max-width:900px){.m-tab-bar{display:block}body{padding-bottom:0;padding-top:calc(56px + env(safe-area-inset-top,0))}}
+
+/* ── HERO ── */
+.hero{background:var(--ink2);padding:110px 5vw 72px;position:relative;overflow:hidden}
+.hero-inner{max-width:760px;margin:0 auto;position:relative;z-index:1}
+.hero-eyebrow{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::before{content:'';display:block;width:24px;height:1px;background:rgba(255,255,255,.2)}
+.hero-title{font-family:var(--serif);font-size:clamp(34px,5vw,58px);color:#fff;line-height:1.08;letter-spacing:-.025em;margin-bottom:20px}
+.hero-sub{font-size:15px;color:rgba(255,255,255,.48);line-height:1.75;max-width:480px}
+.hero-glow{position:absolute;top:-120px;right:-80px;width:500px;height:500px;background:radial-gradient(circle,rgba(200,55,45,.12) 0%,transparent 65%);pointer-events:none}
+
+/* ── NOTICE ── */
+.notice{background:rgba(176,141,87,.07);border-bottom:1px solid rgba(176,141,87,.15);padding:16px 5vw}
+.notice-inner{max-width:760px;margin:0 auto;display:flex;align-items:flex-start;gap:12px}
+.notice-icon{font-size:16px;flex-shrink:0;margin-top:2px}
+.notice-text{font-size:12.5px;color:var(--ink3);line-height:1.7}
+.notice-text strong{color:var(--ink);font-weight:500}
+
+/* ── LAYOUT ── */
+.page-body{padding:48px 5vw 96px;max-width:1100px;margin:0 auto}
+.form-layout{display:grid;grid-template-columns:220px 1fr;gap:48px;align-items:start}
+@media(max-width:780px){.form-layout{grid-template-columns:1fr}}
+
+/* ── STICKY SIDEBAR ── */
+.form-sidebar{position:sticky;top:88px}
+.sidebar-steps{display:flex;flex-direction:column;gap:2px}
+.sidebar-step{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:8px;cursor:pointer;transition:background .15s;text-decoration:none}
+.sidebar-step:hover{background:rgba(0,0,0,.04)}
+.sidebar-step.active{background:var(--white);box-shadow:0 1px 4px rgba(0,0,0,.07)}
+.step-num{font-family:var(--mono);font-size:9px;letter-spacing:.06em;color:var(--ink4);width:18px;flex-shrink:0}
+.step-label{font-size:12px;color:var(--ink3);font-weight:400;white-space:nowrap}
+.sidebar-step.active .step-num{color:var(--red)}
+.sidebar-step.active .step-label{color:var(--ink);font-weight:500}
+.sidebar-step.done .step-num{color:var(--red);opacity:.5}
+.sidebar-step.done .step-label{color:var(--ink4)}
+@media(max-width:780px){.form-sidebar{display:none}}
+
+/* ── FORM CARDS ── */
+.form-cards{display:flex;flex-direction:column;gap:12px}
+.form-card{background:var(--white);border-radius:14px;border:1px solid rgba(0,0,0,.07);box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.card-header{padding:22px 28px 0;display:flex;align-items:baseline;gap:14px}
+.card-num{font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--ink4);flex-shrink:0;margin-top:1px}
+.card-title{font-size:13px;font-weight:500;color:var(--ink);letter-spacing:.01em}
+.card-body{padding:20px 28px 28px;display:flex;flex-direction:column;gap:18px}
+
+/* ── FIELDS ── */
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field-row.single{grid-template-columns:1fr}
+@media(max-width:580px){.field-row{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:5px}
+.field label{font-size:11.5px;font-weight:500;color:var(--ink);letter-spacing:.01em}
+.field label .req{color:var(--red);margin-left:2px}
+.field-hint{font-size:11px;color:var(--ink4);line-height:1.5}
+.field input:not([type="checkbox"]),.field select,.field textarea{
+  font-family:var(--sans);font-size:13.5px;font-weight:300;color:var(--ink);
+  background:#fafaf9;border:1px solid rgba(0,0,0,.1);border-radius:8px;
+  padding:10px 13px;outline:none;width:100%;
+  transition:border-color .15s,box-shadow .15s,background .15s;
+  -webkit-appearance:none;appearance:none;
+}
+.field select{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23aaa' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 13px center;padding-right:34px;
+}
+.field input:not([type="checkbox"]):focus,.field select:focus,.field textarea:focus{
+  border-color:var(--red);box-shadow:0 0 0 3px rgba(200,55,45,.07);background:#fff;
+}
+.field textarea{resize:vertical;min-height:88px;line-height:1.65}
+.field input::placeholder,.field textarea::placeholder{color:#bbb}
+.field input:not([type="checkbox"]).error,.field select.error,.field textarea.error{border-color:var(--red);background:rgba(200,55,45,.02)}
+.field-error{font-size:11px;color:var(--red);margin-top:2px}
+.char-count{font-size:10.5px;color:var(--ink4);text-align:right;margin-top:2px}
+.char-count.warn{color:#d97706}
+.char-count.over{color:var(--red)}
+
+/* ── URL HINT ── */
+.url-hint{font-size:10.5px;color:var(--ink4);margin-top:3px;display:flex;align-items:center;gap:4px}
+.url-hint.valid{color:#16a34a}
+.url-hint.invalid{color:var(--red)}
+
+/* ── CHECKBOXES ── */
+.check-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-top:4px}
+.check-label{
+  display:flex;align-items:center;gap:9px;
+  padding:9px 13px;border:1px solid rgba(0,0,0,.09);border-radius:8px;
+  cursor:pointer;font-size:12.5px;color:var(--ink3);
+  transition:border-color .15s,background .15s;user-select:none;
+  background:#fafaf9;
+}
+.check-label:hover{border-color:rgba(200,55,45,.28);background:rgba(200,55,45,.03)}
+.check-label input{width:14px;height:14px;flex-shrink:0;accent-color:var(--red);cursor:pointer}
+.check-label:has(input:checked){border-color:var(--red-border);background:rgba(200,55,45,.04)}
+.check-label:has(input:checked) span{color:var(--ink);font-weight:500}
+
+/* ── SUBMIT CARD ── */
+.submit-card{background:var(--ink2);border-radius:14px;padding:28px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.submit-card-copy{flex:1;min-width:200px}
+.submit-card-copy p{font-size:12px;color:rgba(255,255,255,.4);line-height:1.65;margin-top:6px}
+.submit-card-copy p a{color:rgba(255,255,255,.5);text-decoration:underline;text-underline-offset:2px}
+.submit-card-label{font-size:14px;font-weight:400;color:#fff;letter-spacing:.01em}
+.btn-submit{
+  background:var(--red);color:#fff;border:none;border-radius:8px;
+  padding:13px 28px;font-family:var(--sans);font-size:13.5px;font-weight:400;
+  letter-spacing:.03em;cursor:pointer;transition:opacity .15s;
+  display:inline-flex;align-items:center;gap:8px;flex-shrink:0;white-space:nowrap;
+}
+.btn-submit:hover{opacity:.88}
+.btn-submit:disabled{opacity:.4;cursor:not-allowed}
+
+/* ── CONFIRMATION MODAL ── */
+.modal-overlay{
+  position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);
+  display:flex;align-items:center;justify-content:center;padding:20px;
+  opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s;
+}
+.modal-overlay.open{opacity:1;visibility:visible}
+.modal{
+  background:#fff;border-radius:18px;padding:36px;max-width:480px;width:100%;
+  box-shadow:0 24px 60px rgba(0,0,0,.18);transform:translateY(12px);
+  transition:transform .2s;
+}
+.modal-overlay.open .modal{transform:translateY(0)}
+.modal-icon{font-size:28px;margin-bottom:12px}
+.modal-title{font-family:var(--serif);font-size:22px;color:var(--ink);margin-bottom:8px;line-height:1.2}
+.modal-body{font-size:13.5px;color:var(--ink3);line-height:1.7;margin-bottom:20px}
+.modal-checklist{display:flex;flex-direction:column;gap:8px;margin-bottom:24px}
+.modal-check-item{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--ink3);line-height:1.5}
+.modal-check-item::before{content:'✓';color:var(--red);font-weight:600;flex-shrink:0;margin-top:1px}
+.modal-actions{display:flex;gap:10px;flex-wrap:wrap}
+.modal-confirm{flex:1;background:var(--red);color:#fff;border:none;border-radius:8px;padding:12px 20px;font-family:var(--sans);font-size:13.5px;font-weight:400;cursor:pointer;transition:opacity .15s;white-space:nowrap}
+.modal-confirm:hover{opacity:.88}
+.modal-back{flex:1;background:none;border:1px solid var(--border2);border-radius:8px;padding:12px 20px;font-family:var(--sans);font-size:13.5px;color:var(--ink3);cursor:pointer;transition:all .15s;white-space:nowrap}
+.modal-back:hover{border-color:var(--ink3);color:var(--ink)}
+
+/* ── SUCCESS ── */
+.success-overlay{
+  position:fixed;inset:0;z-index:2000;background:#fff;
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s;
+}
+.success-overlay.show{opacity:1;visibility:visible}
+.success-inner{max-width:480px;text-align:center;padding:40px 24px}
+.success-icon{font-size:48px;margin-bottom:20px}
+.success-title{font-family:var(--serif);font-size:28px;color:var(--ink);margin-bottom:12px}
+.success-body{font-size:14px;color:var(--ink3);line-height:1.75;margin-bottom:28px}
+.success-home{display:inline-flex;align-items:center;gap:8px;background:var(--ink2);color:#fff;border-radius:8px;padding:12px 24px;font-size:13.5px;font-weight:400;letter-spacing:.02em;transition:opacity .15s}
+.success-home:hover{opacity:.85}
+
+/* ── SPINNER ── */
+.spinner{width:16px;height:16px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;display:none}
+.btn-submit.loading .spinner{display:block}
+.btn-submit.loading .btn-text{display:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+
+<!-- DESKTOP NAV -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="n-logo"><img src="data:image/png;base64,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AAAA==" alt="Yorkseed" style="height:24px;width:auto;display:block;" /></a>
+    <div class="n-center">
+      <a href="/about.html" class="n-link">About</a>
+      <div class="n-drop" id="ndEco">
+        <button class="n-drop-btn" onclick="toggleDrop('ndEco')">Ecosystem <span class="n-drop-arrow"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="n-menu">
+          <a href="https://yorkseed.co/connect" class="n-item"><span class="n-item-icon">🌐</span><div class="n-item-body"><div class="n-item-title">Yorkseed Connect</div><div class="n-item-desc">The platform — membership, deal flow, tools &amp; introductions</div></div></a>
+          <a href="/capital.html" class="n-item"><span class="n-item-icon">💼</span><div class="n-item-body"><div class="n-item-title">Yorkseed Capital</div><div class="n-item-desc">Private SPV co-investments for qualified investors</div></div></a>
+          <a href="/events.html" class="n-item"><span class="n-item-icon">🎯</span><div class="n-item-body"><div class="n-item-title">Events &amp; Passport Series</div><div class="n-item-desc">Curated gatherings across global innovation hubs</div></div></a>
+          <a href="https://yorkseedsummit.com" class="n-item" target="_blank"><span class="n-item-icon">🏛️</span><div class="n-item-body"><div class="n-item-title">Yorkseed Summit</div><div class="n-item-desc">Our flagship global convening of founders &amp; capital</div></div></a>
+          <a href="https://pulse.yorkseed.co" class="n-item" target="_blank"><span class="n-item-icon">📰</span><div class="n-item-body"><div class="n-item-title">Yorkseed Insider</div><div class="n-item-desc">The venture newsletter — free &amp; paid tiers</div></div></a>
+          <a href="/hubs.html" class="n-item"><span class="n-item-icon">📍</span><div class="n-item-body"><div class="n-item-title">Global Hubs</div><div class="n-item-desc">50+ city hubs across 5 continents</div></div></a>
+        </div>
+      </div>
+      <a href="/events.html" class="n-link">Events</a>
+      <a href="/hubs.html" class="n-link">Hubs</a>
+      <a href="/partners.html" class="n-link">Partners</a>
+      <a href="/press.html" class="n-link">Press</a>
+    </div>
+    <div class="n-right">
+      <a href="https://app.yorkseed.co/login" class="n-signin">Sign in</a>
+      <a href="https://yorkseed.co/connect" class="n-apply">Join</a>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE TAB BAR -->
+<div class="m-tab-bar">
+  <div class="m-tab-bar-inner">
+    <a href="/" class="m-tab"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Home</a>
+    <a href="/events.html" class="m-tab"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Events</a>
+    <div class="m-tab-join"><a href="https://yorkseed.co/connect">Join</a></div>
+    <a href="/hubs.html" class="m-tab"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 00-8 8c0 5.25 8 14 8 14s8-8.75 8-14a8 8 0 00-8-8z"/></svg>Hubs</a>
+    <a href="/about.html" class="m-tab"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>About</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Yorkseed Events &nbsp;·&nbsp; Pitch Application</div>
+    <h1 class="hero-title">Apply to Pitch</h1>
+    <p class="hero-sub">We curate high-conviction founders for investor-facing pitch forums across our global network. Tell us about your company — we review every submission.</p>
+  </div>
+</section>
+
+<!-- NOTICE -->
+<div class="notice">
+  <div class="notice-inner">
+    <span class="notice-icon">💡</span>
+    <p class="notice-text"><strong>What happens next:</strong> Our team reviews each application within 5–7 business days. Selected founders are invited to pitch at an upcoming Yorkseed event. Incomplete applications may not be reviewed.</p>
+  </div>
+</div>
+
+<!-- FORM BODY -->
+<div class="page-body">
+  <div class="form-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="form-sidebar">
+      <div class="sidebar-steps">
+        <a href="#s1" class="sidebar-step active"><span class="step-num">01</span><span class="step-label">Personal</span></a>
+        <a href="#s2" class="sidebar-step"><span class="step-num">02</span><span class="step-label">Company</span></a>
+        <a href="#s3" class="sidebar-step"><span class="step-num">03</span><span class="step-label">Your Pitch</span></a>
+        <a href="#s4" class="sidebar-step"><span class="step-num">04</span><span class="step-label">Fundraising</span></a>
+        <a href="#s5" class="sidebar-step"><span class="step-num">05</span><span class="step-label">Materials</span></a>
+        <a href="#s6" class="sidebar-step"><span class="step-num">06</span><span class="step-label">Final Notes</span></a>
+      </div>
+    </aside>
+
+    <!-- FORM -->
+    <main>
+      <form id="pitchForm" novalidate>
+        <div class="form-cards">
+
+          <!-- 01 PERSONAL -->
+          <div class="form-card" id="s1">
+            <div class="card-header">
+              <span class="card-num">01</span>
+              <span class="card-title">Personal details</span>
+            </div>
+            <div class="card-body">
+              <div class="field-row">
+                <div class="field">
+                  <label for="firstName">First name <span class="req">*</span></label>
+                  <input type="text" id="firstName" name="First Name" placeholder="Jane" autocomplete="given-name" required/>
+                  <span class="field-error" id="err-firstName"></span>
+                </div>
+                <div class="field">
+                  <label for="lastName">Last name <span class="req">*</span></label>
+                  <input type="text" id="lastName" name="Last Name" placeholder="Smith" autocomplete="family-name" required/>
+                  <span class="field-error" id="err-lastName"></span>
+                </div>
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="email">Email address <span class="req">*</span></label>
+                  <input type="email" id="email" name="Email" placeholder="jane@yourcompany.com" autocomplete="email" required/>
+                  <span class="field-error" id="err-email"></span>
+                </div>
+                <div class="field">
+                  <label for="phone">Phone number</label>
+                  <input type="tel" id="phone" name="Phone" placeholder="+1 212 000 0000" autocomplete="tel"/>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 02 COMPANY -->
+          <div class="form-card" id="s2">
+            <div class="card-header">
+              <span class="card-num">02</span>
+              <span class="card-title">Company &amp; background</span>
+            </div>
+            <div class="card-body">
+              <div class="field-row">
+                <div class="field">
+                  <label for="companyName">Company name <span class="req">*</span></label>
+                  <input type="text" id="companyName" name="Company Name" placeholder="Acme Inc." required/>
+                  <span class="field-error" id="err-companyName"></span>
+                </div>
+                <div class="field">
+                  <label for="jobTitle">Your title / role <span class="req">*</span></label>
+                  <input type="text" id="jobTitle" name="Job Title" placeholder="CEO &amp; Co-Founder" required/>
+                  <span class="field-error" id="err-jobTitle"></span>
+                </div>
+              </div>
+              <div class="field-row single">
+                <div class="field">
+                  <label for="coFounders">Co-founders (if any)</label>
+                  <input type="text" id="coFounders" name="Co-Founders" placeholder="Name — role, Name — role"/>
+                  <span class="field-hint">List names and roles, separated by commas.</span>
+                </div>
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="basedCity">Based in <span class="req">*</span></label>
+                  <input type="text" id="basedCity" name="Based City" placeholder="New York, NY" required/>
+                  <span class="field-error" id="err-basedCity"></span>
+                </div>
+                <div class="field">
+                  <label for="website">Company website</label>
+                  <input type="url" id="website" name="Website" placeholder="https://yourcompany.com"/>
+                  <span class="url-hint" id="hint-website"></span>
+                </div>
+              </div>
+              <div class="field-row single">
+                <div class="field">
+                  <label for="linkedin">Your LinkedIn profile <span class="req">*</span></label>
+                  <input type="url" id="linkedin" name="LinkedIn" placeholder="https://linkedin.com/in/yourname" required/>
+                  <span class="url-hint" id="hint-linkedin"></span>
+                  <span class="field-error" id="err-linkedin"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 03 YOUR PITCH -->
+          <div class="form-card" id="s3">
+            <div class="card-header">
+              <span class="card-num">03</span>
+              <span class="card-title">Your pitch</span>
+            </div>
+            <div class="card-body">
+              <div class="field-row single">
+                <div class="field">
+                  <label for="oneLiner">One-liner — what do you do? <span class="req">*</span></label>
+                  <input type="text" id="oneLiner" name="One-Liner" placeholder="We help [audience] to [outcome] by [method]." maxlength="160" required/>
+                  <div class="char-count" id="cc-oneLiner">0 / 160</div>
+                  <span class="field-error" id="err-oneLiner"></span>
+                </div>
+              </div>
+              <div class="field-row single">
+                <div class="field">
+                  <label>Industry / sector <span class="req">*</span></label>
+                  <span class="field-hint">Select all that apply.</span>
+                  <div class="check-grid" id="industryGrid">
+                    <label class="check-label"><input type="checkbox" name="Industry / Sector" value="AI / ML"/><span>AI / ML</span></label>
+                    <label class="check-label"><input type="checkbox" name="Industry / Sector" value="Fintech"/><span>Fintech</span></label>
+                    <label class="check-label"><input type="checkbox" name="Industry / Sector" value="Health Tech"/><span>Health Tech</span></label>
+                    <label class="check-label"><input type="checkbox" name="Industry / Sector" value="SaaS / B2B"/><span>SaaS / B2B</span></label>
+                    <label class="check-label"><input type="checkbox" name="Industry / Sector" value="Deep Tech"/><span>Deep Tech</span></label>
+                    <label class="check-label"><input type="checkbox" name="Industry / Sector" value="Climate Tech"/><span>Climate Tech</span></label>
+                    <label class="check-label"><input type="checkbox" name="Industry / Sector" value="Prop Tech"/><span>Prop Tech</span></label>
+                    <label class="check-label"><input type="checkbox" name="Industry / Sector" value="Ed Tech"/><span>Ed Tech</span></label>
+                    <label class="check-label"><input type="checkbox" name="Industry / Sector" value="Cybersecurity"/><span>Cybersecurity</span></label>
+                    <label class="check-label"><input type="checkbox" name="Industry / Sector" value="eCommerce"/><span>eCommerce</span></label>
+                    <label class="check-label"><input type="checkbox" name="Industry / Sector" value="Blockchain / Web3"/><span>Blockchain / Web3</span></label>
+                    <label class="check-label"><input type="checkbox" name="Industry / Sector" value="Defense Tech"/><span>Defense Tech</span></label>
+                    <label class="check-label"><input type="checkbox" name="Industry / Sector" value="Legal Tech"/><span>Legal Tech</span></label>
+                    <label class="check-label"><input type="checkbox" name="Industry / Sector" value="Space Tech"/><span>Space Tech</span></label>
+                    <label class="check-label"><input type="checkbox" name="Industry / Sector" value="Gov Tech"/><span>Gov Tech</span></label>
+                    <label class="check-label"><input type="checkbox" name="Industry / Sector" value="Ag Tech"/><span>Ag Tech</span></label>
+                    <label class="check-label"><input type="checkbox" name="Industry / Sector" value="Other"/><span>Other</span></label>
+                  </div>
+                  <span class="field-error" id="err-industry"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 04 FUNDRAISING -->
+          <div class="form-card" id="s4">
+            <div class="card-header">
+              <span class="card-num">04</span>
+              <span class="card-title">Fundraising &amp; traction</span>
+            </div>
+            <div class="card-body">
+              <div class="field-row">
+                <div class="field">
+                  <label for="fundingStage">Funding stage <span class="req">*</span></label>
+                  <select id="fundingStage" name="Funding Stage" required>
+                    <option value="">Select stage…</option>
+                    <option>Pre-seed</option>
+                    <option>Seed</option>
+                    <option>Series A</option>
+                    <option>Series B</option>
+                    <option>Series C+</option>
+                    <option>Bootstrapped</option>
+                    <option>Revenue-stage (no raise)</option>
+                  </select>
+                  <span class="field-error" id="err-fundingStage"></span>
+                </div>
+                <div class="field">
+                  <label for="amountRaising">Amount raising</label>
+                  <input type="text" id="amountRaising" name="Amount Raising" placeholder="e.g. $1.5M"/>
+                  <span class="field-hint">Leave blank if not currently raising.</span>
+                </div>
+              </div>
+              <div class="field-row single">
+                <div class="field">
+                  <label for="revenueAndTraction">Revenue &amp; traction <span class="req">*</span></label>
+                  <textarea id="revenueAndTraction" name="Revenue / Traction" rows="4" placeholder="Share your key metrics: MRR/ARR, growth rate, paying customers, pilots, LOIs — whatever best tells the story of where you are." required></textarea>
+                  <span class="field-error" id="err-revenueAndTraction"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 05 MATERIALS -->
+          <div class="form-card" id="s5">
+            <div class="card-header">
+              <span class="card-num">05</span>
+              <span class="card-title">Materials &amp; media</span>
+            </div>
+            <div class="card-body">
+              <div class="field-row single">
+                <div class="field">
+                  <label for="pitchDeck">Pitch deck link</label>
+                  <input type="url" id="pitchDeck" name="Pitch Deck" placeholder="https://docsend.com/view/… or Google Drive link"/>
+                  <span class="url-hint" id="hint-pitchDeck"></span>
+                  <span class="field-hint">DocSend, Google Drive, Notion, or any shareable link. Ensure view access is enabled.</span>
+                </div>
+              </div>
+              <div class="field-row single">
+                <div class="field">
+                  <label for="videoLink">Pitch video or demo link</label>
+                  <input type="url" id="videoLink" name="Video Link" placeholder="https://youtube.com/… or Loom link"/>
+                  <span class="url-hint" id="hint-videoLink"></span>
+                  <span class="field-hint">Optional but strongly recommended. 1–3 minute overview works best.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 06 FINAL NOTES -->
+          <div class="form-card" id="s6">
+            <div class="card-header">
+              <span class="card-num">06</span>
+              <span class="card-title">Final notes</span>
+            </div>
+            <div class="card-body">
+              <div class="field-row single">
+                <div class="field">
+                  <label for="additionalInfo">Anything else we should know?</label>
+                  <textarea id="additionalInfo" name="Additional Info" rows="4" placeholder="Notable investors, upcoming milestones, strategic partnerships, press coverage, or why this is the right moment for your raise…"></textarea>
+                </div>
+              </div>
+              <div class="field-row single">
+                <div class="field">
+                  <label for="referral">How did you hear about Yorkseed?</label>
+                  <input type="text" id="referral" name="Referral" placeholder="e.g. a friend, LinkedIn, an event…"/>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SUBMIT -->
+          <div class="submit-card">
+            <div class="submit-card-copy">
+              <div class="submit-card-label">Ready to apply?</div>
+              <p>By submitting you agree to our <a href="/contact.html">privacy policy</a>. We review every application and respond within 5–7 business days.</p>
+            </div>
+            <button type="button" class="btn-submit" id="submitBtn" onclick="openModal()">
+              <span class="btn-text">Submit application →</span>
+              <div class="spinner"></div>
+            </button>
+          </div>
+
+        </div><!-- /form-cards -->
+      </form>
+    </main>
+
+  </div><!-- /form-layout -->
+</div><!-- /page-body -->
+
+<!-- CONFIRMATION MODAL -->
+<div class="modal-overlay" id="confirmModal">
+  <div class="modal">
+    <div class="modal-icon">📋</div>
+    <h2 class="modal-title">Ready to submit your application?</h2>
+    <p class="modal-body">Please confirm everything looks good. Our team will review your pitch and reach out within 5–7 business days.</p>
+    <div class="modal-checklist">
+      <div class="modal-check-item">Your contact details and LinkedIn are correct</div>
+      <div class="modal-check-item">Revenue and traction figures are accurate</div>
+      <div class="modal-check-item">Pitch deck / video links are accessible</div>
+    </div>
+    <div class="modal-actions">
+      <button class="modal-confirm" onclick="submitForm()">Yes, submit →</button>
+      <button class="modal-back" onclick="closeModal()">Go back &amp; review</button>
+    </div>
+  </div>
+</div>
+
+<!-- SUCCESS OVERLAY -->
+<div class="success-overlay" id="successOverlay">
+  <div class="success-inner">
+    <div class="success-icon">🎯</div>
+    <h2 class="success-title">Application received.</h2>
+    <p class="success-body">Thank you for applying to pitch at a Yorkseed event. Our team reviews every submission — we'll be in touch within 5–7 business days if there's a fit.</p>
+    <a href="/" class="success-home">← Back to Yorkseed</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer style="background:var(--ink2);padding:28px 6vw 20px;border-top:1px solid rgba(255,255,255,.05);">
+  <div style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px 14px;">
+    <a href="https://app.yorkseed.co/login" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;">Platform</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/about.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;">About</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/hubs.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;">Global Hubs</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/tools.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;">Free Tools</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/events.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;">Events</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/partners.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;">Partners</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/speaker-intake.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;">Speak</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/pitch-intake.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;">Pitch</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/press.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;">Press</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://thevalois.com" target="_blank" rel="noopener noreferrer" style="font-size:11px;color:rgba(184,151,106,0.7);text-decoration:none;">Valois</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://pulse.yorkseed.co" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;">Newsletter</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/contact.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;">Contact</a>
+    <div style="width:100%;text-align:center;margin-top:14px;font-size:10.5px;color:rgba(255,255,255,.2);font-family:var(--mono);letter-spacing:.04em;">© 2025 Yorkseed. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+/* ── NAV DROPDOWN ── */
+function toggleDrop(id){
+  var el=document.getElementById(id);
+  var isOpen=el.classList.contains('open');
+  document.querySelectorAll('.n-drop.open').forEach(function(d){d.classList.remove('open');});
+  if(!isOpen)el.classList.add('open');
+}
+document.addEventListener('click',function(e){
+  if(!e.target.closest('.n-drop'))document.querySelectorAll('.n-drop.open').forEach(function(d){d.classList.remove('open');});
+});
+
+/* ── MOBILE DRAWER ── */
+var ham=document.getElementById('nHam');
+var drawer=document.getElementById('nDrawer');
+if(ham)ham.addEventListener('click',function(){this.classList.toggle('open');if(drawer)drawer.classList.toggle('open');});
+
+/* ── SIDEBAR ACTIVE STATE ── */
+var sections=['s1','s2','s3','s4','s5','s6'];
+var steps=document.querySelectorAll('.sidebar-step');
+function updateSidebar(){
+  var scrollY=window.scrollY+120;
+  var active=0;
+  sections.forEach(function(id,i){
+    var el=document.getElementById(id);
+    if(el&&el.offsetTop<=scrollY)active=i;
+  });
+  steps.forEach(function(s,i){
+    s.classList.toggle('active',i===active);
+    s.classList.toggle('done',i<active);
+  });
+}
+window.addEventListener('scroll',updateSidebar,{passive:true});
+updateSidebar();
+
+/* ── CHAR COUNT ── */
+var oneLiner=document.getElementById('oneLiner');
+var cc=document.getElementById('cc-oneLiner');
+oneLiner.addEventListener('input',function(){
+  var n=this.value.length;
+  cc.textContent=n+' / 160';
+  cc.className='char-count'+(n>140?' warn':'')+(n>160?' over':'');
+});
+
+/* ── URL HINTS ── */
+function hookUrlHint(inputId,hintId){
+  var inp=document.getElementById(inputId);
+  var hint=document.getElementById(hintId);
+  if(!inp||!hint)return;
+  inp.addEventListener('input',function(){
+    var v=this.value.trim();
+    if(!v){hint.textContent='';hint.className='url-hint';return;}
+    try{new URL(v);hint.textContent='✓ Valid URL';hint.className='url-hint valid';}
+    catch(e){hint.textContent='⚠ Include https://';hint.className='url-hint invalid';}
+  });
+}
+hookUrlHint('website','hint-website');
+hookUrlHint('linkedin','hint-linkedin');
+hookUrlHint('pitchDeck','hint-pitchDeck');
+hookUrlHint('videoLink','hint-videoLink');
+
+/* ── VALIDATION ── */
+function clearErrors(){
+  document.querySelectorAll('.field-error').forEach(function(e){e.textContent='';});
+  document.querySelectorAll('.error').forEach(function(e){e.classList.remove('error');});
+}
+function setError(fieldId,errId,msg){
+  var f=document.getElementById(fieldId);
+  var e=document.getElementById(errId);
+  if(f)f.classList.add('error');
+  if(e)e.textContent=msg;
+  return false;
+}
+function validate(){
+  clearErrors();
+  var ok=true;
+  var firstName=document.getElementById('firstName').value.trim();
+  var lastName=document.getElementById('lastName').value.trim();
+  var email=document.getElementById('email').value.trim();
+  var jobTitle=document.getElementById('jobTitle').value.trim();
+  var companyName=document.getElementById('companyName').value.trim();
+  var basedCity=document.getElementById('basedCity').value.trim();
+  var linkedin=document.getElementById('linkedin').value.trim();
+  var oneLinerVal=document.getElementById('oneLiner').value.trim();
+  var fundingStage=document.getElementById('fundingStage').value;
+  var revenue=document.getElementById('revenueAndTraction').value.trim();
+  var industries=document.querySelectorAll('#industryGrid input:checked');
+
+  if(!firstName){setError('firstName','err-firstName','First name is required.');ok=false;}
+  if(!lastName){setError('lastName','err-lastName','Last name is required.');ok=false;}
+  if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){setError('email','err-email','A valid email address is required.');ok=false;}
+  if(!companyName){setError('companyName','err-companyName','Company name is required.');ok=false;}
+  if(!jobTitle){setError('jobTitle','err-jobTitle','Your title is required.');ok=false;}
+  if(!basedCity){setError('basedCity','err-basedCity','City is required.');ok=false;}
+  if(!linkedin){setError('linkedin','err-linkedin','LinkedIn profile URL is required.');ok=false;}
+  if(!oneLinerVal){setError('oneLiner','err-oneLiner','A one-liner is required.');ok=false;}
+  if(industries.length===0){
+    document.getElementById('err-industry').textContent='Please select at least one industry.';
+    ok=false;
+  }
+  if(!fundingStage){setError('fundingStage','err-fundingStage','Please select a funding stage.');ok=false;}
+  if(!revenue){setError('revenueAndTraction','err-revenueAndTraction','Please share your traction.');ok=false;}
+  return ok;
+}
+
+/* ── MODAL ── */
+function openModal(){
+  if(!validate()){
+    var firstErr=document.querySelector('.error,.field-error:not(:empty)');
+    if(firstErr)firstErr.scrollIntoView({behavior:'smooth',block:'center'});
+    return;
+  }
+  document.getElementById('confirmModal').classList.add('open');
+}
+function closeModal(){document.getElementById('confirmModal').classList.remove('open');}
+
+/* ── SUBMIT ── */
+function submitForm(){
+  closeModal();
+  var btn=document.getElementById('submitBtn');
+  btn.disabled=true;btn.classList.add('loading');
+
+  // Collect form data
+  var data={access_key:'5c1c96c6-7a4f-4cc7-85d3-4dd79f67e20a',subject:'New Pitch Application — Yorkseed'};
+  var form=document.getElementById('pitchForm');
+  var fields=['First Name','Last Name','Email','Phone','Company Name','Co-Founders','Job Title','Based City','Website','LinkedIn','One-Liner','Funding Stage','Amount Raising','Revenue / Traction','Pitch Deck','Video Link','Additional Info','Referral'];
+  fields.forEach(function(name){
+    var el=form.querySelector('[name="'+name+'"]');
+    if(el)data[name]=el.value.trim();
+  });
+
+  // Collect industry checkboxes
+  var checked=[];
+  form.querySelectorAll('#industryGrid input:checked').forEach(function(cb){checked.push(cb.value);});
+  data['Industry / Sector']=checked.join(', ');
+
+  // Timestamp
+  data['Submitted At']=new Date().toISOString();
+
+  fetch('https://api.web3forms.com/submit',{
+    method:'POST',
+    headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body:JSON.stringify(data)
+  })
+  .then(function(r){return r.json();})
+  .then(function(res){
+    if(res.success){
+      document.getElementById('successOverlay').classList.add('show');
+      window.scrollTo({top:0,behavior:'smooth'});
+    } else {
+      alert('Something went wrong. Please try again or email us directly.');
+      btn.disabled=false;btn.classList.remove('loading');
+    }
+  })
+  .catch(function(){
+    alert('Network error. Please check your connection and try again.');
+    btn.disabled=false;btn.classList.remove('loading');
+  });
+}
+
+// Close modal on overlay click
+document.getElementById('confirmModal').addEventListener('click',function(e){
+  if(e.target===this)closeModal();
+});
+</script>
+</body>
+</html>
