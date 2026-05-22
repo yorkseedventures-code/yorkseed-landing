@@ -458,6 +458,20 @@ img{display:block;max-width:100%}
                   <span class="field-hint">List names and roles, separated by commas.</span>
                 </div>
               </div>
+              <div class="field-row single">
+                <div class="field">
+                  <label for="teamMembers">Key team members</label>
+                  <textarea id="teamMembers" name="Team Members" rows="3" placeholder="e.g. Jane Smith — CTO (ex-Google), John Doe — Head of Sales (10 yrs enterprise SaaS)…"></textarea>
+                  <span class="field-hint">List name, role, and a brief note on relevant background. Investors want to know who's building this.</span>
+                </div>
+              </div>
+              <div class="field-row single">
+                <div class="field">
+                  <label for="advisors">Advisors</label>
+                  <textarea id="advisors" name="Advisors" rows="2" placeholder="e.g. Sarah Lee — ex-Partner at a16z, Michael Tan — Serial founder (2x exits)…"></textarea>
+                  <span class="field-hint">Optional. List any notable advisors and their relevance.</span>
+                </div>
+              </div>
               <div class="field-row">
                 <div class="field">
                   <label for="basedCity">Based in <span class="req">*</span></label>
@@ -563,9 +577,10 @@ img{display:block;max-width:100%}
             <div class="card-body">
               <div class="field-row single">
                 <div class="field">
-                  <label for="pitchDeck">Pitch deck link</label>
+                  <label for="pitchDeck">Pitch deck link <span class="req">*</span></label>
                   <input type="url" id="pitchDeck" name="Pitch Deck" placeholder="https://docsend.com/view/… or Google Drive link"/>
                   <span class="url-hint" id="hint-pitchDeck"></span>
+                  <span class="field-error" id="err-pitchDeck"></span>
                   <span class="field-hint">DocSend, Google Drive, Notion, or any shareable link. Ensure view access is enabled.</span>
                 </div>
               </div>
@@ -577,6 +592,24 @@ img{display:block;max-width:100%}
                   <span class="field-hint">Optional but strongly recommended. 1–3 minute overview works best.</span>
                 </div>
               </div>
+              <div class="field-row single">
+                <div class="field">
+                  <label for="headshotLink">Founder headshot link <span class="req">*</span></label>
+                  <input type="url" id="headshotLink" name="Headshot Link" placeholder="https://drive.google.com/… or Dropbox link"/>
+                  <span class="url-hint" id="hint-headshotLink"></span>
+                  <span class="field-error" id="err-headshotLink"></span>
+                  <span class="field-hint">A high-resolution photo used for event materials and press. Google Drive, Dropbox, or any direct image link. Ensure view access is enabled.</span>
+                </div>
+              </div>
+              <div class="field-row single">
+                <div class="field">
+                  <label for="logoLink">Company logo link <span class="req">*</span></label>
+                  <input type="url" id="logoLink" name="Logo Link" placeholder="https://drive.google.com/… or Dropbox link"/>
+                  <span class="url-hint" id="hint-logoLink"></span>
+                  <span class="field-error" id="err-logoLink"></span>
+                  <span class="field-hint">PNG or SVG preferred, on a transparent background. Used for event materials and the Yorkseed platform.</span>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -586,14 +619,33 @@ img{display:block;max-width:100%}
             <div class="card-body">
               <div class="field-row single">
                 <div class="field">
+                  <label for="whyPickYou">Why should we pick you? <span class="req">*</span></label>
+                  <textarea id="whyPickYou" name="Why Pick You" rows="4" placeholder="What makes you and your startup stand out? Tell us about your unfair advantage, the problem only you can solve, or why now is your moment…"></textarea>
+                  <span class="field-error" id="err-whyPickYou"></span>
+                </div>
+              </div>
+              <div class="field-row single">
+                <div class="field">
                   <label for="additionalInfo">Anything else we should know?</label>
                   <textarea id="additionalInfo" name="Additional Info" rows="4" placeholder="Notable investors, upcoming milestones, strategic partnerships, press coverage, or why this is the right moment for your raise…"></textarea>
                 </div>
               </div>
               <div class="field-row single">
                 <div class="field">
-                  <label for="referral">How did you hear about Yorkseed?</label>
+                  <label for="referral">How did you hear about Yorkseed? <span class="req">*</span></label>
                   <input type="text" id="referral" name="Referral" placeholder="e.g. a friend, LinkedIn, an event…"/>
+                  <span class="field-error" id="err-referral"></span>
+                </div>
+              </div>
+              <div class="field-row single">
+                <div class="field">
+                  <label for="yorkseedMember">Are you a member of Yorkseed Connect? <span class="req">*</span></label>
+                  <select id="yorkseedMember" name="Yorkseed Connect Member">
+                    <option value="">Select…</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                  </select>
+                  <span class="field-error" id="err-yorkseedMember"></span>
                 </div>
               </div>
             </div>
@@ -631,6 +683,9 @@ img{display:block;max-width:100%}
     <div class="modal-actions">
       <button class="modal-confirm" onclick="submitForm()">Yes, submit →</button>
       <button class="modal-back" onclick="closeModal()">Go back &amp; review</button>
+    </div>
+    <div id="modal-connect-notice" style="display:none;margin-top:20px;padding:14px 16px;background:rgba(176,141,87,.08);border:1px solid rgba(176,141,87,.22);border-radius:10px;font-size:12.5px;color:var(--ink3);line-height:1.65;">
+      💡 <strong style="color:var(--ink);">Not a Yorkseed Connect member yet?</strong> Join our founder network before you pitch — it strengthens your application and keeps you in the loop. <a href="https://yorkseed.co/connect" target="_blank" rel="noopener noreferrer" style="color:var(--red);font-weight:500;text-decoration:underline;text-underline-offset:2px;">Sign up today at yorkseed.co/connect →</a>
     </div>
   </div>
 </div>
@@ -682,7 +737,7 @@ function hookUrl(inputId,hintId){
   inp.addEventListener('input',function(){var v=this.value.trim();if(!v){hint.textContent='';hint.className='url-hint';return;}
     try{new URL(v);hint.textContent='✓ Valid URL';hint.className='url-hint valid';}catch(e){hint.textContent='⚠ Include https://';hint.className='url-hint invalid';}});
 }
-hookUrl('website','hint-website');hookUrl('linkedin','hint-linkedin');hookUrl('pitchDeck','hint-pitchDeck');hookUrl('videoLink','hint-videoLink');
+hookUrl('website','hint-website');hookUrl('linkedin','hint-linkedin');hookUrl('pitchDeck','hint-pitchDeck');hookUrl('videoLink','hint-videoLink');hookUrl('headshotLink','hint-headshotLink');hookUrl('logoLink','hint-logoLink');
 
 /* ─── VALIDATION ─── */
 function clearErrors(){document.querySelectorAll('.field-error').forEach(function(e){e.textContent='';});document.querySelectorAll('.error').forEach(function(e){e.classList.remove('error');});}
@@ -701,11 +756,19 @@ function validate(){
   if(document.querySelectorAll('#industryGrid input:checked').length===0){document.getElementById('err-industry').textContent='Please select at least one industry.';ok=false;}
   if(!document.getElementById('fundingStage').value){setError('fundingStage','err-fundingStage','Please select a funding stage.');ok=false;}
   if(!document.getElementById('revenueAndTraction').value.trim()){setError('revenueAndTraction','err-revenueAndTraction','Please share your traction.');ok=false;}
+  if(!document.getElementById('pitchDeck').value.trim()){setError('pitchDeck','err-pitchDeck','A pitch deck link is required.');ok=false;}
+  if(!document.getElementById('headshotLink').value.trim()){setError('headshotLink','err-headshotLink','A founder headshot link is required.');ok=false;}
+  if(!document.getElementById('logoLink').value.trim()){setError('logoLink','err-logoLink','A company logo link is required.');ok=false;}
+  if(!document.getElementById('whyPickYou').value.trim()){setError('whyPickYou','err-whyPickYou','Please tell us why we should pick you.');ok=false;}
+  if(!document.getElementById('referral').value.trim()){setError('referral','err-referral','Please tell us how you heard about Yorkseed.');ok=false;}
+  if(!document.getElementById('yorkseedMember').value){setError('yorkseedMember','err-yorkseedMember','Please select yes or no.');ok=false;}
   return ok;
 }
 
 /* ─── MODAL ─── */
-function openModal(){if(!validate()){var fe=document.querySelector('.error');if(fe)fe.scrollIntoView({behavior:'smooth',block:'center'});return;}document.getElementById('confirmModal').classList.add('open');}
+function openModal(){if(!validate()){var fe=document.querySelector('.error');if(fe)fe.scrollIntoView({behavior:'smooth',block:'center'});return;}
+  document.getElementById('modal-connect-notice').style.display='block';
+  document.getElementById('confirmModal').classList.add('open');}
 function closeModal(){document.getElementById('confirmModal').classList.remove('open');}
 document.getElementById('confirmModal').addEventListener('click',function(e){if(e.target===this)closeModal();});
 
@@ -715,7 +778,7 @@ function submitForm(){
   var btn=document.getElementById('submitBtn');btn.disabled=true;btn.classList.add('loading');
   var data={access_key:'b173055d-46cb-45c9-8906-db0ff327f9a4',subject:'New Pitch Application — Yorkseed'};
   var form=document.getElementById('pitchForm');
-  ['First Name','Last Name','Email','Phone','Company Name','Co-Founders','Job Title','Based City','Website','LinkedIn','One-Liner','Funding Stage','Amount Raising','Revenue / Traction','Pitch Deck','Video Link','Additional Info','Referral'].forEach(function(name){
+  ['First Name','Last Name','Email','Phone','Company Name','Co-Founders','Team Members','Advisors','Job Title','Based City','Website','LinkedIn','One-Liner','Funding Stage','Amount Raising','Revenue / Traction','Pitch Deck','Video Link','Headshot Link','Logo Link','Why Pick You','Additional Info','Referral','Yorkseed Connect Member'].forEach(function(name){
     var el=form.querySelector('[name="'+name+'"]');if(el)data[name]=el.value.trim();
   });
   var checked=[];form.querySelectorAll('#industryGrid input:checked').forEach(function(cb){checked.push(cb.value);});
