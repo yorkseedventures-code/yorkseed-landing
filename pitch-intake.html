@@ -26,7 +26,7 @@ body{font-family:var(--sans);font-weight:300;background:#f7f6f3;color:var(--ink)
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
 
-/* ── NAV ── */
+/* ─── NAV ─── */
 .site-nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(255,255,255,.94);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
 .nav-inner{max-width:1280px;margin:0 auto;padding:0 5vw;height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px}
 .n-logo{display:flex;align-items:center;flex-shrink:0}
@@ -68,7 +68,7 @@ img{display:block;max-width:100%}
 @media(max-width:900px){.site-nav{display:none}.n-center{display:none}.n-right .n-signin{display:none}.n-ham{display:flex}}
 @media(max-width:500px){.n-right .n-apply{display:none}}
 
-/* ── MOBILE TAB BAR ── */
+/* ─── MOBILE TAB BAR ─── */
 .m-tab-bar{display:none;position:fixed;top:0;left:0;right:0;z-index:400;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:env(safe-area-inset-top,0) 0 0}
 .m-tab-bar-inner{display:flex;align-items:stretch;height:56px}
 .m-tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-decoration:none;color:var(--ink4);font-family:var(--mono);font-size:8.5px;letter-spacing:.06em;text-transform:uppercase;-webkit-tap-highlight-color:transparent;padding:0 2px}
@@ -76,9 +76,12 @@ img{display:block;max-width:100%}
 .m-tab.active svg{stroke:var(--red)}
 .m-tab-join{flex:1;display:flex;align-items:center;justify-content:center;padding:0 6px}
 .m-tab-join a{background:var(--red);color:#fff;border-radius:6px;font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;padding:8px 14px;display:block}
-@media(max-width:900px){.m-tab-bar{display:block}body{padding-bottom:0;padding-top:calc(56px + env(safe-area-inset-top,0))}}
+@media(max-width:900px){
+  .m-tab-bar{display:block}
+  body{padding-bottom:0;padding-top:calc(56px + env(safe-area-inset-top,0))}
+}
 
-/* ── HERO ── */
+/* ─── HERO ─── */
 .hero{background:var(--ink2);padding:110px 5vw 72px;position:relative;overflow:hidden}
 .hero-inner{max-width:760px;margin:0 auto;position:relative;z-index:1}
 .hero-eyebrow{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:18px;display:flex;align-items:center;gap:10px}
@@ -87,19 +90,19 @@ img{display:block;max-width:100%}
 .hero-sub{font-size:15px;color:rgba(255,255,255,.48);line-height:1.75;max-width:480px}
 .hero-glow{position:absolute;top:-120px;right:-80px;width:500px;height:500px;background:radial-gradient(circle,rgba(200,55,45,.12) 0%,transparent 65%);pointer-events:none}
 
-/* ── NOTICE ── */
+/* ─── NOTICE ─── */
 .notice{background:rgba(176,141,87,.07);border-bottom:1px solid rgba(176,141,87,.15);padding:16px 5vw}
 .notice-inner{max-width:760px;margin:0 auto;display:flex;align-items:flex-start;gap:12px}
 .notice-icon{font-size:16px;flex-shrink:0;margin-top:2px}
 .notice-text{font-size:12.5px;color:var(--ink3);line-height:1.7}
 .notice-text strong{color:var(--ink);font-weight:500}
 
-/* ── LAYOUT ── */
+/* ─── LAYOUT ─── */
 .page-body{padding:48px 5vw 96px;max-width:1100px;margin:0 auto}
 .form-layout{display:grid;grid-template-columns:220px 1fr;gap:48px;align-items:start}
 @media(max-width:780px){.form-layout{grid-template-columns:1fr}}
 
-/* ── STICKY SIDEBAR ── */
+/* ─── STICKY SIDEBAR ─── */
 .form-sidebar{position:sticky;top:88px}
 .sidebar-steps{display:flex;flex-direction:column;gap:2px}
 .sidebar-step{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:8px;cursor:pointer;transition:background .15s;text-decoration:none}
@@ -113,7 +116,7 @@ img{display:block;max-width:100%}
 .sidebar-step.done .step-label{color:var(--ink4)}
 @media(max-width:780px){.form-sidebar{display:none}}
 
-/* ── FORM CARDS ── */
+/* ─── FORM CARDS ─── */
 .form-cards{display:flex;flex-direction:column;gap:12px}
 .form-card{background:var(--white);border-radius:14px;border:1px solid rgba(0,0,0,.07);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .card-header{padding:22px 28px 0;display:flex;align-items:baseline;gap:14px}
@@ -121,7 +124,7 @@ img{display:block;max-width:100%}
 .card-title{font-size:13px;font-weight:500;color:var(--ink);letter-spacing:.01em}
 .card-body{padding:20px 28px 28px;display:flex;flex-direction:column;gap:18px}
 
-/* ── FIELDS ── */
+/* ─── FIELDS ─── */
 .field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .field-row.single{grid-template-columns:1fr}
 @media(max-width:580px){.field-row{grid-template-columns:1fr}}
@@ -150,13 +153,11 @@ img{display:block;max-width:100%}
 .char-count{font-size:10.5px;color:var(--ink4);text-align:right;margin-top:2px}
 .char-count.warn{color:#d97706}
 .char-count.over{color:var(--red)}
-
-/* ── URL HINT ── */
 .url-hint{font-size:10.5px;color:var(--ink4);margin-top:3px;display:flex;align-items:center;gap:4px}
 .url-hint.valid{color:#16a34a}
 .url-hint.invalid{color:var(--red)}
 
-/* ── CHECKBOXES ── */
+/* ─── CHECKBOXES ─── */
 .check-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-top:4px}
 .check-label{
   display:flex;align-items:center;gap:9px;
@@ -170,7 +171,7 @@ img{display:block;max-width:100%}
 .check-label:has(input:checked){border-color:var(--red-border);background:rgba(200,55,45,.04)}
 .check-label:has(input:checked) span{color:var(--ink);font-weight:500}
 
-/* ── SUBMIT CARD ── */
+/* ─── SUBMIT CARD ─── */
 .submit-card{background:var(--ink2);border-radius:14px;padding:28px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
 .submit-card-copy{flex:1;min-width:200px}
 .submit-card-copy p{font-size:12px;color:rgba(255,255,255,.4);line-height:1.65;margin-top:6px}
@@ -185,7 +186,7 @@ img{display:block;max-width:100%}
 .btn-submit:hover{opacity:.88}
 .btn-submit:disabled{opacity:.4;cursor:not-allowed}
 
-/* ── CONFIRMATION MODAL ── */
+/* ─── MODAL ─── */
 .modal-overlay{
   position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);
   display:flex;align-items:center;justify-content:center;padding:20px;
@@ -210,7 +211,7 @@ img{display:block;max-width:100%}
 .modal-back{flex:1;background:none;border:1px solid var(--border2);border-radius:8px;padding:12px 20px;font-family:var(--sans);font-size:13.5px;color:var(--ink3);cursor:pointer;transition:all .15s;white-space:nowrap}
 .modal-back:hover{border-color:var(--ink3);color:var(--ink)}
 
-/* ── SUCCESS ── */
+/* ─── SUCCESS ─── */
 .success-overlay{
   position:fixed;inset:0;z-index:2000;background:#fff;
   display:flex;align-items:center;justify-content:center;
@@ -224,7 +225,7 @@ img{display:block;max-width:100%}
 .success-home{display:inline-flex;align-items:center;gap:8px;background:var(--ink2);color:#fff;border-radius:8px;padding:12px 24px;font-size:13.5px;font-weight:400;letter-spacing:.02em;transition:opacity .15s}
 .success-home:hover{opacity:.85}
 
-/* ── SPINNER ── */
+/* ─── SPINNER ─── */
 .spinner{width:16px;height:16px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;display:none}
 .btn-submit.loading .spinner{display:block}
 .btn-submit.loading .btn-text{display:none}
@@ -233,45 +234,137 @@ img{display:block;max-width:100%}
 </head>
 <body>
 
-<!-- DESKTOP NAV -->
+<!-- DESKTOP NAV — exact from index.html -->
 <nav class="site-nav">
   <div class="nav-inner">
-    <a href="/" class="n-logo"><img src="data:image/png;base64,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AAAA==" alt="Yorkseed" style="height:24px;width:auto;display:block;" /></a>
+    <a href="/" class="n-logo"><img src="data:image/png;base64,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" alt="Yorkseed" style="height:24px;width:auto;display:block;" /></a>
     <div class="n-center">
-      <a href="/about.html" class="n-link">About</a>
-      <div class="n-drop" id="ndEco">
-        <button class="n-drop-btn" onclick="toggleDrop('ndEco')">Ecosystem <span class="n-drop-arrow"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
-        <div class="n-menu">
-          <a href="https://yorkseed.co/connect" class="n-item"><span class="n-item-icon">🌐</span><div class="n-item-body"><div class="n-item-title">Yorkseed Connect</div><div class="n-item-desc">The platform — membership, deal flow, tools &amp; introductions</div></div></a>
-          <a href="/capital.html" class="n-item"><span class="n-item-icon">💼</span><div class="n-item-body"><div class="n-item-title">Yorkseed Capital</div><div class="n-item-desc">Private SPV co-investments for qualified investors</div></div></a>
-          <a href="/events.html" class="n-item"><span class="n-item-icon">🎯</span><div class="n-item-body"><div class="n-item-title">Events &amp; Passport Series</div><div class="n-item-desc">Curated gatherings across global innovation hubs</div></div></a>
-          <a href="https://yorkseedsummit.com" class="n-item" target="_blank"><span class="n-item-icon">🏛️</span><div class="n-item-body"><div class="n-item-title">Yorkseed Summit</div><div class="n-item-desc">Our flagship global convening of founders &amp; capital</div></div></a>
-          <a href="https://pulse.yorkseed.co" class="n-item" target="_blank"><span class="n-item-icon">📰</span><div class="n-item-body"><div class="n-item-title">Yorkseed Insider</div><div class="n-item-desc">The venture newsletter — free &amp; paid tiers</div></div></a>
-          <a href="/hubs.html" class="n-item"><span class="n-item-icon">📍</span><div class="n-item-body"><div class="n-item-title">Global Hubs</div><div class="n-item-desc">50+ city hubs across 5 continents</div></div></a>
+      <a href="/" class="n-link">Home</a>
+      <div class="n-drop" id="ecosDrop">
+        <button class="n-drop-btn" onclick="toggleDrop()" aria-haspopup="true">
+          Ecosystem
+          <span class="n-drop-arrow"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <div class="n-menu" role="menu">
+          <a href="https://yorkseed.co/connect" class="n-item">
+            <span class="n-item-icon">🌐</span>
+            <div class="n-item-body">
+              <div class="n-item-title">Yorkseed Connect</div>
+              <div class="n-item-desc">The platform — membership, deal flow, tools &amp; introductions</div>
+            </div>
+          </a>
+          <a href="/capital.html" class="n-item">
+            <span class="n-item-icon">💼</span>
+            <div class="n-item-body">
+              <div class="n-item-title">Yorkseed Capital</div>
+              <div class="n-item-desc">Private SPV co-investments for qualified investors</div>
+            </div>
+          </a>
+          <a href="/events.html" class="n-item">
+            <span class="n-item-icon">🎯</span>
+            <div class="n-item-body">
+              <div class="n-item-title">Events &amp; Passport Series</div>
+              <div class="n-item-desc">Curated gatherings across global innovation hubs</div>
+            </div>
+          </a>
+          <a href="/vivatech-2026.html" class="n-item" style="background:rgba(26,26,26,.03);border:0.5px solid rgba(75,110,255,.18);border-radius:8px;">
+            <span class="n-item-icon">🗼</span>
+            <div class="n-item-body">
+              <div class="n-item-title" style="background:linear-gradient(90deg,#FF2D78,#C44BFF,#4B6EFF,#00C8FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">VivaTech 2026 · Paris</div>
+              <div class="n-item-desc">Free student pass · June 17–20 · Closes June 15</div>
+            </div>
+          </a>
+          <a href="https://yorkseedsummit.com" class="n-item" target="_blank">
+            <span class="n-item-icon">🏛️</span>
+            <div class="n-item-body">
+              <div class="n-item-title">Yorkseed Summit</div>
+              <div class="n-item-desc">Our flagship global convening of founders &amp; capital</div>
+            </div>
+          </a>
+          <a href="https://pulse.yorkseed.co" class="n-item" target="_blank">
+            <span class="n-item-icon">📰</span>
+            <div class="n-item-body">
+              <div class="n-item-title">Yorkseed Insider</div>
+              <div class="n-item-desc">The venture newsletter — free &amp; paid tiers</div>
+            </div>
+          </a>
+          <a href="/hubs.html" class="n-item">
+            <span class="n-item-icon">📍</span>
+            <div class="n-item-body">
+              <div class="n-item-title">Global Hubs</div>
+              <div class="n-item-desc">50+ city hubs across 5 continents</div>
+            </div>
+          </a>
+          <a href="https://thevalois.com" class="n-item" target="_blank" rel="noopener noreferrer" style="background:rgba(184,151,106,0.05);border:0.5px solid rgba(184,151,106,0.2);border-radius:8px;">
+            <span class="n-item-icon">🔑</span>
+            <div class="n-item-body">
+              <div class="n-item-title" style="color:#8a6e3e;">Valois</div>
+              <div class="n-item-desc" style="color:rgba(138,110,62,0.7);">The private inner Circle — invitation only</div>
+            </div>
+          </a>
         </div>
       </div>
       <a href="/events.html" class="n-link">Events</a>
       <a href="/hubs.html" class="n-link">Hubs</a>
+      <a href="/nyc-startup-communities.html" class="n-link">NYC Guide</a>
+      <a href="/tools.html" class="n-link">Free Tools</a>
       <a href="/partners.html" class="n-link">Partners</a>
+      <a href="https://yorkseed.co/connect" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:rgba(196,49,37,.04);border:1px solid rgba(196,49,37,.18);border-radius:8px;text-decoration:none;color:#111"><span style="font-size:18px">🔗</span><span style="font-size:13px;font-weight:500;color:#c43125">Connect</span></a>
       <a href="/press.html" class="n-link">Press</a>
+      <a href="/contact.html" class="n-link">Contact</a>
     </div>
     <div class="n-right">
       <a href="https://app.yorkseed.co/login" class="n-signin">Sign in</a>
-      <a href="https://yorkseed.co/connect" class="n-apply">Join</a>
+      <a href="https://app.yorkseed.co/pricing" class="n-apply">Join</a>
+      <button class="n-ham" id="hamBtn" onclick="toggleDrawer()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="n-drawer" id="navDrawer">
+    <div class="n-drawer-section">
+      <div class="n-drawer-label">Navigate</div>
+      <a href="/" class="n-drawer-link"><span>🏠</span><span>Home</span></a>
+      <a href="/about.html" class="n-drawer-link"><span>📖</span><span>Our Story</span></a>
+      <a href="/events.html" class="n-drawer-link"><span>🎯</span><span>Events</span></a>
+      <a href="/vivatech-2026.html" class="n-drawer-link" style="border-color:rgba(75,110,255,.2);">
+        <span>🗼</span>
+        <span style="background:linear-gradient(90deg,#FF2D78,#C44BFF,#4B6EFF,#00C8FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:500;">VivaTech 2026 — Free pass</span>
+      </a>
+      <a href="/hubs.html" class="n-drawer-link"><span>📍</span><span>Global Hubs</span></a>
+      <a href="/nyc.html" class="n-drawer-link"><span>🗽</span><span>NYC Hub</span></a>
+      <a href="/nyc-startup-communities.html" class="n-drawer-link"><span>📋</span><span>NYC Startup Communities Guide</span></a>
+      <a href="/tools.html" class="n-drawer-link"><span>🧮</span><span>Free Tools</span></a>
+      <a href="/partners.html" class="n-drawer-link"><span>🤝</span><span>Partners</span></a>
+      <a href="/press.html" class="n-drawer-link"><span>📡</span><span>Press &amp; Traction</span></a>
+      <a href="/contact.html" class="n-drawer-link"><span>✉️</span><span>Contact</span></a>
+    </div>
+    <div class="n-drawer-section">
+      <div class="n-drawer-label">The Ecosystem</div>
+      <a href="https://yorkseed.co/connect" class="n-drawer-link"><span>🌐</span><span>Yorkseed Connect</span></a>
+      <a href="/capital.html" class="n-drawer-link"><span>💼</span><span>Yorkseed Capital</span></a>
+      <a href="https://yorkseedsummit.com" class="n-drawer-link"><span>🏛️</span><span>Yorkseed Summit</span></a>
+      <a href="https://pulse.yorkseed.co" class="n-drawer-link"><span>📰</span><span>Yorkseed Insider</span></a>
+      <a href="https://thevalois.com" class="n-drawer-link" target="_blank" rel="noopener noreferrer" style="color:#8a6e3e;border-color:rgba(184,151,106,0.2);"><span>💎</span><span>Valois — Private Circle</span></a>
+    </div>
+    <div class="n-drawer-ctas">
+      <a href="https://app.yorkseed.co/pricing" class="n-apply">Join Yorkseed</a>
+      <a href="https://app.yorkseed.co/login" class="n-signin">Sign in</a>
     </div>
   </div>
 </nav>
 
-<!-- MOBILE TAB BAR -->
-<div class="m-tab-bar">
+<!-- MOBILE TAB BAR — exact from index.html -->
+<nav class="m-tab-bar" aria-label="Mobile navigation">
   <div class="m-tab-bar-inner">
-    <a href="/" class="m-tab"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Home</a>
-    <a href="/events.html" class="m-tab"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Events</a>
-    <div class="m-tab-join"><a href="https://yorkseed.co/connect">Join</a></div>
-    <a href="/hubs.html" class="m-tab"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 00-8 8c0 5.25 8 14 8 14s8-8.75 8-14a8 8 0 00-8-8z"/></svg>Hubs</a>
-    <a href="/about.html" class="m-tab"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>About</a>
+    <a href="/" class="m-tab" aria-label="Home"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg><span>Home</span></a>
+    <a href="/events.html" class="m-tab" aria-label="Events"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>Events</span></a>
+    <a href="/hubs.html" class="m-tab" aria-label="Hubs"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg><span>Hubs</span></a>
+    <div class="m-tab-join"><a href="https://app.yorkseed.co/pricing">Join&nbsp;→</a></div>
+    <a href="/tools.html" class="m-tab" aria-label="Tools"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg><span>Tools</span></a>
+    <a href="/about.html" class="m-tab" aria-label="About"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg><span>About</span></a>
   </div>
-</div>
+</nav>
 
 <!-- HERO -->
 <section class="hero">
@@ -314,10 +407,7 @@ img{display:block;max-width:100%}
 
           <!-- 01 PERSONAL -->
           <div class="form-card" id="s1">
-            <div class="card-header">
-              <span class="card-num">01</span>
-              <span class="card-title">Personal details</span>
-            </div>
+            <div class="card-header"><span class="card-num">01</span><span class="card-title">Personal details</span></div>
             <div class="card-body">
               <div class="field-row">
                 <div class="field">
@@ -347,10 +437,7 @@ img{display:block;max-width:100%}
 
           <!-- 02 COMPANY -->
           <div class="form-card" id="s2">
-            <div class="card-header">
-              <span class="card-num">02</span>
-              <span class="card-title">Company &amp; background</span>
-            </div>
+            <div class="card-header"><span class="card-num">02</span><span class="card-title">Company &amp; background</span></div>
             <div class="card-body">
               <div class="field-row">
                 <div class="field">
@@ -396,10 +483,7 @@ img{display:block;max-width:100%}
 
           <!-- 03 YOUR PITCH -->
           <div class="form-card" id="s3">
-            <div class="card-header">
-              <span class="card-num">03</span>
-              <span class="card-title">Your pitch</span>
-            </div>
+            <div class="card-header"><span class="card-num">03</span><span class="card-title">Your pitch</span></div>
             <div class="card-body">
               <div class="field-row single">
                 <div class="field">
@@ -440,10 +524,7 @@ img{display:block;max-width:100%}
 
           <!-- 04 FUNDRAISING -->
           <div class="form-card" id="s4">
-            <div class="card-header">
-              <span class="card-num">04</span>
-              <span class="card-title">Fundraising &amp; traction</span>
-            </div>
+            <div class="card-header"><span class="card-num">04</span><span class="card-title">Fundraising &amp; traction</span></div>
             <div class="card-body">
               <div class="field-row">
                 <div class="field">
@@ -478,10 +559,7 @@ img{display:block;max-width:100%}
 
           <!-- 05 MATERIALS -->
           <div class="form-card" id="s5">
-            <div class="card-header">
-              <span class="card-num">05</span>
-              <span class="card-title">Materials &amp; media</span>
-            </div>
+            <div class="card-header"><span class="card-num">05</span><span class="card-title">Materials &amp; media</span></div>
             <div class="card-body">
               <div class="field-row single">
                 <div class="field">
@@ -504,10 +582,7 @@ img{display:block;max-width:100%}
 
           <!-- 06 FINAL NOTES -->
           <div class="form-card" id="s6">
-            <div class="card-header">
-              <span class="card-num">06</span>
-              <span class="card-title">Final notes</span>
-            </div>
+            <div class="card-header"><span class="card-num">06</span><span class="card-title">Final notes</span></div>
             <div class="card-body">
               <div class="field-row single">
                 <div class="field">
@@ -536,12 +611,11 @@ img{display:block;max-width:100%}
             </button>
           </div>
 
-        </div><!-- /form-cards -->
+        </div>
       </form>
     </main>
-
-  </div><!-- /form-layout -->
-</div><!-- /page-body -->
+  </div>
+</div>
 
 <!-- CONFIRMATION MODAL -->
 <div class="modal-overlay" id="confirmModal">
@@ -571,178 +645,89 @@ img{display:block;max-width:100%}
   </div>
 </div>
 
-<!-- FOOTER -->
+<!-- FOOTER — exact from index.html -->
 <footer style="background:var(--ink2);padding:28px 6vw 20px;border-top:1px solid rgba(255,255,255,.05);">
   <div style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px 14px;">
-    <a href="https://app.yorkseed.co/login" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;">Platform</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/about.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;">About</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/hubs.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;">Global Hubs</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/tools.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;">Free Tools</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/events.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;">Events</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/partners.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;">Partners</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/speaker-intake.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;">Speak</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/pitch-intake.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;">Pitch</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/press.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;">Press</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://thevalois.com" target="_blank" rel="noopener noreferrer" style="font-size:11px;color:rgba(184,151,106,0.7);text-decoration:none;">Valois</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://pulse.yorkseed.co" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;">Newsletter</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/contact.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;">Contact</a>
-    <div style="width:100%;text-align:center;margin-top:14px;font-size:10.5px;color:rgba(255,255,255,.2);font-family:var(--mono);letter-spacing:.04em;">© 2025 Yorkseed. All rights reserved.</div>
+    <a href="https://app.yorkseed.co/login" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Platform</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/about.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">About</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/hubs.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Global Hubs</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/tools.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;">Free Tools</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/events.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Events</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/partners.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Partners</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/speaker-intake.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Speak</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/pitch-intake.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Pitch</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/press.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Press</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://yorkseedventures.com" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Ventures</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://yorkseedsummit.com" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Summit</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://thevalois.com" target="_blank" rel="noopener noreferrer" style="font-size:11px;color:rgba(184,151,106,0.7);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='rgba(184,151,106,1)'" onmouseout="this.style.color='rgba(184,151,106,0.7)'">Valois</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://pulse.yorkseed.co" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Newsletter</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/contact.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Contact</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="mailto:info@yorkseed.co" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Email us</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://x.com/yorkseed" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Twitter</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://instagram.com/yorkseed" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Instagram</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://linkedin.com/company/yorkseed" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">LinkedIn</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://facebook.com/profile/yorkseed" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Facebook</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://www.crunchbase.com/organization/yorkseed" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Crunchbase</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://whatsapp.com/channel/0029Vaf0wiU3wtbBcxTEFD0h" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">WhatsApp</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://shop.yorkseed.co" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Shop</a>
   </div>
+  <div style="text-align:center;margin-top:8px;margin-bottom:6px;">
+    <img src="https://s6.imgcdn.dev/YfqM8w.png" alt="Yorkseed" style="height:36px;width:auto;display:inline-block;" />
+  </div>
+  <div style="width:100%;text-align:center;font-family:var(--mono,'DM Mono',monospace);font-size:9px;color:rgba(255,255,255,.25);margin-top:0;letter-spacing:.06em;text-transform:uppercase;">© 2026 Yorkseed™ · The Venture Infrastructure Platform · Network est. 2023 · Platform launched 2026 · All rights reserved</div>
 </footer>
 
 <script>
-/* ── NAV DROPDOWN ── */
-function toggleDrop(id){
-  var el=document.getElementById(id);
-  var isOpen=el.classList.contains('open');
-  document.querySelectorAll('.n-drop.open').forEach(function(d){d.classList.remove('open');});
-  if(!isOpen)el.classList.add('open');
-}
-document.addEventListener('click',function(e){
-  if(!e.target.closest('.n-drop'))document.querySelectorAll('.n-drop.open').forEach(function(d){d.classList.remove('open');});
-});
+/* ─── NAV ─── */
+function toggleDrop(){var d=document.getElementById('ecosDrop');d.classList.toggle('open')}
+function toggleDrawer(){var h=document.getElementById('hamBtn');var d=document.getElementById('navDrawer');h.classList.toggle('open');d.classList.toggle('open');document.body.style.overflow=d.classList.contains('open')?'hidden':''}
+document.addEventListener('click',function(e){if(!e.target.closest('#ecosDrop'))document.getElementById('ecosDrop').classList.remove('open')});
 
-/* ── MOBILE DRAWER ── */
-var ham=document.getElementById('nHam');
-var drawer=document.getElementById('nDrawer');
-if(ham)ham.addEventListener('click',function(){this.classList.toggle('open');if(drawer)drawer.classList.toggle('open');});
-
-/* ── SIDEBAR ACTIVE STATE ── */
+/* ─── SIDEBAR ACTIVE ─── */
 var sections=['s1','s2','s3','s4','s5','s6'];
 var steps=document.querySelectorAll('.sidebar-step');
 function updateSidebar(){
-  var scrollY=window.scrollY+120;
-  var active=0;
-  sections.forEach(function(id,i){
-    var el=document.getElementById(id);
-    if(el&&el.offsetTop<=scrollY)active=i;
-  });
-  steps.forEach(function(s,i){
-    s.classList.toggle('active',i===active);
-    s.classList.toggle('done',i<active);
-  });
+  var scrollY=window.scrollY+120;var active=0;
+  sections.forEach(function(id,i){var el=document.getElementById(id);if(el&&el.offsetTop<=scrollY)active=i;});
+  steps.forEach(function(s,i){s.classList.toggle('active',i===active);s.classList.toggle('done',i<active);});
 }
-window.addEventListener('scroll',updateSidebar,{passive:true});
-updateSidebar();
+window.addEventListener('scroll',updateSidebar,{passive:true});updateSidebar();
 
-/* ── CHAR COUNT ── */
-var oneLiner=document.getElementById('oneLiner');
-var cc=document.getElementById('cc-oneLiner');
-oneLiner.addEventListener('input',function(){
-  var n=this.value.length;
-  cc.textContent=n+' / 160';
-  cc.className='char-count'+(n>140?' warn':'')+(n>160?' over':'');
-});
+/* ─── CHAR COUNT ─── */
+var oneLiner=document.getElementById('oneLiner');var cc=document.getElementById('cc-oneLiner');
+oneLiner.addEventListener('input',function(){var n=this.value.length;cc.textContent=n+' / 160';cc.className='char-count'+(n>140?' warn':'')+(n>160?' over':'');});
 
-/* ── URL HINTS ── */
-function hookUrlHint(inputId,hintId){
-  var inp=document.getElementById(inputId);
-  var hint=document.getElementById(hintId);
-  if(!inp||!hint)return;
-  inp.addEventListener('input',function(){
-    var v=this.value.trim();
-    if(!v){hint.textContent='';hint.className='url-hint';return;}
-    try{new URL(v);hint.textContent='✓ Valid URL';hint.className='url-hint valid';}
-    catch(e){hint.textContent='⚠ Include https://';hint.className='url-hint invalid';}
-  });
+/* ─── URL HINTS ─── */
+function hookUrl(inputId,hintId){
+  var inp=document.getElementById(inputId);var hint=document.getElementById(hintId);if(!inp||!hint)return;
+  inp.addEventListener('input',function(){var v=this.value.trim();if(!v){hint.textContent='';hint.className='url-hint';return;}
+    try{new URL(v);hint.textContent='✓ Valid URL';hint.className='url-hint valid';}catch(e){hint.textContent='⚠ Include https://';hint.className='url-hint invalid';}});
 }
-hookUrlHint('website','hint-website');
-hookUrlHint('linkedin','hint-linkedin');
-hookUrlHint('pitchDeck','hint-pitchDeck');
-hookUrlHint('videoLink','hint-videoLink');
+hookUrl('website','hint-website');hookUrl('linkedin','hint-linkedin');hookUrl('pitchDeck','hint-pitchDeck');hookUrl('videoLink','hint-videoLink');
 
-/* ── VALIDATION ── */
-function clearErrors(){
-  document.querySelectorAll('.field-error').forEach(function(e){e.textContent='';});
-  document.querySelectorAll('.error').forEach(function(e){e.classList.remove('error');});
-}
-function setError(fieldId,errId,msg){
-  var f=document.getElementById(fieldId);
-  var e=document.getElementById(errId);
-  if(f)f.classList.add('error');
-  if(e)e.textContent=msg;
-  return false;
-}
+/* ─── VALIDATION ─── */
+function clearErrors(){document.querySelectorAll('.field-error').forEach(function(e){e.textContent='';});document.querySelectorAll('.error').forEach(function(e){e.classList.remove('error');});}
+function setError(fId,eId,msg){var f=document.getElementById(fId);var e=document.getElementById(eId);if(f)f.classList.add('error');if(e)e.textContent=msg;return false;}
 function validate(){
-  clearErrors();
-  var ok=true;
-  var firstName=document.getElementById('firstName').value.trim();
-  var lastName=document.getElementById('lastName').value.trim();
-  var email=document.getElementById('email').value.trim();
-  var jobTitle=document.getElementById('jobTitle').value.trim();
-  var companyName=document.getElementById('companyName').value.trim();
-  var basedCity=document.getElementById('basedCity').value.trim();
-  var linkedin=document.getElementById('linkedin').value.trim();
-  var oneLinerVal=document.getElementById('oneLiner').value.trim();
-  var fundingStage=document.getElementById('fundingStage').value;
-  var revenue=document.getElementById('revenueAndTraction').value.trim();
-  var industries=document.querySelectorAll('#industryGrid input:checked');
-
-  if(!firstName){setError('firstName','err-firstName','First name is required.');ok=false;}
-  if(!lastName){setError('lastName','err-lastName','Last name is required.');ok=false;}
-  if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){setError('email','err-email','A valid email address is required.');ok=false;}
-  if(!companyName){setError('companyName','err-companyName','Company name is required.');ok=false;}
-  if(!jobTitle){setError('jobTitle','err-jobTitle','Your title is required.');ok=false;}
-  if(!basedCity){setError('basedCity','err-basedCity','City is required.');ok=false;}
-  if(!linkedin){setError('linkedin','err-linkedin','LinkedIn profile URL is required.');ok=false;}
-  if(!oneLinerVal){setError('oneLiner','err-oneLiner','A one-liner is required.');ok=false;}
-  if(industries.length===0){
-    document.getElementById('err-industry').textContent='Please select at least one industry.';
-    ok=false;
-  }
-  if(!fundingStage){setError('fundingStage','err-fundingStage','Please select a funding stage.');ok=false;}
-  if(!revenue){setError('revenueAndTraction','err-revenueAndTraction','Please share your traction.');ok=false;}
+  clearErrors();var ok=true;
+  if(!document.getElementById('firstName').value.trim()){setError('firstName','err-firstName','First name is required.');ok=false;}
+  if(!document.getElementById('lastName').value.trim()){setError('lastName','err-lastName','Last name is required.');ok=false;}
+  var em=document.getElementById('email').value.trim();
+  if(!em||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){setError('email','err-email','A valid email address is required.');ok=false;}
+  if(!document.getElementById('companyName').value.trim()){setError('companyName','err-companyName','Company name is required.');ok=false;}
+  if(!document.getElementById('jobTitle').value.trim()){setError('jobTitle','err-jobTitle','Your title is required.');ok=false;}
+  if(!document.getElementById('basedCity').value.trim()){setError('basedCity','err-basedCity','City is required.');ok=false;}
+  if(!document.getElementById('linkedin').value.trim()){setError('linkedin','err-linkedin','LinkedIn profile URL is required.');ok=false;}
+  if(!document.getElementById('oneLiner').value.trim()){setError('oneLiner','err-oneLiner','A one-liner is required.');ok=false;}
+  if(document.querySelectorAll('#industryGrid input:checked').length===0){document.getElementById('err-industry').textContent='Please select at least one industry.';ok=false;}
+  if(!document.getElementById('fundingStage').value){setError('fundingStage','err-fundingStage','Please select a funding stage.');ok=false;}
+  if(!document.getElementById('revenueAndTraction').value.trim()){setError('revenueAndTraction','err-revenueAndTraction','Please share your traction.');ok=false;}
   return ok;
 }
 
-/* ── MODAL ── */
-function openModal(){
-  if(!validate()){
-    var firstErr=document.querySelector('.error,.field-error:not(:empty)');
-    if(firstErr)firstErr.scrollIntoView({behavior:'smooth',block:'center'});
-    return;
-  }
-  document.getElementById('confirmModal').classList.add('open');
-}
+/* ─── MODAL ─── */
+function openModal(){if(!validate()){var fe=document.querySelector('.error');if(fe)fe.scrollIntoView({behavior:'smooth',block:'center'});return;}document.getElementById('confirmModal').classList.add('open');}
 function closeModal(){document.getElementById('confirmModal').classList.remove('open');}
+document.getElementById('confirmModal').addEventListener('click',function(e){if(e.target===this)closeModal();});
 
-/* ── SUBMIT ── */
+/* ─── SUBMIT ─── */
 function submitForm(){
   closeModal();
-  var btn=document.getElementById('submitBtn');
-  btn.disabled=true;btn.classList.add('loading');
-
-  // Collect form data
+  var btn=document.getElementById('submitBtn');btn.disabled=true;btn.classList.add('loading');
   var data={access_key:'5c1c96c6-7a4f-4cc7-85d3-4dd79f67e20a',subject:'New Pitch Application — Yorkseed'};
   var form=document.getElementById('pitchForm');
-  var fields=['First Name','Last Name','Email','Phone','Company Name','Co-Founders','Job Title','Based City','Website','LinkedIn','One-Liner','Funding Stage','Amount Raising','Revenue / Traction','Pitch Deck','Video Link','Additional Info','Referral'];
-  fields.forEach(function(name){
-    var el=form.querySelector('[name="'+name+'"]');
-    if(el)data[name]=el.value.trim();
+  ['First Name','Last Name','Email','Phone','Company Name','Co-Founders','Job Title','Based City','Website','LinkedIn','One-Liner','Funding Stage','Amount Raising','Revenue / Traction','Pitch Deck','Video Link','Additional Info','Referral'].forEach(function(name){
+    var el=form.querySelector('[name="'+name+'"]');if(el)data[name]=el.value.trim();
   });
-
-  // Collect industry checkboxes
-  var checked=[];
-  form.querySelectorAll('#industryGrid input:checked').forEach(function(cb){checked.push(cb.value);});
+  var checked=[];form.querySelectorAll('#industryGrid input:checked').forEach(function(cb){checked.push(cb.value);});
   data['Industry / Sector']=checked.join(', ');
-
-  // Timestamp
   data['Submitted At']=new Date().toISOString();
-
-  fetch('https://api.web3forms.com/submit',{
-    method:'POST',
-    headers:{'Content-Type':'application/json','Accept':'application/json'},
-    body:JSON.stringify(data)
-  })
-  .then(function(r){return r.json();})
-  .then(function(res){
-    if(res.success){
-      document.getElementById('successOverlay').classList.add('show');
-      window.scrollTo({top:0,behavior:'smooth'});
-    } else {
-      alert('Something went wrong. Please try again or email us directly.');
-      btn.disabled=false;btn.classList.remove('loading');
-    }
-  })
-  .catch(function(){
-    alert('Network error. Please check your connection and try again.');
-    btn.disabled=false;btn.classList.remove('loading');
-  });
+  fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
+    .then(function(r){return r.json();})
+    .then(function(res){
+      if(res.success){document.getElementById('successOverlay').classList.add('show');window.scrollTo({top:0,behavior:'smooth'});}
+      else{alert('Something went wrong. Please try again.');btn.disabled=false;btn.classList.remove('loading');}
+    }).catch(function(){alert('Network error. Please check your connection.');btn.disabled=false;btn.classList.remove('loading');});
 }
-
-// Close modal on overlay click
-document.getElementById('confirmModal').addEventListener('click',function(e){
-  if(e.target===this)closeModal();
-});
 </script>
 </body>
 </html>
