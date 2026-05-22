@@ -713,7 +713,7 @@ document.getElementById('confirmModal').addEventListener('click',function(e){if(
 function submitForm(){
   closeModal();
   var btn=document.getElementById('submitBtn');btn.disabled=true;btn.classList.add('loading');
-  var data={access_key:'5c1c96c6-7a4f-4cc7-85d3-4dd79f67e20a',subject:'New Pitch Application — Yorkseed'};
+  var data={access_key:'b173055d-46cb-45c9-8906-db0ff327f9a4',subject:'New Pitch Application — Yorkseed'};
   var form=document.getElementById('pitchForm');
   ['First Name','Last Name','Email','Phone','Company Name','Co-Founders','Job Title','Based City','Website','LinkedIn','One-Liner','Funding Stage','Amount Raising','Revenue / Traction','Pitch Deck','Video Link','Additional Info','Referral'].forEach(function(name){
     var el=form.querySelector('[name="'+name+'"]');if(el)data[name]=el.value.trim();
