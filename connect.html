@@ -89,7 +89,7 @@ img{display:block;max-width:100%}
 .n-drawer-ctas{display:flex;flex-direction:column;gap:10px;margin-top:24px}
 .n-drawer-ctas .n-apply{text-align:center;display:block;padding:13px}
 .n-drawer-ctas .n-signin{text-align:center;display:block;padding:12px;border:1px solid var(--border2);border-radius:6px;color:var(--ink3)}
-@media(max-width:900px){.site-nav{display:none}.n-center{display:none}.n-right .n-signin{display:none}.n-ham{display:flex}}
+@media(max-width:900px){.n-center{display:none}.n-right .n-signin{display:none}.n-ham{display:flex}}
 @media(max-width:500px){.n-right .n-apply{display:none}}
 
 /* ─── HERO ─── */
@@ -433,14 +433,14 @@ img{display:block;max-width:100%}
 /* ─── FOOTER ─── */
 
 /* ─── MOBILE TAB BAR ─── */
-.m-tab-bar{display:none;position:fixed;top:0;left:0;right:0;z-index:400;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:env(safe-area-inset-top,0) 0 0}
+.m-tab-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:400;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid var(--border);padding:0 0 env(safe-area-inset-bottom,0)}
 .m-tab-bar-inner{display:flex;align-items:stretch;height:56px}
 .m-tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-decoration:none;color:var(--ink4);font-family:var(--mono);font-size:8.5px;letter-spacing:.06em;text-transform:uppercase;-webkit-tap-highlight-color:transparent;padding:0 2px}
 .m-tab.active{color:var(--red)}
 .m-tab.active svg{stroke:var(--red)}
 .m-tab-join{flex:1;display:flex;align-items:center;justify-content:center;padding:0 6px}
 .m-tab-join a{background:var(--red);color:#fff;border-radius:6px;font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;padding:8px 14px;display:block}
-@media(max-width:900px){.m-tab-bar{display:block}body{padding-bottom:0;padding-top:calc(56px + env(safe-area-inset-top,0))}}
+@media(max-width:900px){.m-tab-bar{display:block}body{padding-bottom:calc(56px + env(safe-area-inset-bottom,0));padding-top:64px}}
 
 /* ─── RESPONSIVE ─── */
 @media(max-width:860px){.eco-grid{grid-template-columns:repeat(2,1fr)}}
@@ -1809,18 +1809,6 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 </footer>
 
 
-<!-- MOBILE TAB BAR -->
-<nav class="m-tab-bar" aria-label="Mobile navigation">
-  <div class="m-tab-bar-inner">
-    <a href="/" class="m-tab" aria-label="Home"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg><span>Home</span></a>
-    <a href="#roles" class="m-tab" aria-label="Roles"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg><span>Roles</span></a>
-    <a href="#tools" class="m-tab" aria-label="Tools"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span>Tools</span></a>
-    <div class="m-tab-join"><a href="https://app.yorkseed.co/pricing">Apply&nbsp;→</a></div>
-    <a href="#membership" class="m-tab" aria-label="Tiers"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span>Tiers</span></a>
-    <a href="https://app.yorkseed.co/login" class="m-tab" aria-label="Sign in"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4"/><polyline points="10,17 15,12 10,7"/><line x1="15" y1="12" x2="3" y2="12"/></svg><span>Sign in</span></a>
-  </div>
-</nav>
-
 <script>
 function toggleDrawer(){var h=document.getElementById('hamBtn');var d=document.getElementById('navDrawer');h.classList.toggle('open');d.classList.toggle('open');document.body.style.overflow=d.classList.contains('open')?'hidden':''}
 </script>
@@ -1829,7 +1817,7 @@ function toggleDrawer(){var h=document.getElementById('hamBtn');var d=document.g
 
 <script src="https://cdn.popupsmart.com/bundle.js" data-id="80692" async defer></script>
 <!-- MOBILE BOTTOM TAB BAR -->
-<div id="moreMenu" style="display:none;position:fixed;top:calc(56px + env(safe-area-inset-top,0));left:0;right:0;z-index:399;background:rgba(255,255,255,.98);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.07);padding:16px 5vw 20px">
+<div id="moreMenu" style="display:none;position:fixed;bottom:calc(56px + env(safe-area-inset-bottom,0));left:0;right:0;z-index:399;background:rgba(255,255,255,.98);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid rgba(0,0,0,.07);padding:16px 5vw 20px">
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
     <a href="/about.html" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:#fafafa;border:1px solid rgba(0,0,0,.07);border-radius:8px;text-decoration:none;color:#111"><span style="font-size:18px">📖</span><span style="font-size:13px;font-weight:400">Our Story</span></a>
     <a href="/press.html" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:#fafafa;border:1px solid rgba(0,0,0,.07);border-radius:8px;text-decoration:none;color:#111"><span style="font-size:18px">📡</span><span style="font-size:13px;font-weight:400">Press</span></a>
