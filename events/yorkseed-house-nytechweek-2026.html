@@ -1,812 +1,634 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Yorkseed House | NY Tech Week Pop-Up at Belong NYC · Jun 1–7, 2026</title>
-<meta name="description" content="Yorkseed House returns for NY Tech Week / Latino Tech Week — a curated multi-day pop-up inside Belong NYC, SoHo. Jun 1–7, 2026."/>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Yorkseed House | NY Tech Week Pop-Up at Belong NYC · Yorkseed</title>
+<meta content="Yorkseed House returns during NY Tech Week with a curated multi-day pop-up experience hosted inside Belong NYC in SoHo, with organizer partners Flowstate and Elevate." name="description"/>
+<meta content="Yorkseed House NY Tech Week 2026, Belong NYC pop-up, Yorkseed NYC, Flowstate, Elevate, founders investors New York Tech Week" name="keywords"/>
+<meta content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" name="robots"/>
+<link href="https://yorkseed.co/events/yorkseed-house-nytechweek-2026.html" rel="canonical"/>
+<meta content="Yorkseed House | NY Tech Week Pop-Up at Belong NYC" property="og:title"/>
+<meta content="A curated multi-day pop-up during NY Tech Week hosted by Yorkseed and Belong NYC, with Flowstate and Elevate as organizer partners." property="og:description"/>
+<meta content="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=1400,height=700/uploads/rx/64b48c44-2c5a-4f69-bf13-8fd64790f702.png" property="og:image"/>
+<meta content="@yorkseed" name="twitter:site"/>
+<meta content="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=1400,height=700/uploads/rx/64b48c44-2c5a-4f69-bf13-8fd64790f702.png" name="twitter:image"/>
+<meta content="Yorkseed — The Private Global Venture Network" name="twitter:image:alt"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&amp;family=DM+Sans:wght@300;400;500&amp;family=DM+Mono:wght@300;400&amp;display=swap" rel="stylesheet"/>
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#111;--ink2:#1a1a1a;--ink3:#555;--ink4:#888;
+  --white:#fff;--off:#fafafa;--light:#f5f4f1;--mid:#e8e8e8;
+  --red:#c8372d;--red-dim:rgba(200,55,45,.06);--red-border:rgba(200,55,45,.18);
+  --gold:#b08d57;--gold-dim:rgba(176,141,87,.07);--gold-border:rgba(176,141,87,.22);
+  --border:rgba(0,0,0,.07);--border2:rgba(0,0,0,.12);
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --mono:'DM Mono',monospace;
+}
+body{font-family:var(--sans);font-weight:300;background:var(--white);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 5vw;height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.n-logo{display:flex;align-items:center;flex-shrink:0}
+.n-center{display:flex;align-items:center;gap:4px;flex:1;justify-content:center}
+.n-link{font-size:12.5px;font-weight:400;color:var(--ink3);padding:6px 10px;border-radius:5px;transition:color .15s,background .15s;white-space:nowrap;letter-spacing:.01em}
+.n-link:hover{color:var(--ink);background:rgba(0,0,0,.04)}
+.n-link.active{color:var(--ink);font-weight:500}
+.n-drop{position:relative}
+.n-drop-btn{display:flex;align-items:center;gap:5px;font-size:12.5px;font-weight:400;color:var(--ink3);padding:6px 10px;border-radius:5px;cursor:pointer;transition:color .15s,background .15s;letter-spacing:.01em;background:none;border:none;font-family:inherit}
+.n-drop-btn:hover,.n-drop.open .n-drop-btn{color:var(--ink);background:rgba(0,0,0,.04)}
+.n-drop-arrow{width:10px;height:10px;display:flex;align-items:center;justify-content:center;transition:transform .2s}
+.n-drop.open .n-drop-arrow{transform:rotate(180deg)}
+.n-drop-arrow svg{display:block}
+.n-menu{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);background:#fff;border:1px solid var(--border2);border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.1);padding:10px;width:540px;display:grid;grid-template-columns:1fr 1fr;gap:2px;opacity:0;visibility:hidden;transition:opacity .18s,visibility .18s,transform .18s;transform:translateX(-50%) translateY(-6px)}
+.n-drop.open .n-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.n-item{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border-radius:8px;transition:background .15s;text-decoration:none;color:var(--ink)}
+.n-item:hover{background:var(--off)}
+.n-item-icon{font-size:18px;flex-shrink:0;margin-top:1px}
+.n-item-title{font-size:12.5px;font-weight:500;color:var(--ink);margin-bottom:2px}
+.n-item-desc{font-size:11px;color:var(--ink4);line-height:1.5;font-weight:300}
+.n-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.n-signin{font-size:12.5px;color:var(--ink4);padding:6px 10px;border-radius:5px;transition:color .15s;white-space:nowrap;letter-spacing:.01em}
+.n-signin:hover{color:var(--ink)}
+.n-apply{background:var(--red);color:#fff;padding:8px 18px;border-radius:6px;font-size:12.5px;font-weight:400;letter-spacing:.02em;transition:opacity .15s;white-space:nowrap}
+.n-apply:hover{opacity:.88}
+.n-ham{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;padding:6px;cursor:pointer;background:none;border:none;border-radius:5px;flex-shrink:0}
+.n-ham span{display:block;height:1.5px;background:var(--ink);border-radius:2px;transition:transform .25s,opacity .25s}
+.n-ham.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.n-ham.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.n-ham.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.n-drawer{position:fixed;inset:64px 0 0 0;background:#fff;z-index:200;transform:translateX(100%);transition:transform .28s cubic-bezier(.4,0,.2,1);overflow-y:auto;padding:20px 6vw 40px}
+.n-drawer.open{transform:translateX(0)}
+.n-drawer-section{margin-bottom:28px}
+.n-drawer-label{font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink4);margin-bottom:10px}
+.n-drawer-link{display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid var(--border);color:var(--ink);font-size:14px;font-weight:400;text-decoration:none}
+.n-drawer-link:last-child{border-bottom:none}
+.n-drawer-link span:first-child{font-size:20px;flex-shrink:0;width:28px}
+.n-drawer-ctas{display:flex;flex-direction:column;gap:10px;margin-top:24px}
+.n-drawer-ctas .n-apply{text-align:center;display:block;padding:13px}
+.n-drawer-ctas .n-signin{text-align:center;display:block;padding:12px;border:1px solid var(--border2);border-radius:6px;color:var(--ink3)}
+@media(max-width:900px){.n-center{display:none}.n-right .n-signin{display:none}.n-ham{display:flex}}
+@media(max-width:500px){.n-right .n-apply{display:none}}
 
-:root {
-  --ink: #0d0d0d;
-  --ink2: #1a1a1a;
-  --ink3: #3d3d3d;
-  --ink4: #777;
-  --ink5: #aaa;
-  --white: #fff;
-  --cream: #f9f7f4;
-  --cream2: #f3f0eb;
-  --gold: #b08d57;
-  --gold2: #8a6b3a;
-  --gold-dim: rgba(176,141,87,.12);
-  --gold-border: rgba(176,141,87,.25);
-  --red: #c0392b;
-  --red-dim: rgba(192,57,43,.07);
-  --red-border: rgba(192,57,43,.2);
-  --border: rgba(0,0,0,.08);
-  --border2: rgba(0,0,0,.14);
-  --serif: 'Cormorant Garamond', Georgia, serif;
-  --sans: 'Jost', system-ui, sans-serif;
-  --mono: 'DM Mono', monospace;
-}
+.event-hero{padding-top:64px;position:relative;overflow:hidden;min-height:460px;display:flex;align-items:center;background:#0a0f1a}
+.event-hero-bg{position:absolute;inset:0;overflow:hidden}
+.event-hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center;opacity:.4;display:block}
+.event-hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,15,26,.3) 0%,rgba(10,15,26,.85) 100%)}
+.event-hero-inner{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:52px 6vw;width:100%}
+.event-breadcrumb{font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.event-breadcrumb a{color:rgba(255,255,255,.45);transition:color .15s}
+.event-breadcrumb a:hover{color:rgba(255,255,255,.8)}
+.event-badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;padding:5px 10px;border-radius:3px;background:rgba(200,55,45,.85);color:#fff;margin-bottom:16px}
+.event-badge::before{content:'';display:block;width:5px;height:5px;border-radius:50%;background:#fff;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.event-hero h1{font-family:var(--serif);font-size:clamp(28px,4.5vw,54px);font-weight:400;color:#fff;line-height:1.1;letter-spacing:-.02em;margin-bottom:20px;max-width:700px}
+.event-hero h1 em{font-style:italic;color:rgba(176,141,87,.9)}
+.event-meta-strip{display:flex;gap:24px;flex-wrap:wrap}
+.event-meta-item{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,.7)}
 
-body {
-  font-family: var(--sans);
-  font-weight: 300;
-  background: var(--white);
-  color: var(--ink);
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-}
+.event-body{max-width:1100px;margin:0 auto;padding:52px 6vw;display:grid;grid-template-columns:1fr 340px;gap:48px;align-items:start}
+@media(max-width:840px){.event-body{grid-template-columns:1fr;padding:32px 6vw}}
 
-a { text-decoration: none; color: inherit; }
+.event-section{margin-bottom:40px}
+.event-section-label{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.event-section-label::before{content:'';display:block;width:16px;height:1px;background:var(--red);opacity:.5}
+.event-desc{font-size:15px;color:var(--ink3);line-height:1.85;font-weight:300}
+.event-desc p{margin-bottom:16px}
+.event-desc p:last-child{margin-bottom:0}
+.event-desc strong{font-weight:500;color:var(--ink)}
 
-/* ── NAV ── */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 500;
-  background: rgba(255,255,255,.96);
-  backdrop-filter: blur(24px);
-  border-bottom: 1px solid var(--border);
-}
-.nav-inner {
-  max-width: 1200px; margin: 0 auto; padding: 0 5vw;
-  height: 62px; display: flex; align-items: center; justify-content: space-between; gap: 16px;
-}
-.nav-logo img { height: 26px; width: auto; display: block; }
-.nav-right { display: flex; align-items: center; gap: 12px; }
-.nav-link {
-  font-size: 12px; font-weight: 400; color: var(--ink4); letter-spacing: .08em;
-  text-transform: uppercase; padding: 6px 8px; border-radius: 4px;
-  transition: color .15s;
-}
-.nav-link:hover { color: var(--ink); }
-.nav-cta {
-  background: var(--ink); color: #fff; padding: 8px 20px;
-  border-radius: 5px; font-size: 12px; font-weight: 400;
-  letter-spacing: .08em; text-transform: uppercase; transition: opacity .15s;
-}
-.nav-cta:hover { opacity: .8; }
+.expect-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.expect-item{padding:16px;background:var(--off);border:1px solid var(--border);border-radius:8px;display:flex;gap:12px;align-items:flex-start}
+.expect-icon{font-size:18px;flex-shrink:0;margin-top:1px}
+.expect-text{font-size:13px;color:var(--ink3);line-height:1.6}
+.expect-text strong{display:block;font-weight:500;color:var(--ink);margin-bottom:2px}
 
-/* ── HERO ── */
-.hero {
-  padding-top: 62px; position: relative; min-height: 90vh;
-  display: flex; align-items: flex-end; overflow: hidden;
-  background: #0d0b08;
-}
-.hero-bg {
-  position: absolute; inset: 0;
-  background-image: url('https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=1400,height=700/uploads/rx/64b48c44-2c5a-4f69-bf13-8fd64790f702.png');
-  background-size: cover; background-position: center 30%;
-  opacity: .45;
-}
-.hero-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(160deg, rgba(13,11,8,0) 0%, rgba(13,11,8,.2) 40%, rgba(13,11,8,.95) 100%);
-}
-.hero-inner {
-  position: relative; z-index: 2;
-  max-width: 1200px; margin: 0 auto; padding: 72px 6vw 68px;
-  width: 100%;
-}
-.hero-label {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-family: var(--mono); font-size: 9px; letter-spacing: .18em; text-transform: uppercase;
-  color: rgba(255,255,255,.5); margin-bottom: 20px;
-}
-.hero-dot {
-  width: 5px; height: 5px; border-radius: 50%;
-  background: var(--gold); animation: pulse 2s infinite;
-}
-@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
-.hero h1 {
-  font-family: var(--serif);
-  font-size: clamp(36px, 6.5vw, 84px);
-  font-weight: 300; line-height: 1.02;
-  letter-spacing: -.01em; color: #fff; margin-bottom: 10px;
-}
-.hero h1 em { font-style: italic; color: rgba(176,141,87,.9); }
-.hero-sub {
-  font-family: var(--serif); font-size: clamp(18px, 2.5vw, 28px);
-  font-weight: 300; font-style: italic; color: rgba(255,255,255,.55);
-  margin-bottom: 32px; letter-spacing: .01em;
-}
-.hero-meta {
-  display: flex; gap: 28px; flex-wrap: wrap; margin-bottom: 36px;
-}
-.hero-meta-item {
-  display: flex; align-items: center; gap: 10px;
-  font-size: 13px; color: rgba(255,255,255,.65); font-weight: 300; letter-spacing: .02em;
-}
-.hero-meta-icon { font-size: 14px; opacity: .7; }
-.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
-.btn-primary {
-  background: var(--gold); color: #fff;
-  padding: 14px 32px; border-radius: 5px;
-  font-size: 13px; font-weight: 400; letter-spacing: .08em; text-transform: uppercase;
-  transition: opacity .15s; display: inline-block;
-}
-.btn-primary:hover { opacity: .88; }
-.btn-ghost {
-  border: 1px solid rgba(255,255,255,.25); color: rgba(255,255,255,.7);
-  padding: 13px 28px; border-radius: 5px;
-  font-size: 12px; font-weight: 300; letter-spacing: .08em; text-transform: uppercase;
-  transition: all .15s;
-}
-.btn-ghost:hover { border-color: rgba(255,255,255,.5); color: #fff; }
+.who-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.who-card{padding:14px 16px;border:1px solid var(--border);border-radius:8px;font-size:13px;color:var(--ink3);line-height:1.5;display:flex;align-items:flex-start;gap:10px}
+.who-card.fit{border-color:var(--red-border);background:var(--red-dim)}
+.who-card.nofit{border-color:var(--border);background:var(--off);opacity:.7}
+.who-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.who-dot.green{background:#1a8a5a}
+.who-dot.red{background:#c8372d}
 
-/* ── CO-BRAND BAR ── */
-.cobrand {
-  background: var(--cream); border-bottom: 1px solid var(--border);
-  padding: 22px 6vw;
-}
-.cobrand-inner {
-  max-width: 1200px; margin: 0 auto;
-  display: flex; align-items: center; gap: 0; flex-wrap: wrap;
-}
-.cobrand-label {
-  font-family: var(--mono); font-size: 8px; letter-spacing: .16em; text-transform: uppercase;
-  color: var(--ink5); margin-right: 24px; white-space: nowrap;
-}
-.cobrand-logos {
-  display: flex; align-items: center; gap: 32px; flex-wrap: wrap;
-}
-.cobrand-logo { display: flex; align-items: center; }
-.cobrand-logo img { height: 28px; width: auto; object-fit: contain; display: block; }
-.cobrand-logo.dark-pill img {
-  background: #1a1a1a; padding: 5px 12px; border-radius: 4px; height: 36px;
-}
-.cobrand-logo.green-pill img {
-  background: #1b3a28; padding: 5px 12px; border-radius: 4px; height: 36px;
-}
-.cobrand-sep {
-  color: var(--border2); font-size: 20px; font-weight: 100; line-height: 1;
-}
+.speaker-card{padding:24px;border:1px solid var(--border);border-radius:10px;background:var(--off);display:flex;gap:20px;align-items:flex-start}
+.speaker-name{font-size:15px;font-weight:500;color:var(--ink);margin-bottom:3px}
+.speaker-role{font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+.speaker-bio{font-size:12.5px;color:var(--ink4);line-height:1.7;font-weight:300}
 
-/* ── LAYOUT ── */
-.page-body {
-  max-width: 1200px; margin: 0 auto; padding: 64px 6vw;
-  display: grid; grid-template-columns: 1fr 360px; gap: 60px; align-items: start;
-}
-@media(max-width:860px) {
-  .page-body { grid-template-columns: 1fr; padding: 40px 6vw; gap: 40px; }
-}
+.hosts-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.host-card{padding:20px;border:1px solid var(--border);border-radius:10px;background:var(--off)}
+.host-name{font-size:14px;font-weight:500;color:var(--ink);margin-bottom:6px}
+.host-desc{font-size:12.5px;color:var(--ink4);line-height:1.65;font-weight:300}
 
-/* ── SECTION LABELS ── */
-.section-label {
-  font-family: var(--mono); font-size: 9px; letter-spacing: .2em; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 20px;
-  display: flex; align-items: center; gap: 10px;
-}
-.section-label::before {
-  content: ''; display: block; width: 24px; height: 1px; background: var(--gold); opacity: .5;
-}
+.tickets-grid{display:flex;flex-direction:column;gap:8px}
+.ticket-row{padding:12px 16px;border:1px solid var(--border);border-radius:8px;background:var(--off);display:flex;align-items:center;justify-content:space-between;gap:12px}
+.ticket-name{font-size:13px;font-weight:500;color:var(--ink)}
+.ticket-desc{font-size:11px;color:var(--ink4);margin-top:2px}
+.ticket-badge{font-family:var(--mono);font-size:8px;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:3px;background:var(--gold-dim);color:#7a5c1e;border:1px solid var(--gold-border);flex-shrink:0}
 
-/* ── BODY TEXT ── */
-.about-section { margin-bottom: 52px; }
-.prose {
-  font-size: 15.5px; color: var(--ink3); line-height: 1.9; font-weight: 300;
-}
-.prose p { margin-bottom: 18px; }
-.prose p:last-child { margin-bottom: 0; }
-.prose strong { font-weight: 500; color: var(--ink); }
-.prose em { font-style: italic; color: var(--ink4); }
+.event-sidebar{position:sticky;top:84px}
+.sidebar-card{border:1px solid var(--border2);border-radius:12px;overflow:hidden;background:var(--white)}
+.sidebar-top{padding:24px;border-bottom:1px solid var(--border)}
+.sidebar-title{font-family:var(--serif);font-size:18px;font-weight:400;color:var(--ink);margin-bottom:16px;line-height:1.3}
+.sidebar-meta{display:flex;flex-direction:column;gap:12px;margin-bottom:20px}
+.sidebar-meta-row{display:flex;gap:10px;align-items:flex-start}
+.sidebar-meta-icon{font-size:15px;flex-shrink:0;margin-top:1px}
+.sidebar-meta-label{font-family:var(--mono);font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);display:block;margin-bottom:2px}
+.sidebar-meta-val{font-size:13px;color:var(--ink);font-weight:400}
+.sidebar-spots{display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--red-dim);border:1px solid var(--red-border);border-radius:6px;margin-bottom:16px}
+.sidebar-spots-dot{width:7px;height:7px;border-radius:50%;background:var(--red);flex-shrink:0;animation:pulse 2s infinite}
+.sidebar-spots-text{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;color:var(--red)}
+.btn-rsvp{display:block;width:100%;background:var(--red);color:#fff;padding:14px 22px;border-radius:7px;font-size:13px;font-weight:400;letter-spacing:.02em;text-align:center;transition:opacity .15s;cursor:pointer;border:none;font-family:var(--sans);text-decoration:none}
+.btn-rsvp:hover{opacity:.88}
+.btn-rsvp-sub{font-size:11px;color:var(--ink4);text-align:center;margin-top:10px}
+.sidebar-bottom{padding:18px 24px;background:var(--off);border-top:1px solid var(--border)}
+.sidebar-bottom-label{font-family:var(--mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink4);margin-bottom:10px}
+.tag-row{display:flex;gap:6px;flex-wrap:wrap}
+.tag{font-family:var(--mono);font-size:8px;letter-spacing:.06em;padding:3px 8px;border-radius:3px;background:rgba(0,0,0,.05);color:var(--ink3)}
 
-/* ── PROGRAM GRID ── */
-.program-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 4px;
-}
-@media(max-width:540px) { .program-grid { grid-template-columns: 1fr; } }
-.program-card {
-  padding: 18px 20px; background: var(--cream); border: 1px solid var(--border);
-  border-radius: 10px; display: flex; gap: 14px; align-items: flex-start;
-}
-.program-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
-.program-text { font-size: 13px; color: var(--ink3); line-height: 1.65; }
-.program-text strong { display: block; font-size: 13.5px; font-weight: 500; color: var(--ink); margin-bottom: 3px; }
+.footer-premium{background:#171717;border-top:1px solid rgba(255,255,255,.06);padding:64px 6vw 28px}
+.footer-premium-inner{max-width:1200px;margin:0 auto}
+.footer-premium-top{display:flex;justify-content:space-between;align-items:flex-start;gap:70px;flex-wrap:wrap;margin-bottom:46px}
+.footer-premium-brand{max-width:380px}
+.footer-premium-logo-wrap{display:flex;align-items:center;overflow:hidden;height:40px;margin-bottom:18px}
+.footer-premium-logo{height:78px;width:auto;object-fit:contain;margin-top:-19px;margin-bottom:-19px}
+.footer-premium-brand p{color:rgba(255,255,255,.42);font-size:13px;line-height:1.85;font-weight:300}
+.footer-premium-cols{display:flex;gap:70px;flex-wrap:wrap}
+.footer-premium-col{display:flex;flex-direction:column;gap:12px}
+.footer-premium-label{font-family:var(--mono);font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.22);margin-bottom:8px}
+.footer-premium-col a{color:rgba(255,255,255,.56);font-size:12.5px;transition:color .15s ease}
+.footer-premium-col a:hover{color:#fff}
+.footer-premium-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:22px;text-align:center;font-family:var(--mono);font-size:8px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.18);line-height:1.7}
+@media(max-width:720px){.footer-premium{padding:56px 6vw 26px}.footer-premium-top{flex-direction:column;gap:38px}.footer-premium-cols{width:100%;justify-content:space-between;gap:34px}}
 
-/* ── WHO GRID ── */
-.who-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
-}
-@media(max-width:540px) { .who-grid { grid-template-columns: 1fr; } }
-.who-card {
-  padding: 14px 16px; border: 1px solid var(--gold-border); background: var(--gold-dim);
-  border-radius: 8px; font-size: 13.5px; color: var(--ink3); line-height: 1.55;
-  display: flex; align-items: flex-start; gap: 10px;
-}
-.who-dot {
-  width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0;
-  margin-top: 5px; background: var(--gold);
-}
-
-/* ── PARTNER LOGOS SECTION ── */
-.partners-section { margin-bottom: 52px; }
-.partner-cards {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
-}
-@media(max-width:540px) { .partner-cards { grid-template-columns: 1fr; } }
-.partner-card {
-  border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
-  display: flex; flex-direction: column; background: var(--white);
-  transition: box-shadow .2s;
-}
-.partner-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,.08); }
-.partner-logo-area {
-  padding: 24px 20px; display: flex; align-items: center; justify-content: center;
-  min-height: 90px;
-}
-.partner-logo-area.bg-dark { background: #111; }
-.partner-logo-area.bg-green { background: #1b3a28; }
-.partner-logo-area.bg-black { background: #000; }
-.partner-logo-area img {
-  max-height: 44px; width: auto; max-width: 100%; object-fit: contain; display: block;
-}
-.partner-info { padding: 16px 18px; border-top: 1px solid var(--border); }
-.partner-name {
-  font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 5px;
-}
-.partner-role {
-  font-family: var(--mono); font-size: 8.5px; letter-spacing: .12em; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 6px;
-}
-.partner-desc { font-size: 11.5px; color: var(--ink4); line-height: 1.55; }
-
-/* ── ACCESS SECTION ── */
-.access-section { margin-bottom: 52px; }
-.access-cards {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
-}
-@media(max-width:540px) { .access-cards { grid-template-columns: 1fr; } }
-.access-card {
-  padding: 20px; border: 1px solid var(--border); border-radius: 10px; background: var(--cream);
-}
-.access-card-label {
-  font-family: var(--mono); font-size: 8px; letter-spacing: .14em; text-transform: uppercase;
-  color: var(--ink5); margin-bottom: 8px;
-}
-.access-card-title { font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 4px; }
-.access-card-text { font-size: 12.5px; color: var(--ink4); line-height: 1.6; }
-.access-note {
-  margin-top: 16px; padding: 14px 18px; background: var(--red-dim);
-  border: 1px solid var(--red-border); border-radius: 8px;
-  font-size: 12.5px; color: var(--ink3); line-height: 1.65;
-}
-
-/* ── SIDEBAR ── */
-.sidebar { position: sticky; top: 80px; }
-.sidebar-card {
-  border: 1px solid var(--border2); border-radius: 14px; overflow: hidden;
-}
-.sidebar-header {
-  padding: 26px 26px 22px; background: var(--white);
-  border-bottom: 1px solid var(--border);
-}
-.sidebar-event-name {
-  font-family: var(--serif); font-size: 19px; font-weight: 400;
-  color: var(--ink); margin-bottom: 20px; line-height: 1.25;
-}
-.sidebar-meta { display: flex; flex-direction: column; gap: 13px; margin-bottom: 22px; }
-.sidebar-meta-row { display: flex; gap: 10px; align-items: flex-start; }
-.sidebar-meta-icon { font-size: 14px; flex-shrink: 0; margin-top: 2px; }
-.sidebar-meta-label {
-  font-family: var(--mono); font-size: 7.5px; letter-spacing: .12em; text-transform: uppercase;
-  color: var(--ink5); display: block; margin-bottom: 2px;
-}
-.sidebar-meta-val { font-size: 13px; color: var(--ink); font-weight: 400; line-height: 1.4; }
-.spots-indicator {
-  display: flex; align-items: center; gap: 8px;
-  padding: 10px 14px; background: var(--red-dim); border: 1px solid var(--red-border);
-  border-radius: 6px; margin-bottom: 18px;
-}
-.spots-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--red); flex-shrink: 0; animation: pulse 2s infinite; }
-.spots-text { font-family: var(--mono); font-size: 9px; letter-spacing: .06em; color: var(--red); }
-.btn-rsvp {
-  display: block; width: 100%; background: var(--red); color: #fff;
-  padding: 15px 22px; border-radius: 7px; font-size: 13px; font-weight: 400;
-  letter-spacing: .06em; text-transform: uppercase; text-align: center;
-  transition: opacity .15s; cursor: pointer; text-decoration: none;
-}
-.btn-rsvp:hover { opacity: .88; }
-.btn-rsvp-sub { font-size: 11px; color: var(--ink5); text-align: center; margin-top: 10px; }
-.sidebar-member-note {
-  margin-top: 16px; padding: 12px 16px; background: #fffbeb;
-  border: 1px solid rgba(176,141,87,.3); border-radius: 6px;
-  font-size: 11.5px; color: #7a5c1e; line-height: 1.65;
-}
-.sidebar-member-note a { color: var(--gold2); font-weight: 500; }
-
-.sidebar-tickets { padding: 22px 26px; border-bottom: 1px solid var(--border); }
-.sidebar-tickets-label {
-  font-family: var(--mono); font-size: 8px; letter-spacing: .14em; text-transform: uppercase;
-  color: var(--ink5); margin-bottom: 14px;
-}
-.ticket-type {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 10px 0; border-bottom: 1px solid var(--border);
-}
-.ticket-type:last-child { border-bottom: none; }
-.ticket-name { font-size: 13px; color: var(--ink); font-weight: 400; }
-.ticket-badge {
-  font-family: var(--mono); font-size: 7.5px; letter-spacing: .1em; text-transform: uppercase;
-  padding: 3px 8px; border-radius: 3px; background: rgba(0,0,0,.06); color: var(--ink4);
-}
-
-.sidebar-bottom { padding: 18px 26px; background: var(--cream); }
-.sidebar-bottom-label {
-  font-family: var(--mono); font-size: 7.5px; letter-spacing: .14em; text-transform: uppercase;
-  color: var(--ink5); margin-bottom: 10px;
-}
-.tags { display: flex; gap: 6px; flex-wrap: wrap; }
-.tag {
-  font-family: var(--mono); font-size: 8px; letter-spacing: .06em;
-  padding: 4px 9px; border-radius: 3px; background: rgba(0,0,0,.06); color: var(--ink4);
-}
-
-/* ── HOST SECTION ── */
-.host-section {
-  margin-bottom: 52px; padding: 28px; background: var(--cream2);
-  border: 1px solid var(--border); border-radius: 14px;
-}
-.host-row { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
-.host-avatar {
-  width: 48px; height: 48px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
-}
-.host-avatar img { width: 100%; height: 100%; object-fit: cover; }
-.host-name { font-size: 15px; font-weight: 400; color: var(--ink); }
-.host-title { font-size: 12px; color: var(--ink4); margin-top: 2px; }
-.host-desc { font-size: 13.5px; color: var(--ink3); line-height: 1.75; font-weight: 300; }
-
-/* ── NYTW BANNER ── */
-.nytw-banner {
-  background: var(--ink2); color: rgba(255,255,255,.7);
-  padding: 18px 6vw; text-align: center;
-}
-.nytw-inner { max-width: 1200px; margin: 0 auto; }
-.nytw-text {
-  font-size: 13px; display: flex; align-items: center; justify-content: center;
-  gap: 10px; flex-wrap: wrap;
-}
-.nytw-text strong { color: #fff; font-weight: 500; }
-.nytw-text a { color: rgba(176,141,87,.9); text-decoration: underline; text-underline-offset: 3px; }
-
-/* ── FOOTER ── */
-footer {
-  background: var(--ink2); padding: 28px 6vw 22px;
-  border-top: 1px solid rgba(255,255,255,.05);
-}
-.footer-links {
-  display: flex; align-items: center; justify-content: center;
-  flex-wrap: wrap; gap: 6px 14px; margin-bottom: 16px;
-}
-.footer-links a {
-  font-size: 11px; color: rgba(255,255,255,.4); font-family: var(--mono);
-  letter-spacing: .06em; transition: color .15s;
-}
-.footer-links a:hover { color: rgba(255,255,255,.75); }
-.footer-sep { color: rgba(255,255,255,.12); font-size: 10px; }
-.footer-copy {
-  text-align: center; font-family: var(--mono); font-size: 9px;
-  letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.17);
-}
-
-/* ── DIVIDER ── */
-.divider {
-  height: 1px; background: var(--border); margin: 0 0 52px;
-}
-
-@media(max-width:600px) {
-  .program-grid, .who-grid, .partner-cards, .access-cards { grid-template-columns: 1fr; }
-  .hero h1 { font-size: clamp(30px, 9vw, 52px); }
-  .cobrand-logos { gap: 20px; }
-}
+.m-tab-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:400;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid var(--border);padding:0 0 env(safe-area-inset-bottom,0)}
+.m-tab-bar-inner{display:flex;align-items:stretch;height:56px}
+.m-tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-decoration:none;color:var(--ink4);font-family:var(--mono);font-size:8.5px;letter-spacing:.06em;text-transform:uppercase;transition:color .15s;-webkit-tap-highlight-color:transparent;padding:0 2px}
+.m-tab.active{color:var(--red)}
+.m-tab-join{flex:1;display:flex;align-items:center;justify-content:center;padding:0 6px}
+.m-tab-join a{background:var(--red);color:#fff;border-radius:6px;font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;padding:8px 14px;display:block;text-decoration:none;white-space:nowrap}
+@media(max-width:900px){.m-tab-bar{display:block};body{padding-bottom:calc(56px + env(safe-area-inset-bottom,0))}}
+@media(max-width:500px){.expect-grid,.who-grid,.hosts-grid{grid-template-columns:1fr}}
 </style>
+<meta content="website" property="og:type"/>
+<meta content="Yorkseed" property="og:site_name"/>
+<meta content="Yorkseed" name="author"/>
+<meta content="https://www.linkedin.com/company/yorkseed" property="article:publisher"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://yorkseed.co/#website",
+      "url": "https://yorkseed.co",
+      "name": "Yorkseed",
+      "publisher": {
+        "@id": "https://yorkseed.co/#organization"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://yorkseed.co/#organization",
+      "name": "Yorkseed",
+      "url": "https://yorkseed.co",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://s6.imgcdn.dev/Yfq1dl.png"
+      },
+      "description": "Yorkseed is a curated, application-based global venture platform connecting startup founders raising capital and active investors deploying it. Founded in New York City in 2023 by Jessica Sophia Wong. 50+ city hubs across 5 continents.",
+      "foundingDate": "2023",
+      "foundingLocation": {
+        "@type": "Place",
+        "name": "New York City, NY, USA"
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Jessica Sophia Wong",
+        "jobTitle": "Founder & CEO",
+        "worksFor": {
+          "@id": "https://yorkseed.co/#organization"
+        }
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/yorkseed",
+        "https://twitter.com/yorkseed",
+        "https://instagram.com/yorkseed",
+        "https://www.crunchbase.com/organization/yorkseed",
+        "https://thevalois.com",
+        "https://yorkseedsummit.com"
+      ],
+      "areaServed": [
+        "United States",
+        "United Kingdom",
+        "United Arab Emirates",
+        "Singapore",
+        "France",
+        "Germany",
+        "Canada",
+        "Hong Kong",
+        "Brazil",
+        "Mexico",
+        "Saudi Arabia",
+        "India",
+        "Australia",
+        "Japan",
+        "South Korea",
+        "Nigeria",
+        "Kenya",
+        "Italy",
+        "Portugal",
+        "Netherlands",
+        "Sweden",
+        "Denmark",
+        "Finland",
+        "Switzerland"
+      ],
+      "knowsAbout": [
+        "Venture Capital",
+        "Startup Ecosystems",
+        "Founder Networks",
+        "Angel Investing",
+        "Deal Flow",
+        "Co-investment",
+        "LP/GP Matching",
+        "Startup Events",
+        "Venture Conferences",
+        "SAFE Notes",
+        "Convertible Notes",
+        "Fundraising",
+        "HealthTech",
+        "Fintech",
+        "Beauty Tech",
+        "Fashion Tech",
+        "AI Startups"
+      ]
+    },
+    {
+      "@type": "Event",
+      "@id": "https://yorkseed.co/events/fintech-ai-pitch-forum-nytechweek-2026#event",
+      "name": "Fintech & AI Pitch Forum — NY Tech Week 2026",
+      "description": "Curated fintech and AI startup pitches, investor panel, and high-signal networking during NY Tech Week 2026. For founders actively raising in fintech, AI, payments, wealthtech, regtech. For investors actively deploying. Hosted by Yorkseed. Manhattan, June 3 2026. Application required.",
+      "url": "https://yorkseed.co/events/fintech-ai-pitch-forum-nytechweek-2026",
+      "startDate": "2026-06-03T19:00:00-04:00",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "Private Venue",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Manhattan",
+          "addressLocality": "New York",
+          "addressRegion": "NY",
+          "addressCountry": "US"
+        }
+      },
+      "organizer": {
+        "@id": "https://yorkseed.co/#organization"
+      },
+      "keywords": "fintech pitch forum NYC NY Tech Week 2026, AI startup pitch event Manhattan June 2026, fintech investor panel New York, Yorkseed fintech AI event, AI pitch competition NYC 2026, Bhuva Shakti Wallet Max speaker, fintech founder event NY Tech Week, AI startup pitch forum Manhattan, fintech investor networking June 2026 New York, Yorkseed AI event",
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "fintech"
+        },
+        {
+          "@type": "Thing",
+          "name": "AI"
+        },
+        {
+          "@type": "Thing",
+          "name": "pitch forum"
+        },
+        {
+          "@type": "Thing",
+          "name": "NY Tech Week"
+        },
+        {
+          "@type": "Thing",
+          "name": "Manhattan"
+        },
+        {
+          "@type": "Thing",
+          "name": "Yorkseed"
+        },
+        {
+          "@type": "Thing",
+          "name": "startup pitch event"
+        }
+      ],
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "Bhuva Shakti",
+          "jobTitle": "Founder & CEO",
+          "worksFor": {
+            "@type": "Organization",
+            "name": "Wallet Max"
+          }
+        }
+      ],
+      "offers": {
+        "@type": "Offer",
+        "url": "https://luma.com/1icohbw7?ref=yorkseed",
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-01-01"
+      },
+      "superEvent": {
+        "@type": "EventSeries",
+        "name": "NY Tech Week 2026"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://yorkseed.co/events/fintech-ai-pitch-forum-nytechweek-2026#webpage",
+      "url": "https://yorkseed.co/events/fintech-ai-pitch-forum-nytechweek-2026",
+      "name": "Fintech & AI Pitch Forum — NY Tech Week 2026 | Yorkseed",
+      "description": "Curated fintech and AI startup pitches, investor panel, and high-signal networking during NY Tech Week 2026. For founders actively raising in fintech, AI, payments, wealthtech, regtech. For investors ",
+      "isPartOf": {
+        "@id": "https://yorkseed.co/#website"
+      },
+      "about": {
+        "@id": "https://yorkseed.co/#organization"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://yorkseed.co/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Events",
+            "item": "https://yorkseed.co/events"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Fintech & AI Pitch Forum — NY Tech Week 2026",
+            "item": "https://yorkseed.co/events/fintech-ai-pitch-forum-nytechweek-2026"
+          }
+        ]
+      }
+    }
+  ]
+}
+</script>
 </head>
-<body>
-
-<!-- NAV -->
-<nav>
-  <div class="nav-inner">
-    <a href="/" class="nav-logo">
-      <img src="https://s6.imgcdn.dev/YdXsAB.png" alt="Belong NYC"/>
-    </a>
-    <div class="nav-right">
-      <a href="/events.html" class="nav-link">Events</a>
-      <a href="https://nytw.yorkseed.co" class="nav-link" target="_blank">NYTW Guide</a>
-      <a href="https://app.yorkseed.co/login" class="nav-link">Sign in</a>
-      <a href="https://luma.com/8upa02np" target="_blank" class="nav-cta">Apply →</a>
-    </div>
-  </div>
+<body><nav class="site-nav">
+<div class="nav-inner">
+<a class="n-logo" href="/"><img alt="Yorkseed" src="data:image/png;base64,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" style="height:24px;width:auto;display:block;"/></a>
+<div class="n-center">
+<a class="n-link active" href="/">Home</a>
+<div class="n-drop" id="ecosDrop">
+<button aria-haspopup="true" class="n-drop-btn" onclick="toggleDrop()">
+          Ecosystem
+          <span class="n-drop-arrow"><svg fill="none" height="6" viewbox="0 0 10 6" width="10"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg></span>
+</button>
+<div class="n-menu" role="menu">
+<a class="n-item" href="https://yorkseed.co/connect">
+<span class="n-item-icon">🌐</span>
+<div class="n-item-body">
+<div class="n-item-title">Yorkseed Connect</div>
+<div class="n-item-desc">The platform — membership, deal flow, tools &amp; introductions</div>
+</div>
+</a>
+<a class="n-item" href="/capital.html">
+<span class="n-item-icon">💼</span>
+<div class="n-item-body">
+<div class="n-item-title">Yorkseed Capital</div>
+<div class="n-item-desc">Private SPV co-investments for qualified investors</div>
+</div>
+</a>
+<a class="n-item" href="/events.html">
+<span class="n-item-icon">🎯</span>
+<div class="n-item-body">
+<div class="n-item-title">Events &amp; Passport Series</div>
+<div class="n-item-desc">Curated gatherings across global innovation hubs</div>
+</div>
+</a>
+<a class="n-item" href="https://yorkseedsummit.com" target="_blank">
+<span class="n-item-icon">🏛️</span>
+<div class="n-item-body">
+<div class="n-item-title">Yorkseed Summit</div>
+<div class="n-item-desc">Our flagship global convening of founders &amp; capital</div>
+</div>
+</a>
+<a class="n-item" href="https://pulse.yorkseed.co" target="_blank">
+<span class="n-item-icon">📰</span>
+<div class="n-item-body">
+<div class="n-item-title">Yorkseed Insider</div>
+<div class="n-item-desc">The venture newsletter — free &amp; paid tiers</div>
+</div>
+</a>
+<a class="n-item" href="/hubs.html">
+<span class="n-item-icon">📍</span>
+<div class="n-item-body">
+<div class="n-item-title">Global Hubs</div>
+<div class="n-item-desc">50+ city hubs across 5 continents</div>
+</div>
+</a>
+<a class="n-item" href="https://thevalois.com" rel="noopener noreferrer" style="background:rgba(184,151,106,0.05);border:0.5px solid rgba(184,151,106,0.2);border-radius:8px;" target="_blank">
+<span class="n-item-icon">🔑</span>
+<div class="n-item-body">
+<div class="n-item-title" style="color:#8a6e3e;">Valois</div>
+<div class="n-item-desc" style="color:rgba(138,110,62,0.7);">The private inner Circle — invitation only</div>
+</div>
+</a>
+</div>
+</div>
+<a class="n-link" href="/events.html">Events</a>
+<a class="n-link" href="/hubs.html">Hubs</a>
+<a class="n-link" href="/tools.html">Free Tools</a>
+<a class="n-link" href="/partners.html">Partners</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/speaker-intake.html" onmouseout="this.style.color='rgba(255,255,255,.45)'" onmouseover="this.style.color='#fff'" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;">Speak</a>
+<a href="https://yorkseed.co/connect" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:rgba(196,49,37,.04);border:1px solid rgba(196,49,37,.18);border-radius:8px;text-decoration:none;color:#111"><span style="font-size:18px">🔗</span><span style="font-size:13px;font-weight:500;color:#c43125">Connect</span></a>
+<a class="n-link" href="/press.html">Press</a>
+<a class="n-link" href="/contact.html">Contact</a>
+</div>
+<div class="n-right">
+<a class="n-signin" href="https://app.yorkseed.co/login">Sign in</a>
+<a class="n-apply" href="https://app.yorkseed.co/pricing">Join</a>
+<button aria-label="Menu" class="n-ham" id="hamBtn" onclick="toggleDrawer()">
+<span></span><span></span><span></span>
+</button>
+</div>
+</div>
+<div class="n-drawer" id="navDrawer">
+<div class="n-drawer-section">
+<div class="n-drawer-label">Navigate</div>
+<a class="n-drawer-link" href="/"><span>🏠</span><span>Home</span></a>
+<a class="n-drawer-link" href="/about.html"><span>📖</span><span>Our Story</span></a>
+<a class="n-drawer-link" href="/events.html"><span>🎯</span><span>Events</span></a>
+<a class="n-drawer-link" href="/hubs.html"><span>📍</span><span>Global Hubs</span></a>
+<a class="n-drawer-link" href="/tools.html"><span>🧮</span><span>Free Tools</span></a>
+<a class="n-drawer-link" href="/partners.html"><span>🤝</span><span>Partners</span></a>
+<a class="n-drawer-link" href="/press.html"><span>📡</span><span>Press &amp; Traction</span></a>
+<a class="n-drawer-link" href="/contact.html"><span>✉️</span><span>Contact</span></a>
+</div>
+<div class="n-drawer-section">
+<div class="n-drawer-label">The Ecosystem</div>
+<a class="n-drawer-link" href="https://yorkseed.co/connect"><span>🌐</span><span>Yorkseed Connect</span></a>
+<a class="n-drawer-link" href="/capital.html"><span>💼</span><span>Yorkseed Capital</span></a>
+<a class="n-drawer-link" href="https://yorkseedsummit.com"><span>🏛️</span><span>Yorkseed Summit</span></a>
+<a class="n-drawer-link" href="https://pulse.yorkseed.co"><span>📰</span><span>Yorkseed Insider</span></a>
+<a class="n-drawer-link" href="https://thevalois.com" rel="noopener noreferrer" style="color:#8a6e3e;border-color:rgba(184,151,106,0.2);" target="_blank"><span>💎</span><span>Valois — Private Circle</span></a>
+</div>
+<div class="n-drawer-ctas">
+<a class="n-apply" href="https://app.yorkseed.co/pricing">Join Yorkseed</a>
+<a class="n-signin" href="https://app.yorkseed.co/login">Sign in</a>
+</div>
+</div>
 </nav>
-
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-inner">
-    <div class="hero-label">
-      <span class="hero-dot"></span>
-      Yorkseed House · New York · June 2026
-    </div>
-    <h1>NY Tech Week<br>Pop-Up at <em>Belong NYC</em></h1>
-    <div class="hero-sub">A curated multi-day venture experience in the heart of SoHo</div>
-    <div class="hero-meta">
-      <div class="hero-meta-item">
-        <span class="hero-meta-icon">📅</span>
-        June 1–7, 2026 · Multi-day
-      </div>
-      <div class="hero-meta-item">
-        <span class="hero-meta-icon">📍</span>
-        218 Lafayette St, 2nd Floor · SoHo, New York
-      </div>
-      <div class="hero-meta-item">
-        <span class="hero-meta-icon">🎟</span>
-        Application required · $10 at door
-      </div>
-    </div>
-    <div class="hero-btns">
-      <a href="https://luma.com/8upa02np" target="_blank" class="btn-primary">Apply to Attend →</a>
-      <a href="https://nytw.yorkseed.co" target="_blank" class="btn-ghost">NYTW Side Event Guide ↗</a>
-    </div>
-  </div>
+<div class="event-hero">
+<div class="event-hero-bg"><img alt="Yorkseed House at Belong NYC" src="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=1400,height=700/uploads/rx/64b48c44-2c5a-4f69-bf13-8fd64790f702.png"/></div>
+<div class="event-hero-overlay"></div>
+<div class="event-hero-inner">
+<div class="event-breadcrumb"><a href="/events.html">Events</a><span>›</span><span>NY Tech Week 2026</span></div>
+<div class="event-badge">Multi-day pop-up house</div>
+<h1>Yorkseed House | NY Tech Week Pop-Up at <em>Belong NYC</em></h1>
+<div class="event-meta-strip">
+<div class="event-meta-item">📅 Jun 1–7, 2026</div>
+<div class="event-meta-item">📍 Belong NYC · 218 Lafayette St, SoHo</div>
+<div class="event-meta-item">🎟 Curated RSVP · $10 at door</div>
 </div>
-
-<!-- CO-BRAND BAR -->
-<div class="cobrand">
-  <div class="cobrand-inner">
-    <span class="cobrand-label">Partners</span>
-
- <div class="cobrand-logos">
-      <div class="cobrand-logo dark-pill">
-            <img src="https://s6.imgcdn.dev/YdXrQi.png" alt="Yorkseed"/>
-      </div>
-
-
-    
-    <div class="cobrand-logos">
-      <div class="cobrand-logo green-pill">
-            <img src="https://s6.imgcdn.dev/YdXsAB.png" alt="Belong NYC"/>
-      </div>
-      
-      <span class="cobrand-sep">·</span>
-      <div class="cobrand-logo dark-pill">
-          <img src="https://s6.imgcdn.dev/YdXatD.png" alt="Flowstate"/>
-      </div>
-      
-      <span class="cobrand-sep">·</span>
-      <div class="cobrand-logo dark-pill">
-        <img src="https://s6.imgcdn.dev/YdX0D9.png" alt="Elevate"/>
-      </div>
-    </div>
-  </div>
 </div>
-
-<!-- NYTW BANNER -->
-<div class="nytw-banner">
-  <div class="nytw-inner">
-    <div class="nytw-text">
-      Part of <strong>NY Tech Week 2026</strong> &amp; <strong>Latino Tech Week</strong>
-      · Master side event list at
-      <a href="https://nytw.yorkseed.co" target="_blank">nytw.yorkseed.co ↗</a>
-    </div>
-  </div>
 </div>
-
-<!-- PAGE BODY -->
-<div class="page-body">
-  <!-- MAIN COLUMN -->
-  <div>
-
-    <!-- ABOUT -->
-    <div class="about-section">
-      <div class="section-label">About Yorkseed House</div>
-      <div class="prose">
-        <p>Yorkseed House returns during <strong>NY Tech Week / Latino Tech Week</strong> with a curated multi-day pop-up experience hosted inside the <strong>Belong NYC</strong> space in Lower Manhattan's SoHo.</p>
-        <p>As the official venue partner, Belong NYC is opening its doors to founders, investors, operators, creators, and ecosystem leaders for a week of intentional programming, curated gatherings, venture conversations, and community-driven experiences during one of the most important weeks in tech.</p>
-        <p>More than just a venue — Yorkseed House transforms the Belong NYC space into a <strong>central gathering point for the global startup and venture ecosystem</strong> throughout NY Tech Week. Designed as a hybrid between a venture lounge, hospitality hub, community clubhouse, and founder meeting space, it creates an environment where meaningful collisions happen naturally.</p>
-        <p><em>The right rooms. The right people. The right tools — for every step of the journey, including the ones you have not thought about yet.</em></p>
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- PROGRAM -->
-    <div class="about-section">
-      <div class="section-label">What's On Throughout the Week</div>
-      <div class="program-grid">
-        <div class="program-card">
-          <span class="program-icon">🤝</span>
-          <div class="program-text">
-            <strong>Founder &amp; Investor Gatherings</strong>
-            Curated networking sessions matching the right people throughout the week
-          </div>
-        </div>
-        <div class="program-card">
-          <span class="program-icon">🛋️</span>
-          <div class="program-text">
-            <strong>Venture Salons</strong>
-            Intimate, high-signal conversations on deals, funding, and ecosystem trends
-          </div>
-        </div>
-        <div class="program-card">
-          <span class="program-icon">🎤</span>
-          <div class="program-text">
-            <strong>Fireside Chats</strong>
-            Candid conversations with founders, investors, and ecosystem leaders
-          </div>
-        </div>
-        <div class="program-card">
-          <span class="program-icon">💻</span>
-          <div class="program-text">
-            <strong>Coworking &amp; Recharge Hours</strong>
-            Use the space as your base camp between meetings during NY Tech Week
-          </div>
-        </div>
-        <div class="program-card">
-          <span class="program-icon">🌐</span>
-          <div class="program-text">
-            <strong>Community Partner Events</strong>
-            Activations from ecosystem partners and Yorkseed community organizations
-          </div>
-        </div>
-        <div class="program-card">
-          <span class="program-icon">🥂</span>
-          <div class="program-text">
-            <strong>Evening Social Experiences</strong>
-            Mixers and hospitality moments for the broader NY Tech Week community
-          </div>
-        </div>
-        <div class="program-card">
-          <span class="program-icon">🧘</span>
-          <div class="program-text">
-            <strong>Wellness &amp; Hospitality</strong>
-            Recharge and reset between the week's packed programming
-          </div>
-        </div>
-        <div class="program-card">
-          <span class="program-icon">🔗</span>
-          <div class="program-text">
-            <strong>Strategic Introductions</strong>
-            Curated warm intros facilitated by the Yorkseed team throughout the week
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- WHO -->
-    <div class="about-section">
-      <div class="section-label">Who Should Attend</div>
-      <div class="who-grid">
-        <div class="who-card"><div class="who-dot"></div>Venture-backable founders at any stage</div>
-        <div class="who-card"><div class="who-dot"></div>Angels, VCs, family offices, and active investors</div>
-        <div class="who-card"><div class="who-dot"></div>Startup operators and ecosystem builders</div>
-        <div class="who-card"><div class="who-dot"></div>Community leaders and strategic partners</div>
-        <div class="who-card"><div class="who-dot"></div>Media, creators, and innovation professionals</div>
-        <div class="who-card"><div class="who-dot"></div>Developers and builders attending NY Tech Week</div>
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- PARTNERS -->
-    <div class="partners-section">
-      <div class="section-label">Venue &amp; Organizer Partners</div>
-
-
-
-
-       <div class="partner-cards">
-        <div class="partner-card">
-          <div class="partner-logo-area bg-dark">
-            <img src="https://s6.imgcdn.dev/YdXrQi.png" alt="Yorkseed"/>
-          </div>
-          <div class="partner-info">
-            <div class="partner-role">Organizer</div>
-            <div class="partner-name">Yorkseed</div>
-            <div class="partner-desc">A curated global venture network connecting founders, investors, fund managers, and ecosystem leaders across 50+ city hubs worldwide.</div>
-          </div>
-        </div>
-
-    
-
-      
-      <div class="partner-cards">
-        <div class="partner-card">
-          <div class="partner-logo-area bg-green">
-            <img src="https://s6.imgcdn.dev/YdXsAB.png" alt="Belong NYC"/>
-          </div>
-          <div class="partner-info">
-            <div class="partner-role">Venue Partner</div>
-            <div class="partner-name">Belong NYC</div>
-            <div class="partner-desc">Premium coworking and hospitality space in SoHo — 218 Lafayette St, 2nd Floor. An urban clubhouse for founders, travelers, and creatives.</div>
-          </div>
-        </div>
-
-
-
-
-        
-        <div class="partner-card">
-          <div class="partner-logo-area bg-dark">
-            <img src="https://s6.imgcdn.dev/YdXatD.png" alt="Flowstate"/>
-          </div>
-          <div class="partner-info">
-            <div class="partner-role">Organizer Partner</div>
-            <div class="partner-name">Flowstate</div>
-            <div class="partner-desc">Next-generation innovation and collaboration platform for founders and builders working in meaningful ways.</div>
-          </div>
-        </div>
-        <div class="partner-card">
-          <div class="partner-logo-area bg-black">
-            <img src="https://s6.imgcdn.dev/YdX0D9.png" alt="Elevate"/>
-          </div>
-          <div class="partner-info">
-            <div class="partner-role">Organizer Partner</div>
-            <div class="partner-name">Elevate</div>
-            <div class="partner-desc">Curated hospitality and lifestyle platform focused on intentional experiences and meaningful community connection.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- ACCESS -->
-    <div class="access-section">
-      <div class="section-label">Access &amp; Attendance</div>
-      <div class="access-cards">
-        <div class="access-card">
-          <div class="access-card-label">Contribution</div>
-          <div class="access-card-title">$10 at Door</div>
-          <div class="access-card-text">Via Venmo or Stripe. Covers multi-day access throughout NY Tech Week.</div>
-        </div>
-        <div class="access-card">
-          <div class="access-card-label">Format</div>
-          <div class="access-card-title">Application Required</div>
-          <div class="access-card-text">Capacity is limited and attendance is curated. Registration does not guarantee admission.</div>
-        </div>
-      </div>
-      <div class="access-note">
-        All attendees must RSVP through Luma prior to arrival. Four ticket types are available — Founders, Investors, Ecosystem Leaders, and Developer/Builders. Each requires approval. Certain experiences throughout the week may require separate RSVP.
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- HOST -->
-    <div class="host-section">
-      <div class="section-label">Hosted By</div>
-      <div class="host-row">
-        <div class="host-avatar">
-          <img src="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,anim=false,background=white,quality=75,width=64,height=64/avatars/p5/7ff3edbe-882b-4590-881b-4e2aab1e8ca9.jpg" alt="Jessica Sophia Wong" onerror="this.style.background='#c8a87a';this.style.display='block'"/>
-        </div>
-        <div>
-          <div class="host-name">Jessica Sophia Wong</div>
-          <div class="host-title">Yorkseed Founder</div>
-        </div>
-      </div>
-      <div class="host-desc">
-        Yorkseed is a premier global venture ecosystem connecting series founders, strategic investors, and ecosystem leaders. Born from a grassroots community, it now fosters purposeful connections and sustainable growth across diverse tech sectors worldwide across 50+ global hubs.
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- NYTW GUIDE -->
-    <div class="about-section">
-      <div class="section-label">Full NY Tech Week Side Event List</div>
-      <div class="prose">
-        <p>Yorkseed maintains the master side event list for NY Tech Week 2026. Find all curated events happening across the city at <strong><a href="https://nytw.yorkseed.co" target="_blank" style="color:var(--gold)">nytw.yorkseed.co →</a></strong></p>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- SIDEBAR -->
-  <div class="sidebar">
-    <div class="sidebar-card">
-      <div class="sidebar-header">
-        <div class="sidebar-event-name">Yorkseed House · NY Tech Week</div>
-        <div class="sidebar-meta">
-          <div class="sidebar-meta-row">
-            <span class="sidebar-meta-icon">📅</span>
-            <div>
-              <span class="sidebar-meta-label">Dates</span>
-              <span class="sidebar-meta-val">June 1–7, 2026 · Multi-day</span>
-            </div>
-          </div>
-          <div class="sidebar-meta-row">
-            <span class="sidebar-meta-icon">📍</span>
-            <div>
-              <span class="sidebar-meta-label">Venue</span>
-              <span class="sidebar-meta-val">Belong NYC · 218 Lafayette St, 2nd Floor · SoHo, New York</span>
-            </div>
-          </div>
-          <div class="sidebar-meta-row">
-            <span class="sidebar-meta-icon">🎟</span>
-            <div>
-              <span class="sidebar-meta-label">Format</span>
-              <span class="sidebar-meta-val">In-person · Multi-day pop-up · Application required</span>
-            </div>
-          </div>
-          <div class="sidebar-meta-row">
-            <span class="sidebar-meta-icon">💵</span>
-            <div>
-              <span class="sidebar-meta-label">Contribution</span>
-              <span class="sidebar-meta-val">$10 at door · Venmo or Stripe · Covers multi-day access</span>
-            </div>
-          </div>
-        </div>
-        <div class="spots-indicator">
-          <div class="spots-dot"></div>
-          <div class="spots-text">Application required · Limited capacity</div>
-        </div>
-        <a href="https://luma.com/8upa02np" target="_blank" class="btn-rsvp">Apply to Attend →</a>
-        <div class="btn-rsvp-sub">Hosted on Luma · We review every application</div>
-        <div class="sidebar-member-note">
-          Already a Yorkseed member? <a href="https://app.yorkseed.co">Sign in to your account →</a> to use your member network and Connection Intelligence tools throughout the week.
-        </div>
-      </div>
-      <div class="sidebar-tickets">
-        <div class="sidebar-tickets-label">Ticket Types</div>
-        <div class="ticket-type">
-          <span class="ticket-name">Founders</span>
-          <span class="ticket-badge">Approval Required</span>
-        </div>
-        <div class="ticket-type">
-          <span class="ticket-name">Investors</span>
-          <span class="ticket-badge">Approval Required</span>
-        </div>
-        <div class="ticket-type">
-          <span class="ticket-name">Ecosystem Leaders</span>
-          <span class="ticket-badge">Approval Required</span>
-        </div>
-        <div class="ticket-type">
-          <span class="ticket-name">Developer / Builder</span>
-          <span class="ticket-badge">Approval Required</span>
-        </div>
-      </div>
-      <div class="sidebar-bottom">
-        <div class="sidebar-bottom-label">Tags</div>
-        <div class="tags">
-          <span class="tag">New York</span>
-          <span class="tag">NY Tech Week</span>
-          <span class="tag">Yorkseed House</span>
-          <span class="tag">Founders</span>
-          <span class="tag">Investors</span>
-          <span class="tag">SoHo</span>
-          <span class="tag">Latino Tech Week</span>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="event-body">
+<div>
+<div class="event-section">
+<div class="event-section-label">About Yorkseed House</div>
+<div class="event-desc">
+<p><strong>Yorkseed House returns during NY Tech Week / Latino Tech Week</strong> with a curated multi-day pop-up experience hosted inside the Belong NYC space in SoHo.</p>
+<p>Hosted by <strong>Yorkseed</strong> and <strong>Belong NYC</strong>, with organizer partners <strong>Flowstate</strong> and <strong>Elevate</strong>, the house is designed as a central gathering point for founders, investors, operators, creators, and ecosystem leaders moving through one of the most important weeks in tech.</p>
+<p>Designed as a hybrid between a venture lounge, hospitality hub, community clubhouse, and founder meeting space, Yorkseed House creates an environment where meaningful collisions happen naturally. Stop by between meetings, join a salon, cowork for the afternoon, attend an evening mixer, or reconnect with the ecosystem throughout the week.</p>
+<p><strong>Approved attendees receive multi-day access to Yorkseed House throughout NY Tech Week.</strong> A $10 contribution is required at the door via Venmo or Stripe.</p>
 </div>
+</div>
+<div class="event-section">
+<div class="event-section-label">Belong NYC · Official Venue Partner</div>
+<div class="speaker-card" style="align-items:center;background:var(--gold-dim);border-color:var(--gold-border)">
+<div style="width:70px;height:70px;border-radius:16px;background:#111;color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:28px;flex-shrink:0">B</div>
+<div style="flex:1">
+<div class="speaker-name" style="font-size:18px;margin-bottom:6px">Belong NYC</div>
+<div class="speaker-role" style="color:#7a5c1e">Official venue partner · SoHo, New York</div>
+<div class="speaker-bio" style="color:var(--ink3)">Belong NYC is opening its doors as the home of Yorkseed House throughout NY Tech Week. The space brings together coworking, meeting rooms, wellness amenities, luggage storage, showers, lounge-style hospitality, and a flexible urban clubhouse setting for modern professionals, travelers, founders, and creatives.</div>
+</div>
+</div>
+</div>
+<div class="event-section">
+<div class="event-section-label">What Happens Throughout the Week</div>
+<div class="expect-grid">
+<div class="expect-item"><span class="expect-icon">🤝</span><div class="expect-text"><strong>Founder &amp; investor gatherings</strong>High-signal rooms for venture conversations and curated relationship-building</div></div>
+<div class="expect-item"><span class="expect-icon">🛋️</span><div class="expect-text"><strong>Coworking &amp; recharge hours</strong>A home base between meetings, events, and investor conversations</div></div>
+<div class="expect-item"><span class="expect-icon">🎤</span><div class="expect-text"><strong>Venture salons &amp; fireside chats</strong>Intimate conversations, panels, and community-led programming</div></div>
+<div class="expect-item"><span class="expect-icon">🥂</span><div class="expect-text"><strong>Evening social experiences</strong>Mixers, hospitality moments, and partner activations throughout the week</div></div>
+</div>
+</div>
+<div class="event-section">
+<div class="event-section-label">Who Should RSVP</div>
+<div class="who-grid">
+<div class="who-card fit"><div class="who-dot green"></div>Venture-backable founders building with traction or clear momentum</div>
+<div class="who-card fit"><div class="who-dot green"></div>Angels, VCs, family offices, GPs, LPs, and active investors</div>
+<div class="who-card fit"><div class="who-dot green"></div>Startup operators, ecosystem builders, and strategic partners</div>
+<div class="who-card fit"><div class="who-dot green"></div>Media, creators, and innovation professionals attending NY Tech Week</div>
+</div>
+</div>
+<div class="event-section">
+<div class="event-section-label">Ticket Types</div>
+<div class="tickets-grid">
+<div class="ticket-row"><div><div class="ticket-name">Founders</div><div class="ticket-desc">Only active founders qualify for this ticket</div></div><span class="ticket-badge">Approval required</span></div>
+<div class="ticket-row"><div><div class="ticket-name">Investors</div><div class="ticket-desc">Angels, VCs, GPs, CVCs, LPs, and family offices actively deploying capital</div></div><span class="ticket-badge">Approval required</span></div>
+<div class="ticket-row"><div><div class="ticket-name">Ecosystem Leader</div><div class="ticket-desc">Decision makers, executives, and strategic community leaders</div></div><span class="ticket-badge">Approval required</span></div>
+<div class="ticket-row"><div><div class="ticket-name">Developer / Builder</div><div class="ticket-desc">Builders contributing to the startup and innovation ecosystem</div></div><span class="ticket-badge">Approval required</span></div>
+</div>
+</div>
+<div class="event-section">
+<div class="event-section-label">Hosted By &amp; Organizer Partners</div>
+<div class="hosts-grid">
+<div class="host-card">
+<img alt="Yorkseed" src="data:image/png;base64,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" style="height:24px;width:auto;object-fit:contain;margin-bottom:10px"/>
+<div class="host-name">Yorkseed</div>
+<div class="host-desc">A curated global venture network connecting founders, investors, fund managers, and ecosystem leaders across 50+ city hubs worldwide.</div>
+</div>
+<div class="host-card" style="border-color:var(--gold-border);background:var(--gold-dim)">
+<div class="host-name">Belong NYC</div>
+<div class="host-desc">Official venue partner and home of Yorkseed House during NY Tech Week, located at 218 Lafayette St in SoHo.</div>
+</div>
+<div class="host-card">
+<div class="host-name">Flowstate</div>
+<div class="host-desc">Organizer partner supporting intentional collaboration, community, and builder-focused connection throughout the week.</div>
+</div>
+<div class="host-card">
+<div class="host-name">Elevate</div>
+<div class="host-desc">Organizer partner focused on elevated experiences, hospitality, lifestyle, and meaningful community connection.</div>
+</div>
+</div>
+</div>
+<div class="event-section">
+<div class="event-section-label">Access Notes</div>
+<div class="event-desc">
+<p>All attendees must RSVP through Luma prior to arrival. Capacity is limited and attendance is curated. Registration does not guarantee admission.</p>
+<p>Certain experiences, gatherings, and activations throughout the week may require separate approval or RSVP.</p>
+<p>By attending, guests agree to behave respectfully and professionally toward fellow attendees, venue staff, hosts, and partners. Yorkseed reserves the right to refuse or revoke admission at its discretion to maintain the quality and integrity of the experience.</p>
+</div>
+</div>
+</div>
+<div class="event-sidebar">
+<div class="sidebar-card">
+<div class="sidebar-top">
+<div class="sidebar-title">Yorkseed House · NY Tech Week Pop-Up at Belong NYC</div>
+<div class="sidebar-meta">
+<div class="sidebar-meta-row"><span class="sidebar-meta-icon">📅</span><div><span class="sidebar-meta-label">When</span><span class="sidebar-meta-val">Jun 1–7, 2026</span></div></div>
+<div class="sidebar-meta-row"><span class="sidebar-meta-icon">📍</span><div><span class="sidebar-meta-label">Location</span><span class="sidebar-meta-val">Belong NYC · 218 Lafayette St, 2nd Floor, New York, NY 10012</span></div></div>
+<div class="sidebar-meta-row"><span class="sidebar-meta-icon">🎟</span><div><span class="sidebar-meta-label">Access</span><span class="sidebar-meta-val">RSVP required · $10 at door by Venmo or Stripe</span></div></div>
+<div class="sidebar-meta-row"><span class="sidebar-meta-icon">🏠</span><div><span class="sidebar-meta-label">Format</span><span class="sidebar-meta-val">Multi-day pop-up house · Curated approval</span></div></div>
+</div>
+<div class="sidebar-spots"><div class="sidebar-spots-dot"></div><div class="sidebar-spots-text">Capacity limited · RSVP required</div></div>
+<a class="btn-rsvp" href="https://luma.com/8upa02np" rel="noopener" target="_blank">RSVP on Luma →</a>
+<div class="btn-rsvp-sub">Approved attendees receive multi-day access</div>
+</div>
+<div class="sidebar-bottom">
+<div class="sidebar-bottom-label">Tags</div>
+<div class="tag-row">
+<span class="tag">NY Tech Week</span><span class="tag">Yorkseed House</span><span class="tag">Belong NYC</span><span class="tag">Founders</span><span class="tag">Investors</span><span class="tag">SoHo</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<footer style="background:var(--ink2);padding:28px 6vw 20px;border-top:1px solid rgba(255,255,255,.05);">
+<div style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px 14px;">
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-links">
-    <a href="https://app.yorkseed.co/login">Sign in</a>
-    <span class="footer-sep">·</span>
-    <a href="/connect.html">Connect</a>
-    <span class="footer-sep">·</span>
-    <a href="/events.html">Events</a>
-    <span class="footer-sep">·</span>
-    <a href="/hubs.html">Hubs</a>
-    <span class="footer-sep">·</span>
-    <a href="/capital.html">Capital</a>
-    <span class="footer-sep">·</span>
-    <a href="https://yorkseedsummit.com">Summit</a>
-    <span class="footer-sep">·</span>
-    <a href="https://nytw.yorkseed.co">NYTW Guide</a>
-    <span class="footer-sep">·</span>
-    <a href="/contact.html">Contact</a>
+```
+<a href="https://app.yorkseed.co/login" onmouseout="this.style.color='rgba(255,255,255,.45)'" onmouseover="this.style.color='#fff'" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;">Platform</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/about.html" onmouseout="this.style.color='rgba(255,255,255,.45)'" onmouseover="this.style.color='#fff'" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;">About</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/hubs.html" onmouseout="this.style.color='rgba(255,255,255,.45)'" onmouseover="this.style.color='#fff'" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;">Global Hubs</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/tools.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;">Free Tools</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/events.html" onmouseout="this.style.color='rgba(255,255,255,.45)'" onmouseover="this.style.color='#fff'" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;">Events</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/partners.html" onmouseout="this.style.color='rgba(255,255,255,.45)'" onmouseover="this.style.color='#fff'" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;">Partners</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/speaker-intake.html" onmouseout="this.style.color='rgba(255,255,255,.45)'" onmouseover="this.style.color='#fff'" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;">Speak</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/press.html" onmouseout="this.style.color='rgba(255,255,255,.45)'" onmouseover="this.style.color='#fff'" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;">Press</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://yorkseedventures.com" onmouseout="this.style.color='rgba(255,255,255,.45)'" onmouseover="this.style.color='#fff'" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;">Ventures</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://yorkseedsummit.com" onmouseout="this.style.color='rgba(255,255,255,.45)'" onmouseover="this.style.color='#fff'" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;">Summit</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://thevalois.com" onmouseout="this.style.color='rgba(184,151,106,0.7)'" onmouseover="this.style.color='rgba(184,151,106,1)'" rel="noopener noreferrer" style="font-size:11px;color:rgba(184,151,106,0.7);text-decoration:none;transition:color .15s;" target="_blank">Valois</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://luma.com/yorkseed" onmouseout="this.style.color='rgba(255,255,255,.45)'" onmouseover="this.style.color='#fff'" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;">Events</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://pulse.yorkseed.co" onmouseout="this.style.color='rgba(255,255,255,.45)'" onmouseover="this.style.color='#fff'" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;">Newsletter</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/contact.html" onmouseout="this.style.color='rgba(255,255,255,.45)'" onmouseover="this.style.color='#fff'" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;">Contact</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="mailto:info@yorkseed.co" onmouseout="this.style.color='rgba(255,255,255,.45)'" onmouseover="this.style.color='#fff'" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;">Email us</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://yorkseed.co" onmouseout="this.style.color='rgba(255,255,255,.45)'" onmouseover="this.style.color='#fff'" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;">yorkseed.co</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://x.com/yorkseed" onmouseout="this.style.color='rgba(255,255,255,.45)'" onmouseover="this.style.color='#fff'" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;">Twitter</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://instagram.com/yorkseed" onmouseout="this.style.color='rgba(255,255,255,.45)'" onmouseover="this.style.color='#fff'" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;">Instagram</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://linkedin.com/company/yorkseed" onmouseout="this.style.color='rgba(255,255,255,.45)'" onmouseover="this.style.color='#fff'" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;">LinkedIn</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://facebook.com/profile/yorkseed" onmouseout="this.style.color='rgba(255,255,255,.45)'" onmouseover="this.style.color='#fff'" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;">Facebook</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://www.crunchbase.com/organization/yorkseed" onmouseout="this.style.color='rgba(255,255,255,.45)'" onmouseover="this.style.color='#fff'" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;">Crunchbase</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://whatsapp.com/channel/0029Vaf0wiU3wtbBcxTEFD0h" onmouseout="this.style.color='rgba(255,255,255,.45)'" onmouseover="this.style.color='#fff'" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;">WhatsApp</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://shop.yorkseed.co" onmouseout="this.style.color='rgba(255,255,255,.45)'" onmouseover="this.style.color='#fff'" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;">Shop</a>
+```
+
   </div>
-  <div class="footer-copy">© 2026 Yorkseed™ · The Venture Infrastructure Platform · Network est. 2023</div>
-</footer>
-
-</body>
+<div style="text-align:center;margin-top:8px;margin-bottom:6px;">
+<img alt="Yorkseed" src="https://s6.imgcdn.dev/YfqM8w.png" style="height:36px;width:auto;display:inline-block;"/>
+</div>
+<div style="width:100%;text-align:center;font-family:var(--mono,'DM Mono',monospace);font-size:9px;color:rgba(255,255,255,.25);margin-top:0;letter-spacing:.06em;text-transform:uppercase;">© 2026 Yorkseed™ · The Venture Infrastructure Platform · Network est. 2023 · Platform launched 2026 · All rights reserved</div>
+</footer><div class="m-tab-bar">
+<div class="m-tab-bar-inner">
+<a class="m-tab" href="/"><svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 20 20" width="20"><path d="M3 9.5L10 3l7 6.5V17a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"></path></svg>Home</a>
+<a class="m-tab active" href="/events.html"><svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 20 20" width="20"><rect height="14" rx="2" width="14" x="3" y="4"></rect><path d="M7 2v4M13 2v4M3 10h14"></path></svg>Events</a>
+<div class="m-tab-join"><a href="https://app.yorkseed.co/pricing">Join</a></div>
+<a class="m-tab" href="/hubs.html"><svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 20 20" width="20"><circle cx="10" cy="9" r="3"></circle><path d="M10 2C6.686 2 4 4.686 4 8c0 5 6 10 6 10s6-5 6-10c0-3.314-2.686-6-6-6z"></path></svg>Hubs</a>
+<a class="m-tab" href="/tools.html"><svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24" width="20"><rect height="20" rx="2" width="16" x="4" y="2"></rect><line x1="8" x2="16" y1="6" y2="6"></line><line x1="8" x2="16" y1="10" y2="10"></line><line x1="8" x2="12" y1="14" y2="14"></line></svg>Tools</a>
+</div>
+</div><script>
+function toggleDrop(){const d=document.getElementById('ecosDrop');d.classList.toggle('open');document.removeEventListener('click',closeOnOutside);setTimeout(()=>document.addEventListener('click',closeOnOutside),10)}
+function closeOnOutside(e){if(!document.getElementById('ecosDrop').contains(e.target)){document.getElementById('ecosDrop').classList.remove('open');document.removeEventListener('click',closeOnOutside)}}
+function toggleDrawer(){document.getElementById('navDrawer').classList.toggle('open');document.getElementById('hamBtn').classList.toggle('open')}
+</script></body>
 </html>
