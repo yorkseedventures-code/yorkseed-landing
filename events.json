@@ -1,6 +1,26 @@
 {
   "upcoming": [
     {
+      "slug": "yorkseed-house-nytechweek-2026",
+      "featured": true,
+      "type": "house",
+      "title": "Yorkseed House | NY Tech Week Pop-Up at Belong NYC",
+      "city": "New York",
+      "country": "USA",
+      "location": "SoHo, New York",
+      "venue": "Belong NYC · 218 Lafayette St, 2nd Floor, SoHo",
+      "date": "Jun 1–7, 2026 · NY Tech Week / Latino Tech Week",
+      "dateISO": "2026-06-01",
+      "dateEnd": "2026-06-07",
+      "format": "Yorkseed House · Multi-Day Pop-Up · In-Person",
+      "spots": "Application required · $10 contribution at door",
+      "description": "Yorkseed House returns during NY Tech Week / Latino Tech Week with a curated multi-day pop-up inside Belong NYC in SoHo. A hybrid venture lounge, hospitality hub, and founder meeting space — hosting founder & investor gatherings, venture salons, ecosystem mixers, coworking hours, fireside chats, and evening social experiences throughout the week.",
+      "lumaUrl": "https://luma.com/8upa02np",
+      "coverGradient": "linear-gradient(135deg,#0e0b07 0%,#1c1409 40%,#2a1e0d 100%)",
+      "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/rx/64b48c44-2c5a-4f69-bf13-8fd64790f702.png",
+      "partners": ["Belong NYC", "Flow State", "Elevate"]
+    },
+    {
       "slug": "paris-spring-social-2026",
       "featured": false,
       "type": "passport",
@@ -186,6 +206,13 @@
         {
           "label": "New York Tech Week",
           "events": [
+            {
+              "type": "house",
+              "title": "Yorkseed House | NY Tech Week Pop-Up at Belong NYC",
+              "location": "SoHo, New York, USA",
+              "date": "Jun 1–7",
+              "lumaUrl": "https://luma.com/8upa02np"
+            },
             {
               "type": "passport",
               "title": "Web3 Connect Social Hour",
