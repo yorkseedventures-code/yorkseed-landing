@@ -352,6 +352,46 @@ footer{background:var(--ink2);padding:28px 6vw 20px;border-top:1px solid rgba(25
   .hs:nth-child(even){border-right:none}
   .hs:nth-last-child(-n+2){border-bottom:none}
 }
+
+/* ── FOOTER MOBILE ── */
+@media(max-width:600px){
+  footer{padding:24px 5vw 20px!important}
+  footer .footer-quick-links{
+    display:grid!important;
+    grid-template-columns:1fr 1fr!important;
+    gap:8px!important;
+    margin-bottom:16px!important;
+    padding-bottom:16px!important;
+    width:100%!important;
+    box-sizing:border-box!important;
+  }
+  footer .footer-quick-links span:first-child{
+    grid-column:1/-1!important;
+    text-align:center!important;
+  }
+  footer .footer-quick-links a{
+    font-size:12px!important;
+    padding:10px 12px!important;
+    min-height:44px!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    text-align:center!important;
+    background:rgba(255,255,255,.05)!important;
+    border-radius:6px!important;
+    border:1px solid rgba(255,255,255,.08)!important;
+    font-weight:500!important;
+    color:rgba(255,255,255,.7)!important;
+    box-sizing:border-box!important;
+  }
+  footer .footer-nav-links{
+    gap:6px 8px!important;
+    font-size:10px!important;
+  }
+  footer .footer-nav-links a{
+    font-size:10px!important;
+  }
+}
 </style>
 </head>
 <body>
@@ -805,6 +845,15 @@ footer{background:var(--ink2);padding:28px 6vw 20px;border-top:1px solid rgba(25
 
 <!-- FOOTER -->
 <footer>
+  <div class="footer-quick-links" style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px 20px;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.07);">
+    <span style="font-size:9px;color:rgba(255,255,255,.25);text-transform:uppercase;letter-spacing:.08em;font-family:var(--mono,'DM Mono',monospace);white-space:nowrap;">Quick Links</span>
+    <a href="/pitch-intake.html" style="font-size:11px;color:rgba(255,255,255,.6);text-decoration:none;transition:color .15s;font-weight:500;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">🚀 Pitch to Investors</a>
+    <a href="/speaker-intake.html" style="font-size:11px;color:rgba(255,255,255,.6);text-decoration:none;transition:color .15s;font-weight:500;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">🎤 Speak at an Event</a>
+    <a href="https://app.yorkseed.co/login" style="font-size:11px;color:rgba(255,255,255,.6);text-decoration:none;transition:color .15s;font-weight:500;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">🔑 Join the Platform</a>
+    <a href="/events.html" style="font-size:11px;color:rgba(255,255,255,.6);text-decoration:none;transition:color .15s;font-weight:500;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">📅 Upcoming Events</a>
+    <a href="/partners.html" style="font-size:11px;color:rgba(255,255,255,.6);text-decoration:none;transition:color .15s;font-weight:500;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">🤝 Partner with Us</a>
+    <a href="/contact.html" style="font-size:11px;color:rgba(255,255,255,.6);text-decoration:none;transition:color .15s;font-weight:500;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">✉️ Get in Touch</a>
+  </div>
   <div style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px 12px;">
     <a href="/" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;">Home</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span>
     <a href="/about.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;">About</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span>
@@ -814,6 +863,8 @@ footer{background:var(--ink2);padding:28px 6vw 20px;border-top:1px solid rgba(25
     <a href="/tools.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;">Free Tools</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span>
     <a href="/press.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;">Press</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span>
     <a href="/contact.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;">Contact</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span>
+    <a href="/speaker-intake.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;">Speak</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span>
+    <a href="/pitch-intake.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;">Pitch</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span>
     <a href="https://thevalois.com" target="_blank" rel="noopener noreferrer" style="font-size:11px;color:rgba(184,151,106,0.7);text-decoration:none;">Valois</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span>
     <a href="https://x.com/yorkseed" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;">Twitter</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span>
     <a href="https://linkedin.com/company/yorkseed" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;">LinkedIn</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span>
