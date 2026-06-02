@@ -93,6 +93,11 @@ h1 em{font-style:italic;color:var(--red)}
 .section-eyebrow{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:24px;display:flex;align-items:center;gap:10px}
 .section-eyebrow::before{content:'';display:block;width:16px;height:1px;background:var(--red);opacity:.5}
 
+/* Featured pair — two featured cards side by side */
+.featured-pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px}
+.featured-pair .featured-card{margin-bottom:0}
+@media(max-width:900px){.featured-pair{grid-template-columns:1fr}}
+
 /* Featured card — hero upcoming event */
 .featured-card{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border2);border-radius:12px;overflow:hidden;margin-bottom:28px;background:var(--white);transition:box-shadow .2s}
 .featured-card:hover{box-shadow:0 6px 32px rgba(0,0,0,.08)}
@@ -653,7 +658,7 @@ function renderFeatured(ev){
       <div class="featured-card-img"${bgStyle ? ` style="${bgStyle}"` : ''}>
         <div class="featured-img-city">${ev.city||''}</div>
         <div style="position:relative;z-index:1">
-          <div class="featured-img-badge">&#9679; Next up</div>
+          <div class="featured-img-badge">&#9679; ${(function(){var now=new Date(),start=new Date(ev.dateISO),end=new Date(ev.dateISO);end.setDate(end.getDate()+6);return now>=start&&now<=end?'Live Now':'Next up'})()}</div>
           <div class="featured-img-title">${ev.title}</div>
         </div>
       </div>
@@ -792,15 +797,22 @@ async function init(){
     const stillUpcoming=allUpcoming.filter(e=>!isPast(e));
     const autoArchived=allUpcoming.filter(e=>isPast(e));
 
-    // Auto-sort by dateISO, earliest is always featured
+    // Sort: featured:true first, then by dateISO
     stillUpcoming.sort((a,b)=>{
+      if(a.featured && !b.featured) return -1;
+      if(!a.featured && b.featured) return 1;
       if(!a.dateISO) return 1;
       if(!b.dateISO) return -1;
       return new Date(a.dateISO)-new Date(b.dateISO);
     });
-    const featured=stillUpcoming[0]||null;
-    const rest=stillUpcoming.slice(1);
-    if(featured) document.getElementById('featuredContainer').innerHTML=renderFeatured(featured);
+    const featuredList=stillUpcoming.slice(0,2);
+    const rest=stillUpcoming.slice(2);
+    if(featuredList.length){
+      const wrap=featuredList.length>1
+        ?`<div class="featured-pair">${featuredList.map(renderFeatured).join('')}</div>`
+        :renderFeatured(featuredList[0]);
+      document.getElementById('featuredContainer').innerHTML=wrap;
+    }
     if(rest.length) document.getElementById('upcomingGrid').innerHTML=rest.map(renderUpcomingCard).join('');
 
     // Merge auto-archived events into the archive data under the correct year
