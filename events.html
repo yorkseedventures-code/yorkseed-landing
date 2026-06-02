@@ -93,10 +93,9 @@ h1 em{font-style:italic;color:var(--red)}
 .section-eyebrow{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:24px;display:flex;align-items:center;gap:10px}
 .section-eyebrow::before{content:'';display:block;width:16px;height:1px;background:var(--red);opacity:.5}
 
-/* Featured pair — two featured cards side by side */
-.featured-pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px}
-.featured-pair .featured-card{margin-bottom:0}
-@media(max-width:900px){.featured-pair{grid-template-columns:1fr}}
+/* Featured pair — two featured cards stacked vertically */
+.featured-pair{display:flex;flex-direction:column;gap:0}
+.featured-pair .featured-card{margin-bottom:28px}
 
 /* Featured card — hero upcoming event */
 .featured-card{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border2);border-radius:12px;overflow:hidden;margin-bottom:28px;background:var(--white);transition:box-shadow .2s}
