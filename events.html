@@ -657,7 +657,7 @@ function renderFeatured(ev){
       <div class="featured-card-img"${bgStyle ? ` style="${bgStyle}"` : ''}>
         <div class="featured-img-city">${ev.city||''}</div>
         <div style="position:relative;z-index:1">
-          <div class="featured-img-badge">&#9679; ${(function(){var now=new Date(),start=new Date(ev.dateISO),end=new Date(ev.dateISO);end.setDate(end.getDate()+6);return now>=start&&now<=end?'Live Now':'Next up'})()}</div>
+          <div class="featured-img-badge">&#9679; ${(function(){var now=new Date();return now>=getStartTime(ev)&&now<=getEndTime(ev)?'Live Now':'Next up'})()}</div>
           <div class="featured-img-title">${ev.title}</div>
         </div>
       </div>
@@ -777,12 +777,60 @@ document.addEventListener('keydown', e => {
 });
 
 // ─── INIT ─────────────────────────────────────────────────────────────────────
+// Parse start and end times from strings like "1:00–4:00 PM EDT" or "4:30–6:00 PM"
+// Correctly handles en-dash between times where only the end has explicit AM/PM.
+function parseTimes(ev){
+  var base = ev.dateISO||'';
+  if(!base) return {start:new Date(0), end:new Date(0)};
+  var s = ev.date||'';
+  var mkD = function(h,m){ return new Date(base+'T'+String(h).padStart(2,'0')+':'+String(m).padStart(2,'0')+':00-04:00'); };
+
+  // Range: "H:MM–H:MM AM/PM" (en-dash or hyphen)
+  var range = s.match(/(\d{1,2}:\d{2})[\u2013\-](\d{1,2}:\d{2})\s*(AM|PM)/i);
+  if(range){
+    var ampm = range[3].toUpperCase();
+    var eh = parseInt(range[2]), em = parseInt(range[2].split(':')[1]);
+    if(ampm==='PM' && eh!==12) eh+=12;
+    if(ampm==='AM' && eh===12) eh=0;
+    var sh = parseInt(range[1]), sm = parseInt(range[1].split(':')[1]);
+    // If start raw hour > end raw hour, start is AM (e.g. 10:00–1:00 PM)
+    var sAMPM = (ampm==='PM' && parseInt(range[1]) > parseInt(range[2])) ? 'AM' : ampm;
+    if(sAMPM==='PM' && sh!==12) sh+=12;
+    if(sAMPM==='AM' && sh===12) sh=0;
+    return {start: mkD(sh,sm), end: mkD(eh,em)};
+  }
+
+  // Single time
+  var single = s.match(/(\d{1,2}:\d{2})\s*(AM|PM)/i);
+  if(single){
+    var sh = parseInt(single[1]), sm = parseInt(single[1].split(':')[1]);
+    if(single[2].toUpperCase()==='PM' && sh!==12) sh+=12;
+    if(single[2].toUpperCase()==='AM' && sh===12) sh=0;
+    var start = mkD(sh,sm);
+    return {start: start, end: new Date(start.getTime()+2*3600000)};
+  }
+
+  return {start: new Date(base+'T00:00:00-04:00'), end: new Date(base+'T23:59:00-04:00')};
+}
+
+function getStartTime(ev){ return parseTimes(ev).start; }
+
+function getEndTime(ev){
+  var s = ev.date||'';
+  var base = ev.dateISO||'';
+  // Multi-day: "Jun 1–7, 2026" → end on day 7 at 23:59
+  var md = s.match(/[A-Za-z]+\s+\d+[\u2013\-](\d+)/);
+  if(md){
+    var endDay = md[1].padStart(2,'0');
+    return new Date(base.slice(0,4)+'-'+base.slice(5,7)+'-'+endDay+'T23:59:00-04:00');
+  }
+  return parseTimes(ev).end;
+}
+
+
 function isPast(ev){
   if(!ev.dateISO) return false;
-  // Compare date only (ignore time) so event stays visible on the day itself
-  const today = new Date();
-  today.setHours(0,0,0,0);
-  return new Date(ev.dateISO) < today;
+  return getEndTime(ev) < new Date();
 }
 
 async function init(){
@@ -791,19 +839,16 @@ async function init(){
     if(!res.ok) throw new Error('fetch failed');
     const data=await res.json();
 
-    // Split upcoming into still-future and now-past
     const allUpcoming=data.upcoming||[];
     const stillUpcoming=allUpcoming.filter(e=>!isPast(e));
     const autoArchived=allUpcoming.filter(e=>isPast(e));
 
-    // Sort: featured:true first, then by dateISO
+    // Sort purely by start time, earliest first
     stillUpcoming.sort((a,b)=>{
-      if(a.featured && !b.featured) return -1;
-      if(!a.featured && b.featured) return 1;
-      if(!a.dateISO) return 1;
-      if(!b.dateISO) return -1;
-      return new Date(a.dateISO)-new Date(b.dateISO);
+      return getStartTime(a) - getStartTime(b);
     });
+
+    // Top 2 become featured (next up / live now)
     const featuredList=stillUpcoming.slice(0,2);
     const rest=stillUpcoming.slice(2);
     if(featuredList.length){
