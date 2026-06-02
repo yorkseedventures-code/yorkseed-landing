@@ -857,9 +857,9 @@ async function init(){
     const multiDay = stillUpcoming.filter(isMultiDay);
     const singleDay = stillUpcoming.filter(e => !isMultiDay(e));
 
-    var featuredList = [];
-    if(multiDay.length) featuredList.push(multiDay[0]);          // slot 1: ongoing hub
-    if(singleDay.length) featuredList.push(singleDay[0]);        // slot 2: next upcoming event
+    // Only 1 featured: the multi-day hub (e.g. Yorkseed House)
+    // Everything else goes in the grid, sorted by start time
+    var featuredList = multiDay.length ? [multiDay[0]] : (singleDay.length ? [singleDay[0]] : []);
     const usedSlugs = new Set(featuredList.map(e=>e.slug));
     const rest = stillUpcoming.filter(e => !usedSlugs.has(e.slug));
     if(featuredList.length){
