@@ -848,9 +848,20 @@ async function init(){
       return getStartTime(a) - getStartTime(b);
     });
 
-    // Top 2 become featured (next up / live now)
-    const featuredList=stillUpcoming.slice(0,2);
-    const rest=stillUpcoming.slice(2);
+    // Multi-day events (span more than 1 day) are pinned to slot 1.
+    // Slot 2 is always the next single event (soonest non-multi-day).
+    function isMultiDay(ev){
+      var s = ev.date||'';
+      return /[A-Za-z]+\s+\d+[\u2013\-]\d+/.test(s);
+    }
+    const multiDay = stillUpcoming.filter(isMultiDay);
+    const singleDay = stillUpcoming.filter(e => !isMultiDay(e));
+
+    var featuredList = [];
+    if(multiDay.length) featuredList.push(multiDay[0]);          // slot 1: ongoing hub
+    if(singleDay.length) featuredList.push(singleDay[0]);        // slot 2: next upcoming event
+    const usedSlugs = new Set(featuredList.map(e=>e.slug));
+    const rest = stillUpcoming.filter(e => !usedSlugs.has(e.slug));
     if(featuredList.length){
       const wrap=featuredList.length>1
         ?`<div class="featured-pair">${featuredList.map(renderFeatured).join('')}</div>`
