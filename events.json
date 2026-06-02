@@ -267,6 +267,20 @@
       "lumaUrl": "https://luma.com/njs0vitk",
       "coverGradient": "linear-gradient(135deg,#0f0d09 0%,#1a160c 40%,#211d10 100%)",
       "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/event-covers/qs/499f01a0-3366-4a00-a65e-2435c6472195.png"
+    },
+    {
+      "slug": "panel-future-of-work-nytechweek-2026",
+      "type": "passport",
+      "title": "Panel: Future of Work · #NYTechWeek",
+      "city": "New York",
+      "location": "New York, NY",
+      "date": "Thu, Jun 4, 2026 · 3:30–6:00 PM EDT",
+      "dateISO": "2026-06-04",
+      "format": "Yorkseed · Co-host · Panel + Networking",
+      "spots": "Open registration",
+      "description": "Whether you're a founder or corporate leader, the future of work is a race to redefine the human element through scalable technology. Three distinct lenses — an organizational scientist, an enterprise operator, and a venture investor — map out a blueprint for team growth and resilience from deal flow to scale. Featuring Jenny Liu (Crush It Ventures), Dr. Josh Elmore (Court Street Consulting), Fred Leong (CPO, dv01). Presented by All Good HR. Powered by Granada Funds, Fulcrum Digital, and Founders Foundry. Co-hosted by Yorkseed.",
+      "lumaUrl": "https://partiful.com/e/YWT86xyuJHDUCFW97AsN",
+      "coverGradient": "linear-gradient(135deg,#0a0a12 0%,#0f1118 40%,#13151e 100%)"
     }
   ],
   "archive": [
