@@ -363,6 +363,17 @@
               "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/0f/189756b6-0922-458a-8eed-7ca45075a066.png",
               "description": "The fifth annual NY Tech Week Closing Yacht Party. 1,000+ attendees, DJs, drinks, and rooftop views of the Manhattan skyline. Hosted by The Neo Club & Tavern Community \u2014 Yorkseed is a community partner.",
               "venue": "Pier 83, W 42nd St & 12th Ave, New York"
+            },
+            {
+              "type": "community",
+              "title": "Robotics Competitions \u00b7 ARCLeague Season Zero",
+              "location": "SHiFT Midtown, New York",
+              "date": "Sat, Jun 6, 2026 \u00b7 7:00\u201310:00 PM EDT",
+              "lumaUrl": "https://luma.com/vh2url2d",
+              "linkLabel": "View \u2192",
+              "slug": "arcleague-robotics-nytechweek-2026",
+              "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/event-covers/q0/7dba2d58-d86b-4b7d-a9e4-5f8b17e3c4a1.png",
+              "description": "The world's first full-body controlled robot fighting event. Participants wear armor suits and control competition robots through their own physical movements. ARCLeague Season Zero \u2014 a new category of sport at the intersection of robotics, gaming, and physical performance."
             }
           ]
         }
