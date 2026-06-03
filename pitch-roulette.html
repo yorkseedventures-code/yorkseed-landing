@@ -358,7 +358,7 @@ function renderSlots(){
     var st=full?'Full':locked?'Closed':rem+' spot'+(rem!==1?'s':'')+' left';
     var tag=full?'<span class="ctag ctag-f">Full</span>':locked?'<span class="ctag ctag-c">Closed</span>':'';
     var cls='cbtn'+(sel?' sel':'')+(dis?' dis':'');
-    var click=!dis?' onclick="pickSlot(''+s+'')"':'';
+    var click=!dis?' onclick="pickSlot(\''+s+'\')"':'';
     return '<div class="'+cls+'"'+click+'>'+tag+'<div class="cbtn-t">'+t+'</div><div class="cbtn-s">'+sb+'</div><div class="cbtn-sp '+sc+'">'+st+'</div></div>';
   }
   G('slot-btns').innerHTML=mk('a',ca,ma,'2:30 – 3:00','Afternoon')+mk('b',cb,mb,'3:30 – 4:00','Late Afternoon');
@@ -399,7 +399,7 @@ function qRows(rm){
     arr.forEach(function(x){
       var p=x.p,i=x.i;
       var pill='<span class="pill '+(p.type==='i'?'pill-i':'pill-f')+'">'+(p.type==='i'?'Investor':'Founder')+'</span>';
-      var del=rm?'<button class="rm" onclick="delP(''+p.id+'')">×</button>':'';
+      var del=rm?'<button class="rm" onclick="delP(\''+p.id+'\')">×</button>':'';
       h+='<div class="pi"><div class="pi-n">#'+(i+1)+'</div><div class="pi-info"><div class="pi-name">'+esc(p.name)+'</div><div class="pi-co">'+esc(p.co)+'</div></div>'+pill+del+'</div>';
     });
   });
