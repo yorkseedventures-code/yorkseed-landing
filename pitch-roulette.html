@@ -288,7 +288,8 @@
 #pr-app .wb-s { font-size: 13px; font-family: var(--mono); color: var(--gold); display: block; }
 
 /* ── PASSCODE ── */
-#pr-app .po { position: fixed; inset: 0; background: rgba(0,0,0,.55); display: flex !important; align-items: center; justify-content: center; z-index: 9999; }
+#pr-app .po { display: none !important; position: fixed; inset: 0; background: rgba(0,0,0,.55); align-items: center; justify-content: center; z-index: 9999; }
+#pr-app .po.open { display: flex !important; }
 #pr-app .pb { background: #fff; border-radius: 16px; padding: 28px 24px; width: 290px; text-align: center; display: block; }
 #pr-app .pb-t { font-size: 15px; font-weight: 500; margin-bottom: 4px; display: block; }
 #pr-app .pb-s { font-size: 12px; color: var(--ink4); font-family: var(--mono); margin-bottom: 16px; display: block; }
@@ -319,14 +320,14 @@
   </div>
 </div>
 
-<div class="po" id="po" style="display:none">
+<div class="po" id="po">
   <div class="pb">
     <div class="pb-t">Host Access</div>
     <div class="pb-s">Enter passcode</div>
     <input type="password" id="pc" placeholder="••••••••" style="text-align:center;letter-spacing:.1em;font-size:16px;margin-bottom:8px">
     <div class="pb-e" id="pc-err"></div>
     <button class="btn btn-dark" onclick="checkPC()" style="margin-bottom:8px">Unlock →</button>
-    <button class="btn" onclick="document.getElementById('po').style.display='none'">Cancel</button>
+    <button class="btn" onclick="document.getElementById('po').classList.remove('open')">Cancel</button>
   </div>
 </div>
 
@@ -629,8 +630,8 @@ function addN(msg){notifs.unshift({msg:msg,time:new Date().toLocaleTimeString([]
   G('nf').innerHTML=notifs.slice(0,20).map(function(n){return '<div class="ni"><div class="ni-dot"></div><div class="ni-txt">'+n.msg+'</div><div class="ni-t">'+n.time+'</div></div>';}).join('');
 }
 
-function tryHost(){if(hUnlocked){exitHost();return;}G('po').style.display='flex';G('pc').value='';G('pc-err').textContent='';setTimeout(function(){G('pc').focus();},100);}
-function checkPC(){if(G('pc').value.trim().toLowerCase()===PC){hUnlocked=true;G('po').style.display='none';enterHost();}else{G('pc-err').textContent='Wrong passcode';G('pc').value='';G('pc').focus();}}
+function tryHost(){if(hUnlocked){exitHost();return;}G('po').classList.add('open');G('pc').value='';G('pc-err').textContent='';setTimeout(function(){G('pc').focus();},100);}
+function checkPC(){if(G('pc').value.trim().toLowerCase()===PC){hUnlocked=true;G('po').classList.remove('open');enterHost();}else{G('pc-err').textContent='Wrong passcode';G('pc').value='';G('pc').focus();}}
 function enterHost(){G('hbtn').textContent='← Back';G('v-aud').classList.remove('on');G('v-host').classList.add('on');}
 function exitHost(){hUnlocked=false;G('hbtn').textContent='Host View';G('v-host').classList.remove('on');G('v-aud').classList.add('on');}
 
