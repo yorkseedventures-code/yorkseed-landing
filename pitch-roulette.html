@@ -367,8 +367,6 @@
             <div class="cbtn" id="tf" onclick="selType('f')"><div class="cbtn-t">Founder</div><div class="cbtn-s">Company</div></div>
             <div class="cbtn" id="ti" onclick="selType('i')"><div class="cbtn-t">Investor</div><div class="cbtn-s">Fund</div></div>
           </div>
-          <label class="flbl" style="margin-bottom:8px">Time Slot</label>
-          <div class="g2" id="slot-btns"></div>
           <button class="btn btn-red" id="reg-btn" onclick="doReg()">Add Me to the List →</button>
           <div class="st" id="reg-st"></div>
         </div>
@@ -416,22 +414,15 @@
         <div><div class="trow-t">Sign-ups Open</div><div class="trow-s" id="sig-s">People can register to pitch</div></div>
         <label class="tsw"><input type="checkbox" id="tog" checked onchange="saveSig()"/><span class="tsl"></span></label>
       </div>
-      <div class="sc"><div class="sc-top"><div class="sc-nm">2:30 – 3:00 PM</div><div class="sc-ct" id="cnt-a">—</div></div>
+      <div class="sc" style="margin-bottom:0"><div class="sc-top"><div class="sc-nm">Pitcher Slots</div><div class="sc-ct" id="cnt-a">—</div></div>
         <div class="sc-row"><label class="flbl" style="margin-bottom:0;white-space:nowrap">Max:</label>
           <input type="number" id="max-a" min="1" max="30" value="5" style="width:65px;text-align:center;font-size:16px;padding:7px"/>
           <button class="btn btn-dark btn-sm" onclick="saveMax('a')">Save</button></div>
         <div class="sbar"><div class="sbar-f" id="bar-a" style="width:0;background:#1a8a5a"></div></div>
       </div>
-      <div class="sc" style="margin-bottom:0"><div class="sc-top"><div class="sc-nm">3:30 – 4:00 PM</div><div class="sc-ct" id="cnt-b">—</div></div>
-        <div class="sc-row"><label class="flbl" style="margin-bottom:0;white-space:nowrap">Max:</label>
-          <input type="number" id="max-b" min="1" max="30" value="5" style="width:65px;text-align:center;font-size:16px;padding:7px"/>
-          <button class="btn btn-dark btn-sm" onclick="saveMax('b')">Save</button></div>
-        <div class="sbar"><div class="sbar-f" id="bar-b" style="width:0;background:#1a8a5a"></div></div>
-      </div>
     </div>
-    <div class="hcg">
-      <div class="hcc"><div class="hcc-l">2:30 PM</div><div class="hcc-v cv-g" id="st-a">—</div><div class="hcc-s" id="st-as">—</div></div>
-      <div class="hcc"><div class="hcc-l">3:30 PM</div><div class="hcc-v cv-g" id="st-b">—</div><div class="hcc-s" id="st-bs">—</div></div>
+    <div class="hcg" style="grid-template-columns:1fr">
+      <div class="hcc"><div class="hcc-l">Pitchers</div><div class="hcc-v cv-g" id="st-a">—</div><div class="hcc-s" id="st-as">—</div></div>
     </div>
     <div class="hp">
       <div class="hph"><div class="hph-t">Live Activity</div><div class="nc" id="n-cnt">0</div><div style="font-size:10px;font-family:var(--mono);color:#ccc;margin-left:auto" id="ls">Syncing...</div></div>
@@ -452,10 +443,9 @@
 var BASE='appqNjrGaE5HPWUzh',TOKEN='patytuGqTdoZJG3EH.a8dda7fb1881fd0cc1780b4c34eaaa60746dfdbeabdcaed8ba108f6f95779931';
 var API='https://api.airtable.com/v0/'+BASE+'/';
 var PC='cappucino';
-var SLOTS={a:{l:'2:30 – 3:00 PM',s:'2:30–3pm'},b:{l:'3:30 – 4:00 PM',s:'3:30–4pm'}};
-var sSlot=null,sType=null,hUnlocked=false;
+var sType=null,hUnlocked=false;
 var pitchers=[],notifs=[],seen=new Set();
-var cfg={open:true,mA:5,mB:5,rSig:null,rA:null,rB:null};
+var cfg={open:true,mA:5,rSig:null,rA:null};
 
 var G=function(id){return document.getElementById(id);};
 function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
@@ -467,44 +457,31 @@ async function loadCfg(){
     d.records.forEach(function(r){var k=r.fields.Key,v=r.fields.Value;
       if(k==='signupsOpen'){cfg.open=v==='true';cfg.rSig=r.id;}
       if(k==='maxA'){cfg.mA=parseInt(v)||5;cfg.rA=r.id;}
-      if(k==='maxB'){cfg.mB=parseInt(v)||5;cfg.rB=r.id;}
     });
     if(!cfg.rSig)api('Config',{method:'POST',body:JSON.stringify({records:[{fields:{Key:'signupsOpen',Value:'true'}}]})}).then(function(r){cfg.rSig=r.records[0].id;});
     if(!cfg.rA)api('Config',{method:'POST',body:JSON.stringify({records:[{fields:{Key:'maxA',Value:'5'}}]})}).then(function(r){cfg.rA=r.records[0].id;});
-    if(!cfg.rB)api('Config',{method:'POST',body:JSON.stringify({records:[{fields:{Key:'maxB',Value:'5'}}]})}).then(function(r){cfg.rB=r.records[0].id;});
   }catch(e){console.error(e);}
 }
 async function pCfg(id,v){try{await api('Config/'+id,{method:'PATCH',body:JSON.stringify({fields:{Value:v}})});}catch(e){console.error(e);}}
 async function saveSig(){cfg.open=G('tog').checked;renderSigState();if(cfg.rSig)await pCfg(cfg.rSig,cfg.open?'true':'false');}
-async function saveMax(s){var inp=G('max-'+s);var v=Math.max(1,Math.min(30,parseInt(inp.value)||5));inp.value=v;if(s==='a'){cfg.mA=v;if(cfg.rA)await pCfg(cfg.rA,String(v));}else{cfg.mB=v;if(cfg.rB)await pCfg(cfg.rB,String(v));}renderSlots();renderStats();}
+async function saveMax(s){var inp=G('max-'+s);var v=Math.max(1,Math.min(30,parseInt(inp.value)||5));inp.value=v;cfg.mA=v;if(cfg.rA)await pCfg(cfg.rA,String(v));renderSlots();renderStats();}
 
 async function loadP(){
   try{var d=await api('Pitchers?sort%5B0%5D%5Bfield%5D=Name');
-    pitchers=d.records.map(function(r){return{id:r.id,name:r.fields.Name||'',co:r.fields.Company||'',type:r.fields.Type||'f',slot:r.fields.Slot||'a'};});
+    pitchers=d.records.map(function(r){return{id:r.id,name:r.fields.Name||'',co:r.fields.Company||'',type:r.fields.Type||'f'};});
     renderPQ();renderHQ();renderSel();renderSlots();renderStats();
   }catch(e){console.error(e);}
 }
-function cntS(s){return pitchers.filter(function(p){return(p.slot||'a')===s;}).length;}
+function cntS(){return pitchers.length;}
 
 function renderSlots(){
-  var ca=cntS('a'),cb=cntS('b'),ma=cfg.mA,mb=cfg.mB;
-  function mk(s,c,m,t,sb){
-    var full=c>=m,locked=!cfg.open,dis=full||locked;
-    var sel=sSlot===s;
-    var rem=m-c,sc=rem<=0?'sp-f':rem<=2?'sp-l':'sp-o';
-    var st=full?'Full':locked?'Closed':rem+' spot'+(rem!==1?'s':'')+' left';
-    var tag=full?'<span class="ctag ctag-f">Full</span>':locked?'<span class="ctag ctag-c">Closed</span>':'';
-    var cls='cbtn'+(sel?' sel':'')+(dis?' dis':'');
-    var click=!dis?' onclick="pickSlot(\''+s+'\')"':'';
-    return '<div class="'+cls+'"'+click+'>'+tag+'<div class="cbtn-t">'+t+'</div><div class="cbtn-s">'+sb+'</div><div class="cbtn-sp '+sc+'">'+st+'</div></div>';
-  }
-  G('slot-btns').innerHTML=mk('a',ca,ma,'2:30 – 3:00','Afternoon')+mk('b',cb,mb,'3:30 – 4:00','Late Afternoon');
+  var c=cntS(),m=cfg.mA;
+  // No slot buttons needed — slot selection removed
 }
-function pickSlot(s){sSlot=s;renderSlots();}
 function selType(t){sType=t;G('tf').classList.toggle('sel',t==='f');G('ti').classList.toggle('sel',t==='i');}
 
 function renderStats(){
-  var ca=cntS('a'),cb=cntS('b'),ma=cfg.mA,mb=cfg.mB;
+  var c=cntS(),m=cfg.mA;
   function set(vid,sid,bid,cid,c,m){
     var el=G(vid);if(!el)return;
     el.textContent=c+'/'+m;el.className='hcc-v '+(c>=m?'cv-r':c>=m-2?'cv-go':'cv-g');
@@ -513,10 +490,9 @@ function renderStats(){
     var bar=G(bid);if(bar){bar.style.width=pct+'%';bar.style.background=pct>=100?'#c8372d':pct>=80?'#b08d57':'#1a8a5a';}
     G(cid).textContent=c+'/'+m+' filled';
   }
-  set('st-a','st-as','bar-a','cnt-a',ca,ma);set('st-b','st-bs','bar-b','cnt-b',cb,mb);
-  var ia=G('max-a'),ib=G('max-b');
-  if(ia&&ia!==document.activeElement)ia.value=ma;
-  if(ib&&ib!==document.activeElement)ib.value=mb;
+  set('st-a','st-as','bar-a','cnt-a',c,m);
+  var ia=G('max-a');
+  if(ia&&ia!==document.activeElement)ia.value=m;
 }
 
 function renderSigState(){
@@ -529,30 +505,22 @@ function renderSigState(){
 }
 
 function qRows(rm){
-  var by={a:[],b:[]};pitchers.forEach(function(p,i){by[p.slot||'a'].push({p:p,i:i});});
-  var h='';['a','b'].forEach(function(s){
-    var arr=by[s];if(!arr.length)return;
-    h+='<div class="ssh">'+SLOTS[s].l+'</div>';
-    arr.forEach(function(x){
-      var p=x.p,i=x.i;
-      var pill='<span class="pill '+(p.type==='i'?'pill-i':'pill-f')+'">'+(p.type==='i'?'Investor':'Founder')+'</span>';
-      var del=rm?'<button class="rm" onclick="delP(\''+p.id+'\')">×</button>':'';
-      h+='<div class="pi"><div class="pi-n">#'+(i+1)+'</div><div class="pi-info"><div class="pi-name">'+esc(p.name)+'</div><div class="pi-co">'+esc(p.co)+'</div></div>'+pill+del+'</div>';
-    });
+  var h='';
+  if(!pitchers.length)return '<div class="ld">'+(rm?'No pitchers yet':'No pitchers yet — be the first!')+'</div>';
+  pitchers.forEach(function(p,i){
+    var pill='<span class="pill '+(p.type==='i'?'pill-i':'pill-f')+'">'+(p.type==='i'?'Investor':'Founder')+'</span>';
+    var del=rm?'<button class="rm" onclick="delP(\''+p.id+'\')">×</button>':'';
+    h+='<div class="pi"><div class="pi-n">#'+(i+1)+'</div><div class="pi-info"><div class="pi-name">'+esc(p.name)+'</div><div class="pi-co">'+esc(p.co)+'</div></div>'+pill+del+'</div>';
   });
-  return h||'<div class="ld">'+(rm?'No pitchers yet':'No pitchers yet — be the first!')+'</div>';
+  return h;
 }
 function renderPQ(){G('pub-q').innerHTML=qRows(false);}
 function renderHQ(){G('hq').innerHTML=qRows(true);}
 function renderSel(){
   var sel=G('sc-sel'),cur=sel.value;
   sel.innerHTML='<option value="">— choose pitcher —</option>';
-  ['a','b'].forEach(function(s){
-    var arr=pitchers.filter(function(p){return(p.slot||'a')===s;});if(!arr.length)return;
-    var og=document.createElement('optgroup');og.label=SLOTS[s].l;
-    arr.forEach(function(p){var i=pitchers.indexOf(p),o=document.createElement('option');o.value=p.id;o.textContent='#'+(i+1)+' '+p.name+' · '+p.co+' ('+(p.type==='i'?'Investor':'Founder')+')';og.appendChild(o);});
-    sel.appendChild(og);
-  });if(cur)sel.value=cur;
+  pitchers.forEach(function(p){var i=pitchers.indexOf(p),o=document.createElement('option');o.value=p.id;o.textContent='#'+(i+1)+' '+p.name+' · '+p.co+' ('+(p.type==='i'?'Investor':'Founder')+')';sel.appendChild(o);});
+  if(cur)sel.value=cur;
 }
 
 async function poll(){
@@ -561,10 +529,9 @@ async function poll(){
     cd.records.forEach(function(r){var k=r.fields.Key,v=r.fields.Value;
       if(k==='signupsOpen'){var was=cfg.open;cfg.open=v==='true';cfg.rSig=r.id;if(was!==cfg.open)renderSigState();}
       if(k==='maxA'){var wa=cfg.mA;cfg.mA=parseInt(v)||5;cfg.rA=r.id;if(wa!==cfg.mA){renderSlots();renderStats();}}
-      if(k==='maxB'){var wb=cfg.mB;cfg.mB=parseInt(v)||5;cfg.rB=r.id;if(wb!==cfg.mB){renderSlots();renderStats();}}
     });
     var pd=await api('Pitchers?sort%5B0%5D%5Bfield%5D=Name');
-    var np=pd.records.map(function(r){return{id:r.id,name:r.fields.Name||'',co:r.fields.Company||'',type:r.fields.Type||'f',slot:r.fields.Slot||'a'};});
+    var np=pd.records.map(function(r){return{id:r.id,name:r.fields.Name||'',co:r.fields.Company||'',type:r.fields.Type||'f'};});
     if(JSON.stringify(np.map(function(p){return p.id;}))!==JSON.stringify(pitchers.map(function(p){return p.id;}))){pitchers=np;renderPQ();renderHQ();renderSel();renderSlots();renderStats();}
     var sd=await api('Scores');
     sd.records.forEach(function(r){if(!seen.has(r.id)){seen.add(r.id);var f=r.fields;addN('<strong>'+esc(f.Scorer||'Someone')+'</strong> scored <strong>'+esc(f.PitcherName||'?')+'</strong> — '+f.Overall+' overall, '+f.Delivery+' delivery'+(f.Extra>0?', +'+f.Extra+' extra':''));}});
@@ -578,13 +545,12 @@ async function doReg(){
   if(!name){setSt('reg-st','Enter your name','err');return;}
   if(!co){setSt('reg-st','Enter your company or fund','err');return;}
   if(!sType){setSt('reg-st','Select Founder or Investor','err');return;}
-  if(!sSlot){setSt('reg-st','Choose a time slot','err');return;}
-  if(cntS(sSlot)>=(sSlot==='a'?cfg.mA:cfg.mB)){setSt('reg-st','That slot just filled up!','err');return;}
+  if(cntS()>=cfg.mA){setSt('reg-st','The list is full!','err');return;}
   var btn=G('reg-btn');btn.disabled=true;btn.textContent='Saving...';
   try{
-    await api('Pitchers',{method:'POST',body:JSON.stringify({records:[{fields:{Name:name,Company:co,Type:sType,Slot:sSlot}}]})});
+    await api('Pitchers',{method:'POST',body:JSON.stringify({records:[{fields:{Name:name,Company:co,Type:sType}}]})});
     setSt('reg-st','Registered! See you on stage 🎤','ok');
-    G('rn').value='';G('rc').value='';sSlot=null;sType=null;
+    G('rn').value='';G('rc').value='';sType=null;
     G('tf').classList.remove('sel');G('ti').classList.remove('sel');
     await loadP();
   }catch(e){setSt('reg-st','Error: '+e.message,'err');}
@@ -624,7 +590,7 @@ async function showRes(){
     res.sort(function(a,b){return b.avg-a.avg;});
     if(res.length&&res[0].votes>0){G('win-div').innerHTML='<div class="wb"><div class="wb-l">Winner</div><div class="wb-n">'+esc(res[0].p.name)+'</div><div class="wb-c">'+esc(res[0].p.co)+' · '+(res[0].p.type==='i'?'Investor':'Founder')+'</div><div class="wb-s">Avg '+res[0].avg.toFixed(1)+' pts · '+res[0].votes+' vote'+(res[0].votes>1?'s':'')+'</div></div>';}
     else{G('win-div').innerHTML='<div class="ld">No scores yet</div>';}
-    G('rl').innerHTML=res.map(function(r,i){var cls=i===0?'r1':i===1?'r2':i===2?'r3':'rn';var rr=r.reasons.length?'<div style="font-size:10px;color:var(--gold);margin-top:3px">✦ '+r.reasons.map(esc).join(' · ')+'</div>':'';return '<div class="rc'+(i===0?' win':'')+'"><div class="rk '+cls+'">'+(i+1)+'</div><div class="ri"><div class="ri-n">'+esc(r.p.name)+'</div><div class="ri-m">'+esc(r.p.co)+' · '+(r.p.type==='i'?'Investor':'Founder')+' · '+SLOTS[r.p.slot||'a'].s+'</div>'+rr+'</div><div class="rs"><div class="rs-t">'+r.avg.toFixed(1)+'</div><div class="rs-b">'+r.o.toFixed(1)+' / '+r.d.toFixed(1)+(r.e>0?' / +'+r.e.toFixed(1)+'✦':'')+' · '+r.votes+'v</div></div></div>';}).join('');
+    G('rl').innerHTML=res.map(function(r,i){var cls=i===0?'r1':i===1?'r2':i===2?'r3':'rn';var rr=r.reasons.length?'<div style="font-size:10px;color:var(--gold);margin-top:3px">✦ '+r.reasons.map(esc).join(' · ')+'</div>':'';return '<div class="rc'+(i===0?' win':'')+'"><div class="rk '+cls+'">'+(i+1)+'</div><div class="ri"><div class="ri-n">'+esc(r.p.name)+'</div><div class="ri-m">'+esc(r.p.co)+' · '+(r.p.type==='i'?'Investor':'Founder')+'</div>'+rr+'</div><div class="rs"><div class="rs-t">'+r.avg.toFixed(1)+'</div><div class="rs-b">'+r.o.toFixed(1)+' / '+r.d.toFixed(1)+(r.e>0?' / +'+r.e.toFixed(1)+'✦':'')+' · '+r.votes+'v</div></div></div>';}).join('');
     G('res-sec').style.display='block';G('res-sec').scrollIntoView({behavior:'smooth'});
   }catch(e){alert('Error: '+e.message);}
   btn.disabled=false;btn.textContent='Calculate Results →';
