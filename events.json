@@ -8,12 +8,12 @@
       "city": "Milan",
       "country": "Italy",
       "location": "Milan, Italy",
-      "venue": "Cocktail Bar Sempione 83 · Milan",
-      "date": "Tue, May 19, 2026 · 8:00–10:00 PM GMT+2",
+      "venue": "Cocktail Bar Sempione 83 \u00b7 Milan",
+      "date": "Tue, May 19, 2026 \u00b7 8:00\u201310:00 PM GMT+2",
       "dateISO": "2026-05-19",
-      "format": "Passport Series · In-Person",
-      "spots": "Extremely limited · Application required",
-      "description": "A highly curated, intimate aperitivo during Milan AI Tech Week. Founders, investors, operators and creatives — venture meets conversation in the heart of Milan. Hosted by Yorkseed & EdgeCraft Group.",
+      "format": "Passport Series \u00b7 In-Person",
+      "spots": "Extremely limited \u00b7 Application required",
+      "description": "A highly curated, intimate aperitivo during Milan AI Tech Week. Founders, investors, operators and creatives \u2014 venture meets conversation in the heart of Milan. Hosted by Yorkseed & EdgeCraft Group.",
       "lumaUrl": "https://luma.com/7utn0v0y",
       "coverGradient": "linear-gradient(135deg,#0d1215 0%,#141b1f 40%,#1a2228 100%)",
       "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/qe/d1ad4208-ca21-49ce-93e3-2b1d8f215237.png"
@@ -25,13 +25,13 @@
       "title": "Yorkseed Connect: Founding Member Roundtable #1",
       "city": "Virtual",
       "country": "",
-      "location": "Virtual · Google Meet",
+      "location": "Virtual \u00b7 Google Meet",
       "venue": "Google Meet",
-      "date": "Thu, May 21, 2026 · Q2 Open Preview",
+      "date": "Thu, May 21, 2026 \u00b7 Q2 Open Preview",
       "dateISO": "2026-05-21",
-      "format": "Expert Session · Virtual",
-      "spots": "Limited seats · Application required",
-      "description": "An intimate, high-signal virtual gathering for founders and investors in it for the long game. No panels, no pitches — just candid conversation among a carefully curated group. One-time open preview before it closes to Founding Members only.",
+      "format": "Expert Session \u00b7 Virtual",
+      "spots": "Limited seats \u00b7 Application required",
+      "description": "An intimate, high-signal virtual gathering for founders and investors in it for the long game. No panels, no pitches \u2014 just candid conversation among a carefully curated group. One-time open preview before it closes to Founding Members only.",
       "lumaUrl": "https://luma.com/00dw8nyc",
       "coverGradient": "linear-gradient(135deg,#0f0d09 0%,#1a160c 40%,#211d10 100%)",
       "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/event-covers/qu/c4edc191-6633-4f1e-a6b4-bf12bcdfeb61.png"
@@ -43,13 +43,13 @@
       "title": "Venture Vitality: HealthTech Investor Roundtable",
       "city": "Virtual",
       "country": "",
-      "location": "Virtual · Zoom",
+      "location": "Virtual \u00b7 Zoom",
       "venue": "Zoom",
       "date": "Wed, May 21, 2026",
       "dateISO": "2026-05-21",
-      "format": "Expert Session · Virtual",
-      "spots": "30 investors · Accredited only",
-      "description": "Off-the-record virtual roundtable for 30 accredited investors in HealthTech. No pitches — candid strategy on deal flow, fund performance, and what's actually scaling in Digital Health, BioTech, MedTech, and FemTech.",
+      "format": "Expert Session \u00b7 Virtual",
+      "spots": "30 investors \u00b7 Accredited only",
+      "description": "Off-the-record virtual roundtable for 30 accredited investors in HealthTech. No pitches \u2014 candid strategy on deal flow, fund performance, and what's actually scaling in Digital Health, BioTech, MedTech, and FemTech.",
       "lumaUrl": "https://luma.com/4ckvn4sk",
       "coverGradient": "linear-gradient(135deg,#0f0d09 0%,#1a160c 40%,#211d10 100%)",
       "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/z1/3d93d386-8229-43bf-99a9-c09f4af1fe6c.png"
@@ -62,11 +62,11 @@
       "city": "Paris",
       "country": "France",
       "location": "Paris, France",
-      "venue": "TBA · Address on approval",
-      "date": "Mon, May 26, 2026 · 6:30–9:00 PM",
+      "venue": "TBA \u00b7 Address on approval",
+      "date": "Mon, May 26, 2026 \u00b7 6:30\u20139:00 PM",
       "dateISO": "2026-05-26",
-      "format": "Passport Series · In-Person",
-      "spots": "Limited capacity · Application required",
+      "format": "Passport Series \u00b7 In-Person",
+      "spots": "Limited capacity \u00b7 Application required",
       "description": "An intimate evening bringing together founders, investors, operators, and ecosystem leaders for meaningful conversations and high-signal connections in Paris.",
       "lumaUrl": "https://luma.com/v48q6wiq",
       "coverGradient": "linear-gradient(135deg,#1a100a 0%,#2a1a0f 40%,#352010 100%)",
@@ -77,29 +77,28 @@
       "type": "passport",
       "title": "The Oasis: Human Flourishing in the Age of AI",
       "city": "New York",
-      "location": "Belong NYC · SoHo, New York",
-      "date": "Mon, Jun 1, 2026 · 1:00–4:00 PM EDT",
+      "location": "Belong NYC \u00b7 SoHo, New York",
+      "date": "Mon, Jun 1, 2026 \u00b7 1:00\u20134:00 PM EDT",
       "dateISO": "2026-06-01",
-      "format": "Yorkseed House · In-Person",
+      "format": "Yorkseed House \u00b7 In-Person",
       "spots": "Limited capacity",
       "description": "Day 1 of The Oasis at Yorkseed House. How do we ensure technology advances human flourishing? Founders, builders, and creatives at Belong NYC during NY Tech Week.",
       "lumaUrl": "https://partiful.com/e/1bGiVgRQUifMy25hzGrm",
-      "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/rx/64b48c44-2c5a-4f69-bf13-8fd64790f702.png",
-      "featured": false
+      "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/rx/64b48c44-2c5a-4f69-bf13-8fd64790f702.png"
     },
     {
       "slug": "yorkseed-house-nytechweek-2026",
-      "featured": true,
+      "featured": false,
       "type": "passport",
-      "title": "Yorkseed House · NY Tech Week Pop-Up at Belong NYC",
+      "title": "Yorkseed House \u00b7 NY Tech Week Pop-Up at Belong NYC",
       "city": "New York",
       "country": "USA",
-      "location": "Belong NYC · 218 Lafayette St, SoHo",
-      "venue": "Belong NYC · 218 Lafayette St, 2nd Floor, New York",
-      "date": "Mon–Sun, Jun 1–7, 2026",
+      "location": "Belong NYC \u00b7 218 Lafayette St, SoHo",
+      "venue": "Belong NYC \u00b7 218 Lafayette St, 2nd Floor, New York",
+      "date": "Mon\u2013Sun, Jun 1\u20137, 2026",
       "dateISO": "2026-06-01",
-      "format": "Passport Series · Multi-day Pop-Up",
-      "spots": "Curated RSVP · $10 at door",
+      "format": "Passport Series \u00b7 Multi-day Pop-Up",
+      "spots": "Curated RSVP \u00b7 $10 at door",
       "description": "Yorkseed House returns during NY Tech Week with a curated multi-day pop-up at Belong NYC in SoHo. A central gathering point for founders, investors, operators, and ecosystem leaders throughout the week. Hosted by Yorkseed, Belong NYC, Flowstate, and Elevate.",
       "lumaUrl": "https://luma.com/8upa02np",
       "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/rx/64b48c44-2c5a-4f69-bf13-8fd64790f702.png"
@@ -107,63 +106,58 @@
     {
       "slug": "oasis-future-of-work-nytechweek-2026",
       "type": "passport",
-      "title": "The Oasis @ NY Tech Week · Day 2: Future of Work",
+      "title": "The Oasis: Future of Work",
       "city": "New York",
-      "location": "Belong NYC · 218 Lafayette St, FL 2, New York",
-      "date": "Tue, Jun 2, 2026 · 1:00–4:00 PM EDT",
+      "location": "Belong NYC \u00b7 SoHo, New York",
+      "date": "Tue, Jun 2, 2026 \u00b7 1:00\u20134:00 PM EDT",
       "dateISO": "2026-06-02",
-      "format": "Yorkseed House · In-Person",
-      "spots": "327 attending · Public event",
-      "description": "Tech Week can be chaotic. The Oasis is a daily retreat — a place to belong, breathe, and co-create. Day 2 explores one of the most consequential questions of this moment: what happens to work as AI and automation accelerate? We'll discuss the shift from working out of need to creating out of passion, new shapes careers and companies might take, and what it means to build a life when the old scripts no longer apply. Hosted at Belong NYC in SoHo.",
+      "format": "Yorkseed House \u00b7 In-Person",
+      "spots": "Limited capacity",
+      "description": "Day 2 of The Oasis. What happens to work as AI and automation accelerate? Honest conversation about opportunity and uncertainty at Yorkseed House.",
       "lumaUrl": "https://partiful.com/e/ydp71jPFgU83rwwIYOhv",
-      "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/rx/64b48c44-2c5a-4f69-bf13-8fd64790f702.png",
-      "featured": false,
-      "venue": "Belong NYC · 218 Lafayette St, FL 2, New York, NY"
+      "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/rx/64b48c44-2c5a-4f69-bf13-8fd64790f702.png"
     },
     {
       "slug": "ai-blockchain-intersection-nytechweek-2026",
       "type": "passport",
-      "title": "Intersection: AI + Blockchain · #NYTechWeek",
+      "title": "Intersection: AI + Blockchain",
       "city": "New York",
-      "location": "Belong NYC · 218 Lafayette St, SoHo, New York",
-      "date": "Tue, Jun 2, 2026 · 4:30–6:00 PM EDT",
+      "location": "Belong NYC \u00b7 SoHo, New York",
+      "date": "Tue, Jun 2, 2026 \u00b7 4:30\u20136:00 PM EDT",
       "dateISO": "2026-06-02",
-      "format": "Yorkseed House · Panel",
-      "spots": "200 going · 81 on waitlist",
-      "description": "Panel and networking on the practical realities of AI and Blockchain converging. Featuring Lakshan De Silva (Hyperglade), Stonny L. (VenueHopper), Jessica Sophia Wong (Yorkseed), Ayse Eren Senguler (aiRaiz), and Anthony Johnson (OmniNode AI). A side event by Hyperglade, part of NY Tech Week 2026.",
+      "format": "Yorkseed House \u00b7 Panel",
+      "spots": "150 capacity",
+      "description": "Panel and Q&A with VCs, operators, and founders on the practical realities of AI and Blockchain converging. Networking follows. Part of Yorkseed House at NY Tech Week.",
       "lumaUrl": "https://partiful.com/e/ytrORmKjcLHr4rudjY3k",
-      "coverImage": "events/ai-blockchain-speakers.jpeg",
-      "featured": true,
-      "venue": "218 Lafayette St, New York, NY 10012",
-      "coverGradient": "linear-gradient(135deg,#0a0a0a 0%,#111418 40%,#161c22 100%)"
+      "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/rx/64b48c44-2c5a-4f69-bf13-8fd64790f702.png"
     },
     {
       "slug": "ugly-talk-beauty-tech-nytechweek-2026",
-      "featured": false,
+      "featured": true,
       "type": "passport",
       "title": "Ugly Talk: The Future of Fashion & Beauty Tech",
       "city": "New York",
       "country": "USA",
-      "location": "Belong NYC · 218 Lafayette St, SoHo, New York",
-      "venue": "Belong NYC · 218 Lafayette St, 2nd Floor",
-      "date": "Tue, Jun 3, 2026 · 6:00–8:00 PM ET",
+      "location": "Manhattan, New York",
+      "venue": "Belong NYC \u00b7 218 Lafayette St, 2nd Floor",
+      "date": "Tue, Jun 3, 2026 \u00b7 6:00\u20138:00 PM ET",
       "dateISO": "2026-06-03",
-      "format": "Passport Series · In-Person",
+      "format": "Passport Series \u00b7 In-Person",
       "spots": "Open registration",
-      "description": "Beauty tech is booming but getting louder, not clearer. Panel featuring Zehra Soysal (Founder & CEO, Savanah.ai), Yarden Horwitz (Co-Founder, Spate), Bonnie Young (Founder & Chief Creative, BY. Bonnie Young), moderated by Jessica Sophia Wong (Founder & CEO, Yorkseed). Hosted by Ugly Talk Signature in partnership with Yorkseed, Belong NYC, and NY Tech Week.",
+      "description": "Beauty tech is booming but the category is getting louder, not clearer. This room is for founders and investors who want to separate signal from noise and figure out which trends are truly shaping the future of beauty tech.",
       "lumaUrl": "https://partiful.com/e/68VP2zOWWMpKd3gZsojI",
       "coverGradient": "linear-gradient(135deg,#1a0a14 0%,#2e0d1e 40%,#3d1228 100%)",
-      "coverImage": "events/ugly-talk-speakers.jpg"
+      "coverImage": "https://greyjournal.net/wp-content/uploads/2026/04/square-69f8b24acf6722357a509457.jpeg"
     },
     {
       "slug": "oasis-ikigai-nytechweek-2026",
       "type": "passport",
       "title": "The Oasis: Finding Ikigai",
       "city": "New York",
-      "location": "Belong NYC · SoHo, New York",
-      "date": "Wed, Jun 3, 2026 · 10:00 AM–1:00 PM EDT",
+      "location": "Belong NYC \u00b7 SoHo, New York",
+      "date": "Wed, Jun 3, 2026 \u00b7 10:00 AM\u20131:00 PM EDT",
       "dateISO": "2026-06-03",
-      "format": "Yorkseed House · In-Person",
+      "format": "Yorkseed House \u00b7 In-Person",
       "spots": "Limited capacity",
       "description": "Day 3 of The Oasis. Using ikigai to explore purpose and meaning. A space to slow down and reconnect with the bigger why during NY Tech Week.",
       "lumaUrl": "https://partiful.com/e/ucMfyy0lloL2hIWrteQ4",
@@ -177,12 +171,12 @@
       "city": "New York",
       "country": "USA",
       "location": "Manhattan, New York",
-      "venue": "TBA · Address shared on approval",
+      "venue": "TBA \u00b7 Address shared on approval",
       "date": "NY Tech Week 2026",
       "dateISO": "2026-06-04",
-      "format": "Passport Series · In-Person",
-      "spots": "Limited capacity · Application required",
-      "description": "Curated fintech and AI startup pitches, investor panel, and high-signal networking during NY Tech Week. Application required — founders raising, investors deploying.",
+      "format": "Passport Series \u00b7 In-Person",
+      "spots": "Limited capacity \u00b7 Application required",
+      "description": "Curated fintech and AI startup pitches, investor panel, and high-signal networking during NY Tech Week. Application required \u2014 founders raising, investors deploying.",
       "lumaUrl": "https://luma.com/1icohbw7?ref=yorkseed",
       "coverGradient": "linear-gradient(135deg,#0a0f1a 0%,#0d1520 40%,#111a26 100%)",
       "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/event-covers/jv/f7b941d2-c615-44f9-bbc0-7a03bbbd99c0.png"
@@ -192,11 +186,11 @@
       "type": "passport",
       "title": "Elevate Recovery Lounge at Yorkseed House",
       "city": "New York",
-      "location": "Belong NYC · SoHo, New York",
-      "date": "Thu, Jun 4, 2026 · 9:00 AM–5:00 PM EDT",
+      "location": "Belong NYC \u00b7 SoHo, New York",
+      "date": "Thu, Jun 4, 2026 \u00b7 9:00 AM\u20135:00 PM EDT",
       "dateISO": "2026-06-04",
-      "format": "Yorkseed House · Wellness · $10",
-      "spots": "Session-based · $10 at door",
+      "format": "Yorkseed House \u00b7 Wellness \u00b7 $10",
+      "spots": "Session-based \u00b7 $10 at door",
       "description": "Full-day wellness pop-up at Yorkseed House. Zero gravity chairs, compression boots, red light therapy, and eye massage masks. 15-minute sessions throughout the day.",
       "lumaUrl": "https://luma.com/o4g4ozfe",
       "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/rx/64b48c44-2c5a-4f69-bf13-8fd64790f702.png"
@@ -209,11 +203,11 @@
       "city": "New York",
       "country": "USA",
       "location": "Manhattan, New York",
-      "venue": "TBA · Manhattan",
-      "date": "Friday, Jun 5, 2026 · 5:00 PM ET",
+      "venue": "TBA \u00b7 Manhattan",
+      "date": "Friday, Jun 5, 2026 \u00b7 5:00 PM ET",
       "dateISO": "2026-06-05",
-      "format": "Passport Series · In-Person",
-      "spots": "75 seats · Application required",
+      "format": "Passport Series \u00b7 In-Person",
+      "spots": "75 seats \u00b7 Application required",
       "description": "During NY Tech Week, In Pulse and Yorkseed are bringing together a highly curated group of founders and investors for a private Venture Salon in Manhattan. 75 participants selected by application.",
       "lumaUrl": "https://partiful.com/e/AIjt9GNmqfJGNSGsOECn",
       "coverGradient": "linear-gradient(135deg,#0d0d1a 0%,#1a1209 40%,#2a1a08 100%)",
@@ -224,29 +218,46 @@
       "type": "passport",
       "title": "The Oasis: Emerging Technology",
       "city": "New York",
-      "location": "Belong NYC · SoHo, New York",
-      "date": "Fri, Jun 5, 2026 · 1:00–4:00 PM EDT",
+      "location": "Belong NYC \u00b7 SoHo, New York",
+      "date": "Fri, Jun 5, 2026 \u00b7 1:00\u20134:00 PM EDT",
       "dateISO": "2026-06-05",
-      "format": "Yorkseed House · Closing Day",
+      "format": "Yorkseed House \u00b7 Closing Day",
       "spots": "Limited capacity",
       "description": "Day 5 and closing session of The Oasis. What's genuinely exciting, what's hype, and what threads are worth pulling on next. The best way to end NY Tech Week.",
       "lumaUrl": "https://partiful.com/e/wME3CoGVwNPhbRyevKYp",
       "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/rx/64b48c44-2c5a-4f69-bf13-8fd64790f702.png"
     },
     {
+      "slug": "sunset-salon-dcd-apac-bali-2026",
+      "featured": false,
+      "type": "passport",
+      "title": "Yorkseed Sunset Salon \u00b7 DCD APAC Bali",
+      "city": "Bali",
+      "country": "Indonesia",
+      "location": "SOORA Speakeasy Bar \u00b7 Nusa Dua, Bali",
+      "venue": "SOORA Speakeasy Bar, Nusa Dua",
+      "date": "Wed, Jun 11, 2026 \u00b7 6:00 PM",
+      "dateISO": "2026-06-11",
+      "format": "Passport Series \u00b7 In-Person",
+      "spots": "Limited capacity \u00b7 Application required",
+      "description": "Yorkseed's first gathering in Bali \u2014 a curated sunset evening during DCD Connect APAC for founders, investors, family offices, infrastructure operators, and ecosystem leaders. No panels. No agenda. Just the right conversations.",
+      "lumaUrl": "https://luma.com/chgvadis",
+      "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/ut/ebcff078-c3b9-4791-b4d7-b0aadb41e348.jpg"
+    },
+    {
       "slug": "vivatech-paris-opening-night-2026",
       "featured": false,
       "type": "passport",
-      "title": "Opening Night Soirée · VivaTech Paris 2026",
+      "title": "Opening Night Soir\u00e9e \u00b7 VivaTech Paris 2026",
       "city": "Paris",
       "country": "France",
-      "location": "Saint Paul / Bastille area · Paris",
+      "location": "Saint Paul / Bastille area \u00b7 Paris",
       "venue": "Address shared on approval",
-      "date": "Wed, Jun 17, 2026 · 9:00 PM–12:00 AM",
+      "date": "Wed, Jun 17, 2026 \u00b7 9:00 PM\u201312:00 AM",
       "dateISO": "2026-06-17",
-      "format": "Passport Series · In-Person",
-      "spots": "Limited capacity · Application required",
-      "description": "Kick off VivaTech Paris 2026 with Yorkseed's intimate Opening Night Soirée — founders, investors, operators and ecosystem leaders from around the world. Cross-border conversations and new collaborations in the heart of Paris.",
+      "format": "Passport Series \u00b7 In-Person",
+      "spots": "Limited capacity \u00b7 Application required",
+      "description": "Kick off VivaTech Paris 2026 with Yorkseed's intimate Opening Night Soir\u00e9e \u2014 founders, investors, operators and ecosystem leaders from around the world. Cross-border conversations and new collaborations in the heart of Paris.",
       "lumaUrl": "https://luma.com/wsd80kh4",
       "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/h1/a1660465-8ff6-4323-bb59-51b561409e9a.png"
     },
@@ -257,31 +268,16 @@
       "title": "Venture Vitality: HealthTech Investor Roundtable",
       "city": "Virtual",
       "country": "",
-      "location": "Virtual · Zoom",
+      "location": "Virtual \u00b7 Zoom",
       "venue": "Zoom",
       "date": "Thu, Jun 18, 2026",
       "dateISO": "2026-06-18",
-      "format": "Expert Session · Virtual",
-      "spots": "30 investors · Accredited only",
-      "description": "Off-the-record virtual roundtable for 30 accredited investors in HealthTech. No pitches — candid strategy on deal flow, fund performance, and what's actually scaling in Digital Health, BioTech, MedTech, and FemTech.",
+      "format": "Expert Session \u00b7 Virtual",
+      "spots": "30 investors \u00b7 Accredited only",
+      "description": "Off-the-record virtual roundtable for 30 accredited investors in HealthTech. No pitches \u2014 candid strategy on deal flow, fund performance, and what's actually scaling in Digital Health, BioTech, MedTech, and FemTech.",
       "lumaUrl": "https://luma.com/njs0vitk",
       "coverGradient": "linear-gradient(135deg,#0f0d09 0%,#1a160c 40%,#211d10 100%)",
       "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/event-covers/qs/499f01a0-3366-4a00-a65e-2435c6472195.png"
-    },
-    {
-      "slug": "panel-future-of-work-nytechweek-2026",
-      "type": "passport",
-      "title": "Panel: Future of Work · #NYTechWeek",
-      "city": "New York",
-      "location": "New York, NY",
-      "date": "Thu, Jun 4, 2026 · 3:30–6:00 PM EDT",
-      "dateISO": "2026-06-04",
-      "format": "Yorkseed · Co-host · Panel + Networking",
-      "spots": "Open registration",
-      "description": "Whether you're a founder or corporate leader, the future of work is a race to redefine the human element through scalable technology. Three distinct lenses — an organizational scientist, an enterprise operator, and a venture investor — map out a blueprint for team growth and resilience from deal flow to scale. Featuring Jenny Liu (Crush It Ventures), Dr. Josh Elmore (Court Street Consulting), Fred Leong (CPO, dv01). Presented by All Good HR. Powered by Granada Funds, Fulcrum Digital, and Founders Foundry. Co-hosted by Yorkseed.",
-      "lumaUrl": "https://partiful.com/e/YWT86xyuJHDUCFW97AsN",
-      "coverGradient": "linear-gradient(135deg,#0a0a12 0%,#0f1118 40%,#13151e 100%)",
-      "detailUrl": "/events/panel-future-of-work-nytechweek-2026.html"
     }
   ],
   "archive": [
@@ -334,7 +330,7 @@
           ]
         },
         {
-          "label": "SXSW London · London Tech Week",
+          "label": "SXSW London \u00b7 London Tech Week",
           "events": [
             {
               "type": "passport",
@@ -366,35 +362,38 @@
               "type": "community",
               "title": "Speed Pitch: Guaranteed 1:1 Meetings With Investors",
               "location": "New York, USA",
-              "date": "Wed, Jun 3, 2026 · 4:30–8:00 PM EDT",
+              "date": "Wed, Jun 3, 2026 \u00b7 4:30\u20138:00 PM EDT",
               "lumaUrl": "https://luma.com/i6n7qmte",
-              "linkLabel": "View →",
+              "linkLabel": "View \u2192",
               "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/ni/ef91caef-6c1a-4b49-b4a3-f9b836b78b13.png",
-              "description": "Guaranteed 1:1 meetings with top investors for pre-seed to Series A founders. Every founder meets 3 matched investors in 8-min one-on-one meetings. 36 spots only. Hosted by The Startup Station — Yorkseed is a community partner.",
-              "venue": "New York, NY · Address on approval"
+              "description": "Guaranteed 1:1 meetings with top investors for pre-seed to Series A founders. Every founder meets 3 matched investors in 8-min one-on-one meetings. 36 spots only. Hosted by The Startup Station \u2014 Yorkseed is a community partner.",
+              "venue": "New York, NY \u00b7 Address on approval",
+              "dateISO": "2026-06-03"
             },
             {
               "type": "community",
-              "title": "Yacht Party · #NYTechWeek Closing Party",
+              "title": "Yacht Party \u00b7 #NYTechWeek Closing Party",
               "location": "Pier 83, New York, USA",
-              "date": "Sun, Jun 7, 2026 · NY Tech Week Closing",
+              "date": "Sun, Jun 7, 2026 \u00b7 NY Tech Week Closing",
               "lumaUrl": "https://luma.com/yachtparty1",
-              "linkLabel": "View →",
+              "linkLabel": "View \u2192",
               "promoCode": "YORKSEED26",
               "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/0f/189756b6-0922-458a-8eed-7ca45075a066.png",
-              "description": "The fifth annual NY Tech Week Closing Yacht Party. 1,000+ attendees, DJs, drinks, and rooftop views of the Manhattan skyline. Hosted by The Neo Club & Tavern Community — Yorkseed is a community partner.",
-              "venue": "Pier 83, W 42nd St & 12th Ave, New York"
+              "description": "The fifth annual NY Tech Week Closing Yacht Party. 1,000+ attendees, DJs, drinks, and rooftop views of the Manhattan skyline. Hosted by The Neo Club & Tavern Community \u2014 Yorkseed is a community partner.",
+              "venue": "Pier 83, W 42nd St & 12th Ave, New York",
+              "dateISO": "2026-06-07"
             },
             {
               "type": "community",
-              "title": "Robotics Competitions · ARCLeague Season Zero",
+              "title": "Robotics Competitions \u00b7 ARCLeague Season Zero",
               "location": "SHiFT Midtown, New York",
-              "date": "Sat, Jun 6, 2026 · 7:00–10:00 PM EDT",
+              "date": "Sat, Jun 6, 2026 \u00b7 7:00\u201310:00 PM EDT",
               "lumaUrl": "https://luma.com/vh2url2d",
-              "linkLabel": "View →",
+              "linkLabel": "View \u2192",
               "slug": "arcleague-robotics-nytechweek-2026",
               "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/yy/49686201-001d-4a17-814d-d302e1e4c2d8.png",
-              "description": "The world's first full-body controlled robot fighting event. Participants wear armor suits and control competition robots through their own physical movements. ARCLeague Season Zero — a new category of sport at the intersection of robotics, gaming, and physical performance."
+              "description": "The world's first full-body controlled robot fighting event. Participants wear armor suits and control competition robots through their own physical movements. ARCLeague Season Zero \u2014 a new category of sport at the intersection of robotics, gaming, and physical performance.",
+              "dateISO": "2026-06-06"
             }
           ]
         }
@@ -415,7 +414,7 @@
             },
             {
               "type": "passport",
-              "title": "Whispers & Ventures: Speakeasy Soirée",
+              "title": "Whispers & Ventures: Speakeasy Soir\u00e9e",
               "location": "Lisbon, Portugal",
               "date": "Nov 12",
               "lumaUrl": "https://lu.ma/qbmdx7i3"
@@ -562,7 +561,7 @@
           ]
         },
         {
-          "label": "New York Tech Week · Venture Summit",
+          "label": "New York Tech Week \u00b7 Venture Summit",
           "events": [
             {
               "type": "summit",
@@ -570,7 +569,7 @@
               "location": "New York, USA",
               "date": "Jun",
               "lumaUrl": "https://yrbmag.com/event-recap-yorkseed-venture-summit-with-startupfuel-new-york-techweek-edition/",
-              "linkLabel": "Recap →"
+              "linkLabel": "Recap \u2192"
             }
           ]
         },
@@ -579,11 +578,11 @@
           "events": [
             {
               "type": "passport",
-              "title": "Orbis86 × Yorkseed: Future of Tech — Web3 × AI Meet & Greet",
+              "title": "Orbis86 \u00d7 Yorkseed: Future of Tech \u2014 Web3 \u00d7 AI Meet & Greet",
               "location": "New York, USA",
               "date": "Apr",
               "lumaUrl": "https://medium.com/@orbis86/orbis86-yorkseed-meet-and-greet-at-nft-nyc-1b3edc9af293",
-              "linkLabel": "Recap →"
+              "linkLabel": "Recap \u2192"
             }
           ]
         },
@@ -617,28 +616,28 @@
       "year": 2023,
       "groups": [
         {
-          "label": "SXSW Austin — The Beginning",
+          "label": "SXSW Austin \u2014 The Beginning",
           "events": [
             {
               "type": "passport",
-              "title": "Founders × Investors SXSW Mixer — the event that started it all",
+              "title": "Founders \u00d7 Investors SXSW Mixer \u2014 the event that started it all",
               "location": "Austin, USA",
               "date": "Mar"
             }
           ]
         },
         {
-          "label": "New York · Toronto · Venture Summits",
+          "label": "New York \u00b7 Toronto \u00b7 Venture Summits",
           "events": [
             {
               "type": "summit",
-              "title": "Yorkseed Venture Summit — New York",
+              "title": "Yorkseed Venture Summit \u2014 New York",
               "location": "New York, USA",
               "date": "2023"
             },
             {
               "type": "summit",
-              "title": "Yorkseed Venture Summit — Toronto",
+              "title": "Yorkseed Venture Summit \u2014 Toronto",
               "location": "Toronto, Canada",
               "date": "2023"
             }
@@ -649,11 +648,11 @@
           "events": [
             {
               "type": "passport",
-              "title": "Founders & Investors Soirée × Supermoon × Near Protocol",
+              "title": "Founders & Investors Soir\u00e9e \u00d7 Supermoon \u00d7 Near Protocol",
               "location": "Lisbon, Portugal",
               "date": "Nov",
               "lumaUrl": "https://www.crypto-reporter.com/press-releases/triumph-for-supermoon-and-yorkseeds-founders-investors-soiree-at-websummit-in-lisbon-with-near-protocol-52897/",
-              "linkLabel": "Recap →"
+              "linkLabel": "Recap \u2192"
             }
           ]
         }
