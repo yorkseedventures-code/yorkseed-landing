@@ -277,7 +277,7 @@
       "spots": "Limited capacity \u00b7 Role-specific tickets",
       "description": "Join founders, investors, operators, and ecosystem builders for an evening of meaningful conversations above the New York City skyline. Includes 2 months complimentary Yorkseed Connect access.",
       "lumaUrl": "https://luma.com/38milm3c",
-      "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/event-covers/38/38milm3c-cover.png"
+      "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/57/4fffe5ef-46dc-4fd5-94b2-089e0454ae62.png"
     },
     {
       "slug": "raise-summit-pitch-roulette-paris-2026",
@@ -286,15 +286,15 @@
       "title": "Yorkseed Paris Ecosystem Mixer \u00b7 RAISE Summit Pitch Roulette",
       "city": "Paris",
       "country": "France",
-      "location": "Bar Le Vanart \u00b7 Bastille, Paris",
-      "venue": "Bar Le Vanart, 11 Rue des Tournelles, Paris",
+      "location": "Near Carrousel du Louvre, Paris",
+      "venue": "Private indoor terrace, 2nd floor \u00b7 Near Carrousel du Louvre, Paris",
       "date": "Mon, Jul 6, 2026 \u00b7 6:00\u20138:30 PM",
       "dateISO": "2026-07-06",
       "format": "Passport Series \u00b7 In-Person",
       "spots": "Limited capacity \u00b7 RSVP required",
       "description": "An intimate ecosystem mixer in Bastille during RAISE Summit Paris. Pitch Roulette \u2014 2 minutes, 1 shot. Founders scaling bold ideas, investors backing long-term vision, ecosystem allies bridging global corridors.",
       "lumaUrl": "https://luma.com/e1qd2zbe",
-      "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/event-covers/e1/e1qd2zbe-cover.png"
+      "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/event-covers/gi/e088d000-8250-4dc5-aa0c-2a7418b48bea.jpg"
     },
     {
       "slug": "raise-summit-capital-table-lunch-paris-2026",
@@ -311,7 +311,7 @@
       "spots": "By invitation or approval only",
       "description": "A curated founder and investor brunch during RAISE Summit Paris. With-traction founders, previously funded founders, investors, and select ecosystem leaders discussing fundraising, growth, and the future of venture capital.",
       "lumaUrl": "https://luma.com/192nk0qx",
-      "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/event-covers/19/192nk0qx-cover.png"
+      "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/vb/b52ce222-7992-4f25-9042-82e3331b1dbe.png"
     }
   ],
   "archive": [
@@ -441,7 +441,8 @@
               "date": "Fri, Jun 19, 2026 \u00b7 Cancelled",
               "lumaUrl": "https://luma.com/dpe7al20",
               "linkLabel": "View \u2192",
-              "dateISO": "2026-06-19"
+              "dateISO": "2026-06-19",
+              "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=400,height=400/event-covers/dp/dpe7al20-cover.png"
             },
             {
               "type": "passport",
@@ -450,7 +451,8 @@
               "date": "Fri, Jun 19, 2026 \u00b7 12:00\u20132:00 PM",
               "lumaUrl": "https://luma.com/het4hu05",
               "linkLabel": "View \u2192",
-              "dateISO": "2026-06-19"
+              "dateISO": "2026-06-19",
+              "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=400,height=400/event-covers/he/het4hu05-cover.png"
             },
             {
               "type": "passport",
@@ -460,7 +462,8 @@
               "lumaUrl": "https://luma.com/wsd80kh4",
               "linkLabel": "View \u2192",
               "slug": "vivatech-paris-opening-night-2026",
-              "dateISO": "2026-06-17"
+              "dateISO": "2026-06-17",
+              "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=400,height=400/uploads/h1/a1660465-8ff6-4323-bb59-51b561409e9a.png"
             },
             {
               "type": "passport",
@@ -469,7 +472,8 @@
               "date": "Wed, Jun 17, 2026 \u00b7 6:00\u20138:00 PM",
               "lumaUrl": "https://luma.com/5lpmc8s1",
               "linkLabel": "View \u2192",
-              "dateISO": "2026-06-17"
+              "dateISO": "2026-06-17",
+              "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=400,height=400/event-covers/5l/5lpmc8s1-cover.png"
             }
           ]
         }
