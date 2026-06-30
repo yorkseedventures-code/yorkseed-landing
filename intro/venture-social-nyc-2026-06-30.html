@@ -115,15 +115,17 @@
   }
   input[type="text"], input[type="email"] {
     width: 100%;
-    padding: 12px 14px;
+    padding: 13px 14px;
     border: 1px solid var(--border2);
     border-radius: 3px;
-    font-size: 15px;
+    font-size: 16px;
     font-family: var(--sans);
     font-weight: 400;
     background: var(--off);
     color: var(--ink);
     transition: border-color .15s ease;
+    -webkit-appearance: none;
+    appearance: none;
   }
   input:focus {
     outline: none;
@@ -307,6 +309,51 @@
 
   #login-view, #results-view { display: none; }
   #login-view.active, #results-view.active { display: block; }
+
+  /* ── Tablet (iPad portrait/landscape) ── */
+  @media (min-width: 601px) and (max-width: 1024px) {
+    .wrap { max-width: 680px; padding: 44px 32px 90px; }
+    .login-card { padding: 40px 36px; }
+    .match-card { padding: 26px 28px; }
+    .bonus-card { padding: 32px 30px; }
+  }
+
+  /* ── Desktop ── */
+  @media (min-width: 1025px) {
+    .wrap { max-width: 760px; padding: 56px 24px 100px; }
+    .brand-logo { margin-bottom: 32px; }
+    .login-card { padding: 40px 38px; }
+    .match-card { padding: 26px 30px; transition: box-shadow .15s ease, transform .15s ease; }
+    .match-card:hover { box-shadow: 0 4px 16px rgba(14,14,14,0.06); transform: translateY(-1px); }
+    .bonus-card { padding: 36px 38px; }
+    input[type="text"], input[type="email"] { font-size: 15px; }
+    button.primary:hover { cursor: pointer; }
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 600px) {
+    .wrap { padding: 20px 16px 56px; }
+    .brand-logo { margin-bottom: 20px; }
+    h1 { font-size: clamp(26px, 8vw, 34px); }
+    .sub { font-size: 14.5px; margin-bottom: 26px; }
+    .login-card { padding: 24px 18px; }
+    .field { margin-bottom: 15px; }
+    .results-header {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+    .logout { font-size: 12.5px; }
+    .match-card { padding: 18px 16px; margin-bottom: 14px; }
+    .match-name { font-size: 19px; }
+    ul.bullets li { font-size: 14px; }
+    .starter { font-size: 13.5px; padding: 11px 12px; }
+    .bonus-card { padding: 22px 18px; margin: 22px 0 6px; }
+    .bonus-title { font-size: 20px; }
+    .bonus-body { font-size: 14px; }
+    .bonus-cta { width: 100%; text-align: center; }
+    .event-detail { font-size: 12px; }
+  }
 </style>
 </head>
 <body>
