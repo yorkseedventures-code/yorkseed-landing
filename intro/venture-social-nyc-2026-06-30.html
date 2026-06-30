@@ -122,6 +122,13 @@
     color: var(--ink4);
     margin: -16px 0 22px;
   }
+  .onsite-contact {
+    font-family: var(--sans);
+    font-size: 11.5px;
+    font-weight: 300;
+    color: var(--ink4);
+    margin: -18px 0 22px;
+  }
 
   /* Login card */
   .login-card {
@@ -410,7 +417,7 @@
     <div class="product-kicker">Yorkseed Event In-Person Match</div>
     <div class="eyebrow" id="login-event-name">Yorkseed Venture Social</div>
     <h1>Find out who to meet.</h1>
-    <p class="event-detail" id="login-event-detail">New York City &middot; Tuesday, June 30 &middot; 5:00&ndash;7:30 PM EDT</p>
+    <p class="event-detail" id="login-event-detail">New York City &middot; Tuesday, June 30 &middot; 5:00&ndash;7:30 PM EDT &middot; Hosted by Peter and Jason</p>
     <p class="sub">Enter the first name and email you registered with — the venue address will be shown once we confirm you're on the guest list.</p>
 
     <div class="login-card">
@@ -438,6 +445,7 @@
     </div>
     <p class="event-detail" id="results-event-detail">Tuesday, June 30 &middot; 5:00&ndash;7:30 PM EDT &middot; <a href="https://www.google.com/maps/search/?api=1&query=The%20Ready%20Cantina&query_place_id=ChIJ-1HxQCdZwokRLHj8Dl1rVOo" target="_blank" rel="noopener">The Ready Cantina, New York</a></p>
     <p class="venue-address" id="results-venue-address">112 E 11th St, New York, NY 10003</p>
+    <p class="onsite-contact" id="results-host-label">Peter and Jason are your on-site contacts</p>
     <p class="sub" id="results-sub">Based on what you shared in your RSVP, here's who we think you should meet.</p>
     <div id="match-list"></div>
 
@@ -464,6 +472,7 @@ const EVENT = {
   city: "New York City",
   dateLabel: "Tuesday, June 30",
   timeLabel: "5:00\u20137:30 PM EDT",
+  onsiteContact: "Peter and Jason are your on-site contacts",
   venueName: "The Ready Cantina, New York",
   venueAddress: "112 E 11th St, New York, NY 10003",
   venueMapUrl: "https://www.google.com/maps/search/?api=1&query=The%20Ready%20Cantina&query_place_id=ChIJ-1HxQCdZwokRLHj8Dl1rVOo"
@@ -473,10 +482,18 @@ const ATTENDEES = [{"name": "Pallav Tamaskar", "first_name": "Pallav", "email": 
 function applyEventConfig() {
   document.getElementById('page-title').textContent = 'Yorkseed Event In-Person Match — ' + EVENT.name;
   document.getElementById('login-event-name').textContent = EVENT.name;
-  document.getElementById('login-event-detail').textContent = `${EVENT.city} \u00b7 ${EVENT.dateLabel} \u00b7 ${EVENT.timeLabel}`;
+  const loginDetail = `${EVENT.city} \u00b7 ${EVENT.dateLabel} \u00b7 ${EVENT.timeLabel}`;
+  document.getElementById('login-event-detail').textContent = loginDetail;
   const resultsDetailHtml = `${EVENT.dateLabel} &middot; ${EVENT.timeLabel} &middot; <a href="${EVENT.venueMapUrl}" target="_blank" rel="noopener">${EVENT.venueName}</a>`;
   document.getElementById('results-event-detail').innerHTML = resultsDetailHtml;
   document.getElementById('results-venue-address').textContent = EVENT.venueAddress;
+  const contactEl = document.getElementById('results-host-label');
+  if (EVENT.onsiteContact) {
+    contactEl.textContent = EVENT.onsiteContact;
+    contactEl.style.display = '';
+  } else {
+    contactEl.style.display = 'none';
+  }
   document.getElementById('footer-note').textContent = 'See you at the ' + EVENT.name + '.';
 }
 applyEventConfig();
@@ -544,6 +561,14 @@ document.getElementById('login-btn').addEventListener('click', () => {
   renderMatches(attendee);
   document.getElementById('login-view').classList.remove('active');
   document.getElementById('results-view').classList.add('active');
+  document.activeElement && document.activeElement.blur && document.activeElement.blur();
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+  window.scrollTo(0, 0);
+  // Mobile keyboard closing resizes the viewport after the click handler runs,
+  // which can re-shift scroll position — reset again once that settles.
+  setTimeout(() => { window.scrollTo(0, 0); }, 50);
+  setTimeout(() => { window.scrollTo(0, 0); }, 300);
 });
 
 document.getElementById('logout-btn').addEventListener('click', () => {
@@ -552,6 +577,14 @@ document.getElementById('logout-btn').addEventListener('click', () => {
   document.getElementById('first-name').value = '';
   document.getElementById('email').value = '';
   hideError();
+  document.activeElement && document.activeElement.blur && document.activeElement.blur();
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+  window.scrollTo(0, 0);
+  // Mobile keyboard closing resizes the viewport after the click handler runs,
+  // which can re-shift scroll position — reset again once that settles.
+  setTimeout(() => { window.scrollTo(0, 0); }, 50);
+  setTimeout(() => { window.scrollTo(0, 0); }, 300);
 });
 
 // Allow Enter key to submit
