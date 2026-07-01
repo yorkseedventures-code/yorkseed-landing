@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">Your Matches</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
+
+  :root {
+    --ink: #0e0e0e;
+    --ink2: #1a1a1a;
+    --ink3: #555;
+    --ink4: #999;
+    --white: #fff;
+    --off: #fafafa;
+    --light: #f5f4f1;
+    --mid: #e8e6e1;
+    --red: #c8372d;
+    --red-dim: rgba(200,55,45,.06);
+    --red-border: rgba(200,55,45,.18);
+    --gold: #b08d57;
+    --gold-dim: rgba(176,141,87,.07);
+    --gold-border: rgba(176,141,87,.22);
+    --border: rgba(0,0,0,.07);
+    --border2: rgba(0,0,0,.12);
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --mono: 'DM Mono', monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--off);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 300;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 92px 24px 80px;
+  }
+  .brand-logo { display: block; margin-bottom: 28px; }
+
+  .nav {
+    display: flex;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 60px;
+    background: rgba(255,255,255,.97);
+    border-bottom: 1px solid var(--border);
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    z-index: 100;
+    backdrop-filter: blur(6px);
+  }
+  .nav img { display: block; height: 22px; }
+  .nav-r { display: flex; align-items: center; gap: 8px; }
+  .nav-r a {
+    display: inline-block;
+    font-size: 13px; color: var(--ink3);
+    padding: 6px 10px; border-radius: 5px;
+    text-decoration: none; cursor: pointer;
+    font-family: var(--sans);
+  }
+  .nav-r a:hover { background: rgba(0,0,0,.05); }
+  .nav-r .join {
+    background: var(--red); color: #fff !important;
+    border-radius: 6px; padding: 7px 16px; font-size: 13px;
+  }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--red);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  .product-kicker {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+  h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(32px, 6vw, 48px);
+    line-height: 1.08;
+    margin: 0 0 8px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .sub {
+    color: var(--ink3);
+    font-size: 16px;
+    font-weight: 300;
+    max-width: 46ch;
+    line-height: 1.55;
+    margin-bottom: 36px;
+  }
+  .event-detail {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--ink3);
+    margin: 0 0 22px;
+    line-height: 1.6;
+  }
+  .event-detail a { color: var(--red); text-decoration: underline; }
+  .venue-address {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink4);
+    margin: -16px 0 22px;
+  }
+  .onsite-contact {
+    font-family: var(--sans);
+    font-size: 11.5px;
+    font-weight: 300;
+    color: var(--ink4);
+    margin: -18px 0 22px;
+  }
+
+  /* Login card */
+  .login-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 36px 32px;
+    box-shadow: 0 1px 2px rgba(14,14,14,0.03);
+  }
+  .field { margin-bottom: 18px; }
+  label {
+    display: block;
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    font-weight: 500;
+    margin-bottom: 7px;
+    color: var(--ink2);
+  }
+  input[type="text"], input[type="email"] {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid var(--border2);
+    border-radius: 3px;
+    font-size: 16px;
+    font-family: var(--sans);
+    font-weight: 400;
+    background: var(--off);
+    color: var(--ink);
+    transition: border-color .15s ease;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  input:focus {
+    outline: none;
+    border-color: var(--red);
+  }
+  button.primary {
+    width: 100%;
+    background: var(--red);
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 13px 18px;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: var(--sans);
+    cursor: pointer;
+    transition: opacity .15s ease;
+    margin-top: 6px;
+  }
+  button.primary:hover { opacity: .88; }
+  button.primary:disabled { opacity: 0.55; cursor: default; }
+
+  .error-msg {
+    background: var(--red-dim);
+    border: 1px solid var(--red-border);
+    color: var(--red);
+    font-size: 14px;
+    padding: 10px 14px;
+    border-radius: 3px;
+    margin-bottom: 18px;
+    display: none;
+  }
+  .error-msg.show { display: block; }
+
+  /* Results */
+  .results-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .logout {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink3);
+    text-decoration: underline;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+  }
+  .logout:hover { color: var(--ink); }
+
+  .match-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    border-radius: 3px;
+    padding: 22px 24px;
+    margin-bottom: 18px;
+  }
+  .match-index {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--red);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .match-name {
+    font-family: var(--serif);
+    font-size: 21px;
+    font-weight: 600;
+    margin: 0 0 2px;
+    color: var(--ink);
+  }
+  .match-role {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 14px;
+  }
+  .match-hook {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 15.5px;
+    font-weight: 500;
+    color: var(--ink2);
+    line-height: 1.45;
+    margin: 0 0 16px;
+  }
+  .why-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink4);
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  ul.bullets {
+    margin: 0 0 16px;
+    padding-left: 18px;
+  }
+  ul.bullets li {
+    font-size: 14.5px;
+    font-weight: 300;
+    line-height: 1.55;
+    margin-bottom: 5px;
+    color: var(--ink2);
+  }
+  .starter {
+    background: var(--off);
+    border: 1px dashed var(--border2);
+    border-radius: 3px;
+    padding: 12px 14px;
+    font-size: 14px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--ink2);
+  }
+  .starter b {
+    font-style: normal;
+    font-weight: 600;
+    color: var(--red);
+  }
+
+  .footer-note {
+    margin-top: 36px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink4);
+    text-align: center;
+  }
+
+  .bonus-card {
+    background: var(--ink);
+    border-radius: 4px;
+    padding: 28px 26px;
+    margin: 28px 0 8px;
+  }
+  .bonus-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .bonus-title {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--white);
+    margin: 0 0 10px;
+    line-height: 1.25;
+  }
+  .bonus-body {
+    font-size: 14.5px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: rgba(255,255,255,.72);
+    margin: 0 0 18px;
+    max-width: 58ch;
+  }
+  .bonus-cta {
+    display: inline-block;
+    background: var(--red);
+    color: #fff;
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 11px 20px;
+    border-radius: 3px;
+    text-decoration: none;
+  }
+  .bonus-cta:hover { opacity: .88; }
+  .bonus-note {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: rgba(255,255,255,.45);
+    margin-top: 14px;
+  }
+  .bonus-note a { color: var(--gold); text-decoration: underline; }
+
+  #login-view, #results-view { display: none; }
+  #login-view.active, #results-view.active { display: block; }
+
+  /* ── Tablet (iPad portrait/landscape) ── */
+  @media (min-width: 601px) and (max-width: 1024px) {
+    .wrap { max-width: 680px; padding: 104px 32px 90px; }
+    .login-card { padding: 40px 36px; }
+    .match-card { padding: 26px 28px; }
+    .bonus-card { padding: 32px 30px; }
+  }
+
+  /* ── Desktop ── */
+  @media (min-width: 1025px) {
+    .wrap { max-width: 760px; padding: 116px 24px 100px; }
+    .brand-logo { margin-bottom: 32px; }
+    .login-card { padding: 40px 38px; }
+    .match-card { padding: 26px 30px; transition: box-shadow .15s ease, transform .15s ease; }
+    .match-card:hover { box-shadow: 0 4px 16px rgba(14,14,14,0.06); transform: translateY(-1px); }
+    .bonus-card { padding: 36px 38px; }
+    input[type="text"], input[type="email"] { font-size: 15px; }
+    button.primary:hover { cursor: pointer; }
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 600px) {
+    .nav { padding: 0 16px; height: 54px; }
+    .nav img { height: 18px; }
+    .nav-r { gap: 2px; }
+    .nav-r a { font-size: 11.5px; padding: 5px 7px; }
+    .nav-r .join { padding: 6px 11px; }
+    .wrap { padding: 70px 16px 56px; }
+    .brand-logo { margin-bottom: 20px; }
+    h1 { font-size: clamp(26px, 8vw, 34px); }
+    .sub { font-size: 14.5px; margin-bottom: 26px; }
+    .login-card { padding: 24px 18px; }
+    .field { margin-bottom: 15px; }
+    .results-header {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+    .logout { font-size: 12.5px; }
+    .match-card { padding: 18px 16px; margin-bottom: 14px; }
+    .match-name { font-size: 19px; }
+    ul.bullets li { font-size: 14px; }
+    .starter { font-size: 13.5px; padding: 11px 12px; }
+    .bonus-card { padding: 22px 18px; margin: 22px 0 6px; }
+    .bonus-title { font-size: 20px; }
+    .bonus-body { font-size: 14px; }
+    .bonus-cta { width: 100%; text-align: center; }
+    .event-detail { font-size: 12px; }
+  }
+
+  /* ── Extra-narrow phones (e.g. iPhone SE) — guarantee nav never wraps ── */
+  @media (max-width: 360px) {
+    .nav-r a[href="/events.html"] { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="nav">
+  <a href="https://yorkseed.co"><img src="data:image/png;base64,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" alt="Yorkseed"></a>
+  <div class="nav-r">
+    <a href="/events.html">Events</a>
+    <a href="https://app.yorkseed.co/login">Sign in</a>
+    <a href="https://app.yorkseed.co/pricing" class="join">Join</a>
+  </div>
+</div>
+<div class="wrap">
+
+  <div id="login-view" class="active">
+    <div class="product-kicker">Yorkseed Event In-Person Match</div>
+    <div class="eyebrow" id="login-event-name">Yorkseed Venture Social</div>
+    <h1>Find out who to meet.</h1>
+    <p class="event-detail" id="login-event-detail">New York City &middot; Tuesday, June 30 &middot; 5:00&ndash;7:30 PM EDT &middot; Hosted by Peter and Jason</p>
+    <p class="sub">Enter the first name and email you registered with — the venue address will be shown once we confirm you're on the guest list.</p>
+
+    <div class="login-card">
+      <div class="error-msg" id="error-msg"></div>
+      <div class="field">
+        <label for="first-name">First name</label>
+        <input type="text" id="first-name" placeholder="e.g. Pallav" autocomplete="given-name">
+      </div>
+      <div class="field">
+        <label for="email">Email address</label>
+        <input type="email" id="email" placeholder="you@company.com" autocomplete="email">
+      </div>
+      <button class="primary" id="login-btn">See my matches</button>
+    </div>
+  </div>
+
+  <div id="results-view">
+    <div class="results-header">
+      <div>
+        <div class="product-kicker">Yorkseed Event In-Person Match</div>
+        <div class="eyebrow" id="results-eyebrow">Your matches</div>
+        <h1 id="results-heading" style="font-size: clamp(26px,5vw,36px);">Hi there.</h1>
+      </div>
+      <button class="logout" id="logout-btn">Not you? Switch account</button>
+    </div>
+    <p class="event-detail" id="results-event-detail">Tuesday, June 30 &middot; 5:00&ndash;7:30 PM EDT &middot; <a href="https://www.google.com/maps/search/?api=1&query=The%20Ready%20Cantina&query_place_id=ChIJ-1HxQCdZwokRLHj8Dl1rVOo" target="_blank" rel="noopener">The Ready Cantina, New York</a></p>
+    <p class="venue-address" id="results-venue-address">112 E 11th St, New York, NY 10003</p>
+    <p class="onsite-contact" id="results-host-label">Peter and Jason are your on-site contacts</p>
+    <p class="sub" id="results-sub">Based on what you shared in your RSVP, here's who we think you should meet.</p>
+    <div id="match-list"></div>
+
+    <div class="bonus-card">
+      <div class="bonus-eyebrow">Complimentary Bonus</div>
+      <h3 class="bonus-title">2 Months of Yorkseed Connect</h3>
+      <p class="bonus-body">Yorkseed Connect is our venture relationship platform designed to help founders and investors build stronger connections beyond events through verified profiles, warm introductions, opportunity discovery, and access to Yorkseed's global network.</p>
+      <p class="bonus-body">All approved founders and investors attending this event will be eligible to receive a special code for complimentary access to Yorkseed Connect.</p>
+      <a class="bonus-cta" href="https://app.yorkseed.co/eventoffer?utm_source=luma" target="_blank" rel="noopener">Claim 2 months free</a>
+      <div class="bonus-note">Space is limited and registration is required &middot; <a href="https://app.yorkseed.co/eventoffer?utm_source=luma" target="_blank" rel="noopener">app.yorkseed.co/eventoffer</a></div>
+    </div>
+
+    <div class="footer-note" id="footer-note">See you at the Yorkseed Venture Social.</div>
+  </div>
+
+</div>
+
+<script>
+// ── EVENT CONFIG — edit this block for each new event, nothing else ──
+const EVENT = {
+  // This copy is intended to live at: yorkseed.co/intro/{slug}
+  slug: "raise-summit-paris-2026-07-06",
+  name: "Yorkseed Raise Summit Pitch Roulette",
+  city: "Paris, France",
+  dateLabel: "Monday, July 6",
+  timeLabel: "6:00\u20138:30 PM CEST",
+  onsiteContact: "Jessica is your on-site host",
+  venueName: "Bar Le Vanart, Paris",
+  venueAddress: "11 Rue des Tournelles, 75004 Paris, France",
+  venueMapUrl: "https://www.google.com/maps/search/?api=1&query=Bar+Le+Vanart+11+Rue+des+Tournelles+Paris"
+};
+const ATTENDEES = [{"name": "Meredith Maines", "first_name": "Meredith", "email": "meredith@triedgeinvestments.com", "role": "CMO, TriEdge Investments | Ex-CCO Archewell | Ex-Partner Lightspeed | Stanford", "matches": [{"name": "Sim Desai", "role": "Founder & CEO, Hiive | $5.1B Private Company Stock Marketplace | JD/MBA Toronto", "hook": "Sim is worth carving out real time for, not just a handshake.", "bullets": ["Sim co-founded Hiive — the regulated marketplace for private company stock, $5.1B in all-time transactions and profitable ($4.7M net income in a single quarter). He beat Forge on every metric while building a 200-person FINRA-member firm in 4 years.", "Could help with: Hiive's secondary market infrastructure is directly useful for managing liquidity in TriEdge's portfolio companies — the conversation has immediate practical application beyond networking."], "starter": "What's the secondary liquidity question that TriEdge's portfolio founders ask most — and what do you wish platforms like Hiive could do for them that they can't yet?"}, {"name": "Térence Schmitt", "role": "CEO, Ora Partners | Operating Manager, Confluence Global Capital (French-Swiss-Chinese FO)", "hook": "Make a point of finding Térence tonight.", "bullets": ["Térence runs Ora Partners (EU public affairs & regulatory strategy) and Confluence Global Capital — a French-Swiss-Chinese family office deploying across M&A and cross-border deals in AI, Fintech, Cybersecurity, and Defense.", "Could help with: TriEdge's AI, Cybersecurity, and Defense Tech investments have direct EU regulatory exposure — Térence's dual seat (lobbying + capital) is a practical source of intelligence on which rules will actually matter versus which ones are noise."], "starter": "From your regulatory vantage point, which EU AI-related rules will actually matter most for US-backed companies entering the European market right now?"}, {"name": "Guillaume Pétriat", "role": "Co-Founder & CEO, Inn'Pulse | Pocket Defibrillator | MedTech | École Polytechnique + ENSAE", "hook": "Guillaume is one of the better reasons to show up early.", "bullets": ["Guillaume co-founded Inn'Pulse — a Hello Tomorrow Deep Tech Pioneer (from 4,800+ applications), Réseau Entreprendre laureate, Fondation Renault-backed, BFM Business-featured pocket defibrillator. Polytechnique + ENSAE pedigree, actively raising, launching 2027.", "Could help with: Meredith invests at TriEdge across Healthcare and Infrastructure — Inn'Pulse sits in both, and Guillaume's fundraise is active right now."], "starter": "What's the regulatory pathway question you always ask first when you evaluate a MedTech company — the one that determines whether the timeline is actually fundable?"}, {"name": "Saboor Ahmad", "role": "Co-Founder, Dafinitiq AI | Voice & Agentic AI | Hilda | Ex-Head of Engineering, AAI", "hook": "Saboor is one of the better reasons to show up early.", "bullets": ["Saboor built Dafinitiq AI's Hilda (50K calls/month, 15-point CSAT lift) from Berlin — applied Voice AI with real commercial deployment, exactly the kind of company Meredith backed at Lightspeed.", "Could help with: Dafinitiq is at Seed Stage with real traction — Meredith has seen the pattern of what separates companies that raise from ones that don't, and she's in this room tonight."], "starter": "When evaluating AI infrastructure companies at Lightspeed, what was the most common mistake founders made in how they framed their traction story?"}, {"name": "Kyan Nademi", "role": "Founder, E L E V É | RAISE Summit Ambassador | 10 yrs CPP Investment Board | CFA", "hook": "Kyan is one of the better reasons to show up early.", "bullets": ["Kyan spent 10 years at CPP Investment Board (C$600B+ AUM) before founding E L E V É in Paris and becoming a RAISE Summit official ambassador.", "Could help with: two senior professionals who've each moved from major institutional environments to building their own thing in Paris — that specific transition is rare and the peer conversation is worth more than most introductions you'll get tonight."], "starter": "After Lightspeed and Archewell, what made TriEdge the right next thing — and what does the investor role look like differently when you're running your own shop?"}]}, {"name": "Saboor Ahmad", "first_name": "Saboor", "email": "ahmad.saboor.751@gmail.com", "role": "Co-Founder, Dafinitiq AI | Voice & Agentic AI | Hilda | Ex-Head of Engineering, AAI", "matches": [{"name": "Meredith Maines", "role": "CMO, TriEdge Investments | Ex-CCO Archewell | Ex-Partner Lightspeed | Stanford", "hook": "Make a point of finding Meredith tonight.", "bullets": ["Meredith spent 9 years as Partner at Lightspeed ($30B AUM, backed Anthropic, Snap, Affirm), now invests at TriEdge across AI, Healthcare, Fintech, and Defense Tech.", "Could help with: Dafinitiq AI is at Seed Stage with 50K calls/month and real commercial deployment — Meredith has seen what separates fundable AI companies from the noise, and she's in this room tonight."], "starter": "When you were at Lightspeed evaluating AI infrastructure companies, what was the most common mistake founders made in how they framed their traction story?"}, {"name": "Térence Schmitt", "role": "CEO, Ora Partners | Operating Manager, Confluence Global Capital (French-Swiss-Chinese FO)", "hook": "Térence is worth carving out real time for, not just a handshake.", "bullets": ["Térence runs a French-Swiss-Chinese family office (Confluence Global Capital) and EU public affairs firm (Ora Partners) — at the intersection of capital and regulatory strategy, both of which directly affect where Voice AI can operate in Europe.", "Could help with: Dafinitiq is scaling from Berlin into wider EU markets — Térence knows which AI Act and GDPR rules are real obstacles versus noise, and has access to capital that specifically bets on European AI infrastructure."], "starter": "What's the most underestimated regulatory risk for Voice AI companies scaling across EU jurisdictions right now — and when does it actually bite?"}, {"name": "Mickael", "role": "CTO/CEO, PrivyPulse | ML/ZK/Blockchain | Decentralized Science | EdTech | Paris", "hook": "Mickael is one of the better reasons to show up early.", "bullets": ["Mickael is building PrivyPulse (ML + ZK proofs + blockchain) in Paris — a privacy-preserving AI engineer with pharma domain knowledge (PharmD candidate, C2i Santé certification) and expertise in decentralized science.", "Could help with: privacy-preserving inference is directly relevant to how Dafinitiq handles sensitive voice data in healthcare-adjacent deployments — Mickael's ZK proof and compliance background could inform Hilda's EU architecture for regulated verticals."], "starter": "What does ZK-based privacy actually change about how a Voice AI platform handles compliance in regulated verticals — is it production-ready or still research?"}, {"name": "Aziz Masmoudi", "role": "Community Builder | Chain of Events | Data & AI Engineer | CY Tech Paris", "hook": "Aziz is one of the better reasons to show up early.", "bullets": ["Aziz is building Chain of Events (AI + events infrastructure) at CY Tech Paris — NVIDIA and Hugging Face certified, with production RAG/LLM deployment experience building an intelligent attendee matching system.", "Could help with: hospitality and events operators are exactly the kind of SMB that Hilda was built to serve — Aziz's Chain of Events could be a reference client or distribution channel, and he's already in the RAISE ecosystem in Paris."], "starter": "What specific workflow in events are you targeting first with AI — and what does the operator need to believe before they'll actually pay for it?"}, {"name": "Kyan Nademi", "role": "Founder, E L E V É | RAISE Summit Ambassador | 10 yrs CPP Investment Board | CFA", "hook": "If you only have one real conversation tonight, make it Kyan.", "bullets": ["Kyan is a RAISE Summit official ambassador, 10-year CPP Investment Board veteran, and Paris-based founder — deeply embedded in the ecosystem Dafinitiq needs to reach to scale beyond Berlin.", "Could help with: distribution and community matter as much as product in Voice AI — Kyan moves between investor and founder communities in Paris and could open doors that a Berlin-based company would otherwise take months to find."], "starter": "You're one of RAISE's official ambassadors — what's the most underrated conversation happening at this event that most people will miss?"}]}, {"name": "Térence Schmitt", "first_name": "Térence", "aliases": ["Terence"], "email": "tschmitt@confluenceglobalcapital.com", "role": "CEO, Ora Partners | Operating Manager, Confluence Global Capital (French-Swiss-Chinese FO)", "matches": [{"name": "Meredith Maines", "role": "CMO, TriEdge Investments | Ex-CCO Archewell | Ex-Partner Lightspeed | Stanford", "hook": "Meredith is one of the better reasons to show up early.", "bullets": ["Meredith brings 9 years at Lightspeed ($30B AUM) and current work at TriEdge across AI, Fintech, Cybersecurity, and Defense Tech — the exact sectors where Confluence Global Capital and Ora Partners most actively operate.", "Could help with: two investors at different scales (US VC vs. Franco-Swiss-Chinese family office) comparing notes on where AI deal flow is actually moving in 2026 — the gap between what Paris sees and Silicon Valley sees is real."], "starter": "From where you sat at Lightspeed, what's the most important thing the US AI venture market gets wrong about what's being built in Europe right now?"}, {"name": "Sim Desai", "role": "Founder & CEO, Hiive | $5.1B Private Company Stock Marketplace | JD/MBA Toronto", "hook": "Sim is one of the better reasons to show up early.", "bullets": ["Sim co-founded Hiive — the FINRA-regulated marketplace for private company stock, $5.1B in transactions, $123.2M revenue run rate, profitable. As Operating Manager at Confluence Global Capital, Hiive's secondary market infrastructure directly applies to how the family office manages VC position liquidity.", "Could help with: family offices are one of Hiive's most active buyer segments for pre-IPO exposure — understanding how a Franco-Swiss-Chinese family office evaluates private company risk changes how Hiive thinks about its European product roadmap."], "starter": "How does Hiive's FINRA-regulated model change the risk conversation for family offices that have historically used less structured SPV vehicles for pre-IPO access?"}, {"name": "Kyan Nademi", "role": "Founder, E L E V É | RAISE Summit Ambassador | 10 yrs CPP Investment Board | CFA", "hook": "Don't let the night end without talking to Kyan.", "bullets": ["Kyan ran data analytics at CPP Investment Board for 10 years (C$600B+ AUM, one of the world's largest pension funds) before founding E L E V É in Paris — direct experience with large institutional capital allocation relevant to Confluence Global Capital's LP strategy.", "Could help with: the gap between how pension funds and family offices actually evaluate AI investments is real — Kyan's decade inside one of the world's largest allocators is worth the conversation for how Confluence structures its investor relations."], "starter": "Coming from CPP's scale, what's the one thing about how institutional capital actually evaluates AI investments that most family offices get wrong?"}, {"name": "Romualdas Sostakas", "role": "Head of Credit, Ayni Solutions | Structured Finance | Fintech/Emobility | Ex-NatWest 8 yrs", "hook": "Romualdas is worth carving out real time for, not just a handshake.", "bullets": ["Romualdas is Head of Credit at Ayni Solutions (fintech/emobility, raised €450K) — 8+ years at NatWest Speciality Finance structuring complex credit for large corporates, now adding data analytics and ML to his toolkit.", "Could help with: structured finance and asset-backed lending are exactly the instruments Confluence Global Capital evaluates for real-economy investments — Romualdas has the credit expertise that's complementary to the equity lens Térence brings."], "starter": "How is Ayni thinking about the emobility credit stack — are you underwriting the vehicle, the fleet, the operator, or something else entirely?"}, {"name": "Saboor Ahmad", "role": "Co-Founder, Dafinitiq AI | Voice & Agentic AI | Hilda | Ex-Head of Engineering, AAI", "hook": "Saboor is one of the better reasons to show up early.", "bullets": ["Saboor is building Dafinitiq AI (Voice & Agentic AI, Seed Stage, Berlin) — Hilda has 50K calls/month and is deployed commercially, exactly the kind of B2B AI infrastructure play Confluence Global Capital evaluates.", "Could help with: Saboor needs EU regulatory clarity as Dafinitiq scales beyond Germany — Térence's Ora Partners specialty is turning the AI Act and GDPR from compliance burdens into strategic positioning, a real fundraising differentiator."], "starter": "From your EU public affairs lens, what's the right way for a Voice AI company to frame compliance under the AI Act — cost or moat?"}]}, {"name": "Aziz Masmoudi", "first_name": "Aziz", "email": "aziz@chainof.events", "role": "Community Builder | Chain of Events | Data & AI Engineer | CY Tech Paris", "matches": [{"name": "Saboor Ahmad", "role": "Co-Founder, Dafinitiq AI | Voice & Agentic AI | Hilda | Ex-Head of Engineering, AAI", "hook": "If you only have one real conversation tonight, make it Saboor.", "bullets": ["Saboor built Hilda (50K calls/month) and scaled an engineering team 0→46 — he's already past the RAG/LLM architecture and team challenges that Chain of Events is about to face.", "Could help with: Saboor has deployed the production RAG/LLM stack at real commercial scale — the problems that only appear after the demo is working, which is exactly the stage Aziz is approaching."], "starter": "What's the hardest engineering problem you hit deploying Hilda at real call volume — the thing that didn't show up in testing but broke at scale?"}, {"name": "Meredith Maines", "role": "CMO, TriEdge Investments | Ex-CCO Archewell | Ex-Partner Lightspeed | Stanford", "hook": "Make a point of finding Meredith tonight.", "bullets": ["Meredith spent 9 years at Lightspeed and now invests at TriEdge across AI, EdTech, and Infrastructure — three sectors that directly intersect with what Chain of Events is building.", "Could help with: her read on how an AI-native event platform positions itself to institutional buyers is more specific than most advisors in this room — she's seen what sticks and what doesn't from hundreds of pitches."], "starter": "When evaluating early-stage AI companies at Lightspeed, what made you confident a community or events platform had real enterprise potential versus staying niche?"}, {"name": "Térence Schmitt", "role": "CEO, Ora Partners | Operating Manager, Confluence Global Capital (French-Swiss-Chinese FO)", "hook": "If you only have one real conversation tonight, make it Térence.", "bullets": ["Térence is Paris-based, operates at the intersection of EU regulatory strategy and capital deployment, and has known the Paris innovation ecosystem cold since he was 22 working in EU institutions.", "Could help with: navigating French and European funding for an early-stage AI startup is genuinely complex — Térence has mapped the levers (BPI, EU grants, public-private partnerships) that most founders only discover by accident."], "starter": "For an AI-plus-events startup at early stage in France, what's the most underused funding or institutional support mechanism you'd actually point someone toward right now?"}, {"name": "Mickael", "role": "CTO/CEO, PrivyPulse | ML/ZK/Blockchain | Decentralized Science | EdTech | Paris", "hook": "Make a point of finding Mickael tonight.", "bullets": ["Mickael is building PrivyPulse (ML + ZK + blockchain) and PrivyPulseEdu in Paris — combining pharma domain knowledge with deep Python/ML experience in privacy-preserving AI.", "Could help with: both are technical founders building AI products in Paris at similar early stages — comparing notes on how to get the first paying enterprise customer is the specific conversation that actually moves things forward."], "starter": "What's the specific gap between what PrivyPulseEdu builds and what existing EdTech platforms offer — the thing that only works because of the ZK privacy layer?"}, {"name": "Marc Richly", "role": "Co-Founder, Learnfluid & StartIn Lab | EdTech/AI | Ex-BCG | Imperial College Distinction", "hook": "If you only have one real conversation tonight, make it Marc.", "bullets": ["Marc co-founded Learnfluid (EdTech/AI) and StartIn Lab (venture builder) — Imperial College MSc Business Analytics (Distinction), BCG Tech Due Diligence background, now Associate Research Fellow at Imperial.", "Could help with: both are building at the AI-and-community intersection (Chain of Events for events, Learnfluid for learning) — Marc's venture-building perspective on what makes an AI product defensible is directly applicable to how Chain of Events thinks about its moat."], "starter": "What's the venture builder's test for whether an AI product is genuinely defensible — the question at StartIn Lab that most early-stage founders can't answer well?"}]}, {"name": "Musa Baijduev", "first_name": "Musa", "email": "musabajduev@gmail.com", "role": "Co-Founder & COO, Washable | On-demand Mobile Car Wash | Early Stage | Helsinki", "matches": [{"name": "Meredith Maines", "role": "CMO, TriEdge Investments | Ex-CCO Archewell | Ex-Partner Lightspeed | Stanford", "hook": "If you only have one real conversation tonight, make it Meredith.", "bullets": ["Meredith built and advised global brands for 20+ years — Lightspeed portfolio companies, Anthropic, Hulu, BetterUp, Archewell — and is now investing at TriEdge across AI, Healthcare, and Infrastructure.", "Could help with: the honest version of what investors look for at Washable's stage — not the polished pitch advice but what Meredith has genuinely seen separate companies that raise from ones that stall."], "starter": "At Washable's stage, what's the one thing you'd want us focused on before we think about raising — and what do most early founders waste time on that you'd cut?"}, {"name": "Kyan Nademi", "role": "Founder, E L E V É | RAISE Summit Ambassador | 10 yrs CPP Investment Board | CFA", "hook": "Kyan is one of the better reasons to show up early.", "bullets": ["Kyan spent 10 years at CPP Investment Board before becoming a founder in Paris and a RAISE Summit official ambassador — she has the rare combination of deep institutional investment knowledge and current founder experience.", "Could help with: Kyan can tell Musa what the funding journey looks like from both sides of the table at once, which is more useful than advice from someone who only knows one side."], "starter": "Going from 10 years at one of the world's biggest pension funds to starting a company — what surprised you most about being on the founder side?"}, {"name": "Saboor Ahmad", "role": "Co-Founder, Dafinitiq AI | Voice & Agentic AI | Hilda | Ex-Head of Engineering, AAI", "hook": "Make a point of finding Saboor tonight.", "bullets": ["Saboor scaled his team from 0 to 46 and took an automotive AI startup from pre-seed to €1.5M ARR before co-founding Dafinitiq — he did in Berlin what Musa is trying to do in Helsinki, recently enough for the lessons to be fresh.", "Could help with: the specific operational and team challenges that hit in the first 12 months of building a service startup in Northern Europe — the pattern transfers across sectors more than it appears."], "starter": "What's the thing you figured out about building in Germany that would have saved you the most time if you'd known it on day one?"}, {"name": "Cedric Ngando", "role": "Co-Founder, WSHNETWORK | Student Social Network | Station F | NEOMA Business School", "hook": "Cedric is worth carving out real time for, not just a handshake.", "bullets": ["Cedric co-founded WSHNETWORK — a private social network for university students that just joined Station F, launched at NEOMA with 300+ downloads in week one despite technical issues.", "Could help with: both are building consumer products for specific communities at the very earliest stage — the conversation about what actually drives word-of-mouth adoption when you have no budget is immediately applicable to both."], "starter": "What made 300+ students download WSHNETWORK in week one despite the bugs — what did the word-of-mouth actually look like?"}, {"name": "Marc Richly", "role": "Co-Founder, Learnfluid & StartIn Lab | EdTech/AI | Ex-BCG | Imperial College Distinction", "hook": "Marc is one of the better reasons to show up early.", "bullets": ["Marc co-founded Learnfluid (EdTech/AI) and StartIn Lab (venture builder) — Imperial College Distinction and BCG background, now building and co-founding companies across the European ecosystem.", "Could help with: a peer entrepreneur a step ahead in formalizing a startup — Marc's experience navigating the London/European startup and VC ecosystem is directly applicable advice for what Washable needs to do next."], "starter": "What's the one thing about building Learnfluid you wish someone had told you before you started — the lesson that only came from actually doing it?"}]}, {"name": "Kyan Nademi", "first_name": "Kyan", "email": "kyan_nademi@hotmail.com", "role": "Founder, E L E V É | RAISE Summit Ambassador | 10 yrs CPP Investment Board | CFA", "matches": [{"name": "Meredith Maines", "role": "CMO, TriEdge Investments | Ex-CCO Archewell | Ex-Partner Lightspeed | Stanford", "hook": "Don't let the night end without talking to Meredith.", "bullets": ["Meredith spent 9 years as Partner at Lightspeed ($30B AUM), was CCO for Prince Harry and Meghan's Archewell, and is now investing at TriEdge across AI, Healthcare, Fintech, and Defense Tech.", "Could help with: two senior women who've each moved from major institutional environments to building their own thing in Paris — that specific transition is rare and worth real conversation, not just a hello."], "starter": "After Lightspeed and Archewell, what made TriEdge the right next thing — and what does the investor role look like differently when you're running your own shop?"}, {"name": "Térence Schmitt", "role": "CEO, Ora Partners | Operating Manager, Confluence Global Capital (French-Swiss-Chinese FO)", "hook": "If you only have one real conversation tonight, make it Térence.", "bullets": ["Térence runs Ora Partners (EU public affairs) and Confluence Global Capital — he's deeply embedded in the Paris investor and policy ecosystem that E L E V É wants to operate within.", "Could help with: access to the Franco-Swiss-Chinese capital network via Confluence is a real asset for E L E V É's growth — Térence's public affairs background means he understands how institutional relationships actually form in Europe versus North America."], "starter": "How does a Franco-Swiss-Chinese family office think about the Paris innovation ecosystem right now — is the capital flowing in or out?"}, {"name": "Sim Desai", "role": "Founder & CEO, Hiive | $5.1B Private Company Stock Marketplace | JD/MBA Toronto", "hook": "Sim is one of the better reasons to show up early.", "bullets": ["Sim co-founded Hiive — the regulated marketplace for private company stock, $5.1B in transactions and profitable. With 10 years at CPP Investment Board, Kyan has worked directly with the institutional capital that Hiive serves.", "Could help with: E L E V É is being built in the Paris startup ecosystem — understanding how secondary liquidity programs work at companies in her network could become directly relevant as they scale."], "starter": "How are European private companies thinking about employee liquidity and secondary markets differently from what you saw in North American institutional capital?"}, {"name": "Nancy V. Gomez", "role": "Co-Founder, Khepry88 & Khepry Interactive | 20+ yrs Tech/Wellness | Paris 2024 Olympic Advisor | Angel", "hook": "Nancy is one of the better reasons to show up early.", "bullets": ["Nancy co-founded Khepry88 (regenerative assets) and Khepry Interactive (AI for banking/regulatory), with 20+ years in tri-sector partnerships across UN/OECD/WB/WEF and led the first French delegation at the Global Women Summit.", "Could help with: Nancy is an angel investor and global ecosystem connector focused on women and impact — and E L E V É's mission to bring more people into the rooms that matter is directly aligned with Nancy's women's leadership work."], "starter": "What's the investment thesis behind regenerative assets for legacy investors — and what does the family office pipeline look like for that kind of impact-first return profile?"}, {"name": "Kim Bingham", "role": "Founder & CEO, Mostro.xyz | Web3 Music Fintech (RWA) | SheFi Paris Lead | Paris Dauphine MSc Wealth Mgmt", "hook": "Kim is worth carving out real time for, not just a handshake.", "bullets": ["Kim is the She/Her founder of Mostro.xyz (Web3 music fintech) and SheFi Paris Chapter Lead — one of the most active builders in the Paris women-in-crypto ecosystem.", "Could help with: Kyan's mission at RAISE is explicitly getting more women into the rooms that change the future — Kim's SheFi chapter and music industry network are directly relevant communities for E L E V É to plug into."], "starter": "What does the Paris Web3 women's ecosystem look like right now through the SheFi lens — who's building what, and what's the room most worth being in?"}]}, {"name": "Mickael", "first_name": "Mickael", "email": "tgacfa90@anonaddy.me", "role": "CTO/CEO, PrivyPulse | ML/ZK/Blockchain | Decentralized Science | EdTech | Paris", "matches": [{"name": "Saboor Ahmad", "role": "Co-Founder, Dafinitiq AI | Voice & Agentic AI | Hilda | Ex-Head of Engineering, AAI", "hook": "Don't let the night end without talking to Saboor.", "bullets": ["Saboor built Dafinitiq AI (Voice & Agentic AI, Hilda — 50K calls/month, 15-point CSAT lift) from Berlin — an engineering leader who scaled 0→46 and took an automotive AI startup from pre-seed to €1.5M ARR.", "Could help with: PrivyPulse handles sensitive health data — Saboor's production deployment of Voice AI in regulated healthcare-adjacent contexts gives direct insight into where ZK privacy architecture creates real enterprise defensibility versus where it's over-engineering."], "starter": "Where does ZK-based privacy create the strongest enterprise moat in your view — healthcare compliance, financial services, or somewhere else?"}, {"name": "Kim Bingham", "role": "Founder & CEO, Mostro.xyz | Web3 Music Fintech (RWA) | SheFi Paris Lead | Paris Dauphine MSc Wealth Mgmt", "hook": "Kim is worth carving out real time for, not just a handshake.", "bullets": ["Kim is the founder of Mostro.xyz (Web3 music fintech turning IP into tradeable RWA) and SheFi Paris Chapter Lead — building in Web3 since 2018 with a Paris Dauphine MSc in Wealth Management.", "Could help with: PrivyPulse is building privacy-preserving infrastructure for decentralized science — Kim's experience structuring music IP as RWA on blockchain is direct practitioner knowledge about how real-world assets work when traditional IP meets DeFi rails."], "starter": "What's the specific technical or regulatory obstacle that makes music RWA harder than it looks — the thing that only became clear when you actually tried to build it?"}, {"name": "Marc Richly", "role": "Co-Founder, Learnfluid & StartIn Lab | EdTech/AI | Ex-BCG | Imperial College Distinction", "hook": "If you only have one real conversation tonight, make it Marc.", "bullets": ["Marc co-founded Learnfluid (EdTech/AI) and StartIn Lab (venture builder) — Imperial College MSc Business Analytics Distinction, BCG Tech Due Diligence background, now building and co-founding companies.", "Could help with: PrivyPulseEdu is in EdTech — Marc's Learnfluid is building in the same vertical, and his BCG analytical background means he's already stress-tested the market size, acquisition patterns, and defensibility questions that EdTech investors always ask first."], "starter": "What's the most common thing investors get wrong about the EdTech market when they look at an early-stage company for the first time?"}, {"name": "Rinat Baron Fischmann", "role": "Data Scientist, Turing | AI Model Infrastructure | LLM Evaluator | MSc Data Science", "hook": "Don't let the night end without talking to Rinat.", "bullets": ["Rinat is a Data Scientist at Turing improving AI model infrastructure, LLM evaluator at Innodata, and Geophysics graduate from Tel Aviv University — bringing a rigorous scientific method to ML that most startup engineers lack.", "Could help with: PrivyPulse's ML engine for privacy-preserving computation needs the kind of model evaluation rigour Rinat works on daily — less about architecture, more about whether the models are actually doing what you think they are."], "starter": "What's the gap you see most often between what founders think their ML model is doing and what it's actually doing — the evaluation mistake that compounds quietly?"}, {"name": "Aziz Masmoudi", "role": "Community Builder | Chain of Events | Data & AI Engineer | CY Tech Paris", "hook": "If you only have one real conversation tonight, make it Aziz.", "bullets": ["Aziz is building Chain of Events (AI + events) at CY Tech Paris — NVIDIA and Hugging Face certified with production RAG/LLM deployment experience and a community presence in the RAISE ecosystem.", "Could help with: both are technical founders building AI products in Paris at similar early stages — comparing notes on the first enterprise customer acquisition strategy and how to position Paris-based AI products is the specific conversation that moves things forward."], "starter": "What's your go-to-market plan for Chain of Events — top-down to enterprise event organizers, or building from community adoption first?"}]}, {"name": "Sim Desai", "first_name": "Sim", "email": "clawbotgg@proton.me", "role": "Founder & CEO, Hiive | $5.1B Private Company Stock Marketplace | JD/MBA Toronto", "matches": [{"name": "Meredith Maines", "role": "CMO, TriEdge Investments | Ex-CCO Archewell | Ex-Partner Lightspeed | Stanford", "hook": "Meredith is one of the better reasons to show up early.", "bullets": ["Meredith spent 9 years as Partner at Lightspeed Venture Partners and now invests at TriEdge across AI, Fintech, and Defense Tech — she has navigated the VC side of late-stage private companies from the inside for a decade.", "Could help with: Hiive directly serves the companies that Meredith backs at Lightspeed and TriEdge — the conversation about how secondary liquidity programs change employee retention and cap table dynamics is immediately practical."], "starter": "How are the companies in TriEdge's portfolio thinking about secondary liquidity programs for employees right now — is it a founder priority or still an afterthought?"}, {"name": "Térence Schmitt", "role": "CEO, Ora Partners | Operating Manager, Confluence Global Capital (French-Swiss-Chinese FO)", "hook": "Make a point of finding Térence tonight.", "bullets": ["Térence is Operating Manager at Confluence Global Capital (French-Swiss-Chinese family office) and CEO of Ora Partners — at the intersection of capital allocation and EU regulatory strategy, both of which Hiive navigates in its European expansion.", "Could help with: family offices are one of Hiive's most active buyer segments for pre-IPO exposure — understanding how a Franco-Swiss-Chinese family office evaluates private company risk is directly applicable market intelligence for Hiive's European roadmap."], "starter": "When Confluence Global Capital evaluates pre-IPO positions, what's the due diligence question that most founders and platforms underestimate?"}, {"name": "Kyan Nademi", "role": "Founder, E L E V É | RAISE Summit Ambassador | 10 yrs CPP Investment Board | CFA", "hook": "Kyan is one of the better reasons to show up early.", "bullets": ["Kyan spent 10 years in data analytics at CPP Investment Board (C$600B+ AUM) — exactly the kind of institutional capital allocator that Hiive has been building infrastructure to serve.", "Could help with: large pension funds are increasingly active in private market VC secondaries — Kyan's decade seeing how CPP evaluates, structures, and monitors private company exposure directly informs how Hiive should think about institutional product development."], "starter": "When CPP looked at private company exposure, what was the infrastructure gap — the thing the platforms you were using most needed to fix?"}, {"name": "Romualdas Sostakas", "role": "Head of Credit, Ayni Solutions | Structured Finance | Fintech/Emobility | Ex-NatWest 8 yrs", "hook": "Romualdas is worth carving out real time for, not just a handshake.", "bullets": ["Romualdas is Head of Credit at Ayni Solutions (fintech/emobility, raised €450K) with 8+ years at NatWest Speciality Finance structuring complex credit for large corporates, plus a data analytics and ML certification from Turing College.", "Could help with: Hiive operates where structured finance meets technology — Romualdas's asset-backed lending and complex credit background is directly relevant to understanding how Hiive's fund structures look from the credit quality perspective."], "starter": "From a structured credit perspective, how do you think about the risk profile of private company secondary positions — what's the underwriting question that most platforms gloss over?"}, {"name": "Nancy V. Gomez", "role": "Co-Founder, Khepry88 & Khepry Interactive | 20+ yrs Tech/Wellness | Paris 2024 Olympic Advisor | Angel", "hook": "Nancy is one of the better reasons to show up early.", "bullets": ["Nancy co-founded Khepry88 (regenerative assets, French pilot) and Khepry Interactive (AI for banking/regulatory), with 20+ years in tri-sector partnerships across UN/OECD/WEF and published expertise on geopolitics of cryptocurrency.", "Could help with: Nancy's angel investor network spans French family offices to African tech ecosystems — Hiive's expansion into European and emerging-market private company transactions is a market development conversation worth having with someone who has built that network."], "starter": "As you expand Hiive into European markets, what's the market structure difference that most surprised you about how private capital actually flows here versus in North America?"}]}, {"name": "Rinat Baron Fischmann", "first_name": "Rinat", "email": "rinat.fish22@gmail.com", "role": "Data Scientist, Turing | AI Model Infrastructure | LLM Evaluator | MSc Data Science", "matches": [{"name": "Saboor Ahmad", "role": "Co-Founder, Dafinitiq AI | Voice & Agentic AI | Hilda | Ex-Head of Engineering, AAI", "hook": "If you only have one real conversation tonight, make it Saboor.", "bullets": ["Saboor built Dafinitiq AI's production ML stack (Hilda, 50K calls/month) and scaled an engineering team 0→46 while taking an automotive AI startup from pre-seed to €1.5M ARR.", "Could help with: Rinat's daily work improving AI model infrastructure at Turing maps directly onto the engineering quality bar that Dafinitiq needs for enterprise Voice AI — a conversation about evaluation and reliability at scale is immediately useful."], "starter": "What's the model evaluation mistake you see most often in production Voice AI deployments — the thing that looks fine in testing but compounds in real use?"}, {"name": "Mickael", "role": "CTO/CEO, PrivyPulse | ML/ZK/Blockchain | Decentralized Science | EdTech | Paris", "hook": "Mickael is worth carving out real time for, not just a handshake.", "bullets": ["Mickael is building PrivyPulse (ML + ZK proofs + blockchain) in Paris — combining privacy-preserving computation with AI in healthcare and EdTech, with a pharma background that gives him unusual domain depth.", "Could help with: Rinat's LLM evaluation work at Innodata is directly relevant to how PrivyPulse structures its ML pipeline — less about architecture choices, more about whether the models are actually doing what you think they are in production."], "starter": "What does your LLM evaluation work at Innodata tell you about where current models systematically fail that most developers don't see because they're not in the evaluation business?"}, {"name": "Marc Richly", "role": "Co-Founder, Learnfluid & StartIn Lab | EdTech/AI | Ex-BCG | Imperial College Distinction", "hook": "If you only have one real conversation tonight, make it Marc.", "bullets": ["Marc co-founded Learnfluid (EdTech/AI) and StartIn Lab (venture builder) — Imperial College MSc Business Analytics Distinction, BCG Tech Due Diligence background, building at the intersection of analytics and learning.", "Could help with: Rinat's geophysics background combined with ML and LLM evaluation expertise is an unusual combination — the technical rigor lens is directly applicable to what Marc's StartIn Lab looks for when evaluating AI ventures."], "starter": "What's the hardest part of going from 'we have a working ML model' to 'we have something an enterprise will pay for consistently' — the gap most EdTech AI products fall into?"}, {"name": "Aziz Masmoudi", "role": "Community Builder | Chain of Events | Data & AI Engineer | CY Tech Paris", "hook": "Make a point of finding Aziz tonight.", "bullets": ["Aziz is building Chain of Events (AI + events infrastructure) at CY Tech Paris — NVIDIA and Hugging Face certified with production RAG/LLM deployment experience building an intelligent matching system.", "Could help with: Rinat's experience evaluating and improving LLM performance at Turing is directly applicable to how Aziz can make Chain of Events' AI matching engine reliable — the model quality bar for B2B use cases is much higher than for demos."], "starter": "What's the specific model behavior in your intelligent matching system that you're most uncertain about — the one where you don't yet know if it's working as intended?"}, {"name": "Hasanalam Attar", "role": "Founder, Nomadic Wolf Labs | Web3/AI Ecosystem Builder | Community Builder | India→Global", "hook": "Hasanalam is one of the better reasons to show up early.", "bullets": ["Hasanalam is building Nomadic Wolf Labs as a Web3/AI ecosystem play — attending events from India Blockchain Week to Berlin Blockchain Week, learning Python and smart contracts while building community before product.", "Could help with: Rinat's data science journey from a non-CS starting point (Geophysics) to applied ML and LLM evaluation is exactly the map Hasanalam is trying to navigate — the honest account of what's worth learning deeply versus what you can outsource."], "starter": "What's the thing you most wish you'd learned earlier in your ML journey — the gap between the course curriculum and what you actually needed on the job?"}]}, {"name": "Nancy V. Gomez", "first_name": "Nancy", "email": "nancyinvitation@gmail.com", "role": "Co-Founder, Khepry88 & Khepry Interactive | 20+ yrs Tech/Wellness | Paris 2024 Olympic Advisor | Angel", "matches": [{"name": "Meredith Maines", "role": "CMO, TriEdge Investments | Ex-CCO Archewell | Ex-Partner Lightspeed | Stanford", "hook": "Meredith is worth carving out real time for, not just a handshake.", "bullets": ["Meredith spent 9 years as a Partner at Lightspeed and now invests at TriEdge across AI, Healthcare, Fintech, and Defense Tech — one of the most credentialed ecosystem investors in this room.", "Could help with: Nancy has built tri-sector partnerships across UN/OECD/WB/WEF for 20+ years — the conversation about where 'regenerative' and 'institutionally investable' actually overlap is worth having with someone who's evaluated hundreds of companies from the VC side."], "starter": "When TriEdge evaluates impact-adjacent investments in wellness or sustainability, what's the signal that separates a real business model from a story that only works if everything goes perfectly?"}, {"name": "Sim Desai", "role": "Founder & CEO, Hiive | $5.1B Private Company Stock Marketplace | JD/MBA Toronto", "hook": "Sim is one of the better reasons to show up early.", "bullets": ["Sim co-founded Hiive — the regulated marketplace for private company stock, $5.1B in transactions and profitable. Nancy has published on the geopolitics of cryptocurrency and advises African blockchain ecosystems, giving her direct perspective on alternative capital infrastructure.", "Could help with: Nancy's angel investor network spans French family offices to African tech ecosystems — Hiive's European and emerging-market expansion is a market development conversation worth having with someone who has built those institutional relationships."], "starter": "As Hiive expands into European markets, what's the market structure difference that most surprised you about how private capital flows here versus in North America?"}, {"name": "Kyan Nademi", "role": "Founder, E L E V É | RAISE Summit Ambassador | 10 yrs CPP Investment Board | CFA", "hook": "If you only have one real conversation tonight, make it Kyan.", "bullets": ["Kyan ran data analytics at CPP Investment Board for 10 years and is now a founder in Paris and RAISE Summit ambassador — she bridges institutional capital and the founder communities that Khepry88's regenerative asset model needs to reach.", "Could help with: Nancy's mission for Khepry88 — bringing regenerative assets to legacy investors — is exactly the translation challenge that someone with Kyan's dual identity (institutional analyst + current founder) understands from both sides at once."], "starter": "What's the most useful thing your CPP Investment Board experience taught you about what legacy investors actually need to hear before they'll consider an unfamiliar asset class?"}, {"name": "Kim Bingham", "role": "Founder & CEO, Mostro.xyz | Web3 Music Fintech (RWA) | SheFi Paris Lead | Paris Dauphine MSc Wealth Mgmt", "hook": "Make a point of finding Kim tonight.", "bullets": ["Kim is the She/Her founder of Mostro.xyz (Web3 music fintech turning IP into tradeable RWA) and SheFi Paris Chapter Lead — building at the intersection of creative economy, Web3, and institutional finance in Paris.", "Could help with: both Nancy and Kim are Paris-based women building at the edge of traditional finance and impact/culture — Khepry Interactive and Mostro both require building trust with conservative institutional capital for non-traditional asset classes."], "starter": "What's the pitch to a traditional wealth manager about why music IP as an RWA belongs in their portfolio — the argument that actually moves a conservative allocation decision?"}, {"name": "Guillaume Pétriat", "role": "Co-Founder & CEO, Inn'Pulse | Pocket Defibrillator | MedTech | École Polytechnique + ENSAE", "hook": "Guillaume is one of the better reasons to show up early.", "bullets": ["Guillaume co-founded Inn'Pulse — a Hello Tomorrow Deep Tech Pioneer, Polytechnique + ENSAE founder, Fondation Renault-backed, actively raising. His 15 years volunteering at Protection Civile Paris Seine gave Inn'Pulse its founding thesis.", "Could help with: Inn'Pulse's workplace safety mission and social impact story (5 million deaths per year, 80% of employees don't know where their AED is) maps precisely to the impact-first investment narrative that Nancy's angel network responds to."], "starter": "What's the investment pitch for Inn'Pulse that you'd structure for a family office or impact investor who has never thought about cardiac arrest response as an asset class?"}]}, {"name": "Kim Bingham", "first_name": "Kim", "email": "kim@mostro.xyz", "role": "Founder & CEO, Mostro.xyz | Web3 Music Fintech (RWA) | SheFi Paris Lead | Paris Dauphine MSc Wealth Mgmt", "matches": [{"name": "Mickael", "role": "CTO/CEO, PrivyPulse | ML/ZK/Blockchain | Decentralized Science | EdTech | Paris", "hook": "Make a point of finding Mickael tonight.", "bullets": ["Mickael is building PrivyPulse (ML + ZK proofs + blockchain) in Paris — a privacy-preserving AI and blockchain engineer with pharma domain knowledge and expertise in decentralized science.", "Could help with: Mostro's RWA music IP model requires privacy-preserving data structures for artist royalty flows and listener data — Mickael's ZK proof expertise is directly applicable to the specific privacy architecture that music IP tokenization needs."], "starter": "Where does ZK proof verification fit in the RWA stack for music IP — authentication, ownership, or revenue distribution?"}, {"name": "Térence Schmitt", "role": "CEO, Ora Partners | Operating Manager, Confluence Global Capital (French-Swiss-Chinese FO)", "hook": "Make a point of finding Térence tonight.", "bullets": ["Térence runs Ora Partners (EU public affairs) and Confluence Global Capital — at the intersection of EU regulatory strategy and family office capital, both of which Mostro needs for its European RWA music licensing model.", "Could help with: Mostro is building at the heavily regulated intersection of music rights, financial services, and Web3 — Térence's EU public affairs expertise is directly relevant to which regulatory frameworks will shape how RWA music tokens can actually be structured and traded."], "starter": "What does EU regulation actually say about tokenized music IP — which regulatory bucket does Mostro fall into, and what should we be registering with now rather than scrambling for later?"}, {"name": "Romualdas Sostakas", "role": "Head of Credit, Ayni Solutions | Structured Finance | Fintech/Emobility | Ex-NatWest 8 yrs", "hook": "Romualdas is worth carving out real time for, not just a handshake.", "bullets": ["Romualdas is Head of Credit at Ayni Solutions — 8+ years at NatWest Speciality Finance structuring complex asset-backed credit facilities for large corporates, plus a data analytics certification.", "Could help with: Mostro is building financial infrastructure for music IP — Romualdas's structured finance background (asset-backed lending, complex credit structures) is directly applicable to how Mostro designs its artist liquidity mechanism without getting it wrong early."], "starter": "When you were structuring asset-backed credit at NatWest, what was the most common mistake in how founders valued the underlying assets — the thing that always tripped up deals?"}, {"name": "Nancy V. Gomez", "role": "Co-Founder, Khepry88 & Khepry Interactive | 20+ yrs Tech/Wellness | Paris 2024 Olympic Advisor | Angel", "hook": "Nancy is worth carving out real time for, not just a handshake.", "bullets": ["Nancy co-founded Khepry88 (regenerative assets, French pilot) and Khepry Interactive (AI for banking/regulatory), and invests as an angel with networks spanning French family offices, UN/OECD/WEF, and African ecosystems.", "Could help with: both are Paris-based women building at the intersection of culture/wellness and traditional capital — Nancy's angel investor network and published expertise on cryptocurrency geopolitics overlaps with Mostro's RWA music capital raise."], "starter": "What's the investor conversation about Khepry88's regenerative asset model that's actually working — the framing that gets past the 'sounds interesting but unfamiliar' response?"}, {"name": "Kyan Nademi", "role": "Founder, E L E V É | RAISE Summit Ambassador | 10 yrs CPP Investment Board | CFA", "hook": "If you only have one real conversation tonight, make it Kyan.", "bullets": ["Kyan spent 10 years at CPP Investment Board and is now a RAISE Summit ambassador and Paris-based founder — she bridges institutional capital and the startup ecosystem that Mostro needs to build its investor base within.", "Could help with: Kyan is one of the few people in this room who has both sat inside large-scale institutional capital allocation and is actively building in Paris — her read on how to approach institutional investors about music IP as an emerging asset class is rare."], "starter": "You've seen both sides — what does an institutional investor actually need to believe about a new asset class before they'll put even a small allocation toward it?"}]}, {"name": "Romualdas Sostakas", "first_name": "Romualdas", "email": "romualdas@ayni-solutions.com", "role": "Head of Credit, Ayni Solutions | Structured Finance | Fintech/Emobility | Ex-NatWest 8 yrs", "matches": [{"name": "Sim Desai", "role": "Founder & CEO, Hiive | $5.1B Private Company Stock Marketplace | JD/MBA Toronto", "hook": "Sim is one of the better reasons to show up early.", "bullets": ["Sim co-founded Hiive — the FINRA-regulated marketplace for private company stock, $5.1B in transactions and profitable. Hiive operates at the structured finance/markets intersection where Romualdas has spent his entire career.", "Could help with: understanding how Hiive structures secondary market access for companies at growth stage is directly applicable intelligence for Ayni as it scales — and Sim is in Paris specifically to connect with exactly this kind of operator."], "starter": "At what stage does a company like Ayni start thinking seriously about secondary market access for employee liquidity — and what does the setup work look like before you need it?"}, {"name": "Térence Schmitt", "role": "CEO, Ora Partners | Operating Manager, Confluence Global Capital (French-Swiss-Chinese FO)", "hook": "Térence is one of the better reasons to show up early.", "bullets": ["Térence runs Confluence Global Capital (French-Swiss-Chinese family office) and Ora Partners — at the intersection of EU capital allocation and regulatory strategy, complementary to Romualdas's structured credit background.", "Could help with: Ayni is building in emobility and fintech where EU regulation will significantly shape market structure — Térence's Ora Partners expertise on EU regulatory trajectory is directly applicable to the credit underwriting decisions Romualdas makes."], "starter": "What's the EU emobility financing regulatory development that will most change credit underwriting assumptions in the next 18 months — something already in the pipeline that most operators are ignoring?"}, {"name": "Meredith Maines", "role": "CMO, TriEdge Investments | Ex-CCO Archewell | Ex-Partner Lightspeed | Stanford", "hook": "If you only have one real conversation tonight, make it Meredith.", "bullets": ["Meredith spent 9 years at Lightspeed ($30B AUM) and now invests at TriEdge across Fintech, AI, and Infrastructure — she has evaluated what makes a fintech credit business defensible versus just first-mover, from hundreds of pitches.", "Could help with: Ayni's fintech/emobility credit model is raising — Meredith's VC lens on the fintech category is exactly the reality check that helps position Ayni for the right investors rather than the wrong ones."], "starter": "What's the fintech credit business model you see most often at TriEdge that looks defensible but usually isn't — the pattern that repeats?"}, {"name": "Kim Bingham", "role": "Founder & CEO, Mostro.xyz | Web3 Music Fintech (RWA) | SheFi Paris Lead | Paris Dauphine MSc Wealth Mgmt", "hook": "If you only have one real conversation tonight, make it Kim.", "bullets": ["Kim is the founder of Mostro.xyz (Web3 music fintech) and SheFi Paris Chapter Lead — a Paris Dauphine Wealth Management MSc graduate structuring music IP as a tradeable financial asset class.", "Could help with: Mostro's financial architecture needs structured finance thinking from someone who's actually built it — Romualdas's 8+ years designing asset-backed credit facilities and managing complex credit portfolios at NatWest is directly applicable to how Mostro structures artist liquidity."], "starter": "When you were structuring complex credit facilities at NatWest, what was the most common way founders misunderstood what made an asset 'bankable' versus just interesting?"}, {"name": "Guillaume Pétriat", "role": "Co-Founder & CEO, Inn'Pulse | Pocket Defibrillator | MedTech | École Polytechnique + ENSAE", "hook": "Don't let the night end without talking to Guillaume.", "bullets": ["Guillaume co-founded Inn'Pulse — a Hello Tomorrow Deep Tech Pioneer, Polytechnique + ENSAE founder, raised €120K, launching 2027. Social impact-first with 15 years volunteering at Protection Civile Paris Seine.", "Could help with: a fintech credit professional evaluating a MedTech investment brings a different analytical lens than most VC feedback — Romualdas can help Guillaume stress-test the financial model and unit economics in a way that prepares Inn'Pulse for institutional diligence."], "starter": "What's the question about Inn'Pulse's financial model that you'd want answered before deciding whether to recommend it to someone in your network — the credit professional version of due diligence?"}]}, {"name": "Cedric Ngando", "first_name": "Cedric", "email": "cedricngando@gmail.com", "role": "Co-Founder, WSHNETWORK | Student Social Network | Station F | NEOMA Business School", "matches": [{"name": "Marc Richly", "role": "Co-Founder, Learnfluid & StartIn Lab | EdTech/AI | Ex-BCG | Imperial College Distinction", "hook": "Marc is worth carving out real time for, not just a handshake.", "bullets": ["Marc co-founded Learnfluid (EdTech/AI) and StartIn Lab (venture builder) — Imperial College MSc Distinction, BCG Tech Due Diligence background, now Associate Research Fellow at Imperial. Active across the European ecosystem.", "Could help with: WSHNETWORK is a consumer social product for students — Marc's experience at the intersection of EdTech, analytics, and venture building gives him a precise view of what it takes to go from 'students love it' to 'investors back it.'"], "starter": "What's the most common reason a consumer-social product for students doesn't become a business — the failure mode that only becomes obvious after you've built one?"}, {"name": "Musa Baijduev", "role": "Co-Founder & COO, Washable | On-demand Mobile Car Wash | Early Stage | Helsinki", "hook": "Musa is worth carving out real time for, not just a handshake.", "bullets": ["Musa is 18 and building Washable (on-demand mobile car wash, Helsinki) — same stage as WSHNETWORK, both consumer products targeting specific communities, both navigating the gap between early user love and repeatable growth.", "Could help with: two founders at exactly the same moment in their journey — comparing what the actual experience of building a consumer product feels like right now, without the polish that comes from having already figured it out."], "starter": "What's the thing about building Washable that nobody in the 'how to start a startup' content actually prepares you for?"}, {"name": "Aziz Masmoudi", "role": "Community Builder | Chain of Events | Data & AI Engineer | CY Tech Paris", "hook": "Aziz is worth carving out real time for, not just a handshake.", "bullets": ["Aziz is building Chain of Events (AI + events community infrastructure) in Paris — also at early stage, also navigating how to go from technically interesting to commercially valuable, also in the RAISE ecosystem.", "Could help with: both are building products that depend on community activation for network effects — WSHNETWORK (student communities) and Chain of Events (event communities) face the same cold-start challenge in different contexts."], "starter": "What worked and what completely failed when you first tried to get community adoption for WSHNETWORK — the thing you'd do differently at launch?"}, {"name": "Meredith Maines", "role": "CMO, TriEdge Investments | Ex-CCO Archewell | Ex-Partner Lightspeed | Stanford", "hook": "Meredith is one of the better reasons to show up early.", "bullets": ["Meredith spent 9 years at Lightspeed and now invests at TriEdge — she's evaluated consumer-social and EdTech products from the institutional investor side, which is a different lens than what most early-stage advisors bring.", "Could help with: WSHNETWORK just joined Station F — the next step is converting early adoption into an investor narrative that holds up under VC scrutiny. Meredith's investor lens is exactly what Cedric needs before the next pitch."], "starter": "When you look at a consumer-social startup from the investor side, what's the early signal that tells you this is a business versus a product that lots of people use for free?"}, {"name": "Hasanalam Attar", "role": "Founder, Nomadic Wolf Labs | Web3/AI Ecosystem Builder | Community Builder | India→Global", "hook": "Hasanalam is worth carving out real time for, not just a handshake.", "bullets": ["Hasanalam is building Nomadic Wolf Labs as a Web3/AI ecosystem play — attending events globally from India Blockchain Week to Berlin Blockchain Week, building community before product.", "Could help with: both are building community-driven products at the earliest stage — WSHNETWORK (campus-based) and Nomadic Wolf Labs (global Web3/AI ecosystem) face the same fundamental question of how to make a community self-sustaining without a budget."], "starter": "What's the community-building pattern you've seen work in Web3 that you think any early-stage product should know about — the thing that's not actually Web3-specific?"}]}, {"name": "Guillaume Pétriat", "first_name": "Guillaume", "email": "guillaume.petriat@inn-pulse.com", "role": "Co-Founder & CEO, Inn'Pulse | Pocket Defibrillator | MedTech | École Polytechnique + ENSAE", "matches": [{"name": "Meredith Maines", "role": "CMO, TriEdge Investments | Ex-CCO Archewell | Ex-Partner Lightspeed | Stanford", "hook": "Make a point of finding Meredith tonight.", "bullets": ["Meredith invests at TriEdge across Healthcare and Infrastructure — two of the three sectors Inn'Pulse directly serves. Polytechnique + ENSAE credentials, Hello Tomorrow Deep Tech Pioneer, Fondation Renault-backed, BFM Business-featured.", "Could help with: Inn'Pulse is actively fundraising to close its current round — Meredith's Healthcare investor lens is exactly the conversation to have, and her TriEdge and Lightspeed networks could shorten the path to the next check significantly."], "starter": "When you evaluate a MedTech company, what's the regulatory pathway question you always ask first — the one that determines whether the timeline is actually fundable?"}, {"name": "Nancy V. Gomez", "role": "Co-Founder, Khepry88 & Khepry Interactive | 20+ yrs Tech/Wellness | Paris 2024 Olympic Advisor | Angel", "hook": "Nancy is worth carving out real time for, not just a handshake.", "bullets": ["Nancy co-founded Khepry88 (wellness/tech pilot) and Khepry Interactive (AI for banking/regulatory), and invests as an angel with networks spanning French family offices, OECD/WEF, and African ecosystems.", "Could help with: Inn'Pulse's workplace safety mission (5 million deaths per year, 80% of employees don't know where their AED is) maps precisely to the impact-first investment narrative that Nancy's angel network responds to."], "starter": "What's the investment pitch for Inn'Pulse you'd structure for an impact investor who has never thought about cardiac arrest response as an investable asset class?"}, {"name": "Romualdas Sostakas", "role": "Head of Credit, Ayni Solutions | Structured Finance | Fintech/Emobility | Ex-NatWest 8 yrs", "hook": "Make a point of finding Romualdas tonight.", "bullets": ["Romualdas is Head of Credit at Ayni Solutions — 8+ years at NatWest Speciality Finance structuring complex credit for large corporates, with a data analytics and ML certification from Turing College.", "Could help with: a credit-trained professional looking at Inn'Pulse's financial model will ask the diligence questions that most first-time investors miss — Romualdas can help Guillaume pressure-test unit economics before the next investor conversation."], "starter": "What's the question about Inn'Pulse's financial model you'd want answered before recommending it to someone in your network — the credit professional version of due diligence?"}, {"name": "Kyan Nademi", "role": "Founder, E L E V É | RAISE Summit Ambassador | 10 yrs CPP Investment Board | CFA", "hook": "If you only have one real conversation tonight, make it Kyan.", "bullets": ["Kyan spent 10 years at CPP Investment Board and is now a founder in Paris and RAISE Summit ambassador — she has directly reviewed investment cases across healthcare and medical devices from the institutional capital side.", "Could help with: Inn'Pulse is at a critical fundraising moment — Kyan's 10 years reading investment cases at institutional scale gives her a sharp read on what the thesis needs to say to get past a serious investor's first filter."], "starter": "From your CPP Investment Board perspective, what does the institutional investment case for a MedTech company at Inn'Pulse's stage need to prove to get a serious allocation?"}, {"name": "Saboor Ahmad", "role": "Co-Founder, Dafinitiq AI | Voice & Agentic AI | Hilda | Ex-Head of Engineering, AAI", "hook": "Make a point of finding Saboor tonight.", "bullets": ["Saboor scaled an engineering team 0→46 and took an automotive AI startup from pre-seed to €1.5M ARR before co-founding Dafinitiq — he's done the 0→1 journey in a European context with a technically complex product.", "Could help with: Inn'Pulse and Dafinitiq are at the same stage with different sectors but identical strategic challenges — team building, first commercial contracts, managing investor timelines — and Saboor is a few months further along on the journey."], "starter": "What's the thing about going from first contracts to repeatable revenue that surprised you most — the operational challenge that first-principles thinking never prepares you for?"}]}, {"name": "Marc Richly", "first_name": "Marc", "email": "marc@learnfluid.com", "role": "Co-Founder, Learnfluid & StartIn Lab | EdTech/AI | Ex-BCG | Imperial College Distinction", "matches": [{"name": "Mickael", "role": "CTO/CEO, PrivyPulse | ML/ZK/Blockchain | Decentralized Science | EdTech | Paris", "hook": "Mickael is one of the better reasons to show up early.", "bullets": ["Mickael is building PrivyPulse (ML + ZK + blockchain) and PrivyPulseEdu in Paris — combining pharma domain knowledge with deep Python/ML experience in privacy-preserving AI.", "Could help with: both are building at the EdTech/AI intersection from different angles — Learnfluid on adaptive learning infrastructure, PrivyPulseEdu on privacy-preserving education. The customer is often the same and the go-to-market questions directly inform each other."], "starter": "What's the specific privacy problem in EdTech that PrivyPulseEdu solves that existing platforms can't just patch with a GDPR compliance checkbox?"}, {"name": "Aziz Masmoudi", "role": "Community Builder | Chain of Events | Data & AI Engineer | CY Tech Paris", "hook": "Make a point of finding Aziz tonight.", "bullets": ["Aziz is building Chain of Events (AI + events infrastructure) at CY Tech Paris — NVIDIA and Hugging Face certified with production RAG/LLM experience building an intelligent matching system.", "Could help with: both are building at the AI-and-community intersection (Chain of Events for events, Learnfluid for learning) — Marc's StartIn Lab venture-building perspective on what makes an AI product defensible is directly applicable to how Chain of Events thinks about its competitive moat."], "starter": "What's the venture builder's test for whether an AI product is genuinely defensible — the question you ask at StartIn Lab that most early-stage founders can't answer well?"}, {"name": "Cedric Ngando", "role": "Co-Founder, WSHNETWORK | Student Social Network | Station F | NEOMA Business School", "hook": "Cedric is one of the better reasons to show up early.", "bullets": ["Cedric co-founded WSHNETWORK — a private student social network that just joined Station F, launched at NEOMA with 300+ downloads in week one despite technical issues.", "Could help with: both WSHNETWORK and Learnfluid are targeting students/campus communities — Marc's analytics background and StartIn Lab venture experience give him a precise view of the unit economics of campus-scale consumer products."], "starter": "What's the thing about building WSHNETWORK that the Station F program won't teach you — the lesson that only comes from your specific product?"}, {"name": "Meredith Maines", "role": "CMO, TriEdge Investments | Ex-CCO Archewell | Ex-Partner Lightspeed | Stanford", "hook": "If you only have one real conversation tonight, make it Meredith.", "bullets": ["Meredith spent 9 years at Lightspeed and now invests at TriEdge across AI and EdTech — she has evaluated what makes EdTech companies fundable versus just adopted, from the institutional investor side.", "Could help with: Learnfluid is at Seed Stage and StartIn Lab is actively building companies — Meredith's VC lens on EdTech is exactly the reality check that helps Marc position both ventures for the right investors rather than the wrong ones."], "starter": "When you evaluate EdTech startups at TriEdge, what's the signal that tells you adoption is educational versus commercial — the question that separates products from businesses?"}, {"name": "Rinat Baron Fischmann", "role": "Data Scientist, Turing | AI Model Infrastructure | LLM Evaluator | MSc Data Science", "hook": "Rinat is one of the better reasons to show up early.", "bullets": ["Rinat is a Data Scientist at Turing improving AI model infrastructure and LLM evaluator at Innodata — bringing rigorous scientific method to ML that maps directly onto the kind of technical diligence Marc runs at StartIn Lab.", "Could help with: Learnfluid's AI engine needs the model evaluation rigour that Rinat applies professionally — whether the AI is actually driving better learning outcomes versus appearing to is exactly Rinat's domain."], "starter": "How do you evaluate whether an AI model is actually improving learning outcomes — what does rigorous evaluation look like for EdTech versus for enterprise use cases?"}]}, {"name": "Hasanalam Attar", "first_name": "Hasanalam", "email": "hasanalam.attar@gmail.com", "role": "Founder, Nomadic Wolf Labs | Web3/AI Ecosystem Builder | Community Builder | India→Global", "matches": [{"name": "Kim Bingham", "role": "Founder & CEO, Mostro.xyz | Web3 Music Fintech (RWA) | SheFi Paris Lead | Paris Dauphine MSc Wealth Mgmt", "hook": "Make a point of finding Kim tonight.", "bullets": ["Kim is the founder of Mostro.xyz (Web3 music fintech turning IP into tradeable RWA) and SheFi Paris Chapter Lead — building in Web3 since 2018 with a Paris Dauphine Wealth Management MSc and Grammy-production background.", "Could help with: Nomadic Wolf Labs is building the Web3/AI ecosystem from the community side — Kim's experience actually shipping a Web3 product through multiple market cycles is the practitioner knowledge that no conference or community alone gives."], "starter": "What's the thing about building a Web3 product that you only learn by actually trying to ship something — the insight that doesn't exist in any community or event before you have skin in the game?"}, {"name": "Mickael", "role": "CTO/CEO, PrivyPulse | ML/ZK/Blockchain | Decentralized Science | EdTech | Paris", "hook": "Mickael is one of the better reasons to show up early.", "bullets": ["Mickael is a Paris-based ML engineer and ZK/blockchain builder with real production experience — PrivyPulse, pharmaceutical background, 4 years in Python/ML focused on NLP and privacy-preserving computation.", "Could help with: Hasanalam is learning Python and smart contracts — Mickael has already navigated the learning curve in both domains and can give the honest map of what's worth learning deeply versus what you can outsource or skip."], "starter": "If you were starting your blockchain and Python journey today, what would you learn in what order — the sequence that actually leads to building something real rather than tutorial soup?"}, {"name": "Aziz Masmoudi", "role": "Community Builder | Chain of Events | Data & AI Engineer | CY Tech Paris", "hook": "Aziz is worth carving out real time for, not just a handshake.", "bullets": ["Aziz is building Chain of Events (AI + events community infrastructure) at CY Tech Paris — also building an ecosystem play that runs on community before revenue, also at an early stage.", "Could help with: both are building ecosystem plays that depend on community activation before commercial revenue — the conversation about what makes a community worth building versus what stays a side project is worth having between two founders at the same moment."], "starter": "What's the moment when you decided Chain of Events was something serious rather than a project — what changed in how you thought about it?"}, {"name": "Rinat Baron Fischmann", "role": "Data Scientist, Turing | AI Model Infrastructure | LLM Evaluator | MSc Data Science", "hook": "Rinat is one of the better reasons to show up early.", "bullets": ["Rinat is a Data Scientist at Turing improving AI model infrastructure and LLM evaluator at Innodata — a practitioner who works daily on the gap between what models promise and what they actually deliver.", "Could help with: Rinat's journey from a rigorous scientific background (Geophysics, Tel Aviv University) to applied ML and LLM evaluation is the map Hasanalam is trying to navigate — a practitioner's account of how technical skills compound is more useful than any curriculum."], "starter": "What's the ML or AI skill that took you longest to truly understand versus being able to talk about it — the concept that only clicked with real practice?"}, {"name": "Cedric Ngando", "role": "Co-Founder, WSHNETWORK | Student Social Network | Station F | NEOMA Business School", "hook": "If you only have one real conversation tonight, make it Cedric.", "bullets": ["Cedric co-founded WSHNETWORK — a private student social network that launched at NEOMA with 300+ downloads in week one, now at Station F. Both Cedric and Hasanalam are building community-driven products at the earliest stage.", "Could help with: WSHNETWORK (campus-based) and Nomadic Wolf Labs (global Web3/AI ecosystem) face the same question of how to make a community self-sustaining without a budget — the answer is different for each context and worth comparing."], "starter": "What made 300+ students actually download WSHNETWORK in week one — and how do you replicate that moment when you go to a new campus?"}]}];
+
+function applyEventConfig() {
+  document.getElementById('page-title').textContent = 'Yorkseed Event In-Person Match — ' + EVENT.name;
+  document.getElementById('login-event-name').textContent = EVENT.name;
+  const loginDetail = `${EVENT.city} \u00b7 ${EVENT.dateLabel} \u00b7 ${EVENT.timeLabel}`;
+  document.getElementById('login-event-detail').textContent = loginDetail;
+  const resultsDetailHtml = `${EVENT.dateLabel} &middot; ${EVENT.timeLabel} &middot; <a href="${EVENT.venueMapUrl}" target="_blank" rel="noopener">${EVENT.venueName}</a>`;
+  document.getElementById('results-event-detail').innerHTML = resultsDetailHtml;
+  document.getElementById('results-venue-address').textContent = EVENT.venueAddress;
+  const contactEl = document.getElementById('results-host-label');
+  if (EVENT.onsiteContact) {
+    contactEl.textContent = EVENT.onsiteContact;
+    contactEl.style.display = '';
+  } else {
+    contactEl.style.display = 'none';
+  }
+  document.getElementById('footer-note').textContent = 'See you at the ' + EVENT.name + '.';
+}
+applyEventConfig();
+
+function normalize(s) {
+  return (s || '').trim().toLowerCase();
+}
+
+function findAttendee(firstName, email) {
+  const fn = normalize(firstName);
+  const em = normalize(email);
+  return ATTENDEES.find(a => {
+    const nameMatches = normalize(a.first_name) === fn ||
+      (a.aliases || []).some(alias => normalize(alias) === fn);
+    return nameMatches && a.email === em;
+  });
+}
+
+function renderMatches(attendee) {
+  document.getElementById('results-heading').textContent = 'Hi ' + attendee.first_name + '.';
+  document.getElementById('results-eyebrow').textContent = attendee.matches.length + ' people curated for you';
+  const subEl = document.getElementById('results-sub');
+  const baseSub = "Based on what you shared in your RSVP, here's who we think you should meet.";
+  subEl.textContent = attendee.bio ? (baseSub + ' ' + attendee.bio) : baseSub;
+  const list = document.getElementById('match-list');
+  list.innerHTML = '';
+  attendee.matches.forEach((m, i) => {
+    const card = document.createElement('div');
+    card.className = 'match-card';
+    const bullets = m.bullets.map(b => '<li>' + b.replace(/</g,'&lt;') + '</li>').join('');
+    const hookHtml = m.hook ? `<div class="match-hook">${m.hook.replace(/</g,'&lt;')}</div>` : '';
+    card.innerHTML = `
+      <div class="match-index">MATCH ${i+1} OF ${attendee.matches.length}</div>
+      <div class="match-name">${m.name}</div>
+      <div class="match-role">${m.role}</div>
+      ${hookHtml}
+      <div class="why-label">Why we think you should meet</div>
+      <ul class="bullets">${bullets}</ul>
+      <div class="starter"><b>Conversation starter:</b> "${m.starter}"</div>
+    `;
+    list.appendChild(card);
+  });
+}
+
+function showError(msg) {
+  const el = document.getElementById('error-msg');
+  el.textContent = msg;
+  el.classList.add('show');
+}
+function hideError() {
+  document.getElementById('error-msg').classList.remove('show');
+}
+
+document.getElementById('login-btn').addEventListener('click', () => {
+  hideError();
+  const fn = document.getElementById('first-name').value;
+  const em = document.getElementById('email').value;
+  if (!fn.trim() || !em.trim()) {
+    showError('Please enter both your first name and email.');
+    return;
+  }
+  const attendee = findAttendee(fn, em);
+  if (!attendee) {
+    showError("We couldn't find a match for that name and email. Please double check what you used to RSVP.");
+    return;
+  }
+  renderMatches(attendee);
+  document.getElementById('login-view').classList.remove('active');
+  document.getElementById('results-view').classList.add('active');
+  document.activeElement && document.activeElement.blur && document.activeElement.blur();
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+  window.scrollTo(0, 0);
+  // Mobile keyboard closing resizes the viewport after the click handler runs,
+  // which can re-shift scroll position — reset again once that settles.
+  setTimeout(() => { window.scrollTo(0, 0); }, 50);
+  setTimeout(() => { window.scrollTo(0, 0); }, 300);
+});
+
+document.getElementById('logout-btn').addEventListener('click', () => {
+  document.getElementById('results-view').classList.remove('active');
+  document.getElementById('login-view').classList.add('active');
+  document.getElementById('first-name').value = '';
+  document.getElementById('email').value = '';
+  hideError();
+  document.activeElement && document.activeElement.blur && document.activeElement.blur();
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+  window.scrollTo(0, 0);
+  // Mobile keyboard closing resizes the viewport after the click handler runs,
+  // which can re-shift scroll position — reset again once that settles.
+  setTimeout(() => { window.scrollTo(0, 0); }, 50);
+  setTimeout(() => { window.scrollTo(0, 0); }, 300);
+});
+
+// Allow Enter key to submit
+['first-name','email'].forEach(id => {
+  document.getElementById(id).addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') document.getElementById('login-btn').click();
+  });
+});
+</script>
+</body>
+</html>
