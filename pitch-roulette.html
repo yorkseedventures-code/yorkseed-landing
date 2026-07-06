@@ -706,13 +706,14 @@ async function ensureFounderField(){
     var d=await r.json();
     var st=d.tables&&d.tables.find(function(t){return t.name==='Scores';});
     if(!st)return;
-    if(st.fields&&st.fields.find(function(f){return f.name==='Founder';}))return; // already exists
+    if(st.fields&&st.fields.find(function(f){return f.name==='Founder';}))return;
     await fetch('https://api.airtable.com/v0/meta/bases/'+BASE+'/tables/'+st.id+'/fields',{
       method:'POST',headers:{'Authorization':'Bearer '+TOKEN,'Content-Type':'application/json'},
       body:JSON.stringify({name:'Founder',type:'number',options:{precision:0}})
     });
-  }catch(e){} // silent — fallback in doScore handles missing field
+  }catch(e){}
 }
+async function eraseAllData(){
   if(!confirm('Delete ALL pitchers and scores? This cannot be undone.'))return;
   var btn=G('erase-btn');btn.disabled=true;btn.textContent='Erasing...';setSt('erase-st','Working...','');
   try{
