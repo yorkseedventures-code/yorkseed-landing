@@ -670,7 +670,7 @@ async function showRes(){
       pv.forEach(function(v){
         so+=v.Overall||0;sd2+=v.Delivery||0;se+=v.Extra||0;
         var raw=v.Reason||'',fd2=0,txt=raw;
-        var fm=raw.match(/^F:(\d+)\|?(.*)/s);
+        var fm=raw.match(/^F:(\d+)\|?([\s\S]*)/);
         if(fm){fd2=parseInt(fm[1])||0;txt=fm[2]||'';}
         sf+=fd2;
         if(txt)reasons.push(txt);
