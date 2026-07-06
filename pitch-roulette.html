@@ -287,6 +287,41 @@
 #pr-app .wb-c { font-size: 12px; font-family: var(--mono); color: var(--ink4); margin-bottom: 5px; display: block; }
 #pr-app .wb-s { font-size: 13px; font-family: var(--mono); color: var(--gold); display: block; }
 
+/* ── SCORE CIRCLES ── */
+#pr-app .scat { margin-bottom: 20px; display: block; }
+#pr-app .scat-hd { display: flex !important; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; }
+#pr-app .scat-title { font-size: 14px; font-weight: 500; display: block; }
+#pr-app .scat-sub { font-size: 10px; font-family: var(--mono); color: var(--ink4); margin-top: 2px; display: block; }
+#pr-app .scat-val { font-family: var(--mono); font-size: 26px; color: var(--red); min-width: 32px; text-align: right; line-height: 1; display: block; flex-shrink: 0; }
+#pr-app .scat.ex .scat-val { color: var(--gold); }
+#pr-app .srow { display: flex !important; gap: 4px; margin: 6px 0 4px; }
+#pr-app .scir {
+  flex: 1; aspect-ratio: 1; min-width: 0;
+  border-radius: 50%; border: 1.5px solid var(--border2);
+  background: #fff; cursor: pointer;
+  display: flex !important; align-items: center; justify-content: center;
+  font-family: var(--mono); font-size: 11px; color: #ccc;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform .08s, background .1s, border-color .1s, color .1s;
+  user-select: none;
+}
+#pr-app .scir:active { transform: scale(.88); }
+#pr-app .scir.lo { background: rgba(200,55,45,.06); border-color: rgba(200,55,45,.2); color: var(--red); }
+#pr-app .scir.on { background: var(--red); border-color: var(--red); color: #fff; font-weight: 500; }
+#pr-app .scat.ex .scir.lo { background: rgba(176,141,87,.07); border-color: rgba(176,141,87,.25); color: var(--gold); }
+#pr-app .scat.ex .scir.on { background: var(--gold); border-color: var(--gold); color: #fff; }
+#pr-app .sanch { display: flex !important; justify-content: space-between; padding: 0 2px; }
+#pr-app .sanch span { font-size: 9px; font-family: var(--mono); color: #bbb; display: block; }
+#pr-app .sanch span:nth-child(2) { text-align: center; }
+#pr-app .sanch span:last-child { text-align: right; }
+#pr-app .stot { display: flex !important; align-items: baseline; justify-content: center; gap: 5px; padding: 14px; background: var(--off); border: 0.5px solid var(--border); border-radius: 10px; margin: 4px 0 16px; }
+#pr-app .stot-n { font-family: var(--mono); font-size: 32px; font-weight: 400; color: var(--red); display: block; line-height: 1; }
+#pr-app .stot-l { font-family: var(--mono); font-size: 12px; color: var(--ink4); display: block; }
+#pr-app .spview { padding: 10px 14px; background: var(--gold-dim); border: 0.5px solid var(--gold-border); border-radius: 8px; margin-top: 8px; display: none; }
+#pr-app .spview.on { display: block; }
+#pr-app .spview-n { font-size: 15px; font-weight: 500; display: block; }
+#pr-app .spview-c { font-size: 11px; font-family: var(--mono); color: var(--gold); margin-top: 2px; display: block; }
+
 /* ── PASSCODE ── */
 #pr-app .po { display: none !important; position: fixed; inset: 0; background: rgba(0,0,0,.55); align-items: center; justify-content: center; z-index: 9999; }
 #pr-app .po.open { display: flex !important; }
@@ -377,31 +412,56 @@
     <div id="p-sc" style="display:none">
       <div class="card">
         <div class="slbl">Score a Pitcher</div>
-        <div style="margin-bottom:14px">
-          <label class="flbl" style="margin-bottom:6px">Select Pitcher</label>
-          <select id="sc-sel"><option value="">— loading —</option></select>
-        </div>
-        <div class="sb">
-          <div class="sb-top"><span class="sb-n">Overall Score</span><span class="sb-v" id="v-ov">5</span></div>
-          <input type="range" min="1" max="10" value="5" step="1" id="sl-ov" oninput="upd('ov',false)"/>
-          <div class="ticks" id="tk-ov"></div>
-        </div>
-        <div class="sb">
-          <div class="sb-top"><span class="sb-n">Delivery &amp; Energy</span><span class="sb-v" id="v-dl">5</span></div>
-          <input type="range" min="1" max="10" value="5" step="1" id="sl-dl" oninput="upd('dl',false)"/>
-          <div class="ticks" id="tk-dl"></div>
-        </div>
-        <div class="sb ex">
-          <div class="sb-top"><span class="sb-n" style="color:var(--gold)">Extra Points <span style="font-size:10px;color:#bbb">(your call)</span></span><span class="sb-v" id="v-ex">0</span></div>
-          <input type="range" min="0" max="10" value="0" step="1" id="sl-ex" oninput="upd('ex',true)"/>
-          <div class="ticks" id="tk-ex"></div>
-          <div style="margin-top:10px">
-            <label class="flbl" style="color:var(--gold);margin-bottom:5px">Reason <span style="color:#bbb;font-size:9px">optional</span></label>
-            <textarea id="ex-rsn" rows="2" placeholder="Why extra points?"></textarea>
+        <div style="margin-bottom:18px">
+          <label class="flbl" style="margin-bottom:6px">Who are you scoring?</label>
+          <select id="sc-sel" onchange="onSelPitcher()"><option value="">— choose pitcher —</option></select>
+          <div class="spview" id="spview">
+            <span class="spview-n" id="spview-n"></span>
+            <span class="spview-c" id="spview-c"></span>
           </div>
         </div>
-        <div style="margin-top:4px"><label class="flbl" style="margin-bottom:5px">Your name (optional)</label><input type="text" id="sc-name" placeholder="Anonymous"/></div>
-        <button class="btn btn-red" id="sc-btn" onclick="doScore()" style="margin-top:12px">Submit Score →</button>
+        <div class="scat" id="scat-ov">
+          <div class="scat-hd">
+            <div><span class="scat-title">The Business</span><span class="scat-sub">Problem · Solution · Market</span></div>
+            <span class="scat-val" id="v-ov">—</span>
+          </div>
+          <div class="srow" id="sr-ov"></div>
+          <div class="sanch"><span>Unclear</span><span>Interesting</span><span>Fundable</span></div>
+        </div>
+        <div class="scat" id="scat-dl">
+          <div class="scat-hd">
+            <div><span class="scat-title">The Pitch</span><span class="scat-sub">Clarity · Structure · Story</span></div>
+            <span class="scat-val" id="v-dl">—</span>
+          </div>
+          <div class="srow" id="sr-dl"></div>
+          <div class="sanch"><span>Scattered</span><span>Clear</span><span>Compelling</span></div>
+        </div>
+        <div class="scat" id="scat-fd">
+          <div class="scat-hd">
+            <div><span class="scat-title">The Founder</span><span class="scat-sub">Conviction · Confidence · Energy</span></div>
+            <span class="scat-val" id="v-fd">—</span>
+          </div>
+          <div class="srow" id="sr-fd"></div>
+          <div class="sanch"><span>Hesitant</span><span>Solid</span><span>Magnetic</span></div>
+        </div>
+        <div class="scat ex" id="scat-ex">
+          <div class="scat-hd">
+            <div><span class="scat-title" style="color:var(--gold)">Wow Factor ✦</span><span class="scat-sub">Bonus points — your call</span></div>
+            <span class="scat-val" id="v-ex">0</span>
+          </div>
+          <div class="srow" id="sr-ex"></div>
+          <div class="sanch"><span>None</span><span></span><span>Unforgettable</span></div>
+          <div style="margin-top:12px">
+            <label class="flbl" style="color:var(--gold);margin-bottom:5px">What made it special? <span style="color:#bbb;font-size:9px">optional</span></label>
+            <textarea id="ex-rsn" rows="2" placeholder="e.g. Bold vision, unexpected insight..."></textarea>
+          </div>
+        </div>
+        <div class="stot"><span class="stot-n" id="score-total">—</span><span class="stot-l">/ 35 pts</span></div>
+        <div style="margin-bottom:12px">
+          <label class="flbl" style="margin-bottom:5px">Your name <span style="color:#bbb;font-size:9px">optional</span></label>
+          <input type="text" id="sc-name" placeholder="Anonymous"/>
+        </div>
+        <button class="btn btn-red" id="sc-btn" onclick="doScore()">Submit Score →</button>
         <div class="st" id="sc-st"></div>
       </div>
     </div>
@@ -540,6 +600,7 @@ function renderSel(){
   sel.innerHTML='<option value="">— choose pitcher —</option>';
   pitchers.forEach(function(p){var i=pitchers.indexOf(p),o=document.createElement('option');o.value=p.id;o.textContent='#'+(i+1)+' '+p.name+' · '+p.co+' ('+(p.type==='i'?'Investor':'Founder')+')';sel.appendChild(o);});
   if(cur)sel.value=cur;
+  greyVoted();
 }
 
 async function poll(){
@@ -579,17 +640,24 @@ async function delP(id){if(!confirm('Remove?'))return;try{await api('Pitchers/'+
 
 async function doScore(){
   var pid=G('sc-sel').value;if(!pid){setSt('sc-st','Select a pitcher','err');return;}
-  var ov=parseInt(G('sl-ov').value),dl=parseInt(G('sl-dl').value),ex=parseInt(G('sl-ex').value);
+  if(voted.has(pid)){setSt('sc-st','You already scored this pitcher','err');return;}
+  if(scores.ov===null){setSt('sc-st','Score The Business first','err');return;}
+  if(scores.dl===null){setSt('sc-st','Score The Pitch','err');return;}
+  if(scores.fd===null){setSt('sc-st','Score The Founder','err');return;}
+  var ov=scores.ov,dl=scores.dl,fd=scores.fd,ex=scores.ex;
   var rsn=G('ex-rsn').value.trim(),scr=G('sc-name').value.trim()||'Anonymous';
   var p=pitchers.find(function(x){return x.id===pid;});
   var btn=G('sc-btn');btn.disabled=true;btn.textContent='Submitting...';
   try{
-    var res=await api('Scores',{method:'POST',body:JSON.stringify({records:[{fields:{PitcherId:pid,PitcherName:p?p.name:'',Overall:ov,Delivery:dl,Extra:ex,Reason:rsn,Scorer:scr}}]})});
+    // Encode founder score into Reason field — no schema change needed
+    var fullReason='F:'+fd+(rsn?'|'+rsn:'');
+    var fields={PitcherId:pid,PitcherName:p?p.name:'',Overall:ov,Delivery:dl,Extra:ex,Reason:fullReason,Scorer:scr};
+    var res=await api('Scores',{method:'POST',body:JSON.stringify({records:[{fields:fields}]})});
     seen.add(res.records[0].id);
-    setSt('sc-st','Score submitted!','ok');
-    addN('<strong>'+esc(scr)+'</strong> scored <strong>'+esc(p?p.name:'?')+'</strong> — '+ov+' overall, '+dl+' delivery'+(ex>0?', +'+ex+' extra':''));
-    G('sl-ov').value=5;G('v-ov').textContent=5;G('sl-dl').value=5;G('v-dl').textContent=5;G('sl-ex').value=0;G('v-ex').textContent=0;
-    G('ex-rsn').value='';G('sc-sel').value='';mkTicks();
+    markVoted(pid);
+    setSt('sc-st','Score submitted! ✓','ok');
+    addN('<strong>'+esc(scr)+'</strong> scored <strong>'+esc(p?p.name:'?')+'</strong> — business '+ov+', pitch '+dl+', founder '+fd+(ex>0?', +'+ex+'✦':''));
+    resetScores();
   }catch(e){setSt('sc-st','Error: '+e.message,'err');}
   btn.disabled=false;btn.textContent='Submit Score →';
 }
@@ -600,16 +668,23 @@ async function showRes(){
     var sd=await api('Scores'),scores=sd.records.map(function(r){return r.fields;});
     var res=pitchers.map(function(p){
       var pv=scores.filter(function(s){return s.PitcherId===p.id;});
-      if(!pv.length)return{p:p,avg:0,votes:0,o:0,d:0,e:0,reasons:[]};
-      var so=0,sd2=0,se=0,reasons=[];
-      pv.forEach(function(v){so+=v.Overall||0;sd2+=v.Delivery||0;se+=v.Extra||0;if(v.Reason)reasons.push(v.Reason);});
+      if(!pv.length)return{p:p,avg:0,votes:0,o:0,d:0,f:0,e:0,reasons:[]};
+      var so=0,sd2=0,sf=0,se=0,reasons=[];
+      pv.forEach(function(v){
+        so+=v.Overall||0;sd2+=v.Delivery||0;se+=v.Extra||0;
+        var raw=v.Reason||'',fd2=0,txt=raw;
+        var fm=raw.match(/^F:(\d+)\|?(.*)/s);
+        if(fm){fd2=parseInt(fm[1])||0;txt=fm[2]||'';}
+        sf+=fd2;
+        if(txt)reasons.push(txt);
+      });
       var n=pv.length;
-      return{p:p,avg:Math.round(((so+sd2+se)/n)*10)/10,votes:n,o:Math.round(so/n*10)/10,d:Math.round(sd2/n*10)/10,e:Math.round(se/n*10)/10,reasons:reasons};
+      return{p:p,avg:Math.round(((so+sd2+sf+se)/n)*10)/10,votes:n,o:Math.round(so/n*10)/10,d:Math.round(sd2/n*10)/10,f:Math.round(sf/n*10)/10,e:Math.round(se/n*10)/10,reasons:reasons};
     });
     res.sort(function(a,b){return b.avg-a.avg;});
     if(res.length&&res[0].votes>0){G('win-div').innerHTML='<div class="wb"><div class="wb-l">Winner</div><div class="wb-n">'+esc(res[0].p.name)+'</div><div class="wb-c">'+esc(res[0].p.co)+' · '+(res[0].p.type==='i'?'Investor':'Founder')+'</div><div class="wb-s">Avg '+res[0].avg.toFixed(1)+' pts · '+res[0].votes+' vote'+(res[0].votes>1?'s':'')+'</div></div>';}
     else{G('win-div').innerHTML='<div class="ld">No scores yet</div>';}
-    G('rl').innerHTML=res.map(function(r,i){var cls=i===0?'r1':i===1?'r2':i===2?'r3':'rn';var rr=r.reasons.length?'<div style="font-size:10px;color:var(--gold);margin-top:3px">✦ '+r.reasons.map(esc).join(' · ')+'</div>':'';return '<div class="rc'+(i===0?' win':'')+'"><div class="rk '+cls+'">'+(i+1)+'</div><div class="ri"><div class="ri-n">'+esc(r.p.name)+'</div><div class="ri-m">'+esc(r.p.co)+' · '+(r.p.type==='i'?'Investor':'Founder')+'</div>'+rr+'</div><div class="rs"><div class="rs-t">'+r.avg.toFixed(1)+'</div><div class="rs-b">'+r.o.toFixed(1)+' / '+r.d.toFixed(1)+(r.e>0?' / +'+r.e.toFixed(1)+'✦':'')+' · '+r.votes+'v</div></div></div>';}).join('');
+    G('rl').innerHTML=res.map(function(r,i){var cls=i===0?'r1':i===1?'r2':i===2?'r3':'rn';var rr=r.reasons.length?'<div style="font-size:10px;color:var(--gold);margin-top:3px">✦ '+r.reasons.map(esc).join(' · ')+'</div>':'';return '<div class="rc'+(i===0?' win':'')+'"><div class="rk '+cls+'">'+(i+1)+'</div><div class="ri"><div class="ri-n">'+esc(r.p.name)+'</div><div class="ri-m">'+esc(r.p.co)+' · '+(r.p.type==='i'?'Investor':'Founder')+'</div>'+rr+'</div><div class="rs"><div class="rs-t">'+r.avg.toFixed(1)+'</div><div class="rs-b">'+r.o.toFixed(1)+' biz · '+r.d.toFixed(1)+' pitch · '+r.f.toFixed(1)+' founder'+(r.e>0?' · +'+r.e.toFixed(1)+'✦':'')+' · '+r.votes+'v</div></div></div>';}).join('');
     G('res-sec').style.display='block';G('res-sec').scrollIntoView({behavior:'smooth'});
   }catch(e){alert('Error: '+e.message);}
   btn.disabled=false;btn.textContent='Calculate Results →';
@@ -627,7 +702,20 @@ function exitHost(){hUnlocked=false;cohostUnlocked=false;G('hbtn').textContent='
 
 function changeCoPass(){var v=G('new-cc').value.trim();if(!v){setSt('cc-st','Enter a new password','err');return;}CC=v;localStorage.setItem('cc_pass',v);G('new-cc').value='';var cs=G('cc-show');if(cs)cs.textContent=CC;setSt('cc-st','Cohost password updated ✓','ok');}
 
-async function eraseAllData(){
+async function ensureFounderField(){
+  try{
+    var r=await fetch('https://api.airtable.com/v0/meta/bases/'+BASE+'/tables',{headers:{'Authorization':'Bearer '+TOKEN}});
+    if(!r.ok)return;
+    var d=await r.json();
+    var st=d.tables&&d.tables.find(function(t){return t.name==='Scores';});
+    if(!st)return;
+    if(st.fields&&st.fields.find(function(f){return f.name==='Founder';}))return; // already exists
+    await fetch('https://api.airtable.com/v0/meta/bases/'+BASE+'/tables/'+st.id+'/fields',{
+      method:'POST',headers:{'Authorization':'Bearer '+TOKEN,'Content-Type':'application/json'},
+      body:JSON.stringify({name:'Founder',type:'number',options:{precision:0}})
+    });
+  }catch(e){} // silent — fallback in doScore handles missing field
+}
   if(!confirm('Delete ALL pitchers and scores? This cannot be undone.'))return;
   var btn=G('erase-btn');btn.disabled=true;btn.textContent='Erasing...';setSt('erase-st','Working...','');
   try{
@@ -636,6 +724,7 @@ async function eraseAllData(){
     var sd=await api('Scores');var sids=sd.records.map(function(r){return r.id;});
     while(sids.length){var sb=sids.splice(0,10);await api('Scores?'+sb.map(function(i){return 'records[]='+i;}).join('&'),{method:'DELETE'});}
     setSt('erase-st','All data cleared ✓','ok');
+    voted=new Set();localStorage.removeItem('pr_voted');
     pitchers=[];notifs=[];seen=new Set();renderPQ();renderHQ();renderSel();renderSlots();renderStats();
     G('res-sec').style.display='none';G('win-div').innerHTML='';G('rl').innerHTML='';
     setTimeout(function(){location.reload();},1500);
@@ -644,13 +733,54 @@ async function eraseAllData(){
 
 document.getElementById('pc').addEventListener('keydown',function(e){if(e.key==='Enter')checkPC();});
 
-function bTicks(id,min,max,val){var el=G(id);if(!el)return;var h='';for(var i=min;i<=max;i++)h+='<div class="tick'+(i==val?' on':'')+'" style="display:block">'+i+'</div>';el.innerHTML=h;}
-function mkTicks(){bTicks('tk-ov',1,10,parseInt(G('sl-ov').value));bTicks('tk-dl',1,10,parseInt(G('sl-dl').value));bTicks('tk-ex',0,10,parseInt(G('sl-ex').value));}
-function upd(id,ex){var m={'ov':'sl-ov','dl':'sl-dl','ex':'sl-ex'};var v=parseInt(G(m[id]).value);G('v-'+id).textContent=v;bTicks('tk-'+id,ex?0:1,10,v);}
+var scores={ov:null,dl:null,fd:null,ex:0};
+
+function mkCircles(rowId,min,max,cat){
+  var el=G(rowId);if(!el)return;
+  var h='';
+  for(var i=min;i<=max;i++)h+='<div class="scir" id="c-'+cat+'-'+i+'" onclick="selSc(\''+cat+'\','+i+')">'+i+'</div>';
+  el.innerHTML=h;
+}
+function initCircles(){mkCircles('sr-ov',1,10,'ov');mkCircles('sr-dl',1,10,'dl');mkCircles('sr-fd',1,10,'fd');mkCircles('sr-ex',0,5,'ex');}
+
+function selSc(cat,val){
+  scores[cat]=val;
+  var isEx=(cat==='ex');var min=isEx?0:1;var max=isEx?5:10;
+  for(var i=min;i<=max;i++){var el=G('c-'+cat+'-'+i);if(el)el.className='scir'+(i===val?' on':i<val?' lo':'');}
+  var vEl=G('v-'+cat);if(vEl)vEl.textContent=val;
+  updateTotal();
+}
+function updateTotal(){
+  var t=G('score-total');if(!t)return;
+  t.textContent=(scores.ov!==null&&scores.dl!==null&&scores.fd!==null)?(scores.ov+scores.dl+scores.fd+scores.ex):'—';
+}
+function onSelPitcher(){
+  var pid=G('sc-sel').value,pv=G('spview'),pn=G('spview-n'),pc=G('spview-c');
+  if(!pid){if(pv)pv.classList.remove('on');return;}
+  var p=pitchers.find(function(x){return x.id===pid;});
+  if(p&&pv&&pn&&pc){pn.textContent=p.name;pc.textContent=p.co+' · '+(p.type==='i'?'Investor':'Founder');pv.classList.add('on');}
+}
+var voted=new Set(JSON.parse(localStorage.getItem('pr_voted')||'[]'));
+
+function markVoted(pid){voted.add(pid);localStorage.setItem('pr_voted',JSON.stringify([...voted]));greyVoted();}
+function greyVoted(){
+  var sel=G('sc-sel');if(!sel)return;
+  Array.from(sel.options).forEach(function(o){
+    if(o.value&&voted.has(o.value)){o.disabled=true;o.textContent=o.textContent.replace(/^✓ /,'')+'  ✓ scored';}
+  });
+}
+
+function resetScores(){
+  scores={ov:null,dl:null,fd:null,ex:0};initCircles();
+  G('v-ov').textContent='—';G('v-dl').textContent='—';G('v-fd').textContent='—';G('v-ex').textContent='0';
+  G('score-total').textContent='—';G('ex-rsn').value='';G('sc-sel').value='';
+  var pv=G('spview');if(pv)pv.classList.remove('on');
+}
+
 function setSt(id,msg,t){var el=G(id);el.textContent=msg;el.className='st'+(t?' '+t:'');if(t==='ok')setTimeout(function(){el.textContent='';el.className='st';},3000);}
 function switchTab(t){G('t-sup').classList.toggle('on',t==='sup');G('t-sc').classList.toggle('on',t==='sc');G('p-sup').style.display=t==='sup'?'block':'none';G('p-sc').style.display=t==='sc'?'block':'none';if(t==='sc')loadP();}
 
-mkTicks();
+initCircles();
 loadCfg().then(function(){renderSigState();loadP();setInterval(poll,8000);poll();});
 </script>
 </body>
