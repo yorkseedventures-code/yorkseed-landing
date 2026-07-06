@@ -340,6 +340,66 @@
 #pr-app .view.on { display: block !important; }
 
 @media(max-width:560px) { #pr-app .frow { grid-template-columns: 1fr !important; } }
+/* ── MOBILE ── */
+/* Prevent iOS auto-zoom on input focus — must be 16px */
+#pr-app input[type=text],
+#pr-app input[type=password],
+#pr-app input[type=number],
+#pr-app textarea,
+#pr-app select { font-size: 16px; }
+
+@media (max-width: 480px) {
+  /* Single-column form fields — side-by-side is cramped on phones */
+  #pr-app .frow { grid-template-columns: 1fr; }
+
+  /* Taller tap targets */
+  #pr-app .btn { min-height: 50px; padding: 14px 20px; font-size: 14px; }
+  #pr-app .cbtn { padding: 16px 10px; }
+
+  /* Larger tabs */
+  #pr-app .tab { padding: 12px 16px; font-size: 12px; }
+
+  /* Card padding tighter on small screens */
+  #pr-app .card { padding: 14px 12px; }
+
+  /* Extra bottom padding for mobile browser chrome (address bar, home bar) */
+  #pr-app .wrap { padding-bottom: 100px; }
+
+  /* Score circles — slightly tighter gap, min height so they're tappable */
+  #pr-app .srow { gap: 3px; margin: 10px 0 5px; }
+  #pr-app .scir { min-height: 34px; font-size: 12px; }
+
+  /* Score category header — more space between title and value */
+  #pr-app .scat-hd { margin-bottom: 2px; }
+  #pr-app .scat-val { font-size: 22px; }
+
+  /* Live total — prominent */
+  #pr-app .stot { padding: 16px; margin: 8px 0 18px; }
+  #pr-app .stot-n { font-size: 36px; }
+
+  /* Pitcher preview */
+  #pr-app .spview { padding: 12px 14px; }
+  #pr-app .spview-n { font-size: 16px; }
+
+  /* Host grid — full width on phone */
+  #pr-app .hcg { grid-template-columns: 1fr; }
+
+  /* Results card */
+  #pr-app .rc { gap: 8px; padding: 12px; }
+  #pr-app .rs-t { font-size: 18px; }
+  #pr-app .rs-b { font-size: 9px; }
+
+  /* Admin panel inputs */
+  #pr-app #new-cc { font-size: 16px; }
+}
+
+@media (max-width: 360px) {
+  #pr-app .wrap { padding-left: 12px; padding-right: 12px; }
+  #pr-app .srow { gap: 2px; }
+  #pr-app .scir { font-size: 10px; }
+  #pr-app .sanch span { font-size: 8px; }
+}
+
 </style>
 </head>
 <body>
