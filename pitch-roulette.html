@@ -434,6 +434,24 @@
       <div id="win-div"></div>
       <div class="card"><div class="slbl">Final Scores</div><div class="rl" id="rl"></div></div>
     </div>
+    <div class="card" id="admin-panel" style="display:none;border:1px solid rgba(200,55,45,0.25);background:rgba(200,55,45,0.05);margin-top:8px">
+      <div class="slbl" style="color:#c8372d">Admin</div>
+      <div style="margin-bottom:18px">
+        <div style="font-size:12px;font-family:var(--mono);color:#aaa;margin-bottom:8px;text-transform:uppercase;letter-spacing:.05em">Cohost Password</div>
+        <div style="font-size:11px;color:#777;margin-bottom:8px">Current: <span id="cc-show" style="color:#b08d57;font-family:var(--mono)"></span></div>
+        <div style="display:flex;gap:8px">
+          <input type="text" id="new-cc" placeholder="New cohost password" style="flex:1;padding:8px 12px;border-radius:6px;border:1px solid #333;background:#111;color:#fff;font-size:14px;font-family:var(--mono)"/>
+          <button class="btn btn-dark btn-sm" onclick="changeCoPass()">Save</button>
+        </div>
+        <div id="cc-st" class="st" style="margin-top:6px"></div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-family:var(--mono);color:#c8372d;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em">Reset Event</div>
+        <div style="font-size:12px;color:#777;margin-bottom:10px">Clears all pitchers and scores. Use before a new event. Cannot be undone.</div>
+        <button class="btn btn-red" id="erase-btn" onclick="eraseAllData()">Erase All Data →</button>
+        <div id="erase-st" class="st" style="margin-top:6px"></div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -442,8 +460,9 @@
 <script>
 var BASE='appqNjrGaE5HPWUzh',TOKEN='patytuGqTdoZJG3EH.a8dda7fb1881fd0cc1780b4c34eaaa60746dfdbeabdcaed8ba108f6f95779931';
 var API='https://api.airtable.com/v0/'+BASE+'/';
-var PC='cappucino';
-var sType=null,hUnlocked=false;
+var PC='paris';
+var CC=localStorage.getItem('cc_pass')||'tiramisu';
+var sType=null,hUnlocked=false,cohostUnlocked=false;
 var pitchers=[],notifs=[],seen=new Set();
 var cfg={open:true,mA:5,rSig:null,rA:null};
 
@@ -601,10 +620,27 @@ function addN(msg){notifs.unshift({msg:msg,time:new Date().toLocaleTimeString([]
   G('nf').innerHTML=notifs.slice(0,20).map(function(n){return '<div class="ni"><div class="ni-dot"></div><div class="ni-txt">'+n.msg+'</div><div class="ni-t">'+n.time+'</div></div>';}).join('');
 }
 
-function tryHost(){if(hUnlocked){exitHost();return;}G('po').classList.add('open');G('pc').value='';G('pc-err').textContent='';setTimeout(function(){G('pc').focus();},100);}
-function checkPC(){if(G('pc').value.trim().toLowerCase()===PC){hUnlocked=true;G('po').classList.remove('open');enterHost();}else{G('pc-err').textContent='Wrong passcode';G('pc').value='';G('pc').focus();}}
-function enterHost(){G('hbtn').textContent='← Back';G('v-aud').classList.remove('on');G('v-host').classList.add('on');}
-function exitHost(){hUnlocked=false;G('hbtn').textContent='Host View';G('v-host').classList.remove('on');G('v-aud').classList.add('on');}
+function tryHost(){if(hUnlocked||cohostUnlocked){exitHost();return;}G('po').classList.add('open');G('pc').value='';G('pc-err').textContent='';setTimeout(function(){G('pc').focus();},100);}
+function checkPC(){var v=G('pc').value.trim().toLowerCase();if(v===PC){hUnlocked=true;cohostUnlocked=false;G('po').classList.remove('open');enterHost();}else if(v===CC){cohostUnlocked=true;hUnlocked=false;G('po').classList.remove('open');enterHost();}else{G('pc-err').textContent='Wrong passcode';G('pc').value='';G('pc').focus();}}
+function enterHost(){G('hbtn').textContent='← Back';G('v-aud').classList.remove('on');G('v-host').classList.add('on');var ap=G('admin-panel');if(ap){ap.style.display=hUnlocked?'block':'none';if(hUnlocked){var cs=G('cc-show');if(cs)cs.textContent=CC;}}}
+function exitHost(){hUnlocked=false;cohostUnlocked=false;G('hbtn').textContent='Host View';G('v-host').classList.remove('on');G('v-aud').classList.add('on');}
+
+function changeCoPass(){var v=G('new-cc').value.trim();if(!v){setSt('cc-st','Enter a new password','err');return;}CC=v;localStorage.setItem('cc_pass',v);G('new-cc').value='';var cs=G('cc-show');if(cs)cs.textContent=CC;setSt('cc-st','Cohost password updated ✓','ok');}
+
+async function eraseAllData(){
+  if(!confirm('Delete ALL pitchers and scores? This cannot be undone.'))return;
+  var btn=G('erase-btn');btn.disabled=true;btn.textContent='Erasing...';setSt('erase-st','Working...','');
+  try{
+    var pd=await api('Pitchers');var ids=pd.records.map(function(r){return r.id;});
+    while(ids.length){var b=ids.splice(0,10);await api('Pitchers?'+b.map(function(i){return 'records[]='+i;}).join('&'),{method:'DELETE'});}
+    var sd=await api('Scores');var sids=sd.records.map(function(r){return r.id;});
+    while(sids.length){var sb=sids.splice(0,10);await api('Scores?'+sb.map(function(i){return 'records[]='+i;}).join('&'),{method:'DELETE'});}
+    setSt('erase-st','All data cleared ✓','ok');
+    pitchers=[];notifs=[];seen=new Set();renderPQ();renderHQ();renderSel();renderSlots();renderStats();
+    G('res-sec').style.display='none';G('win-div').innerHTML='';G('rl').innerHTML='';
+    setTimeout(function(){location.reload();},1500);
+  }catch(e){setSt('erase-st','Error: '+e.message,'err');btn.disabled=false;btn.textContent='Erase All Data →';}
+}
 
 document.getElementById('pc').addEventListener('keydown',function(e){if(e.key==='Enter')checkPC();});
 
