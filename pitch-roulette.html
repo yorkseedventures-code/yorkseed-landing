@@ -600,7 +600,6 @@ function renderSel(){
   sel.innerHTML='<option value="">— choose pitcher —</option>';
   pitchers.forEach(function(p){var i=pitchers.indexOf(p),o=document.createElement('option');o.value=p.id;o.textContent='#'+(i+1)+' '+p.name+' · '+p.co+' ('+(p.type==='i'?'Investor':'Founder')+')';sel.appendChild(o);});
   if(cur)sel.value=cur;
-  greyVoted();
 }
 
 async function poll(){
@@ -640,7 +639,6 @@ async function delP(id){if(!confirm('Remove?'))return;try{await api('Pitchers/'+
 
 async function doScore(){
   var pid=G('sc-sel').value;if(!pid){setSt('sc-st','Select a pitcher','err');return;}
-  if(voted.has(pid)){setSt('sc-st','You already scored this pitcher','err');return;}
   if(scores.ov===null){setSt('sc-st','Score The Business first','err');return;}
   if(scores.dl===null){setSt('sc-st','Score The Pitch','err');return;}
   if(scores.fd===null){setSt('sc-st','Score The Founder','err');return;}
@@ -654,7 +652,6 @@ async function doScore(){
     var fields={PitcherId:pid,PitcherName:p?p.name:'',Overall:ov,Delivery:dl,Extra:ex,Reason:fullReason,Scorer:scr};
     var res=await api('Scores',{method:'POST',body:JSON.stringify({records:[{fields:fields}]})});
     seen.add(res.records[0].id);
-    markVoted(pid);
     setSt('sc-st','Score submitted! ✓','ok');
     addN('<strong>'+esc(scr)+'</strong> scored <strong>'+esc(p?p.name:'?')+'</strong> — business '+ov+', pitch '+dl+', founder '+fd+(ex>0?', +'+ex+'✦':''));
     resetScores();
@@ -724,7 +721,6 @@ async function ensureFounderField(){
     var sd=await api('Scores');var sids=sd.records.map(function(r){return r.id;});
     while(sids.length){var sb=sids.splice(0,10);await api('Scores?'+sb.map(function(i){return 'records[]='+i;}).join('&'),{method:'DELETE'});}
     setSt('erase-st','All data cleared ✓','ok');
-    voted=new Set();localStorage.removeItem('pr_voted');
     pitchers=[];notifs=[];seen=new Set();renderPQ();renderHQ();renderSel();renderSlots();renderStats();
     G('res-sec').style.display='none';G('win-div').innerHTML='';G('rl').innerHTML='';
     setTimeout(function(){location.reload();},1500);
@@ -759,15 +755,6 @@ function onSelPitcher(){
   if(!pid){if(pv)pv.classList.remove('on');return;}
   var p=pitchers.find(function(x){return x.id===pid;});
   if(p&&pv&&pn&&pc){pn.textContent=p.name;pc.textContent=p.co+' · '+(p.type==='i'?'Investor':'Founder');pv.classList.add('on');}
-}
-var voted=new Set(JSON.parse(localStorage.getItem('pr_voted')||'[]'));
-
-function markVoted(pid){voted.add(pid);localStorage.setItem('pr_voted',JSON.stringify([...voted]));greyVoted();}
-function greyVoted(){
-  var sel=G('sc-sel');if(!sel)return;
-  Array.from(sel.options).forEach(function(o){
-    if(o.value&&voted.has(o.value)){o.disabled=true;o.textContent=o.textContent.replace(/^✓ /,'')+'  ✓ scored';}
-  });
 }
 
 function resetScores(){
