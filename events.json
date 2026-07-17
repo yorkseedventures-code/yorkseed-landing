@@ -314,7 +314,6 @@
       "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/vb/b52ce222-7992-4f25-9042-82e3331b1dbe.png"
     },
     {
-      "slug": "hot-or-not-wellness-pitch-july-2026",
       "featured": false,
       "type": "expert",
       "title": "HOT or NOT: Is Your Startup Fundable or Just Interesting? — Wellness, Nutrition & Supplements",
@@ -331,7 +330,6 @@
       "coverGradient": "linear-gradient(135deg,#0f0d09 0%,#1a160c 40%,#211d10 100%)"
     },
     {
-      "slug": "venture-vitality-healthtech-august-2026",
       "featured": false,
       "type": "expert",
       "title": "Venture Vitality: HealthTech Investor Roundtable — Clinical Trials",
@@ -366,7 +364,6 @@
       "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/event-covers/7h/e01cbfcc-4a39-4b88-995b-a15a68817051.png"
     },
     {
-      "slug": "hot-or-not-clinical-trials-august-2026",
       "featured": false,
       "type": "expert",
       "title": "HOT or NOT: Is Your Startup Fundable or Just Interesting? — Clinical Trials",
@@ -383,7 +380,6 @@
       "coverGradient": "linear-gradient(135deg,#0f0d09 0%,#1a160c 40%,#211d10 100%)"
     },
     {
-      "slug": "venture-vitality-healthtech-september-2026",
       "featured": false,
       "type": "expert",
       "title": "Venture Vitality: HealthTech Investor Roundtable — Men's Health",
@@ -400,7 +396,6 @@
       "coverGradient": "linear-gradient(135deg,#0f0d09 0%,#1a160c 40%,#211d10 100%)"
     },
     {
-      "slug": "venture-vitality-healthtech-october-2026",
       "featured": false,
       "type": "expert",
       "title": "Venture Vitality: HealthTech Investor Roundtable — Mental Health",
@@ -417,7 +412,6 @@
       "coverGradient": "linear-gradient(135deg,#0f0d09 0%,#1a160c 40%,#211d10 100%)"
     },
     {
-      "slug": "hot-or-not-mental-health-october-2026",
       "featured": false,
       "type": "expert",
       "title": "HOT or NOT: Is Your Startup Fundable or Just Interesting? — Mental Health",
@@ -434,7 +428,6 @@
       "coverGradient": "linear-gradient(135deg,#0f0d09 0%,#1a160c 40%,#211d10 100%)"
     },
     {
-      "slug": "venture-vitality-healthtech-november-2026",
       "featured": false,
       "type": "expert",
       "title": "Venture Vitality: HealthTech Investor Roundtable — Women's Health",
@@ -451,7 +444,6 @@
       "coverGradient": "linear-gradient(135deg,#0f0d09 0%,#1a160c 40%,#211d10 100%)"
     },
     {
-      "slug": "yorkseed-summit-closing-web-summit-lisbon-2026",
       "featured": true,
       "type": "passport",
       "title": "The Yorkseed Summit Closing + Web Summit Opening Night 2026",
@@ -468,7 +460,6 @@
       "coverGradient": "linear-gradient(135deg,#0d0d1a 0%,#1a1209 40%,#2a1a08 100%)"
     },
     {
-      "slug": "yorkseed-executive-lunch-lisbon-2026",
       "featured": false,
       "type": "passport",
       "title": "Yorkseed Executive Lunch",
@@ -485,7 +476,6 @@
       "coverGradient": "linear-gradient(135deg,#0d0d1a 0%,#1a1209 40%,#2a1a08 100%)"
     },
     {
-      "slug": "yorkseed-capital-lunch-lisbon-2026",
       "featured": false,
       "type": "passport",
       "title": "Yorkseed Capital Lunch",
@@ -502,7 +492,6 @@
       "coverGradient": "linear-gradient(135deg,#0d0d1a 0%,#1a1209 40%,#2a1a08 100%)"
     },
     {
-      "slug": "yorkseed-allocator-lunch-lisbon-2026",
       "featured": false,
       "type": "passport",
       "title": "Yorkseed Allocator Lunch",
