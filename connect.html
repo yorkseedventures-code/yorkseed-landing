@@ -363,6 +363,9 @@ img{display:block;max-width:100%}
 .global{background:var(--off)}
 .global-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;margin-bottom:40px}
 @media(max-width:800px){.global-grid{grid-template-columns:1fr;gap:40px}}
+.three-col-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+@media(max-width:700px){.three-col-grid{grid-template-columns:1fr}}
+@media(max-width:768px){.global-grid{grid-template-columns:1fr!important}}
 .hubs-label{font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--ink4);text-transform:uppercase;margin-bottom:14px}
 .hubs-wrap{display:flex;flex-wrap:wrap;gap:6px}
 .hub{background:var(--white);border:1px solid var(--border);border-radius:100px;padding:5px 13px;font-size:11.5px;color:var(--ink3)}
@@ -1423,7 +1426,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
     <h2 class="sec-h2" style="color:rgba(255,255,255,.9);">Where capital meets verified opportunity</h2>
     <p class="sec-sub" style="color:rgba(255,255,255,.45);">Founders submit raises. Investors access curated deal flow. Every deal reviewed by the Yorkseed team before it goes live.</p>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;margin:52px 0 48px;border-radius:12px;overflow:hidden;">
+    <div class="global-grid" style="gap:3px;margin:52px 0 48px;border-radius:12px;overflow:hidden;">
 
       <div style="background:rgba(255,255,255,.04);padding:36px 36px 32px;border:1px solid rgba(255,255,255,.07);">
         <div style="font-size:10px;font-family:var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:16px;">For Founders</div>
@@ -1472,7 +1475,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
     <h2 class="sec-h2">15+ purpose-built tools. Not generic AI.</h2>
     <p class="sec-sub">Every tool designed for a specific moment in the venture lifecycle — pitch, fundraising, diligence, and capital structuring. Included with Core membership and above. Free members get one run per month.</p>
 
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin:48px 0;border-radius:12px;overflow:hidden;">
+    <div class="three-col-grid" style="gap:2px;margin:48px 0;border-radius:12px;overflow:hidden;">
 
       <!-- Founder tools -->
       <div style="grid-column:1/-1;background:#fff;padding:18px 24px 12px;border-bottom:1px solid var(--border);">
@@ -1567,7 +1570,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
     <h2 class="sec-h2">Institutional-grade fund infrastructure. Included with membership.</h2>
     <p class="sec-sub">Tools that previously required $20,000+ in legal fees just to understand the options — now inside your membership.</p>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px;">
+    <div class="global-grid" style="gap:24px;margin-top:48px;">
 
       <div style="background:var(--off);border:1px solid var(--border);border-radius:12px;padding:36px;">
         <div style="font-size:10px;font-family:var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);margin-bottom:16px;">Fund Terms Builder</div>
@@ -1618,7 +1621,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
     <div class="kicker">Platform Infrastructure</div>
     <h2 class="sec-h2">Everything you need to run a raise or manage a portfolio — in one place.</h2>
 
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px;">
+    <div class="three-col-grid" style="gap:20px;margin-top:48px;">
 
       <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:28px;">
         <div style="font-size:22px;margin-bottom:14px;">🏗️</div>
@@ -1674,7 +1677,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
       <span style="font-size:10px;font-family:var(--mono);letter-spacing:.3em;text-transform:uppercase;color:rgba(176,141,87,.6);">Valois by Yorkseed</span>
     </div>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;">
+    <div class="global-grid" style="gap:64px;align-items:start;">
 
       <div>
         <h2 style="font-family:var(--serif);font-size:clamp(32px,4vw,48px);font-weight:300;color:rgba(255,255,255,.9);line-height:1.1;letter-spacing:-.02em;margin-bottom:24px;">The room within the room.</h2>
