@@ -168,11 +168,24 @@
   }
 }
 </style>
+@media(max-width:380px){
+  div[style*="justify-content:space-between"][style*="padding:20px 6vw"]{padding:16px 5vw!important}
+  div[style*="justify-content:space-between"][style*="padding:20px 6vw"] div[style*="gap:20px"]{gap:10px!important}
+}
+
 <!-- GA -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MN9TDJSXN0"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MN9TDJSXN0');</script>
 </head>
 <body>
+<div style="display:flex;align-items:center;justify-content:space-between;padding:20px 6vw;border-bottom:1px solid rgba(0,0,0,.07);font-family:system-ui,sans-serif">
+  <a href="/" style="font-family:monospace;font-size:13px;font-weight:500;letter-spacing:.08em;text-decoration:none;color:#0e0e0e">YORKSEED</a>
+  <div style="display:flex;align-items:center;gap:20px">
+    <a href="/hubs.html" style="font-size:12px;color:#555;text-decoration:none">← All Hubs</a>
+    <a href="https://app.yorkseed.co/pricing" style="background:#c8372d;color:#fff;font-size:12px;font-weight:500;padding:9px 18px;border-radius:6px;text-decoration:none">Join</a>
+  </div>
+</div>
+
 
 <nav class="site-nav">
   <div class="nav-inner">
@@ -212,15 +225,7 @@
               <div class="n-item-title">Events &amp; Passport Series</div>
               <div class="n-item-desc">Curated gatherings across global innovation hubs</div>
             </div>
-          </a>
-          <a href="/vivatech-2026.html" class="n-item" style="background:rgba(26,26,26,.03);border:0.5px solid rgba(75,110,255,.18);border-radius:8px;">
-            <span class="n-item-icon">🗼</span>
-            <div class="n-item-body">
-              <div class="n-item-title" style="background:linear-gradient(90deg,#FF2D78,#C44BFF,#4B6EFF,#00C8FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">VivaTech 2026 · Paris</div>
-              <div class="n-item-desc">Free student pass · June 17–20 · Closes June 15</div>
-            </div>
-          </a>
-          <a href="https://yorkseedsummit.com" class="n-item" target="_blank">
+          </a>          <a href="https://yorkseedsummit.com" class="n-item" target="_blank">
             <span class="n-item-icon">🏛️</span>
             <div class="n-item-body">
               <div class="n-item-title">Yorkseed Summit</div>
@@ -241,11 +246,11 @@
               <div class="n-item-desc">50+ city hubs across 5 continents</div>
             </div>
           </a>
-          <a href="https://thevalois.com" class="n-item" target="_blank" rel="noopener noreferrer" style="background:rgba(184,151,106,0.05);border:0.5px solid rgba(184,151,106,0.2);border-radius:8px;">
+          <a href="https://thevalois.com" class="n-item" target="_blank" rel="noopener noreferrer" style="background:#242018;border:0.5px solid rgba(212,188,130,0.35);border-radius:8px;">
             <span class="n-item-icon">🔑</span>
             <div class="n-item-body">
-              <div class="n-item-title" style="color:#8a6e3e;">Valois</div>
-              <div class="n-item-desc" style="color:rgba(138,110,62,0.7);">The private inner Circle — invitation only</div>
+              <div class="n-item-title" style="color:#D4BC82;">Valois</div>
+              <div class="n-item-desc" style="color:rgba(226,218,208,0.55);">The private inner Circle — invitation only</div>
             </div>
           </a>
         </div>
@@ -253,6 +258,10 @@
       <a href="/events.html" class="n-link">Events</a>
       <a href="/hubs.html" class="n-link">Hubs</a>
       <a href="/nyc-startup-communities.html" class="n-link">NYC Guide</a>
+      <a href="/london-startup-communities.html" class="n-link">London Guide</a>
+      <a href="/dubai-startup-communities.html" class="n-link">Dubai Guide</a>
+      <a href="/singapore-startup-communities.html" class="n-link">Singapore Guide</a>
+      <a href="/hong-kong-startup-communities.html" class="n-link">Hong Kong Guide</a>
       <a href="/tools.html" class="n-link">Free Tools</a>
       <a href="/partners.html" class="n-link">Partners</a>
       <a href="https://yorkseed.co/connect" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:rgba(196,49,37,.04);border:1px solid rgba(196,49,37,.18);border-radius:8px;text-decoration:none;color:#111"><span style="font-size:18px">🔗</span><span style="font-size:13px;font-weight:500;color:#c43125">Connect</span></a>
@@ -272,14 +281,13 @@
       <div class="n-drawer-label">Navigate</div>
       <a href="/" class="n-drawer-link"><span>🏠</span><span>Home</span></a>
       <a href="/about.html" class="n-drawer-link"><span>📖</span><span>Our Story</span></a>
-<a href="/events.html" class="n-drawer-link"><span>🎯</span><span>Events</span></a>
-      <a href="/vivatech-2026.html" class="n-drawer-link" style="border-color:rgba(75,110,255,.2);">
-        <span>🗼</span>
-        <span style="background:linear-gradient(90deg,#FF2D78,#C44BFF,#4B6EFF,#00C8FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:500;">VivaTech 2026 — Free pass</span>
-      </a>
-      <a href="/hubs.html" class="n-drawer-link"><span>📍</span><span>Global Hubs</span></a>
+<a href="/events.html" class="n-drawer-link"><span>🎯</span><span>Events</span></a>      <a href="/hubs.html" class="n-drawer-link"><span>📍</span><span>Global Hubs</span></a>
       <a href="/nyc.html" class="n-drawer-link"><span>🗽</span><span>NYC Hub</span></a>
       <a href="/nyc-startup-communities.html" class="n-drawer-link"><span>📋</span><span>NYC Startup Communities Guide</span></a>
+      <a href="/london-startup-communities.html" class="n-drawer-link"><span>📋</span><span>London Startup Communities Guide</span></a>
+      <a href="/dubai-startup-communities.html" class="n-drawer-link"><span>📋</span><span>Dubai Startup Communities Guide</span></a>
+      <a href="/singapore-startup-communities.html" class="n-drawer-link"><span>📋</span><span>Singapore Startup Communities Guide</span></a>
+      <a href="/hong-kong-startup-communities.html" class="n-drawer-link"><span>📋</span><span>Hong Kong Startup Communities Guide</span></a>
       <a href="/tools.html" class="n-drawer-link"><span>🧮</span><span>Free Tools</span></a>
       <a href="/partners.html" class="n-drawer-link"><span>🤝</span><span>Partners</span></a>
       <a href="/press.html" class="n-drawer-link"><span>📡</span><span>Press &amp; Traction</span></a>
@@ -292,7 +300,7 @@
 <a href="/capital.html" class="n-drawer-link"><span>💼</span><span>Yorkseed Capital</span></a>
       <a href="https://yorkseedsummit.com" class="n-drawer-link"><span>🏛️</span><span>Yorkseed Summit</span></a>
       <a href="https://pulse.yorkseed.co" class="n-drawer-link"><span>📰</span><span>Yorkseed Insider</span></a>
-      <a href="https://thevalois.com" class="n-drawer-link" target="_blank" rel="noopener noreferrer" style="color:#8a6e3e;border-color:rgba(184,151,106,0.2);"><span>💎</span><span>Valois — Private Circle</span></a>
+      <a href="https://thevalois.com" class="n-drawer-link" target="_blank" rel="noopener noreferrer" style="color:#D4BC82;border-color:rgba(212,188,130,0.2);"><span>💎</span><span>Valois — Private Circle</span></a>
     </div>
 <div class="n-drawer-ctas">
       <a href="https://app.yorkseed.co/pricing" class="n-apply">Join Yorkseed</a>
@@ -307,6 +315,8 @@
   <h1>Yorkseed — NYC Venture Network</h1>
   <p>You're looking for the top startup communities in New York City. Yorkseed is where serious founders and investors find each other — private, curated, and global.</p>
   <a href="https://yorkseed.co/nyc" class="btn">Explore Yorkseed NYC →</a>
+  <p style="font-size:13px;margin-top:-8px"><a href="https://chat.whatsapp.com/FDDpl18b7bL8F4DFsdqkU9" target="_blank" style="color:#c8372d">New York Tech Week WhatsApp →</a></p>
+  <p style="font-size:13px;margin-top:16px">Yorkseed is hiring a Hub Director for New York City — <a href="https://tally.so/r/mROWPK" target="_blank" style="color:#c8372d">apply here →</a></p>
 </div>
 
 <!-- SEO content: present in DOM for all crawlers, not rendered visually -->
@@ -375,10 +385,8 @@
   </div>
   <div class="footer-nav-links" style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px 14px;">
 
-```
-<a href="https://app.yorkseed.co/login" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Platform</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/about.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">About</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/hubs.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Global Hubs</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/tools.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;">Free Tools</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/events.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Events</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/partners.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Partners</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/speaker-intake.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Speak</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/pitch-intake.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Pitch</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/press.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Press</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://yorkseedventures.com" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Ventures</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://yorkseedsummit.com" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Summit</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://yorkseedhouse.com" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Yorkseed House</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://thevalois.com" target="_blank" rel="noopener noreferrer" style="font-size:11px;color:rgba(184,151,106,0.7);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='rgba(184,151,106,1)'" onmouseout="this.style.color='rgba(184,151,106,0.7)'">Valois</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://pulse.yorkseed.co" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Newsletter</a>
+<a href="https://app.yorkseed.co/login" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Platform</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/about.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">About</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/hubs.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Global Hubs</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/tools.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;">Free Tools</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/events.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Events</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/partners.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Partners</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/speaker-intake.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Speak</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/pitch-intake.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Pitch</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/press.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Press</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://yorkseedventures.com" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Ventures</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://yorkseedsummit.com" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Summit</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://yorkseedhouse.com" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Yorkseed House</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://thevalois.com" target="_blank" rel="noopener noreferrer" style="font-size:11px;color:rgba(212,188,130,0.75);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#D4BC82'" onmouseout="this.style.color='rgba(212,188,130,0.75)'">Valois</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://pulse.yorkseed.co" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Newsletter</a>
         <span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/contact.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Contact</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="mailto:info@yorkseed.co" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Email us</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://yorkseed.co" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">yorkseed.co</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://x.com/yorkseed" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Twitter</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://instagram.com/yorkseed" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Instagram</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://linkedin.com/company/yorkseed" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">LinkedIn</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://facebook.com/profile/yorkseed" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Facebook</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://www.crunchbase.com/organization/yorkseed" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Crunchbase</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://whatsapp.com/channel/0029Vaf0wiU3wtbBcxTEFD0h" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">WhatsApp</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://shop.yorkseed.co" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Shop</a>
-```
 
   </div>
   <div style="text-align:center;margin-top:8px;margin-bottom:6px;">
@@ -390,9 +398,7 @@
 <div id="moreMenu" style="display:none;position:fixed;top:calc(56px + env(safe-area-inset-top,0));left:0;right:0;z-index:399;background:rgba(255,255,255,.98);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.07);padding:56px 5vw 32px">
 <a href="https://yorkseedhouse.com" class="n-drawer-link" target="_blank"><span>🏠</span><span>Yorkseed House</span></a>
 
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">
-    <a href="/vivatech-2026.html" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:rgba(75,110,255,.05);border:1px solid rgba(75,110,255,.2);border-radius:8px;text-decoration:none;grid-column:1/-1"><span style="font-size:18px">🗼</span><span style="font-size:13px;font-weight:500;background:linear-gradient(90deg,#FF2D78,#C44BFF,#4B6EFF,#00C8FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">VivaTech 2026 — Free student pass</span></a>
-    <a href="/about.html" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:#fafafa;border:1px solid rgba(0,0,0,.07);border-radius:8px;text-decoration:none;color:#111"><span style="font-size:18px">📖</span><span style="font-size:13px;font-weight:400">Our Story</span></a>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">    <a href="/about.html" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:#fafafa;border:1px solid rgba(0,0,0,.07);border-radius:8px;text-decoration:none;color:#111"><span style="font-size:18px">📖</span><span style="font-size:13px;font-weight:400">Our Story</span></a>
     <a href="https://yorkseed.co/connect" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:rgba(196,49,37,.05);border:1px solid rgba(196,49,37,.2);border-radius:8px;text-decoration:none;color:#111"><span style="font-size:18px">🔗</span><span style="font-size:13px;font-weight:500;color:#c43125">Connect</span></a>
     <a href="/press.html" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:#fafafa;border:1px solid rgba(0,0,0,.07);border-radius:8px;text-decoration:none;color:#111"><span style="font-size:18px">📡</span><span style="font-size:13px;font-weight:400">Press</span></a>
     <a href="/capital.html" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:#fafafa;border:1px solid rgba(0,0,0,.07);border-radius:8px;text-decoration:none;color:#111"><span style="font-size:18px">💼</span><span style="font-size:13px;font-weight:400">Capital</span></a>
@@ -400,7 +406,7 @@
     <a href="https://app.yorkseed.co/login" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:#fafafa;border:1px solid rgba(0,0,0,.07);border-radius:8px;text-decoration:none;color:#111"><span style="font-size:18px">🔑</span><span style="font-size:13px;font-weight:400">Sign in</span></a>
     <a href="/tools.html" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:#fafafa;border:1px solid rgba(0,0,0,.07);border-radius:8px;text-decoration:none;color:#111"><span style="font-size:18px">🧮</span><span style="font-size:13px;font-weight:400">Free Tools</span></a>
     <a href="https://yorkseedsummit.com" target="_blank" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:#fafafa;border:1px solid rgba(0,0,0,.07);border-radius:8px;text-decoration:none;color:#111"><span style="font-size:18px">🏛️</span><span style="font-size:13px;font-weight:400">Summit</span></a>
-    <a href="https://thevalois.com" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:rgba(184,151,106,0.06);border:1px solid rgba(184,151,106,0.25);border-radius:8px;text-decoration:none;color:#8a6e3e"><span style="font-size:18px">💎</span><span style="font-size:13px;font-weight:500">Valois</span></a>
+    <a href="https://thevalois.com" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:rgba(212,188,130,0.08);border:1px solid rgba(212,188,130,0.3);border-radius:8px;text-decoration:none;color:#D4BC82"><span style="font-size:18px">💎</span><span style="font-size:13px;font-weight:500">Valois</span></a>
   </div>
 </div>
 <div id="moreOverlay" onclick="toggleMoreMenu()" style="display:none;position:fixed;inset:0;z-index:398;background:rgba(0,0,0,.2)"></div>
@@ -415,6 +421,14 @@ function toggleMoreMenu(){var m=document.getElementById('moreMenu');var o=docume
 // Close more menu on outside click
 document.addEventListener('click',function(e){var m=document.getElementById('moreMenu');if(m&&m.style.display==='block'&&!m.contains(e.target)&&!e.target.closest('.m-tab')){toggleMoreMenu();}});
 </script>
+
+<footer style="border-top:1px solid rgba(0,0,0,.07);padding:32px 6vw;text-align:center;font-family:system-ui,sans-serif">
+  <a href="/" style="font-size:11px;color:#999;text-decoration:none;margin:0 8px">Home</a>
+  <a href="/hubs.html" style="font-size:11px;color:#999;text-decoration:none;margin:0 8px">Global Hubs</a>
+  <a href="/events.html" style="font-size:11px;color:#999;text-decoration:none;margin:0 8px">Events</a>
+  <a href="https://yorkseed.co/connect" style="font-size:11px;color:#999;text-decoration:none;margin:0 8px">Connect</a>
+  <a href="/contact.html" style="font-size:11px;color:#999;text-decoration:none;margin:0 8px">Contact</a>
+</footer>
 
 </body>
 </html>

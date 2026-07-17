@@ -2,6 +2,7 @@ User-agent: *
 Allow: /
 Disallow: /private/
 Disallow: /admin/
+Disallow: /event-admin.html
 
 # Search engine crawlers
 User-agent: Googlebot

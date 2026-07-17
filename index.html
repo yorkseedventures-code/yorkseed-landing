@@ -131,76 +131,8 @@ html{scroll-behavior:smooth}
   --mono:'DM Mono',monospace;
 }
 body{font-family:var(--sans);font-weight:300;background:var(--white);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-/* extra top padding when bar is showing so hero content isn't hidden */
-.has-vt-bar .hero{padding-top:136px}
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
-
-/* ─── VIVATECH ANNOUNCEMENT BAR ─── */
-#vt-bar{
-  position:fixed;top:0;left:0;right:0;z-index:600;
-  height:36px;
-  background:var(--ink2);
-  border-bottom:1px solid rgba(255,255,255,.08);
-  display:flex;align-items:center;justify-content:center;
-  transition:transform .3s cubic-bezier(.4,0,.2,1),opacity .3s;
-}
-#vt-bar.hidden{transform:translateY(-100%);opacity:0;pointer-events:none}
-#vt-bar::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,#FF2D78,#C44BFF,#4B6EFF,#00C8FF,#00E5A0,#FFE500,#FF7A00);
-}
-.vt-bar-inner{
-  display:flex;align-items:center;gap:12px;
-  max-width:1280px;width:100%;padding:0 5vw;
-  position:relative;
-}
-.vt-bar-dot{
-  width:5px;height:5px;border-radius:50%;background:#FF2D78;flex-shrink:0;
-  animation:vtDotPulse 2s ease-in-out infinite;
-}
-@keyframes vtDotPulse{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:1;transform:scale(1.4)}}
-.vt-bar-label{
-  font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;
-  color:rgba(255,255,255,.28);white-space:nowrap;
-}
-.vt-bar-sep{width:1px;height:12px;background:rgba(255,255,255,.12);flex-shrink:0}
-.vt-bar-copy{
-  font-family:var(--sans);font-size:12.5px;font-weight:300;
-  color:rgba(255,255,255,.72);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-}
-.vt-bar-copy .vt-name{
-  background:linear-gradient(90deg,#FF2D78,#C44BFF,#4B6EFF,#00C8FF);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  font-weight:400;
-}
-.vt-bar-cta{
-  margin-left:auto;flex-shrink:0;
-  font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;
-  color:rgba(255,255,255,.45);
-  padding:4px 12px;border:1px solid rgba(255,255,255,.14);border-radius:3px;
-  transition:color .15s,border-color .15s;text-decoration:none;white-space:nowrap;
-}
-.vt-bar-cta:hover{color:rgba(255,255,255,.85);border-color:rgba(255,255,255,.3)}
-.vt-bar-close{
-  width:24px;height:24px;display:flex;align-items:center;justify-content:center;
-  margin-left:8px;flex-shrink:0;cursor:pointer;
-  color:rgba(255,255,255,.22);font-size:14px;line-height:1;
-  border:none;background:none;padding:0;transition:color .15s;
-}
-.vt-bar-close:hover{color:rgba(255,255,255,.6)}
-/* Nav shifts down when bar is visible */
-.has-vt-bar .site-nav{top:36px}
-.has-vt-bar .m-tab-bar{top:36px}
-/* Mobile: hide label and sep to save space */
-@media(max-width:600px){.vt-bar-label,.vt-bar-sep{display:none}}
-@media(max-width:440px){.vt-bar-copy{font-size:11px}.vt-bar-cta{padding:3px 8px;font-size:8px}}
-/* On mobile the bar sits above the bottom tab bar, not above the top nav
-   (no top nav on mobile — m-tab-bar is at top instead) */
-@media(max-width:900px){
-  #vt-bar{z-index:500}
-  .has-vt-bar .m-tab-bar{top:36px}
-}
 
 /* ─── NAV ─── */
 .site-nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(255,255,255,.94);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
@@ -601,7 +533,6 @@ img{display:block;max-width:100%}
   .m-tab-bar{display:block}
   body{padding-bottom:0;padding-top:calc(56px + env(safe-area-inset-top,0))}
   /* when bar is showing, push body top padding down by bar height */
-  body.has-vt-bar{padding-top:calc(56px + 36px + env(safe-area-inset-top,0))}
 }
 
 /* ─── RESPONSIVE ─── */
@@ -666,7 +597,7 @@ img{display:block;max-width:100%}
 <link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM full context"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&family=Cormorant+SC:wght@300;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet"/>
 
 <style>
 .eco-card-valois{
@@ -751,29 +682,7 @@ img{display:block;max-width:100%}
 </style>
 
 </head>
-<body class="has-vt-bar">
-
-<!-- ANNOUNCEMENT BAR — alternates Yorkseed House + VivaTech — remove after June 20 -->
-<div id="vt-bar" role="banner" aria-label="Announcements">
-  <div class="vt-bar-inner">
-    <span class="vt-bar-dot" aria-hidden="true"></span>
-
-    <!-- Message 1: VivaTech -->
-    <div class="vt-msg" id="vtMsg1" style="display:flex;align-items:center;gap:12px;transition:opacity .4s">
-      <span class="vt-bar-label">Closes June 15</span>
-      <span class="vt-bar-sep" aria-hidden="true"></span>
-      <span class="vt-bar-copy">
-        Yorkseed × START Paris ×
-        <span class="vt-name">VivaTech 2026</span>
-        — Free student pass, Paris · June 17–20
-      </span>
-      <a href="/vivatech-2026.html" class="vt-bar-cta">Claim pass →</a>
-    </div>
-
-    <button class="vt-bar-close" onclick="dismissVtBar()" aria-label="Dismiss">✕</button>
-  </div>
-</div>
-
+<body>
 
 <!-- NAV -->
 
@@ -815,15 +724,7 @@ img{display:block;max-width:100%}
               <div class="n-item-title">Events &amp; Passport Series</div>
               <div class="n-item-desc">Curated gatherings across global innovation hubs</div>
             </div>
-          </a>
-          <a href="/vivatech-2026.html" class="n-item" style="background:rgba(26,26,26,.03);border:0.5px solid rgba(75,110,255,.18);border-radius:8px;">
-            <span class="n-item-icon">🗼</span>
-            <div class="n-item-body">
-              <div class="n-item-title" style="background:linear-gradient(90deg,#FF2D78,#C44BFF,#4B6EFF,#00C8FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">VivaTech 2026 · Paris</div>
-              <div class="n-item-desc">Free student pass · June 17–20 · Closes June 15</div>
-            </div>
-          </a>
-          <a href="https://yorkseedsummit.com" class="n-item" target="_blank">
+          </a>          <a href="https://yorkseedsummit.com" class="n-item" target="_blank">
             <span class="n-item-icon">🏛️</span>
             <div class="n-item-body">
               <div class="n-item-title">Yorkseed Summit</div>
@@ -844,11 +745,11 @@ img{display:block;max-width:100%}
               <div class="n-item-desc">50+ city hubs across 5 continents</div>
             </div>
           </a>
-          <a href="https://thevalois.com" class="n-item" target="_blank" rel="noopener noreferrer" style="background:rgba(184,151,106,0.05);border:0.5px solid rgba(184,151,106,0.2);border-radius:8px;">
+          <a href="https://thevalois.com" class="n-item" target="_blank" rel="noopener noreferrer" style="background:#242018;border:0.5px solid rgba(212,188,130,0.35);border-radius:8px;">
             <span class="n-item-icon">🔑</span>
             <div class="n-item-body">
-              <div class="n-item-title" style="color:#8a6e3e;">Valois</div>
-              <div class="n-item-desc" style="color:rgba(138,110,62,0.7);">The private inner Circle — invitation only</div>
+              <div class="n-item-title" style="color:#D4BC82;">Valois</div>
+              <div class="n-item-desc" style="color:rgba(226,218,208,0.55);">The private inner Circle — invitation only</div>
             </div>
           </a>
         </div>
@@ -856,6 +757,10 @@ img{display:block;max-width:100%}
       <a href="/events.html" class="n-link">Events</a>
       <a href="/hubs.html" class="n-link">Hubs</a>
       <a href="/nyc-startup-communities.html" class="n-link">NYC Guide</a>
+      <a href="/london-startup-communities.html" class="n-link">London Guide</a>
+      <a href="/dubai-startup-communities.html" class="n-link">Dubai Guide</a>
+      <a href="/singapore-startup-communities.html" class="n-link">Singapore Guide</a>
+      <a href="/hong-kong-startup-communities.html" class="n-link">Hong Kong Guide</a>
       <a href="/tools.html" class="n-link">Free Tools</a>
       <a href="/partners.html" class="n-link">Partners</a>
       <a href="https://yorkseed.co/connect" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:rgba(196,49,37,.04);border:1px solid rgba(196,49,37,.18);border-radius:8px;text-decoration:none;color:#111"><span style="font-size:18px">🔗</span><span style="font-size:13px;font-weight:500;color:#c43125">Connect</span></a>
@@ -875,14 +780,13 @@ img{display:block;max-width:100%}
       <div class="n-drawer-label">Navigate</div>
       <a href="/" class="n-drawer-link"><span>🏠</span><span>Home</span></a>
       <a href="/about.html" class="n-drawer-link"><span>📖</span><span>Our Story</span></a>
-<a href="/events.html" class="n-drawer-link"><span>🎯</span><span>Events</span></a>
-      <a href="/vivatech-2026.html" class="n-drawer-link" style="border-color:rgba(75,110,255,.2);">
-        <span>🗼</span>
-        <span style="background:linear-gradient(90deg,#FF2D78,#C44BFF,#4B6EFF,#00C8FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:500;">VivaTech 2026 — Free pass</span>
-      </a>
-      <a href="/hubs.html" class="n-drawer-link"><span>📍</span><span>Global Hubs</span></a>
+<a href="/events.html" class="n-drawer-link"><span>🎯</span><span>Events</span></a>      <a href="/hubs.html" class="n-drawer-link"><span>📍</span><span>Global Hubs</span></a>
       <a href="/nyc.html" class="n-drawer-link"><span>🗽</span><span>NYC Hub</span></a>
       <a href="/nyc-startup-communities.html" class="n-drawer-link"><span>📋</span><span>NYC Startup Communities Guide</span></a>
+      <a href="/london-startup-communities.html" class="n-drawer-link"><span>📋</span><span>London Startup Communities Guide</span></a>
+      <a href="/dubai-startup-communities.html" class="n-drawer-link"><span>📋</span><span>Dubai Startup Communities Guide</span></a>
+      <a href="/singapore-startup-communities.html" class="n-drawer-link"><span>📋</span><span>Singapore Startup Communities Guide</span></a>
+      <a href="/hong-kong-startup-communities.html" class="n-drawer-link"><span>📋</span><span>Hong Kong Startup Communities Guide</span></a>
       <a href="/tools.html" class="n-drawer-link"><span>🧮</span><span>Free Tools</span></a>
       <a href="/partners.html" class="n-drawer-link"><span>🤝</span><span>Partners</span></a>
       <a href="/press.html" class="n-drawer-link"><span>📡</span><span>Press &amp; Traction</span></a>
@@ -895,7 +799,7 @@ img{display:block;max-width:100%}
 <a href="/capital.html" class="n-drawer-link"><span>💼</span><span>Yorkseed Capital</span></a>
       <a href="https://yorkseedsummit.com" class="n-drawer-link"><span>🏛️</span><span>Yorkseed Summit</span></a>
       <a href="https://pulse.yorkseed.co" class="n-drawer-link"><span>📰</span><span>Yorkseed Insider</span></a>
-      <a href="https://thevalois.com" class="n-drawer-link" target="_blank" rel="noopener noreferrer" style="color:#8a6e3e;border-color:rgba(184,151,106,0.2);"><span>💎</span><span>Valois — Private Circle</span></a>
+      <a href="https://thevalois.com" class="n-drawer-link" target="_blank" rel="noopener noreferrer" style="color:#D4BC82;border-color:rgba(212,188,130,0.2);"><span>💎</span><span>Valois — Private Circle</span></a>
     </div>
 <div class="n-drawer-ctas">
       <a href="https://app.yorkseed.co/pricing" class="n-apply">Join Yorkseed</a>
@@ -925,10 +829,10 @@ img{display:block;max-width:100%}
       <a href="https://app.yorkseed.co/pricing" class="btn-primary">Request access →</a>
       <a href="https://app.yorkseed.co" class="btn-ghost">Sign in / Join</a>
     </div>
-    <a href="https://thevalois.com" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:10px;margin-top:12px;margin-bottom:32px;padding:10px 20px;border:0.5px solid rgba(184,151,106,0.4);text-decoration:none;transition:border-color .2s;">
-      <span style="font-family:var(--mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:rgba(184,151,106,0.6);">Private inner Circle</span>
-      <span style="width:1px;height:12px;background:rgba(184,151,106,0.25);display:block;"></span>
-      <span style="font-family:var(--serif);font-size:14px;font-weight:300;letter-spacing:.08em;color:rgba(184,151,106,0.9);">Valois →</span>
+    <a href="https://thevalois.com" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:10px;margin-top:12px;margin-bottom:32px;padding:10px 20px;border:0.5px solid rgba(212,188,130,0.4);text-decoration:none;transition:border-color .2s;">
+      <span style="font-family:var(--mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:rgba(212,188,130,0.6);">Private inner Circle</span>
+      <span style="width:1px;height:12px;background:rgba(212,188,130,0.3);display:block;"></span>
+      <span style="font-family:var(--serif);font-size:14px;font-weight:300;letter-spacing:.08em;color:rgba(212,188,130,0.9);">Valois →</span>
     </a>
     <div class="hero-stats">
       <div class="hs"><div class="hs-n">50+</div><div class="hs-l">Global hubs</div></div>
@@ -1110,6 +1014,47 @@ img{display:block;max-width:100%}
 </div>
 </section>
 
+<!-- ─── VALOIS SPOTLIGHT ─── -->
+<section style="background:#242018;padding:96px 6vw;position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,#3a3420 0%,#242018 65%);pointer-events:none"></div>
+  <div style="max-width:760px;margin:0 auto;position:relative;text-align:center">
+    <div style="font-family:'Cormorant SC',Georgia,serif;font-weight:300;font-size:clamp(40px,7vw,64px);letter-spacing:.3em;padding-left:.3em;color:#F8F4EE;line-height:1">VALOIS</div>
+    <div style="font-size:10px;letter-spacing:.5em;padding-left:.5em;text-transform:uppercase;color:#C4A86A;margin-top:16px;margin-bottom:32px">The Private Inner Circle</div>
+    <div style="width:32px;height:.5px;background:#D4BC82;margin:0 auto 32px"></div>
+    <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(18px,2.2vw,22px);font-weight:300;font-style:italic;color:#E2DAD0;line-height:1.7;max-width:560px;margin:0 auto 48px">Not a platform. Not a club. Not a perk bundle. A relationship infrastructure for the people who move capital, broker relationships, and make decisions in rooms most people don't reach.</p>
+
+    <div style="font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:#D4BC82;margin-bottom:24px">Who Should Join</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;max-width:640px;margin:0 auto 48px;text-align:left">
+      <div style="border:.5px solid rgba(212,188,130,.25);border-radius:8px;padding:14px 16px;font-family:'DM Sans',sans-serif;font-size:13px;color:#E2DAD0">Family Offices</div>
+      <div style="border:.5px solid rgba(212,188,130,.25);border-radius:8px;padding:14px 16px;font-family:'DM Sans',sans-serif;font-size:13px;color:#E2DAD0">High-Net-Worth Individuals</div>
+      <div style="border:.5px solid rgba(212,188,130,.25);border-radius:8px;padding:14px 16px;font-family:'DM Sans',sans-serif;font-size:13px;color:#E2DAD0">Endowments &amp; Foundations</div>
+      <div style="border:.5px solid rgba(212,188,130,.25);border-radius:8px;padding:14px 16px;font-family:'DM Sans',sans-serif;font-size:13px;color:#E2DAD0">Sovereign Wealth Principals</div>
+      <div style="border:.5px solid rgba(212,188,130,.25);border-radius:8px;padding:14px 16px;font-family:'DM Sans',sans-serif;font-size:13px;color:#E2DAD0">General Partners (GPs)</div>
+      <div style="border:.5px solid rgba(212,188,130,.25);border-radius:8px;padding:14px 16px;font-family:'DM Sans',sans-serif;font-size:13px;color:#E2DAD0">Limited Partners (LPs)</div>
+      <div style="border:.5px solid rgba(212,188,130,.25);border-radius:8px;padding:14px 16px;font-family:'DM Sans',sans-serif;font-size:13px;color:#E2DAD0">Institutional Investors</div>
+      <div style="border:.5px solid rgba(212,188,130,.25);border-radius:8px;padding:14px 16px;font-family:'DM Sans',sans-serif;font-size:13px;color:#E2DAD0">Fund Managers</div>
+    </div>
+
+    <a href="https://thevalois.com/apply" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:transparent;border:.5px solid rgba(194,167,106,.4);padding:18px 40px;font-family:'Cormorant SC',Georgia,serif;font-size:9px;letter-spacing:.5em;padding-right:calc(40px - .5em);color:#D4BC82;text-transform:uppercase;text-decoration:none;transition:background .35s,color .35s,border-color .35s" onmouseover="this.style.background='#D4BC82';this.style.color='#242018'" onmouseout="this.style.background='transparent';this.style.color='#D4BC82'">Apply for Consideration →</a>
+    <div style="font-size:11px;color:rgba(226,218,208,.4);margin-top:20px;font-family:'DM Sans',sans-serif">Membership is by referral or direct application, subject to a discreet vetting process.</div>
+  </div>
+</section>
+
+
+<!-- ─── HUB DIRECTOR SPOTLIGHT ─── -->
+<section style="background:var(--ink2);padding:88px 6vw;position:relative;overflow:hidden">
+  <div style="max-width:760px;margin:0 auto;position:relative;text-align:center">
+    <div style="font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:20px">Now Hiring</div>
+    <div style="font-family:var(--serif);font-size:clamp(28px,4.5vw,44px);font-weight:400;color:#fff;line-height:1.15;margin-bottom:20px">Lead a Yorkseed hub — or join the team remotely.</div>
+    <p style="font-size:15px;color:rgba(255,255,255,.55);line-height:1.8;max-width:560px;margin:0 auto 32px;font-weight:300">Yorkseed is hiring Hub Directors across its full network — 50+ cities and counting, including every city covered in our <a href="/hubs.html" style="color:var(--red);text-decoration:underline">Global Hubs guide</a>. Hub Directors get direct exposure to venture networks, capital allocators, and global conference activations. We're also hiring interns — remote is welcome — for ambitious, execution-driven people looking to break into venture.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a href="https://tally.so/r/mROWPK" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:var(--red);color:#fff;padding:16px 32px;border-radius:7px;font-family:var(--sans);font-size:13px;font-weight:500;text-decoration:none;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">Apply to become a Hub Director →</a>
+      <a href="https://tally.so/r/mROWPK" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:transparent;border:1px solid rgba(255,255,255,.2);color:#fff;padding:16px 32px;border-radius:7px;font-family:var(--sans);font-size:13px;font-weight:500;text-decoration:none;transition:border-color .15s" onmouseover="this.style.borderColor='rgba(255,255,255,.5)'" onmouseout="this.style.borderColor='rgba(255,255,255,.2)'">Apply for an internship →</a>
+    </div>
+  </div>
+</section>
+
+
 <!-- ─── DEAL ROOM PIPELINE ─── -->
 
 <section class="sec" style="background:var(--white);padding:72px 6vw;">
@@ -1136,8 +1081,8 @@ img{display:block;max-width:100%}
           <div style="font-size:12.5px;color:var(--ink3);line-height:1.65;font-weight:300;">Every submission is reviewed by our team before going live in the Deal Room.</div>
         </div>
       </div>
-      <div style="display:flex;align-items:flex-start;gap:18px;padding:22px 24px;background:rgba(184,151,106,0.03);border-bottom:1px solid rgba(184,151,106,0.15);">
-        <div style="width:34px;height:34px;border-radius:6px;background:rgba(184,151,106,0.08);border:1px solid rgba(184,151,106,0.2);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;margin-top:1px;">◆</div>
+      <div style="display:flex;align-items:flex-start;gap:18px;padding:22px 24px;background:rgba(212,188,130,0.03);border-bottom:1px solid rgba(212,188,130,0.15);">
+        <div style="width:34px;height:34px;border-radius:6px;background:rgba(212,188,130,0.08);border:1px solid rgba(212,188,130,0.2);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;margin-top:1px;">◆</div>
         <div>
           <div style="font-size:14px;font-weight:500;color:var(--ink);margin-bottom:4px;">Valois consideration</div>
           <div style="font-size:12.5px;color:var(--ink3);line-height:1.65;font-weight:300;">Selected deals that match the Valois investor audience may be pushed to Valois — our private capital network. Selection is at our discretion.</div>
@@ -1322,10 +1267,8 @@ img{display:block;max-width:100%}
   </div>
   <div class="footer-nav-links" style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px 14px;">
 
-```
-<a href="https://app.yorkseed.co/login" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Platform</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/about.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">About</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/hubs.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Global Hubs</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/tools.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;">Free Tools</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/events.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Events</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/partners.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Partners</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/speaker-intake.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Speak</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/pitch-intake.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Pitch</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/press.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Press</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://yorkseedventures.com" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Ventures</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://yorkseedsummit.com" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Summit</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://yorkseedhouse.com" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Yorkseed House</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://thevalois.com" target="_blank" rel="noopener noreferrer" style="font-size:11px;color:rgba(184,151,106,0.7);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='rgba(184,151,106,1)'" onmouseout="this.style.color='rgba(184,151,106,0.7)'">Valois</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://pulse.yorkseed.co" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Newsletter</a>
+<a href="https://app.yorkseed.co/login" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Platform</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/about.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">About</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/hubs.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Global Hubs</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/tools.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;">Free Tools</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/events.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Events</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/partners.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Partners</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/speaker-intake.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Speak</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/pitch-intake.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Pitch</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/press.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Press</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://yorkseedventures.com" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Ventures</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://yorkseedsummit.com" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Summit</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://yorkseedhouse.com" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Yorkseed House</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://thevalois.com" target="_blank" rel="noopener noreferrer" style="font-size:11px;color:rgba(212,188,130,0.75);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#D4BC82'" onmouseout="this.style.color='rgba(212,188,130,0.75)'">Valois</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://pulse.yorkseed.co" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Newsletter</a>
         <span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/contact.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Contact</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="mailto:info@yorkseed.co" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Email us</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://yorkseed.co" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">yorkseed.co</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://x.com/yorkseed" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Twitter</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://instagram.com/yorkseed" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Instagram</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://linkedin.com/company/yorkseed" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">LinkedIn</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://facebook.com/profile/yorkseed" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Facebook</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://www.crunchbase.com/organization/yorkseed" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Crunchbase</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://whatsapp.com/channel/0029Vaf0wiU3wtbBcxTEFD0h" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">WhatsApp</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://shop.yorkseed.co" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Shop</a>
-```
 
   </div>
   <div style="text-align:center;margin-top:8px;margin-bottom:6px;">
@@ -1339,53 +1282,6 @@ function toggleDrop(){var d=document.getElementById('ecosDrop');d.classList.togg
 function toggleDrawer(){var h=document.getElementById('hamBtn');var d=document.getElementById('navDrawer');h.classList.toggle('open');d.classList.toggle('open');document.body.style.overflow=d.classList.contains('open')?'hidden':''}
 document.addEventListener('click',function(e){var d=document.getElementById('ecosDrop');if(d&&!d.contains(e.target))d.classList.remove('open')});
 
-// VivaTech announcement bar — auto-expires June 21 2026, dismissible
-(function(){
-  var EXPIRY = new Date('2026-06-22T00:00:00+02:00'); // midnight Paris time after June 21
-  var bar = document.getElementById('vt-bar');
-  var dismissed = false;
-  try { dismissed = localStorage.getItem('vtJun26dismissed') === '1'; } catch(e){}
-
-  function hideBar(){
-    if(!bar) return;
-    bar.classList.add('hidden');
-    document.body.classList.remove('has-vt-bar');
-  }
-
-  // Hide if expired or manually dismissed
-  if(new Date() >= EXPIRY || dismissed){
-    hideBar();
-  }
-
-  // Check every minute in case page stays open past midnight
-  setInterval(function(){
-    if(new Date() >= EXPIRY) hideBar();
-  }, 60000);
-
-  // Rotate messages every 4 seconds (only if bar is visible)
-  var msgs = document.querySelectorAll('.vt-msg');
-  if(msgs.length > 1){
-    var cur = 0;
-    setInterval(function(){
-      if(bar && bar.classList.contains('hidden')) return;
-      var next = (cur+1) % msgs.length;
-      msgs[cur].style.opacity = '0';
-      setTimeout(function(){
-        msgs[cur].style.display = 'none';
-        msgs[next].style.display = 'flex';
-        setTimeout(function(){ msgs[next].style.opacity = '1'; }, 20);
-        cur = next;
-      }, 400);
-    }, 4000);
-  }
-})();
-
-function dismissVtBar(){
-  var bar = document.getElementById('vt-bar');
-  if(bar) bar.classList.add('hidden');
-  document.body.classList.remove('has-vt-bar');
-  try { localStorage.setItem('vtJun26dismissed','1'); } catch(e){}
-}
 </script>
 
 <script>
@@ -1412,9 +1308,7 @@ function dismissVtBar(){
 <div id="moreMenu" style="display:none;position:fixed;top:calc(56px + env(safe-area-inset-top,0));left:0;right:0;z-index:399;background:rgba(255,255,255,.98);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.07);padding:56px 5vw 32px">
 <a href="https://yorkseedhouse.com" class="n-drawer-link" target="_blank"><span>🏠</span><span>Yorkseed House</span></a>
 
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">
-    <a href="/vivatech-2026.html" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:rgba(75,110,255,.05);border:1px solid rgba(75,110,255,.2);border-radius:8px;text-decoration:none;grid-column:1/-1"><span style="font-size:18px">🗼</span><span style="font-size:13px;font-weight:500;background:linear-gradient(90deg,#FF2D78,#C44BFF,#4B6EFF,#00C8FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">VivaTech 2026 — Free student pass</span></a>
-    <a href="/about.html" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:#fafafa;border:1px solid rgba(0,0,0,.07);border-radius:8px;text-decoration:none;color:#111"><span style="font-size:18px">📖</span><span style="font-size:13px;font-weight:400">Our Story</span></a>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">    <a href="/about.html" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:#fafafa;border:1px solid rgba(0,0,0,.07);border-radius:8px;text-decoration:none;color:#111"><span style="font-size:18px">📖</span><span style="font-size:13px;font-weight:400">Our Story</span></a>
     <a href="https://yorkseed.co/connect" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:rgba(196,49,37,.05);border:1px solid rgba(196,49,37,.2);border-radius:8px;text-decoration:none;color:#111"><span style="font-size:18px">🔗</span><span style="font-size:13px;font-weight:500;color:#c43125">Connect</span></a>
     <a href="/press.html" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:#fafafa;border:1px solid rgba(0,0,0,.07);border-radius:8px;text-decoration:none;color:#111"><span style="font-size:18px">📡</span><span style="font-size:13px;font-weight:400">Press</span></a>
     <a href="/capital.html" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:#fafafa;border:1px solid rgba(0,0,0,.07);border-radius:8px;text-decoration:none;color:#111"><span style="font-size:18px">💼</span><span style="font-size:13px;font-weight:400">Capital</span></a>
@@ -1422,7 +1316,7 @@ function dismissVtBar(){
     <a href="https://app.yorkseed.co/login" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:#fafafa;border:1px solid rgba(0,0,0,.07);border-radius:8px;text-decoration:none;color:#111"><span style="font-size:18px">🔑</span><span style="font-size:13px;font-weight:400">Sign in</span></a>
     <a href="/tools.html" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:#fafafa;border:1px solid rgba(0,0,0,.07);border-radius:8px;text-decoration:none;color:#111"><span style="font-size:18px">🧮</span><span style="font-size:13px;font-weight:400">Free Tools</span></a>
     <a href="https://yorkseedsummit.com" target="_blank" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:#fafafa;border:1px solid rgba(0,0,0,.07);border-radius:8px;text-decoration:none;color:#111"><span style="font-size:18px">🏛️</span><span style="font-size:13px;font-weight:400">Summit</span></a>
-    <a href="https://thevalois.com" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:rgba(184,151,106,0.06);border:1px solid rgba(184,151,106,0.25);border-radius:8px;text-decoration:none;color:#8a6e3e"><span style="font-size:18px">💎</span><span style="font-size:13px;font-weight:500">Valois</span></a>
+    <a href="https://thevalois.com" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:rgba(212,188,130,0.08);border:1px solid rgba(212,188,130,0.3);border-radius:8px;text-decoration:none;color:#D4BC82"><span style="font-size:18px">💎</span><span style="font-size:13px;font-weight:500">Valois</span></a>
   </div>
 </div>
 <div id="moreOverlay" onclick="toggleMoreMenu()" style="display:none;position:fixed;inset:0;z-index:398;background:rgba(0,0,0,.2)"></div>

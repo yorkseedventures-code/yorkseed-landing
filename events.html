@@ -261,11 +261,18 @@ h1 em{font-style:italic;color:var(--red)}
           <span class="n-drop-arrow"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </button>
         <div class="n-menu" role="menu">
-          <a href="/connect.html" class="n-item">
+          <a href="https://yorkseed.co/connect" class="n-item">
             <span class="n-item-icon">🌐</span>
             <div class="n-item-body">
               <div class="n-item-title">Yorkseed Connect</div>
               <div class="n-item-desc">The platform — membership, deal flow, tools &amp; introductions</div>
+            </div>
+          </a>
+          <a href="https://yorkseedhouse.com" class="n-item" target="_blank">
+            <span class="n-item-icon">🏠</span>
+            <div class="n-item-body">
+              <div class="n-item-title">Yorkseed House</div>
+              <div class="n-item-desc">Pop-up venture clubhouse during global tech weeks</div>
             </div>
           </a>
           <a href="/capital.html" class="n-item">
@@ -301,6 +308,13 @@ h1 em{font-style:italic;color:var(--red)}
             <div class="n-item-body">
               <div class="n-item-title">Global Hubs</div>
               <div class="n-item-desc">50+ city hubs across 5 continents</div>
+            </div>
+          </a>
+          <a href="https://thevalois.com" class="n-item" target="_blank" rel="noopener noreferrer" style="background:#242018;border:0.5px solid rgba(212,188,130,0.35);border-radius:8px;">
+            <span class="n-item-icon">🔑</span>
+            <div class="n-item-body">
+              <div class="n-item-title" style="color:#D4BC82;">Valois</div>
+              <div class="n-item-desc" style="color:rgba(226,218,208,0.55);">The private inner Circle — invitation only</div>
             </div>
           </a>
         </div>
@@ -414,23 +428,23 @@ h1 em{font-style:italic;color:var(--red)}
       <div class="footer-premium-cols">
         <div class="footer-premium-col">
           <div class="footer-premium-label">Platform</div>
-          <a href="/connect">Connect</a>
-          <a href="/tools">Tools</a>
-          <a href="/events">Events</a>
-          <a href="/hubs">Hubs</a>
+          <a href="/connect.html">Connect</a>
+          <a href="/tools.html">Tools</a>
+          <a href="/events.html">Events</a>
+          <a href="/hubs.html">Hubs</a>
         </div>
         <div class="footer-premium-col">
           <div class="footer-premium-label">Ecosystem</div>
-          <a href="/capital">Capital</a>
+          <a href="/capital.html">Capital</a>
           <a href="https://yorkseedsummit.com">Summit</a>
           <a href="https://pulse.yorkseed.co">Insider</a>
-          <a href="/press">Press</a>
+          <a href="/press.html">Press</a>
         </div>
         <div class="footer-premium-col">
           <div class="footer-premium-label">Company</div>
-          <a href="/about">About</a>
-          <a href="/partners">Partners</a>
-          <a href="/contact">Contact</a>
+          <a href="/about.html">About</a>
+          <a href="/partners.html">Partners</a>
+          <a href="/contact.html">Contact</a>
           <a href="https://app.yorkseed.co/login">Sign in</a>
         </div>
         <div class="footer-premium-col">
@@ -452,7 +466,7 @@ h1 em{font-style:italic;color:var(--red)}
     <a href="/events.html" class="m-tab active"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="14" height="14" rx="2"/><path d="M7 2v4M13 2v4M3 10h14"/></svg>Events</a>
     <div class="m-tab-join"><a href="https://app.yorkseed.co/pricing">Join</a></div>
     <a href="/hubs.html" class="m-tab"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="9" r="3"/><path d="M10 2C6.686 2 4 4.686 4 8c0 5 6 10 6 10s6-5 6-10c0-3.314-2.686-6-6-6z"/></svg>Hubs</a>
-    <a href="/connect.html" class="m-tab"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="8" r="3"/><path d="M1 18c0-3.314 2.686-6 6-6"/><circle cx="14" cy="8" r="3"/><path d="M19 18c0-3.314-2.686-6-6-6"/></svg>Connect</a>
+    <a href="/tools.html" class="m-tab"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>Tools</a>
   </div>
 </div>
 
@@ -564,7 +578,7 @@ function renderArchive(archive){
                 <div class="event-name">${ev.title}</div>
                 <div class="event-loc">${ev.location}</div>
                 <div class="event-date">${ev.date}</div>
-                ${ev.lumaUrl?`<a href="${ev.lumaUrl}" target="_blank" class="event-link">${ev.linkLabel||'View &rarr;'}</a>`:''}
+                ${ev.slug?`<a href="events/${ev.slug}.html" class="event-link">${ev.linkLabel||'View &rarr;'}</a>`:(ev.lumaUrl?`<a href="${ev.lumaUrl}" target="_blank" class="event-link">${ev.linkLabel||'View &rarr;'}</a>`:'')}
                 ${ev.promoCode?`<span style="font-family:var(--mono);font-size:9px;letter-spacing:.06em;color:var(--ink4);margin-left:4px">Code: ${ev.promoCode}</span>`:''}
               </div>`).join('')}
           </div>
