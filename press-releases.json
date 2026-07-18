@@ -1,6 +1,15 @@
 {
   "releases": [
     {
+      "slug": "yorkseed-house-nytw-2027-announcement",
+      "title": "Yorkseed House Announces Return to New York for NY Tech Week 2027",
+      "dateline": "NEW YORK",
+      "date": "2026-07-18",
+      "category": "Announcement",
+      "summary": "Yorkseed House will return to New York for NY Tech Week 2027, building on its 2026 debut at BelongNYC in SoHo with founding partners BelongNYC, Flowstate, and Elevate. Waitlist now open.",
+      "featured": true
+    },
+    {
       "slug": "valois-by-yorkseed-launches",
       "title": "Yorkseed Launches Valois, a Curated Inner Circle for Family Offices and Fund Managers",
       "dateline": "NEW YORK",
@@ -16,7 +25,7 @@
       "date": "2026-07-11",
       "category": "Event Recap",
       "summary": "Yorkseed House ran a five-day venture headquarters at Osha Bergman Watanabe & Burton LLP (OBWB) in Paris during RAISE Summit 2026, culminating in Valois at the Louvre — Valois' first Paris salon for family offices, GPs, and LPs.",
-      "featured": true
+      "featured": false
     },
     {
       "slug": "yorkseed-house-nytw-2026",
