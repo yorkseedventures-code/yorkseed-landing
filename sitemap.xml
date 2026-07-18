@@ -73,6 +73,49 @@
   </url>
 
   <url>
+    <loc>https://yorkseed.co/press-releases</loc>
+    <lastmod>2026-07-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://yorkseed.co/press-releases/valois-by-yorkseed-launches</loc>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://yorkseed.co/press-releases/yorkseed-house-raise-summit-paris-2026</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://yorkseed.co/press-releases/yorkseed-house-nytw-2026</loc>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://yorkseed.co/press-releases/yorkseed-house-sxsw-2025-recap</loc>
+    <lastmod>2025-03-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://yorkseed.co/press-releases/yorkseed-house-sxsw-2027-announcement</loc>
+    <lastmod>2026-07-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+
+  <url>
     <loc>https://yorkseed.co/conferences</loc>
     <lastmod>2026-07-16</lastmod>
     <changefreq>monthly</changefreq>
@@ -571,12 +614,7 @@
     <priority>0.6</priority>
   </url>
 
-  <url>
-    <loc>https://yorkseed.co/vivatech-2026</loc>
-    <lastmod>2026-07-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
-  </url>
+
 
   <!-- Subdomains -->
   <url>

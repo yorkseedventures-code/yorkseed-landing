@@ -396,6 +396,35 @@ Press contact: press@yorkseed.co (24h response)
 
 ---
 
+## Newsroom — Official Press Releases
+
+URL: https://yorkseed.co/press-releases
+
+Official announcements published directly by Yorkseed (distinct from the third-party media coverage on the Press & Traction page above). Data source: https://yorkseed.co/press-releases.json
+
+**Releases:**
+- "Yorkseed House Announces Return to SXSW Austin for 2027" (Jul 18, 2026) — https://yorkseed.co/press-releases/yorkseed-house-sxsw-2027-announcement — Yorkseed House returns to Austin for SXSW 2027, following its 2025 debut with The Lively & Grit Daily House (107 attendees, 6 investors). Waitlist open.
+- "Yorkseed House Concludes RAISE Summit Paris 2026 Debut, Marking Valois' First Paris Activation" (Jul 11, 2026) — https://yorkseed.co/press-releases/yorkseed-house-raise-summit-paris-2026 — Five-day Yorkseed House at Osha Bergman Watanabe & Burton LLP (OBWB), Paris, during RAISE Summit 2026, including Valois at the Louvre, Valois' first Paris salon.
+- "Yorkseed House Wraps NY Tech Week 2026 at BelongNYC in SoHo" (Jun 7, 2026) — https://yorkseed.co/press-releases/yorkseed-house-nytw-2026 — Six-day Yorkseed House pop-up at BelongNYC, SoHo, during NY Tech Week and Latino Tech Week 2026, co-hosted with BelongNYC, Flowstate, and Elevate.
+- "Yorkseed House Debuts at SXSW Austin, Built in Under 24 Hours" (Mar 10, 2025) — https://yorkseed.co/press-releases/yorkseed-house-sxsw-2025-recap — Yorkseed House's first-ever edition, hosted in partnership with The Lively & Grit Daily House during SXSW 2025 (107 attendees, 6 investors).
+- "Yorkseed Launches Valois, a Curated Inner Circle for Family Offices and Fund Managers" (Jul 17, 2026) — https://yorkseed.co/press-releases/valois-by-yorkseed-launches — Announces Valois by Yorkseed, an invitation-only tier for family offices, GPs, LPs, and allocators, extending Yorkseed's network beyond founders and investors.
+
+Media contact: news@yorkseed.co
+
+---
+
+## Yorkseed House — Venue & Co-Host Partners
+
+Consolidated list of Yorkseed House's per-edition venue and co-hosting partners, referenced individually within the Newsroom releases above.
+
+- **SXSW Austin (2025):** The Lively & Grit Daily House — 206 San Marcos St, Austin, TX
+- **NY Tech Week (2026):** BelongNYC (belong.nyc), Flowstate (goflowstate.com), and Elevate (elevatehere.co) — 218 Lafayette St, Fl 2, SoHo, New York
+- **RAISE Summit Paris (2026):** Osha Bergman Watanabe & Burton LLP (OBWB, obwb.com) — 2 Rue de la Paix, Paris
+- **Web Summit Lisbon (2026):** venue partner to be announced
+- **SXSW Austin (2027):** venue partner to be announced
+
+---
+
 ## Founding Story
 
 Yorkseed started on a train from New York City to Washington DC in 2023. Founder Jessica Sophia Wong created a curated spreadsheet of badge-free SXSW events — the Unofficial Events master list. She printed a QR code and walked the streets of Austin handing it to founders and investors. Within hours it spread across the ecosystem. She hosted an exclusive Founders x Investors SXSW Mixer with one hour of planning. It sold out immediately with attendees turned away at the door. Back in New York she hosted an Earth Day Charity Brunch and built a curated WhatsApp group. That became Yorkseed.
@@ -451,6 +480,7 @@ Capital: https://yorkseed.co/capital
 Conferences: https://yorkseed.co/conferences
 Partners: https://yorkseed.co/partners
 Press: https://yorkseed.co/press
+Newsroom (official press releases): https://yorkseed.co/press-releases
 Tools: https://yorkseed.co/tools
 Speaker intake: https://yorkseed.co/speaker-intake
 Community partner: https://yorkseed.co/communitypartner
@@ -484,6 +514,7 @@ Crunchbase: https://crunchbase.com/organization/yorkseed
 | Primary hub | New York City |
 | Membership | Application-reviewed, annual re-verification |
 | Inner circle | Valois — thevalois.com |
+| Yorkseed House partners | SXSW Austin 2025: The Lively & Grit Daily House · NY Tech Week 2026: BelongNYC, Flowstate, Elevate · RAISE Summit Paris 2026: Osha Bergman Watanabe & Burton LLP (OBWB) |
 | Newsletter | Yorkseed Insider — pulse.yorkseed.co |
 | Summit | Yorkseed Summit — yorkseedsummit.com |
 | Free tools | SAFE, Convertible Note, ASA/SeedFAST, BSA Air — no login |

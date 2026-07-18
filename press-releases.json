@@ -1,0 +1,49 @@
+{
+  "releases": [
+    {
+      "slug": "valois-by-yorkseed-launches",
+      "title": "Yorkseed Launches Valois, a Curated Inner Circle for Family Offices and Fund Managers",
+      "dateline": "NEW YORK",
+      "date": "2026-07-17",
+      "category": "Product Launch",
+      "summary": "Yorkseed today announced the launch of Valois, its invitation-only upper tier for family offices, GPs, LPs, and allocators — extending the Yorkseed network to the principals who move capital, not just the founders who raise it.",
+      "featured": false
+    },
+    {
+      "slug": "yorkseed-house-raise-summit-paris-2026",
+      "title": "Yorkseed House Concludes RAISE Summit Paris 2026 Debut, Marking Valois' First Paris Activation",
+      "dateline": "PARIS",
+      "date": "2026-07-11",
+      "category": "Event Recap",
+      "summary": "Yorkseed House ran a five-day venture headquarters at Osha Bergman Watanabe & Burton LLP (OBWB) in Paris during RAISE Summit 2026, culminating in Valois at the Louvre — Valois' first Paris salon for family offices, GPs, and LPs.",
+      "featured": true
+    },
+    {
+      "slug": "yorkseed-house-nytw-2026",
+      "title": "Yorkseed House Wraps NY Tech Week 2026 at BelongNYC in SoHo",
+      "dateline": "NEW YORK",
+      "date": "2026-06-07",
+      "category": "Event Recap",
+      "summary": "Yorkseed House ran a six-day pop-up at BelongNYC in SoHo during NY Tech Week and Latino Tech Week 2026, co-hosted with BelongNYC, Flowstate, and Elevate, giving founders and investors a home base between official programming.",
+      "featured": false
+    },
+    {
+      "slug": "yorkseed-house-sxsw-2025-recap",
+      "title": "Yorkseed House Debuts at SXSW Austin, Built in Under 24 Hours",
+      "dateline": "AUSTIN",
+      "date": "2025-03-10",
+      "category": "Event Recap",
+      "summary": "Yorkseed House's first-ever edition, hosted in partnership with The Lively & Grit Daily House during SXSW 2025, assembled in under 24 hours and drawing 107 attendees and 6 investors, anchored by the Beyond the Check investor panel.",
+      "featured": false
+    },
+    {
+      "slug": "yorkseed-house-sxsw-2027-announcement",
+      "title": "Yorkseed House Announces Return to SXSW Austin for 2027",
+      "dateline": "AUSTIN",
+      "date": "2026-07-18",
+      "category": "Announcement",
+      "summary": "Yorkseed House will return to Austin for SXSW 2027, building on its 2025 debut hosted in partnership with The Lively & Grit Daily House, which drew 107 attendees and 6 investors in a house built in under 24 hours. Waitlist now open.",
+      "featured": false
+    }
+  ]
+}
