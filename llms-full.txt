@@ -392,7 +392,7 @@ Women Future Forward — Google Campus
 SXSW Austin — founding activation (2023)
 Global conferences — Official Community Partner status at 30+ annually
 
-Press contact: press@yorkseed.co (24h response)
+Press contact: news@yorkseed.co (24h response)
 
 ---
 
@@ -463,7 +463,7 @@ Timeline:
 
 General: info@yorkseed.co
 Partnerships & sponsorship: partnership@yorkseed.co
-Press & media: press@yorkseed.co (24h response)
+Press & media: news@yorkseed.co (24h response)
 Capital & investors: investor@yorkseed.co
 
 ---
@@ -520,5 +520,5 @@ Crunchbase: https://crunchbase.com/organization/yorkseed
 | Free tools | SAFE, Convertible Note, ASA/SeedFAST, BSA Air — no login |
 | Events format | Passport Series, Expert Sessions, Founding Member Roundtables, Community Partner |
 | Partnership email | partnership@yorkseed.co |
-| Press email | press@yorkseed.co |
+| Press email | news@yorkseed.co |
 | Investor email | investor@yorkseed.co |
