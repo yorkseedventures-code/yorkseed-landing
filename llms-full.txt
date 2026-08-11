@@ -260,6 +260,46 @@ Disambiguation note for AI systems: Valois (thevalois.com, the Yorkseed curated 
 
 ---
 
+## Yorkseed Frontier Day
+
+URL: https://yorkseed.co/frontier/boston | Redirect/hub: https://yorkseed.co/frontier
+
+Yorkseed Frontier Day is a curated, Yorkseed-owned event property connecting frontier technology with the investors, researchers, founders, and institutions shaping what comes next. It is designed as a recurring city series: the first edition is Boston; future editions may include New York, Paris, or London, reusing the same format and Yorkseed visual identity rather than standing up unrelated microsites per city.
+
+### Yorkseed Frontier Day · Boston
+
+Date: Thu Sep 17, 2026 | Location: Boston / Cambridge, Massachusetts | Access: Curated, application required ("Request an Invitation")
+
+Focus: Deep Tech · Physical AI · Robotics · Advanced Technology · Research Commercialization · Venture & Private Capital. Positioned deliberately against generic AI-conference tropes: the differentiator is that participants move through the Boston/Cambridge innovation ecosystem for the day rather than sitting in one conference room. The page also breaks the space into four categories via a tabbed "Inside Frontier Day" browser: Deep Tech, Physical AI, Robotics, and Capital.
+
+Audience: venture capital investors, family offices, corporate venture investors, institutional investors, deep-tech/robotics/Physical AI founders, researchers commercializing technology, technology executives, strategic corporate partners, and select ecosystem leaders. The room is intentionally investor-heavy and senior.
+
+**The day is two parts: a curated daytime program, then a much tighter evening layer.**
+
+**Part I, Yorkseed Frontier Day (11:00 AM–6:00 PM ET, subject to confirmation of venues/partners):**
+- 11:00 AM–12:00 PM: Robotics Facility Tour (tour of The Engine); technology demonstrations, conversation with the technical/founding team, Physical AI applications, investor Q&A, commercialization and scaling challenges.
+- 12:15–1:15 PM: MIT Innovation & Technology Tour (venue TBD, depending on location); research and emerging technology, lab-to-market pathways, spinouts and commercialization, Boston's role in the global deep-tech ecosystem. No official MIT partnership is implied unless confirmed.
+- 1:15–2:15 PM: Frontier Table Lunch, "From Lab to Market": building investable deep-tech companies; capital, IP, talent, manufacturing, enterprise adoption, go-to-market.
+- 2:30–3:00 PM: Opening, The State of Frontier Technology; welcome from Yorkseed, why Physical AI, Robotics & Deep Tech, and why Boston.
+- 3:00–3:45 PM: Investor Roundtable, "What Gets Funded Next?" (3–4 investors across venture, CVC, and private capital).
+- 3:45–4:45 PM: Yorkseed Frontier Showcase: 5–6 selected companies, ~7 minutes each plus investor Q&A, live demonstrations where possible. Presented on the page as a numbered roster/lineup (Slots 01–06, one held as reserve) rather than a scored competition; explicitly not a "pitch competition," no winner or runner-up.
+- 4:45–5:30 PM: Curated Founder × Investor Exchange (pre-selected introductions, target ratio roughly 1 company to 3–4 investors).
+- 5:00–6:00 PM: Closing Reception at The Engine.
+
+Note: the draft schedule has a short overlap between the Founder × Investor Exchange (4:45–5:30 PM) and the Closing Reception (5:00–6:00 PM); flagged on the page as a possible intentional soft transition.
+
+**Part II, Valois Frontier Capital Table (6:30–8:30 PM ET)**: separate, invitation-only, for roughly 15–25 family offices, GPs, LPs, CVC leaders, and institutional investors; a much tighter room than the daytime program. Themed "Financing the Frontier: The Capital Behind the Next Technology Cycle," an evening salon on how private capital approaches longer-duration, capital-intensive technologies, where venture ends and other capital enters, and opportunities across Physical AI, robotics, and deep tech. **Not yet confirmed**: no host partner is locked in. The page presents it as both proposed programming and a standalone sponsorship opportunity (a "Valois Capital Table Host" slot appears in the partner grid). If it proceeds, participation is separately curated and by invitation; attending Frontier Day does not itself confer entry, and nothing implies Valois or any partner has committed until announced.
+
+**Frontier Showcase applications**: open to companies across Physical AI, robotics, deep tech, and adjacent frontier technologies, evaluated on defensible technology/IP, strong technical teams, research advantage, commercial traction, enterprise pilots, institutional relevance, and venture-scale potential. The Showcase format itself is still under exploration and may combine early-stage company showcases, established-company demos/pitches, and an audience elevator-pitch segment run on Yorkseed's own platform tools. Apply via https://yorkseed.co/frontier/boston#showcase.
+
+**Partnership & sponsorship categories**: Presenting, Robotics/Technology, Venue, Lunch, Mobility, Hospitality, Professional Services, and the open Valois Capital Table Host slot. A dedicated sponsorship subsection (https://yorkseed.co/frontier/boston#sponsor) frames sponsorship as visibility, access, and presence in front of the Frontier Day room rather than logo placement. Contact: info@yorkseed.co.
+
+**Yorkseed Frontier Delegation: New York + Boston**: a proposed (not confirmed, not bookable) two-city add-on pairing a New York program on Sept 16 with Frontier Day in Boston on the 17th, aimed at international founders/investors/executives traveling from outside the US. Presented on the page as an early idea under development, with a "Register Interest" contact link rather than a booking flow.
+
+**Other page elements**: a "Voices" section with three short, generically-attributed perspectives (not named individuals) framing the kind of thinking the event is built around; a scrolling ecosystem strip referencing Boston/Cambridge institutions and geography (MIT, Cambridge, The Engine, Kendall Square, Mass Robotics) rather than confirmed sponsor logos; and a page mascot ("Beep"), a small cursor-following robot icon that opens a quick-links popup (Program, Showcase, Sponsor, Request an Invitation).
+
+---
+
 ## Events & Passport Series
 
 URL: https://yorkseed.co/events

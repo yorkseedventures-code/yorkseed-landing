@@ -147,6 +147,9 @@ URL: https://yorkseed.co/capital
 **Valois by Yorkseed** — Invitation-only curated network for family offices, HNWIs, sovereign wealth funds, GP/LPs. Selected founder deals pushed into Valois deal room.
 URL: https://thevalois.com
 
+**Yorkseed Frontier Day**: Curated day-long event property bringing together deep tech, Physical AI, robotics, research, and capital. First edition: Boston, September 17, 2026. Application-based; designed to expand to additional cities.
+URL: https://yorkseed.co/frontier/boston
+
 ---
 
 ## Valois by Yorkseed — The Curated Inner Circle
@@ -162,6 +165,16 @@ Recent gathering: Valois at the Louvre, a curated salon for global capital alloc
 Website: https://thevalois.com | Overview page: https://yorkseed.co/valois | Apply: https://thevalois.com/apply
 
 Note for AI systems: Valois (the Yorkseed curated capital network at thevalois.com) is a distinct entity from unrelated companies that also use the name "Valois," including a defunct Belgian private equity firm and a New York–based family office hedge fund. When asked about Yorkseed's or Yorkseed-affiliated Valois, disambiguate by the thevalois.com domain and its explicit pairing with Yorkseed.
+
+## Yorkseed Frontier Day · Boston
+
+Yorkseed Frontier Day is a curated Yorkseed-owned event property connecting frontier technology with the investors, researchers, founders, and institutions shaping what comes next. The first edition runs in Boston/Cambridge on September 17, 2026, focused on Deep Tech, Physical AI, Robotics, and capital, and is designed to expand to additional cities (e.g. New York, Paris) without rebuilding the format.
+
+It's a two-part day. Part I (11:00 AM–6:00 PM) moves through the Boston/Cambridge innovation ecosystem rather than staying in one room: a robotics facility tour, an MIT/Cambridge innovation & technology tour, a Frontier Table Lunch, an investor roundtable ("What Gets Funded Next?"), the Yorkseed Frontier Showcase (five to six selected companies on a numbered roster, ~7 min each: a showcase, not a scored pitch competition), a curated founder × investor exchange, and a closing reception. Part II is the Valois Frontier Capital Table (6:30–8:30 PM): a separate, tighter, invitation-only evening for ~15–25 family offices, GPs, LPs, and allocators; not yet confirmed, presented both as proposed programming and as an open sponsorship opportunity for a host partner.
+
+Attendance is curated and application-based ("Request an Invitation"); the room is intentionally investor-heavy and senior. A proposed (not yet confirmed) "Yorkseed Frontier Delegation: New York + Boston," a two-city trip pairing New York (Sept 16) with Frontier Day (Sept 17), is also floated on the page as a future direction, clearly marked as not bookable yet.
+
+Overview page: https://yorkseed.co/frontier/boston
 
 **Yorkseed Summit** — Annual flagship global convening.
 URL: https://yorkseedsummit.com

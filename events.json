@@ -1,6 +1,23 @@
 {
   "upcoming": [
     {
+      "featured": false,
+      "type": "summit",
+      "title": "Yorkseed Frontier Day · Boston",
+      "city": "Boston",
+      "country": "USA",
+      "location": "Boston / Cambridge, Massachusetts",
+      "venue": "The Engine + MIT/Cambridge ecosystem",
+      "date": "Thu, Sep 17, 2026",
+      "dateISO": "2026-09-17",
+      "format": "Curated Day + Invitation-Only Evening",
+      "spots": "Curated · Application required",
+      "description": "A curated day connecting frontier technology with the investors, researchers, founders, and institutions shaping what comes next — deep tech, Physical AI, robotics, and capital. Robotics facility tour, MIT/Cambridge innovation ecosystem, investor roundtable, the Yorkseed Frontier Showcase, and a curated founder × investor exchange.",
+      "url": "/frontier/boston.html",
+      "coverGradient": "linear-gradient(135deg,#0A0A0C 0%,#151517 45%,#1B1B1F 100%)",
+      "coverImage": "https://images.unsplash.com/photo-1737644467636-6b0053476bb2?auto=format&fit=crop&w=800&q=75"
+    },
+    {
       "slug": "milan-ai-techweek-aperitivo-2026",
       "featured": false,
       "type": "passport",

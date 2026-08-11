@@ -276,6 +276,13 @@ h1 em{font-style:italic;color:var(--red)}
               <div class="n-item-desc">Pop-up venture clubhouse during global tech weeks</div>
             </div>
           </a>
+          <a href="/frontier/boston.html" class="n-item">
+            <span class="n-item-icon">🛰️</span>
+            <div class="n-item-body">
+              <div class="n-item-title">Yorkseed Frontier Day</div>
+              <div class="n-item-desc">Deep tech, Physical AI &amp; robotics — Boston, Sept 17 2026</div>
+            </div>
+          </a>
           <a href="/capital.html" class="n-item">
             <span class="n-item-icon">💼</span>
             <div class="n-item-body">
@@ -359,6 +366,7 @@ h1 em{font-style:italic;color:var(--red)}
     <div class="n-drawer-section">
       <div class="n-drawer-label">The Ecosystem</div>
       <a href="/connect.html" class="n-drawer-link"><span>🌐</span><span>Yorkseed Connect</span></a>
+      <a href="/frontier/boston.html" class="n-drawer-link"><span>🛰️</span><span>Frontier Day · Boston</span></a>
       <a href="/capital.html" class="n-drawer-link"><span>💼</span><span>Yorkseed Capital</span></a>
       <a href="https://yorkseedsummit.com" class="n-drawer-link"><span>🏛️</span><span>Yorkseed Summit</span></a>
       <a href="https://pulse.yorkseed.co" class="n-drawer-link"><span>📰</span><span>Yorkseed Insider</span></a>
@@ -518,11 +526,13 @@ function badgeClass(t){return{passport:'badge-passport',expert:'badge-expert',su
 
 // ─── FEATURED CARD ────────────────────────────────────────────────────────────
 function renderFeatured(ev){
+  const href = ev.url ? ev.url : (ev.slug ? `events/${ev.slug}.html` : (ev.lumaUrl || '#'));
+  const target = (ev.url || ev.slug) ? '' : ' target="_blank"';
   const bgStyle = ev.coverImage
     ? `background-image:url('${ev.coverImage}');background-size:cover;background-position:center`
     : (ev.coverGradient ? `background:${ev.coverGradient}` : '');
   return `
-    <a href="events/${ev.slug}.html" class="featured-card" style="display:grid;text-decoration:none;color:inherit">
+    <a href="${href}"${target} class="featured-card" style="display:grid;text-decoration:none;color:inherit">
       <div class="featured-card-img"${bgStyle ? ` style="${bgStyle}"` : ''}>
         <div class="featured-img-city">${ev.city||''}</div>
         <div style="position:relative;z-index:1">
@@ -548,8 +558,8 @@ function renderFeatured(ev){
 // ─── UPCOMING CARD ────────────────────────────────────────────────────────────
 function renderUpcomingCard(ev){
   const locIcon=(ev.location||'').toLowerCase().includes('virtual')?'&#128187;':'&#128205;';
-  const href=ev.slug?`events/${ev.slug}.html`:(ev.lumaUrl||'#');
-  const target=ev.slug?'':'target="_blank"';
+  const href=ev.url?ev.url:(ev.slug?`events/${ev.slug}.html`:(ev.lumaUrl||'#'));
+  const target=(ev.url||ev.slug)?'':'target="_blank"';
   const imgHtml = ev.coverImage
     ? `<img src="${ev.coverImage}" alt="" referrerpolicy="no-referrer" loading="lazy"/>`
     : `<div class="uc-img-fallback">${(ev.city||ev.location||'').split(',')[0]}</div>`;
@@ -587,7 +597,7 @@ function renderArchive(archive){
                 <div class="event-name">${ev.title}</div>
                 <div class="event-loc">${ev.location}</div>
                 <div class="event-date">${ev.date}</div>
-                ${ev.slug?`<a href="events/${ev.slug}.html" class="event-link">${ev.linkLabel||'View &rarr;'}</a>`:(ev.lumaUrl?`<a href="${ev.lumaUrl}" target="_blank" class="event-link">${ev.linkLabel||'View &rarr;'}</a>`:'')}
+                ${ev.url?`<a href="${ev.url}" class="event-link">${ev.linkLabel||'View &rarr;'}</a>`:(ev.slug?`<a href="events/${ev.slug}.html" class="event-link">${ev.linkLabel||'View &rarr;'}</a>`:(ev.lumaUrl?`<a href="${ev.lumaUrl}" target="_blank" class="event-link">${ev.linkLabel||'View &rarr;'}</a>`:''))}
                 ${ev.promoCode?`<span style="font-family:var(--mono);font-size:9px;letter-spacing:.06em;color:var(--ink4);margin-left:4px">Code: ${ev.promoCode}</span>`:''}
               </div>`).join('')}
           </div>
