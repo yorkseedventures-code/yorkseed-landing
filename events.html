@@ -131,6 +131,7 @@ h1 em{font-style:italic;color:var(--red)}
 .badge-expert{background:var(--gold-dim);color:#7a5c1e;border:1px solid var(--gold-border)}
 .badge-summit{background:rgba(0,0,0,.04);color:#333;border:1px solid var(--border2)}
 .badge-house{background:rgba(0,0,0,.04);color:#333;border:1px solid var(--border2)}
+.badge-valois{background:rgba(212,188,130,.12);color:#8a6d2f;border:1px solid rgba(212,188,130,.4)}
 .uc-date{font-family:var(--mono);font-size:10px;color:var(--ink4);text-align:right;line-height:1.4}
 .uc-title{font-size:14px;font-weight:400;color:var(--ink);line-height:1.4}
 .uc-loc{font-family:var(--mono);font-size:10px;color:var(--ink4);display:flex;align-items:center;gap:5px}
@@ -169,6 +170,10 @@ h1 em{font-style:italic;color:var(--red)}
 .type-summit{background:#f0f0f0;color:#333}
 .type-house{background:rgba(17,17,17,.07);color:#333}
 .type-community{background:rgba(113,162,164,.1);color:#2d6b6d}
+.type-valois{background:rgba(212,188,130,.14);color:#8a6d2f;border:1px solid rgba(212,188,130,.4)}
+.event-row.is-valois{border-color:rgba(212,188,130,.4);background:linear-gradient(90deg,rgba(212,188,130,.08),var(--off) 18%)}
+.upcoming-card.is-valois{border-color:rgba(212,188,130,.4)}
+.upcoming-card.is-valois .uc-img{background:linear-gradient(135deg,#1a1209 0%,#2e1e0a 60%,#3d2810 100%)}
 .event-name{font-size:13px;color:var(--ink);flex:1;min-width:180px;font-weight:400}
 .event-loc{font-size:11px;color:var(--ink4);font-family:var(--mono);white-space:nowrap}
 .event-date{font-size:11px;color:var(--ink4);font-family:var(--mono);white-space:nowrap}
@@ -523,6 +528,10 @@ function filterEvents(type,el){
 function typeLabel(t){return{passport:'Passport',expert:'Expert',summit:'Summit',house:'House',community:'Community Partner'}[t]||t}
 function typeRowClass(t){return{passport:'type-passport',expert:'type-expert',summit:'type-summit',house:'type-house',community:'type-community'}[t]||'type-summit'}
 function badgeClass(t){return{passport:'badge-passport',expert:'badge-expert',summit:'badge-summit',house:'badge-house'}[t]||'badge-summit'}
+// Valois branding overrides — applied on top of the underlying type (which stays intact for filtering)
+function evLabel(ev){return ev.valois?'Valois':typeLabel(ev.type)}
+function evRowClass(ev){return ev.valois?'type-valois':typeRowClass(ev.type)}
+function evBadgeClass(ev){return ev.valois?'badge-valois':badgeClass(ev.type)}
 
 // ─── FEATURED CARD ────────────────────────────────────────────────────────────
 function renderFeatured(ev){
@@ -564,11 +573,11 @@ function renderUpcomingCard(ev){
     ? `<img src="${ev.coverImage}" alt="" referrerpolicy="no-referrer" loading="lazy"/>`
     : `<div class="uc-img-fallback">${(ev.city||ev.location||'').split(',')[0]}</div>`;
   return `
-    <div class="upcoming-card" data-type="${ev.type}">
+    <div class="upcoming-card${ev.valois?' is-valois':''}" data-type="${ev.type}">
       <div class="uc-img">${imgHtml}</div>
       <div class="uc-content">
         <div class="uc-top">
-          <span class="uc-badge ${badgeClass(ev.type)}">${typeLabel(ev.type)}</span>
+          <span class="uc-badge ${evBadgeClass(ev)}">${evLabel(ev)}</span>
           <div class="uc-date">${(ev.date||'').replace(/\s+(\d{4})$/,'<br>$1')}</div>
         </div>
         <div class="uc-title">${ev.title}</div>
@@ -592,8 +601,8 @@ function renderArchive(archive){
           <div class="edition-label">${g.label}</div>
           <div class="event-table">
             ${g.events.map(ev=>`
-              <div class="event-row" data-type="${ev.type}">
-                <span class="event-type ${typeRowClass(ev.type)}">${typeLabel(ev.type)}</span>
+              <div class="event-row${ev.valois?' is-valois':''}" data-type="${ev.type}">
+                <span class="event-type ${evRowClass(ev)}">${evLabel(ev)}</span>
                 <div class="event-name">${ev.title}</div>
                 <div class="event-loc">${ev.location}</div>
                 <div class="event-date">${ev.date}</div>

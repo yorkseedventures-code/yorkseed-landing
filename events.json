@@ -1,6 +1,25 @@
 {
   "upcoming": [
     {
+      "slug": "valois-salon-boston-2026",
+      "featured": false,
+      "type": "passport",
+      "valois": true,
+      "title": "Valois Salon: A Private Dinner in Boston",
+      "city": "Boston",
+      "country": "USA",
+      "location": "Location shared upon approval, Boston, MA",
+      "venue": "Undisclosed · Boston, MA",
+      "date": "Thu, Sep 17, 2026 · 6:30–8:30 PM",
+      "dateISO": "2026-09-17",
+      "format": "Valois Salon · By Invitation Only",
+      "spots": "15–25 allocators · Invitation only",
+      "description": "An intimate dinner for 15–25 family offices, GPs, LPs, and institutional allocators shaping capital flows in frontier technology, hosted by The 4IR Group in partnership with Yorkseed following The 4IR Group's Investor Day at The Engine, MIT.",
+      "url": "/events/valois-salon-boston-2026.html",
+      "coverGradient": "linear-gradient(135deg,#1a1209 0%,#2e1e0a 60%,#3d2810 100%)",
+      "coverImage": "https://i.ibb.co/bjsKzyFM/boston.png"
+    },
+    {
       "featured": false,
       "type": "summit",
       "title": "Yorkseed Frontier Day · Boston",
@@ -586,7 +605,8 @@
               "lumaUrl": "https://luma.com/3fdeb5wi",
               "description": "Private invitation-only salon for family offices, LPs, GPs, fund managers, sovereign wealth funds, and institutional investors, hosted overlooking the Louvre in partnership with Valois. Part of Yorkseed House at RAISE Summit Paris 2026.",
               "slug": "valois-louvre-investor-night-2026",
-              "linkLabel": "The Salon →"
+              "linkLabel": "The Salon →",
+              "valois": true
             },
             {
               "type": "passport",
