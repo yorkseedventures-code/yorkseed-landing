@@ -10,8 +10,8 @@
 <meta property="og:title" content="Valois Salon: A Private Dinner in Boston"/>
 <meta property="og:description" content="An intimate dinner for capital allocators shaping the future of frontier technology — Boston, September 17, 2026."/>
 <meta property="og:type" content="website"/>
-<!-- Replace with the imgbb-hosted URL for boston.png once uploaded -->
-<meta property="og:image" content="https://i.ibb.co/bjsKzyFM/boston.png"/>
+<!-- Self-hosted next to this page, same pattern as the other /events files (e.g. ai-blockchain-speakers.jpeg) -->
+<meta property="og:image" content="https://yorkseed.co/events/boston.png"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -42,7 +42,7 @@ a{color:inherit}
 .topbar{
   position:relative;z-index:10;
   display:flex;align-items:center;justify-content:space-between;
-  padding:28px 5vw;
+  padding:28px clamp(20px,5vw,64px);
   font-family:'Cormorant SC',Georgia,serif;
   font-size:10px;letter-spacing:.28em;text-transform:uppercase;
 }
@@ -68,18 +68,18 @@ a{color:inherit}
   pointer-events:none;
 }
 .hero-caption{
-  position:relative;z-index:1;padding:0 6vw 40px;text-align:center;
+  position:relative;z-index:1;padding:0 clamp(20px,6vw,64px) 40px;text-align:center;
   font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold-2);
   opacity:0;animation:fadeUp 1.4s cubic-bezier(.22,1,.36,1) .6s both;
 }
 
 /* ─── SECTIONS ─── */
-.sec{max-width:760px;margin:0 auto;padding:72px 6vw;border-top:.5px solid var(--rule)}
+.sec{max-width:760px;margin:0 auto;padding:72px clamp(24px,6vw,64px);border-top:.5px solid var(--rule)}
 .secCenter{text-align:center}
 .lbl{display:block;font-size:9px;letter-spacing:.5em;text-transform:uppercase;color:var(--gold);margin-bottom:36px}
 
-.evening{display:flex;gap:0 36px;align-items:center;padding:8px 0 32px;flex-wrap:wrap}
-.evening-date{display:flex;flex-direction:column;align-items:flex-start;gap:4px;flex-shrink:0}
+.evening{display:flex;gap:0 32px;align-items:center;padding:8px 0 32px;flex-wrap:nowrap}
+.evening-date{display:flex;flex-direction:column;align-items:flex-start;gap:10px;flex-shrink:0}
 .evening-day{font-family:'Cormorant SC',Georgia,serif;font-size:clamp(36px,5vw,56px);font-weight:300;color:var(--gold);line-height:1;letter-spacing:.04em}
 .evening-month{font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold-2)}
 .evening-divider{width:.5px;align-self:stretch;background:var(--rule);flex-shrink:0}
@@ -123,18 +123,21 @@ a{color:inherit}
 }
 
 footer{
-  text-align:center;padding:48px 6vw 64px;
+  text-align:center;padding:48px clamp(20px,6vw,64px) 64px;
   font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(194,167,106,.35);
   border-top:.5px solid var(--rule);
 }
 footer a{color:rgba(194,167,106,.5);text-decoration:none;transition:color .2s}
 footer a:hover{color:var(--gold)}
 
+@media(max-width:680px){
+  .evening{flex-wrap:wrap;gap:16px 20px}
+  .evening-main{min-width:0}
+}
+
 @media(max-width:600px){
   .topbar{font-size:9px;letter-spacing:.2em;padding:22px 6vw}
   .sec{padding:56px 6vw}
-  .evening{gap:0 20px}
-  .evening-main{min-width:0}
   .curated-for{grid-template-columns:1fr}
   .hero{min-height:62vh}
 }
@@ -148,8 +151,8 @@ footer a:hover{color:var(--gold)}
 </div>
 
 <section class="hero">
-  <!-- Replace src with the imgbb-hosted URL for boston.png -->
-  <img src="https://i.ibb.co/bjsKzyFM/boston.png" alt="Valois by Yorkseed — Private Capital Salon, Boston, September 17, 2026"/>
+  <!-- Place boston.png in this same /events/ folder on the server -->
+  <img src="boston.png" alt="Valois by Yorkseed — Private Capital Salon, Boston, September 17, 2026" onerror="this.style.display='none'"/>
   <div class="hero-caption">A Private Capital Salon &middot; Boston</div>
 </section>
 
