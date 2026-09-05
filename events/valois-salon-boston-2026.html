@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Valois Salon: A Private Dinner in Boston</title>
+<meta name="description" content="An intimate dinner for family offices, LPs, GPs, fund managers, and institutional allocators shaping capital flows in frontier technology — hosted in Boston, September 17, 2026, by The 4IR Group in partnership with Yorkseed."/>
+<link rel="canonical" href="https://yorkseed.co/events/valois-salon-boston-2026"/>
+<meta name="robots" content="index, follow"/>
+<meta property="og:title" content="Valois Salon: A Private Dinner in Boston"/>
+<meta property="og:description" content="An intimate dinner for capital allocators shaping the future of frontier technology — Boston, September 17, 2026."/>
+<meta property="og:type" content="website"/>
+<!-- Replace with the imgbb-hosted URL for boston.png once uploaded -->
+<meta property="og:image" content="https://i.ibb.co/bjsKzyFM/boston.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:      #242018;
+  --bg-lift: #2C2820;
+  --ivory:   #F8F4EE;
+  --ivory-2: #E2DAD0;
+  --ivory-3: #AEA698;
+  --gold:    #D4BC82;
+  --gold-2:  #C4A86A;
+  --rule:    rgba(212, 188, 130, 0.25);
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--ivory);
+  font-family:'Cormorant Garamond','Palatino Linotype',Palatino,Georgia,serif;
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+/* ─── TOP BAR — deliberately minimal; this page belongs to Valois, not the Yorkseed chrome ─── */
+.topbar{
+  position:relative;z-index:10;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:28px 5vw;
+  font-family:'Cormorant SC',Georgia,serif;
+  font-size:10px;letter-spacing:.28em;text-transform:uppercase;
+}
+.topbar a{
+  text-decoration:none;color:var(--ivory-3);
+  transition:color .2s;
+  padding-bottom:2px;border-bottom:0.5px solid transparent;
+}
+.topbar a:hover{color:var(--gold);border-color:rgba(212,188,130,.4)}
+
+/* ─── HERO — the flyer artwork itself, full-bleed ─── */
+.hero{
+  position:relative;min-height:78vh;display:flex;align-items:flex-end;justify-content:center;
+  overflow:hidden;background:radial-gradient(ellipse at 50% 40%,#3a3420 0%,var(--bg) 65%);
+}
+.hero img{
+  width:100%;height:100%;position:absolute;inset:0;object-fit:cover;object-position:center 30%;
+  opacity:0;animation:fadeIn 1.8s ease .1s both;
+}
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(20,16,10,0) 55%,var(--bg) 100%);
+  pointer-events:none;
+}
+.hero-caption{
+  position:relative;z-index:1;padding:0 6vw 40px;text-align:center;
+  font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold-2);
+  opacity:0;animation:fadeUp 1.4s cubic-bezier(.22,1,.36,1) .6s both;
+}
+
+/* ─── SECTIONS ─── */
+.sec{max-width:760px;margin:0 auto;padding:72px 6vw;border-top:.5px solid var(--rule)}
+.secCenter{text-align:center}
+.lbl{display:block;font-size:9px;letter-spacing:.5em;text-transform:uppercase;color:var(--gold);margin-bottom:36px}
+
+.evening{display:flex;gap:0 36px;align-items:center;padding:8px 0 32px;flex-wrap:wrap}
+.evening-date{display:flex;flex-direction:column;align-items:flex-start;gap:4px;flex-shrink:0}
+.evening-day{font-family:'Cormorant SC',Georgia,serif;font-size:clamp(36px,5vw,56px);font-weight:300;color:var(--gold);line-height:1;letter-spacing:.04em}
+.evening-month{font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold-2)}
+.evening-divider{width:.5px;align-self:stretch;background:var(--rule);flex-shrink:0}
+.evening-main{display:flex;flex-direction:column;gap:8px;min-width:220px}
+.evening-title{font-family:'Cormorant SC',Georgia,serif;font-weight:300;font-size:clamp(19px,2.4vw,24px);letter-spacing:.03em;color:var(--ivory);line-height:1.3}
+.evening-loc{font-size:14px;font-weight:300;color:var(--gold-2);letter-spacing:.05em;font-style:italic}
+.evening-time{font-size:13px;font-weight:300;color:var(--ivory-3);letter-spacing:.03em}
+
+.body-copy{font-size:17px;font-weight:300;line-height:1.9;color:var(--ivory-2);text-align:left}
+.body-copy p{margin-bottom:22px}
+.body-copy p:last-child{margin-bottom:0}
+
+.curated-for{display:grid;grid-template-columns:1fr 1fr;gap:14px 32px;text-align:left;margin-top:8px}
+.curated-for div{
+  font-size:14px;font-weight:300;letter-spacing:.03em;color:var(--ivory-2);
+  padding-bottom:10px;border-bottom:.5px solid var(--rule);
+}
+
+.status-tag{
+  display:inline-block;font-family:'Cormorant SC',Georgia,serif;
+  font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);
+  border:.5px solid rgba(212,188,130,.4);padding:8px 16px;margin-bottom:28px;
+}
+
+.btn{
+  display:inline-block;background:transparent;border:.5px solid rgba(194,167,106,.4);
+  padding:18px 40px;font-family:'Cormorant SC',Georgia,serif;font-size:9px;
+  letter-spacing:.55em;padding-right:calc(40px - .55em);color:var(--gold);cursor:pointer;
+  text-transform:uppercase;text-align:center;text-decoration:none;
+  transition:background .35s,color .35s,border-color .35s;
+}
+.btn:hover{background:var(--gold);color:var(--bg);border-color:var(--gold)}
+
+.presented-by{font-size:12px;letter-spacing:.1em;color:var(--ivory-3);margin-top:20px;font-style:italic}
+.presented-by a{color:var(--gold-2);text-decoration:none;border-bottom:.5px solid rgba(212,188,130,.3)}
+.presented-by a:hover{color:var(--gold)}
+
+.note{
+  font-size:13px;font-weight:300;line-height:1.8;color:var(--ivory-3);
+  border-left:.5px solid rgba(212,188,130,.4);padding-left:20px;margin-top:28px;font-style:italic;
+}
+
+footer{
+  text-align:center;padding:48px 6vw 64px;
+  font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(194,167,106,.35);
+  border-top:.5px solid var(--rule);
+}
+footer a{color:rgba(194,167,106,.5);text-decoration:none;transition:color .2s}
+footer a:hover{color:var(--gold)}
+
+@media(max-width:600px){
+  .topbar{font-size:9px;letter-spacing:.2em;padding:22px 6vw}
+  .sec{padding:56px 6vw}
+  .evening{gap:0 20px}
+  .evening-main{min-width:0}
+  .curated-for{grid-template-columns:1fr}
+  .hero{min-height:62vh}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="/events.html">&larr; Yorkseed Events</a>
+  <a href="https://thevalois.com" target="_blank" rel="noopener noreferrer">thevalois.com &#8599;</a>
+</div>
+
+<section class="hero">
+  <!-- Replace src with the imgbb-hosted URL for boston.png -->
+  <img src="https://i.ibb.co/bjsKzyFM/boston.png" alt="Valois by Yorkseed — Private Capital Salon, Boston, September 17, 2026"/>
+  <div class="hero-caption">A Private Capital Salon &middot; Boston</div>
+</section>
+
+<section class="sec secCenter">
+  <span class="lbl">The Evening</span>
+  <div class="evening" style="justify-content:center">
+    <div class="evening-date">
+      <span class="evening-day">17</span>
+      <span class="evening-month">Sep 2026</span>
+    </div>
+    <div class="evening-divider"></div>
+    <div class="evening-main" style="text-align:left">
+      <div class="evening-title">Valois Salon: A Private Dinner in Boston</div>
+      <div class="evening-loc">Location shared upon approval &middot; Boston, MA</div>
+      <div class="evening-time">6:30 – 8:30 PM</div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <span class="lbl">The Salon</span>
+  <div class="body-copy">
+    <p>Hosted by The 4IR Group, in partnership with Yorkseed. Following The 4IR Group's Investor Day at The Engine, Valois convenes an intimate dinner for the people shaping capital flows in frontier technology.</p>
+    <p>An intimate gathering of 15–25 family offices, general partners, limited partners, and institutional allocators — the decision-makers responsible for deploying capital across deep tech and physical AI.</p>
+    <p>The conversation centers on where capital is actually flowing in the frontier: how venture hands off to private capital, how sophisticated investors are underwriting robotics and physical AI, and which opportunities are worth watching before the market catches on.</p>
+    <p>Joe Collura, founder of The 4IR Group and SECO Bio, joins as a peer — building from The Engine at MIT with a firsthand view of the space. No stage, no deck. Just candid conversation among people who understand the frontier.</p>
+    <p>An intimate dinner built on discretion, trust, and peer relationships. Not a networking floor. Not a pitch. Meaningful dialogue among allocators.</p>
+  </div>
+</section>
+
+<section class="sec">
+  <span class="lbl">Curated For</span>
+  <div class="curated-for">
+    <div>Family Offices</div>
+    <div>Limited Partners</div>
+    <div>General Partners</div>
+    <div>Fund Managers</div>
+    <div>Institutional Investors</div>
+    <div>Sovereign Wealth Funds</div>
+    <div>Endowments &amp; Foundations</div>
+    <div>Private Equity Leaders</div>
+  </div>
+  <div class="note">By private invitation only. Attendance at the daytime program does not confer entry. Every request is individually reviewed to preserve the quality of the room.</div>
+</section>
+
+<section class="sec secCenter">
+  <span class="status-tag">By Invitation Only</span>
+  <div class="body-copy" style="text-align:center;max-width:460px;margin:0 auto 36px">
+    <p>Valois Salon is a curated Circle where frontier capital allocators build trusted relationships, identify emerging opportunities, and access the conversations that shape private markets.</p>
+  </div>
+  <a href="https://luma.com/privatedinnerboston" target="_blank" rel="noopener noreferrer" class="btn">Request to Attend</a>
+  <div class="presented-by">Presented by Valois, in partnership with The 4IR Group &middot; Part of the 4IR Group Investor Day at The Engine, MIT</div>
+</section>
+
+<footer>
+  <a href="https://thevalois.com" target="_blank" rel="noopener noreferrer">Valois</a>
+  &nbsp;·&nbsp;
+  <a href="/events.html">Yorkseed Events</a>
+  &nbsp;·&nbsp;
+  <a href="/hubs.html">Yorkseed House</a>
+</footer>
+
+</body>
+</html>
