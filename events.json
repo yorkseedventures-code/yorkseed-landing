@@ -158,7 +158,8 @@
       "spots": "Small, invitation-only group",
       "description": "A private day for family offices and private capital partners inside the labs and facilities where Boston's robotics and AI companies are being built, hosted by The 4IR Group with Yorkseed and The Engine Accelerator.",
       "url": "/events/investor-day-kendall-square-boston-2026.html",
-      "coverGradient": "linear-gradient(135deg,#111 0%,#2a1a16 60%,#3d2117 100%)"
+      "coverGradient": "linear-gradient(135deg,#111 0%,#2a1a16 60%,#3d2117 100%)",
+      "coverImage": "https://i.ibb.co/mFtG40nW/investor-day-kendall-square-thumbnail.png"
     },
     {
       "slug": "valois-salon-boston-2026",
