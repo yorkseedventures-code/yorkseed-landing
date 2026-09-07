@@ -68,6 +68,11 @@ a{color:inherit}
 .host-item-desc{font-size:13px;color:var(--ink3);line-height:1.7}
 .host-item a{color:var(--red);font-size:12.5px;text-decoration:none;display:inline-block;margin-top:6px}
 
+.week-list{display:flex;flex-direction:column;gap:8px;margin-top:16px}
+.week-item{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px;border:1px solid var(--border);border-radius:8px;font-size:13px;text-decoration:none;color:var(--ink2);transition:border-color .2s,background .2s}
+.week-item:hover{border-color:var(--red-border);background:var(--red-dim)}
+.week-item.is-current{border-color:var(--red);background:var(--red-dim)}
+.week-item-day{font-family:var(--mono);font-size:10px;color:var(--ink4);white-space:nowrap}
 .cta-sec{text-align:center;padding:56px 6vw}
 .status-tag{display:inline-block;font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);border:1px solid var(--red-border);background:var(--red-dim);padding:8px 16px;margin-bottom:22px;border-radius:20px}
 .btn{display:inline-block;background:var(--ink);color:#fff;padding:16px 40px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border-radius:8px;transition:opacity .2s}
@@ -160,6 +165,19 @@ footer a:hover{color:var(--ink)}
   </div>
 </section>
 
+<section class="sec">
+  <div class="lbl">Also This Week &mdash; NYC Founder Week</div>
+  <div class="week-list">
+    <a href="#" class="week-item is-current"><span>Women Founders Afterwork</span><span class="week-item-day">Thu, Sep 10</span></a>
+    <a href="/events/bootstrapped-solo-founders-afterwork-nyc-2026.html" class="week-item"><span>Bootstrapped &amp; Solo Founders Afterwork</span><span class="week-item-day">Fri, Sep 11</span></a>
+    <a href="/events/curious-about-starting-a-startup-nyc-2026.html" class="week-item"><span>Curious About Starting a Startup?</span><span class="week-item-day">Sat, Sep 12</span></a>
+    <a href="/events/cofounder-speed-dating-picnic-nyc-2026.html" class="week-item"><span>Co-Founder Speed Dating Picnic</span><span class="week-item-day">Sun, Sep 13</span></a>
+    <a href="/events/marketplace-founders-afterwork-nyc-2026.html" class="week-item"><span>Marketplace Founders Afterwork</span><span class="week-item-day">Mon, Sep 14</span></a>
+    <a href="/events/seed-to-series-a-growth-hacking-afterwork-nyc-2026.html" class="week-item"><span>Seed-to-Series-A Growth Hacking Afterwork</span><span class="week-item-day">Tue, Sep 15</span></a>
+    <a href="/events/women-founders-social-nyc-2026.html" class="week-item"><span>Women Founders Social</span><span class="week-item-day">Wed, Sep 16</span></a>
+  </div>
+</section>
+
 <section class="cta-sec">
   <span class="status-tag">Free &middot; RSVP Required</span>
   <div class="body-copy" style="max-width:480px;margin:0 auto 30px">
@@ -167,7 +185,7 @@ footer a:hover{color:var(--ink)}
   </div>
   <a href="https://luma.com/bdn027xo" target="_blank" rel="noopener noreferrer" class="btn">Request to Join</a>
   <div class="btn-sub">Hosted on Luma &middot; Approval required</div>
-  <div class="presented-by">Presented by Tison Events &middot; Hosted by BuildHer Labs, Yorkseed &amp; Tison.io</div>
+  <div class="presented-by">Hosted by Yorkseed &middot; In partnership with BuildHer Labs &amp; Tison.io</div>
 </section>
 
 <footer>
