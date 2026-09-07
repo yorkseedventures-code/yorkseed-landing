@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>La Nuit des Roses — Paris Fashion Tech &amp; Masquerade Ball | Yorkseed x Artmia</title>
+<meta name="description" content="Paris Fashion Tech, a couture fashion show, and a masquerade ball at Hôtel de l'Industrie — September 26, 2026. Presented by Yorkseed and Artmia Paris."/>
+<link rel="canonical" href="https://yorkseed.co/events/la-nuit-des-roses-paris-2026"/>
+<meta name="robots" content="index, follow"/>
+<meta property="og:title" content="La Nuit des Roses — Paris Fashion Tech & Masquerade Ball"/>
+<meta property="og:description" content="A day of Fashion Tech innovation, followed by a Couture Fashion Show and Masquerade Ball at Hôtel de l'Industrie, Paris."/>
+<meta property="og:type" content="website"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#111;--ink2:#333;--ink3:#666;--ink4:#999;
+  --off:#faf8f6;--white:#fff;--border:rgba(0,0,0,.08);
+  --rose:#9c3a4c;--rose-dim:rgba(156,58,76,.06);--rose-border:rgba(156,58,76,.22);
+  --gold:#b08d57;--gold-dim:rgba(176,141,87,.08);--gold-border:rgba(176,141,87,.25);
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --mono:'DM Mono',monospace;
+}
+body{background:var(--white);color:var(--ink2);font-family:var(--sans);font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:24px 6vw;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid var(--border)}
+.topbar a{text-decoration:none;color:var(--ink4);transition:color .2s}
+.topbar a:hover{color:var(--ink)}
+
+.hero{padding:64px 6vw 48px;max-width:820px;margin:0 auto;text-align:center}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:6px 14px;border-radius:20px;background:var(--gold-dim);color:var(--gold);border:1px solid var(--gold-border);margin-bottom:24px}
+.hero h1{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(30px,5vw,52px);line-height:1.15;letter-spacing:-.01em;color:var(--ink);margin-bottom:18px}
+.hero-sub{font-size:14px;color:var(--ink3);line-height:1.7;max-width:600px;margin:0 auto}
+
+.evening{display:flex;gap:0 36px;align-items:center;justify-content:center;padding:36px 6vw;max-width:700px;margin:0 auto;flex-wrap:wrap}
+.evening-date{display:flex;flex-direction:column;align-items:center;gap:2px}
+.evening-day{font-family:var(--serif);font-size:44px;font-weight:400;color:var(--rose);line-height:1}
+.evening-month{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink4)}
+.evening-divider{width:1px;align-self:stretch;background:var(--border)}
+.evening-main{text-align:left;display:flex;flex-direction:column;gap:6px}
+.evening-time{font-size:14px;color:var(--ink2);font-weight:400}
+.evening-loc{font-size:13px;color:var(--ink4);font-style:italic}
+
+.sec{max-width:720px;margin:0 auto;padding:44px 6vw;border-top:1px solid var(--border)}
+.lbl{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--rose);margin-bottom:22px;display:flex;align-items:center;gap:10px}
+.lbl::before{content:'';display:block;width:16px;height:1px;background:var(--rose);opacity:.5}
+
+.body-copy{font-size:15.5px;line-height:1.85;color:var(--ink3)}
+.body-copy p{margin-bottom:16px}
+.body-copy p:last-child{margin-bottom:0}
+.body-copy strong{font-weight:500;color:var(--ink)}
+
+.dress-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px}
+.dress-card{padding:16px;background:var(--gold-dim);border:1px solid var(--gold-border);border-radius:8px}
+.dress-card-title{font-family:var(--serif);font-size:15px;font-style:italic;color:var(--ink);margin-bottom:6px}
+.dress-card-desc{font-size:13px;color:var(--ink3);line-height:1.6}
+@media(max-width:520px){.dress-grid{grid-template-columns:1fr}}
+
+.program{display:flex;flex-direction:column;gap:0}
+.program-item{display:flex;gap:16px;padding:14px 0;border-bottom:1px solid var(--border)}
+.program-item:last-child{border-bottom:none}
+.program-time{font-family:var(--mono);font-size:11px;color:var(--rose);white-space:nowrap;padding-top:2px;min-width:70px}
+.program-text{font-size:13.5px;color:var(--ink2);line-height:1.6}
+
+.ticket-grid{display:flex;flex-direction:column;gap:8px;margin-top:4px}
+.ticket-row{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 16px;border:1px solid var(--border);border-radius:8px}
+.ticket-name{font-size:13.5px;font-weight:500;color:var(--ink)}
+.ticket-desc{font-size:12px;color:var(--ink4);margin-top:2px}
+.ticket-price{font-family:var(--mono);font-size:13px;color:var(--rose);white-space:nowrap;font-weight:500}
+
+.cta-sec{text-align:center;padding:56px 6vw}
+.status-tag{display:inline-block;font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold-border);background:var(--gold-dim);padding:8px 16px;margin-bottom:22px;border-radius:20px}
+.btn{display:inline-block;background:var(--ink);color:#fff;padding:16px 40px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border-radius:8px;transition:opacity .2s}
+.btn:hover{opacity:.85}
+.btn-sub{font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--ink4);margin-top:12px}
+.presented-by{font-size:12.5px;color:var(--ink4);margin-top:22px;font-style:italic}
+
+footer{text-align:center;padding:40px 6vw 56px;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);border-top:1px solid var(--border)}
+footer a{color:var(--ink4);text-decoration:none;transition:color .2s}
+footer a:hover{color:var(--ink)}
+
+@media(max-width:600px){
+  .hero{padding:48px 6vw 36px}
+  .sec{padding:36px 6vw}
+  .evening{gap:0 20px;padding:28px 6vw}
+  .ticket-row{flex-direction:column;align-items:flex-start;gap:4px}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="/events.html">&larr; Yorkseed Events</a>
+  <a href="https://yorkseed.co">yorkseed.co &#8599;</a>
+</div>
+
+<section class="hero">
+  <span class="hero-badge">Fashion Tech &middot; Masquerade Ball</span>
+  <h1>La Nuit des Roses</h1>
+  <p class="hero-sub">A day dedicated to innovation, followed by an exceptional evening featuring a Masquerade Ball &amp; Couture Fashion Show. Presented by Yorkseed x Artmia Paris.</p>
+</section>
+
+<div class="evening">
+  <div class="evening-date">
+    <span class="evening-day">26</span>
+    <span class="evening-month">Sep 2026</span>
+  </div>
+  <div class="evening-divider"></div>
+  <div class="evening-main">
+    <span class="evening-time">10:30 AM &ndash; 1:00 AM (Sep 27)</span>
+    <span class="evening-loc">H&ocirc;tel de l'Industrie &middot; 4 Pl. Saint-Germain des Pr&eacute;s, 75006 Paris, France</span>
+  </div>
+</div>
+
+<section class="sec">
+  <div class="lbl">Dress Code</div>
+  <div class="body-copy" style="margin-bottom:16px"><p>Mandatory for the Ball.</p></div>
+  <div class="dress-grid">
+    <div class="dress-card">
+      <div class="dress-card-title">Men</div>
+      <div class="dress-card-desc">Elegant suit or black-tie, rose or mask.</div>
+    </div>
+    <div class="dress-card">
+      <div class="dress-card-title">Women</div>
+      <div class="dress-card-desc">Long dress and mask.</div>
+    </div>
+  </div>
+  <div class="body-copy" style="margin-top:20px">
+    <p>Enter the &ldquo;La Plus Belle des Roses 2026&rdquo; contest for a chance to win a crown of roses, a one-year Artmia Club Premium membership, a professional photo shoot, an exclusive interview, and more.</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="lbl">The Program</div>
+  <div class="program">
+    <div class="program-item"><div class="program-time">10:30 AM</div><div class="program-text">Fashion Tech opens &mdash; conferences on innovation in fashion, with brunch</div></div>
+    <div class="program-item"><div class="program-time">4:00 PM</div><div class="program-text">Tango Workshop with Pierre Fizet</div></div>
+    <div class="program-item"><div class="program-time">5:00 PM</div><div class="program-text">Waltz Workshop with Pierre Fizet</div></div>
+    <div class="program-item"><div class="program-time">6:30 PM</div><div class="program-text">Guest welcome with a Tango performance</div></div>
+    <div class="program-item"><div class="program-time">7:30 PM</div><div class="program-text">Couture Fashion Show &mdash; NOIR&Eacute; (London), Atelier Juliette Lamy</div></div>
+    <div class="program-item"><div class="program-time">8:15 PM</div><div class="program-text">Waltz Performance</div></div>
+    <div class="program-item"><div class="program-time">9:00 PM</div><div class="program-text">Masquerade Ball opens</div></div>
+    <div class="program-item"><div class="program-time">1:00 AM</div><div class="program-text">Evening continues late, highlighted by the &ldquo;La Plus Belle des Roses&rdquo; beauty contest</div></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="lbl">Tickets</div>
+  <div class="ticket-grid">
+    <div class="ticket-row">
+      <div><div class="ticket-name">Fashion Tech + Nuit des Roses</div><div class="ticket-desc">10:30 AM to late night &middot; Fashion Tech business club + brunch + Ball entrance (buffet included) + one drink</div></div>
+      <span class="ticket-price">&euro;99</span>
+    </div>
+    <div class="ticket-row">
+      <div><div class="ticket-name">Business Club &amp; Fashion Tech</div><div class="ticket-desc">10:30 AM&ndash;3:30 PM &middot; Business club with brunch included</div></div>
+      <span class="ticket-price">&euro;38</span>
+    </div>
+    <div class="ticket-row">
+      <div><div class="ticket-name">Evening &mdash; La Rose Blanche</div><div class="ticket-desc">6:30 PM &middot; Ball admission (buffet included) + one drink</div></div>
+      <span class="ticket-price">&euro;65</span>
+    </div>
+    <div class="ticket-row">
+      <div><div class="ticket-name">Evening &mdash; La Rose (+ Shooting)</div><div class="ticket-desc">6:30 PM &middot; Ball admission (buffet included) + personal photoshoot</div></div>
+      <span class="ticket-price">&euro;85</span>
+    </div>
+    <div class="ticket-row">
+      <div><div class="ticket-name">Evening &mdash; Noire Champagne</div><div class="ticket-desc">6:30 PM &middot; Ball admission (buffet included) + bottle of champagne</div></div>
+      <span class="ticket-price">&euro;125</span>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="lbl">About Yorkseed</div>
+  <div class="body-copy">
+    <p>Yorkseed is a curated global venture network connecting founders, investors, operators, and institutional partners across 50+ global hubs. Through curated experiences, global communities, venture programs, and Yorkseed Connect, Yorkseed creates high-signal opportunities for relationships, capital, intelligence, and collaboration across markets.</p>
+  </div>
+</section>
+
+<section class="cta-sec">
+  <span class="status-tag">Tickets from &euro;38</span>
+  <div class="body-copy" style="max-width:480px;margin:0 auto 30px">
+    <p>Choose your ticket type on Luma &mdash; day pass, evening pass, or the full combo.</p>
+  </div>
+  <a href="https://luma.com/beg9axlj" target="_blank" rel="noopener noreferrer" class="btn">Get Tickets</a>
+  <div class="btn-sub">Hosted on Luma</div>
+  <div class="presented-by">Presented by Yorkseed &amp; Artmia Paris</div>
+</section>
+
+<footer>
+  <a href="/events.html">Yorkseed Events</a>
+  &nbsp;&middot;&nbsp;
+  <a href="/hubs.html">Yorkseed House</a>
+</footer>
+
+</body>
+</html>
