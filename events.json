@@ -1,6 +1,22 @@
 {
   "upcoming": [
     {
+      "featured": false,
+      "type": "passport",
+      "title": "Urban Tech Day by Metvibee x Yorkseed x SHE/THEY Club",
+      "city": "Stockholm",
+      "country": "Sweden",
+      "location": "Stockholm, Sweden",
+      "venue": "Norrsken House Stockholm · Birger Jarlsgatan 57 C, 113 56 Stockholm",
+      "date": "Mon, Sep 7, 2026 · 6:00–8:30 PM GMT+2",
+      "dateISO": "2026-09-07",
+      "format": "Nordic Tech Week · Approval Required",
+      "spots": "Free · Host approval required",
+      "description": "A cross-disciplinary evening for founders, investors, and ecosystem players working on Sustainable Cities and Communities (SDG 11) — ClimateTech, PropTech, MobilityTech, CivicTech, and beyond. Pitches and presentations followed by mingling and drinks. Hosted by Metvibee, Yorkseed, and SHE/THEY Club as part of Nordic Tech Week.",
+      "lumaUrl": "https://luma.com/2cstymrs",
+      "coverGradient": "linear-gradient(135deg,#0d1a14 0%,#16281f 45%,#20372a 100%)"
+    },
+    {
       "slug": "bootstrapped-solo-founders-afterwork-nyc-2026",
       "featured": false,
       "type": "passport",
