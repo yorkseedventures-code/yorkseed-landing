@@ -1,6 +1,23 @@
 {
   "upcoming": [
     {
+      "slug": "investor-day-kendall-square-boston-2026",
+      "featured": false,
+      "type": "passport",
+      "title": "Investor Day \u2014 Inside the Harvard/MIT Kendall Square Robotics & AI Deep Tech Ecosystem",
+      "city": "Boston",
+      "country": "USA",
+      "location": "Register to see address, Kendall Square, Cambridge, MA",
+      "venue": "Undisclosed \u00b7 Kendall Square, Cambridge, MA",
+      "date": "Thu, Sep 17, 2026 \u00b7 11:00 AM\u20136:00 PM",
+      "dateISO": "2026-09-17",
+      "format": "Investor Day \u00b7 By Invitation Only",
+      "spots": "Small, invitation-only group",
+      "description": "A private day for family offices and private capital partners inside the labs and facilities where Boston's robotics and AI companies are being built, hosted by The 4IR Group with Yorkseed and The Engine Accelerator.",
+      "url": "/events/investor-day-kendall-square-boston-2026.html",
+      "coverGradient": "linear-gradient(135deg,#111 0%,#2a1a16 60%,#3d2117 100%)"
+    },
+    {
       "slug": "valois-salon-boston-2026",
       "featured": false,
       "type": "passport",
