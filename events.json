@@ -15,7 +15,8 @@
       "spots": "Free · Drop-in",
       "description": "A relaxed afterwork evening for bootstrapped, solo, and early-stage founders. Hosted by Yorkseed and Tison.io.",
       "url": "/events/bootstrapped-solo-founders-afterwork-nyc-2026.html",
-      "coverGradient": "linear-gradient(135deg,#1c1410 0%,#2e211a 55%,#3d2c22 100%)"
+      "coverGradient": "linear-gradient(135deg,#1c1410 0%,#2e211a 55%,#3d2c22 100%)",
+      "nycfw": true
     },
     {
       "slug": "curious-about-starting-a-startup-nyc-2026",
@@ -32,7 +33,8 @@
       "spots": "Free · Drop-in",
       "description": "A Saturday afternoon for people with an idea, or half of one, to talk it through with founders who have already started. Hosted by Yorkseed and Tison.io.",
       "url": "/events/curious-about-starting-a-startup-nyc-2026.html",
-      "coverGradient": "linear-gradient(135deg,#1c1410 0%,#2e211a 55%,#3d2c22 100%)"
+      "coverGradient": "linear-gradient(135deg,#1c1410 0%,#2e211a 55%,#3d2c22 100%)",
+      "nycfw": true
     },
     {
       "slug": "cofounder-speed-dating-picnic-nyc-2026",
@@ -49,7 +51,8 @@
       "spots": "Free · Drop-in",
       "description": "A matchmaking picnic for founders looking for a co-founder, and engineers, designers, and operators looking to join a founding team. Hosted by Yorkseed and Tison.io.",
       "url": "/events/cofounder-speed-dating-picnic-nyc-2026.html",
-      "coverGradient": "linear-gradient(135deg,#1c1410 0%,#2e211a 55%,#3d2c22 100%)"
+      "coverGradient": "linear-gradient(135deg,#1c1410 0%,#2e211a 55%,#3d2c22 100%)",
+      "nycfw": true
     },
     {
       "slug": "marketplace-founders-afterwork-nyc-2026",
@@ -66,7 +69,8 @@
       "spots": "Free · Drop-in",
       "description": "A peer exchange for marketplace and platform founders on liquidity, take rates, supply, demand, and growth. Hosted by Yorkseed and Tison.io.",
       "url": "/events/marketplace-founders-afterwork-nyc-2026.html",
-      "coverGradient": "linear-gradient(135deg,#1c1410 0%,#2e211a 55%,#3d2c22 100%)"
+      "coverGradient": "linear-gradient(135deg,#1c1410 0%,#2e211a 55%,#3d2c22 100%)",
+      "nycfw": true
     },
     {
       "slug": "seed-to-series-a-growth-hacking-afterwork-nyc-2026",
@@ -83,7 +87,8 @@
       "spots": "Free · Drop-in",
       "description": "A swap shop for founders and operators between seed and Series A to trade real growth experiments, results, and costs. Hosted by Yorkseed and Tison.io.",
       "url": "/events/seed-to-series-a-growth-hacking-afterwork-nyc-2026.html",
-      "coverGradient": "linear-gradient(135deg,#1c1410 0%,#2e211a 55%,#3d2c22 100%)"
+      "coverGradient": "linear-gradient(135deg,#1c1410 0%,#2e211a 55%,#3d2c22 100%)",
+      "nycfw": true
     },
     {
       "slug": "women-founders-social-nyc-2026",
@@ -100,7 +105,8 @@
       "spots": "Free · Drop-in",
       "description": "An evening in the East Village closing out NYC Founder Week for women founders, investors, operators, and allies. Hosted by Yorkseed and Tison.io.",
       "url": "/events/women-founders-social-nyc-2026.html",
-      "coverGradient": "linear-gradient(135deg,#2a0f14 0%,#3d1620 55%,#4a1a26 100%)"
+      "coverGradient": "linear-gradient(135deg,#2a0f14 0%,#3d1620 55%,#4a1a26 100%)",
+      "nycfw": true
     },
     {
       "slug": "la-nuit-des-roses-paris-2026",
@@ -134,7 +140,8 @@
       "spots": "Free · Approval required",
       "description": "An evening of genuine connection for women founders, allies, and investors backing women in tech. No panels, no pitches. Hosted by BuildHer Labs, Yorkseed, and Tison.io.",
       "url": "/events/women-founders-afterwork-nyc-2026.html",
-      "coverGradient": "linear-gradient(135deg,#2a0f14 0%,#3d1620 55%,#4a1a26 100%)"
+      "coverGradient": "linear-gradient(135deg,#2a0f14 0%,#3d1620 55%,#4a1a26 100%)",
+      "nycfw": true
     },
     {
       "slug": "investor-day-kendall-square-boston-2026",
