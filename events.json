@@ -1,6 +1,7 @@
 {
   "upcoming": [
     {
+      "slug": "urban-tech-day-stockholm-2026",
       "featured": false,
       "type": "passport",
       "title": "Urban Tech Day by Metvibee x Yorkseed x SHE/THEY Club",
@@ -13,7 +14,7 @@
       "format": "Nordic Tech Week · Approval Required",
       "spots": "Free · Host approval required",
       "description": "A cross-disciplinary evening for founders, investors, and ecosystem players working on Sustainable Cities and Communities (SDG 11) — ClimateTech, PropTech, MobilityTech, CivicTech, and beyond. Pitches and presentations followed by mingling and drinks. Hosted by Metvibee, Yorkseed, and SHE/THEY Club as part of Nordic Tech Week.",
-      "lumaUrl": "https://luma.com/2cstymrs",
+      "url": "/events/urban-tech-day-stockholm-2026.html",
       "coverGradient": "linear-gradient(135deg,#0d1a14 0%,#16281f 45%,#20372a 100%)"
     },
     {
