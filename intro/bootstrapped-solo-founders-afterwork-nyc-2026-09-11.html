@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">Your Matches</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
+
+  :root {
+    --ink: #0e0e0e;
+    --ink2: #1a1a1a;
+    --ink3: #555;
+    --ink4: #999;
+    --white: #fff;
+    --off: #fafafa;
+    --light: #f5f4f1;
+    --mid: #e8e6e1;
+    --red: #c8372d;
+    --red-dim: rgba(200,55,45,.06);
+    --red-border: rgba(200,55,45,.18);
+    --gold: #b08d57;
+    --gold-dim: rgba(176,141,87,.07);
+    --gold-border: rgba(176,141,87,.22);
+    --border: rgba(0,0,0,.07);
+    --border2: rgba(0,0,0,.12);
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --mono: 'DM Mono', monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--off);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 300;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 92px 24px 80px;
+  }
+  .brand-logo { display: block; margin-bottom: 28px; }
+
+  .nav {
+    display: flex;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 60px;
+    background: rgba(255,255,255,.97);
+    border-bottom: 1px solid var(--border);
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    z-index: 100;
+    backdrop-filter: blur(6px);
+  }
+  .nav img { display: block; height: 22px; }
+  .nav-r { display: flex; align-items: center; gap: 8px; }
+  .nav-r a {
+    display: inline-block;
+    font-size: 13px; color: var(--ink3);
+    padding: 6px 10px; border-radius: 5px;
+    text-decoration: none; cursor: pointer;
+    font-family: var(--sans);
+  }
+  .nav-r a:hover { background: rgba(0,0,0,.05); }
+  .nav-r .join {
+    background: var(--red); color: #fff !important;
+    border-radius: 6px; padding: 7px 16px; font-size: 13px;
+  }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--red);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  .product-kicker {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+  h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(32px, 6vw, 48px);
+    line-height: 1.08;
+    margin: 0 0 8px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .sub {
+    color: var(--ink3);
+    font-size: 16px;
+    font-weight: 300;
+    max-width: 46ch;
+    line-height: 1.55;
+    margin-bottom: 36px;
+  }
+  .event-detail {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--ink3);
+    margin: 0 0 22px;
+    line-height: 1.6;
+  }
+  .event-detail a { color: var(--red); text-decoration: underline; }
+  .venue-address {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink4);
+    margin: -16px 0 22px;
+  }
+  .onsite-contact {
+    font-family: var(--sans);
+    font-size: 11.5px;
+    font-weight: 300;
+    color: var(--ink4);
+    margin: -18px 0 22px;
+  }
+
+  /* Login card */
+  .login-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 36px 32px;
+    box-shadow: 0 1px 2px rgba(14,14,14,0.03);
+  }
+  .field { margin-bottom: 18px; }
+  label {
+    display: block;
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    font-weight: 500;
+    margin-bottom: 7px;
+    color: var(--ink2);
+  }
+  input[type="text"], input[type="email"] {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid var(--border2);
+    border-radius: 3px;
+    font-size: 16px;
+    font-family: var(--sans);
+    font-weight: 400;
+    background: var(--off);
+    color: var(--ink);
+    transition: border-color .15s ease;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  input:focus {
+    outline: none;
+    border-color: var(--red);
+  }
+  button.primary {
+    width: 100%;
+    background: var(--red);
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 13px 18px;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: var(--sans);
+    cursor: pointer;
+    transition: opacity .15s ease;
+    margin-top: 6px;
+  }
+  button.primary:hover { opacity: .88; }
+  button.primary:disabled { opacity: 0.55; cursor: default; }
+
+  .error-msg {
+    background: var(--red-dim);
+    border: 1px solid var(--red-border);
+    color: var(--red);
+    font-size: 14px;
+    padding: 10px 14px;
+    border-radius: 3px;
+    margin-bottom: 18px;
+    display: none;
+  }
+  .error-msg.show { display: block; }
+
+  /* Results */
+  .results-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .logout {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink3);
+    text-decoration: underline;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+  }
+  .logout:hover { color: var(--ink); }
+
+  .match-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    border-radius: 3px;
+    padding: 22px 24px;
+    margin-bottom: 18px;
+  }
+  .match-index {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--red);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .match-name {
+    font-family: var(--serif);
+    font-size: 21px;
+    font-weight: 600;
+    margin: 0 0 2px;
+    color: var(--ink);
+  }
+  .match-role {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 14px;
+  }
+  .match-hook {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 15.5px;
+    font-weight: 500;
+    color: var(--ink2);
+    line-height: 1.45;
+    margin: 0 0 16px;
+  }
+  .why-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink4);
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  ul.bullets {
+    margin: 0 0 16px;
+    padding-left: 18px;
+  }
+  ul.bullets li {
+    font-size: 14.5px;
+    font-weight: 300;
+    line-height: 1.55;
+    margin-bottom: 5px;
+    color: var(--ink2);
+  }
+  .starter {
+    background: var(--off);
+    border: 1px dashed var(--border2);
+    border-radius: 3px;
+    padding: 12px 14px;
+    font-size: 14px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--ink2);
+  }
+  .starter b {
+    font-style: normal;
+    font-weight: 600;
+    color: var(--red);
+  }
+
+  .footer-note {
+    margin-top: 36px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink4);
+    text-align: center;
+  }
+
+  .bonus-card {
+    background: var(--ink);
+    border-radius: 4px;
+    padding: 28px 26px;
+    margin: 28px 0 8px;
+  }
+  .bonus-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .bonus-title {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--white);
+    margin: 0 0 10px;
+    line-height: 1.25;
+  }
+  .bonus-body {
+    font-size: 14.5px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: rgba(255,255,255,.72);
+    margin: 0 0 18px;
+    max-width: 58ch;
+  }
+  .bonus-cta {
+    display: inline-block;
+    background: var(--red);
+    color: #fff;
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 11px 20px;
+    border-radius: 3px;
+    text-decoration: none;
+  }
+  .bonus-cta:hover { opacity: .88; }
+  .bonus-note {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: rgba(255,255,255,.45);
+    margin-top: 14px;
+  }
+  .bonus-note a { color: var(--gold); text-decoration: underline; }
+
+  #login-view, #results-view { display: none; }
+  #login-view.active, #results-view.active { display: block; }
+
+  /* ── Tablet (iPad portrait/landscape) ── */
+  @media (min-width: 601px) and (max-width: 1024px) {
+    .wrap { max-width: 680px; padding: 104px 32px 90px; }
+    .login-card { padding: 40px 36px; }
+    .match-card { padding: 26px 28px; }
+    .bonus-card { padding: 32px 30px; }
+  }
+
+  /* ── Desktop ── */
+  @media (min-width: 1025px) {
+    .wrap { max-width: 760px; padding: 116px 24px 100px; }
+    .brand-logo { margin-bottom: 32px; }
+    .login-card { padding: 40px 38px; }
+    .match-card { padding: 26px 30px; transition: box-shadow .15s ease, transform .15s ease; }
+    .match-card:hover { box-shadow: 0 4px 16px rgba(14,14,14,0.06); transform: translateY(-1px); }
+    .bonus-card { padding: 36px 38px; }
+    input[type="text"], input[type="email"] { font-size: 15px; }
+    button.primary:hover { cursor: pointer; }
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 600px) {
+    .nav { padding: 0 16px; height: 54px; }
+    .nav img { height: 18px; }
+    .nav-r { gap: 2px; }
+    .nav-r a { font-size: 11.5px; padding: 5px 7px; }
+    .nav-r .join { padding: 6px 11px; }
+    .wrap { padding: 70px 16px 56px; }
+    .brand-logo { margin-bottom: 20px; }
+    h1 { font-size: clamp(26px, 8vw, 34px); }
+    .sub { font-size: 14.5px; margin-bottom: 26px; }
+    .login-card { padding: 24px 18px; }
+    .field { margin-bottom: 15px; }
+    .results-header {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+    .logout { font-size: 12.5px; }
+    .match-card { padding: 18px 16px; margin-bottom: 14px; }
+    .match-name { font-size: 19px; }
+    ul.bullets li { font-size: 14px; }
+    .starter { font-size: 13.5px; padding: 11px 12px; }
+    .bonus-card { padding: 22px 18px; margin: 22px 0 6px; }
+    .bonus-title { font-size: 20px; }
+    .bonus-body { font-size: 14px; }
+    .bonus-cta { width: 100%; text-align: center; }
+    .event-detail { font-size: 12px; }
+  }
+
+  /* ── Extra-narrow phones (e.g. iPhone SE) — guarantee nav never wraps ── */
+  @media (max-width: 360px) {
+    .nav-r a[href="/events.html"] { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="nav">
+  <a href="https://yorkseed.co"><img src="data:image/png;base64,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" alt="Yorkseed"></a>
+  <div class="nav-r">
+    <a href="/events.html">Events</a>
+    <a href="https://app.yorkseed.co/login">Sign in</a>
+    <a href="https://app.yorkseed.co/pricing" class="join">Join</a>
+  </div>
+</div>
+<div class="wrap">
+
+  <div id="login-view" class="active">
+    <div class="product-kicker">Yorkseed Event In-Person Match</div>
+    <div class="eyebrow" id="login-event-name">Yorkseed Venture Social</div>
+    <h1>Find out who to meet.</h1>
+    <p class="event-detail" id="login-event-detail">New York City &middot; Tuesday, June 30 &middot; 5:00&ndash;7:30 PM EDT &middot; Hosted by Peter and Jason</p>
+    <p class="sub">Enter the first name and email you registered with — we'll confirm you're on the guest list and share the venue.</p>
+
+    <div class="login-card">
+      <div class="error-msg" id="error-msg"></div>
+      <div class="field">
+        <label for="first-name">First name</label>
+        <input type="text" id="first-name" placeholder="e.g. Pallav" autocomplete="given-name">
+      </div>
+      <div class="field">
+        <label for="email">Email address</label>
+        <input type="email" id="email" placeholder="you@company.com" autocomplete="email">
+      </div>
+      <button class="primary" id="login-btn">See my matches</button>
+    </div>
+  </div>
+
+  <div id="results-view">
+    <div class="results-header">
+      <div>
+        <div class="product-kicker">Yorkseed Event In-Person Match</div>
+        <div class="eyebrow" id="results-eyebrow">Your matches</div>
+        <h1 id="results-heading" style="font-size: clamp(26px,5vw,36px);">Hi there.</h1>
+      </div>
+      <button class="logout" id="logout-btn">Not you? Switch account</button>
+    </div>
+    <p class="event-detail" id="results-event-detail">Tuesday, June 30 &middot; 5:00&ndash;7:30 PM EDT &middot; <a href="https://www.google.com/maps/search/?api=1&query=The%20Ready%20Cantina&query_place_id=ChIJ-1HxQCdZwokRLHj8Dl1rVOo" target="_blank" rel="noopener">The Ready Cantina, New York</a></p>
+    <p class="venue-address" id="results-venue-address">112 E 11th St, New York, NY 10003</p>
+    <p class="onsite-contact" id="results-host-label">Peter and Jason are your on-site contacts</p>
+    <p class="sub" id="results-sub">A relaxed evening for bootstrapped, solo, and early-stage founders. Here's who we think you should meet.</p>
+    <div id="match-list"></div>
+
+    <div class="bonus-card">
+      <div class="bonus-eyebrow">Complimentary Bonus</div>
+      <h3 class="bonus-title">2 Months of Yorkseed Connect</h3>
+      <p class="bonus-body">Yorkseed Connect is our venture relationship platform designed to help founders and investors build stronger connections beyond events through verified profiles, warm introductions, opportunity discovery, and access to Yorkseed's global network.</p>
+      <p class="bonus-body">All approved founders and investors attending this event will be eligible to receive a special code for complimentary access to Yorkseed Connect.</p>
+      <a class="bonus-cta" href="https://app.yorkseed.co/eventoffer?utm_source=luma" target="_blank" rel="noopener">Claim 2 months free</a>
+      <div class="bonus-note">Space is limited and registration is required &middot; <a href="https://app.yorkseed.co/eventoffer?utm_source=luma" target="_blank" rel="noopener">app.yorkseed.co/eventoffer</a></div>
+    </div>
+
+    <div class="footer-note" id="footer-note">See you at the Yorkseed Venture Social.</div>
+  </div>
+
+</div>
+
+<script>
+// ── EVENT CONFIG — edit this block for each new event, nothing else ──
+const EVENT = {
+  // This copy is intended to live at: yorkseed.co/intro/{slug}
+  slug: "bootstrapped-solo-founders-afterwork-nyc-2026-09-11",
+  name: "Bootstrapped & Solo Founders Afterwork",
+  city: "New York City",
+  dateLabel: "Friday, September 11",
+  timeLabel: "5:00\u20137:30 PM",
+  onsiteContact: "",
+  venueName: "Address shared upon RSVP confirmation",
+  venueAddress: "",
+  venueMapUrl: ""
+};
+const ATTENDEES = [{"name": "Ishaan Shakunt", "first_name": "Ishaan", "email": "ishaan@chosenly.com", "role": "Co-founder, Chosenly.com & Founder, Spear Growth", "matches": [{"name": "Aldo Grillo", "role": "Founder, Cloudgentic AI | Managed IT & Secure AI for Accounting Firms", "bullets": ["Aldo bootstrapped Cloudgentic AI into a working MSP after nine years running IT for the Queens Borough President's Office — a fellow operator who's built a real services business from scratch, not a pitch deck.", "Cloudgentic's clients are exactly the kind of local, trust-driven businesses that never show up in AI search — worth comparing notes on what actually gets a small firm found."], "starter": "How are you getting Cloudgentic in front of accounting firms right now?", "hook": "Two bootstrapped B2B builders in the same room — don't waste it."}, {"name": "Tomas Aparicio", "role": "Molecular Biologist Turned Early-Stage Investor | Flusso Capital", "bullets": ["Tomas made the jump from a decade in molecular oncology at Columbia to sourcing deep tech and life science deals — a genuinely different vantage point on what makes a venture story land.", "He writes publicly about venture economics and forecasting; useful company for anyone thinking about how their own pitch reads to an outside, technical eye."], "starter": "What actually convinces you a founder's mechanism is real versus well-packaged?", "hook": "Worth a real conversation, not just a hallway hello."}, {"name": "Valentin Israel", "role": "Founder & CEO, CashXChain", "bullets": ["Valentin just closed an oversubscribed pre-seed for CashXChain (backed by Bavarian Capital Management and Blue Lake Ventures) and is in New York this week for Finovate — hiring, scaling, and pushing toward launch all at once.", "Could help with: a quick gut-check on what CashXChain's current web presence tells an LLM about what the company actually does."], "starter": "What's brought you to New York for Finovate this week?", "hook": "If you only talk to one person tonight, make it Valentin."}, {"name": "Marisa McKnight", "role": "Business Development, True Markets", "bullets": ["Marisa's done BD at a stablecoin-native exchange and founded two companies of her own before that — a useful read on how growth actually gets built inside fast-moving fintech.", "Could help with: comparing notes on what's working (and what isn't) in outbound and partnerships for early crypto-adjacent products."], "starter": "What's actually converting for True Markets in outbound right now?", "hook": "Don't let the night end without talking to Marisa."}]}, {"name": "Riwayat Katia", "first_name": "Riwayat", "email": "riwayatkatia.rk@gmail.com", "role": "Building Scientist, Lamarr.AI", "matches": [{"name": "Andy Ye", "role": "Human Life CORD Japan Inc.", "bullets": ["Andy's company is building an economic ecosystem around umbilical cord-derived cell therapy out of Tokyo — deep science, real regulatory stakes, a world away from PropTech but the same fight to translate hard research into something fundable.", "Could help with: comparing what it takes to get technical, evidence-heavy work taken seriously by non-technical stakeholders — a problem you're both living."], "starter": "What's the hardest part of explaining HLC-MSC therapy to someone outside biotech?", "hook": "Two scientists-turned-founders — rare pairing, worth finding each other."}, {"name": "Tomas Aparicio", "role": "Molecular Biologist Turned Early-Stage Investor | Flusso Capital", "bullets": ["Tomas spent over a decade in molecular oncology before moving into deep tech and life science investing — someone who can speak both the research language and the venture one.", "Could help with: a genuinely technical gut-check on how Lamarr.AI's building-science research translates into an investable story."], "starter": "What's the biggest gap you see between good science and a fundable pitch?", "hook": "Worth carving out real time for, not just a handshake."}, {"name": "Sunghun Lee", "role": "Founding Engineer, sieve (YC X25)", "bullets": ["Sunghun builds agentic AI and document-processing pipelines at a YC-backed startup — the kind of applied ML background that's directly relevant if Lamarr.AI's inspection platform ever needs to lean harder on ingestion and pipeline work.", "Could help with: a technical peer's read on scaling an AI product from research prototype to production pipeline."], "starter": "What's been the hardest part of scaling sieve's document pipeline?", "hook": "Worth a real conversation, not just a hallway hello."}]}, {"name": "Ezana Dawit", "first_name": "Ezana", "email": "dawit.ezana@gmail.com", "role": "Senior Analyst, QuinStreet", "matches": [{"name": "Mira Patel", "role": "AI Strategy & Innovation Consultant, Blend360", "bullets": ["Mira's spent a decade helping organizations translate emerging tech into clear, actionable strategy — exactly the kind of framing conversation that helps when an idea is still taking shape.", "Could help with: pressure-testing how to talk about a data-driven idea before it's fully built."], "starter": "What's one question you'd ask before committing to an idea?", "hook": "Worth finding Mira before the night's over."}, {"name": "Ishaan Shakunt", "role": "Co-founder, Chosenly.com & Founder, Spear Growth", "bullets": ["Ishaan's built two companies around getting B2B products found — bootstrapped, not funded, which makes his read on go-to-market unusually grounded.", "Could help with: early thinking on how any product idea will actually get discovered once it exists."], "starter": "What's the first growth channel you'd test for a brand-new idea?", "hook": "Make a point of finding Ishaan tonight."}, {"name": "Sunghun Lee", "role": "Founding Engineer, sieve (YC X25)", "bullets": ["Sunghun moved from data analyst to ML engineer to founding engineer at a YC-backed startup — a useful peer for anyone with a data background weighing what to build next.", "Could help with: comparing notes on the jump from analyst work to building product."], "starter": "What made you confident enough to go from analyst to founding engineer?", "hook": "Worth a real conversation, not just a hallway hello."}]}, {"name": "Sunghun Lee", "first_name": "Sunghun", "email": "sunghun@usesieve.com", "role": "Founding Engineer, sieve (YC X25)", "matches": [{"name": "DC", "role": "Senior Gen AI Engineer / Product Developer, A5 Labs", "bullets": ["DC's been a technical founder at four startups across three continents with two exits — someone who's seen the founding-engineer-to-founder path from the inside more than once.", "Could help with: a blunt, experienced read on when it makes sense to go from building someone else's product to building your own."], "starter": "What made the jump from engineer to founder worth it for you?", "hook": "Two AI engineers deep in the build — don't let this one pass."}, {"name": "Riwayat Katia", "role": "Building Scientist, Lamarr.AI", "bullets": ["Riwayat applies AI to building-exterior inspection at Lamarr.AI — different domain, same core problem of turning messy real-world data into something a business can act on.", "Could help with: cross-pollinating ideas on ingestion pipelines across very different verticals."], "starter": "What's the messiest part of the data Lamarr.AI has to work with?", "hook": "Worth carving out real time for, not just a handshake."}, {"name": "Kudzai King", "role": "Founder & CEO, AEONICAL LAB", "bullets": ["Kudzai's built a patent-pending, non-neural-network AI architecture from first-principles math and physics at AEONICAL LAB — already scoring on the ARC-AGI-3 benchmark, a genuinely different approach from the agentic AI most of the room is building.", "Could help with: a technical peer's read on his architecture from someone deep in production agentic systems."], "starter": "How does a non-neural-network system actually compare on the benchmarks that matter?", "hook": "Make a point of finding Kudzai tonight."}]}, {"name": "DC", "first_name": "DC", "email": "dc@rik.ai", "role": "Senior Gen AI Engineer / Product Developer, A5 Labs", "matches": [{"name": "Kudzai King", "role": "Founder & CEO, AEONICAL LAB", "bullets": ["Kudzai built AEONICAL LAB's core AI architecture solo — patent-pending, no neural network, scoring on the ARC-AGI-3 benchmark — and is now figuring out how to build the institution around it.", "Could help with: your read, as a four-time technical founder, on when and how to bring in the first outside hires."], "starter": "What's the first hire you'd make going from solo builder to a real team?", "hook": "If you only have time for one new conversation, make it Kudzai."}, {"name": "Sheyla Perez", "role": "UX Researcher & Product Designer | Co-Founder, CareerDay", "bullets": ["Sheyla co-founded CareerDay, an AI-driven career exploration platform for students, and brings UX research experience from Sesame Workshop, Mastercard, Lyft, and Samsung — she and her cofounder Namra are looking for the technical partner to match that product sense.", "Could help with: an honest read on what CareerDay's AI roadmap and gaming simulations would take to build well."], "starter": "What would CareerDay's AI-generated roadmap need technically to go from demo to reliable?", "hook": "Worth finding Sheyla before the night's over."}, {"name": "Sunghun Lee", "role": "Founding Engineer, sieve (YC X25)", "bullets": ["Sunghun's building agentic AI/document pipelines at a YC-backed startup — a peer conversation on where AI tooling is actually heading, not just hype.", "Could help with: comparing notes on what's genuinely production-ready in agentic AI right now versus still a demo."], "starter": "What's been the biggest surprise building at sieve post-YC?", "hook": "Two AI engineers deep in the build — don't let this one pass."}], "aliases": ["D"]}, {"name": "Mira Patel", "first_name": "Mira", "email": "mira.patel@blend360.com", "role": "AI Strategy & Innovation Consultant, Blend360", "matches": [{"name": "Ezana Dawit", "role": "Senior Analyst, QuinStreet", "bullets": ["Ezana's a data professional actively exploring entrepreneurship — the exact stage where an outside strategist's framing question can save months.", "Could help with: helping shape a data-driven idea into something with a clear angle before it's built."], "starter": "What's the idea you keep coming back to but haven't started yet?", "hook": "Worth finding Ezana before the night's over."}, {"name": "Varun Purushothaman", "role": "Founder, Amulet (YC S26)", "bullets": ["Varun's building Amulet, a performant file system for AI agents, through Y Combinator's Summer 2026 batch — worth a strategist's read on how to position deep infrastructure to non-technical audiences.", "Could help with: sharpening how Amulet explains what it does to people outside of AI infra."], "starter": "How do you explain 'a file system for agents' to someone outside AI?", "hook": "Make a point of finding Varun tonight."}, {"name": "Tommy Hsiao", "role": "VP & Global Head of OpenAI Practice, Blend360", "bullets": ["You're actually colleagues — Tommy runs Blend360's global OpenAI practice while you consult on AI strategy and innovation there. Worth finding out if you've crossed paths internally.", "Could help with: comparing notes on Blend360's enterprise AI work versus what he's building part-time at MagiMoments."], "starter": "Have you two actually met inside Blend360 before tonight?", "hook": "Same company, different floor — don't leave without meeting Tommy."}]}, {"name": "Andy ye", "first_name": "Andy", "email": "andy.ye@humanlifecord.com", "role": "Human Life CORD Japan Inc.", "matches": [{"name": "Tomas Aparicio", "role": "Molecular Biologist Turned Early-Stage Investor | Flusso Capital", "bullets": ["Tomas spent over a decade in molecular oncology at Columbia before moving into life science investing — genuinely rare to find someone in this room who can pressure-test cell therapy biology directly.", "Could help with: an investor's read on how HLC's mechanism and manufacturing advantages would land with US or global capital."], "starter": "What would it take to bring HLC-MSC manufacturing outside Japan?", "hook": "If you only have time for one new conversation tonight, make it Tomas."}, {"name": "Riwayat Katia", "role": "Building Scientist, Lamarr.AI", "bullets": ["Riwayat also works at the intersection of hard science and a commercial product — different field, same challenge of proving something technical is worth paying for.", "Could help with: comparing notes on translating deep research into a business non-scientists can evaluate."], "starter": "What's been hardest about explaining the science to non-technical partners?", "hook": "Two scientists-turned-founders — rare pairing, worth finding each other."}, {"name": "DC", "role": "Senior Gen AI Engineer / Product Developer, A5 Labs", "bullets": ["DC's built products and platforms across four startups — a useful outside perspective on the operational and data tooling side of scaling a biotech-adjacent business globally.", "Could help with: thinking through what tech infrastructure actually matters versus what can wait."], "starter": "What does HLC still do manually that technology could take off your plate?", "hook": "Worth a real conversation, not just a hallway hello."}]}, {"name": "solal.pm", "first_name": "Solal", "email": "solal.pm@gmail.com", "role": "Building — Prototype/MVP stage", "matches": [{"name": "Holly Cao", "role": "AI Researcher, Deep Market Making Inc. | Building Metmory", "bullets": ["Holly just shipped Metmory, a live App Store app for capturing people you meet at events, after building it solo alongside her PhD research — worth hearing what it took to actually ship.", "Could help with: an honest peer sanity-check on going from working prototype to shipped product."], "starter": "What was the hardest part of getting Metmory from working to shipped?", "hook": "Worth finding Holly before the night's over."}, {"name": "Basith", "role": "Analytics Engineer | Building Tabular Autopilot", "bullets": ["Basith's building Tabular Autopilot, a tool that auto-analyzes raw datasets — also at the prototype/MVP stage, worth comparing what's actually working.", "Could help with: an honest peer sanity-check on the build."], "starter": "What's the biggest open question in your prototype right now?", "hook": "Make a point of finding Basith tonight."}, {"name": "DC", "role": "Senior Gen AI Engineer / Product Developer, A5 Labs", "bullets": ["DC's been a technical founder at four startups — worth a few minutes for a blunt, experienced read on where the prototype stands.", "Could help with: flagging what tends to break when a prototype meets real users."], "starter": "What's the one thing you'd want a technical outsider to poke at?", "hook": "Worth a real conversation, not just a hallway hello."}]}, {"name": "Tomas Aparicio", "first_name": "Tomas", "email": "ta2308@bmdtechinsights.com", "role": "Molecular Biologist Turned Early-Stage Investor | Flusso Capital", "matches": [{"name": "Andy Ye", "role": "Human Life CORD Japan Inc.", "bullets": ["Andy's company is manufacturing umbilical cord-derived cell therapy at scale out of Tokyo — precisely the differentiated, evidence-heavy biology Tomas says he looks for.", "Could help with: an outside read on how HLC's manufacturing edge would be evaluated by US or global capital."], "starter": "What's HLC-MSC's actual manufacturing edge over other sourced MSCs?", "hook": "If you only have time for one new conversation, make it Andy."}, {"name": "Valentin Israel", "role": "Founder & CEO, CashXChain", "bullets": ["Valentin just closed an oversubscribed pre-seed for CashXChain, backed by Bavarian Capital Management and Blue Lake Ventures — worth a direct conversation on what comes after pre-seed.", "Could help with: an investor's honest take on how the story should evolve heading into a seed round."], "starter": "What's the story you'll need to tell for your next raise that's different from pre-seed?", "hook": "Make a point of finding Valentin tonight."}, {"name": "Erika Kaneko", "role": "Kaneko Law Firm", "bullets": ["Erika's a startup-facing lawyer who's been to Yorkseed events before — the kind of person worth knowing before a term sheet ever shows up, not after.", "Could help with: comparing notes on where legal and diligence issues most often sink an early-stage deal."], "starter": "What's the most common legal mistake you see pre-seed founders make?", "hook": "Worth carving out real time for, not just a handshake."}]}, {"name": "Aldo Grillo", "first_name": "Aldo", "email": "aldogrillo@gmail.com", "role": "Founder, Cloudgentic AI, Inc.", "matches": [{"name": "Ishaan Shakunt", "role": "Co-founder, Chosenly.com & Founder, Spear Growth", "bullets": ["Ishaan's built two bootstrapped B2B companies around AI search visibility — directly relevant if Cloudgentic wants accounting firms to find it through more than referrals.", "Could help with: a specific read on whether Cloudgentic's current site gives LLMs anything to recommend it on."], "starter": "How much of Cloudgentic's pipeline right now is referral versus inbound?", "hook": "Two bootstrapped B2B builders in the same room — don't waste it."}, {"name": "Valentin Israel", "role": "Founder & CEO, CashXChain", "bullets": ["Valentin had Certora formally verify CashXChain's on-chain and off-chain payment logic before scaling — exactly the security-first instinct Cloudgentic sells into regulated accounting firms.", "Could help with: a candid conversation on where a growing fintech's security and ops setup tends to break first."], "starter": "What convinced you formal verification was worth doing before you were forced to?", "hook": "Two security-minded operators — worth a real conversation."}, {"name": "Marisa McKnight", "role": "Business Development, True Markets", "bullets": ["Marisa does BD at a security-conscious crypto exchange — a useful sounding board on how regulated, trust-driven businesses evaluate a new vendor like Cloudgentic.", "Could help with: how a fintech's BD team actually vets and brings on infrastructure and security partners."], "starter": "What convinces a fintech team to trust a new vendor?", "hook": "Worth a real conversation, not just a hallway hello."}]}, {"name": "Marisa McKnight", "first_name": "Marisa", "email": "marisa.mcknight@truemarkets.co", "role": "Business Development, True Markets", "matches": [{"name": "Valentin Israel", "role": "Founder & CEO, CashXChain", "bullets": ["Valentin's CashXChain just partnered with Stablegate for stablecoin settlement rails — squarely in the same stablecoin-infrastructure world as True Markets.", "Could help with: BD and partnership instincts from someone doing the same motion inside a crypto-native company."], "starter": "How's the Stablegate partnership actually changing what you can offer customers?", "hook": "If you only have time for one new conversation, make it Valentin."}, {"name": "Aldo Grillo", "role": "Founder, Cloudgentic AI, Inc.", "bullets": ["Aldo bootstrapped an AI-first MSP after almost a decade running IT for a NYC borough president's office — a real operator's read on scrappy go-to-market.", "Could help with: comparing notes on selling into trust-heavy, security-conscious buyers."], "starter": "How are you building trust with buyers who are naturally risk-averse?", "hook": "Two bootstrapped operators — worth a real conversation."}, {"name": "Gunnar", "role": "Invest with Carl", "bullets": ["Gunnar's building something in the investing/fintech content space — worth comparing notes on what's actually landing with a crypto-curious audience right now.", "Could help with: cross-pollinating audience and partnership ideas across fintech and crypto content."], "starter": "What's resonating most with your audience right now?", "hook": "Worth finding Gunnar before the night's over."}]}, {"name": "Erika Kaneko", "first_name": "Erika", "email": "erika@kanekolawfirm.com", "role": "Kaneko Law Firm", "matches": [{"name": "Kudzai King", "role": "Founder & CEO, AEONICAL LAB", "bullets": ["Kudzai's AEONICAL LAB has a 49-claim patent application pending and is moving from solo R&D into governance, capital, and enterprise deployment — exactly the stage where the right counsel matters.", "Could help with: flagging what legal structure actually needs to be in place before AEONICAL LAB scales beyond its founder."], "starter": "What's the biggest legal gap between 'the tech works' and 'the institution is real'?", "hook": "Worth finding Kudzai before the night's over."}, {"name": "Valentin Israel", "role": "Founder & CEO, CashXChain", "bullets": ["Valentin's hiring a Legal & Compliance intern to own MiCAR and AML work at CashXChain as the company scales past its pre-seed round.", "Could help with: what to actually look for (or watch out for) as he builds out compliance from an intern up."], "starter": "What does 'owning MiCAR and AML' actually look like for a one-person compliance hire?", "hook": "Make a point of finding Valentin tonight."}, {"name": "Sheyla Perez", "role": "UX Researcher & Product Designer | Co-Founder, CareerDay", "bullets": ["Sheyla already co-founded CareerDay with Namra Jahanzaib and is now looking for a technical cofounder to join — exactly the moment to get the cap table and agreements right before a third founder joins informally.", "Could help with: what to put in writing before a new cofounder comes on board."], "starter": "Do you have anything formal in place with Namra yet, or is it still informal?", "hook": "Worth finding Sheyla before the night's over."}]}, {"name": "Mridul Pathak", "first_name": "Mridul", "email": "mridulpathak007@gmail.com", "role": "Attending tonight", "matches": [{"name": "Tommy Hsiao", "role": "VP & Global Head of OpenAI Practice, Blend360 | Part-time Founder, MagiMoments", "bullets": ["Tommy runs Blend360's global OpenAI practice by day and builds MagiMoments part-time on the side — a useful person to ask honest, unglamorous questions about starting something with no free time.", "Could help with: real talk on what it actually takes to build part-time while holding down a demanding day job."], "starter": "How do you actually find time for MagiMoments around a full-time role?", "hook": "Make a point of finding Tommy tonight."}, {"name": "Ishaan Shakunt", "role": "Co-founder, Chosenly.com & Founder, Spear Growth", "bullets": ["Ishaan's built two bootstrapped companies from nothing — a useful person to ask honest, unglamorous questions about starting out.", "Could help with: real talk on what actually matters in the first year of building."], "starter": "What do you wish someone had told you before you started?", "hook": "Make a point of finding Ishaan tonight."}, {"name": "Erika Kaneko", "role": "Kaneko Law Firm", "bullets": ["Erika's a startup-facing lawyer — worth meeting early, before there's a reason you need one urgently.", "Could help with: knowing what legal basics to have in place, whenever things start moving."], "starter": "What's the first legal thing most early founders forget?", "hook": "Worth a real conversation, not just a hallway hello."}]}, {"name": "Tommy", "first_name": "Tommy", "email": "thomashsiaopsu@gmail.com", "role": "VP & Global Head of OpenAI Practice, Blend360 | Part-time Founder, MagiMoments", "matches": [{"name": "Mira Patel", "role": "AI Strategy & Innovation Consultant, Blend360", "bullets": ["You're both at Blend360 — Mira on AI strategy and innovation consulting, you running the global OpenAI practice. Worth finding out if you've actually met internally yet.", "Could help with: comparing notes on how Blend360's enterprise AI work could apply to what you're building at MagiMoments on the side."], "starter": "Have you two actually crossed paths inside Blend360 before?", "hook": "Same company, different floor — don't leave without meeting Mira."}, {"name": "Aldo Grillo", "role": "Founder, Cloudgentic AI, Inc.", "bullets": ["Aldo bootstrapped an AI-first MSP for accounting firms after running IT for a NYC borough president's office — a different scale from enterprise OpenAI partnerships, but the same instincts for what actually gets adopted.", "Could help with: a scrappy operator's read on what's realistic to build solo, part-time, at MagiMoments' stage."], "starter": "What's the biggest gap between enterprise AI rollouts and what a solo builder can actually ship?", "hook": "Worth a real conversation, not just a hallway hello."}, {"name": "Ishaan Shakunt", "role": "Co-founder, Chosenly.com & Founder, Spear Growth", "bullets": ["Ishaan's built two bootstrapped companies around getting products found — useful even for a part-time build like MagiMoments before it needs to compete for attention.", "Could help with: how to think about discoverability early, without a full-time team behind it."], "starter": "What would you test first if you only had a few hours a week?", "hook": "Make a point of finding Ishaan tonight."}, {"name": "DC", "role": "Senior Gen AI Engineer / Product Developer, A5 Labs", "bullets": ["DC's been a technical founder at four startups with two exits — a useful sounding board on what's actually worth building first at MagiMoments.", "Could help with: a blunt technical read on scope, given you're building this part-time."], "starter": "What would you cut first if you only had nights and weekends?", "hook": "Worth a real conversation, not just a hallway hello."}], "bio": "You bring hands-on enterprise AI partnerships experience, building MagiMoments on the side."}, {"name": "Vivian Cai", "first_name": "Vivian", "email": "vivian.cai@yale.edu", "role": "Founder, Sustentra", "matches": [{"name": "Aldo Grillo", "role": "Founder, Cloudgentic AI, Inc.", "bullets": ["Aldo builds AI workflow automation and governance tooling (WISPs, access controls, audit trails) for regulated accounting firms — the same compliance-automation instinct behind Sustentra's evidence layer for CSRD and SB 253.", "Could help with: comparing notes on selling AI-driven compliance tooling into auditors and regulated teams who are naturally risk-averse."], "starter": "How do you get a risk-averse, regulated buyer to trust a new AI workflow?", "hook": "Two compliance-automation builders — worth finding each other."}, {"name": "Erika Kaneko", "role": "Kaneko Law Firm", "bullets": ["Erika's a startup-facing lawyer, and Sustentra sits right at the center of a fast-moving regulatory landscape (CSRD, CBAM, SB 253) — worth a conversation on where legal risk actually shows up in ESG assurance products.", "Could help with: flagging legal considerations specific to building for regulated, audit-facing customers."], "starter": "What's the biggest legal blind spot for startups selling into compliance-heavy buyers?", "hook": "Worth finding Erika before the night's over."}, {"name": "Ishaan Shakunt", "role": "Co-founder, Chosenly.com & Founder, Spear Growth", "bullets": ["Ishaan's built two bootstrapped companies around AI search visibility — useful as Sustentra moves from invite-only pilots (the Vanguard 30) toward broader discovery by ESG auditors and consultants.", "Could help with: how to get found by a specific, narrow professional audience once pilots convert to real sales."], "starter": "How do you plan to reach ESG auditors once the Vanguard 30 cohort is full?", "hook": "Make a point of finding Ishaan tonight."}, {"name": "Arjun S", "role": "Building — prototype & paid pilot stage", "bullets": ["Arjun's also balancing an MVP with early paid pilots — a real peer conversation on what's converting versus what's still just interest.", "Could help with: comparing notes on turning pilot interest into an actual signed customer."], "starter": "What finally got your first pilot to convert to paid?", "hook": "Worth a real conversation, not just a hallway hello."}], "bio": "You bring hands-on founder experience building AI infrastructure for ESG and carbon-market assurance."}, {"name": "Holly Cao", "first_name": "Holly", "email": "sc6220@nyu.edu", "role": "AI Researcher, Deep Market Making Inc. | PhD Candidate, NJIT | Building Metmory", "matches": [{"name": "Mohammad Sanatkar", "role": "Founder, SelfMachines | PhD, Duke | ex-Waymo, Cruise, eBay", "bullets": ["Mohammad's a Duke PhD who led perception teams at Waymo and Cruise before founding SelfMachines, a no-code ML agent platform — a rare technical peer for your streaming-algorithms and risk-modeling research.", "Could help with: a fellow researcher-turned-builder's read on what's worth productizing versus keeping academic."], "starter": "What made you leave a Waymo-scale research team to go build a no-code platform?", "hook": "Two AI researchers deep in the build — don't let this one pass."}, {"name": "DC", "role": "Senior Gen AI Engineer / Product Developer, A5 Labs", "bullets": ["DC's shipped consumer AI products across four startups — directly useful now that Metmory is freshly live on the App Store and you're looking for real users and honest feedback.", "Could help with: a blunt technical read on what happens once an indie app starts getting real usage."], "starter": "What's the first thing you'd stress-test once an indie app starts getting downloads?", "hook": "Worth a real conversation, not just a hallway hello."}, {"name": "Ezana Dawit", "role": "Senior Analyst, QuinStreet", "bullets": ["Ezana's a data professional exploring entrepreneurship — worth hearing her read on Metmory's data model for capturing and organizing people you meet.", "Could help with: a data-analytics perspective on how Metmory could surface patterns across events over time."], "starter": "What would make Metmory's data genuinely useful months after an event, not just right after?", "hook": "Make a point of finding Ezana tonight."}], "bio": "You bring hands-on research and founder experience, having just shipped Metmory, a live App Store app for capturing the people you meet at events like this one."}, {"name": "Mohammad Sanatkar", "first_name": "Mohammad", "email": "mr.sanatkar@gmail.com", "role": "Founder, SelfMachines | PhD, Duke | ex-Waymo, Cruise, eBay", "matches": [{"name": "Kudzai King", "role": "Founder & CEO, AEONICAL LAB", "bullets": ["Kudzai's building a non-neural-network AI architecture from first-principles math and physics at AEONICAL LAB, patent-pending and already scoring on the ARC-AGI-3 benchmark — a genuinely rare peer conversation on novel AI architecture, not another LLM wrapper.", "Could help with: comparing notes on what it takes to get a fundamentally new approach taken seriously by a market trained on transformers."], "starter": "How do you explain a non-neural-network approach to investors used to hearing about LLMs?", "hook": "If you only have time for one new conversation, make it Kudzai."}, {"name": "DC", "role": "Senior Gen AI Engineer / Product Developer, A5 Labs", "bullets": ["DC's been a technical founder at four startups with two exits — a useful peer on the jump from deep applied research (Waymo, Cruise) to building a product company from scratch.", "Could help with: an experienced read on what to prioritize building SelfMachines' no-code platform."], "starter": "What surprised you most about going from research scientist to founder?", "hook": "Worth a real conversation, not just a hallway hello."}, {"name": "Sunghun Lee", "role": "Founding Engineer, sieve (YC X25)", "bullets": ["Sunghun's building agentic AI and document-processing pipelines at a YC-backed startup — directly adjacent to SelfMachines' no-code agent-building platform.", "Could help with: comparing notes on what's genuinely production-ready in agent tooling right now versus still a demo."], "starter": "What's been the biggest surprise building agent infrastructure post-YC?", "hook": "Two AI builders deep in the work — don't let this one pass."}], "bio": "You bring hands-on experience building SelfMachines, a no-code ML agent platform, after leading perception teams at Waymo and Cruise."}, {"name": "Basith", "first_name": "Basith", "email": "basithrandom@gmail.com", "role": "Analytics Engineer | Building Tabular Autopilot", "matches": [{"name": "Ezana Dawit", "role": "Senior Analyst, QuinStreet", "bullets": ["Ezana's a fellow data professional exploring entrepreneurship — worth comparing notes on turning an analytics side project like Tabular Autopilot into something more.", "Could help with: a peer's read on where a data-tooling side project could actually find its first real users."], "starter": "What made you start building Tabular Autopilot in the first place?", "hook": "Worth finding Ezana before the night's over."}, {"name": "Holly Cao", "role": "AI Researcher, Deep Market Making Inc. | Building Metmory", "bullets": ["Holly just shipped Metmory, a live App Store app, after building it solo — worth hearing what it actually took to go from a working tool to something real people use.", "Could help with: a peer's read on what changes once a data or analytics tool needs to ship, not just work."], "starter": "What was the hardest part of getting Metmory from working to shipped?", "hook": "Make a point of finding Holly tonight."}, {"name": "DC", "role": "Senior Gen AI Engineer / Product Developer, A5 Labs", "bullets": ["DC's been a technical founder at four startups — worth a few minutes for a blunt, experienced read on where Tabular Autopilot could go next.", "Could help with: flagging what tends to matter once an auto-analysis tool meets messier real-world data."], "starter": "What's the messiest dataset Tabular Autopilot has had to handle so far?", "hook": "Worth a real conversation, not just a hallway hello."}]}, {"name": "Kudzai King", "first_name": "Kudzai", "email": "kudzai@aeonicallab.com", "role": "Founder & CEO, AEONICAL LAB | Co-Founder, Curious Minds Entertainment", "matches": [{"name": "Mohammad Sanatkar", "role": "Founder, SelfMachines | PhD, Duke | ex-Waymo, Cruise, eBay", "bullets": ["Mohammad left a Waymo/Cruise perception research career to found SelfMachines, a no-code ML agent platform, through Pear VC and Forum Ventures — a genuine technical peer, not just another founder.", "Could help with: comparing notes on what accelerator and investor conversations actually look like for a deeply technical, non-obvious product."], "starter": "What did Pear VC push you hardest on when you pitched something this technical?", "hook": "If you only have time for one new conversation, make it Mohammad."}, {"name": "Tomas Aparicio", "role": "Molecular Biologist Turned Early-Stage Investor | Flusso Capital", "bullets": ["Tomas made the jump from a decade in molecular oncology research to sourcing deep tech deals — a rare investor in the room who can actually pressure-test a first-principles technical claim rather than pattern-match to buzzwords.", "Could help with: an investor's honest read on how AEONICAL LAB's story lands with people who aren't already technical believers."], "starter": "What would make a technical investor trust a claim this far outside the mainstream?", "hook": "Worth carving out real time for, not just a handshake."}, {"name": "DC", "role": "Senior Gen AI Engineer / Product Developer, A5 Labs", "bullets": ["DC's been a technical founder at four startups with two exits — someone who's actually lived the transition from building solo to building an institution around the technology.", "Could help with: a blunt, experienced read on when and how to bring in the first outside technical hires."], "starter": "What's the first hire you'd make going from solo builder to a real team?", "hook": "Worth a real conversation, not just a hallway hello."}], "bio": "You bring hands-on systems-research experience, having built AEONICAL LAB's core AI architecture solo before bringing in outside validation, capital, or a team."}, {"name": "Liam Alizadeh", "first_name": "Liam", "email": "liamadsr@gmail.com", "role": "Digital Applications Architect, CHANEL | ex-Product, Songtrust & TodayTix", "matches": [{"name": "Shanya Tsai", "role": "Founder, HangRr (Savvy Closet Inc.) | Wharton", "bullets": ["Shanya's building HangRr, an AI style companion for sustainable, community-driven wardrobe styling — directly in your world of digital fashion product, just from the startup side instead of the luxury-house side.", "Could help with: a founder's-eye view of what building AI-native fashion product actually looks like outside a company like CHANEL."], "starter": "What would make HangRr's AI stylist feel more like a CHANEL-level experience?", "hook": "Worth finding Shanya before the night's over."}, {"name": "Varun Purushothaman", "role": "Founder, Amulet (YC S26)", "bullets": ["Varun's building Amulet, a performant file system for AI agents, through Y Combinator's Summer 2026 batch — deep infrastructure, a different world from consumer luxury product, but still real product thinking underneath.", "Could help with: early product and positioning feedback before more of Amulet gets built out publicly."], "starter": "What's the hardest part of explaining infrastructure to non-technical users?", "hook": "Make a point of finding Varun tonight."}, {"name": "Zoleka Mosiah", "role": "Founder, Lula", "bullets": ["Liam's spent his career on the product and digital-experience side, most recently architecting CHANEL's digital client experience — a genuinely useful outside eye on a consumer product like Lula.", "Could help with: a seasoned product read on where Lula's experience could be tightened."], "starter": "What's the first thing you'd want a product-minded outsider to poke at in Lula?", "hook": "Worth a real conversation, not just a hallway hello."}]}, {"name": "Tiffany Rose", "first_name": "Tiffany", "email": "tirose85@gmail.com", "role": "Building — needs more customers/growth", "matches": [{"name": "Ishaan Shakunt", "role": "Co-founder, Chosenly.com & Founder, Spear Growth", "bullets": ["Ishaan's built two companies specifically around visibility and growth — a direct fit for where you're stuck right now.", "Could help with: a concrete read on your current growth approach."], "starter": "What's your main growth channel right now, and how's it performing?", "hook": "If you only have time for one new conversation, make it Ishaan."}, {"name": "Mohammad Sanatkar", "role": "Founder, SelfMachines | PhD, Duke | ex-Waymo, Cruise, eBay", "bullets": ["Mohammad left a Waymo/Cruise perception research career to found SelfMachines, a no-code ML platform, backed by Pear VC and Forum Ventures — worth hearing how he thinks about reaching first customers for a genuinely technical product.", "Could help with: an outside read on positioning, from someone who's pitched this at an accelerator level."], "starter": "What did Pear VC push you hardest on when it came to go-to-market?", "hook": "Worth finding Mohammad before the night's over."}, {"name": "Marisa McKnight", "role": "Business Development, True Markets", "bullets": ["Marisa's done hands-on BD at a fast-moving crypto exchange — a practical read on partnerships as a growth lever.", "Could help with: whether partnerships could open a faster path than direct outreach."], "starter": "Have partnerships been part of your growth plan at all?", "hook": "Make a point of finding Marisa tonight."}]}, {"name": "Shanya Tsai", "first_name": "Shanya", "email": "getintouch@hangrr.app", "role": "Founder, HangRr (Savvy Closet Inc.) | Wharton", "matches": [{"name": "Liam Alizadeh", "role": "Digital Applications Architect, CHANEL | ex-Product, Songtrust & TodayTix", "bullets": ["Liam architects digital client experience at CHANEL after product roles at TodayTix and Songtrust — a rare, directly relevant read on fashion, luxury, and digital product from inside the industry HangRr is styling for.", "Could help with: a luxury-fashion product eye on HangRr's AI stylist experience and where it could feel more premium."], "starter": "What would make HangRr's AI stylist feel more like a CHANEL-level experience?", "hook": "If you only have time for one new conversation, make it Liam."}, {"name": "Ishaan Shakunt", "role": "Co-founder, Chosenly.com & Founder, Spear Growth", "bullets": ["Ishaan's built two bootstrapped companies around getting products found — useful as HangRr looks to grow beyond its early community of like-minded users.", "Could help with: how to think about discoverability for a values-driven, community-first product."], "starter": "How much of HangRr's growth so far has been organic versus paid?", "hook": "Worth finding Ishaan before the night's over."}, {"name": "Mira Patel", "role": "AI Strategy & Innovation Consultant, Blend360", "bullets": ["Mira's spent a decade helping organizations turn emerging tech into clear strategy — useful for framing HangRr's AI-stylist-plus-sustainability story for a broader audience.", "Could help with: sharpening how HangRr's mission (kindness, sustainability, AI styling) gets communicated at scale."], "starter": "How do you want people to describe HangRr in one sentence?", "hook": "Worth a real conversation, not just a hallway hello."}], "bio": "You bring hands-on experience building HangRr, an AI style companion and agentic commerce platform for local retail, after a career spanning finance journalism, hardware product management at Foxconn, and performance marketing."}, {"name": "Varun Purushothaman", "first_name": "Varun", "email": "varun@amulet.so", "role": "Founder, Amulet (YC S26)", "matches": [{"name": "Sunghun Lee", "role": "Founding Engineer, sieve (YC X25)", "bullets": ["Sunghun's building agentic AI and document-processing pipelines at sieve, a fellow YC company (X25, one batch ahead of Amulet's S26) — a genuine YC peer and technical match on agent infrastructure.", "Could help with: comparing notes on what's actually breaking in production agent systems right now."], "starter": "What's changed most about sieve's infrastructure since your YC batch ended?", "hook": "Fellow YC founders, one batch apart — don't let this one pass."}, {"name": "Mohammad Sanatkar", "role": "Founder, SelfMachines | PhD, Duke | ex-Waymo, Cruise, eBay", "bullets": ["Mohammad's building SelfMachines, a no-code platform for building ML agent pipelines — directly adjacent to Amulet's file-system layer for agents.", "Could help with: a technical peer's read on where agent infrastructure is actually headed."], "starter": "Where do you see the biggest gap in agent infrastructure right now?", "hook": "Worth carving out real time for, not just a handshake."}, {"name": "DC", "role": "Senior Gen AI Engineer / Product Developer, A5 Labs", "bullets": ["DC's been a technical founder at four startups with two exits — a useful outside read on Amulet now that it's live through YC.", "Could help with: a blunt, experienced take on what tends to break once infrastructure like this gets real usage."], "starter": "What's the first thing that breaks once an infra product gets real traffic?", "hook": "Worth a real conversation, not just a hallway hello."}], "bio": "You bring hands-on experience building Amulet, a performant file system for AI agents, through Y Combinator's Summer 2026 batch."}, {"name": "Sheyla Perez", "first_name": "Sheyla", "email": "sheylaperez118@gmail.com", "role": "UX Researcher & Product Designer | Co-Founder, CareerDay", "matches": [{"name": "DC", "role": "Senior Gen AI Engineer / Product Developer, A5 Labs", "bullets": ["DC's been the technical cofounder in the room more than once, across four startups with two exits — exactly the kind of engineering partner CareerDay's AI roadmap and gaming simulations could use.", "Could help with: an honest read on what to screen for in a technical cofounder, and what CareerDay's AI features would actually take to build well."], "starter": "What would CareerDay's AI-generated roadmap need technically to go from demo to reliable?", "hook": "If you only have time for one new conversation, make it DC."}, {"name": "Kudzai King", "role": "Founder & CEO, AEONICAL LAB", "bullets": ["Kudzai built AEONICAL LAB's entire core AI system solo before ever bringing in outside people — worth hearing how he thinks about the line between building alone and needing a technical partner.", "Could help with: a different perspective on the cofounder search, from someone who deliberately built solo first."], "starter": "How did you know when it was time to stop building alone?", "hook": "Worth a real conversation, not just a hallway hello."}, {"name": "Erika Kaneko", "role": "Kaneko Law Firm", "bullets": ["Erika's a startup lawyer who's seen plenty of cofounder relationships form — worth getting the structure right with Namra and any future technical cofounder before it's informal.", "Could help with: what to put in writing once CareerDay adds a technical cofounder."], "starter": "Do you already know what equity split you'd offer a technical cofounder?", "hook": "Worth a real conversation, not just a hallway hello."}], "aliases": ["Avelino"], "bio": "You bring hands-on UX research experience from Sesame Workshop, Mastercard, Lyft, LinkedIn, and Samsung, and co-founded CareerDay, an AI-driven career exploration platform for students."}, {"name": "DJ Patel", "first_name": "DJ", "email": "djpatelemail@gmail.com", "role": "Head of Directs, UV (Multi-Family Office) | Venture Investing", "matches": [{"name": "Valentin Israel", "role": "Founder & CEO, CashXChain", "bullets": ["Valentin just closed an oversubscribed pre-seed for CashXChain and is in New York this week for Finovate — exactly the kind of direct-investing conversation your role at UV would find interesting.", "Could help with: an operator's-eye read on what a multi-family office actually looks for in a fintech's next round."], "starter": "What's brought you to New York for Finovate this week?", "hook": "Worth finding Valentin before the night's over."}, {"name": "Tomas Aparicio", "role": "Molecular Biologist Turned Early-Stage Investor | Flusso Capital", "bullets": ["Tomas scouts deep tech and life science deals and writes publicly about venture economics — a useful peer on the investing side, coming from a very different sourcing angle than a multi-family office.", "Could help with: comparing notes on how direct investing and fund-based sourcing actually differ in practice."], "starter": "How does direct investing from a family office change your diligence process versus a fund?", "hook": "Worth a real conversation, not just a hallway hello."}, {"name": "Kudzai King", "role": "Founder & CEO, AEONICAL LAB", "bullets": ["Kudzai built AEONICAL LAB's core AI architecture solo and is now moving into governance, capital, and institution-building — precisely the stage where a multi-family office's direct-investing lens could be useful.", "Could help with: an investor's honest read on what AEONICAL LAB needs to look like to attract direct capital."], "starter": "What would make AEONICAL LAB a fit for direct investment versus traditional VC?", "hook": "Make a point of finding Kudzai tonight."}], "bio": "You bring hands-on experience across start-up development, scale-up operations, and venture investing at a multi-family office."}, {"name": "Arjun S", "first_name": "Arjun", "email": "as18467@nyu.edu", "role": "Building — prototype & paid pilot stage", "matches": [{"name": "Vivian Cai", "role": "Founder, Sustentra", "bullets": ["Vivian's building Sustentra, AI infrastructure for ESG assurance, and is deep in final pilots with LOIs in hand — worth comparing notes on what's converting versus what's still just interest.", "Could help with: comparing pricing and onboarding lessons."], "starter": "What convinced your first paying users to say yes?", "hook": "Worth finding Vivian before the night's over."}, {"name": "Basith", "role": "Analytics Engineer | Building Tabular Autopilot", "bullets": ["Basith's building Tabular Autopilot, an automated data-analysis tool — a stage behind you at pure prototype/MVP, worth sharing what changed once real users showed up for you.", "Could help with: a preview of what to expect once the tool meets real users."], "starter": "What surprised you most when your MVP met real users?", "hook": "Make a point of finding Basith tonight."}, {"name": "Ishaan Shakunt", "role": "Co-founder, Chosenly.com & Founder, Spear Growth", "bullets": ["Ishaan's built two bootstrapped companies around growth — useful now that there are paying pilots to build on.", "Could help with: what to prioritize once early traction needs to become real growth."], "starter": "What's your current bottleneck — more leads, or converting the ones you have?", "hook": "Worth a real conversation, not just a hallway hello."}]}, {"name": "EJ", "first_name": "Ej", "email": "ej@nnabilife.com", "role": "Founder, Nnabi Life", "matches": [{"name": "Ishaan Shakunt", "role": "Co-founder, Chosenly.com & Founder, Spear Growth", "bullets": ["Ishaan's built two companies specifically around getting products found and chosen — a direct fit for where Nnabi Life is stuck right now.", "Could help with: a concrete read on where your current growth channel is leaking."], "starter": "What's your best-performing channel right now, and why do you think it works?", "hook": "If you only have time for one new conversation, make it Ishaan."}, {"name": "Mohammad Sanatkar", "role": "Founder, SelfMachines | PhD, Duke | ex-Waymo, Cruise, eBay", "bullets": ["Mohammad left a Waymo/Cruise perception research career to found SelfMachines, a no-code ML platform, through Pear VC and Forum Ventures — worth hearing his read on getting a technical product in front of real customers.", "Could help with: an outside perspective on positioning and go-to-market for Nnabi Life."], "starter": "What did Pear VC push you hardest on when it came to go-to-market?", "hook": "Make a point of finding Mohammad tonight."}, {"name": "Marisa McKnight", "role": "Business Development, True Markets", "bullets": ["Marisa's done hands-on BD at a fast-moving crypto exchange and founded two companies before that — a practical read on partnerships as a growth lever.", "Could help with: thinking through which partnerships would actually move the needle for Nnabi Life."], "starter": "Have you tried partnerships, or is it mostly direct outreach so far?", "hook": "Make a point of finding Marisa tonight."}]}, {"name": "Arya Shah", "first_name": "Arya", "email": "aryarsh33@gmail.com", "role": "Building — remote-friendly, paid pilot stage", "matches": [{"name": "Vivian Cai", "role": "Founder, Sustentra", "bullets": ["Vivian's building Sustentra, AI infrastructure for ESG assurance, deep in final pilots with LOIs in hand — worth trading real, current notes on what's converting.", "Could help with: comparing pricing and onboarding lessons."], "starter": "What convinced your first paying users to say yes?", "hook": "Worth finding Vivian before the night's over."}, {"name": "Arjun S", "role": "Building — prototype & paid pilot stage", "bullets": ["Arjun's at a similar stage balancing an MVP with early paid pilots — worth comparing notes on what's actually landing.", "Could help with: swapping honest feedback on pricing and onboarding."], "starter": "What's been the hardest part of turning a pilot into a paying customer?", "hook": "Make a point of finding Arjun tonight."}, {"name": "Aldo Grillo", "role": "Founder, Cloudgentic AI, Inc.", "bullets": ["Aldo built Cloudgentic as a remote-friendly, mostly async operation from Queens — worth a conversation on what actually makes remote-first work operationally.", "Could help with: practical lessons on running a lean, remote-friendly business."], "starter": "What's made remote-friendly actually work for you day to day?", "hook": "Worth a real conversation, not just a hallway hello."}]}, {"name": "Roberto Guzman", "first_name": "Roberto", "email": "grupoguzman@gmail.com", "role": "Grupo Guzman", "matches": [{"name": "DJ Patel", "role": "Head of Directs, UV (Multi-Family Office) | Venture Investing", "bullets": ["DJ leads direct investing and venture work at a multi-family office — worth a conversation on where Grupo Guzman's world and direct capital might overlap.", "Could help with: an investor's outside read on whatever you're weighing right now."], "starter": "What does 'direct investing' actually mean day to day at a family office?", "hook": "Worth finding DJ before the night's over."}, {"name": "Tania Cruz", "role": "Elara IMM", "bullets": ["Tania's building in the investing space — worth a conversation to see where Grupo Guzman's world and hers might overlap.", "Could help with: an outside read on whatever you're weighing right now."], "starter": "What's Grupo Guzman focused on these days?", "hook": "Make a point of finding Tania tonight."}, {"name": "Erika Kaneko", "role": "Kaneko Law Firm", "bullets": ["Erika's a startup-facing lawyer — worth meeting early, whatever stage Grupo Guzman is at.", "Could help with: knowing what legal basics matter, whenever things start moving."], "starter": "What's the first legal thing most early founders forget?", "hook": "Worth a real conversation, not just a hallway hello."}]}, {"name": "Gunnar", "first_name": "Gunnar", "email": "gunnar@investwithcarl.com", "role": "Invest with Carl", "matches": [{"name": "Marisa McKnight", "role": "Business Development, True Markets", "bullets": ["Marisa does BD at a stablecoin-native crypto exchange and founded two companies of her own — a useful conversation on where fintech content and infrastructure meet.", "Could help with: comparing notes on what's landing with a crypto-curious audience right now."], "starter": "What's resonating most with your audience these days?", "hook": "Worth finding Marisa before the night's over."}, {"name": "Tomas Aparicio", "role": "Molecular Biologist Turned Early-Stage Investor | Flusso Capital", "bullets": ["Tomas writes publicly about venture economics and forecasting — worth comparing notes on what makes investing content actually useful versus noise.", "Could help with: an investor's honest read on what content actually builds trust with an audience."], "starter": "What's one piece of investing content you wish existed but doesn't?", "hook": "Make a point of finding Tomas tonight."}, {"name": "Valentin Israel", "role": "Founder & CEO, CashXChain", "bullets": ["Valentin's building CashXChain, cross-border B2B payments infrastructure fresh off an oversubscribed pre-seed round — a fintech peer worth comparing notes with on audience and partnerships.", "Could help with: cross-pollinating ideas between fintech content and fintech infrastructure."], "starter": "Where do you think content and infrastructure in fintech actually intersect?", "hook": "Worth a real conversation, not just a hallway hello."}]}, {"name": "Tania Cruz", "first_name": "Tania", "email": "tania@elaraimm.com", "role": "Elara IMM", "matches": [{"name": "Tomas Aparicio", "role": "Molecular Biologist Turned Early-Stage Investor | Flusso Capital", "bullets": ["Tomas sources deep tech and life science deals as a scout and writes publicly about venture economics — a useful peer on the investing side.", "Could help with: comparing notes on how a differentiated origin story shapes an investment thesis."], "starter": "What's shaped your investment approach the most?", "hook": "Worth finding Tomas before the night's over."}, {"name": "Gunnar", "role": "Invest with Carl", "bullets": ["Gunnar's building something in the fintech/investing content space — worth a conversation to see where your worlds overlap.", "Could help with: swapping notes on what actually builds trust with an investing audience."], "starter": "What's one thing you think most investing content gets wrong?", "hook": "Make a point of finding Gunnar tonight."}, {"name": "Marisa McKnight", "role": "Business Development, True Markets", "bullets": ["Marisa's done BD at a fast-moving crypto exchange after founding two companies of her own — a practical operator's read on the investing and fintech world.", "Could help with: an outside perspective on partnerships and growth in the space."], "starter": "What's the biggest shift you've seen in fintech BD lately?", "hook": "Worth a real conversation, not just a hallway hello."}]}, {"name": "Zoleka Mosiah", "first_name": "Zoleka", "email": "zoleka@withlula.co", "role": "Founder, Lula", "matches": [{"name": "Shanya Tsai", "role": "Founder, HangRr (Savvy Closet Inc.) | Wharton", "bullets": ["Shanya's a stage ahead with HangRr, an AI style companion for sustainable wardrobe styling built through Y Combinator-style vibe-coding tools — worth hearing what the road from idea to a real community-driven product looked like.", "Could help with: a realistic preview of what's coming next for Lula."], "starter": "What do you wish you'd known before HangRr found its first real users?", "hook": "Worth finding Shanya before the night's over."}, {"name": "Varun Purushothaman", "role": "Founder, Amulet (YC S26)", "bullets": ["Varun's building Amulet, a performant file system for AI agents, through Y Combinator's Summer 2026 batch — a very different product from Lula, but worth comparing notes on the YC-style building process.", "Could help with: swapping what's working and what's still unclear at an early stage."], "starter": "What's the biggest open question for Lula right now?", "hook": "Make a point of finding Varun tonight."}, {"name": "Mira Patel", "role": "AI Strategy & Innovation Consultant, Blend360", "bullets": ["Mira's spent a decade helping people turn ambiguity into a clear product direction — useful at Lula's stage.", "Could help with: pressure-testing positioning before more gets built."], "starter": "What's Lula actually solving, in one sentence?", "hook": "Worth a real conversation, not just a hallway hello."}]}, {"name": "Simon Sällström", "first_name": "Simon", "email": "simon.wa.sallstrom@gmail.com", "role": "Founder, DirectEd Development | Co-Host, Tison.io | Host, Voice AI Builders Podcast", "matches": [{"name": "Valentin Israel", "role": "Founder & CEO, CashXChain", "bullets": ["Valentin's actively hiring three interns for CashXChain (business development, software engineering, and legal/compliance) — exactly the kind of vetted, pre-trained talent DirectEd Development and Tison.io place with founders.", "Could help with: a direct pitch on sourcing his software engineering and BD interns through Tison's talent pipeline instead of a cold search."], "starter": "What's been the hardest role to fill for CashXChain so far?", "hook": "If you only have time for one new conversation tonight, make it Valentin."}, {"name": "Sheyla Perez", "role": "UX Researcher & Product Designer | Co-Founder, CareerDay", "bullets": ["Sheyla and her cofounder Namra are looking for a technical cofounder for CareerDay — precisely the gap Tison.io exists to fill, connecting founders with vetted engineering talent.", "Could help with: talking through whether a Tison.io team could get CareerDay's AI roadmap and gaming simulations built faster than a cofounder search."], "starter": "Would a dev team versus a solo technical cofounder actually work for CareerDay?", "hook": "Worth finding Sheyla before the night's over."}, {"name": "Kudzai King", "role": "Founder & CEO, AEONICAL LAB", "bullets": ["Kudzai's moving AEONICAL LAB from a solo-built core system into an institution — needing validation, governance, and people to carry the technology beyond its founder, which is exactly the kind of scaling problem Tison.io's talent model is built for.", "Could help with: how DirectEd's talent pipeline could support AEONICAL LAB's next phase of building out a team."], "starter": "What's the first kind of hire AEONICAL LAB needs as it moves from solo to institution?", "hook": "Worth a real conversation, not just a hallway hello."}], "bio": "You bring hands-on experience building DirectEd Development, which trains top African tech talent that goes on to build MVPs for founders worldwide through Tison.io, and you're co-hosting tonight's event."}, {"name": "Valentin Israel", "first_name": "Valentin", "email": "valentin.israel@cashxchain.com", "role": "Founder & CEO, CashXChain", "matches": [{"name": "Erika Kaneko", "role": "Kaneko Law Firm", "bullets": ["You're hiring a Legal & Compliance intern to own MiCAR and AML work at CashXChain — Erika's a startup-facing lawyer who's been to Yorkseed events before.", "Could help with: a real read on what to look for (or watch out for) as you build out compliance from an intern up."], "starter": "What does 'owning MiCAR and AML' actually look like for a one-person compliance hire?", "hook": "If you only have time for one new conversation, make it Erika."}, {"name": "Aldo Grillo", "role": "Founder, Cloudgentic AI, Inc.", "bullets": ["Aldo runs an AI-first MSP built around secure workflows and cybersecurity for regulated firms — directly relevant now that you've had Certora formally verify CashXChain's on-chain and off-chain logic.", "Could help with: a candid read on where security and ops tend to break as a fintech scales past pre-seed."], "starter": "What convinced you formal verification was worth doing before you were forced to?", "hook": "Two security-minded operators — worth a real conversation."}, {"name": "Marisa McKnight", "role": "Business Development, True Markets", "bullets": ["Marisa does BD at a stablecoin-native crypto exchange — CashXChain's own Stablegate partnership for settlement rails puts you both in the same stablecoin-infrastructure world.", "Could help with: BD instincts on partnerships from someone doing the same motion at True Markets."], "starter": "How's the Stablegate partnership actually changing what you can offer customers?", "hook": "Worth finding Marisa before the night's over."}, {"name": "Tomas Aparicio", "role": "Molecular Biologist Turned Early-Stage Investor | Flusso Capital", "bullets": ["Tomas scouts deep tech and life science deals and writes publicly about venture economics — a useful outside read now that pre-seed is closed and you're thinking about what comes next.", "Could help with: an investor's honest take on how the CashXChain story should evolve heading into a seed round."], "starter": "What's the story you'll need to tell for your next raise that's different from pre-seed?", "hook": "Worth a real conversation, not just a hallway hello."}], "bio": "You bring hands-on fintech founder experience, having just closed an oversubscribed pre-seed round for CashXChain."}];
+
+function applyEventConfig() {
+  document.getElementById('page-title').textContent = 'Yorkseed Event In-Person Match \u2014 ' + EVENT.name;
+  document.getElementById('login-event-name').textContent = EVENT.name;
+  const loginDetail = `${EVENT.city} \u00b7 ${EVENT.dateLabel} \u00b7 ${EVENT.timeLabel}`;
+  document.getElementById('login-event-detail').textContent = loginDetail;
+  let resultsDetailHtml = `${EVENT.dateLabel} &middot; ${EVENT.timeLabel}`;
+  if (EVENT.venueMapUrl) {
+    resultsDetailHtml += ` &middot; <a href="${EVENT.venueMapUrl}" target="_blank" rel="noopener">${EVENT.venueName}</a>`;
+  } else if (EVENT.venueName) {
+    resultsDetailHtml += ` &middot; ${EVENT.venueName}`;
+  }
+  document.getElementById('results-event-detail').innerHTML = resultsDetailHtml;
+  const addrEl = document.getElementById('results-venue-address');
+  if (EVENT.venueAddress) {
+    addrEl.textContent = EVENT.venueAddress;
+    addrEl.style.display = '';
+  } else {
+    addrEl.style.display = 'none';
+  }
+  const contactEl = document.getElementById('results-host-label');
+  if (EVENT.onsiteContact) {
+    contactEl.textContent = EVENT.onsiteContact;
+    contactEl.style.display = '';
+  } else {
+    contactEl.style.display = 'none';
+  }
+  document.getElementById('footer-note').textContent = 'See you at the ' + EVENT.name + '.';
+}
+applyEventConfig();
+
+function normalize(s) {
+  return (s || '').trim().toLowerCase();
+}
+
+function findAttendee(firstName, email) {
+  const fn = normalize(firstName);
+  const em = normalize(email);
+  return ATTENDEES.find(a => {
+    const nameMatches = normalize(a.first_name) === fn ||
+      (a.aliases || []).some(alias => normalize(alias) === fn);
+    return nameMatches && a.email === em;
+  });
+}
+
+function renderMatches(attendee) {
+  document.getElementById('results-heading').textContent = 'Hi ' + attendee.first_name + '.';
+  document.getElementById('results-eyebrow').textContent = attendee.matches.length + ' people curated for you';
+  const subEl = document.getElementById('results-sub');
+  const baseSub = "Based on what you shared in your RSVP, here's who we think you should meet.";
+  subEl.textContent = attendee.bio ? (baseSub + ' ' + attendee.bio) : baseSub;
+  const list = document.getElementById('match-list');
+  list.innerHTML = '';
+  attendee.matches.forEach((m, i) => {
+    const card = document.createElement('div');
+    card.className = 'match-card';
+    const bullets = m.bullets.map(b => '<li>' + b.replace(/</g,'&lt;') + '</li>').join('');
+    const hookHtml = m.hook ? `<div class="match-hook">${m.hook.replace(/</g,'&lt;')}</div>` : '';
+    card.innerHTML = `
+      <div class="match-index">MATCH ${i+1} OF ${attendee.matches.length}</div>
+      <div class="match-name">${m.name}</div>
+      <div class="match-role">${m.role}</div>
+      ${hookHtml}
+      <div class="why-label">Why we think you should meet</div>
+      <ul class="bullets">${bullets}</ul>
+      <div class="starter"><b>Conversation starter:</b> "${m.starter}"</div>
+    `;
+    list.appendChild(card);
+  });
+}
+
+function showError(msg) {
+  const el = document.getElementById('error-msg');
+  el.textContent = msg;
+  el.classList.add('show');
+}
+function hideError() {
+  document.getElementById('error-msg').classList.remove('show');
+}
+
+document.getElementById('login-btn').addEventListener('click', () => {
+  hideError();
+  const fn = document.getElementById('first-name').value;
+  const em = document.getElementById('email').value;
+  if (!fn.trim() || !em.trim()) {
+    showError('Please enter both your first name and email.');
+    return;
+  }
+  const attendee = findAttendee(fn, em);
+  if (!attendee) {
+    showError("We couldn't find a match for that name and email. Please double check what you used to RSVP.");
+    return;
+  }
+  renderMatches(attendee);
+  document.getElementById('login-view').classList.remove('active');
+  document.getElementById('results-view').classList.add('active');
+  document.activeElement && document.activeElement.blur && document.activeElement.blur();
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+  window.scrollTo(0, 0);
+  // Mobile keyboard closing resizes the viewport after the click handler runs,
+  // which can re-shift scroll position — reset again once that settles.
+  setTimeout(() => { window.scrollTo(0, 0); }, 50);
+  setTimeout(() => { window.scrollTo(0, 0); }, 300);
+});
+
+document.getElementById('logout-btn').addEventListener('click', () => {
+  document.getElementById('results-view').classList.remove('active');
+  document.getElementById('login-view').classList.add('active');
+  document.getElementById('first-name').value = '';
+  document.getElementById('email').value = '';
+  hideError();
+  document.activeElement && document.activeElement.blur && document.activeElement.blur();
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+  window.scrollTo(0, 0);
+  // Mobile keyboard closing resizes the viewport after the click handler runs,
+  // which can re-shift scroll position — reset again once that settles.
+  setTimeout(() => { window.scrollTo(0, 0); }, 50);
+  setTimeout(() => { window.scrollTo(0, 0); }, 300);
+});
+
+// Allow Enter key to submit
+['first-name','email'].forEach(id => {
+  document.getElementById(id).addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') document.getElementById('login-btn').click();
+  });
+});
+</script>
+</body>
+</html>
