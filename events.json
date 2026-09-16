@@ -16,7 +16,7 @@
       "url": "https://luma.com/iucmw0b0",
       "coverGradient": "linear-gradient(135deg,#08120d 0%,#0f2419 50%,#123a26 100%)",
       "climateweek": true,
-      "coverImage": "/images/climate-week/yorkseed-climate-kickoff-2026.jpg"
+      "coverImage": "/events/yorkseed-climate-kickoff-2026.jpg"
     },
     {
       "slug": "yorkseed-house-nature-trade-human-health-2026",
@@ -34,7 +34,7 @@
       "url": "https://luma.com/qvz71t2d",
       "coverGradient": "linear-gradient(135deg,#08120d 0%,#0f2419 50%,#123a26 100%)",
       "climateweek": true,
-      "coverImage": "/images/climate-week/yorkseed-nature-trade-human-health-2026.jpg"
+      "coverImage": "/events/yorkseed-nature-trade-human-health-2026.jpg"
     },
     {
       "slug": "valois-allocator-table-breakfast-2026",
@@ -53,7 +53,7 @@
       "coverGradient": "linear-gradient(135deg,#0e0c09 0%,#1a1710 60%,#1f1c13 100%)",
       "valois": true,
       "climateweek": true,
-      "coverImage": "/images/climate-week/valois-allocator-table-2026.jpg"
+      "coverImage": "/events/valois-allocator-table-2026.jpg"
     },
     {
       "slug": "the-living-planet-wildlife-technology-climate-resilience-2026",
@@ -71,7 +71,7 @@
       "url": "https://luma.com/t3v9mick",
       "coverGradient": "linear-gradient(135deg,#08120d 0%,#0f2419 50%,#123a26 100%)",
       "climateweek": true,
-      "coverImage": "/images/climate-week/yorkseed-living-planet-2026.jpg"
+      "coverImage": "/events/yorkseed-living-planet-2026.jpg"
     },
     {
       "slug": "urban-tech-day-stockholm-2026",
@@ -248,7 +248,7 @@
       "description": "A curated gathering connecting frontier technology with the investors, researchers, founders, and institutions shaping what comes next, across Deep Tech, Physical AI, AI Applications, and Health Tech. The 2026 edition is postponed; Yorkseed is planning for 2027 and inviting partners and sponsors to help shape it.",
       "url": "/frontier/",
       "coverGradient": "linear-gradient(135deg,#0A0A0C 0%,#151517 45%,#1B1B1F 100%)",
-      "coverImage": "https://images.unsplash.com/photo-1737644467636-6b0053476bb2?auto=format&fit=crop&w=800&q=75"
+      "coverImage": "/https://images.unsplash.com/photo-1737644467636-6b0053476bb2?auto=format&fit=crop&w=800&q=75"
     },
     {
       "slug": "milan-ai-techweek-aperitivo-2026",
@@ -266,7 +266,7 @@
       "description": "A highly curated, intimate aperitivo during Milan AI Tech Week. Founders, investors, operators and creatives — venture meets conversation in the heart of Milan. Hosted by Yorkseed & EdgeCraft Group.",
       "lumaUrl": "https://luma.com/7utn0v0y",
       "coverGradient": "linear-gradient(135deg,#0d1215 0%,#141b1f 40%,#1a2228 100%)",
-      "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/qe/d1ad4208-ca21-49ce-93e3-2b1d8f215237.png"
+      "coverImage": "/https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/qe/d1ad4208-ca21-49ce-93e3-2b1d8f215237.png"
     },
     {
       "slug": "founding-member-roundtable-q2-2026",
@@ -284,7 +284,7 @@
       "description": "An intimate, high-signal virtual gathering for founders and investors in it for the long game. No panels, no pitches — just candid conversation among a carefully curated group. One-time open preview before it closes to Founding Members only.",
       "lumaUrl": "https://luma.com/00dw8nyc",
       "coverGradient": "linear-gradient(135deg,#0f0d09 0%,#1a160c 40%,#211d10 100%)",
-      "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/event-covers/qu/c4edc191-6633-4f1e-a6b4-bf12bcdfeb61.png"
+      "coverImage": "/https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/event-covers/qu/c4edc191-6633-4f1e-a6b4-bf12bcdfeb61.png"
     },
     {
       "slug": "venture-vitality-healthtech-may-2026",
@@ -302,7 +302,7 @@
       "description": "Off-the-record virtual roundtable for 30 accredited investors in HealthTech. No pitches — candid strategy on deal flow, fund performance, and what's actually scaling in Digital Health, BioTech, MedTech, and FemTech.",
       "lumaUrl": "https://luma.com/4ckvn4sk",
       "coverGradient": "linear-gradient(135deg,#0f0d09 0%,#1a160c 40%,#211d10 100%)",
-      "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/z1/3d93d386-8229-43bf-99a9-c09f4af1fe6c.png"
+      "coverImage": "/https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/z1/3d93d386-8229-43bf-99a9-c09f4af1fe6c.png"
     },
     {
       "slug": "paris-spring-social-2026",
@@ -320,7 +320,7 @@
       "description": "An intimate evening bringing together founders, investors, operators, and ecosystem leaders for meaningful conversations and high-signal connections in Paris.",
       "lumaUrl": "https://luma.com/v48q6wiq",
       "coverGradient": "linear-gradient(135deg,#1a100a 0%,#2a1a0f 40%,#352010 100%)",
-      "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/yt/9b851990-49c9-4dcf-b192-cf723c73c988.png"
+      "coverImage": "/https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/yt/9b851990-49c9-4dcf-b192-cf723c73c988.png"
     },
     {
       "slug": "oasis-human-flourishing-nytechweek-2026",
@@ -334,7 +334,7 @@
       "spots": "Limited capacity",
       "description": "Day 1 of The Oasis at Yorkseed House. How do we ensure technology advances human flourishing? Founders, builders, and creatives at Belong NYC during NY Tech Week.",
       "lumaUrl": "https://partiful.com/e/1bGiVgRQUifMy25hzGrm",
-      "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/rx/64b48c44-2c5a-4f69-bf13-8fd64790f702.png"
+      "coverImage": "/https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/rx/64b48c44-2c5a-4f69-bf13-8fd64790f702.png"
     },
     {
       "slug": "yorkseed-house-nytechweek-2026",
@@ -351,7 +351,7 @@
       "spots": "Curated RSVP · $10 at door",
       "description": "Yorkseed House returns during NY Tech Week with a curated multi-day pop-up at Belong NYC in SoHo. A central gathering point for founders, investors, operators, and ecosystem leaders throughout the week. Hosted by Yorkseed, Belong NYC, Flowstate, and Elevate.",
       "lumaUrl": "https://luma.com/8upa02np",
-      "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/rx/64b48c44-2c5a-4f69-bf13-8fd64790f702.png"
+      "coverImage": "/https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/rx/64b48c44-2c5a-4f69-bf13-8fd64790f702.png"
     },
     {
       "slug": "oasis-future-of-work-nytechweek-2026",
@@ -365,7 +365,7 @@
       "spots": "Limited capacity",
       "description": "Day 2 of The Oasis. What happens to work as AI and automation accelerate? Honest conversation about opportunity and uncertainty at Yorkseed House.",
       "lumaUrl": "https://partiful.com/e/ydp71jPFgU83rwwIYOhv",
-      "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/rx/64b48c44-2c5a-4f69-bf13-8fd64790f702.png"
+      "coverImage": "/https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/rx/64b48c44-2c5a-4f69-bf13-8fd64790f702.png"
     },
     {
       "slug": "ai-blockchain-intersection-nytechweek-2026",
@@ -379,7 +379,7 @@
       "spots": "150 capacity",
       "description": "Panel and Q&A with VCs, operators, and founders on the practical realities of AI and Blockchain converging. Networking follows. Part of Yorkseed House at NY Tech Week.",
       "lumaUrl": "https://partiful.com/e/ytrORmKjcLHr4rudjY3k",
-      "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/rx/64b48c44-2c5a-4f69-bf13-8fd64790f702.png"
+      "coverImage": "/https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/rx/64b48c44-2c5a-4f69-bf13-8fd64790f702.png"
     },
     {
       "slug": "ugly-talk-beauty-tech-nytechweek-2026",
@@ -397,7 +397,7 @@
       "description": "Beauty tech is booming but the category is getting louder, not clearer. This room is for founders and investors who want to separate signal from noise and figure out which trends are truly shaping the future of beauty tech.",
       "lumaUrl": "https://partiful.com/e/68VP2zOWWMpKd3gZsojI",
       "coverGradient": "linear-gradient(135deg,#1a0a14 0%,#2e0d1e 40%,#3d1228 100%)",
-      "coverImage": "https://greyjournal.net/wp-content/uploads/2026/04/square-69f8b24acf6722357a509457.jpeg"
+      "coverImage": "/https://greyjournal.net/wp-content/uploads/2026/04/square-69f8b24acf6722357a509457.jpeg"
     },
     {
       "slug": "oasis-ikigai-nytechweek-2026",
@@ -411,7 +411,7 @@
       "spots": "Limited capacity",
       "description": "Day 3 of The Oasis. Using ikigai to explore purpose and meaning. A space to slow down and reconnect with the bigger why during NY Tech Week.",
       "lumaUrl": "https://partiful.com/e/ucMfyy0lloL2hIWrteQ4",
-      "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/rx/64b48c44-2c5a-4f69-bf13-8fd64790f702.png"
+      "coverImage": "/https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/rx/64b48c44-2c5a-4f69-bf13-8fd64790f702.png"
     },
     {
       "slug": "fintech-ai-pitch-forum-nytechweek-2026",
@@ -429,7 +429,7 @@
       "description": "Curated fintech and AI startup pitches, investor panel, and high-signal networking during NY Tech Week. Application required — founders raising, investors deploying.",
       "lumaUrl": "https://luma.com/1icohbw7?ref=yorkseed",
       "coverGradient": "linear-gradient(135deg,#0a0f1a 0%,#0d1520 40%,#111a26 100%)",
-      "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/event-covers/jv/f7b941d2-c615-44f9-bbc0-7a03bbbd99c0.png"
+      "coverImage": "/https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/event-covers/jv/f7b941d2-c615-44f9-bbc0-7a03bbbd99c0.png"
     },
     {
       "slug": "elevate-recovery-lounge-nytechweek-2026",
@@ -443,7 +443,7 @@
       "spots": "Session-based · $10 at door",
       "description": "Full-day wellness pop-up at Yorkseed House. Zero gravity chairs, compression boots, red light therapy, and eye massage masks. 15-minute sessions throughout the day.",
       "lumaUrl": "https://luma.com/o4g4ozfe",
-      "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/rx/64b48c44-2c5a-4f69-bf13-8fd64790f702.png"
+      "coverImage": "/https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/rx/64b48c44-2c5a-4f69-bf13-8fd64790f702.png"
     },
     {
       "slug": "venture-salon-nytechweek-2026",
@@ -461,7 +461,7 @@
       "description": "During NY Tech Week, In Pulse and Yorkseed brought together a curated group of 75 founders, investors, and AI ecosystem leaders for an invite-only Venture Salon in Manhattan, featuring a live founder pitch competition judged by VCs and angels.",
       "lumaUrl": "https://luma.com/8iacj4of",
       "coverGradient": "linear-gradient(135deg,#0d0d1a 0%,#1a1209 40%,#2a1a08 100%)",
-      "coverImage": "https://partiful.imgix.net/external/user/IEuWNg8MIzV2CNSloIKTDVn6lUj1/IsQjGA0_nlgxMq9QM-bGd?w=800&h=600&fit=crop"
+      "coverImage": "/https://partiful.imgix.net/external/user/IEuWNg8MIzV2CNSloIKTDVn6lUj1/IsQjGA0_nlgxMq9QM-bGd?w=800&h=600&fit=crop"
     },
     {
       "slug": "oasis-emerging-technology-nytechweek-2026",
@@ -475,7 +475,7 @@
       "spots": "Limited capacity",
       "description": "Day 5 and closing session of The Oasis. What's genuinely exciting, what's hype, and what threads are worth pulling on next. The best way to end NY Tech Week.",
       "lumaUrl": "https://partiful.com/e/wME3CoGVwNPhbRyevKYp",
-      "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/rx/64b48c44-2c5a-4f69-bf13-8fd64790f702.png"
+      "coverImage": "/https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/rx/64b48c44-2c5a-4f69-bf13-8fd64790f702.png"
     },
     {
       "slug": "sunset-salon-dcd-apac-bali-2026",
@@ -492,7 +492,7 @@
       "spots": "Limited capacity · Application required",
       "description": "Yorkseed's first gathering in Bali — a curated sunset evening during DCD Connect APAC for founders, investors, family offices, infrastructure operators, and ecosystem leaders. No panels. No agenda. Just the right conversations.",
       "lumaUrl": "https://luma.com/chgvadis",
-      "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/ut/ebcff078-c3b9-4791-b4d7-b0aadb41e348.jpg"
+      "coverImage": "/https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/ut/ebcff078-c3b9-4791-b4d7-b0aadb41e348.jpg"
     },
     {
       "slug": "venture-vitality-healthtech-june-2026",
@@ -510,7 +510,7 @@
       "description": "Private virtual roundtable on preventive health and wellness investing — personalized nutrition, evidence-based supplements, and longevity. Co-hosted by Yorkseed & Health Board Advisors for accredited investors, fund managers, and healthcare executives.",
       "lumaUrl": "https://luma.com/njs0vitk",
       "coverGradient": "linear-gradient(135deg,#0f0d09 0%,#1a160c 40%,#211d10 100%)",
-      "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/event-covers/qs/499f01a0-3366-4a00-a65e-2435c6472195.png"
+      "coverImage": "/https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/event-covers/qs/499f01a0-3366-4a00-a65e-2435c6472195.png"
     },
     {
       "slug": "yorkseed-venture-social-nyc-2026",
@@ -527,7 +527,7 @@
       "spots": "Limited capacity · Role-specific tickets",
       "description": "Join founders, investors, operators, and ecosystem builders for an evening of meaningful conversations above the New York City skyline. Includes 2 months complimentary Yorkseed Connect access.",
       "lumaUrl": "https://luma.com/38milm3c",
-      "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/57/4fffe5ef-46dc-4fd5-94b2-089e0454ae62.png"
+      "coverImage": "/https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/57/4fffe5ef-46dc-4fd5-94b2-089e0454ae62.png"
     },
     {
       "slug": "raise-summit-pitch-roulette-paris-2026",
@@ -544,7 +544,7 @@
       "spots": "Limited capacity · RSVP required",
       "description": "Opening reception and Pitch Roulette kicking off Yorkseed House during RAISE Summit Paris — 2 minutes, 1 shot. Founders scaling bold ideas, investors backing long-term vision, ecosystem allies bridging global corridors, at Osha BWB near the Louvre.",
       "lumaUrl": "https://luma.com/e1qd2zbe",
-      "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/event-covers/gi/e088d000-8250-4dc5-aa0c-2a7418b48bea.jpg"
+      "coverImage": "/https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/event-covers/gi/e088d000-8250-4dc5-aa0c-2a7418b48bea.jpg"
     },
     {
       "slug": "raise-summit-capital-table-lunch-paris-2026",
@@ -561,7 +561,7 @@
       "spots": "By invitation or approval only",
       "description": "A curated founder and investor brunch during RAISE Summit Paris. With-traction founders, previously funded founders, investors, and select ecosystem leaders discussing fundraising, growth, and the future of venture capital.",
       "lumaUrl": "https://luma.com/192nk0qx",
-      "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/vb/b52ce222-7992-4f25-9042-82e3331b1dbe.png"
+      "coverImage": "/https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/uploads/vb/b52ce222-7992-4f25-9042-82e3331b1dbe.png"
     },
     {
       "featured": false,
@@ -611,7 +611,7 @@
       "description": "The second Yorkseed Founding Member Roundtable — an intimate, high-signal virtual gathering exclusive to Founding Members. No panels, no pitches, just candid conversation among a curated group of founders and investors.",
       "lumaUrl": "https://luma.com/yumckdfg",
       "coverGradient": "linear-gradient(135deg,#0f0d09 0%,#1a160c 40%,#211d10 100%)",
-      "coverImage": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/event-covers/7h/e01cbfcc-4a39-4b88-995b-a15a68817051.png"
+      "coverImage": "/https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/event-covers/7h/e01cbfcc-4a39-4b88-995b-a15a68817051.png"
     },
     {
       "featured": false,
