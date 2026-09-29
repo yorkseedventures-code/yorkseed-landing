@@ -1,0 +1,559 @@
+[
+ {
+  "name": "Better Tomorrow Ventures",
+  "type": "Micro-VC",
+  "region": "North America",
+  "hq": "United States",
+  "website": "https://www.btv.vc/",
+  "stages": [
+   "Pre-seed",
+   "Seed"
+  ],
+  "sectors": [
+   "Fintech",
+   "AI"
+  ],
+  "check_size": "$500k to $4M",
+  "description": "Early-stage fund that leads pre-seed and seed rounds in fintech and vertical AI companies.",
+  "investments": [
+   {
+    "company": "Basis",
+    "round": "Series B, participant",
+    "date": "2026-02",
+    "source_url": "https://www.businesswire.com/news/home/20260224020999/en/Basis-Raises-$100M-at-a-$1.15B-Valuation-as-Accounting-Firms-Adopt-End-to-End-Agents-Across-Accounting-Tax-and-Audit"
+   },
+   {
+    "company": "Monk",
+    "round": "Series A, participant",
+    "date": "2026-05",
+    "source_url": "https://www.alleywatch.com/2026/05/monk-ai-accounts-receivable-contract-to-cash-automation-collectons-ar-automation-platform-george-kurdin/"
+   }
+  ],
+  "verified_on": "2026-09-29"
+ },
+ {
+  "name": "Pear VC",
+  "type": "VC",
+  "region": "North America",
+  "hq": "San Francisco, United States",
+  "website": "https://pear.vc/",
+  "stages": [
+   "Pre-seed",
+   "Seed"
+  ],
+  "sectors": [
+   "AI",
+   "Healthcare",
+   "Fintech",
+   "Deep tech",
+   "Climate",
+   "Consumer",
+   "Enterprise"
+  ],
+  "check_size": "$250K to $6M",
+  "description": "Seed specialist that partners with founders at the earliest stages across nine verticals.",
+  "investments": [
+   {
+    "company": "Burst",
+    "round": "Seed, lead",
+    "date": "2026-02",
+    "source_url": "https://retailtechinnovationhub.com/home/2026/2/25/healthcare-payments-platform-burst-bags-3m-including-21m-seed-round-led-by-pear-vc"
+   }
+  ],
+  "verified_on": "2026-09-29"
+ },
+ {
+  "name": "New York Angels",
+  "type": "Angel group",
+  "region": "North America",
+  "hq": "New York, United States",
+  "website": "https://www.newyorkangels.com/",
+  "stages": [
+   "Early-stage"
+  ],
+  "sectors": [],
+  "check_size": null,
+  "description": "Organised angel investment group offering funding, mentoring and connections to early-stage entrepreneurs.",
+  "investments": [
+   {
+    "company": "Kind Designs",
+    "round": "Pre-Series A, participant",
+    "date": "2026-07",
+    "source_url": "https://www.businesswire.com/news/home/20260716799371/en/Kind-Designs-Closes-Oversubscribed-$10M-Round-to-Scale-3D-Printed-Living-Seawalls"
+   }
+  ],
+  "verified_on": "2026-09-29"
+ },
+ {
+  "name": "Salesforce Ventures",
+  "type": "Corporate VC",
+  "region": "North America",
+  "hq": "San Francisco, United States",
+  "website": "https://www.salesforceventures.com/",
+  "stages": [
+   "Early",
+   "Growth"
+  ],
+  "sectors": [
+   "AI",
+   "Enterprise"
+  ],
+  "check_size": null,
+  "description": "Corporate venture arm of Salesforce that invests in enterprise technology and AI companies.",
+  "investments": [
+   {
+    "company": "Emerald AI",
+    "round": "Series A, participant",
+    "date": "2026-08",
+    "source_url": "https://www.businesswire.com/news/home/20260825127649/en/Emerald-AI-Raises-$150-Million-Series-A-at-$1.05-Billion-Valuation-to-Scale-Power-Flexible-AI-Data-Centers"
+   }
+  ],
+  "verified_on": "2026-09-29"
+ },
+ {
+  "name": "Seedcamp",
+  "type": "VC",
+  "region": "Europe",
+  "hq": "London, United Kingdom",
+  "website": "https://seedcamp.com/",
+  "stages": [
+   "Pre-seed",
+   "Seed"
+  ],
+  "sectors": [
+   "Fintech",
+   "AI",
+   "Enterprise",
+   "Healthcare",
+   "Deep tech"
+  ],
+  "check_size": null,
+  "description": "London-based early-stage venture capital firm that backs founders from inception.",
+  "investments": [
+   {
+    "company": "BioOrbit",
+    "round": "Seed, participant",
+    "date": "2026-04",
+    "source_url": "https://seedcamp.com/views/bioorbit-raises-13-2m-in-the-worlds-largest-seed-round-for-space-manufacturing/"
+   },
+   {
+    "company": "Dust",
+    "round": "Series B, participant",
+    "date": "2026-05",
+    "source_url": "https://seedcamp.com/views/dust-raises-40m-series-b-to-build-enterprise-ais-multiplayer-future/"
+   }
+  ],
+  "verified_on": "2026-09-29"
+ },
+ {
+  "name": "Newfund",
+  "type": "Micro-VC",
+  "region": "Europe",
+  "hq": "Paris, France",
+  "website": "https://www.newfundcap.com/",
+  "stages": [
+   "Seed"
+  ],
+  "sectors": [
+   "AI",
+   "Healthcare",
+   "Cybersecurity",
+   "Deep tech"
+  ],
+  "check_size": null,
+  "description": "Early-stage venture capital firm with offices in Paris and Palo Alto.",
+  "investments": [
+   {
+    "company": "Keria",
+    "round": "EUR 1.5M round",
+    "date": "2025-12",
+    "source_url": "https://finyear.com/anciennement-cezam-keria-leve-15-million"
+   }
+  ],
+  "verified_on": "2026-09-29"
+ },
+ {
+  "name": "Angel Academe",
+  "type": "Angel group",
+  "region": "Europe",
+  "hq": "United Kingdom",
+  "website": "https://www.angelacademe.com/",
+  "stages": [
+   "Early-stage"
+  ],
+  "sectors": [
+   "AI",
+   "Healthcare",
+   "Climate",
+   "Fintech",
+   "Enterprise"
+  ],
+  "check_size": null,
+  "description": "UK angel network and EIS fund backing scalable technology businesses with at least one woman on the founding team.",
+  "investments": [
+   {
+    "company": "Zonova",
+    "round": "Seed, participant",
+    "date": "2026-05",
+    "source_url": "https://angelacademe.substack.com/p/may-2026-newsletter"
+   }
+  ],
+  "verified_on": "2026-09-29"
+ },
+ {
+  "name": "Bosch Ventures",
+  "type": "Corporate VC",
+  "region": "Europe",
+  "hq": "Stuttgart, Germany",
+  "website": "https://bosch.ventures/",
+  "stages": [
+   "All stages"
+  ],
+  "sectors": [
+   "Climate",
+   "AI",
+   "Healthcare",
+   "Enterprise",
+   "Deep tech"
+  ],
+  "check_size": null,
+  "description": "Corporate venture arm of the Bosch Group that invests in startups across all stages.",
+  "investments": [
+   {
+    "company": "Asylon Robotics",
+    "round": "Investment, round not stated",
+    "date": "2026-09",
+    "source_url": "https://montco.today/2026/09/asylon-robotics-norristown-bosch-ventures-investment/"
+   }
+  ],
+  "verified_on": "2026-09-29"
+ },
+ {
+  "name": "Wavemaker Ventures",
+  "type": "VC",
+  "region": "Asia-Pacific",
+  "hq": "Singapore",
+  "website": "https://wavemaker.vc/",
+  "stages": [
+   "Seed",
+   "Series A"
+  ],
+  "sectors": [
+   "Enterprise",
+   "Deep tech",
+   "Climate"
+  ],
+  "check_size": null,
+  "description": "Early-stage venture firm that backs Southeast Asian companies and is expanding into South Asia, Australia and New Zealand.",
+  "investments": [
+   {
+    "company": "Neocrete",
+    "round": "Growth round, lead",
+    "date": "2026-08",
+    "source_url": "https://wavemaker.vc/neocrete-cuts-both-carbon-and-cost-of-concrete-at-commercial-scale-backed-by-us3-5m-from-wavemaker-ventures-temasek-trusts-c3h-and-icehouse-ventures/"
+   },
+   {
+    "company": "pQCee",
+    "round": "Seed, co-investor",
+    "date": "2026-07",
+    "source_url": "https://wavemaker.vc/pqcee-raises-us3-9-million-quantum-safe-cybersecurity-solutions/"
+   },
+   {
+    "company": "ChemT Biotechnology",
+    "round": "Seed, lead",
+    "date": "2026-06",
+    "source_url": "https://wavemaker.vc/chemt-biotechnology-raises-us5-million-bring-ai-to-biomanufacturing/"
+   }
+  ],
+  "verified_on": "2026-09-29"
+ },
+ {
+  "name": "Elevation Capital",
+  "type": "VC",
+  "region": "Asia-Pacific",
+  "hq": "Gurugram, India",
+  "website": "https://www.elevationcapital.com/",
+  "stages": [
+   "Seed",
+   "Series A",
+   "Growth"
+  ],
+  "sectors": [
+   "Consumer",
+   "Fintech",
+   "AI",
+   "Deep tech",
+   "Healthcare"
+  ],
+  "check_size": null,
+  "description": "India-based venture firm that invests mostly at seed stage, with more than 150 portfolio companies.",
+  "investments": [
+   {
+    "company": "Dextr AI",
+    "round": "Seed, lead",
+    "date": "2026-09",
+    "source_url": "https://entrackr.com/snippets/elevation-capital-leads-67-million-seed-round-in-dextr-ai-12574387"
+   }
+  ],
+  "verified_on": "2026-09-29"
+ },
+ {
+  "name": "IAN Group (Indian Angel Network)",
+  "type": "Angel group",
+  "region": "Asia-Pacific",
+  "hq": "New Delhi, India",
+  "website": "https://iangroup.vc/",
+  "stages": [
+   "Pre-seed",
+   "Seed",
+   "Series A"
+  ],
+  "sectors": [
+   "Deep tech",
+   "AI",
+   "Healthcare",
+   "Climate",
+   "Fintech",
+   "Consumer"
+  ],
+  "check_size": "Up to $1M, averaging $400K to $600K (per the firm)",
+  "description": "Angel investment platform in India that runs several funds and backs early-stage founders alongside a network of angels.",
+  "investments": [
+   {
+    "company": "Peping",
+    "round": "Seed, lead",
+    "date": "2026-03",
+    "source_url": "https://iangroup.vc/2026/03/05/ian-angel-fund-leads-inr-2-5-crore-funding-round-in-functional-beverage-startup-peping/"
+   },
+   {
+    "company": "Rymo Technologies",
+    "round": "Seed, lead",
+    "date": "2026-03",
+    "source_url": "https://iangroup.vc/2026/03/19/ian-angel-fund-leads-%E2%82%B910-cr-seed-round-in-rymo-technologies-to-expand-robotic-neuro-rehabilitation-access/"
+   }
+  ],
+  "verified_on": "2026-09-29"
+ },
+ {
+  "name": "NTT DOCOMO Ventures",
+  "type": "Corporate VC",
+  "region": "Asia-Pacific",
+  "hq": "Tokyo, Japan",
+  "website": "https://www.nttdocomo-v.com/en/",
+  "stages": [
+   "Early stage",
+   "Growth"
+  ],
+  "sectors": [
+   "AI",
+   "Deep tech",
+   "Healthcare"
+  ],
+  "check_size": null,
+  "description": "Corporate venture arm of the NTT Group that manages several funds and invests in startups in Japan and abroad.",
+  "investments": [
+   {
+    "company": "Higgsfield",
+    "round": "Round not stated, lead",
+    "date": "2026-08",
+    "source_url": "https://www.nttdocomo-v.com/en/news/d2enykqybc/"
+   },
+   {
+    "company": "Pixie Dust Technologies",
+    "round": "Round not stated, lead",
+    "date": "2026-05",
+    "source_url": "https://www.nttdocomo-v.com/en/news/s29sqjh9m0/"
+   },
+   {
+    "company": "LinQ",
+    "round": "Round not stated",
+    "date": "2026-02",
+    "source_url": "https://www.nttdocomo-v.com/en/news/aepuhm57n6/"
+   }
+  ],
+  "verified_on": "2026-09-29"
+ },
+ {
+  "name": "Peak XV Partners",
+  "type": "VC",
+  "region": "Asia-Pacific",
+  "hq": "Singapore and India",
+  "website": "https://www.peakxv.com/",
+  "stages": [
+   "Seed",
+   "Series A",
+   "Growth"
+  ],
+  "sectors": [
+   "AI",
+   "Deep tech",
+   "Healthcare",
+   "Fintech",
+   "Consumer"
+  ],
+  "check_size": null,
+  "description": "Multi-stage venture firm investing across India, Southeast Asia and beyond.",
+  "investments": [
+   {
+    "company": "Alma",
+    "round": "Seed",
+    "date": "2026-09",
+    "source_url": "https://techcrunch.com/2026/09/28/peak-xv-goes-bigger-at-seed-with-new-surge-cohort-as-series-a-bar-rises/"
+   },
+   {
+    "company": "August AI",
+    "round": "Seed",
+    "date": "2026-09",
+    "source_url": "https://techcrunch.com/2026/09/28/peak-xv-goes-bigger-at-seed-with-new-surge-cohort-as-series-a-bar-rises/"
+   }
+  ],
+  "verified_on": "2026-09-29"
+ },
+ {
+  "name": "Flat6Labs",
+  "type": "Micro-VC",
+  "region": "Middle East and Africa",
+  "hq": "Cairo, Egypt",
+  "website": "https://flat6labs.com",
+  "stages": [
+   "Pre-seed",
+   "Seed"
+  ],
+  "sectors": [
+   "Fintech",
+   "Healthcare",
+   "AI",
+   "Enterprise"
+  ],
+  "check_size": "$50K to $500K",
+  "description": "Seed and early-stage venture firm and accelerator launched in Cairo in 2011, with offices across MENA.",
+  "investments": [
+   {
+    "company": "Juthor",
+    "round": "Pre-seed, lead",
+    "date": "2026-01",
+    "source_url": "https://www.wamda.com/2026/01/flat6labs-backs-juthor-500k-pre-seed-round"
+   }
+  ],
+  "verified_on": "2026-09-29"
+ },
+ {
+  "name": "Wa'ed Ventures",
+  "type": "Corporate VC",
+  "region": "Middle East and Africa",
+  "hq": "Dhahran, Saudi Arabia",
+  "website": "https://www.waed.com",
+  "stages": [
+   "Seed",
+   "Growth"
+  ],
+  "sectors": [
+   "Fintech",
+   "AI",
+   "Consumer",
+   "Climate",
+   "Healthcare",
+   "Enterprise"
+  ],
+  "check_size": "Up to $20M per deal",
+  "description": "Venture arm of Saudi Aramco, investing in technology startups in Saudi Arabia and in global companies that can localise there.",
+  "investments": [
+   {
+    "company": "Kure Cells",
+    "round": "Pre-Series A, lead",
+    "date": "2025-10",
+    "source_url": "https://www.wamda.com/2025/10/waed-ventures-leads-10-million-pre-series-a-us-based-kure-cells"
+   }
+  ],
+  "verified_on": "2026-09-29"
+ },
+ {
+  "name": "Norrsken22",
+  "type": "VC",
+  "region": "Middle East and Africa",
+  "hq": "Pan-African: Lagos, Nairobi, Johannesburg, Accra",
+  "website": "https://www.norrsken22.com",
+  "stages": [
+   "Seed",
+   "Series A",
+   "Growth"
+  ],
+  "sectors": [
+   "Fintech",
+   "Healthcare",
+   "Consumer",
+   "Enterprise"
+  ],
+  "check_size": null,
+  "description": "Tech growth fund partnering with African entrepreneurs who are scaling technology businesses.",
+  "investments": [
+   {
+    "company": "Shiprazor",
+    "round": "Seed, lead",
+    "date": "2026-04",
+    "source_url": "https://thecondia.com/shiprazor-seed-norrsken22-south-africa/"
+   }
+  ],
+  "verified_on": "2026-09-29"
+ },
+ {
+  "name": "Canary",
+  "type": "VC",
+  "region": "Latin America",
+  "hq": "Brazil",
+  "website": "https://www.canary.com.br",
+  "stages": [
+   "Seed",
+   "Series A"
+  ],
+  "sectors": [
+   "Fintech",
+   "Healthcare",
+   "AI"
+  ],
+  "check_size": null,
+  "description": "Latin American venture capital firm that describes itself as co-founder to the companies it backs.",
+  "investments": [
+   {
+    "company": "Karta",
+    "round": "Series A, participant",
+    "date": "2026-06",
+    "source_url": "https://fortune.com/2026/06/17/karta-15-million-whatsapp-run-us-credit-cards-global-travelers/"
+   },
+   {
+    "company": "Telepatia",
+    "round": "Series A, participant",
+    "date": "2026-06",
+    "source_url": "https://app.dealroom.co/news/note/telepatia-ai-raises-33m-series-a-led-by-a16z-to-build-an-ai-doctor-for-latin-american-hospitals"
+   }
+  ],
+  "verified_on": "2026-09-29"
+ },
+ {
+  "name": "GVAngels",
+  "type": "Angel group",
+  "region": "Latin America",
+  "hq": "Brazil",
+  "website": "https://gvangels.com.br",
+  "stages": [
+   "Seed",
+   "Series A"
+  ],
+  "sectors": [
+   "Healthcare",
+   "Consumer",
+   "Enterprise"
+  ],
+  "check_size": null,
+  "description": "Brazilian angel group of 300+ members that backs early-stage startups with capital and mentorship.",
+  "investments": [
+   {
+    "company": "Doctor Assistant",
+    "round": "R$3M round",
+    "date": "2026-02",
+    "source_url": "https://exame.com/negocios/gvangels-investe-3-milhoes-de-reais-em-startup-que-reduz-a-burocracia-medica/"
+   }
+  ],
+  "verified_on": "2026-09-29"
+ }
+]
