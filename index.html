@@ -1169,6 +1169,40 @@ body { font-size: 15px; }
 @media (max-width: 700px) {
   .roles button { padding: 8px 10px; font-size: 12px; }
 }
+
+/* Valois: compact */
+.valois .wrap { gap: 20px; }
+.v-copy { gap: 10px; }
+.v-lede { max-width: 60ch; }
+.v-who { margin-top: 12px; }
+.v-list b { font-size: 1.1rem; }
+@media (min-width: 701px) {
+  .valois .wrap { grid-template-columns: minmax(0, 1fr); }
+  .v-copy { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 56px; row-gap: 8px; align-items: start; }
+  .v-copy .v-label { grid-column: 1; grid-row: 1; }
+  .v-copy .v-h2 { grid-column: 1; grid-row: 2; }
+  .v-copy .v-actions { grid-column: 1; grid-row: 3; margin-top: 6px; }
+  .v-copy .v-lede { grid-column: 2; grid-row: 1 / span 3; align-self: center; margin: 0; }
+  .v-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 32px; }
+  .v-list li { padding: 12px 0; cursor: default; }
+  .v-list li:last-child { border-bottom: 0; }
+  .v-list li::after { display: none; }
+  .v-list li > span { display: block; font-size: 13.5px; line-height: 1.5; }
+}
+@media (min-width: 1001px) {
+  .v-list { grid-template-columns: repeat(5, minmax(0, 1fr)); column-gap: 24px; }
+  .v-list li { padding-top: 14px; }
+}
+@media (max-width: 700px) {
+  .valois .wrap { gap: 12px; }
+  .v-copy { gap: 8px; }
+  .v-list li { padding-block: 10px; }
+  .v-list li::after { top: 17px; }
+  .v-list li.open::after { top: 21px; }
+  .v-who { margin-top: 10px; font-size: 11px; }
+  .v-actions { gap: 8px; }
+  .v-btn { height: 42px; padding-inline: 18px; }
+}
 </style>
 
 </head>
