@@ -7,7 +7,7 @@
 ## Key facts (current)
 
 - Yorkseed Connect (https://app.yorkseed.co) is a fundraising platform and deal flow platform for startup founders and investors. Founded in New York City in 2023 by Jessica Sophia Wong.
-- For founders at every stage, from early stage through Series C+ and IPO: a curated, vetted investor list scored on stage, sector, check size, geography and thesis fit, warm introduction requests, Raise Hub, Deal Memo Generator, Investor Lens, Fund Diligence Engine, Connection Intelligence and 15 AI tools.
+- For founders at every stage, from early stage through Series C+ and IPO: scored matches with vetted member investors on stage, sector, check size, geography and thesis fit, warm introduction requests, Raise Hub, Deal Memo Generator, Investor Lens, Fund Diligence Engine, Connection Intelligence and 15 AI tools.
 - For investors: vetted, application-reviewed deal flow, Deal Hub, Investor Lens, Fund Diligence Engine, portfolio tracker and Syndicate Room, with mutual introductions so you control who reaches you.
 - Fund Diligence Engine: anyone can see what it does, and a Yorkseed account is needed to run it. It screens a fund on stage, sector, geography, check size and public portfolio signals.
 - For allocators: Valois (https://thevalois.com) is a private membership for family offices, LPs, fund managers and institutional investors, with full Yorkseed Connect access and no second fee.
