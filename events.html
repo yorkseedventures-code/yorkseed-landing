@@ -537,9 +537,11 @@ async function init(){
       if(mr.ok){
         const m=await mr.json();
         data.upcoming=(data.upcoming||[]).slice();
-        const have={};data.upcoming.forEach(e=>{if(e.lumaUrl)have[e.lumaUrl]=1});
+        const lk=u=>{const s=String(u||'').match(/(?:lu\.ma|luma\.com)\/([A-Za-z0-9_-]+)/);return s?s[1].toLowerCase():''};
+        const mine={};(m.events||[]).forEach(e=>{const k=lk(e.lumaUrl);if(k)mine[k]=1});
+        // an event added in the manager replaces the older copy of the same Luma event
+        data.upcoming=data.upcoming.filter(e=>{const k=lk(e.lumaUrl||e.url);return !(k&&mine[k])});
         (m.events||[]).forEach(e=>{
-          if(e.lumaUrl&&have[e.lumaUrl])return;
           e.url='/e/'+(e.slug||e.id);
           if(e.type==='community'&&!isPast(e)){ (data._partner=data._partner||[]).push(e); }
           else if(e.type==='community'){
