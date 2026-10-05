@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Yorkseed Events | Founder & Investor Events Worldwide</title>
-<meta name="description" content="Founder and investor events worldwide. Private dinners, investor roundtables, hub gatherings and the Yorkseed Passport Series."/>
+<title>Yorkseed Events — Exclusive Founder & Investor Events Worldwide | Yorkseed</title>
+<meta name="description" content="Join exclusive Yorkseed events for founders, investors, and operators worldwide. Private dinners, investor meetups, hub gatherings, and the Yorkseed Passport Series across 50+ cities."/>
 <meta name="robots" content="index, follow"/>
 <link rel="canonical" href="https://yorkseed.co/events"/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://yorkseed.co/events"/>
-<meta property="og:title" content="Yorkseed Events | Founder & Investor Events Worldwide"/>
+<meta property="og:title" content="Yorkseed Events — Exclusive Founder & Investor Events Worldwide"/>
 <meta property="og:description" content="Join exclusive Yorkseed events for founders, investors, and operators worldwide."/>
 <meta property="og:image" content="https://s6.imgcdn.dev/Yfq1dl.png"/>
 <meta name="twitter:card" content="summary_large_image"/>
@@ -20,79 +20,225 @@
 :root{
   --ink:#111;--ink2:#1a1a1a;--ink3:#555;--ink4:#888;
   --white:#fff;--off:#fafafa;--light:#f5f4f1;--mid:#e8e8e8;
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--ink:#0b0b0c;--ink3:#55524c;--ink4:#8a867d;--white:#fff;--off:#faf8f4;--cream:#f8f4ee;--mid:#e6e2da;--red:#cc1e2b;--gold:#8a6d2f;--green:#0a5a3e;--line:rgba(11,11,12,.09);--gold-dim:rgba(176,141,87,.1);--gold-border:rgba(176,141,87,.3);
---serif:'Playfair Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;--mono:'DM Mono',monospace}
-body{font-family:var(--sans);font-weight:400;background:var(--white);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-a{text-decoration:none;color:inherit}
-.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
-/* hero */
-.hero{padding:64px 0 28px}
-.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(38px,6vw,60px);line-height:1.05;letter-spacing:-.01em}
-.hero h1 em{color:var(--red)}
-.hero p{margin-top:14px;max-width:520px;font-size:17px;line-height:1.55;color:var(--ink3)}
-/* filter bar */
-.bar{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:12px 0}
-.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
-.chips::-webkit-scrollbar{display:none}
-.chip{flex:none;font:500 14px var(--sans);padding:9px 16px;border-radius:99px;border:1px solid var(--line);background:#fff;color:var(--ink3);cursor:pointer}
-.chip.on{background:var(--ink);border-color:var(--ink);color:#fff}
-/* sections */
-.sec{padding:40px 0 8px}
-.sec-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:18px}
-.sec-h h2{font-family:var(--serif);font-weight:400;font-size:28px}
-.sec-h span{font:400 13px var(--mono);color:var(--ink4)}
-.month{font:500 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink4);margin:28px 0 10px}
-/* featured */
-.feat{display:grid;grid-template-columns:1.1fr 1fr;border-radius:16px;overflow:hidden;background:var(--ink);color:#fff;min-height:300px}
-.feat-img{background-size:cover;background-position:center;min-height:200px}
-.feat-body{padding:32px;display:flex;flex-direction:column;gap:14px;justify-content:center}
-.feat-tag{font:500 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#d4bc82}
-.feat h3{font-family:var(--serif);font-weight:400;font-size:clamp(24px,3.2vw,32px);line-height:1.2}
-.feat-meta{font-size:15px;line-height:1.6;color:rgba(255,255,255,.78)}
-.feat-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 22px;border-radius:10px;font:500 15px var(--sans)}
-.btn-red{background:var(--red);color:#fff}
-.btn-line{border:1px solid rgba(255,255,255,.35);color:#fff}
-/* rows */
-.list{display:flex;flex-direction:column;border-top:1px solid var(--line)}
-.row{display:grid;grid-template-columns:64px 1fr auto;gap:16px;align-items:center;padding:16px 4px;border-bottom:1px solid var(--line);color:inherit}
-.row:hover{background:var(--off)}
-.dt{text-align:center;line-height:1}
-.dt b{display:block;font:400 28px var(--serif)}
-.dt i{display:block;font:500 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--red);font-style:normal;margin-top:5px}
-.rt{min-width:0}
-.rt h4{font:500 17px/1.3 var(--sans);margin:4px 0 4px}
-.rt p{font-size:14px;color:var(--ink3);line-height:1.45}
-.badge{display:inline-block;font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:5px;background:var(--cream);color:var(--ink3)}
-.b-passport{background:rgba(204,30,43,.08);color:var(--red)}
-.b-expert{background:rgba(11,11,12,.07);color:var(--ink)}
-.b-summit{background:rgba(10,90,62,.1);color:var(--green)}
-.b-valois,.b-community{background:var(--gold-dim);color:var(--gold)}
-.b-nycfw{background:rgba(10,90,62,.1);color:var(--green)}
-.go{font:500 14px var(--sans);color:var(--red);white-space:nowrap}
-.empty{padding:28px 4px;color:var(--ink4);font-size:15px}
-.luma{margin:36px 0 0;padding:20px 22px;border-radius:14px;background:var(--cream);display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;font-size:15px;color:var(--ink3)}
-.luma strong{color:var(--ink)}
-.luma a{font:500 14px var(--sans);padding:11px 18px;border-radius:10px;background:var(--ink);color:#fff}
-/* archive */
-.arch{padding:56px 0 80px}
-.yr{font-family:var(--serif);font-size:30px;color:var(--red);margin:30px 0 4px}
-.arow{display:grid;grid-template-columns:96px 1fr auto;gap:14px;align-items:baseline;padding:11px 4px;border-bottom:1px solid var(--line);font-size:15px}
-.arow .d{font:400 13px var(--mono);color:var(--ink4)}
-.arow .t{min-width:0}
-.arow .t small{display:block;font-size:13px;color:var(--ink4);margin-top:2px}
-.more{display:block;width:100%;margin-top:14px;padding:14px;border:1px solid var(--line);border-radius:10px;background:#fff;font:500 15px var(--sans);cursor:pointer}
-@media(max-width:720px){
- .hero{padding:40px 0 20px}
- .feat{grid-template-columns:1fr}
- .feat-img{min-height:170px}
- .feat-body{padding:22px}
- .row{grid-template-columns:52px 1fr;gap:12px}
- .row .go{display:none}
- .arow{grid-template-columns:1fr;gap:2px}
+  --red:#c8372d;--red-dim:rgba(200,55,45,.06);--red-border:rgba(200,55,45,.18);
+  --gold:#b08d57;--gold-dim:rgba(176,141,87,.07);--gold-border:rgba(176,141,87,.22);
+  --border:rgba(0,0,0,.07);--border2:rgba(0,0,0,.12);
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --mono:'DM Mono',monospace;
 }
+body{font-family:var(--sans);font-weight:300;background:var(--white);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 5vw;height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.n-logo{display:flex;align-items:center;flex-shrink:0}
+.n-center{display:flex;align-items:center;gap:4px;flex:1;justify-content:center}
+.n-link{font-size:12.5px;font-weight:400;color:var(--ink3);padding:6px 10px;border-radius:5px;transition:color .15s,background .15s;white-space:nowrap;letter-spacing:.01em}
+.n-link:hover{color:var(--ink);background:rgba(0,0,0,.04)}
+.n-link.active{color:var(--ink);font-weight:500}
+.n-drop{position:relative}
+.n-drop-btn{display:flex;align-items:center;gap:5px;font-size:12.5px;font-weight:400;color:var(--ink3);padding:6px 10px;border-radius:5px;cursor:pointer;transition:color .15s,background .15s;letter-spacing:.01em;background:none;border:none;font-family:inherit}
+.n-drop-btn:hover,.n-drop.open .n-drop-btn{color:var(--ink);background:rgba(0,0,0,.04)}
+.n-drop-arrow{width:10px;height:10px;display:flex;align-items:center;justify-content:center;transition:transform .2s}
+.n-drop.open .n-drop-arrow{transform:rotate(180deg)}
+.n-drop-arrow svg{display:block}
+.n-menu{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);background:#fff;border:1px solid var(--border2);border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.1);padding:10px;width:540px;display:grid;grid-template-columns:1fr 1fr;gap:2px;opacity:0;visibility:hidden;transition:opacity .18s,visibility .18s,transform .18s;transform:translateX(-50%) translateY(-6px)}
+.n-drop.open .n-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.n-item{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border-radius:8px;transition:background .15s;text-decoration:none;color:var(--ink)}
+.n-item:hover{background:var(--off)}
+.n-item-icon{font-size:18px;flex-shrink:0;margin-top:1px}
+.n-item-title{font-size:12.5px;font-weight:500;color:var(--ink);margin-bottom:2px}
+.n-item-desc{font-size:11px;color:var(--ink4);line-height:1.5;font-weight:300}
+.n-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.n-signin{font-size:12.5px;color:var(--ink4);padding:6px 10px;border-radius:5px;transition:color .15s;white-space:nowrap;letter-spacing:.01em}
+.n-signin:hover{color:var(--ink)}
+.n-apply{background:var(--red);color:#fff;padding:8px 18px;border-radius:6px;font-size:12.5px;font-weight:400;letter-spacing:.02em;transition:opacity .15s;white-space:nowrap}
+.n-apply:hover{opacity:.88}
+.n-ham{display:none;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;padding:10px;cursor:pointer;background:none;border:none;border-radius:5px;flex-shrink:0}
+.n-ham span{display:block;height:1.5px;background:var(--ink);border-radius:2px;transition:transform .25s,opacity .25s}
+.n-ham.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.n-ham.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.n-ham.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.n-drawer{position:fixed;inset:64px 0 0 0;background:#fff;z-index:200;transform:translateX(100%);transition:transform .28s cubic-bezier(.4,0,.2,1);overflow-y:auto;padding:20px 6vw 40px}
+.n-drawer.open{transform:translateX(0)}
+.n-drawer-section{margin-bottom:28px}
+.n-drawer-label{font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink4);margin-bottom:10px}
+.n-drawer-link{display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid var(--border);color:var(--ink);font-size:14px;font-weight:400;text-decoration:none}
+.n-drawer-link:last-child{border-bottom:none}
+.n-drawer-link span:first-child{font-size:20px;flex-shrink:0;width:28px}
+.n-drawer-ctas{display:flex;flex-direction:column;gap:10px;margin-top:24px}
+.n-drawer-ctas .n-apply{text-align:center;display:block;padding:13px}
+.n-drawer-ctas .n-signin{text-align:center;display:block;padding:12px;border:1px solid var(--border2);border-radius:6px;color:var(--ink3)}
+@media(max-width:900px){.n-center{display:none}.n-right .n-signin{display:none}.n-ham{display:flex}}
+@media(max-width:500px){.n-right .n-apply{display:none}}
+
+/* ═══ HERO ═══ */
+.hero{padding:112px 6vw 52px;border-bottom:1px solid var(--border)}
+.hero-inner{max-width:1100px;margin:0 auto;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:24px}
+.ey{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink4);margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.ey-line{width:20px;height:1px;background:var(--gold);opacity:.5}
+h1{font-family:var(--serif);font-size:clamp(30px,4vw,50px);font-weight:400;line-height:1.1;letter-spacing:-.02em;margin-bottom:14px}
+h1 em{font-style:italic;color:var(--red)}
+.hero-sub{font-size:14px;color:var(--ink3);line-height:1.8;font-weight:300;max-width:420px}
+.hero-stats{display:flex;gap:32px;flex-shrink:0}
+.hstat{text-align:center}
+.hstat-n{font-family:var(--serif);font-size:36px;font-weight:300;color:var(--red);letter-spacing:-.02em;line-height:1}
+.hstat-l{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);margin-top:4px}
+
+/* ═══ UPCOMING SECTION ═══ */
+.upcoming{padding:52px 6vw;border-bottom:1px solid var(--border);background:var(--white)}
+.upcoming-inner{max-width:1100px;margin:0 auto}
+.section-eyebrow{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:24px;display:flex;align-items:center;gap:10px}
+.section-eyebrow::before{content:'';display:block;width:16px;height:1px;background:var(--red);opacity:.5}
+
+/* Featured card — hero upcoming event */
+.featured-card{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border2);border-radius:12px;overflow:hidden;margin-bottom:28px;background:var(--white);transition:box-shadow .2s}
+.featured-card:hover{box-shadow:0 6px 32px rgba(0,0,0,.08)}
+.featured-card-img{background:linear-gradient(135deg,#1a1209 0%,#2e1e0a 40%,#3d2810 100%);position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:32px;min-height:280px}
+.featured-card-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(0,0,0,.55) 100%);pointer-events:none}
+.featured-img-city{font-family:var(--serif);font-size:clamp(48px,6vw,80px);font-weight:400;color:rgba(255,255,255,.08);letter-spacing:-.03em;line-height:1;position:absolute;bottom:24px;left:28px;z-index:0;user-select:none}
+.featured-img-badge{position:relative;z-index:1;display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;padding:5px 10px;border-radius:3px;background:rgba(200,55,45,.9);color:#fff;margin-bottom:12px;width:fit-content}
+.featured-img-badge::before{content:'';display:block;width:5px;height:5px;border-radius:50%;background:#fff;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.featured-img-title{font-family:var(--serif);font-size:22px;font-weight:400;color:#fff;line-height:1.2;letter-spacing:-.01em;position:relative;z-index:1}
+
+.featured-card-body{padding:32px;display:flex;flex-direction:column;justify-content:space-between;gap:24px}
+.featured-meta{display:flex;flex-direction:column;gap:12px}
+.featured-meta-row{display:flex;gap:8px;align-items:center;font-size:12.5px;color:var(--ink3)}
+.featured-meta-icon{font-size:14px;flex-shrink:0}
+.featured-meta-label{font-family:var(--mono);font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);margin-bottom:2px}
+.featured-meta-val{font-size:13px;color:var(--ink);font-weight:400}
+.featured-desc{font-size:13px;color:var(--ink3);line-height:1.75;font-weight:300;border-top:1px solid var(--border);padding-top:18px}
+.featured-actions{display:flex;gap:10px;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:7px;background:var(--red);color:#fff;padding:11px 22px;border-radius:6px;font-size:12.5px;font-weight:400;letter-spacing:.02em;transition:opacity .15s;white-space:nowrap}
+.btn-primary:hover{opacity:.88}
+.btn-secondary{display:inline-flex;align-items:center;gap:7px;background:transparent;color:var(--ink3);padding:11px 18px;border-radius:6px;font-size:12.5px;border:1px solid var(--border2);transition:all .15s;white-space:nowrap}
+.btn-secondary:hover{color:var(--ink);border-color:var(--border2)}
+
+/* Upcoming grid — smaller cards */
+.upcoming-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.upcoming-card{border:1px solid var(--border);border-radius:10px;overflow:hidden;background:var(--white);transition:border-color .18s,box-shadow .18s;display:flex;flex-direction:column;gap:0}
+.uc-img{height:120px;background:var(--off);overflow:hidden;position:relative}
+.uc-img img{width:100%;height:100%;object-fit:cover;display:block}
+.uc-img-fallback{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:32px;font-weight:300;color:rgba(0,0,0,.08);letter-spacing:-.02em}
+.uc-content{padding:16px;display:flex;flex-direction:column;gap:12px}
+.upcoming-card:hover{border-color:var(--border2);box-shadow:0 3px 16px rgba(0,0,0,.06)}
+.uc-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.uc-badge{font-family:var(--mono);font-size:8px;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:3px;flex-shrink:0}
+.badge-passport{background:var(--red-dim);color:var(--red);border:1px solid var(--red-border)}
+.badge-expert{background:var(--gold-dim);color:#7a5c1e;border:1px solid var(--gold-border)}
+.badge-summit{background:rgba(0,0,0,.04);color:#333;border:1px solid var(--border2)}
+.badge-house{background:rgba(0,0,0,.04);color:#333;border:1px solid var(--border2)}
+.badge-valois{background:rgba(212,188,130,.12);color:#8a6d2f;border:1px solid rgba(212,188,130,.4)}
+.badge-nycfw{background:rgba(16,148,113,.1);color:#0d7a5f;border:1px solid rgba(16,148,113,.35)}
+.uc-date{font-family:var(--mono);font-size:10px;color:var(--ink4);text-align:right;line-height:1.4}
+.uc-title{font-size:14px;font-weight:400;color:var(--ink);line-height:1.4}
+.uc-loc{font-family:var(--mono);font-size:10px;color:var(--ink4);display:flex;align-items:center;gap:5px}
+.uc-footer{display:flex;justify-content:space-between;align-items:center;padding-top:10px;border-top:1px solid var(--border)}
+.uc-spots{font-family:var(--mono);font-size:9px;letter-spacing:.06em;color:var(--ink4)}
+.uc-link{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;color:var(--red);display:flex;align-items:center;gap:4px;transition:gap .15s}
+.uc-link:hover{gap:7px}
+
+/* All events luma CTA */
+.luma-cta{margin-top:24px;padding:16px 20px;border:1px dashed var(--border2);border-radius:8px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.luma-cta-text{font-size:13px;color:var(--ink3);font-weight:300}
+.luma-cta-text strong{font-weight:500;color:var(--ink)}
+.luma-cta-link{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);border:1px solid var(--border2);padding:8px 16px;border-radius:5px;transition:all .15s;white-space:nowrap}
+.luma-cta-link:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+/* ═══ FILTERS + ARCHIVE ═══ */
+.filters{padding:20px 6vw;border-bottom:1px solid var(--border);display:flex;gap:8px;flex-wrap:wrap;background:var(--white);position:sticky;top:64px;z-index:100}
+.filter-tab{font-family:var(--mono);font-size:10px;letter-spacing:.07em;text-transform:uppercase;padding:6px 14px;border-radius:100px;border:1px solid var(--border2);color:var(--ink3);cursor:pointer;transition:all .15s;background:var(--white)}
+.filter-tab:hover{border-color:var(--ink);color:var(--ink)}
+.filter-tab.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+.archive{padding:48px 6vw 64px}
+.archive-inner{max-width:1100px;margin:0 auto}
+.year-block{margin-bottom:56px}
+.year-heading{font-family:var(--serif);font-size:48px;font-weight:300;color:var(--mid);letter-spacing:-.03em;line-height:1;margin-bottom:24px}
+.year-heading.current{color:var(--red)}
+.edition-group{margin-bottom:28px}
+.edition-label{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink4);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.edition-label::before{content:'';display:block;width:16px;height:1px;background:var(--border2)}
+.event-table{display:flex;flex-direction:column;gap:6px}
+.event-row{display:flex;align-items:center;padding:12px 16px;background:var(--off);border:1px solid var(--border);border-radius:7px;gap:12px;flex-wrap:wrap;transition:border-color .15s}
+.event-row:hover{border-color:var(--border2)}
+.event-type{font-family:var(--mono);font-size:8px;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:3px;flex-shrink:0;white-space:nowrap}
+.type-passport{background:rgba(200,55,45,.07);color:var(--red)}
+.type-expert{background:var(--gold-dim);color:#7a5c1e}
+.type-summit{background:#f0f0f0;color:#333}
+.type-house{background:rgba(17,17,17,.07);color:#333}
+.type-community{background:rgba(113,162,164,.1);color:#2d6b6d}
+.type-valois{background:rgba(212,188,130,.14);color:#8a6d2f;border:1px solid rgba(212,188,130,.4)}
+.event-row.is-valois{border-color:rgba(212,188,130,.4);background:linear-gradient(90deg,rgba(212,188,130,.08),var(--off) 18%)}
+.upcoming-card.is-valois{border-color:rgba(212,188,130,.4)}
+.upcoming-card.is-valois .uc-img{background:linear-gradient(135deg,#1a1209 0%,#2e1e0a 60%,#3d2810 100%)}
+.type-nycfw{background:rgba(16,148,113,.14);color:#0d7a5f;border:1px solid rgba(16,148,113,.35)}
+.event-row.is-nycfw{border-color:rgba(16,148,113,.35);background:linear-gradient(90deg,rgba(16,148,113,.08),var(--off) 18%)}
+.upcoming-card.is-nycfw{border-color:rgba(16,148,113,.35)}
+.upcoming-card.is-nycfw .uc-img{background:linear-gradient(135deg,#0a1f18 0%,#0f3325 55%,#124030 100%)}
+.event-name{font-size:13px;color:var(--ink);flex:1;min-width:180px;font-weight:400}
+.event-loc{font-size:11px;color:var(--ink4);font-family:var(--mono);white-space:nowrap}
+.event-date{font-size:11px;color:var(--ink4);font-family:var(--mono);white-space:nowrap}
+.event-link{font-size:10px;color:var(--red);font-weight:600;font-family:var(--mono);letter-spacing:.04em;white-space:nowrap;margin-left:auto;transition:opacity .15s}
+.event-link:hover{opacity:.7}
+
+/* ═══ FOOTER ═══ */
+.footer-premium{background:#171717;border-top:1px solid rgba(255,255,255,.06);padding:64px 6vw 28px}
+.footer-premium-inner{max-width:1200px;margin:0 auto}
+.footer-premium-top{display:flex;justify-content:space-between;align-items:flex-start;gap:70px;flex-wrap:wrap;margin-bottom:46px}
+.footer-premium-brand{max-width:380px}
+.footer-premium-logo-wrap{display:flex;align-items:center;overflow:hidden;height:40px;margin-bottom:18px}
+.footer-premium-logo{height:78px;width:auto;object-fit:contain;margin-top:-19px;margin-bottom:-19px}
+.footer-premium-brand p{color:rgba(255,255,255,.42);font-size:13px;line-height:1.85;font-weight:300}
+.footer-premium-cols{display:flex;gap:70px;flex-wrap:wrap}
+.footer-premium-col{display:flex;flex-direction:column;gap:12px}
+.footer-premium-label{font-family:var(--mono);font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.22);margin-bottom:8px}
+.footer-premium-col a{color:rgba(255,255,255,.56);font-size:12.5px;transition:color .15s ease}
+.footer-premium-col a:hover{color:#fff}
+.footer-premium-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:22px;text-align:center;font-family:var(--mono);font-size:8px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.18);line-height:1.7}
+@media(max-width:720px){.footer-premium{padding:56px 6vw 26px}.footer-premium-top{flex-direction:column;gap:38px}.footer-premium-cols{width:100%;justify-content:space-between;gap:34px}}
+
+/* ═══ MOBILE TAB BAR ═══ */
+.m-tab-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:400;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid var(--border);padding:0 0 env(safe-area-inset-bottom,0)}
+.m-tab-bar-inner{display:flex;align-items:stretch;height:56px}
+.m-tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-decoration:none;color:var(--ink4);font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;transition:color .15s;-webkit-tap-highlight-color:transparent;padding:0 2px}
+.m-tab.active{color:var(--red)}
+.m-tab-join{flex:1;display:flex;align-items:center;justify-content:center;padding:0 6px}
+.m-tab-join a{background:var(--red);color:#fff;border-radius:6px;font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;padding:8px 14px;display:block;text-decoration:none;white-space:nowrap}
+@media(max-width:900px){.m-tab-bar{display:block};body{padding-bottom:calc(56px + env(safe-area-inset-bottom,0))}}
+
+/* Responsive */
+@media(max-width:700px){
+  .featured-card{grid-template-columns:1fr}
+  .featured-card-img{min-height:180px}
+  .hero-stats{display:none}
+  .upcoming-grid{grid-template-columns:1fr}
+  .event-date,.event-loc{white-space:normal;flex-basis:100%}
+}
+
+/* ─── COMMUNITY PARTNER SECTION ─────────────────────────────────────────── */
+.partner-section{padding:32px 0 28px;margin-top:28px;border-top:1px solid var(--border)}
+.partner-eyebrow{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink4);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.partner-eyebrow::before{content:'';display:block;width:16px;height:1px;background:var(--border2)}
+.partner-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.partner-card{border:1px solid var(--border);border-radius:8px;overflow:hidden;cursor:pointer;transition:border-color .18s,box-shadow .18s;background:var(--white)}
+.partner-card:hover{border-color:var(--border2);box-shadow:0 3px 14px rgba(0,0,0,.07)}
+.partner-card-img{height:160px;background:var(--off);overflow:hidden}
+.partner-card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.partner-card-body{padding:12px 14px}
+@media(max-width:700px){
+  .partner-grid{grid-template-columns:1fr}
+  .partner-card{display:flex;flex-direction:row}
+  .partner-card-img{height:80px;width:100px;flex-shrink:0}
+  .partner-card-body{padding:10px 12px}
+  .partner-card-title{font-size:12px}
+}
+.partner-card-badge{font-family:var(--mono);font-size:7.5px;letter-spacing:.1em;text-transform:uppercase;color:#2d6b6d;background:rgba(113,162,164,.1);border:1px solid rgba(113,162,164,.25);border-radius:3px;padding:2px 7px;display:inline-block;margin-bottom:8px}
+.partner-card-title{font-size:12.5px;font-weight:400;color:var(--ink);line-height:1.4;margin-bottom:4px}
+.partner-card-loc{font-family:var(--mono);font-size:9px;color:var(--ink4)}
 
 /* ─── MODAL ──────────────────────────────────────────────────────────────── */
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:900;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;visibility:hidden;transition:opacity .22s,visibility .22s}
@@ -114,137 +260,339 @@ a{text-decoration:none;color:inherit}
 </style>
 <script src="/assets/site-chrome.js" defer></script>
 <style>yk-header:not(:defined){display:block;min-height:73px}</style>
-
 </head>
 <body>
+
 <yk-header><a href="/">Yorkseed</a> <a href="/hubs.html">Hubs</a> <a href="/events.html">Events</a> <a href="/investors">Investor list</a> <a href="/contact.html">Contact</a></yk-header>
 
-<main>
-<section class="hero"><div class="wrap">
-  <h1>Events &amp; <em>gatherings.</em></h1>
-  <p>Founder and investor events worldwide, plus the archive of every gathering since 2023.</p>
-</div></section>
+<div>
 
-<div class="bar"><div class="wrap"><div class="chips" id="chips">
-  <button class="chip on" data-f="all">All</button>
-  <button class="chip" data-f="passport">Passport Series</button>
-  <button class="chip" data-f="expert">Expert Sessions</button>
-  <button class="chip" data-f="summit">Summit &amp; House</button>
-  <button class="chip" data-f="community">Partner events</button>
-</div></div></div>
+<!-- ═══ HERO ═══ -->
+<div class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="ey"><div class="ey-line"></div>2023 – present</div>
+      <h1>Events &amp; <em>gatherings.</em></h1>
+      <p class="hero-sub">Upcoming Yorkseed events worldwide — plus the full archive of every gathering, Expert Session, Passport activation, and Summit since 2023.</p>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><div class="hstat-n">100+</div><div class="hstat-l">Events</div></div>
+      <div class="hstat"><div class="hstat-n">20+</div><div class="hstat-l">Cities</div></div>
+      <div class="hstat"><div class="hstat-n">3</div><div class="hstat-l">Years</div></div>
+    </div>
+  </div>
+</div>
 
-<section class="sec"><div class="wrap">
-  <div class="sec-h"><h2>Upcoming</h2><span id="upCount"></span></div>
-  <div id="featured"></div>
-  <div id="upcoming"></div>
-  <div class="luma"><div><strong>More events coming soon.</strong> Follow Yorkseed on Luma to hear first.</div><a href="https://lu.ma/yorkseed" target="_blank" rel="noopener">Follow on Luma</a></div>
-</div></section>
+<!-- ═══ UPCOMING ═══ -->
+<section class="upcoming">
+  <div class="upcoming-inner">
+    <div class="section-eyebrow">Upcoming events</div>
 
-<section class="arch"><div class="wrap">
-  <div class="sec-h"><h2>Archive</h2><span id="arCount"></span></div>
-  <div id="archive"></div>
-</div></section>
-</main>
+    <div id="featuredContainer"></div>
+
+    <div class="upcoming-grid" id="upcomingGrid"></div>
+
+    <div id="partnerSection" class="partner-section" style="display:none">
+      <div class="partner-eyebrow">Community Partner Events</div>
+      <div class="partner-grid" id="partnerGrid"></div>
+    </div>
+
+    <div class="luma-cta">
+      <div class="luma-cta-text"><strong>More events coming soon.</strong> Follow Yorkseed on Luma to get notified as new events are announced across 50+ cities.</div>
+      <a href="https://lu.ma/yorkseed" target="_blank" rel="noopener" class="luma-cta-link">Follow on Luma →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FILTER TABS ═══ -->
+<div class="filters">
+  <div class="filter-tab active" onclick="filterEvents('all',this)">All</div>
+  <div class="filter-tab" onclick="filterEvents('passport',this)">Passport Series</div>
+  <div class="filter-tab" onclick="filterEvents('expert',this)">Expert Sessions</div>
+  <div class="filter-tab" onclick="filterEvents('summit',this)">Summit &amp; House</div>
+  <div class="filter-tab" onclick="filterEvents('community',this)">Community Partner</div>
+</div>
+
+<!-- ═══ ARCHIVE ═══ -->
+<div class="archive">
+  <div class="archive-inner" id="archiveContainer"></div>
+</div>
+</div>
 
 <yk-footer><a href="/">Home</a> <a href="/hubs.html">Hubs</a> <a href="/events.html">Events</a> <a href="/about.html">About</a> <a href="/contact.html">Contact</a></yk-footer>
 
+<!-- Mobile tab bar -->
+
+
 <script>
-var MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-var MONL=['January','February','March','April','May','June','July','August','September','October','November','December'];
-var FILTER='all',UP=[],PART=[],ARCH=[],partnerEvents=[];
-function clean(s){return String(s||'').replace(/\s[\u2014\u2013]\s/g,': ').replace(/[\u2014\u2013]/g,'-')}
-function esc(s){return clean(s).replace(/&(?!amp;)/g,'&amp;').replace(/</g,'&lt;')}
-function label(ev){return ev.valois?'Valois':ev.nycfw?'NYC Founder Week':({passport:'Passport',expert:'Expert',summit:'Summit',house:'House',community:'Partner'}[ev.type]||ev.type)}
-function bcls(ev){return 'badge '+(ev.valois?'b-valois':ev.nycfw?'b-nycfw':'b-'+(ev.type==='house'?'summit':ev.type))}
-function href(ev){return ev.url||(ev.slug?'events/'+ev.slug+'.html':(ev.lumaUrl||'#'))}
-function ext(ev){return (ev.url||ev.slug)?'':' target="_blank" rel="noopener"'}
-function timeOf(ev){var p=String(ev.date||'').split('·');return p.length>1?clean(p.slice(1).join(' ').trim()):''}
-function match(ev){var t=ev.type;if(FILTER==='all')return true;if(FILTER==='summit')return t==='summit'||t==='house';return t===FILTER}
-function isPast(ev){if(!ev.dateISO)return false;var t=new Date();t.setHours(0,0,0,0);return new Date(ev.dateISO+'T00:00:00')<t}
-function parts(ev){var d=ev.dateISO?new Date(ev.dateISO+'T00:00:00'):null;return d?{d:d.getDate(),m:MON[d.getMonth()],ml:MONL[d.getMonth()]+' '+d.getFullYear(),k:d.getFullYear()*12+d.getMonth()}:null}
-function row(ev){
-  var p=parts(ev),t=timeOf(ev),loc=esc((ev.location||ev.city||'').replace(/\s*·\s*/g,', '));
-  var date=p?'<div class="dt"><b>'+p.d+'</b><i>'+p.m+'</i></div>':'<div class="dt"><i>TBA</i></div>';
-  return '<a class="row" href="'+href(ev)+'"'+ext(ev)+'>'+date+'<div class="rt"><span class="'+bcls(ev)+'">'+label(ev)+'</span><h4>'+esc(ev.title)+'</h4><p>'+loc+(t&&loc.indexOf(esc(t))<0?' &middot; '+esc(t):'')+'</p></div><span class="go">View &rarr;</span></a>';
+// ─── NAV ─────────────────────────────────────────────────────────────────────
+function toggleDrop(){
+  const d=document.getElementById('ecosDrop');
+  d.classList.toggle('open');
+  document.removeEventListener('click',closeOnOutside);
+  setTimeout(()=>document.addEventListener('click',closeOnOutside),10);
 }
-function renderUpcoming(){
-  var list=UP.filter(match),feat=document.getElementById('featured'),box=document.getElementById('upcoming');
-  var f=FILTER==='all'?list[0]:null; if(FILTER!=='all')f=null;
-  var rest=f?list.slice(1):list;
-  if(f){
-    var bg=f.coverImage?"background-image:url('"+f.coverImage+"')":(f.coverGradient?'background:'+f.coverGradient:'background:#242018');
-    feat.innerHTML='<a class="feat" style="'+(f.coverImage?'':'grid-template-columns:1fr;min-height:0')+'" href="'+href(f)+'"'+ext(f)+'>'+(f.coverImage?'<div class="feat-img" style="'+bg+'"></div>':'')+'<div class="feat-body"><div class="feat-tag">Next up &middot; '+label(f)+'</div><h3>'+esc(f.title)+'</h3><div class="feat-meta">'+esc(f.date)+'<br>'+esc(f.location)+(f.spots&&String(f.location).indexOf(f.spots)<0?'<br>'+esc(f.spots):'')+'</div><div class="feat-actions"><span class="btn btn-red">View details</span></div></div></a>';
-    if(f.lumaUrl){feat.firstChild.querySelector('.feat-actions').insertAdjacentHTML('beforeend','<span class="btn btn-line" data-rsvp="'+f.lumaUrl+'">RSVP</span>')}
-  }else feat.innerHTML='';
-  var out='',cur='';
-  rest.forEach(function(ev){var p=parts(ev),g=p?p.ml:'Date to be announced';if(g!==cur){if(cur)out+='</div>';out+='<div class="month">'+g+'</div><div class="list">';cur=g}out+=row(ev)});
-  if(cur)out+='</div>';
-  box.innerHTML=out||(f?'':'<div class="empty">No upcoming events in this category yet.</div>');
-  document.getElementById('upCount').textContent=list.length+(list.length===1?' event':' events');
+function closeOnOutside(e){
+  if(!document.getElementById('ecosDrop').contains(e.target)){
+    document.getElementById('ecosDrop').classList.remove('open');
+    document.removeEventListener('click',closeOnOutside);
+  }
 }
-function renderArchive(){
-  var html='',n=0;
-  ARCH.forEach(function(yb){
-    var evs=[];yb.groups.forEach(function(g){g.events.forEach(function(ev){evs.push({ev:ev,g:g.label})})});
-    evs=evs.filter(function(x){return match(x.ev)});
-    if(!evs.length)return;
-    evs.sort(function(a,b){return (Date.parse(String(b.ev.date||'').split('·')[0])||0)-(Date.parse(String(a.ev.date||'').split('·')[0])||0)});
-    html+='<div class="yr">'+yb.year+'</div>';
-    evs.forEach(function(x,i){
-      var ev=x.ev;n++;
-      var d=clean(String(ev.date||'').split('·')[0].trim().replace(/^[A-Za-z]{3},\s*/,''));
-      var link=ev.url?ev.url:(ev.slug?'events/'+ev.slug+'.html':(ev.lumaUrl||''));
-      var ex=(ev.url||ev.slug)?'':' target="_blank" rel="noopener"';
-      html+='<div class="arow'+(i>=8?' hid':'')+'" '+(i>=8?'hidden':'')+'><span class="d">'+esc(d)+'</span><div class="t">'+esc(ev.title)+'<small>'+esc((ev.location||x.g||'').replace(/\s*·\s*/g,', '))+'</small></div>'+(link?'<a class="go" href="'+link+'"'+ex+'>'+(ev.linkLabel&&ev.linkLabel.indexOf('&')<0?esc(ev.linkLabel):'View')+' &rarr;</a>':'<span></span>')+'</div>';
-    });
-    if(evs.length>8)html+='<button class="more" data-more>Show '+(evs.length-8)+' more from '+yb.year+'</button>';
+function toggleDrawer(){
+  const d=document.getElementById('navDrawer');
+  const b=document.getElementById('hamBtn');
+  d.classList.toggle('open');
+  b.classList.toggle('open');
+}
+function filterEvents(type,el){
+  document.querySelectorAll('.filter-tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('.event-row').forEach(row=>{
+    if(type==='all'||row.dataset.type===type||(type==='summit'&&(row.dataset.type==='summit'||row.dataset.type==='house'))||false){
+      row.style.display='flex';
+    }else{
+      row.style.display='none';
+    }
   });
-  document.getElementById('archive').innerHTML=html||'<div class="empty">Nothing here yet.</div>';
-  document.getElementById('arCount').textContent=n+' past events';
 }
-function openModal(i){
-  var ev=partnerEvents[i];
-  document.getElementById('modalImg').src=ev.coverImage||'';
-  document.getElementById('modalImg').style.display=ev.coverImage?'block':'none';
-  document.getElementById('modalTitle').textContent=clean(ev.title);
-  document.getElementById('modalDesc').textContent=clean(ev.description||'');
-  document.getElementById('modalBtn').href=ev.lumaUrl||'#';
-  var meta=document.getElementById('modalMeta');meta.innerHTML='';
-  if(ev.date)meta.innerHTML+='<div class="modal-meta-row">'+esc(ev.date)+'</div>';
-  if(ev.location)meta.innerHTML+='<div class="modal-meta-row">'+esc(ev.location)+'</div>';
-  var pr=document.getElementById('modalPromo');
-  if(ev.promoCode){pr.style.display='block';pr.textContent='Promo code: '+ev.promoCode+'. Use at checkout.'}else pr.style.display='none';
-  document.getElementById('partnerModal').classList.add('open');document.body.style.overflow='hidden';
+
+// ─── HELPERS ─────────────────────────────────────────────────────────────────
+function typeLabel(t){return{passport:'Passport',expert:'Expert',summit:'Summit',house:'House',community:'Community Partner'}[t]||t}
+function typeRowClass(t){return{passport:'type-passport',expert:'type-expert',summit:'type-summit',house:'type-house',community:'type-community'}[t]||'type-summit'}
+function badgeClass(t){return{passport:'badge-passport',expert:'badge-expert',summit:'badge-summit',house:'badge-house'}[t]||'badge-summit'}
+// Valois branding overrides — applied on top of the underlying type (which stays intact for filtering)
+function evLabel(ev){return ev.valois?'Valois':ev.nycfw?'NYC Founder Week':typeLabel(ev.type)}
+function evRowClass(ev){return ev.valois?'type-valois':ev.nycfw?'type-nycfw':typeRowClass(ev.type)}
+function evBadgeClass(ev){return ev.valois?'badge-valois':ev.nycfw?'badge-nycfw':badgeClass(ev.type)}
+
+// ─── FEATURED CARD ────────────────────────────────────────────────────────────
+function renderFeatured(ev){
+  const href = ev.url ? ev.url : (ev.slug ? `events/${ev.slug}.html` : (ev.lumaUrl || '#'));
+  const target = (ev.url || ev.slug) ? '' : ' target="_blank"';
+  const bgStyle = ev.coverImage
+    ? `background-image:url('${ev.coverImage}');background-size:cover;background-position:center`
+    : (ev.coverGradient ? `background:${ev.coverGradient}` : '');
+  return `
+    <a href="${href}"${target} class="featured-card" style="display:grid;text-decoration:none;color:inherit">
+      <div class="featured-card-img"${bgStyle ? ` style="${bgStyle}"` : ''}>
+        <div class="featured-img-city">${ev.city||''}</div>
+        <div style="position:relative;z-index:1">
+          <div class="featured-img-badge">&#9679; Next up</div>
+          <div class="featured-img-title">${ev.title}</div>
+        </div>
+      </div>
+      <div class="featured-card-body">
+        <div class="featured-meta">
+          <div><div class="featured-meta-label">Date &amp; Time</div><div class="featured-meta-val">${ev.date}</div></div>
+          <div><div class="featured-meta-label">Location</div><div class="featured-meta-val">${ev.location}</div></div>
+          <div><div class="featured-meta-label">Format</div><div class="featured-meta-val">${ev.format||''}${ev.spots?' &middot; '+ev.spots:''}</div></div>
+        </div>
+        ${ev.description?`<div class="featured-desc">${ev.description}</div>`:''}
+        <div class="featured-actions">
+          <div class="btn-primary">View event details &rarr;</div>
+          <div class="btn-secondary" onclick="event.preventDefault();window.open('${ev.lumaUrl||'https://lu.ma/yorkseed'}','_blank')">RSVP &#8599;</div>
+        </div>
+      </div>
+    </a>`;
 }
-function closeModal(e){if(e.target===document.getElementById('partnerModal')){document.getElementById('partnerModal').classList.remove('open');document.body.style.overflow=''}}
-document.addEventListener('keydown',function(e){if(e.key==='Escape'){document.getElementById('partnerModal').classList.remove('open');document.body.style.overflow=''}});
-document.addEventListener('click',function(e){
-  var c=e.target.closest('.chip');
-  if(c){FILTER=c.dataset.f;document.querySelectorAll('.chip').forEach(function(x){x.classList.toggle('on',x===c)});renderUpcoming();renderArchive();return}
-  var m=e.target.closest('[data-more]');
-  if(m){var n=m.previousElementSibling;var items=[];while(n&&n.classList&&n.classList.contains('arow')){if(n.hidden)items.push(n);n=n.previousElementSibling}items.forEach(function(x){x.hidden=false});m.remove();return}
-  var r=e.target.closest('[data-rsvp]');
-  if(r){e.preventDefault();window.open(r.dataset.rsvp,'_blank','noopener')}
+
+// ─── UPCOMING CARD ────────────────────────────────────────────────────────────
+function renderUpcomingCard(ev){
+  const locIcon=(ev.location||'').toLowerCase().includes('virtual')?'&#128187;':'&#128205;';
+  const href=ev.url?ev.url:(ev.slug?`events/${ev.slug}.html`:(ev.lumaUrl||'#'));
+  const target=(ev.url||ev.slug)?'':'target="_blank"';
+  const imgHtml = ev.coverImage
+    ? `<img src="${ev.coverImage}" alt="" referrerpolicy="no-referrer" loading="lazy"/>`
+    : `<div class="uc-img-fallback">${(ev.city||ev.location||'').split(',')[0]}</div>`;
+  return `
+    <div class="upcoming-card${ev.valois?' is-valois':''}${ev.nycfw?' is-nycfw':''}" data-type="${ev.type}">
+      <div class="uc-img">${imgHtml}</div>
+      <div class="uc-content">
+        <div class="uc-top">
+          <span class="uc-badge ${evBadgeClass(ev)}">${evLabel(ev)}</span>
+          <div class="uc-date">${(ev.date||'').replace(/\s+(\d{4})$/,'<br>$1')}</div>
+        </div>
+        <div class="uc-title">${ev.title}</div>
+        <div class="uc-loc">${locIcon} ${ev.location}</div>
+        <div class="uc-footer">
+          <div class="uc-spots">${ev.spots||'Spots available'}</div>
+          <a href="${href}" ${target} class="uc-link">View event &rarr;</a>
+        </div>
+      </div>
+    </div>`;
+}
+
+// ─── ARCHIVE ──────────────────────────────────────────────────────────────────
+function renderArchive(archive){
+  const currentYear=new Date().getFullYear();
+  return archive.map(yb=>`
+    <div class="year-block">
+      <div class="year-heading${yb.year>=currentYear?' current':''}">${yb.year}</div>
+      ${yb.groups.map(g=>`
+        <div class="edition-group">
+          <div class="edition-label">${g.label}</div>
+          <div class="event-table">
+            ${g.events.map(ev=>`
+              <div class="event-row${ev.valois?' is-valois':''}${ev.nycfw?' is-nycfw':''}" data-type="${ev.type}">
+                <span class="event-type ${evRowClass(ev)}">${evLabel(ev)}</span>
+                <div class="event-name">${ev.title}</div>
+                <div class="event-loc">${ev.location}</div>
+                <div class="event-date">${ev.date}</div>
+                ${ev.url?`<a href="${ev.url}" class="event-link">${ev.linkLabel||'View &rarr;'}</a>`:(ev.slug?`<a href="events/${ev.slug}.html" class="event-link">${ev.linkLabel||'View &rarr;'}</a>`:(ev.lumaUrl?`<a href="${ev.lumaUrl}" target="_blank" class="event-link">${ev.linkLabel||'View &rarr;'}</a>`:''))}
+                ${ev.promoCode?`<span style="font-family:var(--mono);font-size:9px;letter-spacing:.06em;color:var(--ink4);margin-left:4px">Code: ${ev.promoCode}</span>`:''}
+              </div>`).join('')}
+          </div>
+        </div>`).join('')}
+    </div>`).join('');
+}
+
+
+// ─── COMMUNITY PARTNER CARDS ─────────────────────────────────────────────
+const partnerEvents = [];
+
+function renderPartnerCard(ev){
+  const img = ev.coverImage || '';
+  const idx = partnerEvents.push(ev) - 1;
+  return `
+    <div class="partner-card" onclick="openModal(${idx})">
+      <div class="partner-card-img">
+        ${img ? `<img src="${img}" alt="" referrerpolicy="no-referrer"/>` : `<div style="width:100%;height:100%;background:var(--mid)"></div>`}
+      </div>
+      <div class="partner-card-body">
+        <div class="partner-card-badge">Community Partner</div>
+        <div class="partner-card-title">${ev.title}</div>
+        <div class="partner-card-loc">📍 ${ev.location}</div>
+      </div>
+    </div>`;
+}
+
+function openModal(idx){
+  const ev = partnerEvents[idx];
+  document.getElementById('modalImg').src = ev.coverImage || '';
+  document.getElementById('modalImg').style.display = ev.coverImage ? 'block' : 'none';
+  document.getElementById('modalTitle').textContent = ev.title;
+  document.getElementById('modalDesc').textContent = ev.description || '';
+  document.getElementById('modalBtn').href = ev.lumaUrl || '#';
+  const meta = document.getElementById('modalMeta');
+  meta.innerHTML = '';
+  if(ev.date) meta.innerHTML += `<div class="modal-meta-row">📅 ${ev.date}</div>`;
+  if(ev.location) meta.innerHTML += `<div class="modal-meta-row">📍 ${ev.location}</div>`;
+  if(ev.venue && ev.venue !== ev.location) meta.innerHTML += `<div class="modal-meta-row">🏛 ${ev.venue}</div>`;
+  const promo = document.getElementById('modalPromo');
+  if(ev.promoCode){
+    promo.style.display = 'block';
+    promo.textContent = `🎟 Promo code: ${ev.promoCode} — use at checkout`;
+  } else {
+    promo.style.display = 'none';
+  }
+  document.getElementById('partnerModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(e){
+  if(e.target === document.getElementById('partnerModal')){
+    document.getElementById('partnerModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+
+document.addEventListener('keydown', e => {
+  if(e.key === 'Escape'){
+    document.getElementById('partnerModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
 });
-var MGR='https://yorkseed-backend-production.up.railway.app/api/site-events/public';
-var mgr=fetch(MGR).then(function(r){return r.ok?r.json():{events:[]}}).catch(function(){return {events:[]}});
-fetch('/events.json').then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(data){return mgr.then(function(m){data.upcoming=(data.upcoming||[]).slice();var have={};data.upcoming.forEach(function(e){if(e.lumaUrl)have[e.lumaUrl]=1});(m.events||[]).forEach(function(e){if(e.lumaUrl&&have[e.lumaUrl])return;e.url='/event.html?id='+e.id;data.upcoming.push(e)});return data})}).then(function(data){
-  var all=data.upcoming||[];
-  UP=all.filter(function(e){return !isPast(e)}).sort(function(a,b){return (a.dateISO?new Date(a.dateISO):9e15)-(b.dateISO?new Date(b.dateISO):9e15)});
-  var archive=data.archive||[];
-  all.filter(isPast).forEach(function(ev){
-    var y=new Date(ev.dateISO).getFullYear(),yb=archive.find(function(a){return a.year===y});
-    if(!yb){yb={year:y,groups:[]};archive.push(yb)}
-    var lab=ev.city||ev.location||'Event',g=yb.groups.find(function(x){return x.label===lab});
-    if(!g){g={label:lab,events:[]};yb.groups.push(g)}
-    g.events.push({type:ev.type,title:ev.title,location:ev.location,date:ev.date,lumaUrl:ev.lumaUrl||'',url:ev.url,slug:ev.slug,valois:ev.valois,nycfw:ev.nycfw});
-  });
-  archive.forEach(function(yb){yb.groups.forEach(function(g){g.events.forEach(function(ev){if(ev.type==='community'&&ev.dateISO&&!isPast(ev))UP.push(ev)})})});
-  UP.sort(function(a,b){return (a.dateISO?new Date(a.dateISO):9e15)-(b.dateISO?new Date(b.dateISO):9e15)});
-  archive.sort(function(a,b){return b.year-a.year});
-  ARCH=archive;
-  renderUpcoming();renderArchive();
-}).catch(function(e){console.error('events.json load error',e);document.getElementById('upcoming').innerHTML='<div class="empty">Events could not load. Follow us on Luma for the latest.</div>'});
+
+// ─── INIT ─────────────────────────────────────────────────────────────────────
+function isPast(ev){
+  if(!ev.dateISO) return false;
+  // Compare date only (ignore time) so event stays visible on the day itself
+  const today = new Date();
+  today.setHours(0,0,0,0);
+  return new Date(ev.dateISO) < today;
+}
+
+async function init(){
+  try{
+    const res=await fetch('/events.json');
+    if(!res.ok) throw new Error('fetch failed');
+    const data=await res.json();
+
+    // Events added from the Event Manager (backend). Merged with events.json.
+    try{
+      const mr=await fetch('https://yorkseed-backend-production.up.railway.app/api/site-events/public');
+      if(mr.ok){
+        const m=await mr.json();
+        data.upcoming=(data.upcoming||[]).slice();
+        const have={};data.upcoming.forEach(e=>{if(e.lumaUrl)have[e.lumaUrl]=1});
+        (m.events||[]).forEach(e=>{
+          if(e.lumaUrl&&have[e.lumaUrl])return;
+          e.url='/event.html?id='+e.id;
+          data.upcoming.push(e);
+        });
+      }
+    }catch(_){}
+
+    // Split upcoming into still-future and now-past
+    const allUpcoming=data.upcoming||[];
+    const stillUpcoming=allUpcoming.filter(e=>!isPast(e));
+    const autoArchived=allUpcoming.filter(e=>isPast(e));
+
+    // Auto-sort by dateISO, earliest is always featured
+    stillUpcoming.sort((a,b)=>{
+      if(!a.dateISO) return 1;
+      if(!b.dateISO) return -1;
+      return new Date(a.dateISO)-new Date(b.dateISO);
+    });
+    const featured=stillUpcoming[0]||null;
+    const rest=stillUpcoming.slice(1);
+    if(featured) document.getElementById('featuredContainer').innerHTML=renderFeatured(featured);
+    if(rest.length) document.getElementById('upcomingGrid').innerHTML=rest.map(renderUpcomingCard).join('');
+
+    // Merge auto-archived events into the archive data under the correct year
+    const archive=data.archive||[];
+    autoArchived.forEach(ev=>{
+      const year=new Date(ev.dateISO).getFullYear();
+      let yearBlock=archive.find(y=>y.year===year);
+      if(!yearBlock){
+        yearBlock={year,groups:[]};
+        archive.unshift(yearBlock);
+        archive.sort((a,b)=>b.year-a.year);
+      }
+      // Add as a group if not already there
+      const groupLabel=ev.city||ev.location||'Event';
+      let group=yearBlock.groups.find(g=>g.label===groupLabel);
+      if(!group){
+        group={label:groupLabel,events:[]};
+        yearBlock.groups.unshift(group);
+      }
+      group.events.unshift({
+        type:ev.type,
+        title:ev.title,
+        location:ev.location,
+        date:ev.date,
+        lumaUrl:ev.lumaUrl||''
+      });
+    });
+
+    // Collect community partner events from archive — only upcoming ones
+    const today = new Date(); today.setHours(0,0,0,0);
+    const communityEvents = [];
+    archive.forEach(yb => yb.groups.forEach(g => g.events.forEach(ev => {
+      if(ev.type === 'community' && (!ev.dateISO || new Date(ev.dateISO) >= today)) communityEvents.push({...ev,
+        coverImage: ev.coverImage || 'https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/event-covers/uo/5435e4de-77ff-4a0b-82eb-e5264020fa96.png'
+      });
+    })));
+    if(communityEvents.length){
+      document.getElementById('partnerSection').style.display='block';
+      document.getElementById('partnerGrid').innerHTML = communityEvents.map(renderPartnerCard).join('');
+    }
+    document.getElementById('archiveContainer').innerHTML=renderArchive(archive);
+  }catch(err){
+    console.error('events.json load error:',err);
+  }
+}
+init();
 </script>
 
 <!-- COMMUNITY PARTNER MODAL -->
