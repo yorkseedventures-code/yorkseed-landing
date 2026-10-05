@@ -319,6 +319,8 @@ h1 em{font-style:italic;color:var(--red)}
 </div>
 </div>
 
+<div style="text-align:center;padding:8px 20px 36px"><a href="/event-admin.html" rel="nofollow" style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.08em;color:#8a867d;text-decoration:underline">Event manager login</a></div>
+
 <yk-footer><a href="/">Home</a> <a href="/hubs.html">Hubs</a> <a href="/events.html">Events</a> <a href="/about.html">About</a> <a href="/contact.html">Contact</a></yk-footer>
 
 <!-- Mobile tab bar -->
@@ -528,7 +530,18 @@ async function init(){
         (m.events||[]).forEach(e=>{
           if(e.lumaUrl&&have[e.lumaUrl])return;
           e.url='/event.html?id='+e.id;
-          data.upcoming.push(e);
+          if(e.type==='community'&&!isPast(e)){ (data._partner=data._partner||[]).push(e); }
+          else if(e.type==='community'){
+            // past partner events go to the archive under their year
+            data.archive=data.archive||[];
+            const y=new Date(e.dateISO).getFullYear();
+            let yb=data.archive.find(a=>a.year===y);
+            if(!yb){yb={year:y,groups:[]};data.archive.push(yb);data.archive.sort((a,b)=>b.year-a.year)}
+            let g=yb.groups.find(x=>x.label==='Partner events');
+            if(!g){g={label:'Partner events',events:[]};yb.groups.push(g)}
+            g.events.push({type:'community',title:e.title,location:e.location,date:e.date,lumaUrl:e.lumaUrl||'',dateISO:e.dateISO,description:e.description,coverImage:e.coverImage,promoCode:e.promoCode});
+          }
+          else data.upcoming.push(e);
         });
       }
     }catch(_){}
@@ -583,6 +596,7 @@ async function init(){
         coverImage: ev.coverImage || 'https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/event-covers/uo/5435e4de-77ff-4a0b-82eb-e5264020fa96.png'
       });
     })));
+    (data._partner||[]).forEach(e=>communityEvents.push(e));
     if(communityEvents.length){
       document.getElementById('partnerSection').style.display='block';
       document.getElementById('partnerGrid').innerHTML = communityEvents.map(renderPartnerCard).join('');
