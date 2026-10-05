@@ -3,594 +3,145 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Yorkseed — Event Manager</title>
+<title>Yorkseed Event Manager</title>
 <meta name="robots" content="noindex, nofollow"/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --red:#c8372d;--gold:#b08d57;
-  --ink:#111;
-  --ink2:#1a1a1a;--ink3:#555;--ink4:#888;
-  --white:#fff;--off:#fafafa;--border:rgba(0,0,0,.09);--border2:rgba(0,0,0,.14);
-  --sans:'DM Sans',system-ui,sans-serif;--mono:'DM Mono',monospace;
-  --green:#1a8a5a;--green-dim:rgba(26,138,90,.08);
-}
-body{font-family:var(--sans);font-weight:300;background:#f5f4f1;color:var(--ink);min-height:100vh;padding:0}
-.topbar{background:var(--ink);color:#fff;padding:14px 32px;display:flex;align-items:center;justify-content:space-between}
-.topbar-logo{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.7)}
-.topbar-title{font-size:13px;font-weight:400;color:rgba(255,255,255,.9)}
-.topbar-hint{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35)}
-
-.layout{display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:calc(100vh - 52px)}
-
-/* LEFT — Form */
-.form-panel{background:var(--white);padding:40px;overflow-y:auto;border-right:1px solid var(--border2)}
-.panel-title{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:28px;display:flex;align-items:center;gap:10px}
-.panel-title::before{content:'';display:block;width:16px;height:1px;background:var(--red);opacity:.5}
-
-.form-section{margin-bottom:28px}
-.form-section-label{font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink4);margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--border)}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
-.form-row.full{grid-template-columns:1fr}
-.field{display:flex;flex-direction:column;gap:5px}
-.field label{font-family:var(--mono);font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4)}
-.field input,.field select,.field textarea{font-family:var(--sans);font-size:13px;font-weight:300;background:var(--off);border:1px solid var(--border2);border-radius:6px;padding:9px 12px;color:var(--ink);transition:border-color .15s;outline:none}
-.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--red);background:var(--white)}
-.field textarea{resize:vertical;min-height:72px;line-height:1.6}
-.field select{cursor:pointer}
-.field-hint{font-size:11px;color:var(--ink4);line-height:1.5;margin-top:3px}
-
-.toggle-row{display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--off);border:1px solid var(--border);border-radius:6px;cursor:pointer;user-select:none}
-.toggle-label{font-size:13px;font-weight:400;color:var(--ink);flex:1}
-.toggle-sub{font-size:11px;color:var(--ink4)}
-.toggle{width:36px;height:20px;border-radius:10px;background:var(--border2);position:relative;transition:background .2s;flex-shrink:0}
-.toggle.on{background:var(--red)}
-.toggle::after{content:'';position:absolute;top:3px;left:3px;width:14px;height:14px;border-radius:50%;background:#fff;transition:transform .2s;box-shadow:0 1px 3px rgba(0,0,0,.2)}
-.toggle.on::after{transform:translateX(16px)}
-
-.btn-add{width:100%;background:var(--red);color:#fff;border:none;border-radius:7px;padding:13px;font-family:var(--sans);font-size:13px;font-weight:400;letter-spacing:.02em;cursor:pointer;transition:opacity .15s;margin-top:8px}
-.btn-add:hover{opacity:.88}
-.btn-add:active{opacity:.75}
-
-/* RIGHT — Output */
-.output-panel{background:var(--off);padding:40px;overflow-y:auto;display:flex;flex-direction:column;gap:24px}
-.output-section{background:var(--white);border:1px solid var(--border2);border-radius:10px;overflow:hidden}
-.output-header{padding:14px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:12px}
-.output-header-title{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink4)}
-.copy-btn{font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;background:var(--off);border:1px solid var(--border2);border-radius:4px;padding:5px 12px;cursor:pointer;transition:all .15s;color:var(--ink3)}
-.copy-btn:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
-.copy-btn.copied{background:var(--green);color:#fff;border-color:var(--green)}
-.output-body{padding:18px;font-family:var(--mono);font-size:11px;line-height:1.7;color:#333;white-space:pre-wrap;word-break:break-all;background:#f8f8f6;max-height:320px;overflow-y:auto}
-.output-body.empty{color:var(--ink4);font-style:italic;background:var(--white);padding:28px;text-align:center;font-size:12px}
-
-.instructions{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:24px}
-.inst-title{font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
-.inst-step{display:flex;gap:12px;margin-bottom:14px;align-items:flex-start}
-.inst-num{font-family:var(--mono);font-size:11px;background:var(--ink);color:#fff;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.inst-text{font-size:12.5px;color:var(--ink3);line-height:1.65}
-.inst-text code{font-family:var(--mono);font-size:11px;background:var(--off);padding:1px 6px;border-radius:3px;color:var(--ink)}
-
-.toast{position:fixed;bottom:28px;right:28px;background:var(--green);color:#fff;padding:12px 20px;border-radius:8px;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;opacity:0;transform:translateY(10px);transition:all .25s;pointer-events:none;z-index:999}
-.toast.show{opacity:1;transform:translateY(0)}
-
-/* Cloudinary upload */
-.upload-zone{border:2px dashed var(--border2);border-radius:8px;padding:24px;text-align:center;cursor:pointer;transition:all .2s;background:var(--off);position:relative}
-.upload-zone:hover,.upload-zone.drag{border-color:var(--red);background:rgba(200,55,45,.03)}
-.upload-zone input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
-.upload-icon{font-size:28px;margin-bottom:8px;display:block}
-.upload-label{font-size:13px;color:var(--ink3);font-weight:400}
-.upload-sub{font-size:11px;color:var(--ink4);margin-top:4px}
-.upload-preview{display:none;margin-top:14px;border-radius:6px;overflow:hidden;border:1px solid var(--border2);position:relative}
-.upload-preview img{width:100%;height:140px;object-fit:cover;display:block}
-.upload-preview-remove{position:absolute;top:8px;right:8px;background:rgba(0,0,0,.6);color:#fff;border:none;border-radius:4px;padding:4px 10px;font-size:11px;cursor:pointer;font-family:var(--mono)}
-.upload-progress{height:3px;background:var(--border);border-radius:2px;margin-top:10px;overflow:hidden;display:none}
-.upload-progress-bar{height:100%;background:var(--red);border-radius:2px;width:0%;transition:width .3s}
-.upload-status{font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;margin-top:8px;color:var(--ink4);text-align:center}
-.upload-status.success{color:var(--green)}
-.upload-status.error{color:var(--red)}
-
-/* Cloudinary config box */
-.cloudinary-config{background:#fffbf0;border:1px solid rgba(176,141,87,.3);border-radius:8px;padding:16px;margin-bottom:14px}
-.cloudinary-config-title{font-family:var(--mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
-.cloudinary-config .form-row{margin-bottom:0}
-
-@media(max-width:900px){
-  .layout{grid-template-columns:1fr}
-  .form-panel,.output-panel{padding:24px}
-}
-
-/* ── FOOTER MOBILE ── */
-@media(max-width:600px){
-  footer{padding:24px 5vw 20px!important}
-  footer .footer-quick-links{
-    display:grid!important;
-    grid-template-columns:1fr 1fr!important;
-    gap:8px!important;
-    margin-bottom:16px!important;
-    padding-bottom:16px!important;
-    width:100%!important;
-    box-sizing:border-box!important;
-  }
-  footer .footer-quick-links span:first-child{
-    grid-column:1/-1!important;
-    text-align:center!important;
-  }
-  footer .footer-quick-links a{
-    font-size:12px!important;
-    padding:10px 12px!important;
-    min-height:44px!important;
-    display:flex!important;
-    align-items:center!important;
-    justify-content:center!important;
-    text-align:center!important;
-    background:rgba(255,255,255,.05)!important;
-    border-radius:6px!important;
-    border:1px solid rgba(255,255,255,.08)!important;
-    font-weight:500!important;
-    color:rgba(255,255,255,.7)!important;
-    box-sizing:border-box!important;
-  }
-  footer .footer-nav-links{
-    gap:6px 8px!important;
-    font-size:10px!important;
-  }
-  footer .footer-nav-links a{
-    font-size:10px!important;
-  }
-}
+:root{--ink:#0b0b0c;--ink3:#55524c;--ink4:#8a867d;--red:#cc1e2b;--green:#0a5a3e;--line:rgba(11,11,12,.12);--bg:#f5f4f1;--card:#fff}
+body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink);padding:16px 16px 80px;max-width:640px;margin:0 auto;font-size:16px;line-height:1.4}
+h1{font-size:24px;margin:8px 0 4px}
+.sub{color:var(--ink3);font-size:15px;margin-bottom:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:16px}
+h2{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-bottom:12px}
+label{display:block;font-size:13px;color:var(--ink4);margin:12px 0 5px}
+input,select,textarea{width:100%;font:inherit;font-size:16px;padding:12px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+textarea{min-height:130px;resize:vertical}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn{width:100%;margin-top:14px;min-height:50px;border:0;border-radius:12px;font:600 16px system-ui;background:var(--ink);color:#fff;cursor:pointer}
+.btn.red{background:var(--red)}
+.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.btn:disabled{opacity:.5}
+.msg{margin-top:12px;font-size:15px;padding:10px 12px;border-radius:10px;display:none}
+.msg.ok{display:block;background:rgba(10,90,62,.1);color:var(--green)}
+.msg.err{display:block;background:rgba(204,30,43,.1);color:var(--red)}
+.ev{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:12px 0;border-top:1px solid var(--line)}
+.ev:first-of-type{border-top:0}
+.ev b{display:block;font-size:15px}
+.ev small{color:var(--ink4);font-size:13px}
+.ev .acts{display:flex;gap:6px;flex:none}
+.ev .acts button,.ev .acts a{font:600 13px system-ui;padding:9px 11px;border-radius:9px;border:1px solid var(--line);background:#fff;color:var(--ink);text-decoration:none}
+.hid{opacity:.5}
+.hint{font-size:13px;color:var(--ink4);margin-top:6px}
+#editor{display:none}
 </style>
 </head>
 <body>
+<h1>Event Manager</h1>
+<p class="sub">Paste an event link (Luma, Eventbrite, Partiful, Posh, Meetup and more), check the details, publish. The event and its page go live on the website right away.</p>
 
-<div class="topbar">
-  <div class="topbar-logo">Yorkseed</div>
-  <div class="topbar-title">Event Manager</div>
-  <div class="topbar-hint">Admin Only</div>
+<div class="card" id="keyCard">
+  <h2>Your key</h2>
+  <input id="key" type="password" placeholder="Event manager key" autocomplete="off"/>
+  <div class="hint">Saved on this device only.</div>
 </div>
 
-<div class="layout">
-
-  <!-- ─── FORM ──────────────────────────────────────────────────── -->
-  <div class="form-panel">
-    <div class="panel-title">Add New Event</div>
-
-    <!-- Type & Status -->
-    <div class="form-section">
-      <div class="form-section-label">Event Type & Status</div>
-      <div class="form-row">
-        <div class="field">
-          <label>Event Type</label>
-          <select id="fType">
-            <option value="passport">Passport Series</option>
-            <option value="expert">Expert Session</option>
-            <option value="summit">Summit</option>
-            <option value="house">House Event</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>Status</label>
-          <select id="fStatus">
-            <option value="upcoming">Upcoming</option>
-            <option value="archive">Archive (Past)</option>
-          </select>
-        </div>
-      </div>
-      <div class="toggle-row" id="featuredToggle" onclick="toggleFeatured()">
-        <div>
-          <div class="toggle-label">Feature on Events Page</div>
-          <div class="toggle-sub">Shows as the hero card at the top of upcoming events</div>
-        </div>
-        <div class="toggle" id="featuredToggleEl"></div>
-      </div>
-    </div>
-
-    <!-- Core Details -->
-    <div class="form-section">
-      <div class="form-section-label">Event Details</div>
-      <div class="form-row full">
-        <div class="field">
-          <label>Event Title</label>
-          <input type="text" id="fTitle" placeholder="e.g. Founders × Investors SXSW Mixer"/>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="field">
-          <label>City</label>
-          <input type="text" id="fCity" placeholder="New York"/>
-        </div>
-        <div class="field">
-          <label>Country</label>
-          <input type="text" id="fCountry" placeholder="USA"/>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="field">
-          <label>Date (display)</label>
-          <input type="text" id="fDate" placeholder="Jun 12, 2026"/>
-        </div>
-        <div class="field">
-          <label>Year (for archive)</label>
-          <input type="number" id="fYear" placeholder="2026" value="2026"/>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="field">
-          <label>Format</label>
-          <select id="fFormat">
-            <option value="In-Person">In-Person</option>
-            <option value="Virtual">Virtual</option>
-            <option value="Hybrid">Hybrid</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>Capacity / Spots</label>
-          <input type="text" id="fSpots" placeholder="Limited seats · 80 guests"/>
-        </div>
-      </div>
-      <div class="form-row full">
-        <div class="field">
-          <label>Venue (optional)</label>
-          <input type="text" id="fVenue" placeholder="TBA or specific venue name"/>
-        </div>
-      </div>
-      <div class="form-row full">
-        <div class="field">
-          <label>Description (for featured card)</label>
-          <textarea id="fDesc" placeholder="A short, compelling description of the event for the featured card and event page…"></textarea>
-        </div>
-      </div>
-    </div>
-
-    <!-- Links -->
-    <div class="form-section">
-      <div class="form-section-label">Links</div>
-      <div class="form-row full">
-        <div class="field">
-          <label>Luma / RSVP URL</label>
-          <input type="url" id="fLuma" placeholder="https://lu.ma/your-event"/>
-        </div>
-      </div>
-      <div class="form-row full">
-        <div class="field">
-          <label>Recap / Press URL (optional)</label>
-          <input type="url" id="fRecap" placeholder="https://... (leave blank if upcoming)"/>
-          <div class="field-hint">Adds a "Recap →" link in the archive row</div>
-        </div>
-      </div>
-      <div class="form-row full">
-        <div class="field">
-          <label>Archive Group Label</label>
-          <input type="text" id="fGroup" placeholder="e.g. SXSW Austin · London Tech Week"/>
-          <div class="field-hint">How this event's series/conference will be labeled in the archive</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Cover Image Upload -->
-    <div class="form-section" id="coverSection">
-      <div class="form-section-label">Cover Image</div>
-
-      <!-- Cloudinary config -->
-      <div class="cloudinary-config">
-        <div class="cloudinary-config-title">⚙ Cloudinary Setup (one-time)</div>
-        <div class="form-row">
-          <div class="field">
-            <label>Cloud Name</label>
-            <input type="text" id="cloudName" placeholder="your-cloud-name"/>
-          </div>
-          <div class="field">
-            <label>Upload Preset (unsigned)</label>
-            <input type="text" id="uploadPreset" placeholder="your-upload-preset"/>
-          </div>
-        </div>
-        <div class="field-hint" style="margin-top:6px">Get these from <strong>cloudinary.com</strong> → Settings → Upload → Add unsigned preset. Free account is fine.</div>
-      </div>
-
-      <!-- Drop zone -->
-      <div class="upload-zone" id="uploadZone">
-        <input type="file" id="imageFile" accept="image/*" onchange="handleFileSelect(this.files[0])"/>
-        <span class="upload-icon">🖼</span>
-        <div class="upload-label">Drop image here or click to browse</div>
-        <div class="upload-sub">JPG, PNG, WebP — recommended 1200×600px</div>
-      </div>
-      <div class="upload-progress" id="uploadProgress"><div class="upload-progress-bar" id="uploadProgressBar"></div></div>
-      <div class="upload-status" id="uploadStatus"></div>
-      <div class="upload-preview" id="uploadPreview">
-        <img id="uploadPreviewImg" src="" alt="Preview"/>
-        <button class="upload-preview-remove" onclick="removeImage()">✕ Remove</button>
-      </div>
-
-      <!-- Manual URL fallback -->
-      <div class="form-row full" style="margin-top:14px">
-        <div class="field">
-          <label>Cover Image URL (auto-filled on upload, or paste manually)</label>
-          <input type="url" id="fImage" placeholder="https://res.cloudinary.com/..."/>
-          <div class="field-hint">Leave blank to use a dark gradient instead</div>
-        </div>
-      </div>
-    </div>
-
-    <button class="btn-add" onclick="generateJSON()">Generate JSON Entry →</button>
-  </div>
-
-  <!-- ─── OUTPUT ─────────────────────────────────────────────────── -->
-  <div class="output-panel">
-
-    <div class="output-section">
-      <div class="output-header">
-        <div class="output-header-title">JSON Entry — paste into events.json</div>
-        <button class="copy-btn" id="copyJsonBtn" onclick="copyOutput('jsonOutput','copyJsonBtn')">Copy</button>
-      </div>
-      <div class="output-body empty" id="jsonOutput">Fill in the form and click "Generate JSON Entry" to see the output here.</div>
-    </div>
-
-    <div class="output-section">
-      <div class="output-header">
-        <div class="output-header-title">Where to paste in events.json</div>
-      </div>
-      <div class="output-body" id="pasteHint" style="background:var(--white);font-family:var(--sans);font-size:12.5px;color:var(--ink3);line-height:1.7">
-        Generate an entry above to see paste instructions.
-      </div>
-    </div>
-
-    <div class="instructions">
-      <div class="inst-title">How to add an event</div>
-      <div class="inst-step">
-        <div class="inst-num">1</div>
-        <div class="inst-text">Fill in the form on the left and click <strong>Generate JSON Entry</strong></div>
-      </div>
-      <div class="inst-step">
-        <div class="inst-num">2</div>
-        <div class="inst-text">Copy the JSON output and open <code>events.json</code> in your code editor (or on GitHub)</div>
-      </div>
-      <div class="inst-step">
-        <div class="inst-num">3</div>
-        <div class="inst-text">Follow the paste instructions above — paste into the right array (<code>upcoming</code> or <code>archive</code>)</div>
-      </div>
-      <div class="inst-step">
-        <div class="inst-num">4</div>
-        <div class="inst-text">Save the file and push to GitHub. The events page will automatically reflect the change — no other files need touching.</div>
-      </div>
-      <div class="inst-step">
-        <div class="inst-num">5</div>
-        <div class="inst-text">For <strong>upcoming events</strong>, also create a matching <code>events/[slug].html</code> file using the event landing page template — this is the page users land on before being sent to Luma.</div>
-      </div>
-    </div>
-
-  </div>
+<div class="card">
+  <h2>1. Add from a link</h2>
+  <input id="url" type="url" inputmode="url" placeholder="https://..."/>
+  <button class="btn red" id="fetchBtn">Fetch event details</button>
+  <div class="msg" id="fetchMsg"></div>
 </div>
 
-<div class="toast" id="toast">Copied!</div>
+<div class="card" id="editor">
+  <h2 id="edTitle">2. Check and publish</h2>
+  <label>Title</label><input id="title"/>
+  <div class="row2">
+    <div><label>Date</label><input id="dateISO" type="date"/></div>
+    <div><label>Type</label>
+      <select id="type"><option value="passport">Passport Series</option><option value="expert">Expert Session</option><option value="summit">Summit</option><option value="house">Yorkseed House</option><option value="community">Partner event</option></select>
+    </div>
+  </div>
+  <label>Date and time shown on the site</label><input id="date" placeholder="Wed, Nov 12, 2026 &middot; 7:00-9:00 PM EST"/>
+  <div class="row2">
+    <div><label>City</label><input id="city"/></div>
+    <div><label>Entry</label><input id="spots" placeholder="Free · RSVP"/></div>
+  </div>
+  <label>Location</label><input id="location"/>
+  <label>Description</label><textarea id="description"></textarea>
+  <label>Hosts (comma separated)</label><input id="hosts"/>
+  <label>Cover image link</label><input id="coverImage" type="url"/>
+  <label>Event link (where people RSVP)</label><input id="lumaUrl" type="url"/>
+  <label>Promo code (optional)</label><input id="promoCode"/>
+  <button class="btn red" id="saveBtn">Publish event</button>
+  <button class="btn ghost" id="cancelBtn">Cancel</button>
+  <div class="msg" id="saveMsg"></div>
+</div>
+
+<div class="card">
+  <h2>Events added here</h2>
+  <div id="list"><div class="hint">Loading...</div></div>
+  <div class="hint">Older events still come from the website file and are not listed here.</div>
+</div>
 
 <script>
-let featuredOn = false;
-
-function toggleFeatured() {
-  featuredOn = !featuredOn;
-  const el = document.getElementById('featuredToggleEl');
-  el.classList.toggle('on', featuredOn);
+var API='https://yorkseed-backend-production.up.railway.app/api/site-events';
+var editingId=null,cache=[];
+function $(i){return document.getElementById(i)}
+function key(){return $('key').value.trim()}
+try{var k=localStorage.getItem('ys_events_key');if(k){$('key').value=k;$('keyCard').style.display='none'}}catch(e){}
+function say(id,t,ok){var m=$(id);m.textContent=t;m.className='msg '+(ok?'ok':'err')}
+function api(path,opt){
+  opt=opt||{};opt.headers=Object.assign({'x-events-key':key()},opt.headers||{});
+  if(opt.body&&typeof opt.body!=='string'){opt.body=JSON.stringify(opt.body);opt.headers['content-type']='application/json'}
+  return fetch(API+path,opt).then(function(r){return r.json().catch(function(){return {}}).then(function(j){if(!r.ok){if(r.status===401){try{localStorage.removeItem('ys_events_key')}catch(e){}$('keyCard').style.display='block'}throw new Error(j.message||'Something went wrong')}return j})})
 }
+var F=['title','dateISO','type','date','city','spots','location','description','coverImage','lumaUrl','promoCode'];
+function fill(e){F.forEach(function(f){$(f).value=e[f]||(f==='type'?'passport':'')});$('hosts').value=(e.hosts||[]).join(', ')}
+function read(){var o={};F.forEach(function(f){o[f]=$(f).value.trim()});o.hosts=$('hosts').value.split(',').map(function(x){return x.trim()}).filter(Boolean);return o}
+function openEditor(title){$('editor').style.display='block';$('edTitle').textContent=title;$('editor').scrollIntoView({behavior:'smooth'})}
+function guessType(e){var l=(e.location||'').toLowerCase();return /virtual|online|zoom/.test(l)?'expert':'passport'}
 
-function slugify(str) {
-  return str.toLowerCase()
-    .replace(/[^a-z0-9\s-]/g, '')
-    .trim()
-    .replace(/\s+/g, '-')
-    .replace(/-+/g, '-');
+$('fetchBtn').onclick=function(){
+  if(!key())return say('fetchMsg','Enter your key first.',false);
+  var u=$('url').value.trim();if(!u)return say('fetchMsg','Paste an event link.',false);
+  try{localStorage.setItem('ys_events_key',key())}catch(e){}
+  $('fetchBtn').disabled=true;say('fetchMsg','Reading the event...',true);
+  api('/extract',{method:'POST',body:{url:u}}).then(function(j){
+    editingId=null;var e=j.event;e.type=guessType(e);fill(e);
+    say('fetchMsg','Found it. Check the details below, especially date and time.',true);
+    openEditor('2. Check and publish');$('saveBtn').textContent='Publish event';
+  }).catch(function(err){
+    say('fetchMsg',err.message+' You can still fill the form by hand.',false);
+    editingId=null;fill({lumaUrl:u,type:'passport'});openEditor('2. Fill in by hand');
+  }).then(function(){$('fetchBtn').disabled=false});
+};
+$('cancelBtn').onclick=function(){$('editor').style.display='none';editingId=null};
+$('saveBtn').onclick=function(){
+  var d=read();if(!d.title||!d.dateISO)return say('saveMsg','Title and date are required.',false);
+  $('saveBtn').disabled=true;
+  api(editingId?'/'+editingId:'',{method:editingId?'PUT':'POST',body:d}).then(function(j){
+    say('saveMsg','Published. It is live on the events page now.',true);
+    $('url').value='';load();
+    setTimeout(function(){$('editor').style.display='none';editingId=null;$('saveMsg').className='msg'},1800);
+  }).catch(function(err){say('saveMsg',err.message,false)}).then(function(){$('saveBtn').disabled=false});
+};
+function load(){
+  if(!key()){$('list').innerHTML='<div class="hint">Enter your key to see events.</div>';return}
+  api('').then(function(j){
+    cache=j.events||[];
+    $('list').innerHTML=cache.length?cache.map(function(e){
+      return '<div class="ev'+(e.hidden?' hid':'')+'"><div><b>'+esc(e.title)+'</b><small>'+esc(e.date||e.dateISO)+(e.hidden?' · hidden':'')+'</small></div><div class="acts"><a href="/event.html?id='+e.id+'" target="_blank">View</a><button data-edit="'+e.id+'">Edit</button><button data-hide="'+e.id+'">'+(e.hidden?'Show':'Hide')+'</button><button data-del="'+e.id+'">Delete</button></div></div>'
+    }).join(''):'<div class="hint">Nothing added here yet.</div>';
+  }).catch(function(err){$('list').innerHTML='<div class="hint">'+esc(err.message)+'</div>'});
 }
-
-function generateJSON() {
-  const type = document.getElementById('fType').value;
-  const status = document.getElementById('fStatus').value;
-  const title = document.getElementById('fTitle').value.trim();
-  const city = document.getElementById('fCity').value.trim();
-  const country = document.getElementById('fCountry').value.trim();
-  const date = document.getElementById('fDate').value.trim();
-  const year = parseInt(document.getElementById('fYear').value) || new Date().getFullYear();
-  const format = document.getElementById('fFormat').value;
-  const spots = document.getElementById('fSpots').value.trim();
-  const venue = document.getElementById('fVenue').value.trim();
-  const desc = document.getElementById('fDesc').value.trim();
-  const luma = document.getElementById('fLuma').value.trim();
-  const recap = document.getElementById('fRecap').value.trim();
-  const group = document.getElementById('fGroup').value.trim();
-  const image = document.getElementById('fImage').value.trim();
-
-  if (!title) { alert('Please enter an event title.'); return; }
-  if (!city && !country) { alert('Please enter a city or country.'); return; }
-
-  const location = [city, country].filter(Boolean).join(', ');
-  const slug = slugify(`${title}-${year}`);
-
-  let jsonEntry, pasteHint;
-
-  if (status === 'upcoming') {
-    const obj = {
-      slug,
-      featured: featuredOn,
-      type,
-      title,
-      city: city || location,
-      country: country || '',
-      location,
-      venue: venue || 'TBA',
-      date,
-      format,
-      spots: spots || 'Limited seats',
-      description: desc,
-      lumaUrl: luma || 'https://lu.ma/yorkseed',
-      coverGradient: 'linear-gradient(135deg,#1a1209 0%,#2e1e0a 40%,#3d2810 100%)',
-      coverImage: image || ''
-    };
-    jsonEntry = JSON.stringify(obj, null, 2);
-    pasteHint = `📍 Paste inside the "upcoming" array in events.json\n\nOpen events.json and find:\n\n  "upcoming": [\n\nPaste the JSON entry as a new item in that array.\nIf there are other entries, add a comma after the last one before pasting.\n\n────────────────────────────────────\nSlug created: events/${slug}.html\n\nAlso create that file using the event landing page template and place it inside an /events/ folder next to events.html.`;
-  } else {
-    const archiveEvent = {
-      type,
-      title,
-      location,
-      date
-    };
-    if (luma) archiveEvent.lumaUrl = luma;
-    if (recap) { archiveEvent.lumaUrl = recap; archiveEvent.linkLabel = 'Recap →'; }
-
-    const archiveGroup = {
-      label: group || location,
-      events: [archiveEvent]
-    };
-
-    jsonEntry = `// Add this group inside the year ${year} block:\n` + JSON.stringify(archiveGroup, null, 2) +
-      `\n\n// Or, if the group already exists, just add this event object:\n` +
-      JSON.stringify(archiveEvent, null, 2);
-
-    pasteHint = `📍 Paste inside the archive year ${year} block in events.json\n\nOpen events.json and find:\n\n  { "year": ${year}, "groups": [\n\nIf a group called "${group || location}" already exists, add the event object to its "events" array.\n\nIf it's a new group, paste the full group object as a new item in the "groups" array.`;
-  }
-
-  const outputEl = document.getElementById('jsonOutput');
-  outputEl.textContent = jsonEntry;
-  outputEl.classList.remove('empty');
-
-  document.getElementById('pasteHint').textContent = pasteHint;
-}
-
-function copyOutput(id, btnId) {
-  const text = document.getElementById(id).textContent;
-  if (!text || document.getElementById(id).classList.contains('empty')) return;
-  navigator.clipboard.writeText(text).then(() => {
-    const btn = document.getElementById(btnId);
-    btn.textContent = 'Copied!';
-    btn.classList.add('copied');
-    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
-    showToast();
-  });
-}
-
-function showToast() {
-  const t = document.getElementById('toast');
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 2200);
-}
-// ─── CLOUDINARY UPLOAD ───────────────────────────────────────────────────────
-const uploadZone = document.getElementById('uploadZone');
-uploadZone.addEventListener('dragover', e => { e.preventDefault(); uploadZone.classList.add('drag'); });
-uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('drag'));
-uploadZone.addEventListener('drop', e => {
-  e.preventDefault();
-  uploadZone.classList.remove('drag');
-  const file = e.dataTransfer.files[0];
-  if (file && file.type.startsWith('image/')) handleFileSelect(file);
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')}
+document.addEventListener('click',function(ev){
+  var t=ev.target,id;
+  if(id=t.dataset&&t.dataset.edit){var e=cache.find(function(x){return x.id===id});editingId=id;fill(e);openEditor('Edit event');$('saveBtn').textContent='Save changes'}
+  else if(id=t.dataset&&t.dataset.hide){var e2=cache.find(function(x){return x.id===id});e2.hidden=!e2.hidden;api('/'+id,{method:'PUT',body:e2}).then(load)}
+  else if(id=t.dataset&&t.dataset.del){if(t.dataset.sure===id){api('/'+id,{method:'DELETE'}).then(load)}else{t.dataset.sure=id;t.textContent='Tap again';setTimeout(function(){t.textContent='Delete';delete t.dataset.sure},3000)}}
 });
-
-function handleFileSelect(file) {
-  if (!file) return;
-  const cloudName = document.getElementById('cloudName').value.trim();
-  const preset = document.getElementById('uploadPreset').value.trim();
-  if (!cloudName || !preset) {
-    setStatus('error', '⚠ Enter your Cloudinary Cloud Name and Upload Preset first');
-    return;
-  }
-  uploadToCloudinary(file, cloudName, preset);
-}
-
-function uploadToCloudinary(file, cloudName, preset) {
-  const formData = new FormData();
-  formData.append('file', file);
-  formData.append('upload_preset', preset);
-  formData.append('folder', 'yorkseed/events');
-
-  const progress = document.getElementById('uploadProgress');
-  const bar = document.getElementById('uploadProgressBar');
-  progress.style.display = 'block';
-  bar.style.width = '0%';
-  setStatus('', 'Uploading…');
-
-  const xhr = new XMLHttpRequest();
-  xhr.open('POST', `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`);
-
-  xhr.upload.onprogress = e => {
-    if (e.lengthComputable) {
-      bar.style.width = Math.round(e.loaded / e.total * 100) + '%';
-    }
-  };
-
-  xhr.onload = () => {
-    if (xhr.status === 200) {
-      const res = JSON.parse(xhr.responseText);
-      const url = res.secure_url;
-      document.getElementById('fImage').value = url;
-      showPreview(url);
-      setStatus('success', '✓ Uploaded — URL auto-filled below');
-      bar.style.width = '100%';
-      setTimeout(() => { progress.style.display = 'none'; }, 800);
-    } else {
-      setStatus('error', '✕ Upload failed — check your Cloud Name and Preset');
-      progress.style.display = 'none';
-    }
-  };
-  xhr.onerror = () => {
-    setStatus('error', '✕ Network error — please try again');
-    progress.style.display = 'none';
-  };
-  xhr.send(formData);
-}
-
-function showPreview(url) {
-  const preview = document.getElementById('uploadPreview');
-  document.getElementById('uploadPreviewImg').src = url;
-  preview.style.display = 'block';
-  document.getElementById('uploadZone').style.display = 'none';
-}
-
-function removeImage() {
-  document.getElementById('uploadPreview').style.display = 'none';
-  document.getElementById('uploadZone').style.display = 'block';
-  document.getElementById('fImage').value = '';
-  document.getElementById('imageFile').value = '';
-  setStatus('', '');
-}
-
-function setStatus(type, msg) {
-  const el = document.getElementById('uploadStatus');
-  el.textContent = msg;
-  el.className = 'upload-status' + (type ? ' ' + type : '');
-}
-
-// Save Cloudinary config to localStorage so it persists
-document.getElementById('cloudName').addEventListener('change', saveConfig);
-document.getElementById('uploadPreset').addEventListener('change', saveConfig);
-function saveConfig() {
-  localStorage.setItem('ys_cloud_name', document.getElementById('cloudName').value);
-  localStorage.setItem('ys_upload_preset', document.getElementById('uploadPreset').value);
-}
-// Restore on load
-window.addEventListener('DOMContentLoaded', () => {
-  const cn = localStorage.getItem('ys_cloud_name');
-  const up = localStorage.getItem('ys_upload_preset');
-  if (cn) document.getElementById('cloudName').value = cn;
-  if (up) document.getElementById('uploadPreset').value = up;
-});
+load();
 </script>
-<footer style="background:var(--ink2);padding:28px 6vw 20px;border-top:1px solid rgba(255,255,255,.05);">
-  <div class="footer-quick-links" style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px 20px;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.07);">
-    <span style="font-size:9px;color:rgba(255,255,255,.25);text-transform:uppercase;letter-spacing:.08em;font-family:var(--mono,'DM Mono',monospace);white-space:nowrap;">Quick Links</span>
-    <a href="/pitch-intake.html" style="font-size:11px;color:rgba(255,255,255,.6);text-decoration:none;transition:color .15s;font-weight:500;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">🚀 Pitch to Investors</a>
-    <a href="/speaker-intake.html" style="font-size:11px;color:rgba(255,255,255,.6);text-decoration:none;transition:color .15s;font-weight:500;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">🎤 Speak at an Event</a>
-    <a href="https://app.yorkseed.co/login" style="font-size:11px;color:rgba(255,255,255,.6);text-decoration:none;transition:color .15s;font-weight:500;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">🔑 Join the Platform</a>
-    <a href="/events.html" style="font-size:11px;color:rgba(255,255,255,.6);text-decoration:none;transition:color .15s;font-weight:500;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">📅 Upcoming Events</a>
-    <a href="/partners.html" style="font-size:11px;color:rgba(255,255,255,.6);text-decoration:none;transition:color .15s;font-weight:500;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">🤝 Partner with Us</a>
-    <a href="/contact.html" style="font-size:11px;color:rgba(255,255,255,.6);text-decoration:none;transition:color .15s;font-weight:500;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">✉️ Get in Touch</a>
-  </div>
-  <div class="footer-nav-links" style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px 14px;">
-
-<a href="https://app.yorkseed.co/login" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Platform</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/about.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">About</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/hubs.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Global Hubs</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/tools.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;">Free Tools</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/events.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Events</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/partners.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Partners</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/speaker-intake.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Speak</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/pitch-intake.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Pitch</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/press.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Press</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/press-releases.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Newsroom</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://yorkseedventures.com" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Ventures</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://yorkseedsummit.com" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Summit</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://yorkseedhouse.com" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Yorkseed House</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://thevalois.com" target="_blank" rel="noopener noreferrer" style="font-size:11px;color:rgba(212,188,130,0.75);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#D4BC82'" onmouseout="this.style.color='rgba(212,188,130,0.75)'">Valois</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://pulse.yorkseed.co" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Newsletter</a>
-        <span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="/contact.html" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Contact</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="mailto:info@yorkseed.co" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Email us</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://yorkseed.co" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">yorkseed.co</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://x.com/yorkseed" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Twitter</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://instagram.com/yorkseed" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Instagram</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://linkedin.com/company/yorkseed" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">LinkedIn</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://facebook.com/profile/yorkseed" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Facebook</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://www.crunchbase.com/organization/yorkseed" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Crunchbase</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://whatsapp.com/channel/0029Vaf0wiU3wtbBcxTEFD0h" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">WhatsApp</a><span style="color:rgba(255,255,255,.15);font-size:10px;"> · </span><a href="https://shop.yorkseed.co" style="font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Shop</a>
-
-  </div>
-  <div style="text-align:center;margin-top:8px;margin-bottom:6px;">
-    <img src="https://s6.imgcdn.dev/YfqM8w.png" alt="Yorkseed" style="height:36px;width:auto;display:inline-block;" onerror="this.style.display='none'"/>
-  </div>
-  <div style="width:100%;text-align:center;font-family:var(--mono,'DM Mono',monospace);font-size:9px;color:rgba(255,255,255,.25);margin-top:0;letter-spacing:.06em;text-transform:uppercase;">© 2026 Yorkseed™ · The Venture Infrastructure Platform · Network est. 2023 · Platform launched 2026 · All rights reserved</div>
-</footer>
 </body>
 </html>
