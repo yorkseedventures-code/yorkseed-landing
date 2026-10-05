@@ -109,9 +109,12 @@ $('fetchBtn').onclick=function(){
   api('/extract',{method:'POST',body:{url:u}}).then(function(j){
     editingId=null;var e=j.event;e.type=guessType(e);fill(e);
     say('fetchMsg','Found it. Check the details below, especially date and time.',true);
+    load();
     openEditor('2. Check and publish');$('saveBtn').textContent='Publish event';
   }).catch(function(err){
-    say('fetchMsg',err.message+' You can still fill the form by hand.',false);
+    load();
+    say('fetchMsg',err.message+(/key/i.test(err.message)?'':' You can still fill the form by hand.'),false);
+    if(/key/i.test(err.message)){$('editor').style.display='none';return}
     editingId=null;fill({lumaUrl:u,type:'passport'});openEditor('2. Fill in by hand');
   }).then(function(){$('fetchBtn').disabled=false});
 };
