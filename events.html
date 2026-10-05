@@ -542,7 +542,7 @@ async function init(){
         // an event added in the manager replaces the older copy of the same Luma event
         data.upcoming=data.upcoming.filter(e=>{const k=lk(e.lumaUrl||e.url);return !(k&&mine[k])});
         (m.events||[]).forEach(e=>{
-          e.url='/e/'+(e.slug||e.id);
+          e.url='/e/'+(e.slug||e.id);if(e.series==='valois')e.valois=true;if(e.series==='nycfw')e.nycfw=true;
           if(e.type==='community'&&!isPast(e)){ (data._partner=data._partner||[]).push(e); }
           else if(e.type==='community'){
             // past partner events go to the archive under their year

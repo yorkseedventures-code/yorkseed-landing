@@ -71,6 +71,7 @@ textarea{min-height:130px;resize:vertical}
   <label>Hosts (comma separated)</label><input id="hosts"/>
   <label>Cover image link</label><input id="coverImage" type="url"/>
   <label>Event link (where people RSVP)</label><input id="lumaUrl" type="url"/>
+  <label>Series (optional)</label><select id="series"><option value="">None</option><option value="valois">Valois</option><option value="nycfw">NYC Founder Week</option></select>
   <label>Page address (optional, yorkseed.co/e/...)</label><input id="slug" placeholder="leave blank to auto-make"/>
   <label>Promo code (optional)</label><input id="promoCode"/>
   <button class="btn red" id="saveBtn">Publish event</button>
@@ -96,7 +97,7 @@ function api(path,opt){
   if(opt.body&&typeof opt.body!=='string'){opt.body=JSON.stringify(opt.body);opt.headers['content-type']='application/json'}
   return fetch(API+path,opt).then(function(r){return r.json().catch(function(){return {}}).then(function(j){if(!r.ok){if(r.status===401){try{localStorage.removeItem('ys_events_key')}catch(e){}$('keyCard').style.display='block'}throw new Error(j.message||'Something went wrong')}return j})})
 }
-var F=['slug','title','dateISO','type','date','city','spots','location','description','coverImage','lumaUrl','promoCode'];
+var F=['series','slug','title','dateISO','type','date','city','spots','location','description','coverImage','lumaUrl','promoCode'];
 var extra={country:'',venue:''};
 function fill(e){F.forEach(function(f){$(f).value=e[f]||(f==='type'?'passport':'')});$('hosts').value=(e.hosts||[]).join(', ');extra={country:e.country||'',venue:e.venue||''}}
 function read(){var o={};F.forEach(function(f){o[f]=$(f).value.trim()});o.hosts=$('hosts').value.split(',').map(function(x){return x.trim()}).filter(Boolean);o.country=extra.country;o.venue=extra.venue;return o}

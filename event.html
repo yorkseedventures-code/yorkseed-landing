@@ -194,7 +194,7 @@ function notFound(){document.getElementById('app').innerHTML='<div class="ev-msg
 function slugOf(e){if(e.slug)return e.slug;var t=String(e.title||'').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/&/g,' and ').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,70).replace(/-+$/,'');return t+'-'+String(e.dateISO||'').slice(0,7)}
 var qs=new URLSearchParams(location.search),pm=location.pathname.match(/^\/e\/([^\/]+)/),id=qs.get('id'),sk=(pm&&decodeURIComponent(pm[1]))||qs.get('s');
 function render(e){
-  var loc=e.location||e.city||'',kind=LABEL[e.type]||'Event';
+  var loc=e.location||e.city||'',kind=e.series==='valois'||e.valois?'Valois':e.series==='nycfw'||e.nycfw?'NYC Founder Week':(LABEL[e.type]||'Event');
   document.title=clean(e.title)+' | Yorkseed';
   var md=document.querySelector('meta[name=description]');md.content=clean((e.description||'Yorkseed event').slice(0,150));
   var cover=e.coverImage?'<div class="event-hero-bg"><img src="'+esc(e.coverImage)+'" alt="" referrerpolicy="no-referrer" onerror="this.style.display=\'none\'"/></div>':'';
