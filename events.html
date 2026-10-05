@@ -3,650 +3,155 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Yorkseed Events — Exclusive Founder & Investor Events Worldwide | Yorkseed</title>
-<meta name="description" content="Join exclusive Yorkseed events for founders, investors, and operators worldwide. Private dinners, investor meetups, hub gatherings, and the Yorkseed Passport Series across 50+ cities."/>
-<meta name="robots" content="index, follow"/>
-<link rel="canonical" href="https://yorkseed.co/events"/>
-<meta property="og:type" content="website"/>
-<meta property="og:url" content="https://yorkseed.co/events"/>
-<meta property="og:title" content="Yorkseed Events — Exclusive Founder & Investor Events Worldwide"/>
-<meta property="og:description" content="Join exclusive Yorkseed events for founders, investors, and operators worldwide."/>
-<meta property="og:image" content="https://s6.imgcdn.dev/Yfq1dl.png"/>
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:site" content="@yorkseed"/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+<title>Yorkseed Event Manager</title>
+<meta name="robots" content="noindex, nofollow"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --ink:#111;--ink2:#1a1a1a;--ink3:#555;--ink4:#888;
-  --white:#fff;--off:#fafafa;--light:#f5f4f1;--mid:#e8e8e8;
-  --red:#c8372d;--red-dim:rgba(200,55,45,.06);--red-border:rgba(200,55,45,.18);
-  --gold:#b08d57;--gold-dim:rgba(176,141,87,.07);--gold-border:rgba(176,141,87,.22);
-  --border:rgba(0,0,0,.07);--border2:rgba(0,0,0,.12);
-  --serif:'Playfair Display',Georgia,serif;
-  --sans:'DM Sans',system-ui,sans-serif;
-  --mono:'DM Mono',monospace;
-}
-body{font-family:var(--sans);font-weight:300;background:var(--white);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-a{text-decoration:none;color:inherit}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
-.nav-inner{max-width:1280px;margin:0 auto;padding:0 5vw;height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.n-logo{display:flex;align-items:center;flex-shrink:0}
-.n-center{display:flex;align-items:center;gap:4px;flex:1;justify-content:center}
-.n-link{font-size:12.5px;font-weight:400;color:var(--ink3);padding:6px 10px;border-radius:5px;transition:color .15s,background .15s;white-space:nowrap;letter-spacing:.01em}
-.n-link:hover{color:var(--ink);background:rgba(0,0,0,.04)}
-.n-link.active{color:var(--ink);font-weight:500}
-.n-drop{position:relative}
-.n-drop-btn{display:flex;align-items:center;gap:5px;font-size:12.5px;font-weight:400;color:var(--ink3);padding:6px 10px;border-radius:5px;cursor:pointer;transition:color .15s,background .15s;letter-spacing:.01em;background:none;border:none;font-family:inherit}
-.n-drop-btn:hover,.n-drop.open .n-drop-btn{color:var(--ink);background:rgba(0,0,0,.04)}
-.n-drop-arrow{width:10px;height:10px;display:flex;align-items:center;justify-content:center;transition:transform .2s}
-.n-drop.open .n-drop-arrow{transform:rotate(180deg)}
-.n-drop-arrow svg{display:block}
-.n-menu{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);background:#fff;border:1px solid var(--border2);border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.1);padding:10px;width:540px;display:grid;grid-template-columns:1fr 1fr;gap:2px;opacity:0;visibility:hidden;transition:opacity .18s,visibility .18s,transform .18s;transform:translateX(-50%) translateY(-6px)}
-.n-drop.open .n-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
-.n-item{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border-radius:8px;transition:background .15s;text-decoration:none;color:var(--ink)}
-.n-item:hover{background:var(--off)}
-.n-item-icon{font-size:18px;flex-shrink:0;margin-top:1px}
-.n-item-title{font-size:12.5px;font-weight:500;color:var(--ink);margin-bottom:2px}
-.n-item-desc{font-size:11px;color:var(--ink4);line-height:1.5;font-weight:300}
-.n-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
-.n-signin{font-size:12.5px;color:var(--ink4);padding:6px 10px;border-radius:5px;transition:color .15s;white-space:nowrap;letter-spacing:.01em}
-.n-signin:hover{color:var(--ink)}
-.n-apply{background:var(--red);color:#fff;padding:8px 18px;border-radius:6px;font-size:12.5px;font-weight:400;letter-spacing:.02em;transition:opacity .15s;white-space:nowrap}
-.n-apply:hover{opacity:.88}
-.n-ham{display:none;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;padding:10px;cursor:pointer;background:none;border:none;border-radius:5px;flex-shrink:0}
-.n-ham span{display:block;height:1.5px;background:var(--ink);border-radius:2px;transition:transform .25s,opacity .25s}
-.n-ham.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
-.n-ham.open span:nth-child(2){opacity:0;transform:scaleX(0)}
-.n-ham.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
-.n-drawer{position:fixed;inset:64px 0 0 0;background:#fff;z-index:200;transform:translateX(100%);transition:transform .28s cubic-bezier(.4,0,.2,1);overflow-y:auto;padding:20px 6vw 40px}
-.n-drawer.open{transform:translateX(0)}
-.n-drawer-section{margin-bottom:28px}
-.n-drawer-label{font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink4);margin-bottom:10px}
-.n-drawer-link{display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid var(--border);color:var(--ink);font-size:14px;font-weight:400;text-decoration:none}
-.n-drawer-link:last-child{border-bottom:none}
-.n-drawer-link span:first-child{font-size:20px;flex-shrink:0;width:28px}
-.n-drawer-ctas{display:flex;flex-direction:column;gap:10px;margin-top:24px}
-.n-drawer-ctas .n-apply{text-align:center;display:block;padding:13px}
-.n-drawer-ctas .n-signin{text-align:center;display:block;padding:12px;border:1px solid var(--border2);border-radius:6px;color:var(--ink3)}
-@media(max-width:900px){.n-center{display:none}.n-right .n-signin{display:none}.n-ham{display:flex}}
-@media(max-width:500px){.n-right .n-apply{display:none}}
-
-/* ═══ HERO ═══ */
-.hero{padding:112px 6vw 52px;border-bottom:1px solid var(--border)}
-.hero-inner{max-width:1100px;margin:0 auto;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:24px}
-.ey{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink4);margin-bottom:18px;display:flex;align-items:center;gap:10px}
-.ey-line{width:20px;height:1px;background:var(--gold);opacity:.5}
-h1{font-family:var(--serif);font-size:clamp(30px,4vw,50px);font-weight:400;line-height:1.1;letter-spacing:-.02em;margin-bottom:14px}
-h1 em{font-style:italic;color:var(--red)}
-.hero-sub{font-size:14px;color:var(--ink3);line-height:1.8;font-weight:300;max-width:420px}
-.hero-stats{display:flex;gap:32px;flex-shrink:0}
-.hstat{text-align:center}
-.hstat-n{font-family:var(--serif);font-size:36px;font-weight:300;color:var(--red);letter-spacing:-.02em;line-height:1}
-.hstat-l{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);margin-top:4px}
-
-/* ═══ UPCOMING SECTION ═══ */
-.upcoming{padding:52px 6vw;border-bottom:1px solid var(--border);background:var(--white)}
-.upcoming-inner{max-width:1100px;margin:0 auto}
-.section-eyebrow{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:24px;display:flex;align-items:center;gap:10px}
-.section-eyebrow::before{content:'';display:block;width:16px;height:1px;background:var(--red);opacity:.5}
-
-/* Featured card — hero upcoming event */
-.featured-card{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border2);border-radius:12px;overflow:hidden;margin-bottom:28px;background:var(--white);transition:box-shadow .2s}
-.featured-card:hover{box-shadow:0 6px 32px rgba(0,0,0,.08)}
-.featured-card-img{background:linear-gradient(135deg,#1a1209 0%,#2e1e0a 40%,#3d2810 100%);position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:32px;min-height:280px}
-.featured-card-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(0,0,0,.55) 100%);pointer-events:none}
-.featured-img-city{font-family:var(--serif);font-size:clamp(48px,6vw,80px);font-weight:400;color:rgba(255,255,255,.08);letter-spacing:-.03em;line-height:1;position:absolute;bottom:24px;left:28px;z-index:0;user-select:none}
-.featured-img-badge{position:relative;z-index:1;display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;padding:5px 10px;border-radius:3px;background:rgba(200,55,45,.9);color:#fff;margin-bottom:12px;width:fit-content}
-.featured-img-badge::before{content:'';display:block;width:5px;height:5px;border-radius:50%;background:#fff;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-.featured-img-title{font-family:var(--serif);font-size:22px;font-weight:400;color:#fff;line-height:1.2;letter-spacing:-.01em;position:relative;z-index:1}
-
-.featured-card-img.has-img{justify-content:flex-start;align-items:flex-start;padding:16px;min-height:0;width:100%;box-sizing:border-box;height:200px;background-color:#111;align-self:start}
-.fc-img .featured-card-body{padding:20px 24px;gap:12px;justify-content:flex-start}
-.fc-img .featured-body-title{font-size:21px}
-.fc-img .featured-meta{gap:8px}
-.fc-img .featured-desc{-webkit-line-clamp:3;padding-top:12px;font-size:12.5px;line-height:1.65}
-.fc-img .featured-actions .btn-primary,.fc-img .featured-actions .btn-secondary{padding-top:9px;padding-bottom:9px}
-.featured-card.fc-img{grid-template-columns:minmax(0,200px) 1fr!important;align-items:stretch}
-@media(max-width:700px){.featured-card.fc-img{grid-template-columns:1fr!important}.featured-card-img.has-img{height:200px}}
-.featured-card-img.has-img::after{display:none}
-.featured-body-title{font-family:var(--serif);font-size:26px;font-weight:400;line-height:1.2;color:var(--ink);letter-spacing:-.01em}
-.featured-desc{display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
-.featured-card-body{padding:32px;display:flex;flex-direction:column;justify-content:space-between;gap:24px}
-.featured-meta{display:flex;flex-direction:column;gap:12px}
-.featured-meta-row{display:flex;gap:8px;align-items:center;font-size:12.5px;color:var(--ink3)}
-.featured-meta-icon{font-size:14px;flex-shrink:0}
-.featured-meta-label{font-family:var(--mono);font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);margin-bottom:2px}
-.featured-meta-val{font-size:13px;color:var(--ink);font-weight:400}
-.featured-desc{font-size:13px;color:var(--ink3);line-height:1.75;font-weight:300;border-top:1px solid var(--border);padding-top:18px}
-.featured-actions{display:flex;gap:10px;flex-wrap:wrap}
-.btn-primary{display:inline-flex;align-items:center;gap:7px;background:var(--red);color:#fff;padding:11px 22px;border-radius:6px;font-size:12.5px;font-weight:400;letter-spacing:.02em;transition:opacity .15s;white-space:nowrap}
-.btn-primary:hover{opacity:.88}
-.btn-secondary{display:inline-flex;align-items:center;gap:7px;background:transparent;color:var(--ink3);padding:11px 18px;border-radius:6px;font-size:12.5px;border:1px solid var(--border2);transition:all .15s;white-space:nowrap}
-.btn-secondary:hover{color:var(--ink);border-color:var(--border2)}
-
-/* Upcoming grid — smaller cards */
-.upcoming-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
-.upcoming-card{border:1px solid var(--border);border-radius:10px;overflow:hidden;background:var(--white);transition:border-color .18s,box-shadow .18s;display:flex;flex-direction:column;gap:0}
-.uc-img{height:120px;background:var(--off);overflow:hidden;position:relative}
-.uc-img img{width:100%;height:100%;object-fit:cover;display:block}
-.uc-img.noimg{background:var(--g)}
-.uc-img img+.uc-img-fallback{display:none}
-.uc-img.noimg .uc-img-fallback{display:flex}
-.uc-img-fallback{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:30px;font-weight:300;color:rgba(255,255,255,.22);letter-spacing:-.02em}
-.uc-content{padding:16px;display:flex;flex-direction:column;gap:12px}
-.upcoming-card:hover{border-color:var(--border2);box-shadow:0 3px 16px rgba(0,0,0,.06)}
-.uc-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
-.uc-badge{font-family:var(--mono);font-size:8px;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:3px;flex-shrink:0}
-.badge-passport{background:var(--red-dim);color:var(--red);border:1px solid var(--red-border)}
-.badge-expert{background:var(--gold-dim);color:#7a5c1e;border:1px solid var(--gold-border)}
-.badge-summit{background:rgba(0,0,0,.04);color:#333;border:1px solid var(--border2)}
-.badge-house{background:rgba(0,0,0,.04);color:#333;border:1px solid var(--border2)}
-.badge-valois{background:rgba(212,188,130,.12);color:#8a6d2f;border:1px solid rgba(212,188,130,.4)}
-.badge-nycfw{background:rgba(16,148,113,.1);color:#0d7a5f;border:1px solid rgba(16,148,113,.35)}
-.uc-date{font-family:var(--mono);font-size:10px;color:var(--ink4);text-align:right;line-height:1.4}
-.uc-title{font-size:14px;font-weight:400;color:var(--ink);line-height:1.4}
-.uc-loc{font-family:var(--mono);font-size:10px;color:var(--ink4);display:flex;align-items:center;gap:5px}
-.uc-footer{gap:12px;display:flex;justify-content:space-between;align-items:center;padding-top:10px;border-top:1px solid var(--border)}
-.uc-spots{font-family:var(--mono);font-size:9px;letter-spacing:.06em;color:var(--ink4)}
-.uc-link{white-space:nowrap;flex-shrink:0;font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;color:var(--red);display:flex;align-items:center;gap:4px;transition:gap .15s}
-.uc-link:hover{gap:7px}
-
-/* All events luma CTA */
-.luma-cta{margin-top:24px;padding:16px 20px;border:1px dashed var(--border2);border-radius:8px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.luma-cta-text{font-size:13px;color:var(--ink3);font-weight:300}
-.luma-cta-text strong{font-weight:500;color:var(--ink)}
-.luma-cta-link{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);border:1px solid var(--border2);padding:8px 16px;border-radius:5px;transition:all .15s;white-space:nowrap}
-.luma-cta-link:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
-
-/* ═══ FILTERS + ARCHIVE ═══ */
-.filters{padding:20px 6vw;border-bottom:1px solid var(--border);display:flex;gap:8px;flex-wrap:wrap;background:var(--white);position:sticky;top:64px;z-index:100}
-.filter-tab{font-family:var(--mono);font-size:10px;letter-spacing:.07em;text-transform:uppercase;padding:6px 14px;border-radius:100px;border:1px solid var(--border2);color:var(--ink3);cursor:pointer;transition:all .15s;background:var(--white)}
-.filter-tab:hover{border-color:var(--ink);color:var(--ink)}
-.filter-tab.active{background:var(--ink);color:#fff;border-color:var(--ink)}
-
-.archive{padding:48px 6vw 64px}
-.archive-inner{max-width:1100px;margin:0 auto}
-.year-block{margin-bottom:56px}
-.year-heading{font-family:var(--serif);font-size:48px;font-weight:300;color:var(--mid);letter-spacing:-.03em;line-height:1;margin-bottom:24px}
-.year-heading.current{color:var(--red)}
-.edition-group{margin-bottom:28px}
-.edition-label{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink4);margin-bottom:10px;display:flex;align-items:center;gap:8px}
-.edition-label::before{content:'';display:block;width:16px;height:1px;background:var(--border2)}
-.event-table{display:flex;flex-direction:column;gap:6px}
-.event-row{display:flex;align-items:center;padding:12px 16px;background:var(--off);border:1px solid var(--border);border-radius:7px;gap:12px;flex-wrap:wrap;transition:border-color .15s}
-.event-row:hover{border-color:var(--border2)}
-.event-type{font-family:var(--mono);font-size:8px;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:3px;flex-shrink:0;white-space:nowrap}
-.type-passport{background:rgba(200,55,45,.07);color:var(--red)}
-.type-expert{background:var(--gold-dim);color:#7a5c1e}
-.type-summit{background:#f0f0f0;color:#333}
-.type-house{background:rgba(17,17,17,.07);color:#333}
-.type-community{background:rgba(113,162,164,.1);color:#2d6b6d}
-.type-valois{background:rgba(212,188,130,.14);color:#8a6d2f;border:1px solid rgba(212,188,130,.4)}
-.event-row.is-valois{border-color:rgba(212,188,130,.4);background:linear-gradient(90deg,rgba(212,188,130,.08),var(--off) 18%)}
-.upcoming-card.is-valois{border-color:rgba(212,188,130,.4)}
-.upcoming-card.is-valois .uc-img{background:linear-gradient(135deg,#1a1209 0%,#2e1e0a 60%,#3d2810 100%)}
-.type-nycfw{background:rgba(16,148,113,.14);color:#0d7a5f;border:1px solid rgba(16,148,113,.35)}
-.event-row.is-nycfw{border-color:rgba(16,148,113,.35);background:linear-gradient(90deg,rgba(16,148,113,.08),var(--off) 18%)}
-.upcoming-card.is-nycfw{border-color:rgba(16,148,113,.35)}
-.upcoming-card.is-nycfw .uc-img{background:linear-gradient(135deg,#0a1f18 0%,#0f3325 55%,#124030 100%)}
-.event-name{font-size:13px;color:var(--ink);flex:1;min-width:180px;font-weight:400}
-.event-loc{font-size:11px;color:var(--ink4);font-family:var(--mono);white-space:nowrap}
-.event-date{font-size:11px;color:var(--ink4);font-family:var(--mono);white-space:nowrap}
-.event-link{font-size:10px;color:var(--red);font-weight:600;font-family:var(--mono);letter-spacing:.04em;white-space:nowrap;margin-left:auto;transition:opacity .15s}
-.event-link:hover{opacity:.7}
-
-/* ═══ FOOTER ═══ */
-.footer-premium{background:#171717;border-top:1px solid rgba(255,255,255,.06);padding:64px 6vw 28px}
-.footer-premium-inner{max-width:1200px;margin:0 auto}
-.footer-premium-top{display:flex;justify-content:space-between;align-items:flex-start;gap:70px;flex-wrap:wrap;margin-bottom:46px}
-.footer-premium-brand{max-width:380px}
-.footer-premium-logo-wrap{display:flex;align-items:center;overflow:hidden;height:40px;margin-bottom:18px}
-.footer-premium-logo{height:78px;width:auto;object-fit:contain;margin-top:-19px;margin-bottom:-19px}
-.footer-premium-brand p{color:rgba(255,255,255,.42);font-size:13px;line-height:1.85;font-weight:300}
-.footer-premium-cols{display:flex;gap:70px;flex-wrap:wrap}
-.footer-premium-col{display:flex;flex-direction:column;gap:12px}
-.footer-premium-label{font-family:var(--mono);font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.22);margin-bottom:8px}
-.footer-premium-col a{color:rgba(255,255,255,.56);font-size:12.5px;transition:color .15s ease}
-.footer-premium-col a:hover{color:#fff}
-.footer-premium-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:22px;text-align:center;font-family:var(--mono);font-size:8px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.18);line-height:1.7}
-@media(max-width:720px){.footer-premium{padding:56px 6vw 26px}.footer-premium-top{flex-direction:column;gap:38px}.footer-premium-cols{width:100%;justify-content:space-between;gap:34px}}
-
-/* ═══ MOBILE TAB BAR ═══ */
-.m-tab-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:400;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid var(--border);padding:0 0 env(safe-area-inset-bottom,0)}
-.m-tab-bar-inner{display:flex;align-items:stretch;height:56px}
-.m-tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-decoration:none;color:var(--ink4);font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;transition:color .15s;-webkit-tap-highlight-color:transparent;padding:0 2px}
-.m-tab.active{color:var(--red)}
-.m-tab-join{flex:1;display:flex;align-items:center;justify-content:center;padding:0 6px}
-.m-tab-join a{background:var(--red);color:#fff;border-radius:6px;font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;padding:8px 14px;display:block;text-decoration:none;white-space:nowrap}
-@media(max-width:900px){.m-tab-bar{display:block};body{padding-bottom:calc(56px + env(safe-area-inset-bottom,0))}}
-
-/* Responsive */
-@media(max-width:700px){
-  .featured-card{grid-template-columns:1fr}
-  .featured-card-img{min-height:180px}
-  .hero-stats{display:none}
-  .upcoming-grid{grid-template-columns:1fr}
-  .event-date,.event-loc{white-space:normal;flex-basis:100%}
-}
-
-/* ─── COMMUNITY PARTNER SECTION ─────────────────────────────────────────── */
-.partner-section{padding:32px 0 28px;margin-top:28px;border-top:1px solid var(--border)}
-.partner-eyebrow{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink4);margin-bottom:16px;display:flex;align-items:center;gap:10px}
-.partner-eyebrow::before{content:'';display:block;width:16px;height:1px;background:var(--border2)}
-.partner-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
-.partner-card{border:1px solid var(--border);border-radius:8px;overflow:hidden;cursor:pointer;transition:border-color .18s,box-shadow .18s;background:var(--white)}
-.partner-card:hover{border-color:var(--border2);box-shadow:0 3px 14px rgba(0,0,0,.07)}
-.partner-card-img{height:160px;background:var(--off);overflow:hidden}
-.partner-card-img img{width:100%;height:100%;object-fit:cover;display:block}
-.partner-card-body{padding:12px 14px}
-@media(max-width:700px){
-  .partner-grid{grid-template-columns:1fr}
-  .partner-card{display:flex;flex-direction:row}
-  .partner-card-img{height:80px;width:100px;flex-shrink:0}
-  .partner-card-body{padding:10px 12px}
-  .partner-card-title{font-size:12px}
-}
-.partner-card-badge{font-family:var(--mono);font-size:7.5px;letter-spacing:.1em;text-transform:uppercase;color:#2d6b6d;background:rgba(113,162,164,.1);border:1px solid rgba(113,162,164,.25);border-radius:3px;padding:2px 7px;display:inline-block;margin-bottom:8px}
-.partner-card-title{font-size:12.5px;font-weight:400;color:var(--ink);line-height:1.4;margin-bottom:4px}
-.partner-card-loc{font-family:var(--mono);font-size:9px;color:var(--ink4)}
-
-/* ─── MODAL ──────────────────────────────────────────────────────────────── */
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:900;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;visibility:hidden;transition:opacity .22s,visibility .22s}
-.modal-overlay.open{opacity:1;visibility:visible}
-.modal-box{background:var(--white);border-radius:14px;overflow:hidden;max-width:520px;width:100%;max-height:90vh;overflow-y:auto;transform:translateY(12px);transition:transform .22s}
-.modal-overlay.open .modal-box{transform:translateY(0)}
-.modal-img{height:260px;overflow:hidden;position:relative}
-.modal-img img{width:100%;height:100%;object-fit:cover;display:block}
-.modal-badge{position:absolute;top:14px;left:14px;font-family:var(--mono);font-size:8px;letter-spacing:.1em;text-transform:uppercase;background:rgba(0,0,0,.65);color:#fff;padding:4px 10px;border-radius:4px}
-.modal-close{position:absolute;top:12px;right:12px;width:30px;height:30px;background:rgba(0,0,0,.5);color:#fff;border:none;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;line-height:1}
-.modal-body{padding:24px}
-.modal-title{font-family:var(--serif);font-size:20px;font-weight:400;color:var(--ink);line-height:1.3;margin-bottom:8px}
-.modal-meta{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
-.modal-meta-row{font-size:12.5px;color:var(--ink4);display:flex;align-items:center;gap:8px}
-.modal-desc{font-size:13px;color:var(--ink3);line-height:1.75;font-weight:300;margin-bottom:20px}
-.modal-promo{padding:10px 14px;background:var(--gold-dim);border:1px solid var(--gold-border);border-radius:6px;margin-bottom:16px;font-size:12px;color:#7a5c1e;font-family:var(--mono);letter-spacing:.04em}
-.modal-btn{display:block;width:100%;background:var(--ink);color:#fff;padding:13px;border-radius:7px;font-size:13px;font-weight:400;letter-spacing:.02em;text-align:center;text-decoration:none;transition:opacity .15s}
-.modal-btn:hover{opacity:.8}
+:root{--ink:#0b0b0c;--ink3:#55524c;--ink4:#8a867d;--red:#cc1e2b;--green:#0a5a3e;--line:rgba(11,11,12,.12);--bg:#f5f4f1;--card:#fff}
+body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink);padding:16px 16px 80px;max-width:640px;margin:0 auto;font-size:16px;line-height:1.4}
+h1{font-size:24px;margin:8px 0 4px}
+.sub{color:var(--ink3);font-size:15px;margin-bottom:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:16px}
+h2{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-bottom:12px}
+label{display:block;font-size:13px;color:var(--ink4);margin:12px 0 5px}
+input,select,textarea{width:100%;font:inherit;font-size:16px;padding:12px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+textarea{min-height:130px;resize:vertical}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn{width:100%;margin-top:14px;min-height:50px;border:0;border-radius:12px;font:600 16px system-ui;background:var(--ink);color:#fff;cursor:pointer}
+.btn.red{background:var(--red)}
+.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.btn:disabled{opacity:.5}
+.msg{margin-top:12px;font-size:15px;padding:10px 12px;border-radius:10px;display:none}
+.msg.ok{display:block;background:rgba(10,90,62,.1);color:var(--green)}
+.msg.err{display:block;background:rgba(204,30,43,.1);color:var(--red)}
+.ev{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:12px 0;border-top:1px solid var(--line)}
+.ev:first-of-type{border-top:0}
+.ev b{display:block;font-size:15px}
+.ev small{color:var(--ink4);font-size:13px}
+.ev .acts{display:flex;gap:6px;flex:none}
+.ev .acts button,.ev .acts a{font:600 13px system-ui;padding:9px 11px;border-radius:9px;border:1px solid var(--line);background:#fff;color:var(--ink);text-decoration:none}
+.hid{opacity:.5}
+.hint{font-size:13px;color:var(--ink4);margin-top:6px}
+#editor{display:none}
 </style>
-<script src="/assets/site-chrome.js" defer></script>
-<style>yk-header:not(:defined){display:block;min-height:73px}</style>
 </head>
 <body>
+<h1>Event Manager</h1>
+<p class="sub">Paste an event link (Luma, Eventbrite, Partiful, Posh, Meetup and more), check the details, publish. The event and its page go live on the website right away.</p>
 
-<yk-header><a href="/">Yorkseed</a> <a href="/hubs.html">Hubs</a> <a href="/events.html">Events</a> <a href="/investors">Investor list</a> <a href="/contact.html">Contact</a></yk-header>
-
-<div>
-
-<!-- ═══ HERO ═══ -->
-<div class="hero">
-  <div class="hero-inner">
-    <div>
-      <div class="ey"><div class="ey-line"></div>2023 – present</div>
-      <h1>Events &amp; <em>gatherings.</em></h1>
-      <p class="hero-sub">Upcoming Yorkseed events worldwide — plus the full archive of every gathering, Expert Session, Passport activation, and Summit since 2023.</p>
-    </div>
-    <div class="hero-stats">
-      <div class="hstat"><div class="hstat-n">100+</div><div class="hstat-l">Events</div></div>
-      <div class="hstat"><div class="hstat-n">20+</div><div class="hstat-l">Cities</div></div>
-      <div class="hstat"><div class="hstat-n">3</div><div class="hstat-l">Years</div></div>
-    </div>
-  </div>
+<div class="card" id="keyCard">
+  <h2>Your key</h2>
+  <input id="key" type="password" placeholder="Event manager key" autocomplete="off"/>
+  <div class="hint">Saved on this device only.</div>
 </div>
 
-<!-- ═══ UPCOMING ═══ -->
-<section class="upcoming">
-  <div class="upcoming-inner">
+<div class="card">
+  <h2>1. Add from a link</h2>
+  <input id="url" type="url" inputmode="url" placeholder="https://..."/>
+  <button class="btn red" id="fetchBtn">Fetch event details</button>
+  <div class="msg" id="fetchMsg"></div>
+</div>
 
-    <div id="featuredContainer"></div>
-
-    <div class="upcoming-grid" id="upcomingGrid"></div>
-
-    <div id="partnerSection" class="partner-section" style="display:none">
-      <div class="partner-eyebrow">Community Partner Events</div>
-      <div class="partner-grid" id="partnerGrid"></div>
-    </div>
-
-    <div class="luma-cta">
-      <div class="luma-cta-text"><strong>More events coming soon.</strong> Follow Yorkseed on Luma to get notified as new events are announced across 50+ cities.</div>
-      <a href="https://lu.ma/yorkseed" target="_blank" rel="noopener" class="luma-cta-link">Follow on Luma →</a>
+<div class="card" id="editor">
+  <h2 id="edTitle">2. Check and publish</h2>
+  <label>Title</label><input id="title"/>
+  <div class="row2">
+    <div><label>Date</label><input id="dateISO" type="date"/></div>
+    <div><label>Type</label>
+      <select id="type"><option value="passport">Passport Series</option><option value="expert">Expert Session</option><option value="summit">Summit</option><option value="house">Yorkseed House</option><option value="community">Partner event</option></select>
     </div>
   </div>
-</section>
-
-<!-- ═══ FILTER TABS ═══ -->
-<div class="filters">
-  <div class="filter-tab active" onclick="filterEvents('all',this)">All</div>
-  <div class="filter-tab" onclick="filterEvents('passport',this)">Passport Series</div>
-  <div class="filter-tab" onclick="filterEvents('expert',this)">Expert Sessions</div>
-  <div class="filter-tab" onclick="filterEvents('summit',this)">Summit &amp; House</div>
-  <div class="filter-tab" onclick="filterEvents('community',this)">Community Partner</div>
+  <label>Date and time shown on the site</label><input id="date" placeholder="Wed, Nov 12, 2026 &middot; 7:00-9:00 PM EST"/>
+  <div class="row2">
+    <div><label>City</label><input id="city"/></div>
+    <div><label>Entry</label><input id="spots" placeholder="Free · RSVP"/></div>
+  </div>
+  <label style="display:flex;align-items:center;gap:10px;font-size:15px;margin-top:14px"><input type="checkbox" id="isVirtual" style="width:22px;height:22px;margin:0"/> This is a virtual event</label>
+  <label>Location</label><input id="location"/>
+  <label>Description</label><textarea id="description" style="min-height:220px"></textarea>
+  <label>Hosts (comma separated)</label><input id="hosts"/>
+  <label>Cover image link</label><input id="coverImage" type="url"/>
+  <label>Event link (where people RSVP)</label><input id="lumaUrl" type="url"/>
+  <label>Series (optional)</label><select id="series"><option value="">None</option><option value="valois">Valois</option><option value="nycfw">NYC Founder Week</option></select>
+  <label>Page address (optional, yorkseed.co/e/...)</label><input id="slug" placeholder="leave blank to auto-make"/>
+  <label>Promo code (optional)</label><input id="promoCode"/>
+  <button class="btn red" id="saveBtn">Publish event</button>
+  <button class="btn ghost" id="cancelBtn">Cancel</button>
+  <div class="msg" id="saveMsg"></div>
 </div>
 
-<!-- ═══ ARCHIVE ═══ -->
-<div class="archive">
-  <div class="archive-inner" id="archiveContainer"></div>
+<div class="card">
+  <h2>Events added here</h2>
+  <div id="list"><div class="hint">Loading...</div></div>
+  <div class="hint">Older events still come from the website file and are not listed here.</div>
 </div>
-</div>
-
-<div style="text-align:center;padding:8px 20px 36px"><a href="/event-admin.html" rel="nofollow" style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.08em;color:#8a867d;text-decoration:underline">Event manager login</a></div>
-
-<yk-footer><a href="/">Home</a> <a href="/hubs.html">Hubs</a> <a href="/events.html">Events</a> <a href="/about.html">About</a> <a href="/contact.html">Contact</a></yk-footer>
-
-<!-- Mobile tab bar -->
-
 
 <script>
-// ─── NAV ─────────────────────────────────────────────────────────────────────
-function toggleDrop(){
-  const d=document.getElementById('ecosDrop');
-  d.classList.toggle('open');
-  document.removeEventListener('click',closeOnOutside);
-  setTimeout(()=>document.addEventListener('click',closeOnOutside),10);
+var API='https://yorkseed-backend-production.up.railway.app/api/site-events';
+var editingId=null,cache=[];
+function $(i){return document.getElementById(i)}
+function key(){return $('key').value.trim()}
+try{var k=localStorage.getItem('ys_events_key');if(k){$('key').value=k;$('keyCard').style.display='none'}}catch(e){}
+function say(id,t,ok){var m=$(id);m.textContent=t;m.className='msg '+(ok?'ok':'err')}
+function api(path,opt){
+  opt=opt||{};opt.headers=Object.assign({'x-events-key':key()},opt.headers||{});
+  if(opt.body&&typeof opt.body!=='string'){opt.body=JSON.stringify(opt.body);opt.headers['content-type']='application/json'}
+  return fetch(API+path,opt).then(function(r){return r.json().catch(function(){return {}}).then(function(j){if(!r.ok){if(r.status===401){try{localStorage.removeItem('ys_events_key')}catch(e){}$('keyCard').style.display='block'}throw new Error(j.message||'Something went wrong')}return j})})
 }
-function closeOnOutside(e){
-  if(!document.getElementById('ecosDrop').contains(e.target)){
-    document.getElementById('ecosDrop').classList.remove('open');
-    document.removeEventListener('click',closeOnOutside);
-  }
+var F=['series','slug','title','dateISO','type','date','city','spots','location','description','coverImage','lumaUrl','promoCode'];
+var extra={country:'',venue:''};
+function syncVirtual(){var v=/^virtual|^online/i.test($('location').value.trim());$('isVirtual').checked=v}
+function fill(e){F.forEach(function(f){$(f).value=e[f]||(f==='type'?'passport':'')});$('hosts').value=(e.hosts||[]).join(', ');extra={country:e.country||'',venue:e.venue||''};syncVirtual()}
+document.addEventListener('change',function(ev){if(ev.target&&ev.target.id==='isVirtual'){var l=$('location');if(ev.target.checked){l.value='Virtual \u00b7 Online'}else if(/^virtual|^online/i.test(l.value.trim())){l.value=''}}});
+function read(){var o={};F.forEach(function(f){o[f]=$(f).value.trim()});o.hosts=$('hosts').value.split(',').map(function(x){return x.trim()}).filter(Boolean);o.country=extra.country;o.venue=extra.venue;return o}
+function openEditor(title){$('editor').style.display='block';$('edTitle').textContent=title;$('editor').scrollIntoView({behavior:'smooth'})}
+function guessType(e){var l=(e.location||'').toLowerCase();return /virtual|online|zoom/.test(l)?'expert':'passport'}
+
+$('fetchBtn').onclick=function(){
+  if(!key())return say('fetchMsg','Enter your key first.',false);
+  var u=$('url').value.trim();if(!u)return say('fetchMsg','Paste an event link.',false);
+  try{localStorage.setItem('ys_events_key',key())}catch(e){}
+  $('fetchBtn').disabled=true;say('fetchMsg','Reading the event...',true);
+  api('/extract',{method:'POST',body:{url:u}}).then(function(j){
+    editingId=null;var e=j.event;e.type=guessType(e);fill(e);
+    var how=e.via==='luma-full'?'Read the full details from Luma.':(e.via==='page'?'Only a short summary was available'+(e.note?' ('+e.note+')':'')+'. Add anything missing by hand.':'');
+    say('fetchMsg','Found it. '+how+' Check the date and time below.',true);
+    load();
+    openEditor('2. Check and publish');$('saveBtn').textContent='Publish event';
+  }).catch(function(err){
+    load();
+    say('fetchMsg',err.message+(/key/i.test(err.message)?'':' You can still fill the form by hand.'),false);
+    if(/key/i.test(err.message)){$('editor').style.display='none';return}
+    editingId=null;fill({lumaUrl:u,type:'passport'});openEditor('2. Fill in by hand');
+  }).then(function(){$('fetchBtn').disabled=false});
+};
+$('cancelBtn').onclick=function(){$('editor').style.display='none';editingId=null};
+$('saveBtn').onclick=function(){
+  var d=read();if(!d.title||!d.dateISO)return say('saveMsg','Title and date are required.',false);
+  $('saveBtn').disabled=true;
+  api(editingId?'/'+editingId:'',{method:editingId?'PUT':'POST',body:d}).then(function(j){
+    say('saveMsg','Published. It is live on the events page now.',true);
+    $('url').value='';load();
+    setTimeout(function(){$('editor').style.display='none';editingId=null;$('saveMsg').className='msg'},1800);
+  }).catch(function(err){say('saveMsg',err.message,false)}).then(function(){$('saveBtn').disabled=false});
+};
+function load(){
+  if(!key()){$('list').innerHTML='<div class="hint">Enter your key to see events.</div>';return}
+  api('').then(function(j){
+    cache=j.events||[];
+    $('list').innerHTML=cache.length?cache.map(function(e){
+      return '<div class="ev'+(e.hidden?' hid':'')+'"><div><b>'+esc(e.title)+'</b><small>'+esc(e.date||e.dateISO)+(e.hidden?' · hidden':'')+'</small></div><div class="acts"><a href="/e/'+(e.slug||e.id)+'" target="_blank">View</a><button data-edit="'+e.id+'">Edit</button><button data-hide="'+e.id+'">'+(e.hidden?'Show':'Hide')+'</button><button data-del="'+e.id+'">Delete</button></div></div>'
+    }).join(''):'<div class="hint">Nothing added here yet.</div>';
+  }).catch(function(err){$('list').innerHTML='<div class="hint">'+esc(err.message)+'</div>'});
 }
-function toggleDrawer(){
-  const d=document.getElementById('navDrawer');
-  const b=document.getElementById('hamBtn');
-  d.classList.toggle('open');
-  b.classList.toggle('open');
-}
-function filterEvents(type,el){
-  document.querySelectorAll('.filter-tab').forEach(t=>t.classList.remove('active'));
-  el.classList.add('active');
-  document.querySelectorAll('.event-row').forEach(row=>{
-    if(type==='all'||row.dataset.type===type||(type==='summit'&&(row.dataset.type==='summit'||row.dataset.type==='house'))||false){
-      row.style.display='flex';
-    }else{
-      row.style.display='none';
-    }
-  });
-}
-
-// ─── HELPERS ─────────────────────────────────────────────────────────────────
-function typeLabel(t){return{passport:'Passport',expert:'Expert',summit:'Summit',house:'House',community:'Community Partner'}[t]||t}
-function typeRowClass(t){return{passport:'type-passport',expert:'type-expert',summit:'type-summit',house:'type-house',community:'type-community'}[t]||'type-summit'}
-function badgeClass(t){return{passport:'badge-passport',expert:'badge-expert',summit:'badge-summit',house:'badge-house'}[t]||'badge-summit'}
-// Valois branding overrides — applied on top of the underlying type (which stays intact for filtering)
-function evLabel(ev){return ev.valois?'Valois':ev.nycfw?'NYC Founder Week':typeLabel(ev.type)}
-function evRowClass(ev){return ev.valois?'type-valois':ev.nycfw?'type-nycfw':typeRowClass(ev.type)}
-function evBadgeClass(ev){return ev.valois?'badge-valois':ev.nycfw?'badge-nycfw':badgeClass(ev.type)}
-
-function slugOf(e){if(e.slug)return e.slug;var t=String(e.title||'').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/&/g,' and ').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,70).replace(/-+$/,'');return t+'-'+String(e.dateISO||'').slice(0,7)}
-function evHref(ev){if(ev.source==='manager'&&ev.slug)return '/e/'+ev.slug;if(ev.id&&ev.source==='manager')return '/event.html?id='+ev.id;return '/e/'+slugOf(ev)}
-function fixImg(u){return (u||'').replace(/^\/(https?:\/\/)/,'$1')}
-function imgFail(el){var w=el.parentNode;w.classList.add('noimg');el.remove()}
-// ─── FEATURED CARD ────────────────────────────────────────────────────────────
-function renderFeatured(ev){
-  const href = evHref(ev);
-  const target = '';
-  const bgStyle = ev.coverImage
-    ? `background-image:url('${fixImg(ev.coverImage)}');background-size:cover;background-position:center`
-    : (ev.coverGradient ? `background:${ev.coverGradient}` : '');
-  return `
-    <a href="${href}"${target} class="featured-card${ev.coverImage?' fc-img':''}" style="display:grid;text-decoration:none;color:inherit">
-      <div class="featured-card-img${ev.coverImage?' has-img':''}"${bgStyle ? ` style="${bgStyle}"` : ''}>
-        ${ev.coverImage?'':`<div class="featured-img-city">${ev.city||''}</div>`}
-        <div style="position:relative;z-index:1">
-          <div class="featured-img-badge">&#9679; Next up</div>
-          ${ev.coverImage?'':`<div class="featured-img-title">${ev.title}</div>`}
-        </div>
-      </div>
-      <div class="featured-card-body">
-        ${ev.coverImage?`<div class="featured-body-title">${ev.title}</div>`:''}
-        <div class="featured-meta">
-          <div><div class="featured-meta-label">Date &amp; Time</div><div class="featured-meta-val">${ev.date}</div></div>
-          ${ev.location?`<div><div class="featured-meta-label">Location</div><div class="featured-meta-val">${ev.location}</div></div>`:''}
-          ${(ev.format||ev.spots)?`<div><div class="featured-meta-label">Format</div><div class="featured-meta-val">${ev.format||''}${ev.format&&ev.spots?' &middot; ':''}${ev.spots||''}</div></div>`:''}
-        </div>
-        ${ev.description?`<div class="featured-desc">${String(ev.description).replace(/\s+/g,' ')}</div>`:''}
-        <div class="featured-actions">
-          <div class="btn-primary">View event details &rarr;</div>
-          <div class="btn-secondary" onclick="event.preventDefault();window.open('${ev.lumaUrl||'https://lu.ma/yorkseed'}','_blank')">RSVP &#8599;</div>
-        </div>
-      </div>
-    </a>`;
-}
-
-// ─── UPCOMING CARD ────────────────────────────────────────────────────────────
-function renderUpcomingCard(ev){
-  const locIcon=(ev.location||'').toLowerCase().includes('virtual')?'&#128187;':'&#128205;';
-  const href=evHref(ev);
-  const target='';
-  const grad = ev.coverGradient || 'linear-gradient(135deg,#0A0A0C 0%,#151517 45%,#1B1B1F 100%)';
-  let city = (ev.city||ev.location||'').split(',')[0]; if(/^virtual/i.test(city)||!city) city = ev.valois?'Valois':typeLabel(ev.type);
-  const imgHtml = ev.coverImage
-    ? `<img src="${fixImg(ev.coverImage)}" alt="" referrerpolicy="no-referrer" loading="lazy" onerror="imgFail(this)"/><div class="uc-img-fallback">${city}</div>`
-    : `<div class="uc-img-fallback">${city}</div>`;
-  const hasImg = !!ev.coverImage;
-  return `
-    <a href="${href}" ${target} class="upcoming-card${ev.valois?' is-valois':''}${ev.nycfw?' is-nycfw':''}" data-type="${ev.type}" style="text-decoration:none;color:inherit">
-      <div class="uc-img${hasImg?'':' noimg'}" style="--g:${grad}">${imgHtml}</div>
-      <div class="uc-content">
-        <div class="uc-top">
-          <span class="uc-badge ${evBadgeClass(ev)}">${evLabel(ev)}</span>
-          <div class="uc-date">${(ev.date||'').replace(/\s+(\d{4})$/,'<br>$1')}</div>
-        </div>
-        <div class="uc-title">${ev.title}</div>
-        <div class="uc-loc">${locIcon} ${ev.location}</div>
-        <div class="uc-footer">
-          <div class="uc-spots">${ev.spots||'Spots available'}</div>
-          <span class="uc-link">View event &rarr;</span>
-        </div>
-      </div>
-    </a>`;
-}
-
-// ─── ARCHIVE ──────────────────────────────────────────────────────────────────
-function renderArchive(archive){
-  const currentYear=new Date().getFullYear();
-  return archive.map(yb=>`
-    <div class="year-block">
-      <div class="year-heading${yb.year>=currentYear?' current':''}">${yb.year}</div>
-      ${yb.groups.map(g=>`
-        <div class="edition-group">
-          <div class="edition-label">${g.label}</div>
-          <div class="event-table">
-            ${g.events.map(ev=>`
-              <div class="event-row${ev.valois?' is-valois':''}${ev.nycfw?' is-nycfw':''}" data-type="${ev.type}">
-                <span class="event-type ${evRowClass(ev)}">${evLabel(ev)}</span>
-                <div class="event-name">${ev.title}</div>
-                <div class="event-loc">${ev.location}</div>
-                <div class="event-date">${ev.date}</div>
-                ${ev.url?`<a href="${ev.url}" class="event-link">${ev.linkLabel||'View &rarr;'}</a>`:(ev.slug?`<a href="events/${ev.slug}.html" class="event-link">${ev.linkLabel||'View &rarr;'}</a>`:(ev.lumaUrl?`<a href="${ev.lumaUrl}" target="_blank" class="event-link">${ev.linkLabel||'View &rarr;'}</a>`:''))}
-                ${ev.promoCode?`<span style="font-family:var(--mono);font-size:9px;letter-spacing:.06em;color:var(--ink4);margin-left:4px">Code: ${ev.promoCode}</span>`:''}
-              </div>`).join('')}
-          </div>
-        </div>`).join('')}
-    </div>`).join('');
-}
-
-
-// ─── COMMUNITY PARTNER CARDS ─────────────────────────────────────────────
-const partnerEvents = [];
-
-function renderPartnerCard(ev){
-  const img = ev.coverImage || '';
-  const idx = partnerEvents.push(ev) - 1;
-  return `
-    <div class="partner-card" onclick="openModal(${idx})">
-      <div class="partner-card-img">
-        ${img ? `<img src="${img}" alt="" referrerpolicy="no-referrer"/>` : `<div style="width:100%;height:100%;background:var(--mid)"></div>`}
-      </div>
-      <div class="partner-card-body">
-        <div class="partner-card-badge">Community Partner</div>
-        <div class="partner-card-title">${ev.title}</div>
-        <div class="partner-card-loc">📍 ${ev.location}</div>
-      </div>
-    </div>`;
-}
-
-function openModal(idx){
-  const ev = partnerEvents[idx];
-  document.getElementById('modalImg').src = fixImg(ev.coverImage) || '';
-  document.getElementById('modalImg').style.display = ev.coverImage ? 'block' : 'none';
-  document.getElementById('modalTitle').textContent = ev.title;
-  document.getElementById('modalDesc').textContent = ev.description || '';
-  document.getElementById('modalBtn').href = ev.lumaUrl || '#';
-  const meta = document.getElementById('modalMeta');
-  meta.innerHTML = '';
-  if(ev.date) meta.innerHTML += `<div class="modal-meta-row">📅 ${ev.date}</div>`;
-  if(ev.location) meta.innerHTML += `<div class="modal-meta-row">📍 ${ev.location}</div>`;
-  if(ev.venue && ev.venue !== ev.location) meta.innerHTML += `<div class="modal-meta-row">🏛 ${ev.venue}</div>`;
-  const promo = document.getElementById('modalPromo');
-  if(ev.promoCode){
-    promo.style.display = 'block';
-    promo.textContent = `🎟 Promo code: ${ev.promoCode} — use at checkout`;
-  } else {
-    promo.style.display = 'none';
-  }
-  document.getElementById('partnerModal').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeModal(e){
-  if(e.target === document.getElementById('partnerModal')){
-    document.getElementById('partnerModal').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-}
-
-document.addEventListener('keydown', e => {
-  if(e.key === 'Escape'){
-    document.getElementById('partnerModal').classList.remove('open');
-    document.body.style.overflow = '';
-  }
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')}
+document.addEventListener('click',function(ev){
+  var t=ev.target,id;
+  if(id=t.dataset&&t.dataset.edit){var e=cache.find(function(x){return x.id===id});editingId=id;fill(e);openEditor('Edit event');$('saveBtn').textContent='Save changes'}
+  else if(id=t.dataset&&t.dataset.hide){var e2=cache.find(function(x){return x.id===id});e2.hidden=!e2.hidden;api('/'+id,{method:'PUT',body:e2}).then(load)}
+  else if(id=t.dataset&&t.dataset.del){if(t.dataset.sure===id){api('/'+id,{method:'DELETE'}).then(load)}else{t.dataset.sure=id;t.textContent='Tap again';setTimeout(function(){t.textContent='Delete';delete t.dataset.sure},3000)}}
 });
-
-// ─── INIT ─────────────────────────────────────────────────────────────────────
-function isPast(ev){
-  if(!ev.dateISO) return false;
-  // Compare date only (ignore time) so event stays visible on the day itself
-  const today = new Date();
-  today.setHours(0,0,0,0);
-  return new Date(ev.dateISO) < today;
-}
-
-async function init(){
-  try{
-    const res=await fetch('/events.json');
-    if(!res.ok) throw new Error('fetch failed');
-    const data=await res.json();
-    (data.upcoming||[]).forEach((e,i)=>{e._i=i});
-
-    // Events added from the Event Manager (backend). Merged with events.json.
-    try{
-      const mr=await fetch('https://yorkseed-backend-production.up.railway.app/api/site-events/public');
-      if(mr.ok){
-        const m=await mr.json();
-        data.upcoming=(data.upcoming||[]).slice();
-        const lk=u=>{const s=String(u||'').match(/(?:lu\.ma|luma\.com)\/([A-Za-z0-9_-]+)/);return s?s[1].toLowerCase():''};
-        const mine={};(m.events||[]).forEach(e=>{const k=lk(e.lumaUrl);if(k)mine[k]=1});
-        // an event added in the manager replaces the older copy of the same Luma event
-        data.upcoming=data.upcoming.filter(e=>{const k=lk(e.lumaUrl||e.url);return !(k&&mine[k])});
-        (m.events||[]).forEach(e=>{
-          e.url='/e/'+(e.slug||e.id);if(e.series==='valois')e.valois=true;if(e.series==='nycfw')e.nycfw=true;
-          if(e.type==='community'&&!isPast(e)){ (data._partner=data._partner||[]).push(e); }
-          else if(e.type==='community'){
-            // past partner events go to the archive under their year
-            data.archive=data.archive||[];
-            const y=new Date(e.dateISO).getFullYear();
-            let yb=data.archive.find(a=>a.year===y);
-            if(!yb){yb={year:y,groups:[]};data.archive.push(yb);data.archive.sort((a,b)=>b.year-a.year)}
-            let g=yb.groups.find(x=>x.label==='Partner events');
-            if(!g){g={label:'Partner events',events:[]};yb.groups.push(g)}
-            g.events.push({type:'community',title:e.title,location:e.location,date:e.date,lumaUrl:e.lumaUrl||'',dateISO:e.dateISO,description:e.description,coverImage:e.coverImage,promoCode:e.promoCode});
-          }
-          else data.upcoming.push(e);
-        });
-      }
-    }catch(_){}
-
-    // Split upcoming into still-future and now-past
-    const allUpcoming=data.upcoming||[];
-    const stillUpcoming=allUpcoming.filter(e=>!isPast(e));
-    const autoArchived=allUpcoming.filter(e=>isPast(e));
-
-    // Auto-sort by dateISO, earliest is always featured
-    stillUpcoming.sort((a,b)=>{
-      if(!a.dateISO) return 1;
-      if(!b.dateISO) return -1;
-      return new Date(a.dateISO)-new Date(b.dateISO);
-    });
-    // every event is a same-size card, soonest first
-    if(stillUpcoming.length) document.getElementById('upcomingGrid').innerHTML=stillUpcoming.map(renderUpcomingCard).join('');
-
-    // Merge auto-archived events into the archive data under the correct year
-    const archive=data.archive||[];
-    autoArchived.forEach(ev=>{
-      const year=new Date(ev.dateISO).getFullYear();
-      let yearBlock=archive.find(y=>y.year===year);
-      if(!yearBlock){
-        yearBlock={year,groups:[]};
-        archive.unshift(yearBlock);
-        archive.sort((a,b)=>b.year-a.year);
-      }
-      // Add as a group if not already there
-      const groupLabel=ev.city||ev.location||'Event';
-      let group=yearBlock.groups.find(g=>g.label===groupLabel);
-      if(!group){
-        group={label:groupLabel,events:[]};
-        yearBlock.groups.unshift(group);
-      }
-      group.events.unshift({
-        type:ev.type,
-        title:ev.title,
-        location:ev.location,
-        date:ev.date,
-        lumaUrl:ev.lumaUrl||''
-      });
-    });
-
-    // Collect community partner events from archive — only upcoming ones
-    const today = new Date(); today.setHours(0,0,0,0);
-    const communityEvents = [];
-    archive.forEach(yb => yb.groups.forEach(g => g.events.forEach(ev => {
-      if(ev.type === 'community' && (!ev.dateISO || new Date(ev.dateISO) >= today)) communityEvents.push({...ev,
-        coverImage: ev.coverImage || 'https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=400/event-covers/uo/5435e4de-77ff-4a0b-82eb-e5264020fa96.png'
-      });
-    })));
-    (data._partner||[]).forEach(e=>communityEvents.push(e));
-    if(communityEvents.length){
-      document.getElementById('partnerSection').style.display='block';
-      document.getElementById('partnerGrid').innerHTML = communityEvents.map(renderPartnerCard).join('');
-    }
-    document.getElementById('archiveContainer').innerHTML=renderArchive(archive);
-  }catch(err){
-    console.error('events.json load error:',err);
-  }
-}
-init();
+load();
 </script>
-
-<!-- COMMUNITY PARTNER MODAL -->
-<div class="modal-overlay" id="partnerModal" onclick="closeModal(event)">
-  <div class="modal-box">
-    <div class="modal-img">
-      <img id="modalImg" src="" alt=""/>
-      <div class="modal-badge" id="modalBadge">Community Partner</div>
-      <button class="modal-close" onclick="document.getElementById('partnerModal').classList.remove('open')">×</button>
-    </div>
-    <div class="modal-body">
-      <div class="modal-title" id="modalTitle"></div>
-      <div class="modal-meta" id="modalMeta"></div>
-      <div class="modal-desc" id="modalDesc"></div>
-      <div class="modal-promo" id="modalPromo" style="display:none"></div>
-      <a class="modal-btn" id="modalBtn" href="#" target="_blank">View Event →</a>
-    </div>
-  </div>
-</div>
 </body>
 </html>
