@@ -66,6 +66,7 @@ textarea{min-height:130px;resize:vertical}
     <div><label>City</label><input id="city"/></div>
     <div><label>Entry</label><input id="spots" placeholder="Free · RSVP"/></div>
   </div>
+  <label style="display:flex;align-items:center;gap:10px;font-size:15px;margin-top:14px"><input type="checkbox" id="isVirtual" style="width:22px;height:22px;margin:0"/> This is a virtual event</label>
   <label>Location</label><input id="location"/>
   <label>Description</label><textarea id="description" style="min-height:220px"></textarea>
   <label>Hosts (comma separated)</label><input id="hosts"/>
@@ -99,7 +100,9 @@ function api(path,opt){
 }
 var F=['series','slug','title','dateISO','type','date','city','spots','location','description','coverImage','lumaUrl','promoCode'];
 var extra={country:'',venue:''};
-function fill(e){F.forEach(function(f){$(f).value=e[f]||(f==='type'?'passport':'')});$('hosts').value=(e.hosts||[]).join(', ');extra={country:e.country||'',venue:e.venue||''}}
+function syncVirtual(){var v=/^virtual|^online/i.test($('location').value.trim());$('isVirtual').checked=v}
+function fill(e){F.forEach(function(f){$(f).value=e[f]||(f==='type'?'passport':'')});$('hosts').value=(e.hosts||[]).join(', ');extra={country:e.country||'',venue:e.venue||''};syncVirtual()}
+document.addEventListener('change',function(ev){if(ev.target&&ev.target.id==='isVirtual'){var l=$('location');if(ev.target.checked){l.value='Virtual \u00b7 Online'}else if(/^virtual|^online/i.test(l.value.trim())){l.value=''}}});
 function read(){var o={};F.forEach(function(f){o[f]=$(f).value.trim()});o.hosts=$('hosts').value.split(',').map(function(x){return x.trim()}).filter(Boolean);o.country=extra.country;o.venue=extra.venue;return o}
 function openEditor(title){$('editor').style.display='block';$('edTitle').textContent=title;$('editor').scrollIntoView({behavior:'smooth'})}
 function guessType(e){var l=(e.location||'').toLowerCase();return /virtual|online|zoom/.test(l)?'expert':'passport'}
