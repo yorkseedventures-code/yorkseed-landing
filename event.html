@@ -188,7 +188,8 @@ var API='https://yorkseed-backend-production.up.railway.app/api/site-events/publ
 function clean(s){return String(s||'').replace(/\s[\u2014\u2013]\s/g,': ').replace(/[\u2014\u2013]/g,'-')}
 function esc(s){return clean(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
 var LABEL={passport:'Passport Series',expert:'Expert Session',summit:'Summit',house:'Yorkseed House',community:'Partner Event'};
-function paras(t){return String(t||'').split(/\n{1,}/).map(function(x){return x.trim()}).filter(Boolean).map(function(x){return '<p>'+esc(x)+'</p>'}).join('')}
+function paras(t){var out='',list=[];function flush(){if(list.length){out+='<ul style="margin:0 0 16px 20px">'+list.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul>';list=[]}}
+String(t||'').split(/\n+/).map(function(x){return x.trim()}).filter(Boolean).forEach(function(x){if(x.indexOf('\u2022 ')===0){list.push(x.slice(2))}else{flush();out+='<p>'+esc(x)+'</p>'}});flush();return out}
 function notFound(){document.getElementById('app').innerHTML='<div class="ev-msg">This event is not available. <a href="/events.html">See all events</a></div>'}
 var id=new URLSearchParams(location.search).get('id');
 if(!id||!/^[a-f0-9]{24}$/i.test(id)){notFound()}else{

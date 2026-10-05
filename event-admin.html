@@ -67,7 +67,7 @@ textarea{min-height:130px;resize:vertical}
     <div><label>Entry</label><input id="spots" placeholder="Free · RSVP"/></div>
   </div>
   <label>Location</label><input id="location"/>
-  <label>Description</label><textarea id="description"></textarea>
+  <label>Description</label><textarea id="description" style="min-height:220px"></textarea>
   <label>Hosts (comma separated)</label><input id="hosts"/>
   <label>Cover image link</label><input id="coverImage" type="url"/>
   <label>Event link (where people RSVP)</label><input id="lumaUrl" type="url"/>
@@ -96,8 +96,9 @@ function api(path,opt){
   return fetch(API+path,opt).then(function(r){return r.json().catch(function(){return {}}).then(function(j){if(!r.ok){if(r.status===401){try{localStorage.removeItem('ys_events_key')}catch(e){}$('keyCard').style.display='block'}throw new Error(j.message||'Something went wrong')}return j})})
 }
 var F=['title','dateISO','type','date','city','spots','location','description','coverImage','lumaUrl','promoCode'];
-function fill(e){F.forEach(function(f){$(f).value=e[f]||(f==='type'?'passport':'')});$('hosts').value=(e.hosts||[]).join(', ')}
-function read(){var o={};F.forEach(function(f){o[f]=$(f).value.trim()});o.hosts=$('hosts').value.split(',').map(function(x){return x.trim()}).filter(Boolean);return o}
+var extra={country:'',venue:''};
+function fill(e){F.forEach(function(f){$(f).value=e[f]||(f==='type'?'passport':'')});$('hosts').value=(e.hosts||[]).join(', ');extra={country:e.country||'',venue:e.venue||''}}
+function read(){var o={};F.forEach(function(f){o[f]=$(f).value.trim()});o.hosts=$('hosts').value.split(',').map(function(x){return x.trim()}).filter(Boolean);o.country=extra.country;o.venue=extra.venue;return o}
 function openEditor(title){$('editor').style.display='block';$('edTitle').textContent=title;$('editor').scrollIntoView({behavior:'smooth'})}
 function guessType(e){var l=(e.location||'').toLowerCase();return /virtual|online|zoom/.test(l)?'expert':'passport'}
 
