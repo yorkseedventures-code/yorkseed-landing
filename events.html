@@ -438,7 +438,7 @@ function renderUpcomingCard(ev){
           <div class="uc-date">${(ev.date||'').replace(/\s+(\d{4})$/,'<br>$1')}</div>
         </div>
         <div class="uc-title">${ev.title}</div>
-        <div class="uc-loc">${ev.location?locIcon:'&#128187;'} ${ev.location||'Virtual'}</div>
+        <div class="uc-loc">${locIcon} ${ev.location||(ev.city&&!/^virtual/i.test(ev.city)?ev.city:'Location to be announced')}</div>
         <div class="uc-footer">
           <div class="uc-spots">${ev.spots||'Spots available'}</div>
           <span class="uc-link">View event &rarr;</span>
