@@ -71,6 +71,7 @@ textarea{min-height:130px;resize:vertical}
   <label>Hosts (comma separated)</label><input id="hosts"/>
   <label>Cover image link</label><input id="coverImage" type="url"/>
   <label>Event link (where people RSVP)</label><input id="lumaUrl" type="url"/>
+  <label>Page address (optional, yorkseed.co/e/...)</label><input id="slug" placeholder="leave blank to auto-make"/>
   <label>Promo code (optional)</label><input id="promoCode"/>
   <button class="btn red" id="saveBtn">Publish event</button>
   <button class="btn ghost" id="cancelBtn">Cancel</button>
@@ -95,7 +96,7 @@ function api(path,opt){
   if(opt.body&&typeof opt.body!=='string'){opt.body=JSON.stringify(opt.body);opt.headers['content-type']='application/json'}
   return fetch(API+path,opt).then(function(r){return r.json().catch(function(){return {}}).then(function(j){if(!r.ok){if(r.status===401){try{localStorage.removeItem('ys_events_key')}catch(e){}$('keyCard').style.display='block'}throw new Error(j.message||'Something went wrong')}return j})})
 }
-var F=['title','dateISO','type','date','city','spots','location','description','coverImage','lumaUrl','promoCode'];
+var F=['slug','title','dateISO','type','date','city','spots','location','description','coverImage','lumaUrl','promoCode'];
 var extra={country:'',venue:''};
 function fill(e){F.forEach(function(f){$(f).value=e[f]||(f==='type'?'passport':'')});$('hosts').value=(e.hosts||[]).join(', ');extra={country:e.country||'',venue:e.venue||''}}
 function read(){var o={};F.forEach(function(f){o[f]=$(f).value.trim()});o.hosts=$('hosts').value.split(',').map(function(x){return x.trim()}).filter(Boolean);o.country=extra.country;o.venue=extra.venue;return o}
@@ -109,7 +110,8 @@ $('fetchBtn').onclick=function(){
   $('fetchBtn').disabled=true;say('fetchMsg','Reading the event...',true);
   api('/extract',{method:'POST',body:{url:u}}).then(function(j){
     editingId=null;var e=j.event;e.type=guessType(e);fill(e);
-    say('fetchMsg','Found it. Check the details below, especially date and time.',true);
+    var how=e.via==='luma-full'?'Read the full details from Luma.':(e.via==='page'?'Only a short summary was available'+(e.note?' ('+e.note+')':'')+'. Add anything missing by hand.':'');
+    say('fetchMsg','Found it. '+how+' Check the date and time below.',true);
     load();
     openEditor('2. Check and publish');$('saveBtn').textContent='Publish event';
   }).catch(function(err){
@@ -134,7 +136,7 @@ function load(){
   api('').then(function(j){
     cache=j.events||[];
     $('list').innerHTML=cache.length?cache.map(function(e){
-      return '<div class="ev'+(e.hidden?' hid':'')+'"><div><b>'+esc(e.title)+'</b><small>'+esc(e.date||e.dateISO)+(e.hidden?' · hidden':'')+'</small></div><div class="acts"><a href="/event.html?id='+e.id+'" target="_blank">View</a><button data-edit="'+e.id+'">Edit</button><button data-hide="'+e.id+'">'+(e.hidden?'Show':'Hide')+'</button><button data-del="'+e.id+'">Delete</button></div></div>'
+      return '<div class="ev'+(e.hidden?' hid':'')+'"><div><b>'+esc(e.title)+'</b><small>'+esc(e.date||e.dateISO)+(e.hidden?' · hidden':'')+'</small></div><div class="acts"><a href="/e/'+(e.slug||e.id)+'" target="_blank">View</a><button data-edit="'+e.id+'">Edit</button><button data-hide="'+e.id+'">'+(e.hidden?'Show':'Hide')+'</button><button data-del="'+e.id+'">Delete</button></div></div>'
     }).join(''):'<div class="hint">Nothing added here yet.</div>';
   }).catch(function(err){$('list').innerHTML='<div class="hint">'+esc(err.message)+'</div>'});
 }

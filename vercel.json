@@ -1,0 +1,124 @@
+{
+ "rewrites": [
+  {
+   "source": "/e/urban-tech-day-stockholm-2026",
+   "destination": "/events/urban-tech-day-stockholm-2026.html"
+  },
+  {
+   "source": "/e/bootstrapped-solo-founders-afterwork-nyc-2026",
+   "destination": "/events/bootstrapped-solo-founders-afterwork-nyc-2026.html"
+  },
+  {
+   "source": "/e/curious-about-starting-a-startup-nyc-2026",
+   "destination": "/events/curious-about-starting-a-startup-nyc-2026.html"
+  },
+  {
+   "source": "/e/cofounder-speed-dating-picnic-nyc-2026",
+   "destination": "/events/cofounder-speed-dating-picnic-nyc-2026.html"
+  },
+  {
+   "source": "/e/marketplace-founders-afterwork-nyc-2026",
+   "destination": "/events/marketplace-founders-afterwork-nyc-2026.html"
+  },
+  {
+   "source": "/e/seed-to-series-a-growth-hacking-afterwork-nyc-2026",
+   "destination": "/events/seed-to-series-a-growth-hacking-afterwork-nyc-2026.html"
+  },
+  {
+   "source": "/e/women-founders-social-nyc-2026",
+   "destination": "/events/women-founders-social-nyc-2026.html"
+  },
+  {
+   "source": "/e/la-nuit-des-roses-paris-2026",
+   "destination": "/events/la-nuit-des-roses-paris-2026.html"
+  },
+  {
+   "source": "/e/women-founders-afterwork-nyc-2026",
+   "destination": "/events/women-founders-afterwork-nyc-2026.html"
+  },
+  {
+   "source": "/e/milan-ai-techweek-aperitivo-2026",
+   "destination": "/events/milan-ai-techweek-aperitivo-2026.html"
+  },
+  {
+   "source": "/e/founding-member-roundtable-q2-2026",
+   "destination": "/events/founding-member-roundtable-q2-2026.html"
+  },
+  {
+   "source": "/e/venture-vitality-healthtech-may-2026",
+   "destination": "/events/venture-vitality-healthtech-may-2026.html"
+  },
+  {
+   "source": "/e/paris-spring-social-2026",
+   "destination": "/events/paris-spring-social-2026.html"
+  },
+  {
+   "source": "/e/oasis-human-flourishing-nytechweek-2026",
+   "destination": "/events/oasis-human-flourishing-nytechweek-2026.html"
+  },
+  {
+   "source": "/e/yorkseed-house-nytechweek-2026",
+   "destination": "/events/yorkseed-house-nytechweek-2026.html"
+  },
+  {
+   "source": "/e/oasis-future-of-work-nytechweek-2026",
+   "destination": "/events/oasis-future-of-work-nytechweek-2026.html"
+  },
+  {
+   "source": "/e/ai-blockchain-intersection-nytechweek-2026",
+   "destination": "/events/ai-blockchain-intersection-nytechweek-2026.html"
+  },
+  {
+   "source": "/e/ugly-talk-beauty-tech-nytechweek-2026",
+   "destination": "/events/ugly-talk-beauty-tech-nytechweek-2026.html"
+  },
+  {
+   "source": "/e/oasis-ikigai-nytechweek-2026",
+   "destination": "/events/oasis-ikigai-nytechweek-2026.html"
+  },
+  {
+   "source": "/e/fintech-ai-pitch-forum-nytechweek-2026",
+   "destination": "/events/fintech-ai-pitch-forum-nytechweek-2026.html"
+  },
+  {
+   "source": "/e/elevate-recovery-lounge-nytechweek-2026",
+   "destination": "/events/elevate-recovery-lounge-nytechweek-2026.html"
+  },
+  {
+   "source": "/e/venture-salon-nytechweek-2026",
+   "destination": "/events/venture-salon-nytechweek-2026.html"
+  },
+  {
+   "source": "/e/oasis-emerging-technology-nytechweek-2026",
+   "destination": "/events/oasis-emerging-technology-nytechweek-2026.html"
+  },
+  {
+   "source": "/e/sunset-salon-dcd-apac-bali-2026",
+   "destination": "/events/sunset-salon-dcd-apac-bali-2026.html"
+  },
+  {
+   "source": "/e/venture-vitality-healthtech-june-2026",
+   "destination": "/events/venture-vitality-healthtech-june-2026.html"
+  },
+  {
+   "source": "/e/yorkseed-venture-social-nyc-2026",
+   "destination": "/events/yorkseed-venture-social-nyc-2026.html"
+  },
+  {
+   "source": "/e/raise-summit-pitch-roulette-paris-2026",
+   "destination": "/events/raise-summit-pitch-roulette-paris-2026.html"
+  },
+  {
+   "source": "/e/raise-summit-capital-table-lunch-paris-2026",
+   "destination": "/events/raise-summit-capital-table-lunch-paris-2026.html"
+  },
+  {
+   "source": "/e/founding-member-roundtable-2",
+   "destination": "/events/founding-member-roundtable-2.html"
+  },
+  {
+   "source": "/e/:slug",
+   "destination": "/event.html"
+  }
+ ]
+}

@@ -122,7 +122,10 @@ h1 em{font-style:italic;color:var(--red)}
 .upcoming-card{border:1px solid var(--border);border-radius:10px;overflow:hidden;background:var(--white);transition:border-color .18s,box-shadow .18s;display:flex;flex-direction:column;gap:0}
 .uc-img{height:120px;background:var(--off);overflow:hidden;position:relative}
 .uc-img img{width:100%;height:100%;object-fit:cover;display:block}
-.uc-img-fallback{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:32px;font-weight:300;color:rgba(0,0,0,.08);letter-spacing:-.02em}
+.uc-img.noimg{background:var(--g)}
+.uc-img img+.uc-img-fallback{display:none}
+.uc-img.noimg .uc-img-fallback{display:flex}
+.uc-img-fallback{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:30px;font-weight:300;color:rgba(255,255,255,.22);letter-spacing:-.02em}
 .uc-content{padding:16px;display:flex;flex-direction:column;gap:12px}
 .upcoming-card:hover{border-color:var(--border2);box-shadow:0 3px 16px rgba(0,0,0,.06)}
 .uc-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
@@ -136,9 +139,9 @@ h1 em{font-style:italic;color:var(--red)}
 .uc-date{font-family:var(--mono);font-size:10px;color:var(--ink4);text-align:right;line-height:1.4}
 .uc-title{font-size:14px;font-weight:400;color:var(--ink);line-height:1.4}
 .uc-loc{font-family:var(--mono);font-size:10px;color:var(--ink4);display:flex;align-items:center;gap:5px}
-.uc-footer{display:flex;justify-content:space-between;align-items:center;padding-top:10px;border-top:1px solid var(--border)}
+.uc-footer{gap:12px;display:flex;justify-content:space-between;align-items:center;padding-top:10px;border-top:1px solid var(--border)}
 .uc-spots{font-family:var(--mono);font-size:9px;letter-spacing:.06em;color:var(--ink4)}
-.uc-link{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;color:var(--red);display:flex;align-items:center;gap:4px;transition:gap .15s}
+.uc-link{white-space:nowrap;flex-shrink:0;font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;color:var(--red);display:flex;align-items:center;gap:4px;transition:gap .15s}
 .uc-link:hover{gap:7px}
 
 /* All events luma CTA */
@@ -367,12 +370,16 @@ function evLabel(ev){return ev.valois?'Valois':ev.nycfw?'NYC Founder Week':typeL
 function evRowClass(ev){return ev.valois?'type-valois':ev.nycfw?'type-nycfw':typeRowClass(ev.type)}
 function evBadgeClass(ev){return ev.valois?'badge-valois':ev.nycfw?'badge-nycfw':badgeClass(ev.type)}
 
+function slugOf(e){if(e.slug)return e.slug;var t=String(e.title||'').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/&/g,' and ').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,70).replace(/-+$/,'');return t+'-'+String(e.dateISO||'').slice(0,7)}
+function evHref(ev){if(ev.source==='manager'&&ev.slug)return '/e/'+ev.slug;if(ev.id&&ev.source==='manager')return '/event.html?id='+ev.id;return '/e/'+slugOf(ev)}
+function fixImg(u){return (u||'').replace(/^\/(https?:\/\/)/,'$1')}
+function imgFail(el){var w=el.parentNode;w.classList.add('noimg');el.remove()}
 // ─── FEATURED CARD ────────────────────────────────────────────────────────────
 function renderFeatured(ev){
-  const href = ev.url ? ev.url : (ev.slug ? `events/${ev.slug}.html` : (ev.lumaUrl || '#'));
-  const target = (ev.url || ev.slug) ? '' : ' target="_blank"';
+  const href = evHref(ev);
+  const target = '';
   const bgStyle = ev.coverImage
-    ? `background-image:url('${ev.coverImage}');background-size:cover;background-position:center`
+    ? `background-image:url('${fixImg(ev.coverImage)}');background-size:cover;background-position:center`
     : (ev.coverGradient ? `background:${ev.coverGradient}` : '');
   return `
     <a href="${href}"${target} class="featured-card" style="display:grid;text-decoration:none;color:inherit">
@@ -401,14 +408,17 @@ function renderFeatured(ev){
 // ─── UPCOMING CARD ────────────────────────────────────────────────────────────
 function renderUpcomingCard(ev){
   const locIcon=(ev.location||'').toLowerCase().includes('virtual')?'&#128187;':'&#128205;';
-  const href=ev.url?ev.url:(ev.slug?`events/${ev.slug}.html`:(ev.lumaUrl||'#'));
-  const target=(ev.url||ev.slug)?'':'target="_blank"';
+  const href=evHref(ev);
+  const target='';
+  const grad = ev.coverGradient || 'linear-gradient(135deg,#0A0A0C 0%,#151517 45%,#1B1B1F 100%)';
+  let city = (ev.city||ev.location||'').split(',')[0]; if(/^virtual/i.test(city)||!city) city = ev.valois?'Valois':typeLabel(ev.type);
   const imgHtml = ev.coverImage
-    ? `<img src="${ev.coverImage}" alt="" referrerpolicy="no-referrer" loading="lazy"/>`
-    : `<div class="uc-img-fallback">${(ev.city||ev.location||'').split(',')[0]}</div>`;
+    ? `<img src="${fixImg(ev.coverImage)}" alt="" referrerpolicy="no-referrer" loading="lazy" onerror="imgFail(this)"/><div class="uc-img-fallback">${city}</div>`
+    : `<div class="uc-img-fallback">${city}</div>`;
+  const hasImg = !!ev.coverImage;
   return `
-    <div class="upcoming-card${ev.valois?' is-valois':''}${ev.nycfw?' is-nycfw':''}" data-type="${ev.type}">
-      <div class="uc-img">${imgHtml}</div>
+    <a href="${href}" ${target} class="upcoming-card${ev.valois?' is-valois':''}${ev.nycfw?' is-nycfw':''}" data-type="${ev.type}" style="text-decoration:none;color:inherit">
+      <div class="uc-img${hasImg?'':' noimg'}" style="--g:${grad}">${imgHtml}</div>
       <div class="uc-content">
         <div class="uc-top">
           <span class="uc-badge ${evBadgeClass(ev)}">${evLabel(ev)}</span>
@@ -418,10 +428,10 @@ function renderUpcomingCard(ev){
         <div class="uc-loc">${locIcon} ${ev.location}</div>
         <div class="uc-footer">
           <div class="uc-spots">${ev.spots||'Spots available'}</div>
-          <a href="${href}" ${target} class="uc-link">View event &rarr;</a>
+          <span class="uc-link">View event &rarr;</span>
         </div>
       </div>
-    </div>`;
+    </a>`;
 }
 
 // ─── ARCHIVE ──────────────────────────────────────────────────────────────────
@@ -470,7 +480,7 @@ function renderPartnerCard(ev){
 
 function openModal(idx){
   const ev = partnerEvents[idx];
-  document.getElementById('modalImg').src = ev.coverImage || '';
+  document.getElementById('modalImg').src = fixImg(ev.coverImage) || '';
   document.getElementById('modalImg').style.display = ev.coverImage ? 'block' : 'none';
   document.getElementById('modalTitle').textContent = ev.title;
   document.getElementById('modalDesc').textContent = ev.description || '';
@@ -519,6 +529,7 @@ async function init(){
     const res=await fetch('/events.json');
     if(!res.ok) throw new Error('fetch failed');
     const data=await res.json();
+    (data.upcoming||[]).forEach((e,i)=>{e._i=i});
 
     // Events added from the Event Manager (backend). Merged with events.json.
     try{
@@ -529,7 +540,7 @@ async function init(){
         const have={};data.upcoming.forEach(e=>{if(e.lumaUrl)have[e.lumaUrl]=1});
         (m.events||[]).forEach(e=>{
           if(e.lumaUrl&&have[e.lumaUrl])return;
-          e.url='/event.html?id='+e.id;
+          e.url='/e/'+(e.slug||e.id);
           if(e.type==='community'&&!isPast(e)){ (data._partner=data._partner||[]).push(e); }
           else if(e.type==='community'){
             // past partner events go to the archive under their year

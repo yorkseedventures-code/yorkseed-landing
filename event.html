@@ -185,16 +185,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(255,255,255,
 <yk-footer><a href="/">Home</a> <a href="/hubs.html">Hubs</a> <a href="/events.html">Events</a> <a href="/about.html">About</a> <a href="/contact.html">Contact</a></yk-footer>
 <script>
 var API='https://yorkseed-backend-production.up.railway.app/api/site-events/public/';
-function clean(s){return String(s||'').replace(/\s[\u2014\u2013]\s/g,': ').replace(/[\u2014\u2013]/g,'-')}
+function clean(s){return String(s||'').replace(/&amp;/g,'&').replace(/\s[\u2014\u2013]\s/g,': ').replace(/[\u2014\u2013]/g,'-')}
 function esc(s){return clean(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
 var LABEL={passport:'Passport Series',expert:'Expert Session',summit:'Summit',house:'Yorkseed House',community:'Partner Event'};
 function paras(t){var out='',list=[];function flush(){if(list.length){out+='<ul style="margin:0 0 16px 20px">'+list.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul>';list=[]}}
 String(t||'').split(/\n+/).map(function(x){return x.trim()}).filter(Boolean).forEach(function(x){if(x.indexOf('\u2022 ')===0){list.push(x.slice(2))}else{flush();out+='<p>'+esc(x)+'</p>'}});flush();return out}
 function notFound(){document.getElementById('app').innerHTML='<div class="ev-msg">This event is not available. <a href="/events.html">See all events</a></div>'}
-var id=new URLSearchParams(location.search).get('id');
-if(!id||!/^[a-f0-9]{24}$/i.test(id)){notFound()}else{
-fetch(API+id).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(d){
-  var e=d.event,loc=e.location||e.city||'',kind=LABEL[e.type]||'Event';
+function slugOf(e){if(e.slug)return e.slug;var t=String(e.title||'').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/&/g,' and ').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,70).replace(/-+$/,'');return t+'-'+String(e.dateISO||'').slice(0,7)}
+var qs=new URLSearchParams(location.search),pm=location.pathname.match(/^\/e\/([^\/]+)/),id=qs.get('id'),sk=(pm&&decodeURIComponent(pm[1]))||qs.get('s');
+function render(e){
+  var loc=e.location||e.city||'',kind=LABEL[e.type]||'Event';
   document.title=clean(e.title)+' | Yorkseed';
   var md=document.querySelector('meta[name=description]');md.content=clean((e.description||'Yorkseed event').slice(0,150));
   var cover=e.coverImage?'<div class="event-hero-bg"><img src="'+esc(e.coverImage)+'" alt="" referrerpolicy="no-referrer" onerror="this.style.display=\'none\'"/></div>':'';
@@ -208,7 +208,18 @@ fetch(API+id).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(
    '<div class="event-hero">'+cover+'<div class="event-hero-overlay"></div><div class="event-hero-inner"><div class="event-breadcrumb"><a href="/events.html">Events</a><span>&rsaquo;</span><span>'+esc(kind)+'</span></div><div class="event-badge">'+esc(kind)+(e.city?' &middot; '+esc(e.city):'')+'</div><h1>'+esc(e.title)+'</h1><div class="event-meta-strip">'+meta+'</div></div></div>'+
    '<div class="event-body"><div><div class="event-section"><div class="event-section-label">About This Event</div><div class="event-desc">'+(paras(e.description)||'<p>Details coming soon.</p>')+'</div></div>'+hosts+'</div>'+
    '<div class="event-sidebar"><div class="sidebar-card"><div class="sidebar-top"><div class="sidebar-title">'+esc(e.title)+'</div>'+side+promo+rsvp+'</div><div class="sidebar-bottom"><div class="sidebar-bottom-label">Tags</div><div class="tag-row">'+tags+'</div></div></div></div></div>';
-}).catch(notFound)}
+}
+function lumaOf(e){var u=e.lumaUrl||e.url||'';return /(lu\.ma|luma\.com)/.test(u)?u:(e.lumaUrl||'')}
+if(sk){
+fetch('/events.json').then(function(r){return r.json()}).then(function(j){
+  var all=(j.upcoming||[]).concat((j.archive||[]).reduce(function(a,g){return a.concat(g.events||[])},[]));
+  var e=null;all.forEach(function(x){if(!e&&slugOf(x)===sk)e=x});
+  if(!e){return fetch(API+encodeURIComponent(sk)).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(d){render(d.event)})}
+  e=Object.assign({},e);e.lumaUrl=lumaOf(e);e.coverImage=(e.coverImage||'').replace(/^\/(https?:\/\/)/,'$1');
+  render(e);
+}).catch(notFound)
+}else if(!id||!/^[a-f0-9]{24}$/i.test(id)){notFound()}else{
+fetch(API+id).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(d){render(d.event)}).catch(notFound)}
 </script>
 </body>
 </html>
