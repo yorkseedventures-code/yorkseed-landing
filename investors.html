@@ -64,8 +64,10 @@ h1{font:500 clamp(1.9rem,4vw,2.9rem)/1.1 var(--display);letter-spacing:-.02em;ma
 @media print{#grid,.lh,.filters,.strip{display:none!important}main::after{content:"Printing this list is not permitted. View it at yorkseed.co/investors";display:block;padding:24px;font:14px sans-serif}}
 @media(max-width:720px){.filters{position:static}.lh{display:none}.row>summary{grid-template-columns:minmax(0,1fr) 16px;gap:4px 12px;padding:14px 2px}.rn{grid-column:1}.rc{grid-column:2;grid-row:1}.rt,.rl,.rd{grid-column:1/-1;font-size:12.5px}.rd{white-space:normal}.rt{margin-top:2px}.rx{padding-inline:2px}}
 .strip{margin-top:14px;display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;font-size:14px;color:var(--ink2)}.strip a{color:var(--red);font-weight:600;text-decoration:none}.strip a:hover{text-decoration:underline}.pager{display:flex;justify-content:center;align-items:center;gap:12px;padding-bottom:24px;flex-wrap:wrap}.pager span{font-size:14px;color:var(--ink2)}.more:disabled{opacity:.4;cursor:default}.more:disabled:hover{background:#fff;color:var(--ink)}.morewrap{display:flex;justify-content:center;padding-bottom:24px}.more{height:42px;padding-inline:24px;border:1px solid var(--ink);border-radius:10px;background:#fff;color:var(--ink);font:500 14px var(--sans);cursor:pointer}.more:hover{background:var(--ink);color:#fff}.fundnote{margin-block:0 24px;font-size:14px;color:var(--ink2)}.fundnote a{color:var(--red);font-weight:600;text-decoration:none}.fundnote a:hover{text-decoration:underline}
-</style></head><body>
-<header class="top"><div class="wrap"><a class="brand" href="/" aria-label="Yorkseed home"><img src="/assets/home/logo.png" alt="Yorkseed" width="944" height="304"></a><a class="btn" href="https://app.yorkseed.co/register?ref=investors" target="_blank" rel="noopener">Apply</a></div></header>
+</style><script src="/assets/site-chrome.js" defer></script>
+<style>yk-header:not(:defined){display:block;min-height:73px}</style>
+</head><body>
+<yk-header><a href="/">Yorkseed</a> <a href="/hubs.html">Hubs</a> <a href="/events.html">Events</a> <a href="/investors">Investor list</a> <a href="/contact.html">Contact</a></yk-header>
 <main>
 <section class="hero"><div class="wrap">
 <p class="label">Investor list</p>
@@ -602,4 +604,6 @@ pn.addEventListener('click',function(){runApi(page+1,true);});
 run();
 if(window.fetch){get(qs(1,1)).then(function(d){if(d&&d.total>EMB)toApi(d);}).catch(function(){});}
 })();
-</script></body></html>
+</script>
+<yk-footer><a href="/">Home</a> <a href="/hubs.html">Hubs</a> <a href="/events.html">Events</a> <a href="/about.html">About</a> <a href="/contact.html">Contact</a></yk-footer>
+</body></html>

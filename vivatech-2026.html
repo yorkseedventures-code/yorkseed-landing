@@ -611,6 +611,9 @@ a{color:inherit;text-decoration:none}
 /* ── FORM SUCCESS ── */
 #student-success{display:none}
 </style>
+<style>.luma-bar{position:static!important}</style>
+<script src="/assets/site-chrome.js" defer></script>
+<style>yk-header:not(:defined){display:block;min-height:73px}</style>
 </head>
 <body>
 
@@ -635,37 +638,7 @@ a{color:inherit;text-decoration:none}
 </div>
 
 <!-- NAV -->
-<nav class="site-nav">
-  <div class="nav-vt-bar"></div>
-  <div class="nav-inner">
-    <a href="https://yorkseed.co" class="nav-logo"><img src="data:image/png;base64,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" alt="Yorkseed" style="height:40px;width:auto;display:block"/></a>
-    <div class="nav-center">
-      <a href="#passport" class="nav-link">Passport Series</a>
-      <a href="#events" class="nav-link">All Events</a>
-      <a href="#student" class="nav-link">Student Delegation</a>
-      <a href="#faq" class="nav-link">FAQ</a>
-      <span class="nav-sep"></span>
-      <a href="https://yorkseed.co/connect" target="_blank" class="nav-link nav-link-ext">Connect ↗</a>
-      <a href="https://thevalois.com" target="_blank" class="nav-link nav-link-ext">Valois ↗</a>
-    </div>
-    <div class="nav-right">
-      <a href="https://luma.com/f7r1n0st" target="_blank" class="nav-cta">Get VIP Passport →</a>
-      <button class="nav-burger" id="navBurger" aria-label="Menu" onclick="toggleNavDrawer()">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </div>
-  <!-- Mobile drawer -->
-  <div class="nav-drawer" id="navDrawer">
-    <a href="#passport" class="nav-link" onclick="closeNavDrawer()">Passport Series</a>
-    <a href="#events" class="nav-link" onclick="closeNavDrawer()">All Events</a>
-    <a href="#student" class="nav-link" onclick="closeNavDrawer()">Student Delegation</a>
-    <a href="#faq" class="nav-link" onclick="closeNavDrawer()">FAQ</a>
-    <a href="https://yorkseed.co/connect" target="_blank" class="nav-link nav-link-ext">Connect ↗</a>
-    <a href="https://thevalois.com" target="_blank" class="nav-link nav-link-ext">Valois ↗</a>
-    <a href="https://luma.com/f7r1n0st" target="_blank" class="nav-cta">Get VIP Passport →</a>
-  </div>
-</nav>
+<yk-header><a href="/">Yorkseed</a> <a href="/hubs.html">Hubs</a> <a href="/events.html">Events</a> <a href="/investors">Investor list</a> <a href="/contact.html">Contact</a></yk-header>
 
 <!-- HERO -->
 <section class="hero">
@@ -1023,43 +996,7 @@ a{color:inherit;text-decoration:none}
 </section>
 
 <!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div>
-        <div class="footer-brand">Yorkseed</div>
-        <div class="footer-tagline">The venture infrastructure platform. Connecting founders, investors, and ecosystem leaders across 50+ cities worldwide.</div>
-      </div>
-      <div>
-        <div class="footer-col-label">VivaTech 2026</div>
-        <div class="footer-links">
-          <a href="#passport" class="footer-link">VIP Passport</a>
-          <a href="#events" class="footer-link">All Events</a>
-          <a href="#student" class="footer-link">Student Delegation</a>
-          <a href="#faq" class="footer-link">FAQ</a>
-          <a href="https://vivatech.yorkseed.co" target="_blank" class="footer-link">Full Side Event List</a>
-          <a href="https://chat.whatsapp.com/IJBVgvi4aRp8cqdfX05XLb?s=cl&p=i&mlu=4" target="_blank" class="footer-link">VivaTech group chat →</a>
-        </div>
-      </div>
-      <div>
-        <div class="footer-col-label">Yorkseed</div>
-        <div class="footer-links">
-          <a href="https://yorkseed.co" class="footer-link" target="_blank">yorkseed.co</a>
-          <a href="https://app.yorkseed.co/pricing" class="footer-link" target="_blank">Join Yorkseed</a>
-          <a href="https://yorkseed.co/connect" class="footer-link" target="_blank">Yorkseed Connect</a>
-          <a href="https://pulse.yorkseed.co" class="footer-link" target="_blank">Yorkseed Insider</a>
-          <a href="https://thevalois.com" class="footer-link" target="_blank">Valois by Yorkseed</a>
-          <a href="https://www.linkedin.com/company/yorkseed" class="footer-link" target="_blank">LinkedIn</a>
-          <a href="mailto:partnership@yorkseed.co" class="footer-link">partnership@yorkseed.co</a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 Yorkseed. All rights reserved.</span>
-      <span><span class="vt-text">VivaTech</span> · June 17–20, 2026 · Paris Expo Porte de Versailles</span>
-    </div>
-  </div>
-</footer>
+<yk-footer><a href="/">Home</a> <a href="/hubs.html">Hubs</a> <a href="/events.html">Events</a> <a href="/about.html">About</a> <a href="/contact.html">Contact</a></yk-footer>
 
 <!-- STICKY -->
 <div class="sticky" id="sticky">
