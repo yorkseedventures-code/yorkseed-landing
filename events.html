@@ -104,8 +104,13 @@ h1 em{font-style:italic;color:var(--red)}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 .featured-img-title{font-family:var(--serif);font-size:22px;font-weight:400;color:#fff;line-height:1.2;letter-spacing:-.01em;position:relative;z-index:1}
 
-.featured-card-img.has-img{justify-content:flex-start;align-items:flex-start;padding:16px;min-height:0;width:100%;box-sizing:border-box;height:300px;background-color:#111;align-self:start}
-.featured-card.fc-img{grid-template-columns:minmax(0,300px) 1fr!important;align-items:stretch}
+.featured-card-img.has-img{justify-content:flex-start;align-items:flex-start;padding:16px;min-height:0;width:100%;box-sizing:border-box;height:200px;background-color:#111;align-self:start}
+.fc-img .featured-card-body{padding:20px 24px;gap:12px;justify-content:flex-start}
+.fc-img .featured-body-title{font-size:21px}
+.fc-img .featured-meta{gap:8px}
+.fc-img .featured-desc{-webkit-line-clamp:3;padding-top:12px;font-size:12.5px;line-height:1.65}
+.fc-img .featured-actions .btn-primary,.fc-img .featured-actions .btn-secondary{padding-top:9px;padding-bottom:9px}
+.featured-card.fc-img{grid-template-columns:minmax(0,200px) 1fr!important;align-items:stretch}
 @media(max-width:700px){.featured-card.fc-img{grid-template-columns:1fr!important}.featured-card-img.has-img{height:200px}}
 .featured-card-img.has-img::after{display:none}
 .featured-body-title{font-family:var(--serif);font-size:26px;font-weight:400;line-height:1.2;color:var(--ink);letter-spacing:-.01em}
@@ -295,7 +300,6 @@ h1 em{font-style:italic;color:var(--red)}
 <!-- ═══ UPCOMING ═══ -->
 <section class="upcoming">
   <div class="upcoming-inner">
-    <div class="section-eyebrow">Upcoming events</div>
 
     <div id="featuredContainer"></div>
 
@@ -400,8 +404,8 @@ function renderFeatured(ev){
         ${ev.coverImage?`<div class="featured-body-title">${ev.title}</div>`:''}
         <div class="featured-meta">
           <div><div class="featured-meta-label">Date &amp; Time</div><div class="featured-meta-val">${ev.date}</div></div>
-          <div><div class="featured-meta-label">Location</div><div class="featured-meta-val">${ev.location}</div></div>
-          <div><div class="featured-meta-label">Format</div><div class="featured-meta-val">${ev.format||''}${ev.spots?' &middot; '+ev.spots:''}</div></div>
+          ${ev.location?`<div><div class="featured-meta-label">Location</div><div class="featured-meta-val">${ev.location}</div></div>`:''}
+          ${(ev.format||ev.spots)?`<div><div class="featured-meta-label">Format</div><div class="featured-meta-val">${ev.format||''}${ev.format&&ev.spots?' &middot; ':''}${ev.spots||''}</div></div>`:''}
         </div>
         ${ev.description?`<div class="featured-desc">${String(ev.description).replace(/\s+/g,' ')}</div>`:''}
         <div class="featured-actions">
@@ -577,10 +581,8 @@ async function init(){
       if(!b.dateISO) return -1;
       return new Date(a.dateISO)-new Date(b.dateISO);
     });
-    const featured=stillUpcoming[0]||null;
-    const rest=stillUpcoming.slice(1);
-    if(featured) document.getElementById('featuredContainer').innerHTML=renderFeatured(featured);
-    if(rest.length) document.getElementById('upcomingGrid').innerHTML=rest.map(renderUpcomingCard).join('');
+    // every event is a same-size card, soonest first
+    if(stillUpcoming.length) document.getElementById('upcomingGrid').innerHTML=stillUpcoming.map(renderUpcomingCard).join('');
 
     // Merge auto-archived events into the archive data under the correct year
     const archive=data.archive||[];
