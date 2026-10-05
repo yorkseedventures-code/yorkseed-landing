@@ -104,6 +104,12 @@ h1 em{font-style:italic;color:var(--red)}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 .featured-img-title{font-family:var(--serif);font-size:22px;font-weight:400;color:#fff;line-height:1.2;letter-spacing:-.01em;position:relative;z-index:1}
 
+.featured-card-img.has-img{justify-content:flex-start;align-items:flex-start;padding:16px;min-height:0;width:100%;box-sizing:border-box;height:300px;background-color:#111;align-self:start}
+.featured-card.fc-img{grid-template-columns:minmax(0,300px) 1fr!important;align-items:stretch}
+@media(max-width:700px){.featured-card.fc-img{grid-template-columns:1fr!important}.featured-card-img.has-img{height:200px}}
+.featured-card-img.has-img::after{display:none}
+.featured-body-title{font-family:var(--serif);font-size:26px;font-weight:400;line-height:1.2;color:var(--ink);letter-spacing:-.01em}
+.featured-desc{display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
 .featured-card-body{padding:32px;display:flex;flex-direction:column;justify-content:space-between;gap:24px}
 .featured-meta{display:flex;flex-direction:column;gap:12px}
 .featured-meta-row{display:flex;gap:8px;align-items:center;font-size:12.5px;color:var(--ink3)}
@@ -382,21 +388,22 @@ function renderFeatured(ev){
     ? `background-image:url('${fixImg(ev.coverImage)}');background-size:cover;background-position:center`
     : (ev.coverGradient ? `background:${ev.coverGradient}` : '');
   return `
-    <a href="${href}"${target} class="featured-card" style="display:grid;text-decoration:none;color:inherit">
-      <div class="featured-card-img"${bgStyle ? ` style="${bgStyle}"` : ''}>
-        <div class="featured-img-city">${ev.city||''}</div>
+    <a href="${href}"${target} class="featured-card${ev.coverImage?' fc-img':''}" style="display:grid;text-decoration:none;color:inherit">
+      <div class="featured-card-img${ev.coverImage?' has-img':''}"${bgStyle ? ` style="${bgStyle}"` : ''}>
+        ${ev.coverImage?'':`<div class="featured-img-city">${ev.city||''}</div>`}
         <div style="position:relative;z-index:1">
           <div class="featured-img-badge">&#9679; Next up</div>
-          <div class="featured-img-title">${ev.title}</div>
+          ${ev.coverImage?'':`<div class="featured-img-title">${ev.title}</div>`}
         </div>
       </div>
       <div class="featured-card-body">
+        ${ev.coverImage?`<div class="featured-body-title">${ev.title}</div>`:''}
         <div class="featured-meta">
           <div><div class="featured-meta-label">Date &amp; Time</div><div class="featured-meta-val">${ev.date}</div></div>
           <div><div class="featured-meta-label">Location</div><div class="featured-meta-val">${ev.location}</div></div>
           <div><div class="featured-meta-label">Format</div><div class="featured-meta-val">${ev.format||''}${ev.spots?' &middot; '+ev.spots:''}</div></div>
         </div>
-        ${ev.description?`<div class="featured-desc">${ev.description}</div>`:''}
+        ${ev.description?`<div class="featured-desc">${String(ev.description).replace(/\s+/g,' ')}</div>`:''}
         <div class="featured-actions">
           <div class="btn-primary">View event details &rarr;</div>
           <div class="btn-secondary" onclick="event.preventDefault();window.open('${ev.lumaUrl||'https://lu.ma/yorkseed'}','_blank')">RSVP &#8599;</div>
