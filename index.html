@@ -1074,6 +1074,12 @@ body { font-size: 15px; line-height: 1.6; }
   .nav-scrim.on { opacity: 1; visibility: visible; transition: opacity .26s ease; }
 }
 @media (min-width: 1101px) { .menu-x, .nav-scrim { display: none; } }
+@media (min-width: 1101px) {
+  .nav .wrap { gap: 14px; }
+  .menu > a, .dd > button, .nav-r a { white-space: nowrap; }
+  .menu > a, .dd > button { padding: 10px 7px; font-size: 13.5px; }
+}
+@media (min-width: 1101px) and (max-width: 1280px) { .menu > a, .dd > button { padding: 10px 5px; font-size: 13px; } }
 @media (prefers-reduced-motion: reduce) { .menu, .nav-scrim { transition: none !important; } }
 
 /* Desktop trims: compact ecosystem, events and news side by side, testimonial carousel */
@@ -1476,7 +1482,7 @@ body { font-size: 15px; }
   <section class="hero" id="hero" data-role="founder">
     <div class="wrap">
       <div class="hero-copy">
-        <p class="hero-eyebrow">The Venture Infrastructure Platform</p>
+        <p class="hero-eyebrow">The Capital Network</p>
         <h1 class="brand-h">Relationships are <em>infrastructure.</em></h1>
         <p class="brand-sub">Yorkseed is the curated global capital network for founders, investors and allocators: every member vetted, and a platform to match, meet and raise.</p>
         <div class="roles" role="tablist" aria-label="I am">
