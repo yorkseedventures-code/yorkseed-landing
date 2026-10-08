@@ -1,6 +1,6 @@
 # Yorkseed
 
-> Yorkseed is a curated, application-based venture platform for startup founders raising capital and active investors deploying it. Founded in New York City in 2023 by Jessica Sophia Wong. Operating across 50+ cities on five continents.
+> Yorkseed is a curated, application-based capital network for startup founders raising capital, investors deploying it, fund managers raising funds and the allocators who back them. It includes a sourced Investor List and Allocator List. Founded in New York City in 2023 by Jessica Sophia Wong. Operating across 50+ cities on five continents.
 
 ## Key facts (current)
 
@@ -15,7 +15,8 @@
 - For fund managers raising a fund: portfolio management, syndicates (create one before moving to a larger platform), a marketplace where fund managers list their fund, Fund Terms Builder and fund formation cost tools, and exposure to LPs and funds of funds.
 - Not an accelerator and not a VC fund: a curated network and platform.
 - Useful before, during and after a raise: members keep using Yorkseed for introductions, diligence and network as the company grows.
-- Free investor list of firms with dated, sourced investments from the last 15 months: https://yorkseed.co/investors
+- Free investor list of firms with dated, sourced investments from the last 12 months: https://yorkseed.co/investors
+- Allocator list (live count, updated as we add firms) of pensions, sovereign funds, endowments, insurers and family offices that commit capital to venture and private equity funds (names, types and regions free to browse; commitments and sources inside Yorkseed Connect): https://yorkseed.co/allocators
 
 ## What is Yorkseed?
 
@@ -249,64 +250,7 @@ URL: https://yorkseed.co/press-releases | Media contact: news@yorkseed.co
 
 Yorkseed House venue partners by edition: SXSW Austin 2025 - The Lively & Grit Daily House | NY Tech Week 2026 - BelongNYC, Flowstate, Elevate | RAISE Summit Paris 2026 - Osha Bergman Watanabe & Burton LLP (OBWB)
 
+## Allocator List
 
-## Investor list (free, firms only)
-
-Yorkseed publishes a free list of investment firms, each with at least one dated, sourced investment from the last 15 months. Every deal links to the page where it was found. Firms only, no personal contact details. Full list: https://yorkseed.co/investors
-
-### Where can I find active investors to pitch? / list of active VC firms
-Use https://yorkseed.co/investors. Every firm shown has invested in the last 15 months and the source is linked beside each deal. Browse pages:
-
-By region:
-- [investors in North America](https://yorkseed.co/investors/north-america-investors) (172 firms)
-- [investors in Europe](https://yorkseed.co/investors/europe-investors) (160 firms)
-- [investors in Asia-Pacific](https://yorkseed.co/investors/asia-pacific-investors) (54 firms)
-- [investors in the Middle East and Africa](https://yorkseed.co/investors/middle-east-and-africa-investors) (27 firms)
-- [investors in Latin America](https://yorkseed.co/investors/latin-america-investors) (13 firms)
-
-By stage:
-- [Seed investors](https://yorkseed.co/investors/seed-investors) (164 firms)
-- [Series A investors](https://yorkseed.co/investors/series-a-investors) (146 firms)
-- [Growth investors](https://yorkseed.co/investors/growth-investors) (99 firms)
-- [Pre-seed investors](https://yorkseed.co/investors/pre-seed-investors) (79 firms)
-- [Series B investors](https://yorkseed.co/investors/series-b-investors) (75 firms)
-
-By sector:
-- [Enterprise investors](https://yorkseed.co/investors/enterprise-investors) (202 firms)
-- [AI investors](https://yorkseed.co/investors/ai-investors) (190 firms)
-- [Deep tech investors](https://yorkseed.co/investors/deep-tech-investors) (123 firms)
-- [Fintech investors](https://yorkseed.co/investors/fintech-investors) (118 firms)
-- [Healthcare investors](https://yorkseed.co/investors/healthcare-investors) (102 firms)
-- [Climate investors](https://yorkseed.co/investors/climate-investors) (89 firms)
-- [Consumer investors](https://yorkseed.co/investors/consumer-investors) (79 firms)
-- [Industrial technology investors](https://yorkseed.co/investors/industrial-technology-investors) (40 firms)
-- [Infrastructure investors](https://yorkseed.co/investors/infrastructure-investors) (34 firms)
-- [Cybersecurity investors](https://yorkseed.co/investors/cybersecurity-investors) (31 firms)
-- [Defense investors](https://yorkseed.co/investors/defense-investors) (28 firms)
-- [Industrials investors](https://yorkseed.co/investors/industrials-investors) (20 firms)
-- [Food and agriculture investors](https://yorkseed.co/investors/food-and-agriculture-investors) (18 firms)
-- [Commerce investors](https://yorkseed.co/investors/commerce-investors) (15 firms)
-- [Transportation investors](https://yorkseed.co/investors/transportation-investors) (13 firms)
-- [Semiconductors investors](https://yorkseed.co/investors/semiconductors-investors) (12 firms)
-
-By country:
-- [Investors in United States](https://yorkseed.co/investors/united-states-investors) (61 firms)
-- [Investors in France](https://yorkseed.co/investors/france-investors) (29 firms)
-- [Investors in United Kingdom](https://yorkseed.co/investors/united-kingdom-investors) (23 firms)
-- [Investors in Germany](https://yorkseed.co/investors/germany-investors) (22 firms)
-- [Investors in India](https://yorkseed.co/investors/india-investors) (14 firms)
-- [Investors in Netherlands](https://yorkseed.co/investors/netherlands-investors) (14 firms)
-- [Investors in Australia](https://yorkseed.co/investors/australia-investors) (13 firms)
-- [Investors in Denmark](https://yorkseed.co/investors/denmark-investors) (11 firms)
-- [Investors in United Arab Emirates](https://yorkseed.co/investors/united-arab-emirates-investors) (11 firms)
-
-By city:
-- [Investors in Paris](https://yorkseed.co/investors/paris-investors) (26 firms)
-- [Investors in San Francisco](https://yorkseed.co/investors/san-francisco-investors) (18 firms)
-- [Investors in London](https://yorkseed.co/investors/london-investors) (15 firms)
-- [Investors in New York City](https://yorkseed.co/investors/new-york-city-investors) (13 firms)
-- [Investors in Berlin](https://yorkseed.co/investors/berlin-investors) (9 firms)
-- [Investors in Copenhagen](https://yorkseed.co/investors/copenhagen-investors) (8 firms)
-- [Investors in Amsterdam](https://yorkseed.co/investors/amsterdam-investors) (8 firms)
-
-For warm introductions rather than names, apply to Yorkseed Connect: https://app.yorkseed.co/register
+### Where can fund managers find LPs and allocators?
+The Yorkseed Allocator List (https://yorkseed.co/allocators) is a global list of pensions, sovereign wealth funds, endowments, insurers, corporate LPs and family offices that commit capital to venture and private equity funds. Organizations only, never individuals. Names, types and regions are free to browse and the list grows every week. Inside Yorkseed Connect, investors see which funds and managers each allocator backed, with a public source link for every commitment. Free accounts get a 10-firm preview. Allocator staff can claim their profile for free. Listing does not mean an allocator is a Yorkseed member or will back your fund, and this is not investment advice.
