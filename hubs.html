@@ -435,6 +435,30 @@ body.searching .region-content.empty,body.searching .global-cta,body.searching #
 .dir-text h3{font-size:clamp(22px,3vw,30px);line-height:1.2}
 .dir-text p{font-size:14px;max-width:480px;color:rgba(255,255,255,.72)}
 .btn-white{border-radius:999px;padding:13px 24px}
+
+.guides{padding:72px 6vw 88px;background:var(--white)}
+.guides-inner{max-width:1100px;margin:0 auto}
+.gd-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.gd-card{background:var(--off-white);border:1px solid var(--border);border-radius:14px;padding:22px 22px 24px}
+.gd-card:nth-child(1),.gd-card:nth-child(3){grid-column:span 1}
+.gd-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.gd-region{font:600 14px var(--sans);color:var(--ink)}
+.gd-count{font:400 11px var(--mono);color:var(--ink4);background:#fff;border:1px solid var(--border);border-radius:999px;padding:2px 10px}
+.gd-chips{display:flex;flex-wrap:wrap;gap:8px}
+.gd-chip{font-size:13px;color:var(--ink2);background:#fff;border:1px solid var(--border2);border-radius:999px;padding:7px 14px;transition:background .15s,color .15s,border-color .15s}
+.gd-chip:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.gd-global{background:#fff;border-style:dashed;border-color:var(--border2)}
+.ca{margin-top:28px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:36px;background:var(--ink-deep);border-radius:18px;padding:44px 40px;color:#fff;position:relative;overflow:hidden}
+.ca::before{content:"";position:absolute;inset:0;background:radial-gradient(50% 70% at 100% 0%,rgba(229,48,48,.2),transparent 60%);pointer-events:none}
+.ca>*{position:relative}
+.ca-kicker{font:400 10px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:#ff6a60;margin-bottom:14px}
+.ca h3{font:400 clamp(26px,3vw,36px)/1.15 var(--serif);letter-spacing:-.01em;margin-bottom:14px}
+.ca-text p{font-size:14px;line-height:1.75;color:rgba(255,255,255,.62);max-width:420px}
+.ca-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px;align-content:start}
+.ca-ev{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:14px 16px}
+.ca-ev b{display:block;font:500 14px/1.3 var(--sans);color:#fff}
+.ca-ev span{display:block;font:400 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:4px}
+@media(max-width:860px){.gd-grid{grid-template-columns:1fr}.ca{grid-template-columns:1fr;padding:32px 22px;gap:26px}.guides{padding:48px 5vw 64px}.ca-grid{grid-template-columns:1fr 1fr}.ca-ev{padding:12px 14px}}
 @media(max-width:720px){
   .page-hero{padding:96px 5vw 44px}
   .page-hero-sub{font-size:15px}
@@ -644,68 +668,30 @@ body.searching .region-content.empty,body.searching .global-cta,body.searching #
   </div>
 </div>
 
-<div style="max-width:1100px;width:calc(100% - 12vw);margin:0 auto;padding:80px 0 40px">
-  <div style="font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:12px">City &amp; Conference Guides</div>
-  <h2 style="font-family:var(--serif);font-size:clamp(26px,3.5vw,36px);font-weight:400;color:var(--ink);margin-bottom:32px">Yorkseed's ecosystem, city by city</h2>
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:32px 24px">
-    <div>
-      <div style="font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);margin-bottom:12px">North America</div>
-      <a href="/austin-startup-communities.html" style="display:block;font-size:13.5px;color:var(--ink3);text-decoration:none;padding:6px 0;border-bottom:1px solid var(--border)" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--ink3)'">Austin</a>
-      <a href="/boston-startup-communities.html" style="display:block;font-size:13.5px;color:var(--ink3);text-decoration:none;padding:6px 0;border-bottom:1px solid var(--border)" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--ink3)'">Boston</a>
-      <a href="/chicago-startup-communities.html" style="display:block;font-size:13.5px;color:var(--ink3);text-decoration:none;padding:6px 0;border-bottom:1px solid var(--border)" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--ink3)'">Chicago</a>
-      <a href="/los-angeles-startup-communities.html" style="display:block;font-size:13.5px;color:var(--ink3);text-decoration:none;padding:6px 0;border-bottom:1px solid var(--border)" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--ink3)'">Los Angeles</a>
-      <a href="/miami-startup-communities.html" style="display:block;font-size:13.5px;color:var(--ink3);text-decoration:none;padding:6px 0;border-bottom:1px solid var(--border)" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--ink3)'">Miami</a>
-      <a href="/montreal-startup-communities.html" style="display:block;font-size:13.5px;color:var(--ink3);text-decoration:none;padding:6px 0;border-bottom:1px solid var(--border)" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--ink3)'">Montreal</a>
-      <a href="/nyc-startup-communities.html" style="display:block;font-size:13.5px;color:var(--ink3);text-decoration:none;padding:6px 0;border-bottom:1px solid var(--border)" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--ink3)'">New York City</a>
-      <a href="/toronto-startup-communities.html" style="display:block;font-size:13.5px;color:var(--ink3);text-decoration:none;padding:6px 0;border-bottom:1px solid var(--border)" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--ink3)'">Toronto</a>
-      <a href="/dc-startup-communities.html" style="display:block;font-size:13.5px;color:var(--ink3);text-decoration:none;padding:6px 0;border-bottom:1px solid var(--border)" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--ink3)'">Washington, D.C.</a>
-      <a href="/bay-area-startup-communities.html" style="display:block;font-size:13.5px;color:var(--ink3);text-decoration:none;padding:6px 0;border-bottom:1px solid var(--border)" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--ink3)'">the Bay Area</a>
+<section class="guides">
+  <div class="guides-inner">
+    <div class="kicker">City &amp; Conference Guides</div>
+    <h2 class="sh2">Yorkseed's ecosystem, <em>city by city.</em></h2>
+    <p class="sec-p" style="margin-bottom:32px">A local guide for every hub: who to meet, where to go, what is on.</p>
+    <div class="gd-grid">
+<div class="gd-card"><div class="gd-head"><span class="gd-region">North America</span><span class="gd-count">10</span></div><div class="gd-chips"><a class="gd-chip" href="/austin-startup-communities.html">Austin</a><a class="gd-chip" href="/boston-startup-communities.html">Boston</a><a class="gd-chip" href="/chicago-startup-communities.html">Chicago</a><a class="gd-chip" href="/los-angeles-startup-communities.html">Los Angeles</a><a class="gd-chip" href="/miami-startup-communities.html">Miami</a><a class="gd-chip" href="/montreal-startup-communities.html">Montreal</a><a class="gd-chip" href="/nyc-startup-communities.html">New York City</a><a class="gd-chip" href="/toronto-startup-communities.html">Toronto</a><a class="gd-chip" href="/dc-startup-communities.html">Washington, D.C.</a><a class="gd-chip" href="/bay-area-startup-communities.html">Bay Area</a></div></div>
+<div class="gd-card"><div class="gd-head"><span class="gd-region">Latin America</span><span class="gd-count">2</span></div><div class="gd-chips"><a class="gd-chip" href="/buenos-aires-startup-communities.html">Buenos Aires</a><a class="gd-chip" href="/sao-paulo-rio-startup-communities.html">São Paulo and Rio de Janeiro</a></div></div>
+<div class="gd-card"><div class="gd-head"><span class="gd-region">Europe</span><span class="gd-count">12</span></div><div class="gd-chips"><a class="gd-chip" href="/amsterdam-startup-communities.html">Amsterdam</a><a class="gd-chip" href="/berlin-startup-communities.html">Berlin</a><a class="gd-chip" href="/copenhagen-startup-communities.html">Copenhagen</a><a class="gd-chip" href="/dublin-startup-communities.html">Dublin</a><a class="gd-chip" href="/helsinki-startup-communities.html">Helsinki</a><a class="gd-chip" href="/lisbon-startup-communities.html">Lisbon</a><a class="gd-chip" href="/london-startup-communities.html">London</a><a class="gd-chip" href="/milan-startup-communities.html">Milan</a><a class="gd-chip" href="/munich-startup-communities.html">Munich</a><a class="gd-chip" href="/paris-startup-communities.html">Paris</a><a class="gd-chip" href="/stockholm-startup-communities.html">Stockholm</a><a class="gd-chip" href="/zurich-startup-communities.html">Zurich</a></div></div>
+<div class="gd-card"><div class="gd-head"><span class="gd-region">Middle East &amp; Africa</span><span class="gd-count">2</span></div><div class="gd-chips"><a class="gd-chip" href="/dubai-startup-communities.html">Dubai</a><a class="gd-chip" href="/tel-aviv-startup-communities.html">Tel Aviv</a></div></div>
+<div class="gd-card"><div class="gd-head"><span class="gd-region">Asia-Pacific</span><span class="gd-count">5</span></div><div class="gd-chips"><a class="gd-chip" href="/gift-city-startup-communities.html">GIFT City</a><a class="gd-chip" href="/hong-kong-startup-communities.html">Hong Kong</a><a class="gd-chip" href="/kuala-lumpur-startup-communities.html">Kuala Lumpur</a><a class="gd-chip" href="/singapore-startup-communities.html">Singapore</a><a class="gd-chip" href="/sydney-startup-communities.html">Sydney</a></div></div>
+<div class="gd-card gd-global"><div class="gd-head"><span class="gd-region">Global</span><span class="gd-count">1</span></div><div class="gd-chips"><a class="gd-chip" href="/international-hub-startup-communities.html">Your city</a></div></div>
     </div>
-    <div>
-      <div style="font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);margin-bottom:12px">Latin America</div>
-      <a href="/buenos-aires-startup-communities.html" style="display:block;font-size:13.5px;color:var(--ink3);text-decoration:none;padding:6px 0;border-bottom:1px solid var(--border)" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--ink3)'">Buenos Aires</a>
-      <a href="/sao-paulo-rio-startup-communities.html" style="display:block;font-size:13.5px;color:var(--ink3);text-decoration:none;padding:6px 0;border-bottom:1px solid var(--border)" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--ink3)'">São Paulo and Rio de Janeiro</a>
-    </div>
-    <div>
-      <div style="font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);margin-bottom:12px">Europe</div>
-      <a href="/amsterdam-startup-communities.html" style="display:block;font-size:13.5px;color:var(--ink3);text-decoration:none;padding:6px 0;border-bottom:1px solid var(--border)" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--ink3)'">Amsterdam</a>
-      <a href="/berlin-startup-communities.html" style="display:block;font-size:13.5px;color:var(--ink3);text-decoration:none;padding:6px 0;border-bottom:1px solid var(--border)" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--ink3)'">Berlin</a>
-      <a href="/copenhagen-startup-communities.html" style="display:block;font-size:13.5px;color:var(--ink3);text-decoration:none;padding:6px 0;border-bottom:1px solid var(--border)" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--ink3)'">Copenhagen</a>
-      <a href="/dublin-startup-communities.html" style="display:block;font-size:13.5px;color:var(--ink3);text-decoration:none;padding:6px 0;border-bottom:1px solid var(--border)" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--ink3)'">Dublin</a>
-      <a href="/helsinki-startup-communities.html" style="display:block;font-size:13.5px;color:var(--ink3);text-decoration:none;padding:6px 0;border-bottom:1px solid var(--border)" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--ink3)'">Helsinki</a>
-      <a href="/lisbon-startup-communities.html" style="display:block;font-size:13.5px;color:var(--ink3);text-decoration:none;padding:6px 0;border-bottom:1px solid var(--border)" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--ink3)'">Lisbon</a>
-      <a href="/london-startup-communities.html" style="display:block;font-size:13.5px;color:var(--ink3);text-decoration:none;padding:6px 0;border-bottom:1px solid var(--border)" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--ink3)'">London</a>
-      <a href="/milan-startup-communities.html" style="display:block;font-size:13.5px;color:var(--ink3);text-decoration:none;padding:6px 0;border-bottom:1px solid var(--border)" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--ink3)'">Milan</a>
-      <a href="/munich-startup-communities.html" style="display:block;font-size:13.5px;color:var(--ink3);text-decoration:none;padding:6px 0;border-bottom:1px solid var(--border)" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--ink3)'">Munich</a>
-      <a href="/paris-startup-communities.html" style="display:block;font-size:13.5px;color:var(--ink3);text-decoration:none;padding:6px 0;border-bottom:1px solid var(--border)" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--ink3)'">Paris</a>
-      <a href="/stockholm-startup-communities.html" style="display:block;font-size:13.5px;color:var(--ink3);text-decoration:none;padding:6px 0;border-bottom:1px solid var(--border)" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--ink3)'">Stockholm</a>
-      <a href="/zurich-startup-communities.html" style="display:block;font-size:13.5px;color:var(--ink3);text-decoration:none;padding:6px 0;border-bottom:1px solid var(--border)" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--ink3)'">Zurich</a>
-    </div>
-    <div>
-      <div style="font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);margin-bottom:12px">Middle East & Africa</div>
-      <a href="/dubai-startup-communities.html" style="display:block;font-size:13.5px;color:var(--ink3);text-decoration:none;padding:6px 0;border-bottom:1px solid var(--border)" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--ink3)'">Dubai</a>
-      <a href="/tel-aviv-startup-communities.html" style="display:block;font-size:13.5px;color:var(--ink3);text-decoration:none;padding:6px 0;border-bottom:1px solid var(--border)" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--ink3)'">Tel Aviv</a>
-    </div>
-    <div>
-      <div style="font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);margin-bottom:12px">Asia-Pacific</div>
-      <a href="/gift-city-startup-communities.html" style="display:block;font-size:13.5px;color:var(--ink3);text-decoration:none;padding:6px 0;border-bottom:1px solid var(--border)" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--ink3)'">GIFT City</a>
-      <a href="/hong-kong-startup-communities.html" style="display:block;font-size:13.5px;color:var(--ink3);text-decoration:none;padding:6px 0;border-bottom:1px solid var(--border)" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--ink3)'">Hong Kong</a>
-      <a href="/kuala-lumpur-startup-communities.html" style="display:block;font-size:13.5px;color:var(--ink3);text-decoration:none;padding:6px 0;border-bottom:1px solid var(--border)" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--ink3)'">Kuala Lumpur</a>
-      <a href="/singapore-startup-communities.html" style="display:block;font-size:13.5px;color:var(--ink3);text-decoration:none;padding:6px 0;border-bottom:1px solid var(--border)" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--ink3)'">Singapore</a>
-      <a href="/sydney-startup-communities.html" style="display:block;font-size:13.5px;color:var(--ink3);text-decoration:none;padding:6px 0;border-bottom:1px solid var(--border)" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--ink3)'">Sydney</a>
-    </div>
-    <div>
-      <div style="font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);margin-bottom:12px">Global</div>
-      <a href="/international-hub-startup-communities.html" style="display:block;font-size:13.5px;color:var(--ink3);text-decoration:none;padding:6px 0;border-bottom:1px solid var(--border)" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--ink3)'">your city</a>
+
+    <div class="ca">
+      <div class="ca-text">
+        <div class="ca-kicker">Conference activations</div>
+        <h3>30+ global conferences a year.</h3>
+        <p>Beyond its named city hubs, Yorkseed activates at the events where venture happens. Conference programming is folded into each host city's guide above.</p>
+      </div>
+      <div class="ca-grid"><div class="ca-ev"><b>SXSW</b><span>Austin</span></div><div class="ca-ev"><b>Web Summit</b><span>Lisbon</span></div><div class="ca-ev"><b>VivaTech</b><span>Paris</span></div><div class="ca-ev"><b>GITEX</b><span>Dubai</span></div><div class="ca-ev"><b>London Tech Week</b><span>London</span></div><div class="ca-ev"><b>Slush</b><span>Helsinki</span></div><div class="ca-ev"><b>Milan AI Tech Week</b><span>Milan</span></div><div class="ca-ev"><b>Asian Financial Forum</b><span>Hong Kong</span></div><div class="ca-ev"><b>World Economic Forum</b><span>Davos</span></div></div>
     </div>
   </div>
-
-  <div style="margin-top:56px">
-    <div style="font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);margin-bottom:12px">Conference Activations</div>
-    <p style="font-size:13.5px;color:var(--ink3);line-height:1.9;max-width:760px">Beyond its named city hubs, Yorkseed activates annually at 30+ global conferences, including SXSW (Austin), Web Summit (Lisbon), VivaTech (Paris), GITEX (Dubai), London Tech Week, Slush (Helsinki), Milan AI Tech Week, the Asian Financial Forum (Hong Kong), and the World Economic Forum in Davos. Conference-specific programming is folded into each host city's guide above.</p>
-  </div>
-</div>
-
+</section>
 
 <yk-footer><a href="/">Home</a> <a href="/hubs.html">Hubs</a> <a href="/events.html">Events</a> <a href="/about.html">About</a> <a href="/contact.html">Contact</a></yk-footer>
 
