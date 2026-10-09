@@ -4,8 +4,8 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <!-- ═══ SEO: PRIMARY ═══ -->
-<title>Yorkseed Global Hubs — Startup Communities in 50+ Cities Worldwide | Yorkseed</title>
-<meta name="title" content="Yorkseed Global Hubs — Your Local Venture Community Worldwide"/>
+<title>Yorkseed Global Hubs | Startup Communities in 50+ Cities Worldwide</title>
+<meta name="title" content="Yorkseed Global Hubs | Your Local Venture Community Worldwide"/>
 <meta name="description" content="Yorkseed operates local startup hubs in New York, London, Paris, Dubai, Singapore, Hong Kong, Toronto, Berlin, Austin and 40+ more cities. Join your local venture community."/>
 <meta name="keywords" content="Yorkseed hubs, global startup hubs, NYC startup hub, New York startup community, London startup hub, Dubai startup hub, Singapore startup hub, Paris startup hub, Berlin startup hub, Toronto startup hub, Hong Kong startup hub, Austin startup hub, Kuala Lumpur startup hub, LATAM startup hub, Latin America startups, Middle East startup hub, Asia startup hub, Europe startup hub, US startup hub, local startup community, founder community, investor community, venture hub, tech hub, Yorkseed city hubs, Yorkseed hub director, Valois hub, startup hub network, venture hub network, global city hubs, Yorkseed city network, hub membership, local startup network, Yorkseed Paris, Yorkseed Dubai, Yorkseed Singapore, Yorkseed London, Yorkseed New York"/>
 <meta name="author" content="Yorkseed"/>
@@ -25,12 +25,12 @@
 <!-- ═══ SEO: OPEN GRAPH (Facebook, LinkedIn, WhatsApp) ═══ -->
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://yorkseed.co/hubs"/>
-<meta property="og:title" content="Yorkseed Global Hubs — Your Local Venture Community in 50+ Cities"/>
+<meta property="og:title" content="Yorkseed Global Hubs | Your Local Venture Community in 50+ Cities"/>
 <meta property="og:description" content="Yorkseed operates local startup hubs in New York, London, Paris, Dubai, Singapore, Hong Kong, Toronto, Berlin, Austin and 40+ more cities. Join your local venture community."/>
 <meta property="og:image" content="https://s6.imgcdn.dev/Yfq1dl.png"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
-<meta property="og:image:alt" content="Yorkseed — The Private Global Venture Network"/>
+<meta property="og:image:alt" content="Yorkseed, The Private Global Venture Network"/>
 <meta property="og:site_name" content="Yorkseed"/>
 <meta property="og:locale" content="en_US"/>
 
@@ -38,10 +38,10 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:site" content="@yorkseed"/>
 <meta name="twitter:creator" content="@yorkseed"/>
-<meta name="twitter:title" content="Yorkseed Global Hubs — 50+ Cities Worldwide"/>
+<meta name="twitter:title" content="Yorkseed Global Hubs | 50+ Cities Worldwide"/>
 <meta name="twitter:description" content="Yorkseed operates local startup hubs in New York, London, , Dubai, Singapore, Hong Kong, Toronto, Berlin, Austin and 40+ more cities. Join your local venture network."/>
 <meta name="twitter:image" content="https://s6.imgcdn.dev/Yfq1dl.png"/>
-<meta name="twitter:image:alt" content="Yorkseed — The Private Global Venture Network"/>
+<meta name="twitter:image:alt" content="Yorkseed, The Private Global Venture Network"/>
 
 <!-- ═══ SEO: ARTICLE / STRUCTURED ═══ -->
 <meta property="article:publisher" content="https://www.linkedin.com/company/yorkseed"/>
@@ -74,7 +74,7 @@
       "@type": "WebPage",
       "@id": "https://yorkseed.co/hubs#webpage",
       "url": "https://yorkseed.co/hubs",
-      "name": "Yorkseed Global Hubs — Startup Communities in 50+ Cities Worldwide | Yorkseed",
+      "name": "Yorkseed Global Hubs | Startup Communities in 50+ Cities Worldwide",
       "description": "Yorkseed operates local startup hubs in New York, London, , Dubai, Singapore, Hong Kong, Toronto, Berlin, Austin and 40+ more cities. Join your local venture network.",
       "isPartOf": {"@id": "https://yorkseed.co/#website"},
       "about": {"@id": "https://yorkseed.co/#organization"},
@@ -360,31 +360,124 @@ footer{}
 <link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
 <script src="/assets/site-chrome.js" defer></script>
 <style>yk-header:not(:defined){display:block;min-height:73px}</style>
+<style id="hubs-redesign">
+/* ===== Hubs page redesign ===== */
+:root{--ink-deep:#0d0d0f}
+.page-hero{position:relative;padding:132px 6vw 64px;background:var(--ink-deep);border-bottom:0;overflow:hidden}
+.page-hero::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 80% at 85% 0%,rgba(229,48,48,.22),transparent 60%),radial-gradient(40% 60% at 0% 100%,rgba(184,154,90,.10),transparent 60%);pointer-events:none}
+.page-hero-inner{position:relative;max-width:1100px}
+.page-hero .eyebrow{color:rgba(255,255,255,.55)}
+.page-hero .eyebrow-line{background:var(--red);opacity:1;width:24px}
+.page-hero h1{color:#fff;font-size:clamp(36px,6vw,72px);line-height:1.04;letter-spacing:-.025em;margin-bottom:22px}
+.page-hero h1 em{color:#ff5a4f}
+.page-hero-sub{color:rgba(255,255,255,.62);font-size:17px;max-width:600px}
+.hero-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:34px}
+.hub-search{display:flex;align-items:center;gap:10px;flex:1 1 280px;max-width:420px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:0 18px;color:rgba(255,255,255,.6);transition:border-color .2s,background .2s}
+.hub-search:focus-within{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.11)}
+.hub-search input{flex:1;min-width:0;background:none;border:0;outline:0;color:#fff;font:400 15px var(--sans);padding:14px 0}
+.hub-search input::placeholder{color:rgba(255,255,255,.45)}
+.hero-link{background:var(--red);color:#fff;border-radius:999px;padding:14px 24px;font-size:14px;font-weight:500;white-space:nowrap;transition:transform .15s,opacity .15s}
+.hero-link:hover{opacity:.9;transform:translateY(-1px)}
+.hero-stats{display:flex;gap:44px;flex-wrap:wrap;margin-top:44px;padding-top:28px;border-top:1px solid rgba(255,255,255,.12)}
+.hero-stats b{display:block;font:300 40px/1 var(--serif);color:#fff;letter-spacing:-.02em}
+.hero-stats span{display:block;margin-top:8px;font:400 10px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+
+.hubs-wrap{background:var(--off-white);padding:44px 6vw 72px;border-bottom:1px solid var(--border)}
+.sec-inner{max-width:1100px}
+.region-tabs{flex-wrap:nowrap;overflow-x:auto;gap:8px;margin:0 0 32px;padding:2px 2px 10px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.region-tabs::-webkit-scrollbar{display:none}
+.region-tab{flex:none;font:500 12px var(--sans);letter-spacing:.01em;text-transform:none;padding:10px 18px;background:#fff;border:1px solid var(--border2);color:var(--ink3);box-shadow:0 1px 0 rgba(0,0,0,.02)}
+.region-tab:hover{border-color:var(--ink);color:var(--ink)}
+.region-tab.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.region-intro{font-size:16px;line-height:1.75;color:var(--ink3);max-width:680px;border-bottom:0;padding-bottom:0;margin-bottom:24px}
+.hubs-section-label{display:none}
+.hubs-grid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-bottom:32px}
+.hub-card{display:flex;flex-direction:column;justify-content:space-between;gap:18px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px;transition:transform .18s,box-shadow .18s,border-color .18s}
+.hub-card:hover{transform:translateY(-2px);border-color:var(--border2);box-shadow:0 10px 30px rgba(0,0,0,.07)}
+.hub-top{display:flex;align-items:center;gap:14px}
+.hub-flag{flex:none;width:46px;height:46px;border-radius:50%;background:var(--light-grey);display:grid!important;place-items:center;font-size:22px;margin:0!important}
+.hub-city{font:600 15px/1.25 var(--sans);color:var(--ink);margin:0}
+.hub-country{font:400 11px var(--mono);letter-spacing:.04em;color:var(--ink4);margin:3px 0 0}
+.hub-dir{font-size:12px;color:var(--ink3);margin-top:-6px}
+.hub-actions{display:flex;gap:8px;align-items:center}
+.hub-join{flex:1;justify-content:center;background:var(--red);color:#fff;border-radius:999px;padding:10px 14px;font-size:12.5px;font-weight:500;letter-spacing:.01em;transition:opacity .15s}
+.hub-join:hover{opacity:.88}
+.hub-guide{flex:none;font-size:12.5px;color:var(--ink3);padding:10px 6px;border-radius:999px;transition:color .15s}
+.hub-guide:hover{color:var(--ink)}
+.hub-card.hide,.region-content .no-match{display:none}
+.global-cta{background:#fff;border:1px dashed var(--border2);border-radius:14px;padding:28px}
+.btn-dark{border-radius:999px;padding:12px 22px}
+#noMatch{display:none;padding:28px;background:#fff;border:1px dashed var(--border2);border-radius:14px;color:var(--ink3);font-size:14px;line-height:1.7;margin-top:8px}
+#noMatch a{color:var(--red);font-weight:500}
+body.searching .region-content{display:block}
+body.searching .region-intro,body.searching .region-content a[href*="conferences.html"]{display:none}
+body.searching .region-content.empty,body.searching .global-cta,body.searching #global .region-intro+.global-cta{display:none}
+
+.membership-grid{grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;background:none;border:0;border-radius:0;overflow:visible}
+.mem-item{background:#fff;border:1px solid var(--border);border-radius:14px;padding:26px 24px}
+.mem-num{font:400 11px var(--mono);letter-spacing:.14em;color:var(--red);margin-bottom:18px}
+.mem-title{font:600 16px var(--sans);margin-bottom:10px}
+.mem-desc{font-size:13.5px;line-height:1.75}
+.sh2{font-weight:400;font-size:clamp(28px,4vw,46px)}
+
+.dir-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.dir-card{display:flex;align-items:center;gap:16px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:22px 22px}
+.dir-av{flex:none;width:52px;height:52px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font:400 17px var(--serif);letter-spacing:.02em}
+.dir-role{font:400 9px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:5px}
+.dir-name{font:400 20px/1.2 var(--serif);color:var(--ink)}
+.dir-city{font-size:13px;color:var(--ink3);margin-top:3px}
+.dir-open{background:var(--off-white);border-style:dashed;border-color:var(--border2)}
+.dir-open .dir-av{background:transparent;border:1px dashed var(--border2);color:var(--ink4)}
+.dir-open .dir-role{color:var(--ink4)}
+.dir-open .dir-name{color:var(--ink3);font-weight:300}
+.dir-apply{display:inline-block;margin-top:6px;font-size:13px;color:var(--red);font-weight:500}
+.director-cta{border-radius:18px;padding:44px 40px;background:var(--ink-deep);margin-top:40px}
+.dir-text h3{font-size:clamp(22px,3vw,30px);line-height:1.2}
+.dir-text p{font-size:14px;max-width:480px;color:rgba(255,255,255,.72)}
+.btn-white{border-radius:999px;padding:13px 24px}
+@media(max-width:720px){
+  .page-hero{padding:96px 5vw 44px}
+  .page-hero-sub{font-size:15px}
+  .hero-stats{gap:28px}
+  .hero-stats b{font-size:32px}
+  .hubs-wrap{padding:32px 5vw 56px}
+  .hubs-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .hub-card{padding:14px;gap:14px;border-radius:12px}
+  .hub-top{flex-direction:column;align-items:flex-start;gap:10px}
+  .hub-flag{width:38px;height:38px;font-size:18px}
+  .hub-actions{flex-direction:column;align-items:stretch;gap:2px}
+  .hub-join{padding:10px}
+  .hub-guide{text-align:center;padding:8px}
+  .director-cta{padding:30px 22px}
+}
+@media(max-width:380px){.hubs-grid{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 
 <yk-header><a href="/">Yorkseed</a> <a href="/hubs.html">Hubs</a> <a href="/events.html">Events</a> <a href="/investors">Investor list</a> <a href="/contact.html">Contact</a></yk-header>
 
 
-<div>
-  <div class="page-hero">
-    <div class="page-hero-inner">
-      <div class="eyebrow"><div class="eyebrow-line"></div>50+ cities · 5 continents</div>
-      <h1>Yorkseed is active<br/><em>everywhere venture happens.</em></h1>
-      <p class="page-hero-sub">Every hub is anchored by a verified network of founders, investors, and ecosystem builders. Join your local hub — or apply to lead one.</p>
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="eyebrow"><span class="eyebrow-line"></span>Local hubs, five continents</div>
+    <h1>Yorkseed is active<br/><em>everywhere venture happens.</em></h1>
+    <p class="page-hero-sub">Every hub is anchored by a verified network of founders, investors and ecosystem builders. Join your local hub, or apply to lead one.</p>
+    <div class="hero-row">
+      <label class="hub-search"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="hubSearch" type="search" placeholder="Find your city" autocomplete="off" aria-label="Find your city"/></label>
+      <a class="hero-link" href="https://tally.so/r/mROWPK" target="_blank" rel="noopener">Lead a hub</a>
+    </div>
+    <div class="hero-stats">
+      <div><b>5</b><span>Continents</span></div>
+      <div><b>6</b><span>Regions</span></div>
+      <div><b>30+</b><span>Conference activations</span></div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- STATS -->
-<div class="sec" style="background:var(--off-white);border-bottom:1px solid var(--border);padding:40px 6vw">
+<!-- HUBS -->
+<div class="sec hubs-wrap">
   <div class="sec-inner">
-    <div class="hub-stats">
-      <div class="hub-stat"><div class="hub-stat-n">50+</div><div class="hub-stat-l">City hubs</div></div>
-      <div class="hub-stat"><div class="hub-stat-n">5</div><div class="hub-stat-l">Continents</div></div>
-      <div class="hub-stat"><div class="hub-stat-n">6</div><div class="hub-stat-l">Regions</div></div>
-      <div class="hub-stat"><div class="hub-stat-n">∞</div><div class="hub-stat-l">Connections</div></div>
-    </div>
 
     <!-- REGION TABS -->
     <div class="region-tabs">
@@ -398,67 +491,67 @@ footer{}
 
     <!-- NORTH AMERICA -->
     <div id="north-america" class="region-content active">
-      <p class="region-intro">From New York to San Francisco, Toronto to Austin — Yorkseed's North American hubs connect founders and investors across the continent's most active innovation cities.</p>
+      <p class="region-intro">From New York to San Francisco, Toronto to Austin, Yorkseed's North American hubs connect founders and investors across the continent's most active innovation cities.</p>
       <div class="hubs-section-label">City hubs</div>
       <div class="hubs-grid">
-        <div class="hub-card"><span class="hub-flag">🗽</span><div class="hub-city">New York City I</div><div class="hub-country">USA</div><div style="display:flex;gap:10px;align-items:center;margin-top:4px"><a href="https://chat.whatsapp.com/L6vhQl0GRQ89cUgNPYLjvK" target="_blank" class="hub-join" style="flex:1">Join hub →</a><a href="/nyc-startup-communities.html" class="hub-join" style="flex:1;color:var(--ink4)">Guide →</a></div></div>
-        <div class="hub-card"><span class="hub-flag">🗽</span><div class="hub-city">New York City II</div><div class="hub-country">USA</div><div style="display:flex;gap:10px;align-items:center;margin-top:4px"><a href="https://chat.whatsapp.com/GzOBlcjWjONHqy1wbB6aSZ" target="_blank" class="hub-join" style="flex:1">Join hub →</a><a href="/nyc-startup-communities.html" class="hub-join" style="flex:1;color:var(--ink4)">Guide →</a></div></div>
-        <div class="hub-card"><span class="hub-flag">🎸</span><div class="hub-city">Austin</div><div class="hub-country">USA</div><div style="display:flex;gap:10px;align-items:center;margin-top:4px"><a href="https://chat.whatsapp.com/HFEhAlZAEwQJsDtYxgyFiC" target="_blank" class="hub-join" style="flex:1">Join hub →</a><a href="/austin-startup-communities.html" class="hub-join" style="flex:1;color:var(--ink4)">Guide →</a></div></div>
-        <div class="hub-card"><span class="hub-flag">🌵</span><div class="hub-city">San Antonio</div><div class="hub-country">USA</div><div style="display:flex;gap:10px;align-items:center;margin-top:4px"><a href="https://chat.whatsapp.com/HFEhAlZAEwQJsDtYxgyFiC" target="_blank" class="hub-join" style="flex:1">Join hub →</a><a href="/san-antonio-startup-communities.html" class="hub-join" style="flex:1;color:var(--ink4)">Guide →</a></div></div>
-        <div class="hub-card"><span class="hub-flag">🦞</span><div class="hub-city">Boston</div><div class="hub-country">USA</div><div style="display:flex;gap:10px;align-items:center;margin-top:4px"><a href="https://chat.whatsapp.com/D80qeaunrA76rJ120a2Tot" target="_blank" class="hub-join" style="flex:1">Join hub →</a><a href="/boston-startup-communities.html" class="hub-join" style="flex:1;color:var(--ink4)">Guide →</a></div></div>
-        <div class="hub-card"><span class="hub-flag">🌬️</span><div class="hub-city">Chicago</div><div class="hub-country">USA</div><div style="display:flex;gap:10px;align-items:center;margin-top:4px"><a href="https://chat.whatsapp.com/GBVuzDVJ7BqD50zNB4oP1h" target="_blank" class="hub-join" style="flex:1">Join hub →</a><a href="/chicago-startup-communities.html" class="hub-join" style="flex:1;color:var(--ink4)">Guide →</a></div></div>
-        <div class="hub-card"><span class="hub-flag">🌴</span><div class="hub-city">Miami</div><div class="hub-country">USA</div><div style="display:flex;gap:10px;align-items:center;margin-top:4px"><a href="https://chat.whatsapp.com/FC4R5wK1BSKKjENi6w4PiF" target="_blank" class="hub-join" style="flex:1">Join hub →</a><a href="/miami-startup-communities.html" class="hub-join" style="flex:1;color:var(--ink4)">Guide →</a></div></div>
-        <div class="hub-card"><span class="hub-flag">🏛️</span><div class="hub-city">Washington D.C.</div><div class="hub-country">USA</div><div style="display:flex;gap:10px;align-items:center;margin-top:4px"><a href="https://chat.whatsapp.com/DBEOeJNpwTOIBO8nc6tKKt" target="_blank" class="hub-join" style="flex:1">Join hub →</a><a href="/dc-startup-communities.html" class="hub-join" style="flex:1;color:var(--ink4)">Guide →</a></div></div>
-        <div class="hub-card"><span class="hub-flag">🎬</span><div class="hub-city">Los Angeles</div><div class="hub-country">USA</div><div style="display:flex;gap:10px;align-items:center;margin-top:4px"><a href="https://chat.whatsapp.com/CwkAWOXiB5rGD9jFngcfhD" target="_blank" class="hub-join" style="flex:1">Join hub →</a><a href="/los-angeles-startup-communities.html" class="hub-join" style="flex:1;color:var(--ink4)">Guide →</a></div></div>
-        <div class="hub-card"><span class="hub-flag">🌉</span><div class="hub-city">San Francisco Bay Area</div><div class="hub-country">USA</div><div style="display:flex;gap:10px;align-items:center;margin-top:4px"><a href="https://chat.whatsapp.com/H6RK1nIGt7uAUoVjvein4z" target="_blank" class="hub-join" style="flex:1">Join hub →</a><a href="/bay-area-startup-communities.html" class="hub-join" style="flex:1;color:var(--ink4)">Guide →</a></div></div>
-        <div class="hub-card"><span class="hub-flag">🍁</span><div class="hub-city">Toronto</div><div class="hub-country">Canada</div><div style="display:flex;gap:10px;align-items:center;margin-top:4px"><a href="https://chat.whatsapp.com/BQLsFo9ES748AQBPdKedoD" target="_blank" class="hub-join" style="flex:1">Join hub →</a><a href="/toronto-startup-communities.html" class="hub-join" style="flex:1;color:var(--ink4)">Guide →</a></div></div>
-        <div class="hub-card"><span class="hub-flag">🥐</span><div class="hub-city">Montreal</div><div class="hub-country">Canada</div><div style="display:flex;gap:10px;align-items:center;margin-top:4px"><a href="https://chat.whatsapp.com/Db5DaniGDfQBYe9EXvFI3Y" target="_blank" class="hub-join" style="flex:1">Join hub →</a><a href="/montreal-startup-communities.html" class="hub-join" style="flex:1;color:var(--ink4)">Guide →</a></div></div>
-        <div class="hub-card"><span class="hub-flag">🏔️</span><div class="hub-city">Victoria — BC</div><div class="hub-country">Canada</div><div style="display:flex;gap:10px;align-items:center;margin-top:4px"><a href="https://chat.whatsapp.com/GznzhGzJFfI99yoB5aSmOY" target="_blank" class="hub-join" style="flex:1">Join hub →</a><a href="/victoria-bc-startup-communities.html" class="hub-join" style="flex:1;color:var(--ink4)">Guide →</a></div></div>
+        <article class="hub-card" data-s="new york city i usa"><div class="hub-top"><span class="hub-flag">🗽</span><div><h4 class="hub-city">New York City I</h4><div class="hub-country">USA</div></div></div><div class="hub-actions"><a href="https://chat.whatsapp.com/L6vhQl0GRQ89cUgNPYLjvK" target="_blank" rel="noopener" class="hub-join">Join hub</a><a href="/nyc-startup-communities.html" class="hub-guide">City guide</a></div></article>
+        <article class="hub-card" data-s="new york city ii usa"><div class="hub-top"><span class="hub-flag">🗽</span><div><h4 class="hub-city">New York City II</h4><div class="hub-country">USA</div></div></div><div class="hub-actions"><a href="https://chat.whatsapp.com/GzOBlcjWjONHqy1wbB6aSZ" target="_blank" rel="noopener" class="hub-join">Join hub</a><a href="/nyc-startup-communities.html" class="hub-guide">City guide</a></div></article>
+        <article class="hub-card" data-s="austin usa"><div class="hub-top"><span class="hub-flag">🎸</span><div><h4 class="hub-city">Austin</h4><div class="hub-country">USA</div></div></div><div class="hub-actions"><a href="https://chat.whatsapp.com/HFEhAlZAEwQJsDtYxgyFiC" target="_blank" rel="noopener" class="hub-join">Join hub</a><a href="/austin-startup-communities.html" class="hub-guide">City guide</a></div></article>
+        <article class="hub-card" data-s="san antonio usa"><div class="hub-top"><span class="hub-flag">🌵</span><div><h4 class="hub-city">San Antonio</h4><div class="hub-country">USA</div></div></div><div class="hub-actions"><a href="https://chat.whatsapp.com/HFEhAlZAEwQJsDtYxgyFiC" target="_blank" rel="noopener" class="hub-join">Join hub</a><a href="/san-antonio-startup-communities.html" class="hub-guide">City guide</a></div></article>
+        <article class="hub-card" data-s="boston usa"><div class="hub-top"><span class="hub-flag">🦞</span><div><h4 class="hub-city">Boston</h4><div class="hub-country">USA</div></div></div><div class="hub-actions"><a href="https://chat.whatsapp.com/D80qeaunrA76rJ120a2Tot" target="_blank" rel="noopener" class="hub-join">Join hub</a><a href="/boston-startup-communities.html" class="hub-guide">City guide</a></div></article>
+        <article class="hub-card" data-s="chicago usa"><div class="hub-top"><span class="hub-flag">🌬️</span><div><h4 class="hub-city">Chicago</h4><div class="hub-country">USA</div></div></div><div class="hub-actions"><a href="https://chat.whatsapp.com/GBVuzDVJ7BqD50zNB4oP1h" target="_blank" rel="noopener" class="hub-join">Join hub</a><a href="/chicago-startup-communities.html" class="hub-guide">City guide</a></div></article>
+        <article class="hub-card" data-s="miami usa"><div class="hub-top"><span class="hub-flag">🌴</span><div><h4 class="hub-city">Miami</h4><div class="hub-country">USA</div></div></div><div class="hub-actions"><a href="https://chat.whatsapp.com/FC4R5wK1BSKKjENi6w4PiF" target="_blank" rel="noopener" class="hub-join">Join hub</a><a href="/miami-startup-communities.html" class="hub-guide">City guide</a></div></article>
+        <article class="hub-card" data-s="washington d.c. usa"><div class="hub-top"><span class="hub-flag">🏛️</span><div><h4 class="hub-city">Washington D.C.</h4><div class="hub-country">USA</div></div></div><div class="hub-actions"><a href="https://chat.whatsapp.com/DBEOeJNpwTOIBO8nc6tKKt" target="_blank" rel="noopener" class="hub-join">Join hub</a><a href="/dc-startup-communities.html" class="hub-guide">City guide</a></div></article>
+        <article class="hub-card" data-s="los angeles usa"><div class="hub-top"><span class="hub-flag">🎬</span><div><h4 class="hub-city">Los Angeles</h4><div class="hub-country">USA</div></div></div><div class="hub-actions"><a href="https://chat.whatsapp.com/CwkAWOXiB5rGD9jFngcfhD" target="_blank" rel="noopener" class="hub-join">Join hub</a><a href="/los-angeles-startup-communities.html" class="hub-guide">City guide</a></div></article>
+        <article class="hub-card" data-s="san francisco bay area usa"><div class="hub-top"><span class="hub-flag">🌉</span><div><h4 class="hub-city">San Francisco Bay Area</h4><div class="hub-country">USA</div></div></div><div class="hub-actions"><a href="https://chat.whatsapp.com/H6RK1nIGt7uAUoVjvein4z" target="_blank" rel="noopener" class="hub-join">Join hub</a><a href="/bay-area-startup-communities.html" class="hub-guide">City guide</a></div></article>
+        <article class="hub-card" data-s="toronto canada"><div class="hub-top"><span class="hub-flag">🍁</span><div><h4 class="hub-city">Toronto</h4><div class="hub-country">Canada</div></div></div><div class="hub-actions"><a href="https://chat.whatsapp.com/BQLsFo9ES748AQBPdKedoD" target="_blank" rel="noopener" class="hub-join">Join hub</a><a href="/toronto-startup-communities.html" class="hub-guide">City guide</a></div></article>
+        <article class="hub-card" data-s="montreal canada"><div class="hub-top"><span class="hub-flag">🥐</span><div><h4 class="hub-city">Montreal</h4><div class="hub-country">Canada</div></div></div><div class="hub-actions"><a href="https://chat.whatsapp.com/Db5DaniGDfQBYe9EXvFI3Y" target="_blank" rel="noopener" class="hub-join">Join hub</a><a href="/montreal-startup-communities.html" class="hub-guide">City guide</a></div></article>
+        <article class="hub-card" data-s="victoria, bc canada"><div class="hub-top"><span class="hub-flag">🏔️</span><div><h4 class="hub-city">Victoria, BC</h4><div class="hub-country">Canada</div></div></div><div class="hub-actions"><a href="https://chat.whatsapp.com/GznzhGzJFfI99yoB5aSmOY" target="_blank" rel="noopener" class="hub-join">Join hub</a><a href="/victoria-bc-startup-communities.html" class="hub-guide">City guide</a></div></article>
       </div>
       <a href="/conferences.html" style="font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink4);border-bottom:1px solid rgba(0,0,0,.12);padding-bottom:2px;display:inline-block;margin-top:8px">Conference hubs → yorkseed.co/conferences</a>
     </div>
 
     <!-- LATIN AMERICA -->
     <div id="latin-america" class="region-content">
-      <p class="region-intro">Yorkseed's Latin American presence connects founders and investors across Mexico City, São Paulo, Buenos Aires, and beyond — bridging emerging markets with global capital.</p>
+      <p class="region-intro">Yorkseed's Latin American presence connects founders and investors across Mexico City, São Paulo, Buenos Aires, and beyond, bridging emerging markets with global capital.</p>
       <div class="hubs-section-label">City hubs</div>
       <div class="hubs-grid">
-        <div class="hub-card"><span class="hub-flag">🇲🇽</span><div class="hub-city">Mexico City</div><div class="hub-country">Mexico</div><div style="display:flex;gap:10px;align-items:center;margin-top:4px"><a href="https://chat.whatsapp.com/CRKuBserDVGGrZhwqJdBAh" target="_blank" class="hub-join" style="flex:1">Join hub →</a><a href="/mexico-city-startup-communities.html" class="hub-join" style="flex:1;color:var(--ink4)">Guide →</a></div></div>
-        <div class="hub-card"><span class="hub-flag">🇧🇷</span><div class="hub-city">São Paulo</div><div class="hub-country">Brazil</div><div style="display:flex;gap:10px;align-items:center;margin-top:4px"><a href="https://chat.whatsapp.com/DYqDsKd7r4uAvhdoLoREMe" target="_blank" class="hub-join" style="flex:1">Join hub →</a><a href="/sao-paulo-rio-startup-communities.html" class="hub-join" style="flex:1;color:var(--ink4)">Guide →</a></div></div>
-        <div class="hub-card"><span class="hub-flag">🇧🇷</span><div class="hub-city">Rio de Janeiro</div><div class="hub-country">Brazil</div><div style="display:flex;gap:10px;align-items:center;margin-top:4px"><a href="https://chat.whatsapp.com/DYqDsKd7r4uAvhdoLoREMe" target="_blank" class="hub-join" style="flex:1">Join hub →</a><a href="/sao-paulo-rio-startup-communities.html" class="hub-join" style="flex:1;color:var(--ink4)">Guide →</a></div></div>
-        <div class="hub-card"><span class="hub-flag">🇦🇷</span><div class="hub-city">Buenos Aires</div><div class="hub-country">Argentina</div><div style="display:flex;gap:10px;align-items:center;margin-top:4px"><a href="https://chat.whatsapp.com/H6JXvgAVgjf3fyP95deqPE" target="_blank" class="hub-join" style="flex:1">Join hub →</a><a href="/buenos-aires-startup-communities.html" class="hub-join" style="flex:1;color:var(--ink4)">Guide →</a></div></div>
+        <article class="hub-card" data-s="mexico city mexico"><div class="hub-top"><span class="hub-flag">🇲🇽</span><div><h4 class="hub-city">Mexico City</h4><div class="hub-country">Mexico</div></div></div><div class="hub-actions"><a href="https://chat.whatsapp.com/CRKuBserDVGGrZhwqJdBAh" target="_blank" rel="noopener" class="hub-join">Join hub</a><a href="/mexico-city-startup-communities.html" class="hub-guide">City guide</a></div></article>
+        <article class="hub-card" data-s="são paulo brazil"><div class="hub-top"><span class="hub-flag">🇧🇷</span><div><h4 class="hub-city">São Paulo</h4><div class="hub-country">Brazil</div></div></div><div class="hub-actions"><a href="https://chat.whatsapp.com/DYqDsKd7r4uAvhdoLoREMe" target="_blank" rel="noopener" class="hub-join">Join hub</a><a href="/sao-paulo-rio-startup-communities.html" class="hub-guide">City guide</a></div></article>
+        <article class="hub-card" data-s="rio de janeiro brazil"><div class="hub-top"><span class="hub-flag">🇧🇷</span><div><h4 class="hub-city">Rio de Janeiro</h4><div class="hub-country">Brazil</div></div></div><div class="hub-actions"><a href="https://chat.whatsapp.com/DYqDsKd7r4uAvhdoLoREMe" target="_blank" rel="noopener" class="hub-join">Join hub</a><a href="/sao-paulo-rio-startup-communities.html" class="hub-guide">City guide</a></div></article>
+        <article class="hub-card" data-s="buenos aires argentina"><div class="hub-top"><span class="hub-flag">🇦🇷</span><div><h4 class="hub-city">Buenos Aires</h4><div class="hub-country">Argentina</div></div></div><div class="hub-actions"><a href="https://chat.whatsapp.com/H6JXvgAVgjf3fyP95deqPE" target="_blank" rel="noopener" class="hub-join">Join hub</a><a href="/buenos-aires-startup-communities.html" class="hub-guide">City guide</a></div></article>
       </div>
       <a href="/conferences.html" style="font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink4);border-bottom:1px solid rgba(0,0,0,.12);padding-bottom:2px;display:inline-block;margin-top:8px">Conference hubs → yorkseed.co/conferences</a>
     </div>
 
     <!-- EUROPE -->
     <div id="europe" class="region-content">
-      <p class="region-intro">Europe is Yorkseed's second home. From  to London, Lisbon to Berlin — active hubs across 12 cities and conference activations at the continent's most important venture moments.</p>
+      <p class="region-intro">Europe is Yorkseed's second home. From Paris to London, Lisbon to Berlin, active hubs across 12 cities and conference activations at the continent's most important venture moments.</p>
       <div class="hubs-section-label">City hubs</div>
       <div class="hubs-grid">
-        <div class="hub-card"><span class="hub-flag">🇫🇷</span><div class="hub-city">Paris</div><div class="hub-country">France · Hub Director: Imène Ben Daoud</div><div style="display:flex;gap:10px;align-items:center;margin-top:4px"><a href="https://chat.whatsapp.com/CLeAyOkqtptBOtLzK9VVlM" target="_blank" class="hub-join" style="flex:1">Join hub →</a><a href="/paris-startup-communities.html" class="hub-join" style="flex:1;color:var(--ink4)">Guide →</a></div></div>
-        <div class="hub-card"><span class="hub-flag">🇬🇧</span><div class="hub-city">London</div><div class="hub-country">United Kingdom</div><div style="display:flex;gap:10px;align-items:center;margin-top:4px"><a href="https://chat.whatsapp.com/KltJnWzgQvXL97mUkITitK" target="_blank" class="hub-join" style="flex:1">Join hub →</a><a href="/london-startup-communities.html" class="hub-join" style="flex:1;color:var(--ink4)">Guide →</a></div></div>
-        <div class="hub-card"><span class="hub-flag">🇮🇪</span><div class="hub-city">Dublin</div><div class="hub-country">Ireland</div><div style="display:flex;gap:10px;align-items:center;margin-top:4px"><a href="https://chat.whatsapp.com/EmWn9lkRrLvAHUQmaMzxWu" target="_blank" class="hub-join" style="flex:1">Join hub →</a><a href="/dublin-startup-communities.html" class="hub-join" style="flex:1;color:var(--ink4)">Guide →</a></div></div>
-        <div class="hub-card"><span class="hub-flag">🇩🇰</span><div class="hub-city">Copenhagen</div><div class="hub-country">Denmark</div><div style="display:flex;gap:10px;align-items:center;margin-top:4px"><a href="https://chat.whatsapp.com/F273rCkj8vDIRJXj0sYAfG" target="_blank" class="hub-join" style="flex:1">Join hub →</a><a href="/copenhagen-startup-communities.html" class="hub-join" style="flex:1;color:var(--ink4)">Guide →</a></div></div>
-        <div class="hub-card"><span class="hub-flag">🇸🇪</span><div class="hub-city">Stockholm</div><div class="hub-country">Sweden</div><div style="display:flex;gap:10px;align-items:center;margin-top:4px"><a href="https://chat.whatsapp.com/HPj9jW0zctg9iVnI07yu5l" target="_blank" class="hub-join" style="flex:1">Join hub →</a><a href="/stockholm-startup-communities.html" class="hub-join" style="flex:1;color:var(--ink4)">Guide →</a></div></div>
-        <div class="hub-card"><span class="hub-flag">🇵🇹</span><div class="hub-city">Lisbon</div><div class="hub-country">Portugal</div><div style="display:flex;gap:10px;align-items:center;margin-top:4px"><a href="https://chat.whatsapp.com/H33J3ArPcYn3Cw7E0E9Fmx" target="_blank" class="hub-join" style="flex:1">Join hub →</a><a href="/lisbon-startup-communities.html" class="hub-join" style="flex:1;color:var(--ink4)">Guide →</a></div></div>
-        <div class="hub-card"><span class="hub-flag">🇩🇪</span><div class="hub-city">Berlin</div><div class="hub-country">Germany</div><div style="display:flex;gap:10px;align-items:center;margin-top:4px"><a href="https://chat.whatsapp.com/Fxfuvb2eo22KACQGVHhpGz" target="_blank" class="hub-join" style="flex:1">Join hub →</a><a href="/berlin-startup-communities.html" class="hub-join" style="flex:1;color:var(--ink4)">Guide →</a></div></div>
-        <div class="hub-card"><span class="hub-flag">🇩🇪</span><div class="hub-city">Munich</div><div class="hub-country">Germany</div><div style="display:flex;gap:10px;align-items:center;margin-top:4px"><a href="https://chat.whatsapp.com/HVLhVgLysLh9sBrbItAwOH" target="_blank" class="hub-join" style="flex:1">Join hub →</a><a href="/munich-startup-communities.html" class="hub-join" style="flex:1;color:var(--ink4)">Guide →</a></div></div>
-        <div class="hub-card"><span class="hub-flag">🇮🇹</span><div class="hub-city">Milan</div><div class="hub-country">Italy</div><div style="display:flex;gap:10px;align-items:center;margin-top:4px"><a href="https://chat.whatsapp.com/GzD1WMtb8Gu7CN8W1m882o" target="_blank" class="hub-join" style="flex:1">Join hub →</a><a href="/milan-startup-communities.html" class="hub-join" style="flex:1;color:var(--ink4)">Guide →</a></div></div>
-        <div class="hub-card"><span class="hub-flag">🇨🇭</span><div class="hub-city">Zurich</div><div class="hub-country">Switzerland</div><div style="display:flex;gap:10px;align-items:center;margin-top:4px"><a href="https://chat.whatsapp.com/GLi8rAkNcnNEM6ERBcU2Jo" target="_blank" class="hub-join" style="flex:1">Join hub →</a><a href="/zurich-startup-communities.html" class="hub-join" style="flex:1;color:var(--ink4)">Guide →</a></div></div>
-        <div class="hub-card"><span class="hub-flag">🇫🇮</span><div class="hub-city">Helsinki</div><div class="hub-country">Finland</div><div style="display:flex;gap:10px;align-items:center;margin-top:4px"><a href="https://chat.whatsapp.com/D5xBU33XnAwKNKjUjdOsAF" target="_blank" class="hub-join" style="flex:1">Join hub →</a><a href="/helsinki-startup-communities.html" class="hub-join" style="flex:1;color:var(--ink4)">Guide →</a></div></div>
-        <div class="hub-card"><span class="hub-flag">🇳🇱</span><div class="hub-city">Amsterdam</div><div class="hub-country">Netherlands</div><div style="display:flex;gap:10px;align-items:center;margin-top:4px"><a href="https://chat.whatsapp.com/FyOLSwWS2bWDu9SRFGst6B" target="_blank" class="hub-join" style="flex:1">Join hub →</a><a href="/amsterdam-startup-communities.html" class="hub-join" style="flex:1;color:var(--ink4)">Guide →</a></div></div>
+        <article class="hub-card" data-s="paris france"><div class="hub-top"><span class="hub-flag">🇫🇷</span><div><h4 class="hub-city">Paris</h4><div class="hub-country">France</div></div></div><div class="hub-dir">Hub Director: Imène Ben Daoud</div><div class="hub-actions"><a href="https://chat.whatsapp.com/CLeAyOkqtptBOtLzK9VVlM" target="_blank" rel="noopener" class="hub-join">Join hub</a><a href="/paris-startup-communities.html" class="hub-guide">City guide</a></div></article>
+        <article class="hub-card" data-s="london united kingdom"><div class="hub-top"><span class="hub-flag">🇬🇧</span><div><h4 class="hub-city">London</h4><div class="hub-country">United Kingdom</div></div></div><div class="hub-actions"><a href="https://chat.whatsapp.com/KltJnWzgQvXL97mUkITitK" target="_blank" rel="noopener" class="hub-join">Join hub</a><a href="/london-startup-communities.html" class="hub-guide">City guide</a></div></article>
+        <article class="hub-card" data-s="dublin ireland"><div class="hub-top"><span class="hub-flag">🇮🇪</span><div><h4 class="hub-city">Dublin</h4><div class="hub-country">Ireland</div></div></div><div class="hub-actions"><a href="https://chat.whatsapp.com/EmWn9lkRrLvAHUQmaMzxWu" target="_blank" rel="noopener" class="hub-join">Join hub</a><a href="/dublin-startup-communities.html" class="hub-guide">City guide</a></div></article>
+        <article class="hub-card" data-s="copenhagen denmark"><div class="hub-top"><span class="hub-flag">🇩🇰</span><div><h4 class="hub-city">Copenhagen</h4><div class="hub-country">Denmark</div></div></div><div class="hub-actions"><a href="https://chat.whatsapp.com/F273rCkj8vDIRJXj0sYAfG" target="_blank" rel="noopener" class="hub-join">Join hub</a><a href="/copenhagen-startup-communities.html" class="hub-guide">City guide</a></div></article>
+        <article class="hub-card" data-s="stockholm sweden"><div class="hub-top"><span class="hub-flag">🇸🇪</span><div><h4 class="hub-city">Stockholm</h4><div class="hub-country">Sweden</div></div></div><div class="hub-actions"><a href="https://chat.whatsapp.com/HPj9jW0zctg9iVnI07yu5l" target="_blank" rel="noopener" class="hub-join">Join hub</a><a href="/stockholm-startup-communities.html" class="hub-guide">City guide</a></div></article>
+        <article class="hub-card" data-s="lisbon portugal"><div class="hub-top"><span class="hub-flag">🇵🇹</span><div><h4 class="hub-city">Lisbon</h4><div class="hub-country">Portugal</div></div></div><div class="hub-actions"><a href="https://chat.whatsapp.com/H33J3ArPcYn3Cw7E0E9Fmx" target="_blank" rel="noopener" class="hub-join">Join hub</a><a href="/lisbon-startup-communities.html" class="hub-guide">City guide</a></div></article>
+        <article class="hub-card" data-s="berlin germany"><div class="hub-top"><span class="hub-flag">🇩🇪</span><div><h4 class="hub-city">Berlin</h4><div class="hub-country">Germany</div></div></div><div class="hub-actions"><a href="https://chat.whatsapp.com/Fxfuvb2eo22KACQGVHhpGz" target="_blank" rel="noopener" class="hub-join">Join hub</a><a href="/berlin-startup-communities.html" class="hub-guide">City guide</a></div></article>
+        <article class="hub-card" data-s="munich germany"><div class="hub-top"><span class="hub-flag">🇩🇪</span><div><h4 class="hub-city">Munich</h4><div class="hub-country">Germany</div></div></div><div class="hub-actions"><a href="https://chat.whatsapp.com/HVLhVgLysLh9sBrbItAwOH" target="_blank" rel="noopener" class="hub-join">Join hub</a><a href="/munich-startup-communities.html" class="hub-guide">City guide</a></div></article>
+        <article class="hub-card" data-s="milan italy"><div class="hub-top"><span class="hub-flag">🇮🇹</span><div><h4 class="hub-city">Milan</h4><div class="hub-country">Italy</div></div></div><div class="hub-actions"><a href="https://chat.whatsapp.com/GzD1WMtb8Gu7CN8W1m882o" target="_blank" rel="noopener" class="hub-join">Join hub</a><a href="/milan-startup-communities.html" class="hub-guide">City guide</a></div></article>
+        <article class="hub-card" data-s="zurich switzerland"><div class="hub-top"><span class="hub-flag">🇨🇭</span><div><h4 class="hub-city">Zurich</h4><div class="hub-country">Switzerland</div></div></div><div class="hub-actions"><a href="https://chat.whatsapp.com/GLi8rAkNcnNEM6ERBcU2Jo" target="_blank" rel="noopener" class="hub-join">Join hub</a><a href="/zurich-startup-communities.html" class="hub-guide">City guide</a></div></article>
+        <article class="hub-card" data-s="helsinki finland"><div class="hub-top"><span class="hub-flag">🇫🇮</span><div><h4 class="hub-city">Helsinki</h4><div class="hub-country">Finland</div></div></div><div class="hub-actions"><a href="https://chat.whatsapp.com/D5xBU33XnAwKNKjUjdOsAF" target="_blank" rel="noopener" class="hub-join">Join hub</a><a href="/helsinki-startup-communities.html" class="hub-guide">City guide</a></div></article>
+        <article class="hub-card" data-s="amsterdam netherlands"><div class="hub-top"><span class="hub-flag">🇳🇱</span><div><h4 class="hub-city">Amsterdam</h4><div class="hub-country">Netherlands</div></div></div><div class="hub-actions"><a href="https://chat.whatsapp.com/FyOLSwWS2bWDu9SRFGst6B" target="_blank" rel="noopener" class="hub-join">Join hub</a><a href="/amsterdam-startup-communities.html" class="hub-guide">City guide</a></div></article>
       </div>
       <a href="/conferences.html" style="font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink4);border-bottom:1px solid rgba(0,0,0,.12);padding-bottom:2px;display:inline-block;margin-top:8px">Conference hubs → yorkseed.co/conferences</a>
     </div>
 
     <!-- MIDDLE EAST & AFRICA -->
     <div id="middle-east-africa" class="region-content">
-      <p class="region-intro">Yorkseed's Middle East and Africa presence connects investors, founders, and capital allocators across the UAE, Tel Aviv, and beyond — with growing presence across the continent.</p>
+      <p class="region-intro">Yorkseed's Middle East and Africa presence connects investors, founders, and capital allocators across the UAE, Tel Aviv, and beyond, with growing presence across the continent.</p>
       <div class="hubs-section-label">City hubs</div>
       <div class="hubs-grid">
-        <div class="hub-card"><span class="hub-flag">🇦🇪</span><div class="hub-city">Dubai / UAE</div><div class="hub-country">United Arab Emirates</div><div style="display:flex;gap:10px;align-items:center;margin-top:4px"><a href="https://chat.whatsapp.com/IqhQCqDKjGnLThGWvWRviH" target="_blank" class="hub-join" style="flex:1">Join hub →</a><a href="/dubai-startup-communities.html" class="hub-join" style="flex:1;color:var(--ink4)">Guide →</a></div></div>
-        <div class="hub-card"><span class="hub-flag">🇮🇱</span><div class="hub-city">Tel Aviv</div><div class="hub-country">Israel</div><div style="display:flex;gap:10px;align-items:center;margin-top:4px"><a href="https://chat.whatsapp.com/KBpkz8vGyaX67KZGR3zxn1" target="_blank" class="hub-join" style="flex:1">Join hub →</a><a href="/tel-aviv-startup-communities.html" class="hub-join" style="flex:1;color:var(--ink4)">Guide →</a></div></div>
+        <article class="hub-card" data-s="dubai / uae united arab emirates"><div class="hub-top"><span class="hub-flag">🇦🇪</span><div><h4 class="hub-city">Dubai / UAE</h4><div class="hub-country">United Arab Emirates</div></div></div><div class="hub-actions"><a href="https://chat.whatsapp.com/IqhQCqDKjGnLThGWvWRviH" target="_blank" rel="noopener" class="hub-join">Join hub</a><a href="/dubai-startup-communities.html" class="hub-guide">City guide</a></div></article>
+        <article class="hub-card" data-s="tel aviv israel"><div class="hub-top"><span class="hub-flag">🇮🇱</span><div><h4 class="hub-city">Tel Aviv</h4><div class="hub-country">Israel</div></div></div><div class="hub-actions"><a href="https://chat.whatsapp.com/KBpkz8vGyaX67KZGR3zxn1" target="_blank" rel="noopener" class="hub-join">Join hub</a><a href="/tel-aviv-startup-communities.html" class="hub-guide">City guide</a></div></article>
       </div>
       <a href="/conferences.html" style="font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink4);border-bottom:1px solid rgba(0,0,0,.12);padding-bottom:2px;display:inline-block;margin-top:8px">Conference hubs → yorkseed.co/conferences</a>
       <div class="global-cta" style="margin-top:24px">
@@ -469,21 +562,21 @@ footer{}
 
     <!-- ASIA-PACIFIC -->
     <div id="asia-pacific" class="region-content">
-      <p class="region-intro">From Hong Kong to Singapore, Sydney to GIFT City — Yorkseed connects Asia-Pacific's most active founders and investors with global capital and opportunity.</p>
+      <p class="region-intro">From Hong Kong to Singapore, Sydney to GIFT City, Yorkseed connects Asia-Pacific's most active founders and investors with global capital and opportunity.</p>
       <div class="hubs-section-label">City hubs</div>
       <div class="hubs-grid">
-        <div class="hub-card"><span class="hub-flag">🇭🇰</span><div class="hub-city">Hong Kong</div><div class="hub-country">Hong Kong SAR</div><div style="display:flex;gap:10px;align-items:center;margin-top:4px"><a href="https://chat.whatsapp.com/IPvXog27UaOKypnM5z6E5f" target="_blank" class="hub-join" style="flex:1">Join hub →</a><a href="/hong-kong-startup-communities.html" class="hub-join" style="flex:1;color:var(--ink4)">Guide →</a></div></div>
-        <div class="hub-card"><span class="hub-flag">🇸🇬</span><div class="hub-city">Singapore</div><div class="hub-country">Singapore</div><div style="display:flex;gap:10px;align-items:center;margin-top:4px"><a href="https://chat.whatsapp.com/GU84IqLR86x98bcTIYZzPb" target="_blank" class="hub-join" style="flex:1">Join hub →</a><a href="/singapore-startup-communities.html" class="hub-join" style="flex:1;color:var(--ink4)">Guide →</a></div></div>
-        <div class="hub-card"><span class="hub-flag">🇲🇾</span><div class="hub-city">Kuala Lumpur</div><div class="hub-country">Malaysia</div><div style="display:flex;gap:10px;align-items:center;margin-top:4px"><a href="https://chat.whatsapp.com/JRP1dFa03x6BkKP0cF8Ir7" target="_blank" class="hub-join" style="flex:1">Join hub →</a><a href="/kuala-lumpur-startup-communities.html" class="hub-join" style="flex:1;color:var(--ink4)">Guide →</a></div></div>
-        <div class="hub-card"><span class="hub-flag">🇮🇳</span><div class="hub-city">GIFT City</div><div class="hub-country">India</div><div style="display:flex;gap:10px;align-items:center;margin-top:4px"><a href="https://chat.whatsapp.com/Evc7SvYDwK1AeJx1PVz0xw" target="_blank" class="hub-join" style="flex:1">Join hub →</a><a href="/gift-city-startup-communities.html" class="hub-join" style="flex:1;color:var(--ink4)">Guide →</a></div></div>
-        <div class="hub-card"><span class="hub-flag">🇦🇺</span><div class="hub-city">Sydney</div><div class="hub-country">Australia</div><div style="display:flex;gap:10px;align-items:center;margin-top:4px"><a href="https://chat.whatsapp.com/FK1xmyQpGgKKI7anBYNBCa" target="_blank" class="hub-join" style="flex:1">Join hub →</a><a href="/sydney-startup-communities.html" class="hub-join" style="flex:1;color:var(--ink4)">Guide →</a></div></div>
+        <article class="hub-card" data-s="hong kong hong kong sar"><div class="hub-top"><span class="hub-flag">🇭🇰</span><div><h4 class="hub-city">Hong Kong</h4><div class="hub-country">Hong Kong SAR</div></div></div><div class="hub-actions"><a href="https://chat.whatsapp.com/IPvXog27UaOKypnM5z6E5f" target="_blank" rel="noopener" class="hub-join">Join hub</a><a href="/hong-kong-startup-communities.html" class="hub-guide">City guide</a></div></article>
+        <article class="hub-card" data-s="singapore singapore"><div class="hub-top"><span class="hub-flag">🇸🇬</span><div><h4 class="hub-city">Singapore</h4><div class="hub-country">Singapore</div></div></div><div class="hub-actions"><a href="https://chat.whatsapp.com/GU84IqLR86x98bcTIYZzPb" target="_blank" rel="noopener" class="hub-join">Join hub</a><a href="/singapore-startup-communities.html" class="hub-guide">City guide</a></div></article>
+        <article class="hub-card" data-s="kuala lumpur malaysia"><div class="hub-top"><span class="hub-flag">🇲🇾</span><div><h4 class="hub-city">Kuala Lumpur</h4><div class="hub-country">Malaysia</div></div></div><div class="hub-actions"><a href="https://chat.whatsapp.com/JRP1dFa03x6BkKP0cF8Ir7" target="_blank" rel="noopener" class="hub-join">Join hub</a><a href="/kuala-lumpur-startup-communities.html" class="hub-guide">City guide</a></div></article>
+        <article class="hub-card" data-s="gift city india"><div class="hub-top"><span class="hub-flag">🇮🇳</span><div><h4 class="hub-city">GIFT City</h4><div class="hub-country">India</div></div></div><div class="hub-actions"><a href="https://chat.whatsapp.com/Evc7SvYDwK1AeJx1PVz0xw" target="_blank" rel="noopener" class="hub-join">Join hub</a><a href="/gift-city-startup-communities.html" class="hub-guide">City guide</a></div></article>
+        <article class="hub-card" data-s="sydney australia"><div class="hub-top"><span class="hub-flag">🇦🇺</span><div><h4 class="hub-city">Sydney</h4><div class="hub-country">Australia</div></div></div><div class="hub-actions"><a href="https://chat.whatsapp.com/FK1xmyQpGgKKI7anBYNBCa" target="_blank" rel="noopener" class="hub-join">Join hub</a><a href="/sydney-startup-communities.html" class="hub-guide">City guide</a></div></article>
       </div>
       <a href="/conferences.html" style="font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink4);border-bottom:1px solid rgba(0,0,0,.12);padding-bottom:2px;display:inline-block;margin-top:8px">Conference hubs → yorkseed.co/conferences</a>
     </div>
 
     <!-- GLOBAL HUB -->
     <div id="global" class="region-content">
-      <p class="region-intro">For active connectors in cities without a dedicated Yorkseed hub yet. Seoul, Nairobi, Cape Town, Jakarta, Warsaw, Bogotá, Atlanta and more — connect globally and help build the network in your city.</p>
+      <p class="region-intro">For active connectors in cities without a dedicated Yorkseed hub yet. Seoul, Nairobi, Cape Town, Jakarta, Warsaw, Bogotá, Atlanta and more. Connect globally and help build the network in your city.</p>
       <div class="global-cta">
         <div>
           <div class="gcta-title">Join the Global Cities Hub</div>
@@ -499,7 +592,7 @@ footer{}
   </div>
 </div>
 
-<div style="width:100%;overflow:hidden"><img src="https://s6.imgcdn.dev/YfL7g0.jpg" alt="Yorkseed — Global Hubs" style="width:100%;max-width:1200px;display:block;margin:0 auto;" onerror="this.style.display='none'"/></div>
+<div style="width:100%;overflow:hidden"><img src="https://s6.imgcdn.dev/YfL7g0.jpg" alt="Yorkseed Global Hubs" style="width:100%;max-width:1200px;display:block;margin:0 auto;" onerror="this.style.display='none'"/></div>
 
 <!-- MEMBERSHIP INFO -->
 <div class="sec" style="background:var(--white);border-top:1px solid var(--border)">
@@ -508,19 +601,19 @@ footer{}
     <h2 class="sh2" style="margin-bottom:10px">Built on signal,<br/><em>not scale.</em></h2>
     <p class="sec-p">Yorkseed City Hubs provide members with a curated space for venture activity in their local market. Every hub follows the same standards that make the global network worth being part of.</p>
     <div class="membership-grid">
-      <div class="mem-item">
+      <div class="mem-item"><div class="mem-num">01</div>
         <div class="mem-title">Who can join</div>
-        <div class="mem-desc">Active founders, accredited investors, and ecosystem builders committed to high-signal collaboration. Membership is by application — not open to all.</div>
+        <div class="mem-desc">Active founders, accredited investors, and ecosystem builders committed to high-signal collaboration. Membership is by application, not open to all.</div>
       </div>
-      <div class="mem-item">
+      <div class="mem-item"><div class="mem-num">02</div>
         <div class="mem-title">What gets shared</div>
         <div class="mem-desc">In-person events focused on founders, investors, venture, and technology. General public events or purely social gatherings are not permitted.</div>
       </div>
-      <div class="mem-item">
+      <div class="mem-item"><div class="mem-num">03</div>
         <div class="mem-title">Virtual events</div>
         <div class="mem-desc">Only shared within Yorkseed if formally affiliated through structured partnership, sponsorship, or official co-hosting with visible Yorkseed branding.</div>
       </div>
-      <div class="mem-item">
+      <div class="mem-item"><div class="mem-num">04</div>
         <div class="mem-title">Hub Directors</div>
         <div class="mem-desc">Each hub is led by a verified Hub Director who runs local events, connects members on the ground, and represents Yorkseed in their city.</div>
       </div>
@@ -531,122 +624,17 @@ footer{}
     <div style="margin-top:48px;margin-bottom:0">
       <div class="kicker" style="margin-bottom:16px">Hub Directors</div>
       <p style="font-size:13px;color:var(--ink3);line-height:1.7;font-weight:300;margin-bottom:24px;max-width:520px">The people on the ground. Each hub is led by a verified Hub Director who runs local events, connects members, and represents Yorkseed in their city.</p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px">
-        <!-- Director card -->
-        <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:22px 20px">
-          <div style="font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:10px">Hub Director</div>
-          <div style="font-family:var(--serif);font-size:18px;font-weight:400;color:var(--ink);margin-bottom:4px">Imène Ben Daoud</div>
-          <div style="font-size:12px;color:var(--ink3);font-weight:300">Paris · France</div>
-        </div>
-           <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:22px 20px">
-          <div style="font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:10px">Hub Director</div>
-          <div style="font-family:var(--serif);font-size:18px;font-weight:400;color:var(--ink);margin-bottom:4px">Victor Lem</div>
-          <div style="font-size:12px;color:var(--ink3);font-weight:300">Hong Kong · SAR China</div>
-        </div>
-        <!-- Your city card -->
-        <div style="background:var(--off-white);border:1px dashed var(--border2);border-radius:10px;padding:22px 20px;display:flex;flex-direction:column;justify-content:space-between">
-          <div>
-            <div style="font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink4);margin-bottom:10px">Open Position</div>
-            <div style="font-family:var(--serif);font-size:18px;font-weight:300;color:var(--ink3);margin-bottom:4px">Your city?</div>
-            <div style="font-size:12px;color:var(--ink4);font-weight:300">Apply to become a Hub Director</div>
-          </div>
-          <a href="https://tally.so/r/mROWPK" target="_blank" style="margin-top:16px;display:inline-block;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--red);text-decoration:none">Apply →</a>
-        </div>
+      <div class="dir-grid">
+        <div class="dir-card"><div class="dir-av">IB</div><div><div class="dir-role">Hub Director</div><div class="dir-name">Imène Ben Daoud</div><div class="dir-city">Paris · France</div></div></div>
+        <div class="dir-card"><div class="dir-av">KN</div><div><div class="dir-role">Hub Director</div><div class="dir-name">Kimberly Neer</div><div class="dir-city">New York City · USA</div></div></div>
+        <div class="dir-card dir-open"><div class="dir-av">+</div><div><div class="dir-role">Open position</div><div class="dir-name">Your city?</div><a class="dir-apply" href="https://tally.so/r/mROWPK" target="_blank" rel="noopener">Apply to lead a hub</a></div></div>
       </div>
     </div>
-
-
-
-<div style="max-width:1100px;margin:0 auto;padding:40px 6vw 20px">
-  <div style="font-family:var(--mono,'DM Mono',monospace);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--red,#c8372d);margin-bottom:12px">Official Conference Partnerships</div>
-  <h2 style="font-family:var(--serif,'Playfair Display',serif);font-size:clamp(26px,3.5vw,36px);font-weight:400;color:var(--ink,#0e0e0e);margin-bottom:16px">Where Yorkseed is a formally recognized partner</h2>
-  <p style="font-size:14.5px;color:var(--ink3,#555);line-height:1.8;max-width:720px;margin-bottom:32px">Yorkseed holds official Conference Partner status at the events below — a formal partnership beyond standard attendance, giving members priority access and curated introductions.</p>
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px">
-      <div style="background:var(--off-white,#fafafa);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:10px;padding:22px 20px">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
-          <span style="background:var(--red,#c8372d);color:#fff;font-family:var(--mono,'DM Mono',monospace);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;border-radius:4px">Official Conference Partner</span>
-        </div>
-        <div style="font-family:var(--serif,'Playfair Display',serif);font-size:18px;font-weight:500;color:var(--ink,#0e0e0e);margin-bottom:4px">Unicorn Summit</div>
-        <div style="font-size:12px;color:var(--ink3,#555);margin-bottom:10px">Lisbon, Portugal · May 30, 2026 (European edition)</div>
-        <p style="font-size:12.5px;color:var(--ink3,#555);line-height:1.65;margin-bottom:14px">A global event series connecting founders, investors, and innovators, with additional editions across North America, South America, the UAE, and Asia.</p>
-        <a href="https://unicornsummit.net/" target="_blank" rel="noopener noreferrer" style="font-family:var(--mono,'DM Mono',monospace);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--red,#c8372d);text-decoration:none">Official site →</a>
-      </div>
-      <div style="background:var(--off-white,#fafafa);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:10px;padding:22px 20px">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
-          <span style="background:var(--red,#c8372d);color:#fff;font-family:var(--mono,'DM Mono',monospace);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;border-radius:4px">Official Conference Partner</span>
-        </div>
-        <div style="font-family:var(--serif,'Playfair Display',serif);font-size:18px;font-weight:500;color:var(--ink,#0e0e0e);margin-bottom:4px">Asian Financial Forum</div>
-        <div style="font-size:12px;color:var(--ink3,#555);margin-bottom:10px">Hong Kong · Jan 26–27, 2026</div>
-        <p style="font-size:12.5px;color:var(--ink3,#555);line-height:1.65;margin-bottom:14px">Asia's premier finance and investment platform, organized by the Hong Kong Trade Development Council — 3,600+ visitors from 60+ countries in 2025.</p>
-        <a href="https://www.asianfinancialforum.com/" target="_blank" rel="noopener noreferrer" style="font-family:var(--mono,'DM Mono',monospace);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--red,#c8372d);text-decoration:none">Official site →</a>
-      </div>
-      <div style="background:var(--off-white,#fafafa);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:10px;padding:22px 20px">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
-          <span style="background:var(--red,#c8372d);color:#fff;font-family:var(--mono,'DM Mono',monospace);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;border-radius:4px">Official Conference Partner</span>
-        </div>
-        <div style="font-family:var(--serif,'Playfair Display',serif);font-size:18px;font-weight:500;color:var(--ink,#0e0e0e);margin-bottom:4px">CC Forum</div>
-        <div style="font-size:12px;color:var(--ink3,#555);margin-bottom:10px">London, UK · Mar 19–21, 2026 (13th edition)</div>
-        <p style="font-size:12.5px;color:var(--ink3,#555);line-height:1.65;margin-bottom:14px">A global investment conference dedicated to sustainability, connecting impact investors, family offices, and climate-tech founders.</p>
-        <a href="https://cc-forum.com/" target="_blank" rel="noopener noreferrer" style="font-family:var(--mono,'DM Mono',monospace);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--red,#c8372d);text-decoration:none">Official site →</a>
-      </div>
-      <div style="background:var(--off-white,#fafafa);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:10px;padding:22px 20px">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
-          <span style="background:var(--red,#c8372d);color:#fff;font-family:var(--mono,'DM Mono',monospace);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;border-radius:4px">Official Conference Partner</span>
-        </div>
-        <div style="font-family:var(--serif,'Playfair Display',serif);font-size:18px;font-weight:500;color:var(--ink,#0e0e0e);margin-bottom:4px">AcceleratorCON</div>
-        <div style="font-size:12px;color:var(--ink3,#555);margin-bottom:10px">New York, USA · Annual</div>
-        <p style="font-size:12.5px;color:var(--ink3,#555);line-height:1.65;margin-bottom:14px">The conference built for startups and accelerator programs to meet face-to-face — founders, investors, and accelerator leaders in one room.</p>
-        <a href="https://acceleratorcon.com/" target="_blank" rel="noopener noreferrer" style="font-family:var(--mono,'DM Mono',monospace);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--red,#c8372d);text-decoration:none">Official site →</a>
-      </div>
-      <div style="background:var(--off-white,#fafafa);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:10px;padding:22px 20px">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
-          <span style="background:var(--red,#c8372d);color:#fff;font-family:var(--mono,'DM Mono',monospace);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;border-radius:4px">Official Conference Partner</span>
-        </div>
-        <div style="font-family:var(--serif,'Playfair Display',serif);font-size:18px;font-weight:500;color:var(--ink,#0e0e0e);margin-bottom:4px">AI Hot 100</div>
-        <div style="font-size:12px;color:var(--ink3,#555);margin-bottom:10px">New York, USA · Annual (4th edition, 2027: May 27–28)</div>
-        <p style="font-size:12.5px;color:var(--ink3,#555);line-height:1.65;margin-bottom:14px">Produced by The AI Furnace, curating the AI Hot 100 List of enterprise-ready AI startups — Fortune 500 leaders, top VCs, and 100 curated founders.</p>
-        <a href="https://www.aihot100summit.com/" target="_blank" rel="noopener noreferrer" style="font-family:var(--mono,'DM Mono',monospace);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--red,#c8372d);text-decoration:none">Official site →</a>
-      </div>
-  </div>
-
-  <div style="margin-top:56px">
-    <div style="font-family:var(--mono,'DM Mono',monospace);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--red,#c8372d);margin-bottom:12px">Conference Hubs</div>
-    <h2 style="font-family:var(--serif,'Playfair Display',serif);font-size:clamp(22px,3vw,28px);font-weight:400;color:var(--ink,#0e0e0e);margin-bottom:14px">Where Yorkseed runs a dedicated attendee group</h2>
-    <p style="font-size:14px;color:var(--ink3,#555);line-height:1.8;max-width:720px;margin-bottom:24px">A Conference Hub means Yorkseed maintains a dedicated group chat for attendees and hosts side events on-site — Passport Series gatherings or a Yorkseed House pop-up. See the full directory with group chat links on the <a href="/conferences.html" style="color:var(--red,#c8372d)">Conferences page →</a></p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px">
-<div style="background:var(--off-white,#fafafa);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:8px;padding:12px 16px;font-size:12.5px;color:var(--ink2,#1a1a1a)"><strong style="font-weight:500">SXSW Austin</strong><br><span style="color:var(--ink4,#999);font-size:11px">Austin, USA</span></div>
-      <div style="background:var(--off-white,#fafafa);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:8px;padding:12px 16px;font-size:12.5px;color:var(--ink2,#1a1a1a)"><strong style="font-weight:500">CES</strong><br><span style="color:var(--ink4,#999);font-size:11px">Las Vegas, USA</span></div>
-      <div style="background:var(--off-white,#fafafa);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:8px;padding:12px 16px;font-size:12.5px;color:var(--ink2,#1a1a1a)"><strong style="font-weight:500">New York Tech Week</strong><br><span style="color:var(--ink4,#999);font-size:11px">New York, USA</span></div>
-      <div style="background:var(--off-white,#fafafa);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:8px;padding:12px 16px;font-size:12.5px;color:var(--ink2,#1a1a1a)"><strong style="font-weight:500">NFT NYC</strong><br><span style="color:var(--ink4,#999);font-size:11px">New York, USA</span></div>
-      <div style="background:var(--off-white,#fafafa);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:8px;padding:12px 16px;font-size:12.5px;color:var(--ink2,#1a1a1a)"><strong style="font-weight:500">Climate Week NYC / UN General Assembly</strong><br><span style="color:var(--ink4,#999);font-size:11px">New York, USA</span></div>
-      <div style="background:var(--off-white,#fafafa);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:8px;padding:12px 16px;font-size:12.5px;color:var(--ink2,#1a1a1a)"><strong style="font-weight:500">JP Morgan Health Conference</strong><br><span style="color:var(--ink4,#999);font-size:11px">San Francisco, USA</span></div>
-      <div style="background:var(--off-white,#fafafa);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:8px;padding:12px 16px;font-size:12.5px;color:var(--ink2,#1a1a1a)"><strong style="font-weight:500">LA Tech Week</strong><br><span style="color:var(--ink4,#999);font-size:11px">Los Angeles, USA</span></div>
-      <div style="background:var(--off-white,#fafafa);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:8px;padding:12px 16px;font-size:12.5px;color:var(--ink2,#1a1a1a)"><strong style="font-weight:500">Consensus</strong><br><span style="color:var(--ink4,#999);font-size:11px">USA</span></div>
-      <div style="background:var(--off-white,#fafafa);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:8px;padding:12px 16px;font-size:12.5px;color:var(--ink2,#1a1a1a)"><strong style="font-weight:500">Futurist Conference</strong><br><span style="color:var(--ink4,#999);font-size:11px">USA</span></div>
-      <div style="background:var(--off-white,#fafafa);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:8px;padding:12px 16px;font-size:12.5px;color:var(--ink2,#1a1a1a)"><strong style="font-weight:500">Web Summit Vancouver</strong><br><span style="color:var(--ink4,#999);font-size:11px">Vancouver, Canada</span></div>
-      <div style="background:var(--off-white,#fafafa);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:8px;padding:12px 16px;font-size:12.5px;color:var(--ink2,#1a1a1a)"><strong style="font-weight:500">Startupfest</strong><br><span style="color:var(--ink4,#999);font-size:11px">Montreal, Canada</span></div>
-      <div style="background:var(--off-white,#fafafa);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:8px;padding:12px 16px;font-size:12.5px;color:var(--ink2,#1a1a1a)"><strong style="font-weight:500">Web Summit Rio</strong><br><span style="color:var(--ink4,#999);font-size:11px">Rio de Janeiro, Brazil</span></div>
-      <div style="background:var(--off-white,#fafafa);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:8px;padding:12px 16px;font-size:12.5px;color:var(--ink2,#1a1a1a)"><strong style="font-weight:500">World Economic Forum</strong><br><span style="color:var(--ink4,#999);font-size:11px">Davos, Switzerland</span></div>
-      <div style="background:var(--off-white,#fafafa);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:8px;padding:12px 16px;font-size:12.5px;color:var(--ink2,#1a1a1a)"><strong style="font-weight:500">Web Summit Lisbon</strong><br><span style="color:var(--ink4,#999);font-size:11px">Lisbon, Portugal</span></div>
-      <div style="background:var(--off-white,#fafafa);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:8px;padding:12px 16px;font-size:12.5px;color:var(--ink2,#1a1a1a)"><strong style="font-weight:500">VivaTech</strong><br><span style="color:var(--ink4,#999);font-size:11px">Paris, France</span></div>
-      <div style="background:var(--off-white,#fafafa);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:8px;padding:12px 16px;font-size:12.5px;color:var(--ink2,#1a1a1a)"><strong style="font-weight:500">RAISE Summit</strong><br><span style="color:var(--ink4,#999);font-size:11px">Paris, France</span></div>
-      <div style="background:var(--off-white,#fafafa);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:8px;padding:12px 16px;font-size:12.5px;color:var(--ink2,#1a1a1a)"><strong style="font-weight:500">Paris Blockchain Week</strong><br><span style="color:var(--ink4,#999);font-size:11px">Paris, France</span></div>
-      <div style="background:var(--off-white,#fafafa);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:8px;padding:12px 16px;font-size:12.5px;color:var(--ink2,#1a1a1a)"><strong style="font-weight:500">Slush</strong><br><span style="color:var(--ink4,#999);font-size:11px">Helsinki, Finland</span></div>
-      <div style="background:var(--off-white,#fafafa);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:8px;padding:12px 16px;font-size:12.5px;color:var(--ink2,#1a1a1a)"><strong style="font-weight:500">SXSW London / London Tech Week</strong><br><span style="color:var(--ink4,#999);font-size:11px">London, UK</span></div>
-      <div style="background:var(--off-white,#fafafa);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:8px;padding:12px 16px;font-size:12.5px;color:var(--ink2,#1a1a1a)"><strong style="font-weight:500">GITEX</strong><br><span style="color:var(--ink4,#999);font-size:11px">Dubai, UAE</span></div>
-      <div style="background:var(--off-white,#fafafa);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:8px;padding:12px 16px;font-size:12.5px;color:var(--ink2,#1a1a1a)"><strong style="font-weight:500">Token2049</strong><br><span style="color:var(--ink4,#999);font-size:11px">Dubai & Singapore</span></div>
-      <div style="background:var(--off-white,#fafafa);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:8px;padding:12px 16px;font-size:12.5px;color:var(--ink2,#1a1a1a)"><strong style="font-weight:500">Web Summit Doha</strong><br><span style="color:var(--ink4,#999);font-size:11px">Doha, Qatar</span></div>
-      <div style="background:var(--off-white,#fafafa);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:8px;padding:12px 16px;font-size:12.5px;color:var(--ink2,#1a1a1a)"><strong style="font-weight:500">SuperAI</strong><br><span style="color:var(--ink4,#999);font-size:11px">Singapore</span></div>
-      <div style="background:var(--off-white,#fafafa);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:8px;padding:12px 16px;font-size:12.5px;color:var(--ink2,#1a1a1a)"><strong style="font-weight:500">SXSW Sydney</strong><br><span style="color:var(--ink4,#999);font-size:11px">Sydney, Australia</span></div>
-    </div>
-  </div>
-</div>
-
 
     <div class="director-cta">
       <div class="dir-text">
-        <h3>Lead a hub in your city — or join remotely.</h3>
-        <p>Hub Directors get direct exposure to venture networks, capital allocators, and global conference activations. We're also hiring interns — remote is welcome. Designed for ambitious, execution-driven people.</p>
+        <h3>Lead a hub in your city, or join remotely.</h3>
+        <p>Hub Directors get direct exposure to venture networks, capital allocators, and global conference activations. We're also hiring interns. Remote is welcome. Designed for ambitious, execution-driven people.</p>
       </div>
       <div style="display:flex;gap:10px;flex-wrap:wrap">
         <a href="https://tally.so/r/mROWPK" target="_blank" class="btn-white">Apply to become a Hub Director →</a>
@@ -656,7 +644,7 @@ footer{}
   </div>
 </div>
 
-<div style="max-width:1100px;margin:0 auto;padding:80px 6vw 40px">
+<div style="max-width:1100px;width:calc(100% - 12vw);margin:0 auto;padding:80px 0 40px">
   <div style="font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:12px">City &amp; Conference Guides</div>
   <h2 style="font-family:var(--serif);font-size:clamp(26px,3.5vw,36px);font-weight:400;color:var(--ink);margin-bottom:32px">Yorkseed's ecosystem, city by city</h2>
   <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:32px 24px">
@@ -714,13 +702,36 @@ footer{}
 
   <div style="margin-top:56px">
     <div style="font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);margin-bottom:12px">Conference Activations</div>
-    <p style="font-size:13.5px;color:var(--ink3);line-height:1.9;max-width:760px">Beyond its named city hubs, Yorkseed activates annually at 30+ global conferences — including SXSW (Austin), Web Summit (Lisbon), VivaTech (Paris), GITEX (Dubai), London Tech Week, Slush (Helsinki), Milan AI Tech Week, the Asian Financial Forum (Hong Kong), and the World Economic Forum in Davos. Conference-specific programming is folded into each host city's guide above.</p>
+    <p style="font-size:13.5px;color:var(--ink3);line-height:1.9;max-width:760px">Beyond its named city hubs, Yorkseed activates annually at 30+ global conferences, including SXSW (Austin), Web Summit (Lisbon), VivaTech (Paris), GITEX (Dubai), London Tech Week, Slush (Helsinki), Milan AI Tech Week, the Asian Financial Forum (Hong Kong), and the World Economic Forum in Davos. Conference-specific programming is folded into each host city's guide above.</p>
   </div>
 </div>
 
 
 <yk-footer><a href="/">Home</a> <a href="/hubs.html">Hubs</a> <a href="/events.html">Events</a> <a href="/about.html">About</a> <a href="/contact.html">Contact</a></yk-footer>
 
+<script>
+(function(){
+  var input=document.getElementById('hubSearch');if(!input)return;
+  var regions=[].slice.call(document.querySelectorAll('.region-content'));
+  var cards=[].slice.call(document.querySelectorAll('.hub-card'));
+  var note=document.getElementById('noMatch');
+  if(!note){note=document.createElement('div');note.id='noMatch';var wrap=document.querySelector('.hubs-wrap .sec-inner');wrap.insertBefore(note,regions[0]);}
+  input.addEventListener('input',function(){
+    var q=input.value.trim().toLowerCase(),hits=0;
+    document.body.classList.toggle('searching',!!q);
+    cards.forEach(function(c){var m=!q||c.getAttribute('data-s').indexOf(q)>-1;c.classList.toggle('hide',!m);if(m&&q)hits++;});
+    regions.forEach(function(r){var any=r.querySelector('.hub-card:not(.hide)');r.classList.toggle('empty',!!q&&!any);});
+    if(q&&!hits){note.style.display='block';note.innerHTML='No hub in that city yet. <a href="#global" onclick="document.getElementById(\'hubSearch\').value=\'\';document.getElementById(\'hubSearch\').dispatchEvent(new Event(\'input\'));showRegionById(\'global\')">Join the Global Cities Hub</a> or <a href="https://tally.so/r/mROWPK" target="_blank" rel="noopener">apply to lead one</a>.';}
+    else note.style.display='none';
+  });
+  window.showRegionById=function(id){
+    regions.forEach(function(r){r.classList.remove('active')});
+    document.querySelectorAll('.region-tab').forEach(function(t){t.classList.remove('active')});
+    document.getElementById(id).classList.add('active');
+    var tabs=document.querySelectorAll('.region-tab');tabs[tabs.length-1].classList.add('active');
+  };
+})();
+</script>
 <script>
 function showRegion(id) {
   document.querySelectorAll('.region-content').forEach(el => el.classList.remove('active'));
