@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Event Partner Request | Yorkseed</title>
+<meta name="description" content="Request to partner with Yorkseed on your event as a Community Partner, Ecosystem Partner or Co-host and reach a curated global network of founders and investors across 50+ city hubs."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://yorkseed.co/event-partner-request"/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MN9TDJSXN0"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MN9TDJSXN0');</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --ink:#0e0e0e;--ink2:#1a1a1a;--ink3:#555;--ink4:#999;
+  --white:#fff;--off:#fafafa;--light:#f5f4f1;--mid:#e8e6e1;
+  --red:#c8372d;--red-dim:rgba(200,55,45,.06);--red-border:rgba(200,55,45,.18);
+  --gold:#b08d57;--gold-dim:rgba(176,141,87,.07);--gold-border:rgba(176,141,87,.22);
+  --border:rgba(0,0,0,.07);--border2:rgba(0,0,0,.12);
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --mono:'DM Mono',monospace;
+}
+body{font-family:var(--sans);font-weight:300;background:#f7f6f3;color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden;padding-top:0}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+
+/* ── NAV ── */
+.site-nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(255,255,255,.94);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 5vw;height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.n-logo{display:flex;align-items:center;flex-shrink:0}
+.n-center{display:flex;align-items:center;gap:4px;flex:1;justify-content:center}
+.n-link{font-size:12.5px;font-weight:400;color:var(--ink3);padding:6px 10px;border-radius:5px;transition:color .15s;white-space:nowrap;letter-spacing:.01em}
+.n-link:hover{color:var(--ink)}
+.n-drop{position:relative}
+.n-drop-btn{display:flex;align-items:center;gap:5px;font-size:12.5px;font-weight:400;color:var(--ink3);padding:6px 10px;border-radius:5px;cursor:pointer;background:none;border:none;font-family:inherit;transition:color .15s;letter-spacing:.01em}
+.n-drop-btn:hover,.n-drop.open .n-drop-btn{color:var(--ink)}
+.n-drop-arrow{transition:transform .2s}
+.n-drop.open .n-drop-arrow{transform:rotate(180deg)}
+.n-menu{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(-6px);background:#fff;border:1px solid var(--border2);border-radius:12px;box-shadow:0 12px 40px rgba(0,0,0,.1);padding:10px;width:540px;display:grid;grid-template-columns:1fr 1fr;gap:2px;opacity:0;visibility:hidden;transition:opacity .18s,visibility .18s,transform .18s}
+.n-drop.open .n-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.n-item{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border-radius:8px;transition:background .15s;color:var(--ink)}
+.n-item:hover{background:var(--off)}
+.n-item-icon{font-size:18px;flex-shrink:0;margin-top:1px}
+.n-item-title{font-size:12.5px;font-weight:500;margin-bottom:2px}
+.n-item-desc{font-size:11px;color:var(--ink4);line-height:1.5;font-weight:300}
+.n-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.n-signin{font-size:12.5px;color:var(--ink4);padding:6px 10px;border-radius:5px;transition:color .15s;white-space:nowrap}
+.n-signin:hover{color:var(--ink)}
+.n-apply{background:var(--red);color:#fff;padding:8px 18px;border-radius:6px;font-size:12.5px;font-weight:400;letter-spacing:.02em;transition:opacity .15s;white-space:nowrap}
+.n-apply:hover{opacity:.88}
+.n-ham{display:none;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;padding:10px;cursor:pointer;background:none;border:none;border-radius:5px;flex-shrink:0}
+.n-ham span{display:block;height:1.5px;background:var(--ink);border-radius:2px;transition:transform .25s,opacity .25s}
+.n-ham.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.n-ham.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.n-ham.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.n-drawer{position:fixed;inset:64px 0 0 0;background:#fff;z-index:200;transform:translateX(100%);transition:transform .28s cubic-bezier(.4,0,.2,1);overflow-y:auto;padding:20px 6vw 120px}
+.n-drawer.open{transform:translateX(0)}
+.n-drawer-section{margin-bottom:28px}
+.n-drawer-label{font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink4);margin-bottom:10px}
+.n-drawer-link{display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid var(--border);color:var(--ink);font-size:14px;font-weight:400}
+.n-drawer-link:last-child{border-bottom:none}
+.n-drawer-link span:first-child{font-size:20px;flex-shrink:0;width:28px}
+.n-drawer-ctas{display:flex;flex-direction:column;gap:10px;margin-top:24px}
+.n-drawer-ctas .n-apply{text-align:center;display:block;padding:13px}
+.n-drawer-ctas .n-signin{text-align:center;display:block;padding:12px;border:1px solid var(--border2);border-radius:6px;color:var(--ink3)}
+@media(max-width:900px){.site-nav{display:none}.n-center{display:none}.n-right .n-signin{display:none}.n-ham{display:flex}}
+@media(max-width:500px){.n-right .n-apply{display:none}}
+
+/* ── MOBILE TAB BAR ── */
+.m-tab-bar{display:none;position:fixed;top:0;left:0;right:0;z-index:400;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:env(safe-area-inset-top,0) 0 0}
+.m-tab-bar-inner{display:flex;align-items:stretch;height:56px}
+.m-tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-decoration:none;color:var(--ink4);font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;-webkit-tap-highlight-color:transparent;padding:0 2px}
+.m-tab.active{color:var(--red)}
+.m-tab.active svg{stroke:var(--red)}
+.m-tab-join{flex:1;display:flex;align-items:center;justify-content:center;padding:0 6px}
+.m-tab-join a{background:var(--red);color:#fff;border-radius:6px;font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;padding:8px 14px;display:block}
+@media(max-width:900px){.m-tab-bar{display:block}body{padding-bottom:0;padding-top:0}}
+
+/* ── HERO ── */
+.hero{background:var(--ink2);padding:110px 5vw 72px;position:relative;overflow:hidden}
+.hero-inner{max-width:760px;margin:0 auto;position:relative;z-index:1}
+.hero-eyebrow{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::before{content:'';display:block;width:24px;height:1px;background:rgba(255,255,255,.2)}
+.hero-title{font-family:var(--serif);font-size:clamp(34px,5vw,58px);color:#fff;line-height:1.08;letter-spacing:-.025em;margin-bottom:20px}
+.hero-sub{font-size:15px;color:rgba(255,255,255,.48);line-height:1.75;max-width:480px}
+.hero-glow{position:absolute;top:-120px;right:-80px;width:500px;height:500px;background:radial-gradient(circle,rgba(200,55,45,.12) 0%,transparent 65%);pointer-events:none}
+
+/* ── NOTICE ── */
+.notice{background:rgba(176,141,87,.07);border-bottom:1px solid rgba(176,141,87,.15);padding:16px 5vw}
+.notice-inner{max-width:760px;margin:0 auto;display:flex;align-items:flex-start;gap:12px}
+.notice-icon{font-size:16px;flex-shrink:0;margin-top:2px}
+.notice-text{font-size:12.5px;color:var(--ink3);line-height:1.7}
+.notice-text strong{color:var(--ink);font-weight:500}
+
+/* ── LAYOUT ── */
+.page-body{padding:48px 5vw 96px;max-width:1100px;margin:0 auto}
+.form-layout{display:grid;grid-template-columns:220px 1fr;gap:48px;align-items:start}
+@media(max-width:780px){.form-layout{grid-template-columns:1fr}}
+
+/* ── STICKY SIDEBAR ── */
+.form-sidebar{position:sticky;top:88px}
+.sidebar-steps{display:flex;flex-direction:column;gap:2px}
+.sidebar-step{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:8px;cursor:pointer;transition:background .15s;text-decoration:none}
+.sidebar-step:hover{background:rgba(0,0,0,.04)}
+.sidebar-step.active{background:var(--white);box-shadow:0 1px 4px rgba(0,0,0,.07)}
+.step-num{font-family:var(--mono);font-size:9px;letter-spacing:.06em;color:var(--ink4);width:18px;flex-shrink:0}
+.step-label{font-size:12px;color:var(--ink3);font-weight:400;white-space:nowrap}
+.sidebar-step.active .step-num{color:var(--red)}
+.sidebar-step.active .step-label{color:var(--ink);font-weight:500}
+.sidebar-step.done .step-num{color:var(--red);opacity:.5}
+.sidebar-step.done .step-label{color:var(--ink4)}
+@media(max-width:780px){.form-sidebar{display:none}}
+
+/* ── FORM CARDS ── */
+.form-cards{display:flex;flex-direction:column;gap:12px}
+.form-card{background:var(--white);border-radius:14px;border:1px solid rgba(0,0,0,.07);box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.card-header{padding:22px 28px 0;display:flex;align-items:baseline;gap:14px}
+.card-num{font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--ink4);flex-shrink:0;margin-top:1px}
+.card-title{font-size:13px;font-weight:500;color:var(--ink);letter-spacing:.01em}
+.card-body{padding:20px 28px 28px;display:flex;flex-direction:column;gap:18px}
+
+/* ── FIELDS ── */
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field-row.single{grid-template-columns:1fr}
+@media(max-width:580px){.field-row{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:5px}
+.field label{font-size:11.5px;font-weight:500;color:var(--ink);letter-spacing:.01em}
+.field label.check-label{font-size:12.5px;font-weight:300;color:var(--ink3);letter-spacing:normal;cursor:pointer}
+.field label .req{color:var(--red);margin-left:2px}
+.field-hint{font-size:11px;color:var(--ink4);line-height:1.5}
+.field input:not([type="checkbox"]),.field select,.field textarea{
+  font-family:var(--sans);font-size:16px;font-weight:300;color:var(--ink);
+  background:#fafaf9;border:1px solid rgba(0,0,0,.1);border-radius:8px;
+  padding:10px 13px;outline:none;width:100%;
+  transition:border-color .15s,box-shadow .15s,background .15s;
+  -webkit-appearance:none;appearance:none;
+}
+.field select{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23aaa' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 13px center;padding-right:34px;
+}
+.field input:not([type="checkbox"]):focus,.field select:focus,.field textarea:focus{
+  border-color:var(--red);box-shadow:0 0 0 3px rgba(200,55,45,.07);background:#fff;
+}
+.field textarea{resize:vertical;min-height:88px;line-height:1.65}
+.field input::placeholder,.field textarea::placeholder{color:#bbb}
+.field input:not([type="checkbox"]).error,.field select.error,.field textarea.error{border-color:var(--red);background:rgba(200,55,45,.02)}
+.field-error{font-size:11px;color:var(--red);margin-top:2px}
+.char-count{font-size:10.5px;color:var(--ink4);text-align:right;margin-top:2px}
+.char-count.warn{color:#d97706}
+.char-count.over{color:var(--red)}
+
+/* ── URL HINT ── */
+.url-hint{font-size:10.5px;color:var(--ink4);margin-top:3px;display:flex;align-items:center;gap:4px}
+.url-hint.valid{color:#16a34a}
+.url-hint.invalid{color:var(--red)}
+
+/* ── CHECKBOXES ── */
+.check-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:8px;margin-top:4px}
+.check-label{
+  display:flex;align-items:center;gap:9px;
+  padding:9px 13px;border:1px solid rgba(0,0,0,.09);border-radius:8px;
+  cursor:pointer;font-size:12.5px;color:var(--ink3);
+  transition:border-color .15s,background .15s;user-select:none;
+  background:#fafaf9;
+}
+.check-label:hover{border-color:rgba(200,55,45,.28);background:rgba(200,55,45,.03)}
+.check-label input{width:14px;height:14px;flex-shrink:0;accent-color:var(--red);cursor:pointer}
+.check-label:has(input:checked){border-color:var(--red-border);background:rgba(200,55,45,.04)}
+.check-label:has(input:checked) span{color:var(--ink);font-weight:500}
+
+/* ── MEDIA LINKS ── */
+.media-links{display:flex;flex-direction:column;gap:10px}
+.media-link-row{display:flex;gap:10px;align-items:flex-start}
+.media-link-row input{flex:1}
+.media-link-row button{flex-shrink:0;background:none;border:1px solid var(--border2);border-radius:6px;padding:10px 12px;cursor:pointer;color:var(--ink4);font-size:13px;transition:all .15s;margin-top:0;line-height:1}
+.media-link-row button:hover{border-color:var(--red);color:var(--red)}
+.add-media-btn{font-size:12px;color:var(--red);background:none;border:1px dashed rgba(200,55,45,.3);border-radius:8px;padding:9px 16px;cursor:pointer;font-family:var(--sans);transition:all .15s;display:inline-flex;align-items:center;gap:6px;margin-top:4px}
+.add-media-btn:hover{background:rgba(200,55,45,.04);border-color:rgba(200,55,45,.5)}
+
+/* ── SUBMIT CARD ── */
+.submit-card{background:var(--ink2);border-radius:14px;padding:28px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.submit-card-copy{flex:1;min-width:200px}
+.submit-card-copy p{font-size:12px;color:rgba(255,255,255,.4);line-height:1.65;margin-top:6px}
+.submit-card-copy p a{color:rgba(255,255,255,.5);text-decoration:underline;text-underline-offset:2px}
+.submit-card-label{font-size:14px;font-weight:400;color:#fff;letter-spacing:.01em}
+.btn-submit{
+  background:var(--red);color:#fff;border:none;border-radius:8px;
+  padding:13px 28px;font-family:var(--sans);font-size:13.5px;font-weight:400;
+  letter-spacing:.03em;cursor:pointer;transition:opacity .15s;
+  display:inline-flex;align-items:center;gap:8px;flex-shrink:0;white-space:nowrap;
+}
+.btn-submit:hover{opacity:.88}
+.btn-submit:disabled{opacity:.4;cursor:not-allowed}
+
+/* ── CONFIRMATION MODAL ── */
+.modal-overlay{
+  position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);
+  display:flex;align-items:center;justify-content:center;padding:24px;
+  opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s;
+}
+.modal-overlay.open{opacity:1;visibility:visible}
+.modal{
+  background:#fff;border-radius:16px;max-width:480px;width:100%;padding:32px;
+  box-shadow:0 24px 60px rgba(0,0,0,.18);transform:translateY(12px);
+  transition:transform .2s;
+}
+.modal-overlay.open .modal{transform:translateY(0)}
+.modal-icon{font-size:28px;margin-bottom:12px}
+.modal-title{font-family:var(--serif);font-size:22px;color:var(--ink);margin-bottom:8px;line-height:1.2}
+.modal-body{font-size:13.5px;color:var(--ink3);line-height:1.7;margin-bottom:20px}
+.modal-checklist{display:flex;flex-direction:column;gap:8px;margin-bottom:24px}
+.modal-check-item{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--ink3);line-height:1.5}
+.modal-check-item .check-icon{font-size:15px;flex-shrink:0;margin-top:1px}
+.modal-check-item strong{color:var(--ink);font-weight:500}
+.modal-actions{display:flex;gap:10px;flex-wrap:wrap}
+.modal-confirm{flex:1;background:var(--red);color:#fff;border:none;border-radius:8px;padding:12px 20px;font-family:var(--sans);font-size:13.5px;font-weight:400;cursor:pointer;transition:opacity .15s;white-space:nowrap}
+.modal-confirm:hover{opacity:.88}
+.modal-back{flex:1;background:none;border:1px solid var(--border2);border-radius:8px;padding:12px 20px;font-family:var(--sans);font-size:13.5px;color:var(--ink3);cursor:pointer;transition:all .15s;white-space:nowrap}
+.modal-back:hover{border-color:var(--ink3);color:var(--ink)}
+
+/* ── SUCCESS ── */
+.success-state{display:none;text-align:center;padding:80px 24px}
+.success-icon{font-size:36px;margin-bottom:16px}
+.success-title{font-family:var(--serif);font-size:28px;color:var(--ink);margin-bottom:10px}
+.success-body{font-size:14px;color:var(--ink3);line-height:1.7;max-width:420px;margin:0 auto 28px}
+.success-back{font-size:13px;color:var(--ink3);border-bottom:1px solid var(--border2);padding-bottom:1px}
+
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ── FOOTER MOBILE ── */
+@media(max-width:600px){
+  footer{padding:24px 5vw 20px!important}
+  footer .footer-quick-links{
+    display:grid!important;
+    grid-template-columns:1fr 1fr!important;
+    gap:8px!important;
+    margin-bottom:16px!important;
+    padding-bottom:16px!important;
+    width:100%!important;
+    box-sizing:border-box!important;
+  }
+  footer .footer-quick-links span:first-child{
+    grid-column:1/-1!important;
+    text-align:center!important;
+  }
+  footer .footer-quick-links a{
+    font-size:12px!important;
+    padding:10px 12px!important;
+    min-height:44px!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    text-align:center!important;
+    background:rgba(255,255,255,.05)!important;
+    border-radius:6px!important;
+    border:1px solid rgba(255,255,255,.08)!important;
+    font-weight:500!important;
+    color:rgba(255,255,255,.7)!important;
+    box-sizing:border-box!important;
+  }
+  footer .footer-nav-links{
+    gap:6px 8px!important;
+    font-size:10px!important;
+  }
+  footer .footer-nav-links a{
+    font-size:10px!important;
+  }
+}
+
+/* ── PARTNER-SPECIFIC ── */
+.ptype-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:4px}
+@media(max-width:780px){.ptype-grid{grid-template-columns:1fr}}
+.ptype{display:flex;flex-direction:column;gap:6px;padding:14px 15px;border:1px solid rgba(0,0,0,.09);border-radius:10px;background:#fafaf9;cursor:pointer;transition:border-color .15s,background .15s}
+.ptype:hover{border-color:rgba(200,55,45,.28);background:rgba(200,55,45,.03)}
+.ptype:has(input:checked){border-color:var(--red-border);background:rgba(200,55,45,.04)}
+.ptype-top{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:500;color:var(--ink)}
+.ptype-top input{width:14px;height:14px;accent-color:var(--red);flex-shrink:0}
+.ptype-desc{font-size:11.5px;color:var(--ink3);line-height:1.55}
+.check-grid.inline{grid-template-columns:repeat(auto-fill,minmax(120px,1fr))}
+.commit{display:flex;align-items:flex-start;gap:11px;padding:13px 15px;border:1px solid rgba(0,0,0,.09);border-radius:8px;background:#fafaf9;cursor:pointer;font-size:12.5px;color:var(--ink3);line-height:1.6;transition:border-color .15s,background .15s}
+.commit input{width:14px;height:14px;margin-top:4px;flex-shrink:0;accent-color:var(--red);cursor:pointer}
+.commit:has(input:checked){border-color:var(--red-border);background:rgba(200,55,45,.04);color:var(--ink)}
+.commit strong{color:var(--ink);font-weight:500}
+.commit-list{display:flex;flex-direction:column;gap:8px}
+.field input[type="radio"],.field input[type="radio"]:focus{width:14px;height:14px;padding:0;margin:0;border:none;border-radius:50%;background:none;box-shadow:none;-webkit-appearance:auto;appearance:auto;accent-color:var(--red);flex-shrink:0;cursor:pointer}
+.notice-text ul{margin:6px 0 4px 18px}
+.notice-text li{margin:2px 0}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400&display=swap">
+<script src="/assets/site-chrome.js" defer></script>
+<style>yk-header:not(:defined){display:block;min-height:73px}</style>
+</head>
+<body>
+<yk-header><a href="/">Yorkseed</a> <a href="/hubs.html">Hubs</a> <a href="/events.html">Events</a> <a href="/investors">Investor list</a> <a href="/contact.html">Contact</a></yk-header>
+
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Yorkseed Partnerships</div>
+    <h1 class="hero-title">Event Partner<br>Request</h1>
+    <p class="hero-sub">Bring your event to a curated global network of founders and investors across 50+ city hubs. Tell us about your organization and the event you want to build with Yorkseed.</p>
+  </div>
+</section>
+
+<div class="notice">
+  <div class="notice-inner">
+    <div class="notice-icon">🤝</div>
+    <div class="notice-text"><strong>Every partnership follows the Yorkseed branding guidelines:</strong>
+      <ul>
+        <li>Yorkseed logo on your event graphic</li>
+        <li>A Yorkseed one-liner or short paragraph in your event description, hyperlinked back to Yorkseed</li>
+        <li>Co-hosts list Yorkseed as a visible co-host on the event page</li>
+      </ul>
+      We provide the logo, copy and link. Events must have a clear business purpose with active founders and investors in the room.
+    </div>
+  </div>
+</div>
+
+<div class="page-body">
+  <div class="form-layout">
+
+    <aside class="form-sidebar">
+      <div class="sidebar-steps">
+        <a href="#s1" class="sidebar-step active"><span class="step-num">01</span><span class="step-label">About you</span></a>
+        <a href="#s2" class="sidebar-step"><span class="step-num">02</span><span class="step-label">Organization</span></a>
+        <a href="#s3" class="sidebar-step"><span class="step-num">03</span><span class="step-label">Partnership</span></a>
+        <a href="#s4" class="sidebar-step"><span class="step-num">04</span><span class="step-label">The event</span></a>
+        <a href="#s5" class="sidebar-step"><span class="step-num">05</span><span class="step-label">Commitments</span></a>
+        <a href="#s6" class="sidebar-step"><span class="step-num">06</span><span class="step-label">Final notes</span></a>
+      </div>
+    </aside>
+
+    <div>
+      <form id="partnerForm" novalidate>
+        <input type="checkbox" name="botcheck" id="botcheck" style="display:none" tabindex="-1" autocomplete="off"/>
+        <div class="form-cards">
+
+          <!-- 01 ABOUT YOU -->
+          <div class="form-card" id="s1">
+            <div class="card-header"><span class="card-num">01</span><span class="card-title">About you</span></div>
+            <div class="card-body">
+              <div class="field-row">
+                <div class="field">
+                  <label for="firstName">First name <span class="req">*</span></label>
+                  <input type="text" id="firstName" name="firstName" placeholder="Jane" autocomplete="given-name" required/>
+                </div>
+                <div class="field">
+                  <label for="lastName">Last name <span class="req">*</span></label>
+                  <input type="text" id="lastName" name="lastName" placeholder="Smith" autocomplete="family-name" required/>
+                </div>
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="email">Email address <span class="req">*</span></label>
+                  <input type="email" id="email" name="email" placeholder="jane@example.com" autocomplete="email" required/>
+                </div>
+                <div class="field">
+                  <label for="phone">WhatsApp / phone</label>
+                  <input type="tel" id="phone" name="phone" placeholder="+1 212 000 0000" autocomplete="tel"/>
+                </div>
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="basedCity">City you are based in <span class="req">*</span></label>
+                  <input type="text" id="basedCity" name="basedCity" placeholder="New York" required/>
+                </div>
+                <div class="field">
+                  <label for="linkedin">LinkedIn URL <span class="req">*</span></label>
+                  <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourname" required/>
+                  <div class="url-hint" id="linkedinHint">Must start with https://linkedin.com/in/</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 02 ORGANIZATION -->
+          <div class="form-card" id="s2">
+            <div class="card-header"><span class="card-num">02</span><span class="card-title">Organization</span></div>
+            <div class="card-body">
+              <div class="field-row">
+                <div class="field">
+                  <label for="organization">Organization <span class="req">*</span></label>
+                  <input type="text" id="organization" name="organization" placeholder="Acme Ventures" autocomplete="organization" required/>
+                </div>
+                <div class="field">
+                  <label for="jobTitle">Your role <span class="req">*</span></label>
+                  <input type="text" id="jobTitle" name="jobTitle" placeholder="Head of Community" autocomplete="organization-title" required/>
+                </div>
+              </div>
+              <div class="field-row single">
+                <div class="field">
+                  <label for="website">Organization website</label>
+                  <input type="url" id="website" name="website" placeholder="https://yourwebsite.com"/>
+                  <div class="url-hint" id="websiteHint" style="display:none"></div>
+                </div>
+              </div>
+              <div class="field-row single">
+                <div class="field">
+                  <label for="orgType">Your organization is primarily a <span class="req">*</span></label>
+                  <select id="orgType" name="orgType" required>
+                    <option value="" disabled selected>Select one</option>
+                    <option>Startup / scaleup</option>
+                    <option>VC fund / angel network</option>
+                    <option>Family office / LP</option>
+                    <option>Accelerator / incubator</option>
+                    <option>Corporate / CVC</option>
+                    <option>Founder or investor community</option>
+                    <option>Event organizer / conference</option>
+                    <option>Service provider (legal, finance, etc.)</option>
+                    <option>University / research institution</option>
+                    <option>Government / economic development</option>
+                    <option>Venue / coworking</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 03 PARTNERSHIP -->
+          <div class="form-card" id="s3">
+            <div class="card-header"><span class="card-num">03</span><span class="card-title">Partnership type</span></div>
+            <div class="card-body">
+              <div class="field">
+                <label>How do you want to work with Yorkseed? <span class="req">*</span></label>
+                <div class="ptype-grid" id="ptypeGrid">
+                  <label class="ptype">
+                    <span class="ptype-top"><input type="radio" name="partnershipType" value="Community Partner"/>Community Partner</span>
+                    <span class="ptype-desc">Yorkseed logo on your event graphic and a Yorkseed one-liner in your event description, hyperlinked back to us.</span>
+                  </label>
+                  <label class="ptype">
+                    <span class="ptype-top"><input type="radio" name="partnershipType" value="Ecosystem Partner"/>Ecosystem Partner</span>
+                    <span class="ptype-desc">An ongoing relationship across multiple events or programs, with Yorkseed branding on each.</span>
+                  </label>
+                  <label class="ptype">
+                    <span class="ptype-top"><input type="radio" name="partnershipType" value="Co-host"/>Co-host</span>
+                    <span class="ptype-desc">Yorkseed listed as a visible co-host on the event page, plus all Community Partner requirements.</span>
+                  </label>
+                </div>
+              </div>
+              <div class="field" id="managerField" style="display:none">
+                <label>Will you grant Yorkseed manager co-host access on the event platform? <span class="req">*</span></label>
+                <span class="field-hint">With manager access we invite our network directly through Luma or your event platform.</span>
+                <div class="check-grid inline" id="managerGrid">
+                  <label class="check-label"><input type="radio" name="managerAccess" value="Yes"/><span>Yes</span></label>
+                  <label class="check-label"><input type="radio" name="managerAccess" value="No"/><span>No</span></label>
+                  <label class="check-label"><input type="radio" name="managerAccess" value="Not sure yet"/><span>Not sure yet</span></label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 04 EVENT -->
+          <div class="form-card" id="s4">
+            <div class="card-header"><span class="card-num">04</span><span class="card-title">The event</span></div>
+            <div class="card-body">
+              <div class="field-row single">
+                <div class="field">
+                  <label for="eventName">Event name <span class="req">*</span></label>
+                  <input type="text" id="eventName" name="eventName" placeholder="Fintech Founders x Investors Breakfast" required/>
+                </div>
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="eventDate">Date <span class="req">*</span></label>
+                  <input type="date" id="eventDate" name="eventDate" required/>
+                </div>
+                <div class="field">
+                  <label for="eventCity">City <span class="req">*</span></label>
+                  <input type="text" id="eventCity" name="eventCity" placeholder="New York" required/>
+                </div>
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="eventFormat">Format <span class="req">*</span></label>
+                  <select id="eventFormat" name="eventFormat" required>
+                    <option value="" disabled selected>Select one</option>
+                    <option>In-person</option>
+                    <option>Virtual</option>
+                    <option>Hybrid</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="attendance">Expected attendance</label>
+                  <select id="attendance" name="attendance">
+                    <option value="" disabled selected>Select one</option>
+                    <option>Under 30</option>
+                    <option>30–75</option>
+                    <option>75–150</option>
+                    <option>150–500</option>
+                    <option>500+</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="venue">Venue</label>
+                  <input type="text" id="venue" name="venue" placeholder="Venue name or neighborhood"/>
+                </div>
+                <div class="field">
+                  <label for="eventLink">Event link</label>
+                  <input type="url" id="eventLink" name="eventLink" placeholder="https://lu.ma/…"/>
+                  <div class="url-hint" id="eventLinkHint" style="display:none"></div>
+                </div>
+              </div>
+              <div class="field-row single">
+                <div class="field">
+                  <label for="eventDescription">What is the event? <span class="req">*</span></label>
+                  <span class="field-hint">Format, agenda and speakers. 200–1,200 characters.</span>
+                  <textarea id="eventDescription" name="eventDescription" rows="5" placeholder="A curated breakfast for 40 fintech founders and seed investors, with a fireside on…" required></textarea>
+                  <div class="char-count" id="descCount">0 / 1200</div>
+                </div>
+              </div>
+              <div class="field-row single">
+                <div class="field">
+                  <label for="eventPurpose">Purpose <span class="req">*</span></label>
+                  <span class="field-hint">Why it exists and what attendees gain. 100–800 characters.</span>
+                  <textarea id="eventPurpose" name="eventPurpose" rows="4" placeholder="Connect pre-seed fintech founders with active seed investors before…" required></textarea>
+                  <div class="char-count" id="purposeCount">0 / 800</div>
+                </div>
+              </div>
+              <div class="field">
+                <label>Who is it for? <span class="req">*</span></label>
+                <span class="field-hint">Select all that apply.</span>
+                <div class="check-grid" id="audienceGrid">
+                  <label class="check-label"><input type="checkbox" name="audience" value="Founders"/><span>Founders</span></label>
+                  <label class="check-label"><input type="checkbox" name="audience" value="Angel investors"/><span>Angel investors</span></label>
+                  <label class="check-label"><input type="checkbox" name="audience" value="VCs"/><span>VCs</span></label>
+                  <label class="check-label"><input type="checkbox" name="audience" value="LPs / family offices"/><span>LPs / family offices</span></label>
+                  <label class="check-label"><input type="checkbox" name="audience" value="Corporates / CVCs"/><span>Corporates / CVCs</span></label>
+                  <label class="check-label"><input type="checkbox" name="audience" value="Operators"/><span>Operators</span></label>
+                  <label class="check-label"><input type="checkbox" name="audience" value="Other"/><span>Other</span></label>
+                </div>
+              </div>
+              <div class="field-row single">
+                <div class="field">
+                  <label for="organizers">Organizers and partners <span class="req">*</span></label>
+                  <span class="field-hint">Everyone hosting, sponsoring or supporting the event.</span>
+                  <textarea id="organizers" name="organizers" rows="2" placeholder="e.g. Acme Ventures (host), Stripe (sponsor), NYC Fintech Week (partner)" required></textarea>
+                </div>
+              </div>
+              <div class="field">
+                <label>Sector focus <span class="req">*</span></label>
+                <span class="field-hint">Yorkseed is sector agnostic, except cannabis and casino gambling. Select all that apply.</span>
+                <div class="check-grid" id="sectorGrid">
+                  <label class="check-label"><input type="checkbox" name="sector" value="Sector agnostic"/><span>Sector agnostic</span></label>
+                  <label class="check-label"><input type="checkbox" name="sector" value="AI / ML"/><span>AI / ML</span></label>
+                  <label class="check-label"><input type="checkbox" name="sector" value="Fintech"/><span>Fintech</span></label>
+                  <label class="check-label"><input type="checkbox" name="sector" value="Health Tech"/><span>Health Tech</span></label>
+                  <label class="check-label"><input type="checkbox" name="sector" value="Climate Tech"/><span>Climate Tech</span></label>
+                  <label class="check-label"><input type="checkbox" name="sector" value="Deep Tech"/><span>Deep Tech</span></label>
+                  <label class="check-label"><input type="checkbox" name="sector" value="SaaS / B2B"/><span>SaaS / B2B</span></label>
+                  <label class="check-label"><input type="checkbox" name="sector" value="Consumer"/><span>Consumer</span></label>
+                  <label class="check-label"><input type="checkbox" name="sector" value="Web3 / Crypto"/><span>Web3 / Crypto</span></label>
+                  <label class="check-label"><input type="checkbox" name="sector" value="Real Estate"/><span>Real Estate</span></label>
+                  <label class="check-label"><input type="checkbox" name="sector" value="Future of Work"/><span>Future of Work</span></label>
+                  <label class="check-label"><input type="checkbox" name="sector" value="Venture / Investing"/><span>Venture / Investing</span></label>
+                  <label class="check-label"><input type="checkbox" name="sector" value="Other"/><span>Other</span></label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 05 COMMITMENTS -->
+          <div class="form-card" id="s5">
+            <div class="card-header"><span class="card-num">05</span><span class="card-title">Commitments</span></div>
+            <div class="card-body">
+              <div class="field">
+                <span class="field-hint">All three are required to partner with Yorkseed.</span>
+                <div class="commit-list" id="commitList">
+                  <label class="commit"><input type="checkbox" id="commitBranding"/><span><strong>Branding guidelines.</strong> I will place the Yorkseed logo on the event graphic and a Yorkseed one-liner in the event description, hyperlinked back to Yorkseed. Co-hosts also list Yorkseed as a visible co-host.</span></label>
+                  <label class="commit"><input type="checkbox" id="commitAudience"/><span><strong>Intentional networking.</strong> This event is built for founders and investors. It is not a general party, social, open mixer or yoga session anyone can walk into.</span></label>
+                  <label class="commit"><input type="checkbox" id="commitSector"/><span><strong>Sector exclusions.</strong> This event and its organizers are not related to cannabis or casino gambling.</span></label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 06 FINAL -->
+          <div class="form-card" id="s6">
+            <div class="card-header"><span class="card-num">06</span><span class="card-title">Final notes</span></div>
+            <div class="card-body">
+              <div class="field-row single">
+                <div class="field">
+                  <label for="referral">How did you hear about Yorkseed?</label>
+                  <select id="referral" name="referral">
+                    <option value="" disabled selected>Select one</option>
+                    <option>Yorkseed member / network</option>
+                    <option>Yorkseed hub director</option>
+                    <option>Yorkseed Insider newsletter</option>
+                    <option>Social media</option>
+                    <option>Search engine</option>
+                    <option>Event or conference</option>
+                    <option>Press / media</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field-row single">
+                <div class="field">
+                  <label for="additionalInfo">Anything else we should know?</label>
+                  <textarea id="additionalInfo" name="additionalInfo" rows="3" placeholder="Past events, sponsors, timeline, or anything that helps us review your request…"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SUBMIT -->
+          <div class="submit-card">
+            <div class="submit-card-copy">
+              <div class="submit-card-label">Ready to partner?</div>
+              <p>We review partner requests on a rolling basis and will reach out if your event is a strong fit. By submitting you agree to Yorkseed storing and processing your information. View our <a href="/contact.html">privacy policy</a>.</p>
+            </div>
+            <button type="submit" class="btn-submit" id="submitBtn">
+              <span id="submitLabel">Submit request</span>
+            </button>
+          </div>
+
+        </div>
+      </form>
+
+      <div class="success-state" id="successState">
+        <div class="success-icon">✦</div>
+        <h2 class="success-title">Request received</h2>
+        <p class="success-body">Thank you. We review every partner request and will be in touch if your event is a fit, with the Yorkseed logo, copy and link to use.</p>
+        <a href="/" class="success-back">← Back to yorkseed.co</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CONFIRMATION MODAL -->
+<div class="modal-overlay" id="confirmModal">
+  <div class="modal">
+    <div class="modal-icon">📋</div>
+    <h2 class="modal-title">Before you submit…</h2>
+    <p class="modal-body">Complete requests are reviewed first. Please confirm you've included the following:</p>
+    <div class="modal-checklist">
+      <div class="modal-check-item"><span class="check-icon">📝</span><span><strong>Description and purpose</strong>: what the event is, why it exists and what attendees gain</span></div>
+      <div class="modal-check-item"><span class="check-icon">👥</span><span><strong>Audience</strong>: built for founders and investors, with a clear business purpose</span></div>
+      <div class="modal-check-item"><span class="check-icon">🤝</span><span><strong>Organizers and partners</strong>: everyone hosting, sponsoring or supporting</span></div>
+      <div class="modal-check-item"><span class="check-icon">🔗</span><span><strong>Event link</strong>: your Luma, Eventbrite or event page, if live</span></div>
+    </div>
+    <div class="modal-actions">
+      <button class="modal-back" onclick="closeModal()">← Go back and check</button>
+      <button class="modal-confirm" id="modalConfirmBtn" onclick="doSubmit()">Yes, submit now</button>
+    </div>
+  </div>
+</div>
+
+<yk-footer><a href="/">Home</a> <a href="/hubs.html">Hubs</a> <a href="/events.html">Events</a> <a href="/about.html">About</a> <a href="/contact.html">Contact</a></yk-footer>
+
+<script>
+function toggleDrop(){var d=document.getElementById('ecosDrop');if(d)d.classList.toggle('open')}
+function toggleDrawer(){var h=document.getElementById('hamBtn');var d=document.getElementById('navDrawer');if(!h||!d)return;h.classList.toggle('open');d.classList.toggle('open');document.body.style.overflow=d.classList.contains('open')?'hidden':''}
+document.addEventListener('click',function(e){var d=document.getElementById('ecosDrop');if(d&&!d.contains(e.target))d.classList.remove('open')});
+
+// ── URL VALIDATION HELPERS ──
+function isValidUrl(val){try{new URL(val);return true;}catch(e){return false;}}
+function isLinkedIn(val){return /^https:\/\/(www\.)?linkedin\.com\/in\//i.test(val.trim());}
+function validateUrlField(inputId,hintId,validator,errorMsg,successMsg){
+  var input=document.getElementById(inputId),hint=document.getElementById(hintId);
+  if(!input||!hint)return;
+  input.addEventListener('input',function(){
+    var val=input.value.trim();
+    if(!val){hint.className='url-hint';hint.textContent=errorMsg||'';hint.style.display=errorMsg?'':'none';return;}
+    if(validator?validator(val):isValidUrl(val)){hint.className='url-hint valid';hint.textContent='✓ '+(successMsg||'Looks good');hint.style.display='';}
+    else{hint.className='url-hint invalid';hint.textContent='✗ '+(errorMsg||'Enter a valid URL starting with https://');hint.style.display='';}
+  });
+}
+validateUrlField('linkedin','linkedinHint',isLinkedIn,'Must be a full LinkedIn URL: https://linkedin.com/in/yourname','Valid LinkedIn URL');
+['website','eventLink'].forEach(function(id){validateUrlField(id,id+'Hint',isValidUrl,'Enter a full URL starting with https://','Looks good');});
+
+// ── CHAR COUNTERS ──
+function initCounter(id,cid,max){
+  var t=document.getElementById(id),c=document.getElementById(cid);if(!t||!c)return;
+  t.addEventListener('input',function(){var l=t.value.length;c.textContent=l+' / '+max;c.className='char-count'+(l>max?' over':l>max*.85?' warn':'');});
+}
+initCounter('eventDescription','descCount',1200);
+initCounter('eventPurpose','purposeCount',800);
+var LIMITS={eventDescription:[200,1200],eventPurpose:[100,800]};
+
+// ── MANAGER ACCESS (CO-HOST ONLY) ──
+Array.prototype.forEach.call(document.querySelectorAll('[name="partnershipType"]'),function(r){
+  r.addEventListener('change',function(){
+    var co=document.querySelector('[name="partnershipType"]:checked').value==='Co-host';
+    document.getElementById('managerField').style.display=co?'':'none';
+    if(!co)Array.prototype.forEach.call(document.querySelectorAll('[name="managerAccess"]'),function(m){m.checked=false;});
+    clearGroupError('ptypeGrid');
+  });
+});
+
+// ── SIDEBAR ──
+var cards=['s1','s2','s3','s4','s5','s6'];
+var steps=document.querySelectorAll('.sidebar-step');
+function updateSidebar(){
+  var scrollY=window.scrollY+120,active=0;
+  cards.forEach(function(id,i){var el=document.getElementById(id);if(el&&el.offsetTop<=scrollY)active=i;});
+  steps.forEach(function(s,i){s.classList.toggle('active',i===active);});
+}
+window.addEventListener('scroll',updateSidebar,{passive:true});
+
+// ── ERROR HELPERS ──
+function setError(el,msg){
+  el.classList.add('error');
+  var h=el.parentNode.querySelector('.field-error');
+  if(!h){h=document.createElement('p');h.className='field-error';el.parentNode.appendChild(h);}
+  h.textContent=msg;
+}
+function clearError(el){el.classList.remove('error');var h=el.parentNode.querySelector('.field-error');if(h)h.textContent='';}
+function setGroupError(gridId,msg){
+  var g=document.getElementById(gridId);
+  var e=g.parentNode.querySelector('.field-error');
+  if(!e){e=document.createElement('p');e.className='field-error';g.parentNode.appendChild(e);}
+  e.textContent=msg;
+}
+function clearGroupError(gridId){var g=document.getElementById(gridId);var e=g&&g.parentNode.querySelector('.field-error');if(e)e.textContent='';}
+var REQUIRED=['firstName','lastName','email','basedCity','linkedin','organization','jobTitle','orgType','eventName','eventDate','eventCity','eventFormat','eventDescription','eventPurpose','organizers'];
+REQUIRED.forEach(function(id){
+  var el=document.getElementById(id);if(!el)return;
+  el.addEventListener('input',function(){clearError(el);});
+  el.addEventListener('change',function(){clearError(el);});
+});
+[['audienceGrid','audience'],['sectorGrid','sector'],['managerGrid','managerAccess']].forEach(function(p){
+  Array.prototype.forEach.call(document.querySelectorAll('[name="'+p[1]+'"]'),function(i){i.addEventListener('change',function(){clearGroupError(p[0]);});});
+});
+Array.prototype.forEach.call(document.querySelectorAll('#commitList input'),function(i){i.addEventListener('change',function(){clearGroupError('commitList');});});
+
+// ── MODAL ──
+function openModal(){document.getElementById('confirmModal').classList.add('open');document.body.style.overflow='hidden';}
+function closeModal(){document.getElementById('confirmModal').classList.remove('open');document.body.style.overflow='';}
+document.getElementById('confirmModal').addEventListener('click',function(e){if(e.target===this)closeModal();});
+
+// ── VALIDATION ──
+function validateForm(){
+  var valid=true,form=document.getElementById('partnerForm');
+  REQUIRED.forEach(function(id){
+    var el=document.getElementById(id);if(!el)return;
+    var v=el.value.trim();
+    if(!v){setError(el,'Required.');valid=false;}
+    else if(id==='email'&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){setError(el,'Enter a valid email.');valid=false;}
+    else if(id==='linkedin'&&!isLinkedIn(v)){setError(el,'Enter your full LinkedIn URL: https://linkedin.com/in/yourname');valid=false;}
+    else if(LIMITS[id]&&(v.length<LIMITS[id][0]||v.length>LIMITS[id][1])){setError(el,'Write '+LIMITS[id][0]+'–'+LIMITS[id][1].toLocaleString()+' characters. Short descriptions without a clear purpose are not accepted.');valid=false;}
+  });
+  var pt=form.querySelector('[name="partnershipType"]:checked');
+  if(!pt){setGroupError('ptypeGrid','Please choose a partnership type.');valid=false;}
+  if(pt&&pt.value==='Co-host'&&!form.querySelector('[name="managerAccess"]:checked')){setGroupError('managerGrid','Please choose an option.');valid=false;}
+  if(!form.querySelectorAll('[name="audience"]:checked').length){setGroupError('audienceGrid','Please select at least one audience.');valid=false;}
+  if(!form.querySelectorAll('[name="sector"]:checked').length){setGroupError('sectorGrid','Please select at least one sector.');valid=false;}
+  var allCommit=Array.prototype.every.call(document.querySelectorAll('#commitList input'),function(i){return i.checked;});
+  if(!allCommit){setGroupError('commitList','Please confirm all three commitments.');valid=false;}
+  return valid;
+}
+
+// ── SUBMIT FLOW ──
+document.getElementById('partnerForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  if(!validateForm()){
+    var first=document.getElementById('partnerForm').querySelector('.error, .field-error:not(:empty)');
+    if(first)first.scrollIntoView({behavior:'smooth',block:'center'});
+    return;
+  }
+  openModal();
+});
+
+function val(id){var el=document.getElementById(id);return el?el.value.trim():'';}
+function checked(name){return Array.from(document.querySelectorAll('[name="'+name+'"]:checked')).map(function(c){return c.value;}).join(', ');}
+
+function doSubmit(){
+  var form=document.getElementById('partnerForm');
+  if(document.getElementById('botcheck').checked)return;
+  var confirmBtn=document.getElementById('modalConfirmBtn');
+  confirmBtn.disabled=true;confirmBtn.textContent='Submitting…';
+
+  // Fixed column order: every email parses into the same CSV row
+  var row=[
+    ['Form','Event Partner Request'],
+    ['Submitted at',new Date().toISOString()],
+    ['First name',val('firstName')],['Last name',val('lastName')],['Email',val('email')],['Phone',val('phone')],
+    ['Based in',val('basedCity')],['LinkedIn',val('linkedin')],
+    ['Organization',val('organization')],['Role',val('jobTitle')],['Website',val('website')],['Organization type',val('orgType')],
+    ['Partnership type',checked('partnershipType')],['Manager co-host access',checked('managerAccess')],
+    ['Event name',val('eventName')],['Event date',val('eventDate')],['Event city',val('eventCity')],['Event format',val('eventFormat')],
+    ['Expected attendance',val('attendance')],['Venue',val('venue')],['Event link',val('eventLink')],
+    ['Event description',val('eventDescription')],['Event purpose',val('eventPurpose')],
+    ['Audience',checked('audience')],['Organizers and partners',val('organizers')],['Sector focus',checked('sector')],
+    ['Agrees to branding guidelines',document.getElementById('commitBranding').checked?'Yes':'No'],
+    ['Built for founders and investors',document.getElementById('commitAudience').checked?'Yes':'No'],
+    ['Not cannabis or casino gambling',document.getElementById('commitSector').checked?'Yes':'No'],
+    ['Heard about Yorkseed',val('referral')],['Notes',val('additionalInfo')]
+  ];
+  var data={
+    access_key:'5c1c96c6-7a4f-4cc7-85d3-4dd79f67e20a',
+    subject:'New event partner request: '+checked('partnershipType')+' | '+val('eventName')+' ('+val('eventCity')+')',
+    from_name:'Yorkseed Event Partner Request',
+    replyto:val('email')
+  };
+  row.forEach(function(p){data[p[0]]=p[1]||'-';});
+
+  fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
+    .then(function(r){return r.json();})
+    .then(function(res){
+      closeModal();
+      if(res.success){
+        form.style.display='none';
+        document.getElementById('successState').style.display='block';
+        window.scrollTo({top:document.querySelector('.page-body').offsetTop-80,behavior:'smooth'});
+      } else {
+        confirmBtn.disabled=false;confirmBtn.textContent='Yes, submit now';
+        alert('Something went wrong. Please try again.');
+      }
+    })
+    .catch(function(){
+      closeModal();
+      confirmBtn.disabled=false;confirmBtn.textContent='Yes, submit now';
+      alert('Network error. Please check your connection and try again.');
+    });
+}
+</script>
+
+<script>
+function toggleMoreMenu(){var m=document.getElementById('moreMenu');var o=document.getElementById('moreOverlay');var open=m.style.display==='block';m.style.display=open?'none':'block';o.style.display=open?'none':'block';document.body.style.overflow=open?'':'hidden'}
+// Close more menu on outside click
+document.addEventListener('click',function(e){var m=document.getElementById('moreMenu');if(m&&m.style.display==='block'&&!m.contains(e.target)&&!e.target.closest('.m-tab')){toggleMoreMenu();}});
+</script>
+<script src="https://cdn.popupsmart.com/bundle.js" data-id="80692" async defer></script>
+<script src="https://www.noupe.com/embed/01993ebbf4a3715c8678cf86a04826af1681.js"></script>
+</body>
+</html>
