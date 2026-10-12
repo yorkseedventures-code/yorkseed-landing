@@ -415,6 +415,19 @@ body:not(.m-conf) .conf-only{display:none!important}
                 <select id="hub" required><option value="" disabled selected>Select one</option><option>New York City</option><option>Amsterdam</option><option>Austin</option><option>Bay Area</option><option>Berlin</option><option>Boston</option><option>Buenos Aires</option><option>Chicago</option><option>Copenhagen</option><option>Dubai</option><option>Dublin</option><option>GIFT City</option><option>Helsinki</option><option>Hong Kong</option><option>Kuala Lumpur</option><option>Lisbon</option><option>London</option><option>Los Angeles</option><option>Mexico City</option><option>Miami</option><option>Milan</option><option>Montreal</option><option>Munich</option><option>Paris</option><option>San Antonio</option><option>São Paulo and Rio de Janeiro</option><option>Singapore</option><option>Stockholm</option><option>Sydney</option><option>Tel Aviv</option><option>Toronto</option><option>Victoria BC</option><option>Washington, D.C.</option><option>Zurich</option><option>International Hub</option><option>My city is not listed</option></select></div>
               <div class="field"><label for="basedCity">City you are based in <span class="req">*</span></label><input type="text" id="basedCity" placeholder="New York" required/></div>
             </div>
+            <div class="field">
+              <label>Your connection to this city <span class="req">*</span></label>
+              <span class="field-hint">City hubs are only for people who live in the city or personally travel there often. They exist for real, in-person relationships: members meet, show up to local events and help each other on the ground. Joining several hubs to collect leads isn't allowed, because it turns a local community into a list of people to pitch.</span>
+              <div class="check-grid" id="tieGrid">
+                <label class="check-label"><input type="radio" name="tie" value="I'm based here"/><span>I'm based here</span></label>
+                <label class="check-label"><input type="radio" name="tie" value="I travel here often"/><span>I travel here often</span></label>
+              </div>
+            </div>
+            <div class="field-row single" id="freqRow" hidden>
+              <div class="field"><label for="freq">How often are you there in person? <span class="req">*</span></label>
+                <select id="freq"><option value="" disabled selected>Select one</option><option>Monthly or more</option><option>Every 2 to 3 months</option><option>A few times a year</option></select>
+                <span class="field-hint">Once a year or less? Join the hub where you're based, or the International Hub.</span></div>
+            </div>
             <div class="field-row single">
               <div class="field"><label for="referrer">Referred by a Yorkseed member?</label>
                 <input type="text" id="referrer" placeholder="Member name or LinkedIn (optional, speeds up approval)"/></div>
@@ -453,6 +466,7 @@ body:not(.m-conf) .conf-only{display:none!important}
                 <label class="commit"><input type="checkbox" id="cPromo"/><span><strong>No unsolicited self-promotion.</strong> I will not pitch my services unless someone asks.</span></label>
                 <label class="commit"><input type="checkbox" id="cEvents"/><span><strong>Quality events only.</strong> I will only share in-person events in my own city, built for founders and investors, with a full description, purpose, audience, organizers and partners. No virtual events unless affiliated with Yorkseed.</span></label>
                 <label class="commit"><input type="checkbox" id="cGive"/><span><strong>Give and take.</strong> I will contribute to the community, not just take from it.</span></label>
+                <label class="commit city-only"><input type="checkbox" id="cLocal"/><span><strong>Local only.</strong> I'm only joining hubs in cities where I live or personally spend time. I understand that joining multiple hubs to collect leads leads to removal.</span></label>
               </div>
             </div>
           </div>
@@ -494,6 +508,10 @@ function toggleDrawer(){var h=document.getElementById('hamBtn');var d=document.g
 (function(){
   var form=document.getElementById('joinForm');
   var BASE=['firstName','lastName','email','countryCode','whatsapp'];
+  (function(){var fr=document.getElementById('freqRow'),fq=document.getElementById('freq');
+    [].forEach.call(document.querySelectorAll('[name="tie"]'),function(r){r.addEventListener('change',function(){
+      groupError('tieGrid','');fr.hidden=r.value!=='I travel here often'||!r.checked;if(fr.hidden){fq.value='';clearError(fq);}});});
+    fq.addEventListener('change',function(){clearError(fq);});})();
   (function(){var cs=document.getElementById('companySite');['input','change'].forEach(function(ev){cs.addEventListener(ev,function(){clearError(cs);});});})();
   var CITY=['linkedin','company','jobTitle','about','hub','basedCity'];
   var CONF=['conference','dates','confRole'];
@@ -565,7 +583,10 @@ function toggleDrawer(){var h=document.getElementById('hamBtn');var d=document.g
     var att=document.getElementById('cAttending');
     if(conf&&!att.checked){var e=att.closest('.field').querySelector('.field-error');if(!e){e=document.createElement('p');e.className='field-error';att.closest('.field').appendChild(e);}e.textContent='Please confirm you are attending or in town.';ok=false;}
     else{var e2=att.closest('.field').querySelector('.field-error');if(e2)e2.textContent='';}
-    if(!Array.from(document.querySelectorAll('#commitList input')).every(function(i){return i.checked;})){groupError('commitList','Please agree to all three to join.');ok=false;}
+    if(!Array.from(document.querySelectorAll('#commitList input')).every(function(i){return (conf&&i.id==='cLocal')||i.checked;})){groupError('commitList',conf?'Please agree to all three to join.':'Please agree to all four to join.');ok=false;}
+    if(!conf){var tie=form.querySelector('[name="tie"]:checked');
+      if(!tie){groupError('tieGrid','Please choose one.');ok=false;}
+      else if(tie.value==='I travel here often'&&!val('freq')){setError(document.getElementById('freq'),'Required.');ok=false;}}
     return ok;
   }
 
@@ -581,10 +602,17 @@ function toggleDrawer(){var h=document.getElementById('hamBtn');var d=document.g
     var cc=val('countryCode').replace(/[^0-9]/g,''), num=val('whatsapp').replace(/[^0-9]/g,'').replace(/^0+/,'');
     var full='+'+cc+' '+num, wa='https://wa.me/'+cc+num;
     // Fixed column order: every email parses into the same CSV row
-    var row=[['Form','Hub Join Request'],['Submitted at',new Date().toISOString()],['Hub type',conf?'Conference hub':'City hub'],
+    // One-tap approval: private Yorkseed approvals page, applicant packed into a URL-safe token
+    var tie=(form.querySelector('[name="tie"]:checked')||{}).value||'';
+    var tk={v:1,t:conf?'conf':'city',h:conf?confName:val('hub'),fn:val('firstName'),ln:val('lastName'),e:val('email'),p:cc+num,
+      co:conf?val('confCompany'):val('company'),r:role,pl:val('linkedin')?normUrl(val('linkedin')):'',
+      x:conf?('In town: '+val('dates')):(('Based in '+val('basedCity'))+(tie?' · '+tie:'')+(val('freq')?' ('+val('freq')+')':''))};
+    var approve='https://claude.ai/artifact/FrD1Pjc7PVcnHStm2uHWeN#'+btoa(unescape(encodeURIComponent(JSON.stringify(tk)))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+    var row=[['Approve',approve],['Form','Hub Join Request'],['Submitted at',new Date().toISOString()],['Hub type',conf?'Conference hub':'City hub'],
       ['First name',val('firstName')],['Last name',val('lastName')],['Email',val('email')],['Country code','+'+cc],['Phone number',num],['WhatsApp',full],['WhatsApp link',wa],
       ['Profile link',val('linkedin')?normUrl(val('linkedin')):''],['Profile type',val('linkedin')?profileType(val('linkedin')):''],['Role',role],['Company',conf?val('confCompany'):val('company')],['Company website',val('companySite')?normUrl(val('companySite')):''],['Title',conf?'':val('jobTitle')],['About',conf?'':val('about')],
       ['City hub',conf?'':val('hub')],['Based in',conf?'':val('basedCity')],['Conference',conf?confName:''],['Dates in town',conf?val('dates'):''],
+      ['City connection',conf?'':((form.querySelector('[name="tie"]:checked')||{}).value||'')],['Visit frequency',conf?'':val('freq')],
       ['Referred by',conf?'':val('referrer')],['Agrees to group rules','Yes']];
     var data={access_key:'5c1c96c6-7a4f-4cc7-85d3-4dd79f67e20a',
       subject:(conf?'Conference hub request: '+confName:'Hub join request: '+val('hub'))+' | '+val('firstName')+' '+val('lastName')+' ('+role+')',
