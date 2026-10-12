@@ -607,7 +607,7 @@ function toggleDrawer(){var h=document.getElementById('hamBtn');var d=document.g
     var tk={v:1,t:conf?'conf':'city',h:conf?confName:val('hub'),fn:val('firstName'),ln:val('lastName'),e:val('email'),p:cc+num,
       co:conf?val('confCompany'):val('company'),r:role,pl:val('linkedin')?normUrl(val('linkedin')):'',
       x:conf?('In town: '+val('dates')):(('Based in '+val('basedCity'))+(tie?' · '+tie:'')+(val('freq')?' ('+val('freq')+')':''))};
-    var approve='https://claude.ai/artifact/FrD1Pjc7PVcnHStm2uHWeN#'+btoa(unescape(encodeURIComponent(JSON.stringify(tk)))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+    var approve='https://yorkseed.co/approve.html?t='+btoa(unescape(encodeURIComponent(JSON.stringify(tk)))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
     var row=[['Approve',approve],['Form','Hub Join Request'],['Submitted at',new Date().toISOString()],['Hub type',conf?'Conference hub':'City hub'],
       ['First name',val('firstName')],['Last name',val('lastName')],['Email',val('email')],['Country code','+'+cc],['Phone number',num],['WhatsApp',full],['WhatsApp link',wa],
       ['Profile link',val('linkedin')?normUrl(val('linkedin')):''],['Profile type',val('linkedin')?profileType(val('linkedin')):''],['Role',role],['Company',conf?val('confCompany'):val('company')],['Company website',val('companySite')?normUrl(val('companySite')):''],['Title',conf?'':val('jobTitle')],['About',conf?'':val('about')],

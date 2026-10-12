@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>Opening approval · Yorkseed</title>
+<style>body{margin:0;min-height:100vh;display:grid;place-items:center;font:15px/1.5 "DM Sans",system-ui,sans-serif;color:#0b0b0c;background:#fff;padding:16px;text-align:center}a{color:#cc1e2b}</style>
+</head><body>
+<p id="m">Opening Hub Approvals…</p>
+<script>
+/* Private approval redirect: email links carry the applicant as ?t=<token>.
+   Web3Forms drops "#" from links, so the token rides in the query string here
+   and moves to the hash, the only part the approvals page can read. */
+(function(){
+  var APP='https://claude.ai/artifact/FrD1Pjc7PVcnHStm2uHWeN';
+  var t=(new URLSearchParams(location.search).get('t')||'').replace(/[^A-Za-z0-9_-]/g,'');
+  var url=APP+(t?'#'+t:'');
+  document.getElementById('m').innerHTML='Opening Hub Approvals… <a href="'+url+'">Tap here</a> if nothing happens.';
+  location.replace(url);
+})();
+</script>
+</body></html>
