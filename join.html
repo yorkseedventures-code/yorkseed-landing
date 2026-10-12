@@ -316,7 +316,7 @@ body:not(.m-conf) .conf-only{display:none!important}
 <section class="hero">
   <div class="hero-glow"></div>
   <div class="hero-inner">
-    <div class="hero-eyebrow">Yorkseed City Hubs</div>
+    <div class="hero-eyebrow">Yorkseed Hubs</div>
     <h1 class="hero-title">Join a<br>Yorkseed Hub</h1>
     <p class="hero-sub">Our WhatsApp hubs connect founders and investors in 50+ cities and at 30+ global conferences. Every member is checked before they get the invite link.</p>
   </div>
@@ -325,7 +325,7 @@ body:not(.m-conf) .conf-only{display:none!important}
 <div class="notice">
   <div class="notice-inner">
     <div class="notice-icon">🔒</div>
-    <p class="notice-text"><strong>Why we verify:</strong> to keep spam, sellers and fake profiles out. Invite links are never shared publicly. Requests that don't match a real founder or investor profile are declined.</p>
+    <p class="notice-text"><strong>Why we verify:</strong> spam and fake profiles are rising across social platforms, especially on WhatsApp. To protect our members, every request is checked by hand and invite links are never shared publicly. Requests that don't match a real profile are declined.</p>
   </div>
 </div>
 
@@ -333,7 +333,7 @@ body:not(.m-conf) .conf-only{display:none!important}
   <div class="single-col">
     <div class="steps-strip">
       <div class="sstep"><span class="n">01</span><b>Request</b><p>Tell us who you are and which hub you want to join.</p></div>
-      <div class="sstep"><span class="n">02</span><b>Verify</b><p>We check your LinkedIn and may send a quick verification message.</p></div>
+      <div class="sstep"><span class="n">02</span><b>Verify</b><p>We check your profile link and may send a quick verification message.</p></div>
       <div class="sstep"><span class="n">03</span><b>Join</b><p>If approved, you receive your hub's invite link. Join from the same WhatsApp number.</p></div>
     </div>
 
@@ -369,8 +369,14 @@ body:not(.m-conf) .conf-only{display:none!important}
             </div>
             <span class="field-hint" style="margin-top:-10px">The number you use on WhatsApp. We use it to verify you, and you must join the hub from this same number.</span>
             <div class="field-row single">
-              <div class="field"><label for="linkedin">LinkedIn URL <span class="req city-only">*</span><span class="opt conf-only">(optional)</span></label><input type="url" id="linkedin" placeholder="https://linkedin.com/in/yourname" required/>
-                <div class="url-hint" id="linkedinHint">Must start with https://linkedin.com/in/</div></div>
+              <div class="field"><label for="linkedin">Profile link <span class="req city-only">*</span><span class="opt conf-only">(optional)</span></label>
+                <span class="field-hint">Your LinkedIn, or any public link that shows who you are: company team page, personal website, Crunchbase or AngelList profile, or a Google Drive, Dropbox or Notion doc with your bio.</span>
+                <input type="url" id="linkedin" placeholder="https://linkedin.com/in/yourname" inputmode="url" autocomplete="url" required/>
+                <div class="url-hint" id="linkedinHint"></div></div>
+            </div>
+            <div class="field-row single">
+              <div class="field"><label for="companySite">Company website <span class="opt">(optional)</span></label>
+                <input type="url" id="companySite" placeholder="https://yourcompany.com" inputmode="url"/></div>
             </div>
           </div>
         </div>
@@ -488,6 +494,7 @@ function toggleDrawer(){var h=document.getElementById('hamBtn');var d=document.g
 (function(){
   var form=document.getElementById('joinForm');
   var BASE=['firstName','lastName','email','countryCode','whatsapp'];
+  (function(){var cs=document.getElementById('companySite');['input','change'].forEach(function(ev){cs.addEventListener(ev,function(){clearError(cs);});});})();
   var CITY=['linkedin','company','jobTitle','about','hub','basedCity'];
   var CONF=['conference','dates','confRole'];
   var REQ=BASE.concat(CITY,CONF,['otherConf']);
@@ -502,7 +509,21 @@ function toggleDrawer(){var h=document.getElementById('hamBtn');var d=document.g
   var confSel=document.getElementById('conference');
   confSel.addEventListener('change',function(){document.getElementById('otherConfRow').hidden=confSel.value!=='Other conference';});
   function val(id){var el=document.getElementById(id);return el?el.value.trim():'';}
-  function isLinkedIn(v){return /^https:\/\/(www\.)?linkedin\.com\/in\//i.test(v.trim());}
+  function normUrl(v){v=v.trim();if(v&&!/^https?:\/\//i.test(v))v='https://'+v;return v;}
+  var BLOCK=/(^|\.)(bit\.ly|tinyurl\.com|t\.co|goo\.gl|ow\.ly|is\.gd|cutt\.ly|rebrand\.ly|shorturl\.at|wa\.me|chat\.whatsapp\.com|t\.me)$/i;
+  function profileCheck(v){
+    var u;try{u=new URL(normUrl(v));}catch(e){return 'bad';}
+    var h=u.hostname.toLowerCase();
+    if(!/\./.test(h)||/^(localhost|\d+\.\d+\.\d+\.\d+)$/.test(h))return 'bad';
+    if(BLOCK.test(h))return 'short';
+    if(/(^|\.)linkedin\.com$/.test(h)&&!/^\/(in|company|pub)\//i.test(u.pathname))return 'liroot';
+    return 'ok';
+  }
+  function profileType(v){var h='';try{h=new URL(normUrl(v)).hostname.toLowerCase();}catch(e){}
+    if(/linkedin\.com$/.test(h))return 'LinkedIn';if(/crunchbase\.com$/.test(h))return 'Crunchbase';if(/(angel\.co|wellfound\.com)$/.test(h))return 'AngelList / Wellfound';
+    if(/(docs|drive)\.google\.com$/.test(h))return 'Google Doc / Drive';if(/notion\.(so|site)$/.test(h))return 'Notion';if(/dropbox\.com$/.test(h))return 'Dropbox';
+    if(/(x\.com|twitter\.com)$/.test(h))return 'X / Twitter';return 'Website';}
+  var PMSG={bad:'Enter a full link, e.g. https://yourcompany.com/team',short:'Please share the full link, not a shortened or chat link.',liroot:'Link to your LinkedIn profile: https://linkedin.com/in/yourname'};
   function setError(el,msg){el.classList.add('error');var h=el.parentNode.querySelector('.field-error');if(!h){h=document.createElement('p');h.className='field-error';el.parentNode.appendChild(h);}h.textContent=msg;}
   function clearError(el){el.classList.remove('error');var h=el.parentNode.querySelector('.field-error');if(h)h.textContent='';}
   function groupError(id,msg){var g=document.getElementById(id),e=g.parentNode.querySelector('.field-error');if(!e){e=document.createElement('p');e.className='field-error';g.parentNode.appendChild(e);}e.textContent=msg||'';}
@@ -521,21 +542,23 @@ function toggleDrawer(){var h=document.getElementById('hamBtn');var d=document.g
   var ccEl=document.getElementById('countryCode');
   ccEl.addEventListener('blur',function(){var d=ccEl.value.replace(/[^0-9]/g,'');if(d)ccEl.value='+'+d;});
   var li=document.getElementById('linkedin'),lh=document.getElementById('linkedinHint');
-  li.addEventListener('input',function(){var v=li.value.trim();if(!v){lh.className='url-hint';lh.textContent='Must start with https://linkedin.com/in/';return;}
-    if(isLinkedIn(v)){lh.className='url-hint valid';lh.textContent='✓ Valid LinkedIn URL';}else{lh.className='url-hint invalid';lh.textContent='✗ Must be a full LinkedIn URL: https://linkedin.com/in/yourname';}});
+  li.addEventListener('input',function(){var v=li.value.trim();if(!v){lh.className='url-hint';lh.textContent='';return;}
+    var r=profileCheck(v);if(r==='ok'){lh.className='url-hint valid';lh.textContent='✓ '+profileType(v)+' link';}else{lh.className='url-hint invalid';lh.textContent='✗ '+PMSG[r];}});
+  li.addEventListener('blur',function(){if(li.value.trim())li.value=normUrl(li.value);});
 
   function validate(){
     var ok=true, conf=mode()==='conference';
     var need=BASE.concat(conf?CONF:CITY);
     if(conf&&confSel.value==='Other conference')need.push('otherConf');
-    if(conf&&val('linkedin')&&!isLinkedIn(val('linkedin'))){setError(document.getElementById('linkedin'),'Enter a full LinkedIn URL or leave it blank.');ok=false;}
+    var cs=val('companySite');if(cs&&profileCheck(cs)==='bad'||cs&&profileCheck(cs)==='short'){setError(document.getElementById('companySite'),PMSG[profileCheck(cs)]);ok=false;}
+    if(conf&&val('linkedin')&&profileCheck(val('linkedin'))!=='ok'){setError(document.getElementById('linkedin'),PMSG[profileCheck(val('linkedin'))]+' Or leave it blank.');ok=false;}
     need.forEach(function(id){
       var el=document.getElementById(id),v=el.value.trim();
       if(!v){setError(el,'Required.');ok=false;}
       else if(id==='email'&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){setError(el,'Enter a valid email.');ok=false;}
       else if(id==='countryCode'&&!/^\+?[0-9]{1,4}$/.test(v.replace(/[\s-]/g,''))){setError(el,'e.g. +1, +44, +33');ok=false;}
       else if(id==='whatsapp'&&!/^[0-9]{5,14}$/.test(v.replace(/[\s().-]/g,''))){setError(el,'Enter your phone number without the country code.');ok=false;}
-      else if(id==='linkedin'&&!isLinkedIn(v)){setError(el,'Enter your full LinkedIn URL: https://linkedin.com/in/yourname');ok=false;}
+      else if(id==='linkedin'&&profileCheck(v)!=='ok'){setError(el,PMSG[profileCheck(v)]);ok=false;}
       else if(id==='about'&&v.length<40){setError(el,'Tell us a little more (at least 40 characters).');ok=false;}
     });
     if(!conf&&!form.querySelector('[name="role"]:checked')){groupError('roleGrid','Please choose one.');ok=false;}
@@ -560,7 +583,7 @@ function toggleDrawer(){var h=document.getElementById('hamBtn');var d=document.g
     // Fixed column order: every email parses into the same CSV row
     var row=[['Form','Hub Join Request'],['Submitted at',new Date().toISOString()],['Hub type',conf?'Conference hub':'City hub'],
       ['First name',val('firstName')],['Last name',val('lastName')],['Email',val('email')],['Country code','+'+cc],['Phone number',num],['WhatsApp',full],['WhatsApp link',wa],
-      ['LinkedIn',val('linkedin')],['Role',role],['Company',conf?val('confCompany'):val('company')],['Title',conf?'':val('jobTitle')],['About',conf?'':val('about')],
+      ['Profile link',val('linkedin')?normUrl(val('linkedin')):''],['Profile type',val('linkedin')?profileType(val('linkedin')):''],['Role',role],['Company',conf?val('confCompany'):val('company')],['Company website',val('companySite')?normUrl(val('companySite')):''],['Title',conf?'':val('jobTitle')],['About',conf?'':val('about')],
       ['City hub',conf?'':val('hub')],['Based in',conf?'':val('basedCity')],['Conference',conf?confName:''],['Dates in town',conf?val('dates'):''],
       ['Referred by',conf?'':val('referrer')],['Agrees to group rules','Yes']];
     var data={access_key:'5c1c96c6-7a4f-4cc7-85d3-4dd79f67e20a',
@@ -582,5 +605,6 @@ document.addEventListener('click',function(e){var m=document.getElementById('mor
 </script>
 <script src="https://cdn.popupsmart.com/bundle.js" data-id="80692" async defer></script>
 <script src="https://www.noupe.com/embed/01993ebbf4a3715c8678cf86a04826af1681.js"></script>
+<script src="/assets/url-prefill.js" defer></script>
 </body>
 </html>

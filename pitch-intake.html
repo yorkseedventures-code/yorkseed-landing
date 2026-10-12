@@ -624,7 +624,7 @@ img{display:block;max-width:100%}
 /* ─── NAV ─── */
 function toggleDrop(){var d=document.getElementById('ecosDrop');d.classList.toggle('open')}
 function toggleDrawer(){var h=document.getElementById('hamBtn');var d=document.getElementById('navDrawer');h.classList.toggle('open');d.classList.toggle('open');document.body.style.overflow=d.classList.contains('open')?'hidden':''}
-document.addEventListener('click',function(e){if(!e.target.closest('#ecosDrop'))document.getElementById('ecosDrop').classList.remove('open')});
+document.addEventListener('click',function(e){var d=document.getElementById('ecosDrop');if(d&&!e.target.closest('#ecosDrop'))d.classList.remove('open')});
 
 /* ─── SIDEBAR ACTIVE ─── */
 var sections=['s1','s2','s3','s4','s5','s6'];
@@ -701,5 +701,6 @@ function submitForm(){
     }).catch(function(){alert('Network error. Please check your connection.');btn.disabled=false;btn.classList.remove('loading');});
 }
 </script>
+<script src="/assets/url-prefill.js" defer></script>
 </body>
 </html>
