@@ -602,13 +602,7 @@ function toggleDrawer(){var h=document.getElementById('hamBtn');var d=document.g
     var cc=val('countryCode').replace(/[^0-9]/g,''), num=val('whatsapp').replace(/[^0-9]/g,'').replace(/^0+/,'');
     var full='+'+cc+' '+num, wa='https://wa.me/'+cc+num;
     // Fixed column order: every email parses into the same CSV row
-    // One-tap approval: private Yorkseed approvals page, applicant packed into a URL-safe token
-    var tie=(form.querySelector('[name="tie"]:checked')||{}).value||'';
-    var tk={v:1,t:conf?'conf':'city',h:conf?confName:val('hub'),fn:val('firstName'),ln:val('lastName'),e:val('email'),p:cc+num,
-      co:conf?val('confCompany'):val('company'),r:role,pl:val('linkedin')?normUrl(val('linkedin')):'',
-      x:conf?('In town: '+val('dates')):(('Based in '+val('basedCity'))+(tie?' · '+tie:'')+(val('freq')?' ('+val('freq')+')':''))};
-    var approve='https://yorkseed.co/approve.html?t='+btoa(unescape(encodeURIComponent(JSON.stringify(tk)))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
-    var row=[['Approve',approve],['Form','Hub Join Request'],['Submitted at',new Date().toISOString()],['Hub type',conf?'Conference hub':'City hub'],
+    var row=[['Form','Hub Join Request'],['Submitted at',new Date().toISOString()],['Hub type',conf?'Conference hub':'City hub'],
       ['First name',val('firstName')],['Last name',val('lastName')],['Email',val('email')],['Country code','+'+cc],['Phone number',num],['WhatsApp',full],['WhatsApp link',wa],
       ['Profile link',val('linkedin')?normUrl(val('linkedin')):''],['Profile type',val('linkedin')?profileType(val('linkedin')):''],['Role',role],['Company',conf?val('confCompany'):val('company')],['Company website',val('companySite')?normUrl(val('companySite')):''],['Title',conf?'':val('jobTitle')],['About',conf?'':val('about')],
       ['City hub',conf?'':val('hub')],['Based in',conf?'':val('basedCity')],['Conference',conf?confName:''],['Dates in town',conf?val('dates'):''],
