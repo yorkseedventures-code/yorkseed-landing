@@ -602,8 +602,9 @@ html:not(.fso) [data-so]{display:none!important}
           else{
             $('doneText').textContent='Two quick payments and you\'re in. Each opens a secure Stripe checkout in a new tab.';
             $('payMain').href=url+pe;$('payMainAmt').textContent='\u20ac'+price;
-            $('payTeam').href=$('payTeam').href.split('?')[0]+pe;$('payTeamAmt').textContent='\u20ac'+(175*n);
-            $('payTeamNote').textContent='On the teammate checkout, set the quantity to '+n+'. Once paid, everyone is added to the delegation on Luma.';
+            var TEAM={1:'https://buy.stripe.com/5kQ8wI4kn7WC43K2slbo40n',2:'https://buy.stripe.com/dRm9AM2cf7WC2ZG2slbo40o',3:'https://buy.stripe.com/dRm00cg353GmcAg8QJbo40p'};
+            $('payTeam').href=TEAM[n]+pe;$('payTeamAmt').textContent='\u20ac'+(175*n);
+            $('payTeamNote').textContent='Once both are paid, you and your '+(n>1?n+' teammates':'teammate')+' are added to the delegation on Luma.';
             $('paySteps').hidden=false;
             ['payMain','payTeam'].forEach(function(id){$(id).addEventListener('click',function(){var el=$(id);setTimeout(function(){el.classList.add('done-step')},500)})});
           }
