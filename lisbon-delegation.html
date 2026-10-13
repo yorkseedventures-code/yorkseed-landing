@@ -219,6 +219,26 @@ button[type=submit]:disabled{opacity:.4;cursor:not-allowed}
 .done{display:none;text-align:center;padding:60px 36px}
 .done h3{font-family:var(--serif);font-weight:400;font-size:38px;margin-bottom:10px}
 .done p{color:var(--ink2)}
+.luma-card{background:var(--paper);color:var(--ink);padding:36px;border-radius:2px}
+@media(max-width:600px){.luma-card{padding:24px 20px}}
+.lc-k{font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--oxblood);margin-bottom:10px}
+.luma-card h3{font-family:var(--serif);font-weight:400;font-size:34px;line-height:1.1;margin-bottom:18px}
+.luma-card h3 em{color:var(--red)}
+.lc-list{list-style:none;border-top:1px solid var(--line);margin-bottom:24px}
+.lc-list li{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);font-size:15px}
+.lc-list small{display:block;font-size:13px;color:var(--ink3)}
+.lc-list b{font-weight:700;font-size:18px;white-space:nowrap}
+.lc-btn{display:block;text-align:center;background:var(--red);color:#fff;text-decoration:none;padding:17px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;border-radius:2px}
+.lc-btn:hover{opacity:.9}
+.luma-card .small a{color:var(--red)}
+.tier.soldout{background:var(--cream-dark);color:var(--ink3)}
+.tier.soldout h3,.tier.soldout .p{color:var(--ink3)}
+.tier.soldout .p s{text-decoration-thickness:2px}
+.so-btn{border:1px solid var(--line);color:var(--ink3);text-align:center;cursor:default}
+.lc-list li.so{color:var(--ink3)}
+.tier.soldout .so-btn,.tier.soldout .so-btn:hover{border-color:rgba(12,12,12,.15);color:var(--ink3);background:none}
+html.fso [data-fo]{display:none!important}
+html:not(.fso) [data-so]{display:none!important}
 </style>
 <script src="/assets/site-chrome.js" defer></script>
 <style>yk-header:not(:defined){display:block;min-height:73px}</style>
@@ -235,12 +255,12 @@ button[type=submit]:disabled{opacity:.4;cursor:not-allowed}
     <p class="sub">Founders already going to Web Summit, travelling together with Yorkseed. Introductions to investors who fit, a group to walk into the week with, and a network that keeps working after Lisbon.</p>
     <div class="meta">
       <div><span>Dates</span><b>November 8 to 12</b></div>
-      <div><span>From</span><b>€495 per company</b></div>
-      <div><span>Founding spots</span><b>First 10 companies</b></div>
+      <div><span>From</span><b><span data-fo>€495 per company</span><span data-so>€595 per company</span></b></div>
+      <div><span>Founding spots</span><b><span data-fo>First 10 companies</span><span data-so>Sold out</span></b></div>
       <div><span>Investors</span><b>Complimentary</b></div>
     </div>
     <div class="btns">
-      <a href="#apply" class="btn btn-gold">Apply to join</a>
+      <a href="https://luma.com/vmqjiq9m?utm_source=yorkseed&amp;utm_medium=delegation_page" class="btn btn-gold" target="_blank" rel="noopener">Apply to join</a>
       <a href="#week" class="btn btn-line">See the week</a>
     </div>
   </div>
@@ -278,8 +298,8 @@ button[type=submit]:disabled{opacity:.4;cursor:not-allowed}
     <h2 class="big">Before, during <em>and after</em> Lisbon.</h2>
     <div class="tracks">
       <div class="track"><span class="n">/01</span><h3>Introductions</h3><p>Investors and partners from the Yorkseed network who are at Web Summit and match your stage and sector.</p></div>
-      <div class="track"><span class="n">/02</span><h3>Gatherings</h3><p>A kickoff on November 8, Yorkseed meetups through the week, and a WhatsApp group with the other delegates.</p></div>
-      <div class="track"><span class="n">/03</span><h3>The Magazine</h3><p>Your company in the Yorkseed Lisbon Delegation digital magazine, shared across the network during Web Summit and after.</p></div>
+      <div class="track"><span class="n">/02</span><h3>Gatherings</h3><p>A kickoff on November 8, Yorkseed meetups through the week, a WhatsApp group with the other delegates, and 25% off Yorkseed's Web Summit lunches.</p></div>
+      <div class="track"><span class="n">/03</span><h3>The Magazine</h3><p>Your company featured in the Yorkseed Lisbon Delegation digital magazine, sent to founders, investors, allocators and partners across the Yorkseed network during Web Summit week and after.</p></div>
       <div class="track"><span class="n">/04</span><h3>The Showcase</h3><p>A virtual session in December where selected founders present to invited investors, including ones who weren't in Lisbon. <a href="https://luma.com/relg9v16?utm_source=yorkseed&utm_medium=delegation_page" target="_blank" rel="noopener" style="color:var(--gold-light)">See the showcase</a></p></div>
       <div class="track"><span class="n">/05</span><h3>Yorkseed Connect</h3><p>Six months on our member platform, complimentary, so you can keep messaging everyone you meet.</p></div>
     </div>
@@ -294,7 +314,7 @@ button[type=submit]:disabled{opacity:.4;cursor:not-allowed}
     <div class="days">
       <div class="day"><div class="d">October 30<small>Before Lisbon</small></div><div><h3>Profiles due</h3><p>Send your company profile for the delegation magazine. We start lining up your introductions.</p></div><span class="pill">Online</span></div>
       <div class="day"><div class="d">November 8<small>Sunday</small></div><div><h3>Delegation kickoff</h3><p>Meet the other founders the day before Web Summit opens. Plans for the week, who's where, who to meet.</p></div><span class="pill red">Lisbon</span></div>
-      <div class="day"><div class="d">November 9 to 12<small>Web Summit</small></div><div><h3>Introductions and meetups</h3><p>Your introductions happen through the week, alongside Yorkseed gatherings for delegates and investors. The magazine goes out across the network.</p></div><span class="pill red">Lisbon</span></div>
+      <div class="day"><div class="d">November 9 to 12<small>Web Summit</small></div><div><h3>Introductions and meetups</h3><p>Your introductions happen through the week, alongside Yorkseed gatherings for delegates and investors. The magazine goes out across the network. Delegates get 25% off the Yorkseed <a href="https://luma.com/lj25z4k3?utm_source=yorkseed&amp;utm_medium=delegation_page" target="_blank" rel="noopener" style="color:var(--red)">Capital Lunch</a> (Tuesday, November 10) and <a href="https://luma.com/ryyphlgu?utm_source=yorkseed&amp;utm_medium=delegation_page" target="_blank" rel="noopener" style="color:var(--red)">Executive Lunch</a> (Monday, November 9), seated lunches for founders, investors and executives.</p></div><span class="pill red">Lisbon</span></div>
       <div class="day"><div class="d">December<small>After Lisbon</small></div><div><h3>Global Founder Showcase</h3><p>Selected delegation founders present to invited investors in a virtual session. 6 to 10 companies, four minutes each plus investor Q&amp;A. <a href="https://luma.com/relg9v16?utm_source=yorkseed&utm_medium=delegation_page" target="_blank" rel="noopener" style="color:var(--red)">View on Luma</a></p></div><span class="pill">Virtual</span></div>
     </div>
   </div>
@@ -306,32 +326,56 @@ button[type=submit]:disabled{opacity:.4;cursor:not-allowed}
       <div><div class="label">Pricing</div><h2 class="big">Per company, <em>one delegate included</em></h2></div>
       <p>You only pay once you're accepted. Web Summit ticket not included, so this is for founders who are already going.</p>
     </div>
-    <div class="tiers">
+    <div class="tiers" data-fo>
       <div class="tier feat">
         <div class="t">First 10 companies</div>
         <h3>Founding</h3>
         <div class="p">€495 <small>/ company</small></div>
         <ul><li>One delegate</li><li>Investor and partner introductions</li><li>Kickoff, meetups and delegate group</li><li>Magazine profile</li><li>Showcase consideration</li><li>Six months of Yorkseed Connect</li></ul>
-        <a href="#apply" class="btn btn-gold" data-tier="Delegation">Apply</a>
+        <a href="https://luma.com/vmqjiq9m?utm_source=yorkseed&amp;utm_medium=delegation_page" class="btn btn-gold" target="_blank" rel="noopener">Apply</a>
       </div>
       <div class="tier">
         <div class="t">After the first 10</div>
         <h3>Delegation</h3>
         <div class="p">€595 <small>/ company</small></div>
         <ul><li>Everything in Founding</li><li>Standard rate once founding spots are gone</li></ul>
-        <a href="#apply" class="btn" data-tier="Delegation">Apply</a>
+        <a href="https://luma.com/vmqjiq9m?utm_source=yorkseed&amp;utm_medium=delegation_page" class="btn" target="_blank" rel="noopener">Apply</a>
       </div>
       <div class="tier">
         <div class="t">Limited</div>
         <h3>Premium</h3>
         <div class="p">€695 <small>/ company</small></div>
         <ul><li>Everything in Founding</li><li>Featured magazine spread</li><li>First in line for introductions</li><li>First in line for the showcase</li></ul>
-        <a href="#apply" class="btn" data-tier="Premium">Apply</a>
+        <a href="https://luma.com/vmqjiq9m?utm_source=yorkseed&amp;utm_medium=delegation_page" class="btn" target="_blank" rel="noopener">Apply</a>
+      </div>
+    </div>
+    <div class="tiers" data-so>
+      <div class="tier soldout">
+        <div class="t">First 10 companies</div>
+        <h3>Founding</h3>
+        <div class="p"><s>€495</s> <small>/ company</small></div>
+        <ul><li>All 10 founding spots are taken</li><li>Thank you to our founding delegates</li></ul>
+        <span class="btn so-btn">Sold out</span>
+      </div>
+      <div class="tier feat">
+        <div class="t">Now open</div>
+        <h3>Delegation</h3>
+        <div class="p">€595 <small>/ company</small></div>
+        <ul><li>One delegate</li><li>Investor and partner introductions</li><li>Kickoff, meetups and delegate group</li><li>Magazine profile</li><li>Showcase consideration</li><li>Six months of Yorkseed Connect</li></ul>
+        <a href="https://luma.com/vmqjiq9m?utm_source=yorkseed&amp;utm_medium=delegation_page" class="btn btn-gold" target="_blank" rel="noopener">Apply</a>
+      </div>
+      <div class="tier">
+        <div class="t">Limited</div>
+        <h3>Premium</h3>
+        <div class="p">€695 <small>/ company</small></div>
+        <ul><li>Everything in Delegation</li><li>Featured magazine spread</li><li>First in line for introductions</li><li>First in line for the showcase</li></ul>
+        <a href="https://luma.com/vmqjiq9m?utm_source=yorkseed&amp;utm_medium=delegation_page" class="btn" target="_blank" rel="noopener">Apply</a>
       </div>
     </div>
     <div class="fine">
       <span>Extra delegate from your company: <b>€175</b></span>
-      <span>Investors, LPs and family offices: <b>complimentary</b>. <a href="#apply" data-role="Investor">Request an invite</a></span>
+      <span>Investors, LPs and family offices: <b>complimentary</b>. <a href="https://luma.com/vmqjiq9m?utm_source=yorkseed&amp;utm_medium=delegation_page" target="_blank" rel="noopener">Request an invite</a></span>
+      <span>Brands: <b>sponsor the December showcase</b>, 3 spots. <a href="https://luma.com/relg9v16?utm_source=yorkseed&amp;utm_medium=delegation_page" target="_blank" rel="noopener">See partnership</a></span>
     </div>
   </div>
 </section>
@@ -357,10 +401,10 @@ button[type=submit]:disabled{opacity:.4;cursor:not-allowed}
     <div>
       <details><summary>Is the Web Summit ticket included?</summary><p>No. Buy it through Web Summit. If you don't have one yet you can still apply, just make sure you have it before Lisbon.</p></details>
       <details><summary>Why per company?</summary><p>Most of what you get goes to the company: the magazine profile, introductions, the showcase and Yorkseed Connect. One person is included, and extra teammates are €175 each.</p></details>
-      <details><summary>When do I pay?</summary><p>After you're accepted. I read every application and reply within two days. If it's a fit, you get a payment link to lock in your spot.</p></details>
+      <details><summary>When do I pay?</summary><p>Request your ticket on Luma. I review every request and reply within two days. You're only charged once you're approved.</p></details>
       <details><summary>Am I guaranteed a showcase slot?</summary><p>No. Every founder in the delegation is considered and I pick the companies that fit the investors joining. Premium companies go first.</p></details>
       <details><summary>Can I get a refund?</summary><p>Yes, in full, if you cancel before October 30. After that your profile and introductions are already in motion, so it's non-refundable.</p></details>
-      <details><summary>I'm an investor. Can I join?</summary><p>Please do. It's complimentary for investors, LPs and family offices. Choose "Investor" at the top of the form. If you can only make the virtual showcase, <a href="https://luma.com/relg9v16?utm_source=yorkseed&utm_medium=delegation_page" target="_blank" rel="noopener" style="color:var(--red)">request a seat on Luma</a>.</p></details>
+      <details><summary>I'm an investor. Can I join?</summary><p>Please do. It's complimentary for investors, LPs and family offices. Request the Investor / LP / Family Office ticket <a href="https://luma.com/vmqjiq9m?utm_source=yorkseed&amp;utm_medium=delegation_page" target="_blank" rel="noopener" style="color:var(--red)">on Luma</a>. If you can only make the virtual showcase, <a href="https://luma.com/relg9v16?utm_source=yorkseed&utm_medium=delegation_page" target="_blank" rel="noopener" style="color:var(--red)">request a seat on Luma</a>.</p></details>
     </div>
   </div>
 </section>
@@ -371,145 +415,45 @@ button[type=submit]:disabled{opacity:.4;cursor:not-allowed}
     <div class="side">
       <div class="label">Apply</div>
       <h2 class="big">Join us <em>in Lisbon</em></h2>
-      <p>Free to apply. You only pay if you're accepted, and the first 10 companies lock in €495.</p>
+      <p data-fo>Every ticket is reviewed. The first 10 approved companies lock in €495.</p><p data-so>Every ticket is reviewed. Founding spots are sold out. Delegation tickets are open from €595.</p>
       <ol class="steps">
-        <li>Apply here, five minutes</li>
+        <li>Request your ticket on Luma</li>
         <li>Hear back within two days</li>
-        <li>Pay to confirm your spot</li>
+        <li>Your spot is confirmed on approval</li>
         <li>Send your magazine profile by October 30</li>
         <li>Kick off in Lisbon on November 8</li>
       </ol>
     </div>
     <div>
-      <form id="delegationForm" novalidate>
-        <input type="checkbox" id="botcheck" style="display:none" tabindex="-1" autocomplete="off"/>
-        <div class="who">
-          <label><input type="radio" name="role" value="Founder" checked/>Founder</label>
-          <label><input type="radio" name="role" value="Investor"/>Investor</label>
-        </div>
-
-        <div class="two">
-          <div class="f"><label for="firstName">First name</label><input type="text" id="firstName" autocomplete="given-name"/></div>
-          <div class="f"><label for="lastName">Last name</label><input type="text" id="lastName" autocomplete="family-name"/></div>
-        </div>
-        <div class="two">
-          <div class="f"><label for="email">Email</label><input type="email" id="email" autocomplete="email"/></div>
-          <div class="f"><label for="phone">WhatsApp</label><input type="tel" id="phone" autocomplete="tel" placeholder="+351 …"/></div>
-        </div>
-        <div class="f"><label for="linkedin">LinkedIn</label><input type="url" id="linkedin" placeholder="https://linkedin.com/in/…"/></div>
-        <div class="two">
-          <div class="f"><label for="company" id="companyLabel">Company</label><input type="text" id="company" autocomplete="organization"/></div>
-          <div class="f"><label for="website">Website</label><input type="url" id="website" placeholder="https://"/></div>
-        </div>
-
-        <div class="founder-only">
-          <div class="f"><label for="oneLiner">What does your company do?</label><input type="text" id="oneLiner" maxlength="160" placeholder="One sentence"/></div>
-          <div class="two">
-            <div class="f"><label for="stage">Stage</label>
-              <select id="stage"><option value="">Choose</option><option>Pre-seed</option><option>Seed</option><option>Series A</option><option>Series B or later</option><option>Bootstrapped</option></select>
-            </div>
-            <div class="f"><label for="ticket">Web Summit ticket</label>
-              <select id="ticket"><option value="">Choose</option><option>I have one</option><option>Getting one</option><option>Not going</option></select>
-            </div>
-          </div>
-          <p class="warn" id="noTicket" hidden>The delegation is for founders at Web Summit, so it won't work this year. Coming to Lisbon another time? Write to <a href="mailto:partnership@yorkseed.co">partnership@yorkseed.co</a>.</p>
-          <div class="f"><span class="lab">Package</span>
-            <div class="pkg" id="tierGroup">
-              <label><input type="radio" name="tier" value="Delegation"/><b>Delegation</b><span>€495, then €595 after 10</span></label>
-              <label><input type="radio" name="tier" value="Premium"/><b>Premium</b><span>€695</span></label>
-            </div>
-          </div>
-          <div class="f"><label for="extra">Anyone else from your team coming?</label><input type="text" id="extra" placeholder="Names, €175 each (optional)"/></div>
-        </div>
-
-        <div class="investor-only" hidden>
-          <div class="f"><label for="focus">What do you invest in?</label><input type="text" id="focus" placeholder="Stage, sectors, check size"/></div>
-        </div>
-
-        <div class="f"><label for="goals" id="goalsLabel">Who do you want to meet in Lisbon?</label><p class="hint" id="goalsHint">The more specific, the better the introductions.</p><textarea id="goals"></textarea></div>
-        <div class="f"><label for="referral">How did you hear about this?</label><input type="text" id="referral" placeholder="Optional"/></div>
-
-        <label class="agree"><input type="checkbox" id="agree"/><span>My company isn't in cannabis or casino gambling, and Yorkseed can keep my details to run the delegation.</span></label>
-
-        <button type="submit" id="submitBtn">Send application</button>
-        <p class="small">Free to apply. You only pay if accepted.</p>
-      </form>
-      <div class="done" id="done">
-        <h3>See you in <em>Lisbon</em>.</h3>
-        <p id="doneText">Application received. I'll get back to you within two days.</p>
+      <div class="luma-card">
+        <div class="lc-k">Applications on Luma</div>
+        <h3>Choose your <em>ticket</em></h3>
+        <ul class="lc-list">
+          <li data-fo><span>Founding Delegation<small>First 10 companies, 1 delegate</small></span><b>€495</b></li><li data-so class="so"><span>Founding Delegation<small>Sold out</small></span><b><s>€495</s></b></li>
+          <li><span>Delegation<small><span data-fo>After the first 10, 1 delegate</span><span data-so>1 delegate</span></small></span><b>€595</b></li>
+          <li><span>Premium Delegation<small>Featured magazine spread, priority intros and showcase</small></span><b>€695</b></li>
+          <li><span>Additional delegate<small>Same company</small></span><b>€175</b></li>
+          <li><span>Investor, LP or family office<small>By approval</small></span><b>Free</b></li>
+        </ul>
+        <a class="lc-btn" href="https://luma.com/vmqjiq9m?utm_source=yorkseed&amp;utm_medium=delegation_page" target="_blank" rel="noopener">Apply on Luma &rarr;</a>
+        <p class="small">Every ticket needs approval. Questions? <a href="mailto:partnership@yorkseed.co">partnership@yorkseed.co</a></p>
       </div>
-    </div>
   </div>
 </section>
 
 <yk-footer><a href="/">Home</a> <a href="/hubs.html">Hubs</a> <a href="/events.html">Events</a> <a href="/about.html">About</a> <a href="/contact.html">Contact</a></yk-footer>
 
+
 <script>
+/* Founding sold-out switch: set from Team login (Event Manager) */
 (function(){
-  var form=document.getElementById('delegationForm'),btn=document.getElementById('submitBtn'),ticket=document.getElementById('ticket');
-  function $(id){return document.getElementById(id);}
-  function v(id){return ($(id).value||'').trim();}
-  function role(){return form.querySelector('[name=role]:checked').value;}
-  function founder(){return role()==='Founder';}
-  function mark(el,msg){el.classList.add('err');var m=el.parentNode.querySelector('.errmsg');if(!m){m=document.createElement('p');m.className='errmsg';el.parentNode.appendChild(m);}m.textContent=msg;}
-  function clearAll(){form.querySelectorAll('.err').forEach(function(e){e.classList.remove('err');});form.querySelectorAll('.errmsg').forEach(function(e){e.remove();});}
-
-  function applyRole(){
-    var f=founder();
-    form.querySelector('.founder-only').hidden=!f;
-    form.querySelector('.investor-only').hidden=f;
-    $('companyLabel').textContent=f?'Company':'Firm';
-    $('goalsLabel').textContent=f?'Who do you want to meet in Lisbon?':'What kind of founders do you want to meet?';
-    $('goalsHint').textContent=f?'The more specific, the better the introductions.':'Let me know if you can only make the December showcase.';
-    updateTicket();
-  }
-  function updateTicket(){var no=founder()&&ticket.value==='Not going';$('noTicket').hidden=!no;btn.disabled=no;}
-  form.querySelectorAll('[name=role]').forEach(function(r){r.addEventListener('change',applyRole);});
-  ticket.addEventListener('change',updateTicket);
-  document.querySelectorAll('[data-role]').forEach(function(a){a.addEventListener('click',function(){form.querySelector('[name=role][value="'+a.getAttribute('data-role')+'"]').checked=true;applyRole();});});
-  document.querySelectorAll('[data-tier]').forEach(function(a){a.addEventListener('click',function(){form.querySelector('[name=role][value=Founder]').checked=true;applyRole();form.querySelector('[name=tier][value="'+a.getAttribute('data-tier')+'"]').checked=true;});});
-
-  function validate(){
-    clearAll();var ok=true;
-    var req=['firstName','lastName','email','phone','linkedin','company','goals'].concat(founder()?['oneLiner','stage','ticket']:[]);
-    req.forEach(function(id){if(!v(id)){mark($(id),'Please fill this in.');ok=false;}});
-    if(v('email')&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v('email'))){mark($('email'),'That email doesn\'t look right.');ok=false;}
-    ['linkedin','website'].forEach(function(id){var x=v(id);if(x&&/(bit\.ly|wa\.me|t\.me|tinyurl\.com)/i.test(x)){mark($(id),'Please use the full link.');ok=false;}});
-    if(v('goals')&&v('goals').length<40){mark($('goals'),'A little more detail, please.');ok=false;}
-    if(founder()&&!form.querySelector('[name=tier]:checked')){mark($('tierGroup'),'Pick a package.');ok=false;}
-    if(!$('agree').checked){mark($('agree').parentNode,'Please tick this to send.');ok=false;}
-    return ok;
-  }
-
-  form.addEventListener('submit',function(e){
-    e.preventDefault();
-    if($('botcheck').checked)return;
-    if(!validate()){var f=form.querySelector('.err');if(f)f.scrollIntoView({behavior:'smooth',block:'center'});return;}
-    btn.disabled=true;btn.textContent='Sending…';
-    var f=founder(),tier=f?form.querySelector('[name=tier]:checked').value:'Investor (complimentary)';
-    // Fixed column order so every email lines up as the same row
-    var row=[
-      ['Form','Lisbon Delegation'],['Submitted at',new Date().toISOString()],['Applying as',role()],
-      ['First name',v('firstName')],['Last name',v('lastName')],['Email',v('email')],['WhatsApp',v('phone')],['LinkedIn',v('linkedin')],
-      ['Company',v('company')],['Website',v('website')],
-      ['One-liner',f?v('oneLiner'):''],['Stage',f?v('stage'):''],['Web Summit ticket',f?v('ticket'):''],
-      ['Package',tier],['Extra people',f?v('extra'):''],['Investment focus',f?'':v('focus')],
-      ['Who they want to meet',v('goals')],['Heard via',v('referral')]
-    ];
-    var data={access_key:'5c1c96c6-7a4f-4cc7-85d3-4dd79f67e20a',subject:'Lisbon Delegation: '+role()+' | '+v('company')+(f?' | '+tier:''),from_name:'Yorkseed Lisbon Delegation',replyto:v('email')};
-    row.forEach(function(p){data[p[0]]=p[1]||'-';});
-    fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
-      .then(function(r){return r.json();})
-      .then(function(res){
-        if(!res.success)throw new Error();
-        if(!f)$('doneText').textContent='Thank you. I\'ll be in touch with the plan for the week.';
-        form.style.display='none';$('done').style.display='block';
-      })
-      .catch(function(){btn.disabled=false;btn.textContent='Send application';alert('Something went wrong. Please try again.');});
-  });
-
-  try{var q=(new URLSearchParams(location.search).get('role')||'').toLowerCase();if(q==='investor')form.querySelector('[name=role][value=Investor]').checked=true;}catch(e){}
-  applyRole();
+  try{if(localStorage.getItem('ys_fso')==='1')document.documentElement.classList.add('fso')}catch(e){}
+  fetch('https://yorkseed-backend-production.up.railway.app/api/site-events/public').then(function(r){return r.json()}).then(function(j){
+    var ev=(j.events||[]).find(function(e){return /vmqjiq9m/i.test(e.lumaUrl||'')});
+    var so=!!(ev&&/founding\s+sold\s+out/i.test(ev.spots||''));
+    document.documentElement.classList.toggle('fso',so);
+    try{localStorage.setItem('ys_fso',so?'1':'0')}catch(e){}
+  }).catch(function(){});
 })();
 </script>
 <script src="/assets/url-prefill.js" defer></script>

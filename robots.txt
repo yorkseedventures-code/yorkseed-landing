@@ -3,6 +3,7 @@ Allow: /
 Disallow: /private/
 Disallow: /admin/
 Disallow: /event-admin.html
+Disallow: /invoice.html
 
 # Search engine crawlers
 User-agent: Googlebot

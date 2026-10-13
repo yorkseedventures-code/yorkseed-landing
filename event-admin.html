@@ -37,6 +37,7 @@ textarea{min-height:130px;resize:vertical}
 </head>
 <body>
 <h1>Event Manager</h1>
+<p class="sub"><a href="/invoice.html" style="color:inherit;text-decoration:underline">Open the invoice tool</a> to make a PDF invoice for a delegate.</p>
 <p class="sub">Paste an event link (Luma, Eventbrite, Partiful, Posh, Meetup and more), check the details, publish. The event and its page go live on the website right away.</p>
 
 <div class="card" id="keyCard">
@@ -50,6 +51,14 @@ textarea{min-height:130px;resize:vertical}
   <input id="url" type="url" inputmode="url" placeholder="https://..."/>
   <button class="btn red" id="fetchBtn">Fetch event details</button>
   <div class="msg" id="fetchMsg"></div>
+</div>
+
+<div class="card" id="delCard">
+  <h2>Lisbon Delegation</h2>
+  <div class="hint" id="delStatus" style="font-size:15px;color:inherit">Loading...</div>
+  <button class="btn red" id="delBtn" style="display:none"></button>
+  <div class="msg" id="delMsg"></div>
+  <div class="hint">When all 10 founding spots are paid, tap the button. The delegation page and homepage switch to "Founding sold out, from &euro;595" within a minute. Tap again to reopen.</div>
 </div>
 
 <div class="card" id="editor">
@@ -135,10 +144,31 @@ $('saveBtn').onclick=function(){
     setTimeout(function(){$('editor').style.display='none';editingId=null;$('saveMsg').className='msg'},1800);
   }).catch(function(err){say('saveMsg',err.message,false)}).then(function(){$('saveBtn').disabled=false});
 };
+
+var DEL_RE=/vmqjiq9m/i, SO_RE=/founding\s+sold\s+out/i;
+function delEvent(){return cache.find(function(e){return DEL_RE.test(e.lumaUrl||'')})}
+function renderDel(){
+  var e=delEvent(),b=$('delBtn');
+  if(!e){$('delStatus').innerHTML='Add the delegation first: paste <b>https://luma.com/vmqjiq9m</b> in step 1 and publish it. Then this switch appears.';b.style.display='none';return}
+  var so=SO_RE.test(e.spots||'');
+  $('delStatus').innerHTML='Founding rate (&euro;495): <b>'+(so?'SOLD OUT':'OPEN')+'</b>';
+  b.style.display='block';b.textContent=so?'Reopen founding spots':'Mark founding sold out';
+  b.className='btn '+(so?'ghost':'red');
+}
+$('delBtn').onclick=function(){
+  var e=delEvent();if(!e)return;
+  var so=SO_RE.test(e.spots||'');
+  if(!so&&$('delBtn').dataset.sure!=='1'){$('delBtn').dataset.sure='1';$('delBtn').textContent='Tap again to confirm';setTimeout(function(){delete $('delBtn').dataset.sure;renderDel()},4000);return}
+  delete $('delBtn').dataset.sure;
+  var upd=Object.assign({},e,{spots:so?'From \u20ac495 \u00b7 Apply on Luma':'From \u20ac595 \u00b7 Founding sold out'});
+  $('delBtn').disabled=true;
+  api('/'+e.id,{method:'PUT',body:upd}).then(function(){say('delMsg',so?'Founding reopened. The site shows \u20ac495 again.':'Done. The site now shows Founding sold out.',true);load()})
+    .catch(function(err){say('delMsg',err.message,false)}).then(function(){$('delBtn').disabled=false});
+};
 function load(){
-  if(!key()){$('list').innerHTML='<div class="hint">Enter your key to see events.</div>';return}
+  if(!key()){$('list').innerHTML='<div class="hint">Enter your key to see events.</div>';$('delStatus').textContent='Enter your key to use this switch.';return}
   api('').then(function(j){
-    cache=j.events||[];
+    cache=j.events||[];renderDel();
     $('list').innerHTML=cache.length?cache.map(function(e){
       return '<div class="ev'+(e.hidden?' hid':'')+'"><div><b>'+esc(e.title)+'</b><small>'+esc(e.date||e.dateISO)+(e.hidden?' · hidden':'')+'</small></div><div class="acts"><a href="/e/'+(e.slug||e.id)+'" target="_blank">View</a><button data-edit="'+e.id+'">Edit</button><button data-hide="'+e.id+'">'+(e.hidden?'Show':'Hide')+'</button><button data-del="'+e.id+'">Delete</button></div></div>'
     }).join(''):'<div class="hint">Nothing added here yet.</div>';

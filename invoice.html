@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Yorkseed Invoice</title>
+<meta name="robots" content="noindex, nofollow"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap">
+<style>
+/* Layout: editor column on the left (screen only), A4 invoice sheet on the right. Print shows only the sheet. */
+:root{
+  --red:#cc1e2b;--ink:#141414;--ink2:#4c4a46;--ink3:#8b877f;--line:#e6e2da;
+  --desk:#efece6;--paper:#ffffff;--panel:#fbfaf7;
+  --sans:'DM Sans',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
+  --serif:'Instrument Serif',Georgia,serif;
+  --mono:'DM Mono',ui-monospace,Menlo,monospace;
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--desk);color:var(--ink);-webkit-font-smoothing:antialiased;font-size:14px}
+.app{display:grid;grid-template-columns:380px 1fr;gap:28px;padding:28px 24px 60px;max-width:1280px;margin:0 auto;align-items:start}
+@media(max-width:980px){.app{grid-template-columns:1fr;padding:16px 16px 48px}}
+
+/* editor */
+.ed{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px;position:sticky;top:16px;max-height:calc(100vh - 32px);overflow:auto}
+@media(max-width:980px){.ed{position:static;max-height:none}}
+.ed h1{font-family:var(--serif);font-weight:400;font-size:28px;margin-bottom:4px}
+.ed .lead{color:var(--ink3);font-size:13px;margin-bottom:16px;line-height:1.5}
+.grp{border-top:1px solid var(--line);padding-top:14px;margin-top:14px}
+.grp>b{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:10px;font-weight:500}
+label{display:block;font-size:12px;font-weight:500;color:var(--ink2);margin:8px 0 4px}
+input,select,textarea{width:100%;font:inherit;font-size:14px;color:var(--ink);background:#fff;border:1px solid #d9d4ca;border-radius:6px;padding:8px 10px;outline:none}
+input:focus,select:focus,textarea:focus{border-color:var(--ink)}
+textarea{min-height:58px;resize:vertical;line-height:1.45}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.seg{display:grid;grid-template-columns:1fr 1fr;border:1px solid #d9d4ca;border-radius:6px;overflow:hidden}
+.seg label{margin:0;text-align:center;padding:8px;cursor:pointer;font-size:13px;color:var(--ink2)}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label:has(input:checked){background:var(--ink);color:#fff}
+.seg label:has(input:focus-visible){outline:2px solid var(--red);outline-offset:-2px}
+.items-ed{display:flex;flex-direction:column;gap:8px}
+.it{display:grid;grid-template-columns:1fr 54px 76px 28px;gap:6px;align-items:center}
+.it input{padding:7px 8px;font-size:13px}
+.x{border:0;background:none;color:var(--ink3);font-size:18px;cursor:pointer;line-height:1}
+.x:hover,.x:focus-visible{color:var(--red)}
+.btn{display:block;width:100%;margin-top:10px;padding:11px;border-radius:6px;border:1px solid var(--ink);background:var(--ink);color:#fff;font:600 13px var(--sans);cursor:pointer}
+.btn.red{background:var(--red);border-color:var(--red)}
+.btn.ghost{background:none;color:var(--ink)}
+.btn:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+.hint{font-size:12px;color:var(--ink3);margin-top:6px;line-height:1.5}
+.saved{font-size:12px;color:#1f6b45;margin-top:8px;min-height:16px}
+
+/* sheet */
+.sheet-wrap{min-width:0;overflow-x:auto}
+.sheet{background:var(--paper);width:210mm;min-height:297mm;margin:0 auto;padding:18mm 18mm 16mm;box-shadow:0 1px 2px rgba(0,0,0,.06),0 12px 40px rgba(40,30,20,.10);display:flex;flex-direction:column}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px}
+.mark{display:flex;align-items:center;gap:9px}
+.mark i{width:4px;height:30px;background:var(--red);display:block}
+.mark span{font-weight:700;font-size:21px;letter-spacing:.02em}
+.issuer{text-align:right;font-size:11.5px;line-height:1.6;color:var(--ink2);white-space:pre-line}
+.issuer b{color:var(--ink);font-weight:600}
+.title-row{display:flex;justify-content:space-between;align-items:flex-end;margin:16mm 0 9mm;gap:20px}
+.title-row h2{font-family:var(--serif);font-weight:400;font-size:52px;line-height:.9;letter-spacing:-.01em}
+.stamp{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;padding:6px 10px;border:1.5px solid var(--red);color:var(--red);border-radius:3px;transform:rotate(-3deg)}
+.stamp.due{border-color:var(--ink2);color:var(--ink2)}
+.meta{display:grid;grid-template-columns:1.3fr 1fr;gap:10mm;padding-bottom:8mm;border-bottom:1px solid var(--ink)}
+.k{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3);margin-bottom:5px}
+.billto{font-size:12.5px;line-height:1.6;white-space:pre-line}
+.billto b{font-size:14px;font-weight:600}
+.facts{display:grid;grid-template-columns:auto 1fr;gap:5px 14px;font-size:12px;align-content:start}
+.facts dt{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);padding-top:2px}
+.facts dd{text-align:right;font-variant-numeric:tabular-nums}
+table{width:100%;border-collapse:collapse;margin-top:6mm;font-size:12.5px}
+th{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);font-weight:400;text-align:left;padding:0 0 8px;border-bottom:1px solid var(--line)}
+th.n,td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+td{padding:11px 0;border-bottom:1px solid var(--line);vertical-align:top}
+td small{display:block;color:var(--ink3);font-size:11px;margin-top:2px}
+td.n{padding-left:10px}
+.totals{margin-left:auto;width:78mm;margin-top:6mm;font-size:12.5px}
+.totals div{display:flex;justify-content:space-between;padding:5px 0;font-variant-numeric:tabular-nums}
+.totals .grand{border-top:1px solid var(--ink);margin-top:4px;padding-top:10px;font-weight:700;font-size:17px}
+.notes{margin-top:10mm;font-size:12px;line-height:1.6;color:var(--ink2);white-space:pre-line;max-width:120mm}
+.foot{margin-top:auto;padding-top:10mm;display:flex;justify-content:space-between;gap:20px;font-size:10.5px;color:var(--ink3);border-top:1px solid var(--line)}
+.foot b{color:var(--ink);font-weight:500}
+.empty{color:var(--ink3);font-style:italic}
+
+@page{size:A4;margin:0}
+@media print{
+  body{background:#fff}
+  .ed{display:none}
+  .app{display:block;padding:0;max-width:none}
+  .sheet{box-shadow:none;margin:0;width:210mm;min-height:297mm}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="app">
+
+<aside class="ed" aria-label="Invoice details">
+  <h1>Invoice</h1>
+  <p class="lead">Fill in the details, then <b>Print / Save as PDF</b>. Your business details and invoice numbering are remembered on this device.</p>
+
+  <div class="grp"><b>Invoice</b>
+    <div class="two">
+      <div><label for="num">Invoice number</label><input id="num"/></div>
+      <div><label for="issued">Issue date</label><input id="issued" type="date"/></div>
+    </div>
+    <label>Status</label>
+    <div class="seg"><label><input type="radio" name="status" value="paid" id="stPaid" checked/>Paid</label><label><input type="radio" name="status" value="due" id="stDue"/>Payment due</label></div>
+    <div id="paidBox" class="two">
+      <div><label for="paidOn">Paid on</label><input id="paidOn" type="date"/></div>
+      <div><label for="method">Paid by</label><input id="method" value="Card via Stripe"/></div>
+    </div>
+    <div id="dueBox" class="two" hidden>
+      <div><label for="dueOn">Due date</label><input id="dueOn" type="date"/></div>
+      <div><label for="payRef">Payment link or ref</label><input id="payRef" placeholder="Stripe link"/></div>
+    </div>
+  </div>
+
+  <div class="grp"><b>Bill to</b>
+    <label for="bCompany">Company</label><input id="bCompany" placeholder="Company legal name"/>
+    <div class="two">
+      <div><label for="bName">Contact</label><input id="bName"/></div>
+      <div><label for="bEmail">Email</label><input id="bEmail" type="email"/></div>
+    </div>
+    <label for="bAddr">Address</label><textarea id="bAddr" placeholder="Street&#10;City, postcode&#10;Country"></textarea>
+    <label for="bVat">VAT / tax ID</label><input id="bVat" placeholder="Optional"/>
+  </div>
+
+  <div class="grp"><b>Items</b>
+    <label for="preset">Add a package</label>
+    <select id="preset">
+      <option value="">Choose to add…</option>
+      <option value="0">Lisbon Delegation · Founding · €495</option>
+      <option value="1">Lisbon Delegation · Standard · €595</option>
+      <option value="2">Lisbon Delegation · Premium · €695</option>
+      <option value="3">Lisbon Delegation · Additional delegate · €175</option>
+      <option value="4">Custom line</option>
+    </select>
+    <div class="items-ed" id="itemsEd" style="margin-top:10px"></div>
+    <div class="two">
+      <div><label for="vat">VAT %</label><input id="vat" type="number" min="0" step="0.1" value="0"/></div>
+      <div><label for="cur">Currency</label><select id="cur"><option value="EUR">EUR €</option><option value="USD">USD $</option><option value="GBP">GBP £</option></select></div>
+    </div>
+    <label for="notes">Notes on the invoice</label>
+    <textarea id="notes">Thank you for joining the Yorkseed Lisbon Delegation at Web Summit, November 8 to 12, 2026.</textarea>
+    <p class="hint">Check VAT treatment with your accountant. Anything you type here prints as written.</p>
+  </div>
+
+  <div class="grp"><b>Your business details</b>
+    <label for="iName">Business name</label><input id="iName" value="Yorkseed"/>
+    <label for="iAddr">Address</label><textarea id="iAddr" placeholder="Street&#10;City, postcode&#10;Country"></textarea>
+    <div class="two">
+      <div><label for="iEmail">Email</label><input id="iEmail" value="partnership@yorkseed.co"/></div>
+      <div><label for="iTax">Your tax ID</label><input id="iTax" placeholder="Optional"/></div>
+    </div>
+    <label for="iWeb">Website</label><input id="iWeb" value="yorkseed.co"/>
+    <div class="saved" id="saved"></div>
+  </div>
+
+  <button class="btn red" id="printBtn" type="button">Print / Save as PDF</button>
+  <button class="btn ghost" id="nextBtn" type="button">Start next invoice</button>
+  <p class="hint">In the print window choose <b>Save as PDF</b>. Turn off headers and footers for a clean page.</p>
+</aside>
+
+<div class="sheet-wrap">
+<article class="sheet" id="sheet">
+  <div class="top">
+    <div class="mark"><i></i><span id="pMark">YORKSEED</span></div>
+    <div class="issuer" id="pIssuer"></div>
+  </div>
+  <div class="title-row">
+    <h2>Invoice</h2>
+    <span class="stamp" id="pStamp">Paid</span>
+  </div>
+  <div class="meta">
+    <div><div class="k">Billed to</div><div class="billto" id="pBill"></div></div>
+    <dl class="facts" id="pFacts"></dl>
+  </div>
+  <table>
+    <thead><tr><th>Description</th><th class="n">Qty</th><th class="n">Unit price</th><th class="n">Amount</th></tr></thead>
+    <tbody id="pItems"></tbody>
+  </table>
+  <div class="totals" id="pTotals"></div>
+  <div class="notes" id="pNotes"></div>
+  <div class="foot"><span id="pFootL"></span><span id="pFootR"></span></div>
+</article>
+</div>
+
+</div>
+
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var PRESETS=[
+    {d:'Yorkseed Lisbon Delegation 2026 · Founding',s:'Web Summit Lisbon, Nov 8 to 12 · one delegate',p:495},
+    {d:'Yorkseed Lisbon Delegation 2026 · Standard',s:'Web Summit Lisbon, Nov 8 to 12 · one delegate',p:595},
+    {d:'Yorkseed Lisbon Delegation 2026 · Premium',s:'Web Summit Lisbon, Nov 8 to 12 · one delegate, featured magazine spread',p:695},
+    {d:'Yorkseed Lisbon Delegation 2026 · Additional delegate',s:'Same company',p:175},
+    {d:'',s:'',p:0}
+  ];
+  var ISSUER=['iName','iAddr','iEmail','iTax','iWeb'];
+  var items=[];
+  function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
+  function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+  function today(){var d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+  function plusDays(iso,n){var d=new Date(iso+'T12:00:00');d.setDate(d.getDate()+n);return d.toISOString().slice(0,10)}
+  function fmtDate(iso){if(!iso)return '';var d=new Date(iso+'T12:00:00');return d.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})}
+  function money(n){var c=$('cur').value;try{return new Intl.NumberFormat('en-IE',{style:'currency',currency:c}).format(n)}catch(e){return c+' '+n.toFixed(2)}}
+  function nextNumber(){var n=parseInt(store('ys_inv_seq')||'0',10)+1;return 'YS-LIS-2026-'+String(n).padStart(3,'0')}
+
+  // restore issuer details
+  try{var saved=JSON.parse(store('ys_inv_issuer')||'null');if(saved)ISSUER.forEach(function(k){if(saved[k]!=null)$(k).value=saved[k]})}catch(e){}
+  $('num').value=nextNumber();$('issued').value=today();$('paidOn').value=today();$('dueOn').value=plusDays(today(),7);
+  // sample line so the sheet opens filled
+  items=[{d:PRESETS[0].d,s:PRESETS[0].s,q:1,p:PRESETS[0].p}];
+
+  function renderItemsEd(){
+    $('itemsEd').innerHTML=items.map(function(it,i){
+      return '<div class="it"><input aria-label="Description" data-i="'+i+'" data-f="d" value="'+esc(it.d).replace(/"/g,'&quot;')+'" placeholder="Description"/>'+
+        '<input aria-label="Quantity" data-i="'+i+'" data-f="q" type="number" min="1" value="'+it.q+'"/>'+
+        '<input aria-label="Unit price" data-i="'+i+'" data-f="p" type="number" min="0" step="0.01" value="'+it.p+'"/>'+
+        '<button class="x" type="button" data-rm="'+i+'" aria-label="Remove line">×</button></div>';
+    }).join('')||'<p class="hint">No lines yet. Add a package above.</p>';
+  }
+  $('itemsEd').addEventListener('input',function(e){var t=e.target,i=t.dataset.i;if(i==null)return;var f=t.dataset.f;items[i][f]=f==='d'?t.value:parseFloat(t.value)||0;if(f==='d')items[i].s='';render()});
+  $('itemsEd').addEventListener('click',function(e){var r=e.target.dataset.rm;if(r!=null){items.splice(+r,1);renderItemsEd();render()}});
+  $('preset').addEventListener('change',function(){var v=this.value;if(v==='')return;var p=PRESETS[+v];items.push({d:p.d,s:p.s,q:1,p:p.p});this.value='';renderItemsEd();render()});
+
+  function status(){return $('stPaid').checked?'paid':'due'}
+  document.querySelectorAll('[name=status]').forEach(function(r){r.addEventListener('change',function(){$('paidBox').hidden=status()!=='paid';$('dueBox').hidden=status()==='paid';render()})});
+
+  function render(){
+    var name=$('iName').value.trim()||'Yorkseed';
+    $('pMark').textContent=name.toUpperCase();
+    $('pIssuer').innerHTML='<b>'+esc(name)+'</b>\n'+esc($('iAddr').value.trim())+($('iAddr').value.trim()?'\n':'')+esc($('iEmail').value.trim())+($('iWeb').value.trim()?'\n'+esc($('iWeb').value.trim()):'')+($('iTax').value.trim()?'\nTax ID '+esc($('iTax').value.trim()):'');
+    var paid=status()==='paid';
+    $('pStamp').textContent=paid?'Paid':'Payment due';$('pStamp').className='stamp'+(paid?'':' due');
+    var c=$('bCompany').value.trim();
+    var bill=(c?'<b>'+esc(c)+'</b>':'<span class="empty">Company name</span>')+
+      ($('bName').value.trim()?'\n'+esc($('bName').value.trim()):'')+
+      ($('bEmail').value.trim()?'\n'+esc($('bEmail').value.trim()):'')+
+      ($('bAddr').value.trim()?'\n'+esc($('bAddr').value.trim()):'')+
+      ($('bVat').value.trim()?'\nVAT '+esc($('bVat').value.trim()):'');
+    $('pBill').innerHTML=bill;
+    var f='<dt>Invoice no.</dt><dd>'+esc($('num').value)+'</dd><dt>Issued</dt><dd>'+fmtDate($('issued').value)+'</dd>';
+    f+=paid?'<dt>Paid</dt><dd>'+fmtDate($('paidOn').value)+'</dd><dt>Method</dt><dd>'+esc($('method').value)+'</dd>'
+           :'<dt>Due</dt><dd>'+fmtDate($('dueOn').value)+'</dd>'+($('payRef').value.trim()?'<dt>Pay at</dt><dd style="word-break:break-all">'+esc($('payRef').value.trim())+'</dd>':'');
+    $('pFacts').innerHTML=f;
+    var sub=0;
+    $('pItems').innerHTML=items.length?items.map(function(it){var a=(it.q||0)*(it.p||0);sub+=a;return '<tr><td>'+(esc(it.d)||'<span class="empty">Description</span>')+(it.s?'<small>'+esc(it.s)+'</small>':'')+'</td><td class="n">'+(it.q||0)+'</td><td class="n">'+money(it.p||0)+'</td><td class="n">'+money(a)+'</td></tr>'}).join('')
+      :'<tr><td colspan="4" class="empty">No items</td></tr>';
+    var rate=parseFloat($('vat').value)||0,tax=Math.round(sub*rate)/100;
+    $('pTotals').innerHTML='<div><span>Subtotal</span><span>'+money(sub)+'</span></div><div><span>VAT '+rate+'%</span><span>'+money(tax)+'</span></div><div class="grand"><span>'+(paid?'Total paid':'Total due')+'</span><span>'+money(sub+tax)+'</span></div>';
+    $('pNotes').textContent=$('notes').value.trim();
+    $('pFootL').innerHTML='<b>'+esc(name)+'</b> · '+esc($('iEmail').value.trim());
+    $('pFootR').textContent=$('num').value;
+    document.title=($('num').value||'Invoice')+(c?' '+c:'');
+  }
+
+  document.addEventListener('input',function(e){
+    if(ISSUER.indexOf(e.target.id)>-1){var o={};ISSUER.forEach(function(k){o[k]=$(k).value});store('ys_inv_issuer',JSON.stringify(o));$('saved').textContent='Saved on this device';}
+    if(e.target.closest('.it'))return;
+    render();
+  });
+  document.addEventListener('change',render);
+
+  $('printBtn').onclick=function(){
+    var m=/(\d+)$/.exec($('num').value);if(m){var cur=parseInt(store('ys_inv_seq')||'0',10);if(+m[1]>cur)store('ys_inv_seq',String(+m[1]))}
+    render();window.print();
+  };
+  $('nextBtn').onclick=function(){
+    ['bCompany','bName','bEmail','bAddr','bVat','payRef'].forEach(function(k){$(k).value=''});
+    $('num').value=nextNumber();$('issued').value=today();$('paidOn').value=today();$('dueOn').value=plusDays(today(),7);
+    items=[];renderItemsEd();render();$('bCompany').focus();
+  };
+
+  renderItemsEd();render();
+})();
+</script>
+</body>
+</html>
