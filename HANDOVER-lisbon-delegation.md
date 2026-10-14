@@ -32,6 +32,7 @@ Priced per company, not per person. Refund policy on the page: every delegate is
 3. Profile in the Yorkseed Lisbon Delegation digital Deal Book (profiles due **October 30**)
 4. Consideration for the virtual Global Founder Showcase in December (not guaranteed; Premium first)
 5. Six months of Yorkseed Connect (app.yorkseed.co), complimentary
+6. KoiCard access: 300 scans, November 5 to November 18, 2026, via the access code (send after payment, never post publicly)
 
 ## 4. The buying flow (current, as of Oct 13)
 
