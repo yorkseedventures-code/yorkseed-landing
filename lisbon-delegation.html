@@ -104,11 +104,11 @@ em{font-style:italic}
 .dark .label{color:var(--gold-light);margin-bottom:18px}
 .dark .big{max-width:14ch;margin-bottom:56px}
 .dark .big em{color:var(--gold-light)}
-.tracks{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid rgba(255,255,255,.15)}
+.tracks{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,.15)}
 @media(max-width:1000px){.tracks{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.tracks{grid-template-columns:1fr}}
 .track{padding:28px 24px 34px 0;border-bottom:1px solid rgba(255,255,255,.08)}
-@media(min-width:1001px){.track+.track{padding-left:24px;border-left:1px solid rgba(255,255,255,.08)}}
+@media(min-width:1001px){.track+.track{padding-left:24px;border-left:1px solid rgba(255,255,255,.08)}.track:nth-child(3n+1){padding-left:0;border-left:0}}
 .track .n{font-size:12px;font-weight:600;color:var(--red);letter-spacing:.06em;margin-bottom:22px;display:block}
 .track h3{font-family:var(--serif);font-weight:400;font-size:26px;line-height:1.1;margin-bottom:12px}
 .track p{font-size:14px;line-height:1.7;color:rgba(255,255,255,.55)}
@@ -319,6 +319,7 @@ html:not(.fso) [data-so]{display:none!important}
       <div class="track"><span class="n">/03</span><h3>The Deal Book</h3><p>Your company featured in the Yorkseed Lisbon Delegation digital Deal Book, sent to founders, investors, allocators and partners across the Yorkseed network during Web Summit week and after.</p></div>
       <div class="track"><span class="n">/04</span><h3>The Showcase</h3><p>A virtual session in December where selected founders present to invited investors, including ones who weren't in Lisbon. <a href="https://luma.com/relg9v16?utm_source=yorkseed&utm_medium=delegation_page" target="_blank" rel="noopener" style="color:var(--gold-light)">See the showcase</a></p></div>
       <div class="track"><span class="n">/05</span><h3>Yorkseed Connect</h3><p>Six months on our member platform, complimentary, so you can keep messaging everyone you meet.</p></div>
+      <div class="track"><span class="n">/06</span><h3>KoiCard</h3><p>Free access to KoiCard, the app that turns business cards and QR codes into saved contacts, so you can keep track of everyone you meet in Lisbon. 300 scans per delegate, November 5 to November 18. We send your access code once you've joined.</p></div>
     </div>
   </div>
 </section>
@@ -417,6 +418,7 @@ html:not(.fso) [data-so]{display:none!important}
     <div><div class="label">Questions</div><h2 class="big">Before <em>you apply</em></h2></div>
     <div>
       <details><summary>Is the Web Summit ticket included? Do I need one?</summary><p>It isn't included, and you don't need one to join. If you want to go inside Web Summit, buy it through Web Summit. If you're still deciding, the delegation works either way, and our famous <a href="https://docs.google.com/spreadsheets/d/1Z-CSAENhQygbIPVqP5WbKbbVAGfJFYoixORwWyN8n9o/edit?usp=sharing" target="_blank" rel="noopener" style="color:var(--red)">master side event spreadsheet</a> lists the side events happening all week.</p></details>
+      <details><summary>What is KoiCard, and how do I get access?</summary><p>KoiCard is an app that reads business cards and QR codes and saves them as contacts, with notes and color labels, so you can follow up after Web Summit. Every delegate gets free access for two weeks, with 300 scans, from November 5 to November 18. Once you've joined, we'll send you an access code. Sign up at <a href="https://koicard.app" target="_blank" rel="noopener" style="color:var(--red)">koicard.app</a>, open Settings and enter the code.</p></details>
       <details><summary>Will there be more programs?</summary><p>We might add more programs to the delegation. Everyone will be in one WhatsApp group chat, so you'll hear about anything new there.</p></details>
       <details><summary>Why per company?</summary><p>Most of what you get goes to the company: the Deal Book profile, introductions, the showcase and Yorkseed Connect. One person is included, and extra teammates are €175 each.</p></details>
       <details><summary>When do I pay?</summary><p>At checkout, right after the form. Payment runs through Stripe. We review every delegate, and if it's not a fit we refund you in full within 48 hours. Once you've paid, we add you to the delegation's Luma guest list, where you'll get venue details and updates for the week.</p></details>
