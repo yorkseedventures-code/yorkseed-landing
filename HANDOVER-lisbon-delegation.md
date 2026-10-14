@@ -105,7 +105,7 @@ Suggested Stripe confirmation message (on all delegation links): "You're in. Wat
 ## 9. How to work with Jessica
 
 - Never use em dashes in anything you write for her.
-- Marketing copy: punchy, terse, high impact. She rejected an early page as "too AI": avoid slogan pairs, "not X, Y" lines and filler taglines. She removed the hero tagline "A small group of founders. The right rooms."
+- Marketing copy: punchy, terse, high impact. She rejected an early page as "too AI": avoid slogan pairs, "not X, Y" lines and filler taglines. She removed the hero tagline "Founders and investors. The right rooms."
 - Give step-by-step, copy-pasteable instructions for anything technical; she does not code and deploys by GitHub upload.
 - She often says "you decide": make the call, state it in one line, move on.
 - She is solo and cash-conscious: prefer zero-cost, low-maintenance setups.
