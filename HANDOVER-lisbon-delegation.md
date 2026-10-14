@@ -4,10 +4,12 @@ Written October 13, 2026, for the next agent picking up this work for Jessica So
 
 ## 1. What this is
 
-A paid founder delegation Yorkseed runs at Web Summit Lisbon. Founders who are already attending Web Summit pay per company to travel with Yorkseed: investor introductions, delegate gatherings, a digital magazine profile, a December virtual showcase and 6 months of Yorkseed Connect. Investors, LPs and family offices join free. Jessica runs it solo, so every decision favors low manual work.
+A paid founder delegation Yorkseed runs at Web Summit Lisbon. Founders who are already attending Web Summit pay per company to travel with Yorkseed: investor introductions, delegate gatherings, a digital Deal Book profile, a December virtual showcase and 6 months of Yorkseed Connect. Investors, LPs and family offices join free. Jessica runs it solo, so every decision favors low manual work.
 
 - **Dates:** November 8 to 12, 2026. Delegation kicks off Nov 8, the day before Web Summit opens (Web Summit itself is Nov 9 to 12).
-- **Web Summit ticket:** NOT included. Buyers must already be attending.
+- **Web Summit ticket:** NOT included and NOT required. The page is open to founders going to Lisbon who are still deciding on a ticket; the master side event spreadsheet covers side events. Copy voice is "we/us" (Yorkseed), never first-person singular.
+- **Series hub:** https://yorkseed.co/web-summit-lisbon lists Opening Night, Executive/Capital/Allocator Lunches and the delegation. Keep it, sitemap.xml, llms.txt and llms-full.txt in sync when dates or links change.
+- **Introductions are not guaranteed.** Do not reintroduce "first in line" or "we will introduce you" language.
 - **Live page:** https://yorkseed.co/lisbon-delegation
 - **Target size:** about 20 companies total. Founding rate capped at 10.
 
@@ -17,7 +19,7 @@ A paid founder delegation Yorkseed runs at Web Summit Lisbon. Founders who are a
 |---|---|---|
 | Founding Delegation | €495 / company | First 10 companies only, 1 delegate |
 | Delegation (Standard) | €595 / company | After founding sells out, 1 delegate |
-| Premium Delegation | €695 / company | Limit 5. Featured magazine spread, first in line for intros and showcase |
+| Premium Delegation | €695 / company | Limit 5. Featured Deal Book spread, first in line for intros and showcase |
 | Additional delegate | €175 each | Same company, up to 3 |
 | Investor / LP / Family office | Free | Application only, no checkout |
 
@@ -27,7 +29,7 @@ Priced per company, not per person. Refund policy on the page: every delegate is
 
 1. Introductions to investors and partners in Lisbon matched to stage and sector
 2. Gatherings: Nov 8 kickoff, Yorkseed meetups, private delegate WhatsApp group, 25% off Yorkseed lunches
-3. Profile in the Yorkseed Lisbon Delegation digital magazine (profiles due **October 30**)
+3. Profile in the Yorkseed Lisbon Delegation digital Deal Book (profiles due **October 30**)
 4. Consideration for the virtual Global Founder Showcase in December (not guaranteed; Premium first)
 5. Six months of Yorkseed Connect (app.yorkseed.co), complimentary
 
@@ -85,13 +87,13 @@ The latest versions of all these files are in the same zip as this doc.
 
 ## 7. Messages ready to use
 
-Approval/welcome email templates were written for Founding, Standard, Premium and Investor. Since the flow switched to instant checkout, use them as **welcome messages**: remove the "Confirm it here" payment line. Each includes the teammate link, WhatsApp group mention, magazine profile due Oct 30, lunch code and lunch links, and an invoice-on-request line. Add a Luma invite mention.
+Approval/welcome email templates were written for Founding, Standard, Premium and Investor. Since the flow switched to instant checkout, use them as **welcome messages**: remove the "Confirm it here" payment line. Each includes the teammate link, WhatsApp group mention, Deal Book profile due Oct 30, lunch code and lunch links, and an invoice-on-request line. Add a Luma invite mention.
 
-Suggested Stripe confirmation message (on all delegation links): "You're in. Watch your inbox in the next 24 hours for the delegate WhatsApp group, your magazine profile form, your Luma invite and your 25% lunch code. Bringing a teammate? https://buy.stripe.com/5kQ8wI4kn7WC43K2slbo40n"
+Suggested Stripe confirmation message (on all delegation links): "You're in. Watch your inbox in the next 24 hours for the delegate WhatsApp group, your Deal Book profile form, your Luma invite and your 25% lunch code. Bringing a teammate? https://buy.stripe.com/5kQ8wI4kn7WC43K2slbo40n"
 
 ## 8. Open items (not done yet)
 
-1. **Magazine profile form**: promised to delegates, due Oct 30. Not built. Suggested fields: logo, founder photo, one-liner, sector, stage, location, traction, raise or partnership goals, who they want to meet, links. Magazine structure agreed: cover, short welcome from Jessica, Meet the Delegation (a page or half page per company), optional investor profiles, "Who to Meet in Lisbon" quick index (most important page), schedule, showcase, back page with Connect and links. No separate Connect page.
+1. **Deal Book profile form**: promised to delegates, due Oct 30. Not built. Suggested fields: logo, founder photo, one-liner, sector, stage, location, traction, raise or partnership goals, who they want to meet, links. Deal Book structure agreed: cover, short welcome from Jessica, Meet the Delegation (a page or half page per company), optional investor profiles, "Who to Meet in Lisbon" quick index (most important page), schedule, showcase, back page with Connect and links. No separate Connect page.
 2. **Luma fixes**: delegation page says 30% lunch discount (should be 25%), add event dates, add €175 extra delegate, add refund terms, switch paid tickets off. Both lunch pages say "Web Summit Lisbon 2025" (should be 2026), "CVS" should be "CVCs", "UNSDGS -backed" should be "UN SDG-backed", "We bridges" should be "We bridge".
 3. **Luma lunch pricing** advice given (not confirmed applied): founder tickets €79 to €99 are fine; investors should be free at the Capital Lunch and €89 at the Executive Lunch instead of €109 to €119; All-Access Week Pass €950 is too high next to the €495 delegation, suggested €395 to €450.
 4. **Homepage "Coming up"** row says "Web Summit Lisbon week, Nov 8 to 11" linking to https://luma.com/44qkfxdu. Delegation runs to Nov 12. Unconfirmed whether that's intentional.
