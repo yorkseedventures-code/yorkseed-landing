@@ -22,6 +22,7 @@ A paid founder delegation Yorkseed runs at Web Summit Lisbon. Founders who are a
 | Premium Delegation | €695 / company | Limit 5. Featured Deal Book spread, first in line for intros and showcase |
 | Additional delegate | €175 each | Same company, up to 3 |
 | Investor / LP / Family office | Free | Application only, no checkout |
+| Partner Delegate (added Oct 17) | €995 / company | Executives, corporates, advisors, law firms, banks, recruiters, EOR/payroll, consultants. Labeled Partner profile in the Deal Book, delegate group and selected gatherings, 3 months of Yorkseed Connect (founders get 6), relevant connections. Must offer delegates a perk. Stripe link: https://buy.stripe.com/9B628k5or6Sy43K0kdbo40q (send to approved partners). |
 
 Priced per company, not per person. Refund policy on the page: every delegate is reviewed; if not a fit, full refund within 48 hours.
 
@@ -34,7 +35,11 @@ Priced per company, not per person. Refund policy on the page: every delegate is
 5. Six months of Yorkseed Connect (app.yorkseed.co), complimentary
 6. KoiCard access: 300 scans, November 5 to November 18, 2026, via the access code (send after payment, never post publicly)
 
-## 4. The buying flow (current, as of Oct 13)
+## 4. The buying flow (changed Oct 17: approval first)
+
+As of Oct 17 there is ONE application flow and NO payment on the page. "I am joining as": Founder, Partner or Investor, each with its own questions. Every application emails Jessica (subject `Lisbon Delegation: Founder | Acme | Premium`, `Partner | Acme | Legal`, `Investor | Fund`). The email includes "Rate to send if approved" and "Deal Book section" (Companies, Partners, Investors). Jessica approves manually, then emails founders the right Stripe link from section 5, partners the €995 link (https://buy.stripe.com/9B628k5or6Sy43K0kdbo40q), and investors a complimentary confirmation. The Deal Book has three sections: Companies, Partners, Investors.
+
+### Old flow (before Oct 17, kept for reference)
 
 1. Founder fills in the **Yorkseed application form** on yorkseed.co/lisbon-delegation.
 2. Form submits to Jessica's inbox via **Web3Forms** (subject like `Lisbon Delegation: Founder | Acme | Premium`).
@@ -55,6 +60,7 @@ Luma is used for **discovery and the guest list only**, not for payment (Luma fr
 - Additional delegate x1 €175: https://buy.stripe.com/5kQ8wI4kn7WC43K2slbo40n
 - Additional delegate x2 €350: https://buy.stripe.com/dRm9AM2cf7WC2ZG2slbo40o
 - Additional delegate x3 €525: https://buy.stripe.com/dRm00cg353GmcAg8QJbo40p
+- Partner Delegate €995 (created Oct 17): https://buy.stripe.com/9B628k5or6Sy43K0kdbo40q
 
 Stripe cannot prefill quantity via URL, which is why teammates have one link per quantity.
 
@@ -111,3 +117,11 @@ Suggested Stripe confirmation message (on all delegation links): "You're in. Wat
 - She is solo and cash-conscious: prefer zero-cost, low-maintenance setups.
 - Brand: yorkseed.co red #cc1e2b, oxblood #6e0d17, gold #B8936A, cream #F4EFE4; DM Sans body. Yorkseed House uses Cormorant Garamond.
 - Contact email for public pages: partnership@yorkseed.co.
+
+
+## 10. Oct 17 changes
+
+- "Where did you hear about the delegation?" is now a required dropdown for every role, with an optional "Who or where exactly?" field. Emails carry "Heard via" and "Heard via details".
+- Investor notice: funds, angel groups and allocators only; others are pointed to Partner Delegate.
+- Partner Delegates get an Executive Lunch seat (Mon Nov 9), and so does every partner teammate paid at €175. Comp them on the Luma Executive Lunch guest list. The application email shows the seat count in "Rate to send if approved". Founder teammates do not get a lunch seat (25% code only).
+- Teammates question now shows for founders and partners (not investors). Same €175 teammate links.
