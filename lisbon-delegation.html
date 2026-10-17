@@ -574,6 +574,16 @@ html:not(.fso) [data-so]{display:none!important}
             <div class="f"><label for="iCheck">Check size</label><input type="text" id="iCheck" placeholder="e.g. €50K to €500K"/></div>
           </div>
           <div class="f"><label for="iSectors">Sectors</label><input type="text" id="iSectors" placeholder="e.g. Fintech, AI, Climate"/></div>
+          <div class="f" id="pfGroup"><span class="lab">Portfolio companies in the Deal Book</span>
+            <p class="hint">May we feature a few portfolio companies from your website on your Deal Book page? Yes: we choose up to 5 from your website. No: we don't list any. Custom: you list the ones you'd like featured.</p>
+            <div class="who three" style="margin-bottom:0">
+              <label><input type="radio" name="portfolio" value="Yes"/>Yes</label>
+              <label><input type="radio" name="portfolio" value="No"/>No</label>
+              <label><input type="radio" name="portfolio" value="Custom"/>Custom</label>
+            </div>
+          </div>
+          <div class="f" id="pfCustom" hidden><label for="pfList">Which companies would you like featured?</label><p class="hint">Up to 5, one per line: company name, then a link.</p><textarea id="pfList" rows="5" placeholder="CrewAI https://crewai.com"></textarea></div>
+          <p class="small" style="margin:-6px 0 22px">We only feature companies you approve, and you can change this before the Deal Book is published.</p>
         </div>
 
         <div class="f"><label for="goals" id="goalsLabel">Who do you want to meet in Lisbon?</label><p class="hint" id="goalsHint">The more specific, the better the introductions.</p><textarea id="goals"></textarea></div>
@@ -670,6 +680,8 @@ html:not(.fso) [data-so]{display:none!important}
   function mediaNeeded(){return featureYes()||dealbookYes();}
   function syncExtras(){$('dbFields').hidden=!dealbookYes();$('featureFields').hidden=!mediaNeeded();renderMates();}
   form.querySelectorAll('[name=feature],[name=dealbook]').forEach(function(r){r.addEventListener('change',syncExtras);});
+  function portfolio(){var c=form.querySelector('[name=portfolio]:checked');return c?c.value:'';}
+  form.querySelectorAll('[name=portfolio]').forEach(function(r){r.addEventListener('change',function(){$('pfCustom').hidden=portfolio()!=='Custom';});});
   document.querySelectorAll('[data-role]').forEach(function(a){a.addEventListener('click',function(){form.querySelector('[name=role][value="'+a.getAttribute('data-role')+'"]').checked=true;applyRole();});});
   document.querySelectorAll('[data-tier]').forEach(function(a){a.addEventListener('click',function(){form.querySelector('[name=role][value=Founder]').checked=true;applyRole();form.querySelector('[name=tier][value="'+a.getAttribute('data-tier')+'"]').checked=true;});});
 
@@ -705,6 +717,12 @@ html:not(.fso) [data-so]{display:none!important}
     ['linkedin','website'].forEach(function(id){var x=v(id);if(x&&/(bit\.ly|wa\.me|t\.me|tinyurl\.com)/i.test(x)){mark($(id),'Please use the full link.');ok=false;}});
     if(v('goals')&&v('goals').length<40){mark($('goals'),'A little more detail, please.');ok=false;}
     if(founder()&&!form.querySelector('[name=tier]:checked')){mark($('tierGroup'),'Pick a package.');ok=false;}
+    if(investor()){
+      if(!portfolio()){mark($('pfGroup').querySelector('.who'),'Please choose Yes, No or Custom.');ok=false;}
+      else if(portfolio()==='Custom'){var pl=v('pfList').split(/\n/).filter(function(x){return x.trim()});
+        if(!pl.length){mark($('pfList'),'Add at least one company, or choose No.');ok=false;}
+        else if(pl.length>5){mark($('pfList'),'Up to 5 companies, please.');ok=false;}}
+    }
     matesData().forEach(function(m,i){var k=i+1;
       if(!m[0]){mark($('m'+k+'name'),'Please fill this in.');ok=false;}
       if(!m[2]){mark($('m'+k+'email'),'Please fill this in.');ok=false;}
@@ -748,7 +766,7 @@ html:not(.fso) [data-so]{display:none!important}
       ['One-liner',f?v('oneLiner'):''],['Sector',f?v('sector'):''],['Stage',f?v('stage'):''],['Fundraising',f?v('raising'):''],['Web Summit ticket',f?v('ticket'):''],
       ['Package',tier],['Rate to send if approved',rate],['Teammates',i?'':v('extraCount')],['Teammate details',i?'':matesData().map(function(m,k){return (k+1)+'. '+m[0]+(m[1]?' ('+m[1]+')':'')+' · '+m[2]+' · '+m[3]+(m[4]?' · photo: '+m[4]:'')}).join(' | ')],
       ['Partner field',p?v('pField'):''],['Partner services',p?v('pOffer'):''],['Partner perk for delegates',p?v('pPerk'):''],
-      ['Investor stage focus',i?v('iStage'):''],['Investor sectors',i?v('iSectors'):''],['Investor check size',i?v('iCheck'):''],
+      ['Investor stage focus',i?v('iStage'):''],['Investor sectors',i?v('iSectors'):''],['Investor check size',i?v('iCheck'):''],['Portfolio permission',i?(portfolio()==='Yes'?'Yes, choose up to 5 from website':portfolio()):''],['Portfolio companies',i&&portfolio()==='Custom'?v('pfList').split(/\n/).filter(function(x){return x.trim()}).join(' | '):''],
       [f?'Who they want to meet':(p?'Who they want to meet':'What they want to see'),v('goals')],['Heard via',v('referral')],['Heard via details',v('referralDetail')],
       ['Deal Book section',f?'Companies':(p?'Partners':'Investors')],
       ['Deal Book profile',form.querySelector('[name=dealbook]:checked').value],['Deal Book tagline',dealbookYes()?v('dbTagline'):''],['Deal Book about',dealbookYes()?v('dbAbout'):''],['Deal Book keywords',dealbookYes()?[v('dbTag1'),v('dbTag2'),v('dbTag3')].join(' | '):''],['Deal Book QR link',dealbookYes()?(v('dbQR')||v('website')):''],
