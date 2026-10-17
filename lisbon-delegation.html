@@ -366,6 +366,7 @@ html:not(.fso) [data-so]{display:none!important}
       <figure><img src="/assets/deal-book/partner.png" alt="Sample Deal Book page for a partner delegate, with a delegate perk" loading="lazy" width="294" height="392"/><figcaption>A partner</figcaption></figure>
     </div>
     <p class="note">Sample layout. The companies, people and details shown are placeholders, and the final design may change.</p>
+    <p style="margin-top:28px"><a href="/delegation/lisbon-2026/delegates" class="btn" style="border:1px solid var(--ink);color:var(--ink)">Meet the delegates</a></p>
   </div>
 </section>
 
@@ -484,7 +485,7 @@ html:not(.fso) [data-so]{display:none!important}
       <details><summary>Am I guaranteed a showcase slot?</summary><p>No. Every founder in the delegation is considered and we pick the companies that fit the investors joining. Premium companies go first.</p></details>
       <details><summary>Can I get a refund?</summary><p>Yes, in full, if you cancel before October 30. After that your profile and introduction work are already in motion, so it's non-refundable.</p></details>
       <details><summary>I'm an executive or a service provider. Can I join?</summary><p>Yes, as a Partner Delegate, €995 per company. That covers executives, corporates, advisors, law firms, banks, recruiters, EOR and payroll companies, consultants and other ecosystem organizations. You get a seat at the Executive Lunch on Monday, November 9, a clearly labeled Partner profile in the Deal Book, access to the delegate group and selected gatherings, three months of Yorkseed Connect and relevant connection opportunities. We ask every partner to offer delegates a useful perk, like a free consultation, a discount or credits. Your perk is also listed in the Vault on Yorkseed Connect. Extra teammates are €175 each, and each one gets an Executive Lunch seat too. Choose "Partner" at the top of the form.</p></details>
-      <details><summary>I'm an investor. Can I join?</summary><p>Please do. It's complimentary for VCs, angel groups, LPs, family offices and other allocators, subject to approval. We run due diligence on every investor and approve VCs, angel groups and networks, LPs, family offices and other allocators only. If you raise for others, offer market entry, or are looking for new clients, join as a Partner Delegate. Choose "Investor" at the top of the form. If you can only make the virtual showcase, <a href="https://luma.com/relg9v16?utm_source=yorkseed&utm_medium=delegation_page" target="_blank" rel="noopener" style="color:var(--red)">request a seat on Luma</a>.</p></details>
+      <details><summary>I'm an investor. Can I join?</summary><p>Please do. It's complimentary for VCs, angel groups, LPs, family offices and other allocators, subject to approval. We run due diligence on every investor and approve VCs, angel groups and networks, LPs, family offices and other allocators only. If you raise for others, offer market entry, or are looking for new clients, join as a Partner Delegate. Two people from your investment team join free, and each extra person is €175. Choose "Investor" at the top of the form. If you can only make the virtual showcase, <a href="https://luma.com/relg9v16?utm_source=yorkseed&utm_medium=delegation_page" target="_blank" rel="noopener" style="color:var(--red)">request a seat on Luma</a>.</p></details>
     </div>
   </div>
 </section>
@@ -563,7 +564,7 @@ html:not(.fso) [data-so]{display:none!important}
         </div>
 
         <div class="team-block">
-          <div class="f"><label for="extraCount">Teammates coming</label><p class="hint" id="teamHint" hidden>Partners: every teammate gets an Executive Lunch seat too.</p><select id="extraCount"><option value="0">Just me</option><option value="1">+1 teammate (€175)</option><option value="2">+2 teammates (€350)</option><option value="3">+3 teammates (€525)</option></select></div>
+          <div class="f"><label for="extraCount">Teammates coming</label><p class="hint" id="teamHint" hidden></p><select id="extraCount"><option value="0">Just me</option><option value="1">+1 teammate (€175)</option><option value="2">+2 teammates (€350)</option><option value="3">+3 teammates (€525)</option></select></div>
           <div id="mates"></div>
         </div>
 
@@ -664,13 +665,26 @@ html:not(.fso) [data-so]{display:none!important}
     form.querySelector('.founder-only').hidden=r!=='Founder';
     form.querySelector('.partner-only').hidden=r!=='Partner';
     form.querySelector('.investor-only').hidden=r!=='Investor';
-    form.querySelector('.team-block').hidden=r==='Investor';
-    $('teamHint').hidden=r!=='Partner';
+    setTeamOptions(r);
     $('companyLabel').textContent=c.org;$('logoLabel').textContent='Link to your '+c.org.toLowerCase()+' logo';$('dbAboutLabel').textContent=c.about;
     $('dbTaglineHint').textContent=c.tagline;$('dbTagsHint').textContent=c.tags;
     $('goalsLabel').textContent=c.goals;$('goalsHint').textContent=c.goalsHint;$('submitNote').textContent=c.note;
     updateTicket();
     renderMates();
+  }
+  var TEAM_OPTS={
+    paid:[['0','Just me'],['1','+1 teammate (€175)'],['2','+2 teammates (€350)'],['3','+3 teammates (€525)']],
+    investor:[['0','Just me'],['1','+1 team member (free)'],['2','+2 team members (1 free, €175)'],['3','+3 team members (1 free, €350)']]
+  };
+  function setTeamOptions(r){
+    var sel=$('extraCount'),opts=r==='Investor'?TEAM_OPTS.investor:TEAM_OPTS.paid,cur=sel.value;
+    sel.innerHTML=opts.map(function(o){return '<option value="'+o[0]+'">'+o[1]+'</option>'}).join('');
+    sel.value=opts.some(function(o){return o[0]===cur})?cur:'0';
+    $('extraCount').previousElementSibling.previousElementSibling.textContent=r==='Investor'?'Team members coming':'Teammates coming';
+    var h=$('teamHint');
+    if(r==='Partner'){h.textContent='Partners: every teammate gets an Executive Lunch seat too.';h.hidden=false;}
+    else if(r==='Investor'){h.textContent='Two people per fund join free. Each extra person is €175. Investment team only: partners, principals or associates who take meetings.';h.hidden=false;}
+    else h.hidden=true;
   }
   function updateTicket(){var no=founder()&&ticket.value==='Not going';$('noTicket').hidden=!no;btn.disabled=no;}
   form.querySelectorAll('[name=role]').forEach(function(r){r.addEventListener('change',applyRole);});
@@ -686,7 +700,7 @@ html:not(.fso) [data-so]{display:none!important}
   document.querySelectorAll('[data-tier]').forEach(function(a){a.addEventListener('click',function(){form.querySelector('[name=role][value=Founder]').checked=true;applyRole();form.querySelector('[name=tier][value="'+a.getAttribute('data-tier')+'"]').checked=true;});});
 
   function renderMates(){
-    var n=investor()?0:parseInt(v('extraCount')||'0',10),box=$('mates'),keep={};
+    var n=parseInt(v('extraCount')||'0',10),box=$('mates'),keep={};
     box.querySelectorAll('input').forEach(function(i){keep[i.id]=i.value});
     var h='';
     for(var k=1;k<=n;k++){
@@ -695,6 +709,7 @@ html:not(.fso) [data-so]{display:none!important}
         '<div class="f"><label for="m'+k+'role">Role</label><input type="text" id="m'+k+'role" placeholder="e.g. CTO"/></div></div>'+
         '<div class="two"><div class="f"><label for="m'+k+'email">Email</label><input type="email" id="m'+k+'email" autocomplete="off"/></div>'+
         '<div class="f"><label for="m'+k+'phone">WhatsApp</label><input type="tel" id="m'+k+'phone" placeholder="+351 …" autocomplete="off"/></div></div>'+
+        (investor()?'<div class="f"><label for="m'+k+'li">LinkedIn</label><input type="url" id="m'+k+'li" placeholder="https://linkedin.com/in/…" autocomplete="off"/></div>':'')+
         (dealbookYes()?'<div class="f"><label for="m'+k+'photo">Headshot link (optional)</label><p class="hint">For your teammate\'s spot on your Deal Book page.</p><input type="url" id="m'+k+'photo" placeholder="https://"/></div>':'')+'</div>';
     }
     box.innerHTML=h;
@@ -702,8 +717,8 @@ html:not(.fso) [data-so]{display:none!important}
   }
   $('extraCount').addEventListener('change',renderMates);
   function matesData(){
-    var n=investor()?0:parseInt(v('extraCount')||'0',10),out=[];
-    for(var k=1;k<=n;k++)out.push([v('m'+k+'name'),v('m'+k+'role'),v('m'+k+'email'),v('m'+k+'phone'),$('m'+k+'photo')?v('m'+k+'photo'):'']);
+    var n=parseInt(v('extraCount')||'0',10),out=[];
+    for(var k=1;k<=n;k++)out.push([v('m'+k+'name'),v('m'+k+'role'),v('m'+k+'email'),v('m'+k+'phone'),$('m'+k+'photo')?v('m'+k+'photo'):'',$('m'+k+'li')?v('m'+k+'li'):'']);
     return out;
   }
   function validate(){
@@ -728,6 +743,7 @@ html:not(.fso) [data-so]{display:none!important}
       if(!m[2]){mark($('m'+k+'email'),'Please fill this in.');ok=false;}
       else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(m[2])){mark($('m'+k+'email'),'That email doesn\'t look right.');ok=false;}
       if(!m[3]){mark($('m'+k+'phone'),'Please fill this in.');ok=false;}
+      if(investor()){if(!m[1]){mark($('m'+k+'role'),'Please fill this in.');ok=false;}if(!m[5]){mark($('m'+k+'li'),'Please fill this in.');ok=false;}}
     });
     if(!form.querySelector('[name=dealbook]:checked')){mark($('dealbookGroup').querySelector('.who'),'Please choose Yes or No.');ok=false;}
     if(dealbookYes()){
@@ -757,14 +773,14 @@ html:not(.fso) [data-so]{display:none!important}
     var soldOut=document.documentElement.classList.contains('fso');
     var tier=f?form.querySelector('[name=tier]:checked').value:(p?'Partner Delegate':'Investor (complimentary)');
     var rate=f?(tier==='Premium'?'€695':(soldOut?'€595':'€495 founding')):(p?'€995':'Complimentary');
-    var nm=i?0:parseInt(v('extraCount')||'0',10);if(nm)rate+=' + teammates €'+(175*nm);if(p)rate+=' (Executive Lunch seats: '+(1+nm)+')';
+    var nm=parseInt(v('extraCount')||'0',10);if(nm)rate+=i?(' + 1 team member (free)'+(nm>1?' + '+(nm-1)+' at €'+(175*(nm-1)):'')):' + teammates €'+(175*nm);if(p)rate+=' (Executive Lunch seats: '+(1+nm)+')';
     // Fixed column order so every email lines up as the same row
     var row=[
       ['Form','Lisbon Delegation'],['Submitted at',new Date().toISOString()],['Applying as',r],
       ['First name',v('firstName')],['Last name',v('lastName')],['Role',v('jobTitle')],['Email',v('email')],['WhatsApp',v('phone')],['LinkedIn',v('linkedin')],
       ['Company',v('company')],['Website',v('website')],
       ['One-liner',f?v('oneLiner'):''],['Sector',f?v('sector'):''],['Stage',f?v('stage'):''],['Fundraising',f?v('raising'):''],['Web Summit ticket',f?v('ticket'):''],
-      ['Package',tier],['Rate to send if approved',rate],['Teammates',i?'':v('extraCount')],['Teammate details',i?'':matesData().map(function(m,k){return (k+1)+'. '+m[0]+(m[1]?' ('+m[1]+')':'')+' · '+m[2]+' · '+m[3]+(m[4]?' · photo: '+m[4]:'')}).join(' | ')],
+      ['Package',tier],['Rate to send if approved',rate],['Teammates',v('extraCount')],['Teammate details',matesData().map(function(m,k){return (k+1)+'. '+m[0]+(m[1]?' ('+m[1]+')':'')+' · '+m[2]+' · '+m[3]+(m[4]?' · photo: '+m[4]:'')+(m[5]?' · '+m[5]:'')}).join(' | ')],
       ['Partner field',p?v('pField'):''],['Partner services',p?v('pOffer'):''],['Partner perk for delegates',p?v('pPerk'):''],
       ['Investor stage focus',i?v('iStage'):''],['Investor sectors',i?v('iSectors'):''],['Investor check size',i?v('iCheck'):''],['Portfolio permission',i?(portfolio()==='Yes'?'Yes, choose up to 5 from website':portfolio()):''],['Portfolio companies',i&&portfolio()==='Custom'?v('pfList').split(/\n/).filter(function(x){return x.trim()}).join(' | '):''],
       [f?'Who they want to meet':(p?'Who they want to meet':'What they want to see'),v('goals')],['Heard via',v('referral')],['Heard via details',v('referralDetail')],
