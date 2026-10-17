@@ -125,3 +125,4 @@ Suggested Stripe confirmation message (on all delegation links): "You're in. Wat
 - Investor notice: funds, angel groups and allocators only; others are pointed to Partner Delegate.
 - Partner Delegates get an Executive Lunch seat (Mon Nov 9), and so does every partner teammate paid at €175. Comp them on the Luma Executive Lunch guest list. The application email shows the seat count in "Rate to send if approved". Founder teammates do not get a lunch seat (25% code only).
 - Teammates question now shows for founders and partners (not investors). Same €175 teammate links.
+- Investors now answer "Portfolio companies in the Deal Book": Yes (Yorkseed picks up to 5 from their website), No, or Custom (they list up to 5, name plus link). Emails carry "Portfolio permission" and "Portfolio companies". Only list what they approved. Investors who applied before Oct 17 (e.g. Shane) must be asked by email.
