@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Request received · Yorkseed Lisbon 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Source+Serif+4:wght@400;600&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/delegation/delegation.css">
+</head>
+<body>
+<div class="wrap center">
+  <div class="eyebrow">Yorkseed Delegation · Lisbon 2026</div>
+  <h1 class="thanks">Thank you. Your request is in.</h1>
+  <p class="intro">We'll review your note and share it with Munjal if it's a fit. If he'd like to meet, he'll be in touch by email. Here is Munjal's Deal Book card to keep.</p>
+  <a href="/delegation/lisbon-2026/cards/munjal-subodh.pdf"><img class="card" src="/delegation/lisbon-2026/cards/munjal-subodh.png" alt="Deal Book card for Munjal Subodh, Founder and CIO at EdgeCraft"></a>
+  <div class="actions">
+    <a class="btn primary" href="/delegation/lisbon-2026/cards/munjal-subodh.png" download="Munjal-Subodh-Yorkseed-Lisbon-2026.png">Download the card</a>
+    <a class="btn secondary" href="/delegation/lisbon-2026/cards/munjal-subodh.pdf" download>PDF with links</a>
+    <a class="btn secondary" id="email-card" href="#">Email it to me</a>
+    <button class="btn secondary" id="share-card" type="button" hidden>Share the card</button>
+    <a class="btn secondary" href="https://www.edgecraftgroup.com">Visit EdgeCraft</a>
+    <a class="btn secondary" href="/delegation/lisbon-2026/delegates/">Meet the full delegation</a>
+  </div>
+  <div class="connect">
+    <div class="eyebrow">Yorkseed Connect</div>
+    <h2>Direct access to founders, investors and allocators worldwide.</h2>
+    <p>The capital platform for discovery, diligence and dealmaking. Memberships for founders and investors.</p>
+    <a class="btn primary" href="https://yorkseed.co/connect">Join Yorkseed Connect</a>
+  </div>
+</div>
+<script>
+  (function () {
+    var site = "https://yorkseed.co", base = "/delegation/lisbon-2026", slug = "munjal-subodh";
+    var pdf = site + base + "/cards/" + slug + ".pdf", png = site + base + "/cards/" + slug + ".png", profile = site + base + "/" + slug + "/";
+    var to = "";
+    try { to = sessionStorage.getItem("ys_email") || ""; } catch (err) {}
+    var subject = "Deal Book card: Munjal Subodh, EdgeCraft";
+    var body = "Munjal Subodh's Deal Book card from the Yorkseed Delegation · Lisbon 2026.\n\n" +
+      "Card with links (PDF): " + pdf + "\n" +
+      "Card image: " + png + "\n" +
+      "Profile: " + profile + "\n\n" +
+      "Yorkseed reviews every request and shares relevant ones with Munjal, who gets in touch if there's a fit.\n\n" +
+      "Yorkseed Connect, the capital platform for discovery, diligence and dealmaking: " + site + "/connect";
+    document.getElementById("email-card").href = "mailto:" + encodeURIComponent(to) + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    var btn = document.getElementById("share-card");
+    if (navigator.share && navigator.canShare) {
+      fetch(png).then(function (r) { return r.blob(); }).then(function (b) {
+        var file = new File([b], "Munjal-Subodh-Yorkseed-Lisbon-2026.png", { type: "image/png" });
+        if (!navigator.canShare({ files: [file] })) return;
+        btn.hidden = false;
+        btn.addEventListener("click", function () {
+          navigator.share({ files: [file], title: subject, text: profile }).catch(function () {});
+        });
+      }).catch(function () {});
+    }
+  })();
+</script>
+</body>
+</html>

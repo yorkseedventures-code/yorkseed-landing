@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meet Munjal Subodh · Yorkseed Lisbon 2026</title>
+<meta name="description" content="Request an introduction to Munjal Subodh, Founder and CIO at EdgeCraft, during the Yorkseed Delegation in Lisbon, Nov 8 – Nov 12, 2026.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Source+Serif+4:wght@400;600&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/delegation/delegation.css">
+</head>
+<body>
+<div class="wrap">
+  <a class="brand" href="/delegation/lisbon-2026/delegates/"><span class="eyebrow">Yorkseed Delegation · Lisbon 2026</span></a>
+  <div class="grid">
+    <section class="profile" aria-label="Delegate profile">
+<a href="https://www.edgecraftgroup.com" class="flogo"><img src="/delegation/lisbon-2026/img/munjal-subodh/logo.svg" alt="EdgeCraft"></a><div class="eyebrow tag">Investor Delegate</div><h1><a href="https://www.edgecraftgroup.com">EdgeCraft</a></h1><div class="tagline">Investing at the edge of possibility</div><p class="about">Focused portfolio management investing in publicly US-listed securities, indices and long-dated call options, for concentrated exposure to technology-driven growth. A strategy born from decades of personal investment success.</p><div class="pills"><span>Option strategy</span><span>Nasdaq derivatives</span><span>Long-term investment</span></div><dl><div><dt class="eyebrow">Investment focus</dt><dd>Public markets: Nasdaq-100 options. Does not invest in private startups.</dd></div><div><dt class="eyebrow">Looking to meet</dt><dd>Compliance providers and hedge fund operations specialists</dd></div><div><dt class="eyebrow">In Lisbon</dt><dd>Nov 8 – Nov 12, 2026</dd></div></dl><div class="delegate"><img src="/delegation/lisbon-2026/img/munjal-subodh/photo.jpg" alt="Munjal Subodh"><div><div class="eyebrow" style="color:var(--accent)">Delegate in Lisbon</div><div class="dname">Munjal Subodh</div><div class="eyebrow">Founder and CIO</div></div></div>
+    </section>
+
+    <div id="notyet" class="closed" hidden>
+      <div class="eyebrow">Opening soon</div>
+      <h2>Introduction requests open November 1, 2026</h2>
+      <p class="lede">Requests to meet Munjal are open November 1 – 21, 2026, around the Yorkseed Delegation in Lisbon (Nov 8 – Nov 12, 2026). Come back on November 1, 2026 to request an introduction.</p>
+    </div>
+
+    <div id="closed" class="closed" hidden>
+      <div class="eyebrow">Introductions closed</div>
+      <h2>Requests for the Lisbon delegation have closed</h2>
+      <p class="lede">Introduction requests were open November 1 – 21, 2026. To stay in touch with Yorkseed and hear about future delegations, visit <a href="https://yorkseed.co">yorkseed.co</a>.</p>
+    </div>
+
+    <form id="intro-form" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="54bbc887-545d-4a76-a15a-2b9c8e95c7a5">
+      <input type="hidden" name="subject" value="Intro request: Munjal Subodh (EdgeCraft)">
+      <input type="hidden" name="from_name" value="Yorkseed Deal Book">
+      <input type="hidden" name="Delegate" value="Munjal Subodh, EdgeCraft (Investor Delegate)">
+      <input type="hidden" name="redirect" value="https://yorkseed.co/delegation/lisbon-2026/munjal-subodh/thanks/">
+      <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+
+      <div class="eyebrow">Request an introduction</div>
+      <h2>Meet Munjal in Lisbon</h2>
+      <p class="lede">Tell us who you are and why you'd like to meet. Yorkseed shares relevant requests with Munjal, who gets in touch if there's a fit. You'll get Munjal's Deal Book card right away.</p>
+
+      <label><span>Full name</span><input type="text" name="name" autocomplete="name" required></label>
+      <label><span>Email</span><input type="email" name="email" autocomplete="email" required></label>
+      <label><span>Company</span><input type="text" name="Company" autocomplete="organization" required></label>
+      <label><span>Your role</span><input type="text" name="Role" autocomplete="organization-title"></label>
+      <label><span>I am a</span>
+        <select name="I am a" required>
+          <option value="">Choose one</option>
+          <option>Founder</option>
+          <option>Investor</option>
+          <option>Operator</option>
+          <option>Partner or ecosystem</option>
+          <option>Other</option>
+        </select>
+      </label>
+      <label><span>Your LinkedIn profile</span><input type="text" inputmode="url" autocomplete="url" name="LinkedIn" placeholder="linkedin.com/in/yourname" pattern="\s*(https?://)?([A-Za-z]{2,3}\.)?linkedin\.com/.+" title="Please enter your LinkedIn profile link, e.g. https://linkedin.com/in/yourname" required></label>
+      <label><span>What would you like to discuss?</span><textarea name="Message" rows="4" required></textarea></label>
+      <label class="consent">
+        <input type="checkbox" name="Consent" value="Yes" required>
+        <span>I agree that Yorkseed may share these details with Munjal Subodh and contact me about this introduction.</span>
+      </label>
+      <button type="submit">Request introduction</button>
+      <p class="note">Requests open November 1 – 21, 2026. We only use your details for this introduction.</p>
+    </form>
+  </div>
+</div>
+<script>
+  (function () {
+    var f = document.getElementById("intro-form");
+    f.addEventListener("submit", function () {
+      try { sessionStorage.setItem("ys_email", f.email.value); sessionStorage.setItem("ys_name", f.name.value); } catch (err) {}
+    });
+    var now = new Date();
+    if (now < new Date("2026-11-01T00:00:00Z")) {
+      document.getElementById("intro-form").hidden = true;
+      document.getElementById("notyet").hidden = false;
+    } else if (now > new Date("2026-11-21T23:59:59Z")) {
+      document.getElementById("intro-form").hidden = true;
+      document.getElementById("closed").hidden = false;
+    }
+  })();
+</script>
+</body>
+</html>

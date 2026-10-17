@@ -66,3 +66,21 @@ h1.thanks { font-size:clamp(38px, 6vw, 56px); line-height:1.05; margin:16px 0 12
 .connect p { color:#CFC5B7; margin:0 0 20px; }
 .connect .btn.primary { background:#F7F4EE; color:#1E1B18; }
 .connect .btn.primary:hover { background:#E9E2D6; }
+
+.logotile { width:100%; max-width:420px; aspect-ratio:4/5; background:#EFE8DC; display:flex; align-items:center; justify-content:center; }
+.logotile img { width:68%; max-height:40%; object-fit:contain; display:block; }
+.dir .logotile { max-width:none; aspect-ratio:4/3; border-bottom:1px solid var(--line); }
+.dir .logotile img { width:64%; max-height:46%; aspect-ratio:auto; background:none; object-fit:contain; }
+.profile .logotile { aspect-ratio:3/2; }
+
+.flogo { display:block; margin-bottom:28px; }
+.flogo img { max-width:260px; max-height:64px; display:block; }
+.profile h1 a { color:inherit; text-decoration:none; }
+.about { font-size:18px; line-height:1.55; color:#3D3731; margin:16px 0 0; max-width:480px; }
+.pills { display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+.pills span { border:1px solid #8A7F72; border-radius:999px; padding:6px 13px; font-family:Jost, sans-serif; font-size:11px; font-weight:500; letter-spacing:.16em; text-transform:uppercase; }
+.delegate { margin-top:28px; padding:18px 20px; border:1px solid var(--line); background:var(--card); }
+.delegate .dname { font-family:'Playfair Display', Georgia, serif; font-size:30px; line-height:1.1; margin:8px 0 8px; }
+.delegate { display:flex; align-items:center; gap:20px; }
+.delegate img { width:112px; height:140px; object-fit:cover; object-position:50% 25%; display:block; flex-shrink:0; }
+.actions button.btn { margin-top:0; width:auto; }

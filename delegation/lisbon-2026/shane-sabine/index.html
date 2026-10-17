@@ -13,16 +13,7 @@
   <a class="brand" href="/delegation/lisbon-2026/delegates/"><span class="eyebrow">Yorkseed Delegation · Lisbon 2026</span></a>
   <div class="grid">
     <section class="profile" aria-label="Delegate profile">
-      <img class="photo" src="/delegation/lisbon-2026/img/shane-sabine/photo.jpg" alt="Shane Sabine">
-      <img class="logo" src="/delegation/lisbon-2026/img/shane-sabine/logo.svg" alt="Punch Capital">
-      <div class="eyebrow tag">Investor Delegate</div>
-      <h1>Shane Sabine</h1>
-      <div class="eyebrow" style="margin-top:12px">Managing Partner · Punch Capital</div>
-      <div class="tagline">Backing international AI founders in the US</div>
-      <dl>
-        <div><dt class="eyebrow">Investment focus</dt><dd>Pre-seed and seed, $100,000</dd></div><div><dt class="eyebrow">Looking to meet</dt><dd>Early-stage AI founders landing in the US</dd></div>
-        <div><dt class="eyebrow">In Lisbon</dt><dd>Nov 8 – Nov 12, 2026</dd></div>
-      </dl>
+<a href="https://punchcap.com" class="flogo"><img src="/delegation/lisbon-2026/img/shane-sabine/logo.svg" alt="Punch Capital"></a><div class="eyebrow tag">Investor Delegate</div><h1><a href="https://punchcap.com">Punch Capital</a></h1><div class="tagline">Backing international AI founders in the US</div><p class="about">Punch Capital backs international AI founders building and scaling in the US. A solo-GP pre-seed fund led by Shane Sabine, it writes early checks, often into a founder&#x27;s first round, and opens doors to customers, capital and operators.</p><div class="pills"><span>Early stage</span><span>AI</span><span>International founders</span></div><dl><div><dt class="eyebrow">Investment focus</dt><dd>Pre-seed and seed, $100,000</dd></div><div><dt class="eyebrow">Looking to meet</dt><dd>Early-stage AI founders landing in the US</dd></div><div><dt class="eyebrow">In Lisbon</dt><dd>Nov 8 – Nov 12, 2026</dd></div></dl><div class="delegate"><img src="/delegation/lisbon-2026/img/shane-sabine/photo.jpg" alt="Shane Sabine"><div><div class="eyebrow" style="color:var(--accent)">Delegate in Lisbon</div><div class="dname">Shane Sabine</div><div class="eyebrow">Managing Partner</div></div></div>
     </section>
 
     <div id="notyet" class="closed" hidden>
@@ -47,7 +38,7 @@
 
       <div class="eyebrow">Request an introduction</div>
       <h2>Meet Shane in Lisbon</h2>
-      <p class="lede">Share a few details and the Yorkseed team will arrange the introduction. You'll get Shane's Deal Book card right away.</p>
+      <p class="lede">Tell us who you are and why you'd like to meet. Yorkseed shares relevant requests with Shane, who gets in touch if there's a fit. You'll get Shane's Deal Book card right away.</p>
 
       <label><span>Full name</span><input type="text" name="name" autocomplete="name" required></label>
       <label><span>Email</span><input type="email" name="email" autocomplete="email" required></label>
@@ -76,6 +67,10 @@
 </div>
 <script>
   (function () {
+    var f = document.getElementById("intro-form");
+    f.addEventListener("submit", function () {
+      try { sessionStorage.setItem("ys_email", f.email.value); sessionStorage.setItem("ys_name", f.name.value); } catch (err) {}
+    });
     var now = new Date();
     if (now < new Date("2026-11-01T00:00:00Z")) {
       document.getElementById("intro-form").hidden = true;
