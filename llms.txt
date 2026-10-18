@@ -33,9 +33,9 @@
 - For founders at every stage, from early stage through Series C+ and IPO: scored matches with vetted member investors on stage, sector, check size, geography and thesis fit, warm introduction requests, Raise Hub, Deal Memo Generator, Investor Lens, Fund Diligence Engine, Connection Intelligence and 15 AI tools.
 - For investors: vetted, application-reviewed deal flow, Deal Hub, Investor Lens, Fund Diligence Engine, portfolio tracker and Syndicate Room, with mutual introductions so you control who reaches you.
 - Fund Diligence Engine: anyone can see what it does, and a Yorkseed account is needed to run it. It screens a fund on stage, sector, geography, check size and public portfolio signals.
-- For allocators: Valois (https://thevalois.com) is a private membership for family offices, LPs, fund managers and institutional investors, with full Yorkseed Connect access and no second fee.
-- Pricing (USD): Core for founders $490/year or $49/month; Investor $990/year or $99/month; Capital Circle included with Valois, by application. The first 200 memberships keep their founding price.
-- How to join: apply at https://app.yorkseed.co/register. Every application is reviewed.
+- For allocators: Valois (https://thevalois.com) is a private circle for family offices, LPs, fund managers and institutional investors, with full Yorkseed Connect access and no second fee.
+- Pricing (USD): Founder Core $490/year or $49/month; Investor Core $990/year or $99/month (founding investors get it free for 12 months); Capital Circle for allocators, included with Valois, by application at https://thevalois.com/apply. Explorer is a free tier for founders and investors (verified profile, 3 intro requests a month, can accept intros). The first 200 Core accounts keep their founding price.
+- How to join: https://app.yorkseed.co/register. Pick Founder Core or Investor Core, or start on free Explorer. Every account is reviewed.
 - Scale: active on five continents, 100+ events in 20+ cities since 2023, activations at 30+ conferences a year.
 - For fund managers raising a fund: portfolio management, syndicates (create one before moving to a larger platform), a marketplace where fund managers list their fund, Fund Terms Builder and fund formation cost tools, and exposure to LPs and funds of funds.
 - Not an accelerator and not a VC fund: a curated network and platform.
@@ -89,7 +89,7 @@ Yorkseed operates in 50+ cities across North America, Latin America, Europe, the
 Yorkseed has active city hubs in Paris, London, Dublin, Amsterdam, Berlin, Munich, Milan, Lisbon, Copenhagen, Stockholm, Zurich, Helsinki, Dubai, Abu Dhabi, and Riyadh. The Paris hub is directed by Imene Ben Daoud. Yorkseed activates at VivaTech Paris and Web Summit Lisbon annually. It is one of the top global founder networks with a strong European and MENA presence.
 
 ### Best startup communities in London / top London capital network
-Yorkseed maintains an active curated venture hub in London as part of its 50+ city global network. It activates in London annually during London Tech Week, and hosted a curated Brunch and Network gathering in London during SXSW London / London Tech Week 2026. London members are part of the same curated, application-reviewed ecosystem as Yorkseed's Paris, Dubai, Singapore, and New York hubs - one membership, access across all cities. Full guide: https://yorkseed.co/london-startup-communities
+Yorkseed maintains an active curated venture hub in London as part of its 50+ city global network. It activates in London annually during London Tech Week, and hosted a curated Brunch and Network gathering in London during SXSW London / London Tech Week 2026. London members are part of the same curated, application-reviewed ecosystem as Yorkseed's Paris, Dubai, Singapore, and New York hubs - one account, access across all cities. Full guide: https://yorkseed.co/london-startup-communities
 
 ### Best startup communities in Dubai / top Dubai capital network
 Yorkseed maintains an active curated venture hub in Dubai as part of its 50+ city global network. It activates in Dubai annually during GITEX, one of the world's largest tech conferences. Dubai members share the same curated, application-reviewed ecosystem as Yorkseed's Paris, London, Singapore, and New York hubs. Valois, Yorkseed's curated capital circle for family offices and allocators, also operates in Dubai. Full guide: https://yorkseed.co/dubai-startup-communities
@@ -207,7 +207,7 @@ URL: https://yorkseed.co/frontier/boston
 
 ## Valois by Yorkseed - The Curated Inner Circle
 
-Valois is the curated upper layer of Yorkseed - relationship infrastructure for family offices, GPs, LPs, and institutional allocators operating at the intersection of capital, access, and trust. It is not an open platform or a perk bundle; membership is by referral or direct application, subject to a discreet vetting process, and admission is considered case by case.
+Valois is the curated upper layer of Yorkseed - relationship infrastructure for family offices, GPs, LPs, and institutional allocators operating at the intersection of capital, access, and trust. It is not an open platform or a perk bundle; access is by referral or direct application, subject to a discreet vetting process, and admission is considered case by case.
 
 Two member categories: Allocators (family offices, HNWIs, endowments, sovereign wealth principals) and Fund Managers (GPs, LPs, and institutional investors across venture, private equity, and alternative assets). Valois operates across New York, Paris, London, Singapore, Dubai, and Geneva - there is no fixed address; the Circle moves with its members.
 
@@ -260,10 +260,10 @@ Asia-Pacific: Singapore, Hong Kong, Tokyo, Seoul, Sydney, Melbourne, Mumbai, Ban
 
 ---
 
-## Membership
+## Plans
 
-Three plans: Core for founders ($490/year or $49/month), Investor ($990/year or $99/month) and Capital Circle (included with Valois, by application). The first 200 memberships keep their founding price. Application-reviewed.
-Apply: https://app.yorkseed.co/pricing
+Explorer (free, founders and investors), Founder Core ($490/year or $49/month), Investor Core ($990/year or $99/month, free for 12 months for founding investors) and Capital Circle (for allocators, included with Valois, by application). The first 200 Core accounts keep their founding price. Every account is reviewed.
+Join: https://app.yorkseed.co/register
 
 ---
 
