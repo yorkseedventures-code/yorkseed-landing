@@ -341,7 +341,9 @@ h1, h2, h3 { font-weight: 400; text-wrap: balance; }
 .stack-top { display: flex; justify-content: space-between; align-items: center; padding-bottom: 6px; }
 .pcard { background: var(--paper); border: 1px solid var(--line); border-radius: 18px; padding: 22px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
 .pc-head { display: flex; align-items: center; gap: 14px; }
-.mark { flex: none; width: 44px; height: 44px; border-radius: 12px; background: var(--c, var(--ink)); color: #fff; display: grid; place-items: center; font-family: var(--display); font-size: 20px; line-height: 1; }
+.mark:has(.flogo) { background: none; outline: 1px solid rgba(11,11,12,.1); outline-offset: -1px; }
+.mark .flogo { width: 100%; height: 100%; display: block; }
+.mark { flex: none; width: 44px; height: 44px; border-radius: 12px; overflow: hidden; background: var(--c, var(--ink)); color: #fff; display: grid; place-items: center; font-family: var(--display); font-size: 20px; line-height: 1; }
 .pc-name { font-family: var(--display); font-size: 26px; line-height: 1.1; min-width: 0; overflow-wrap: anywhere; }
 .pc-kind { font-size: 13px; color: var(--ink-3); }
 .pc-ver { margin-left: auto; display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--ink-2); flex: none; }
@@ -1595,7 +1597,7 @@ html:not(.fso) [data-so]{display:none!important}
             <label class="sel"><span>City</span><select id="fCity"><option value="">Any city</option><option>New York</option><option>Paris</option><option>London</option><option>Lisbon</option><option>Singapore</option><option>Berlin</option><option>Dubai</option><option>Austin</option></select></label>
           </div>
           <div class="dcards" id="dcards" aria-live="polite"></div>
-          <div class="dfoot"><span class="label" id="dcount"></span><a class="btn btn-red btn-sm" href="https://app.yorkseed.co/register" target="_blank" rel="noopener">Request access</a></div>
+          <div class="dfoot"><span class="label" id="dcount"></span><a class="btn btn-red btn-sm" href="https://app.yorkseed.co/register" target="_blank" rel="noopener">Join to see the full directory</a></div>
         </div>
         <img id="s2" role="tabpanel" aria-labelledby="t2" src="/assets/home/app-deal-memo.webp" alt="AI Deal Memo generator" width="1320" height="840" loading="lazy">
         <img id="s3" role="tabpanel" aria-labelledby="t3" src="/assets/home/app-ai-tools.webp" alt="Intelligence Suite" width="1320" height="840" hidden>
@@ -1915,6 +1917,28 @@ html:not(.fso) [data-so]{display:none!important}
     }
   };
   function esc(x) { return String(x).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  /* Illustrative logo marks for the sample firms: simple geometric symbols, picked from the name */
+  var MARKS = [
+    '<circle cx="12" cy="12" r="7" fill="none" stroke="#fff" stroke-width="2.4"/><circle cx="12" cy="12" r="2.4" fill="#fff"/>',
+    '<path d="M5 18 L12 5 L19 18 Z" fill="none" stroke="#fff" stroke-width="2.2" stroke-linejoin="round"/><path d="M9 18 L12 12.5 L15 18" fill="#fff"/>',
+    '<rect x="5" y="5" width="6" height="6" rx="1.2" fill="#fff"/><rect x="13" y="5" width="6" height="6" rx="1.2" fill="#fff" opacity=".55"/><rect x="5" y="13" width="6" height="6" rx="1.2" fill="#fff" opacity=".55"/><rect x="13" y="13" width="6" height="6" rx="1.2" fill="#fff"/>',
+    '<path d="M4 15 Q8 7 12 15 T20 15" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/><path d="M4 10 Q8 2 12 10 T20 10" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" opacity=".5"/>',
+    '<path d="M12 4 L20 12 L12 20 L4 12 Z" fill="#fff"/><path d="M12 8.5 L15.5 12 L12 15.5 L8.5 12 Z" fill="#fff" opacity=".35"/>',
+    '<path d="M6 19 V9 A6 6 0 0 1 18 9 V19" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/><path d="M12 19 V12" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>',
+    '<circle cx="9" cy="12" r="5" fill="#fff"/><circle cx="15" cy="12" r="5" fill="none" stroke="#fff" stroke-width="2.2"/>',
+    '<path d="M5 6 H19 M5 12 H15 M5 18 H11" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/>',
+    '<path d="M5 12 A7 7 0 0 1 19 12" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/><circle cx="12" cy="16" r="3" fill="#fff"/>',
+    '<path d="M12 4 V20 M4 12 H20" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/><circle cx="12" cy="12" r="4" fill="none" stroke="#fff" stroke-width="2"/>',
+    '<path d="M6 18 L12 6 L18 18" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.5 14 H15.5" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/>',
+    '<rect x="5" y="5" width="14" height="14" rx="7" fill="none" stroke="#fff" stroke-width="2.2"/><path d="M5 12 H19" stroke="#fff" stroke-width="2.2"/>'
+  ];
+  var FIRMLOGO = {"Ostrava Lane Capital": "<rect width=\"44\" height=\"44\" fill=\"#0F2A24\"/><text x=\"22\" y=\"30.5\" text-anchor=\"middle\" font-family=\"Georgia,'Times New Roman',serif\" font-size=\"25\" fill=\"#D8B26E\">O</text><path d=\"M9 22.5 H35\" stroke=\"#D8B26E\" stroke-width=\"1.6\"/>", "Kestrel Quay Ventures": "<rect width=\"44\" height=\"44\" fill=\"#fff\"/><path d=\"M8 27 C15 15, 25 12, 36 13 C28 16, 23 21, 20 30 C18 25, 14 24, 8 27 Z\" fill=\"#1F3A93\"/><path d=\"M20 30 C22 25, 27 21, 33 19\" fill=\"none\" stroke=\"#5B7BE0\" stroke-width=\"2\" stroke-linecap=\"round\"/>", "Northlight Syndicate": "<rect width=\"44\" height=\"44\" fill=\"#0B1020\"/><path d=\"M22 8 L24.6 19.4 L36 22 L24.6 24.6 L22 36 L19.4 24.6 L8 22 L19.4 19.4 Z\" fill=\"#F5C451\"/><circle cx=\"22\" cy=\"22\" r=\"2.2\" fill=\"#0B1020\"/>", "Aldermoor Family Office": "<rect width=\"44\" height=\"44\" fill=\"#EDE6D8\"/><text x=\"22\" y=\"31\" text-anchor=\"middle\" font-family=\"Georgia,'Times New Roman',serif\" font-style=\"italic\" font-size=\"26\" fill=\"#2F4A3E\">A</text><path d=\"M13 34.5 H31\" stroke=\"#2F4A3E\" stroke-width=\"1.2\"/>", "Tidewell Carbon": "<defs><linearGradient id=\"lgT\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#14B8A6\"/><stop offset=\"1\" stop-color=\"#0E4C7A\"/></linearGradient></defs><rect width=\"44\" height=\"44\" fill=\"url(#lgT)\"/><path d=\"M9 17 q4.3 -4 8.6 0 t8.6 0 t8.6 0 M9 23 q4.3 -4 8.6 0 t8.6 0 t8.6 0 M9 29 q4.3 -4 8.6 0 t8.6 0 t8.6 0\" fill=\"none\" stroke=\"#fff\" stroke-width=\"2.2\" stroke-linecap=\"round\"/>", "Lumora Health": "<rect width=\"44\" height=\"44\" fill=\"#fff\"/><circle cx=\"22\" cy=\"22\" r=\"11\" fill=\"#E8576E\"/><circle cx=\"26.5\" cy=\"18.5\" r=\"9\" fill=\"#fff\"/><circle cx=\"31\" cy=\"12\" r=\"2.2\" fill=\"#E8576E\"/>", "Farrowpay": "<rect width=\"44\" height=\"44\" fill=\"#5B3DF5\"/><text x=\"20\" y=\"32\" text-anchor=\"middle\" font-family=\"'Helvetica Neue',Arial,sans-serif\" font-weight=\"700\" font-size=\"27\" fill=\"#fff\">f</text><circle cx=\"30\" cy=\"29.5\" r=\"2.6\" fill=\"#B9F06A\"/>", "Brightloom": "<defs><linearGradient id=\"lgB\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#FF7A1A\"/><stop offset=\"1\" stop-color=\"#FFC83D\"/></linearGradient></defs><rect width=\"44\" height=\"44\" fill=\"url(#lgB)\"/><path d=\"M14 11 V33 M22 11 V33 M30 11 V33\" stroke=\"#fff\" stroke-width=\"2.2\" stroke-linecap=\"round\"/><path d=\"M10 17 H34 M10 27 H34\" stroke=\"#fff\" stroke-width=\"2.2\" stroke-linecap=\"round\" opacity=\".7\"/>", "Reloop Cell": "<rect width=\"44\" height=\"44\" fill=\"#E7F6EE\"/><path d=\"M31 17 A10 10 0 1 0 32 26\" fill=\"none\" stroke=\"#1E9E5A\" stroke-width=\"3.2\" stroke-linecap=\"round\"/><path d=\"M27.5 11.5 L32 17 L25.5 18.5\" fill=\"none\" stroke=\"#1E9E5A\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>", "Halden Group Ventures": "<rect width=\"44\" height=\"44\" fill=\"#121212\"/><path d=\"M14 11 V33 M30 11 V33\" stroke=\"#fff\" stroke-width=\"3.6\"/><path d=\"M14 25 L30 19\" stroke=\"#fff\" stroke-width=\"3.6\"/>", "Vesper Nutrition": "<rect width=\"44\" height=\"44\" fill=\"#F6EADF\"/><path d=\"M11 27 A11 11 0 0 1 33 27 Z\" fill=\"#E07A2E\"/><path d=\"M8 27 H36 M12 31.5 H32\" stroke=\"#7A3E1D\" stroke-width=\"1.8\" stroke-linecap=\"round\"/>", "Fernway Partners": "<rect width=\"44\" height=\"44\" fill=\"#1E4D3A\"/><path d=\"M22 35 V10\" stroke=\"#CFE8C5\" stroke-width=\"1.8\" stroke-linecap=\"round\"/><path d=\"M22 14 l-6 -2 M22 14 l6 -2 M22 19 l-7.5 -2.5 M22 19 l7.5 -2.5 M22 24 l-8.5 -3 M22 24 l8.5 -3 M22 29 l-7 -2.5 M22 29 l7 -2.5\" stroke=\"#CFE8C5\" stroke-width=\"2\" stroke-linecap=\"round\"/>", "Copperfield Energy": "<defs><linearGradient id=\"lgC\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#C9824A\"/><stop offset=\"1\" stop-color=\"#8A4B22\"/></linearGradient></defs><rect width=\"44\" height=\"44\" fill=\"url(#lgC)\"/><path d=\"M24.5 8 L13 25 H21 L18.5 36 L31 18.5 H23 Z\" fill=\"#FFF3E6\"/>", "Marlow Logistics": "<rect width=\"44\" height=\"44\" fill=\"#0E5FD8\"/><path d=\"M11 14 L19 22 L11 30 M21 14 L29 22 L21 30\" fill=\"none\" stroke=\"#fff\" stroke-width=\"3.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle cx=\"34\" cy=\"22\" r=\"2.4\" fill=\"#7CC4FF\"/>"};
+  var LSEEN = {}, LNEXT = 0, LCOUNT = 0;
+  function logo(n) {
+    if (FIRMLOGO[n]) { LCOUNT++; return '<svg class="flogo" viewBox="0 0 44 44" aria-hidden="true">' + FIRMLOGO[n].replace(/lg([A-Z])/g, 'lg$1' + LCOUNT) + '</svg>'; }
+    if (!(n in LSEEN)) LSEEN[n] = (LNEXT++) % MARKS.length;
+    return '<svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true">' + MARKS[LSEEN[n]] + '</svg>';
+  }
   function initials(n) { var w = n.split(' '); return (w[0][0] + (w[1] ? w[1][0] : '')).toUpperCase(); }
 
   var hero = document.getElementById('hero');
@@ -1930,7 +1954,7 @@ html:not(.fso) [data-so]{display:none!important}
     document.getElementById('wurl').textContent = d.url;
     document.getElementById('wnote').textContent = d.note;
     document.getElementById('wrows').innerHTML = d.rows.map(function (x) {
-      return '<div class="wrow"><span class="mark" style="--c:' + x.c + '">' + esc(initials(x.n)) + '</span>' +
+      return '<div class="wrow"><span class="mark" style="--c:' + x.c + '">' + logo(x.n) + '</span>' +
         '<div class="wr-m"><p class="wr-n">' + esc(x.n) + '</p><p class="wr-s">' + esc(x.s) + '</p></div>' +
         '<div class="wr-r"><span class="pill ' + (r === 'allocator' ? 'circle' : (r === 'founder' ? 'match' : 'amt')) + '">' + esc(x.p) + '</span><span class="wr-b">' + esc(x.b) + '</span></div></div>';
     }).join('');
@@ -1980,7 +2004,7 @@ html:not(.fso) [data-so]{display:none!important}
     });
     var shown = list.slice(0, 4);
     dEl.innerHTML = shown.length ? shown.map(function (p) {
-      return '<article class="pcard"><div class="pc-head"><span class="mark" style="--c:' + p.c + '">' + esc(initials(p.n)) + '</span>' +
+      return '<article class="pcard"><div class="pc-head"><span class="mark" style="--c:' + p.c + '">' + logo(p.n) + '</span>' +
         '<div><p class="pc-name">' + esc(p.n) + '</p><p class="pc-kind">' + (p.r === 'founder' ? 'Founder' : 'Investor') + '</p></div><span class="pc-ver">' + CHECK + 'Verified</span></div>' +
         '<p class="pc-desc">' + esc(p.t) + '</p><div class="pc-foot"><span>' + esc(p.st.join(' / ') + ' · ' + p.city) + '</span><b>' + esc(p.m) + '</b></div></article>';
     }).join('') : '<p class="dempty">No sample profiles match. Apply to search the full network.</p>';
