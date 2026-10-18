@@ -50,9 +50,17 @@ a{color:inherit}
 em{font-style:italic}
 
 /* HERO */
-.hero{position:relative;color:#fff;background:var(--oxblood-deep);overflow:hidden;padding:150px 0 0}
-.hero-tiles{position:absolute;inset:0;opacity:.16;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23F4EFE4' stroke-width='1.4'%3E%3Crect x='1' y='1' width='118' height='118'/%3E%3Ccircle cx='60' cy='60' r='26'/%3E%3Ccircle cx='60' cy='60' r='12'/%3E%3Cpath d='M60 1v20M60 99v20M1 60h20M99 60h20'/%3E%3Cpath d='M60 34c8 8 18 18 26 26-8 8-18 18-26 26-8-8-18-18-26-26 8-8 18-18 26-26z'/%3E%3Cpath d='M1 1c14 0 26 12 26 26M119 1c-14 0-26 12-26 26M1 119c14 0 26-12 26-26M119 119c-14 0-26-12-26-26'/%3E%3C/g%3E%3C/svg%3E");background-size:120px}
-.hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 40%,rgba(110,13,23,.55),rgba(61,7,13,.92) 70%);pointer-events:none}
+.hero{position:relative;color:#fff;background:var(--oxblood-deep);overflow:hidden;padding:170px 0 0}
+.hero-tiles{position:absolute;inset:0;background:url('/assets/lisbon-delegation/hero-maat.jpg') 50% 60%/cover no-repeat}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(40,5,9,.92) 0%,rgba(52,6,11,.78) 38%,rgba(52,6,11,.4) 72%,rgba(52,6,11,.3) 100%),linear-gradient(0deg,rgba(30,4,7,.7),rgba(30,4,7,0) 40%);pointer-events:none}
+@media(max-width:760px){.hero::after{background:linear-gradient(0deg,rgba(40,5,9,.94) 30%,rgba(52,6,11,.55) 100%)}}
+.hero-foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.18);padding:18px 0 22px;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.hero-foot a{color:var(--gold-light);text-decoration:none}
+.photo-band{display:grid;grid-template-columns:1fr 2fr;gap:6px;background:var(--cream)}
+.photo-band figure{position:relative;margin:0;height:min(52vw,520px);overflow:hidden}
+.photo-band img{width:100%;height:100%;object-fit:cover;display:block}
+.photo-band figcaption{position:absolute;left:20px;bottom:16px;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.5)}
+@media(max-width:700px){.photo-band{grid-template-columns:1fr}.photo-band figure:first-child{display:none}.photo-band figure{height:300px}}
 .hero .in{position:relative;z-index:1}
 .eyebrow{display:flex;align-items:center;gap:12px;color:var(--gold-light);margin-bottom:28px}
 .eyebrow::before{content:'';width:28px;height:1px;background:var(--gold-light)}
@@ -62,9 +70,9 @@ em{font-style:italic}
 .hero .sub{margin-top:26px;max-width:560px;font-size:16px;line-height:1.75;color:rgba(255,255,255,.62);margin-bottom:40px}
 .meta{display:grid;grid-template-columns:repeat(4,auto);justify-content:start;gap:16px 56px;margin-bottom:40px}
 @media(max-width:760px){.meta{grid-template-columns:1fr 1fr;gap:18px 24px}}
-.meta div span{display:block;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:6px}
+.meta div>span{display:block;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:6px}
 .meta div b{font-weight:400;font-size:15px}
-.btns{display:flex;gap:12px;flex-wrap:wrap;padding-bottom:84px}
+.btns{display:flex;gap:12px;flex-wrap:wrap;padding-bottom:96px}
 .btn{display:inline-block;text-decoration:none;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:16px 26px;border-radius:2px;transition:opacity .15s,background .15s}
 .btn-gold{background:var(--gold);color:var(--black)}
 .btn-gold:hover{opacity:.9}
@@ -84,8 +92,8 @@ em{font-style:italic}
 /* DATE LINE (Web Summit style) */
 .dateline{background:var(--paper);border-bottom:1px solid var(--line)}
 .dateline .in{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-top:30px;padding-bottom:30px;flex-wrap:wrap}
-.dateline h2{font-weight:700;font-size:clamp(26px,4vw,44px);letter-spacing:-.03em;line-height:1}
-.dateline h2 i{font-style:normal;color:var(--red);padding:0 .2em}
+.dateline h2{font-family:var(--serif);font-weight:400;font-size:clamp(30px,4.4vw,50px);letter-spacing:-.01em;line-height:1}
+.dateline h2 i{font-style:normal;color:var(--red);padding:0 .25em;font-size:.6em;vertical-align:.25em}
 .dateline p{font-size:14px;color:var(--ink2);max-width:360px;line-height:1.6}
 
 /* INTRO */
@@ -206,7 +214,7 @@ details p{margin-top:10px;font-size:15px;line-height:1.75;color:var(--ink2);max-
 .sample .lede{font-size:16px;line-height:1.75;color:var(--ink2);max-width:620px;margin-bottom:40px}
 .pages{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
 @media(max-width:900px){.pages{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;padding-bottom:12px;margin-right:-24px;padding-right:24px}.pages figure{flex:0 0 62%;scroll-snap-align:start}}
-.pages img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;object-position:top left;border-radius:6px;box-shadow:0 12px 30px rgba(0,0,0,.18)}
+.pages img{display:block;width:100%;height:auto;aspect-ratio:794/1123;object-fit:cover;border-radius:2px;box-shadow:0 1px 2px rgba(0,0,0,.08),0 14px 34px rgba(30,20,10,.16)}
 .pages figcaption{font-size:12px;color:var(--ink2);margin-top:10px;letter-spacing:.04em}
 .sample .note{font-size:12px;color:var(--ink2);margin-top:22px;opacity:.8}
 /* APPLY */
@@ -308,15 +316,9 @@ html:not(.fso) [data-so]{display:none!important}
       <a href="#apply" class="btn btn-gold">Apply to join</a>
       <a href="#week" class="btn btn-line">See the week</a>
     </div>
+    <div class="hero-foot"><span>Part of <a href="/delegation/">Yorkseed Delegations</a></span><span><a href="/delegation/lisbon-2026/delegates/">Meet the delegates &rarr;</a></span></div>
   </div>
 </section>
-
-<div class="ticker" aria-hidden="true">
-  <div class="ticker-track">
-    <span>Yorkseed Lisbon Delegation</span><span>Web Summit 2026</span><span>November 8 to 12</span><span>Introductions</span><span>Delegation Deal Book</span><span>December Founder Showcase</span>
-    <span>Yorkseed Lisbon Delegation</span><span>Web Summit 2026</span><span>November 8 to 12</span><span>Introductions</span><span>Delegation Deal Book</span><span>December Founder Showcase</span>
-  </div>
-</div>
 
 <div class="dateline">
   <div class="in">
@@ -338,6 +340,11 @@ html:not(.fso) [data-so]{display:none!important}
   </div>
 </section>
 
+<div class="photo-band" aria-hidden="false">
+  <figure><img src="/assets/lisbon-delegation/tram.jpg" alt="A yellow number 24 tram on a Lisbon street" loading="lazy"><figcaption>Lisbon</figcaption></figure>
+  <figure><img src="/assets/lisbon-delegation/praca.jpg" alt="Praça do Comércio and the Tagus seen from above" loading="lazy"><figcaption>Praça do Comércio</figcaption></figure>
+</div>
+
 <section class="dark" id="included">
   <div class="in">
     <div class="label">What's included</div>
@@ -345,7 +352,7 @@ html:not(.fso) [data-so]{display:none!important}
     <div class="tracks">
       <div class="track"><span class="n">/01</span><h3>Introductions</h3><p>Where your stage and sector fit, we try to introduce you to investors and partners from the Yorkseed network at Web Summit. We make them personally, but introductions aren't guaranteed.</p></div>
       <div class="track"><span class="n">/02</span><h3>Gatherings</h3><p>A kickoff on November 8, Yorkseed meetups through the week, a WhatsApp group with the other delegates, 25% off Yorkseed's Web Summit lunches, and priority entry to certain Yorkseed events when applicable.</p></div>
-      <div class="track"><span class="n">/03</span><h3>The Deal Book</h3><p>Your company featured in the Yorkseed Lisbon Delegation digital Deal Book, distributed digitally far and wide, to founders, investors, allocators and partners across the Yorkseed network and our channels, during Web Summit week and after. We'll send you a link to your profile to share with your own network. With your OK, delegates, investors included, are also featured with what they're building in the Yorkseed delegation press release and on our social channels. Ad placements and paid editorial features are available in the Lisbon Deal Book and in our annual Yorkseed Delegation edition.</p></div>
+      <div class="track"><span class="n">/03</span><h3>The Deal Book</h3><p>Your own page in the Lisbon Deal Book, shared across the Yorkseed network during Web Summit week and kept online after it. We send you the link to share with your network. With your OK, we also feature you in the delegation press release and on our social channels.</p></div>
       <div class="track"><span class="n">/04</span><h3>The Showcase</h3><p>A virtual session in December where selected founders present to invited investors, including ones who weren't in Lisbon. <a href="https://luma.com/relg9v16?utm_source=yorkseed&utm_medium=delegation_page" target="_blank" rel="noopener" style="color:var(--gold-light)">See the showcase</a></p></div>
       <div class="track"><span class="n">/05</span><h3>Yorkseed Connect</h3><p>Six months on our member platform, complimentary, so you can keep messaging everyone you meet.</p></div>
       <div class="track"><span class="n">/06</span><h3>KoiCard</h3><p>Free access to KoiCard, the app that turns business cards and QR codes into saved contacts, so you can keep track of everyone you meet in Lisbon. 300 scans per delegate, November 5 to November 18. We send your access code once you've joined.</p></div>
@@ -355,18 +362,18 @@ html:not(.fso) [data-so]{display:none!important}
 
 <section class="sample" id="sample">
   <div class="in">
-    <div class="label">A look inside</div>
+    <div class="label">The Lisbon 2026 edition</div>
     <h2 class="big">What the <em>Deal Book</em> looks like</h2>
     <p class="lede">Three sections: Companies, Partners and Investors. Everyone in the delegation gets their own page: what you're building, offering or investing in, the people to meet in Lisbon, and a QR code to connect.</p>
     <div class="pages">
-      <figure><img src="/assets/deal-book/cover.png" alt="Sample Deal Book cover: Yorkseed Delegation, Lisbon" loading="lazy" width="294" height="392"/><figcaption>The cover</figcaption></figure>
-      <figure><img src="/assets/deal-book/novamind.png" alt="Sample Deal Book page for a founder company" loading="lazy" width="294" height="392"/><figcaption>A founder company</figcaption></figure>
-      <figure><img src="/assets/deal-book/aurora.png" alt="Sample Deal Book page for an investor delegate" loading="lazy" width="294" height="392"/><figcaption>An investor</figcaption></figure>
-      <figure><img src="/assets/deal-book/sovereign.png" alt="Sample Deal Book page for an allocator delegate" loading="lazy" width="294" height="392"/><figcaption>An allocator</figcaption></figure>
-      <figure><img src="/assets/deal-book/partner.png" alt="Sample Deal Book page for a partner delegate, with a delegate perk" loading="lazy" width="294" height="392"/><figcaption>A partner</figcaption></figure>
+      <figure><img src="/assets/lisbon-delegation/page-cover.jpg" alt="Lisbon 2026 Deal Book cover" loading="lazy" width="640" height="905"/><figcaption>The cover</figcaption></figure>
+      <figure><img src="/assets/lisbon-delegation/page-directory.jpg" alt="Deal Book delegate directory page" loading="lazy" width="640" height="905"/><figcaption>The delegate directory</figcaption></figure>
+      <figure><img src="/assets/lisbon-delegation/page-profile.jpg" alt="Deal Book profile page for EdgeCraft" loading="lazy" width="640" height="905"/><figcaption>A delegate profile</figcaption></figure>
+      <figure><img src="/assets/lisbon-delegation/page-week.jpg" alt="Deal Book itinerary page, five days in Lisbon" loading="lazy" width="640" height="905"/><figcaption>The week</figcaption></figure>
+      <figure><img src="/assets/lisbon-delegation/page-connect.jpg" alt="Deal Book page explaining how to request an introduction" loading="lazy" width="640" height="905"/><figcaption>How to connect</figcaption></figure>
     </div>
-    <p class="note">Sample layout. The companies, people and details shown are placeholders, and the final design may change.</p>
-    <p style="margin-top:28px"><a href="/delegation/lisbon-2026/delegates" class="btn" style="border:1px solid var(--ink);color:var(--ink)">Meet the delegates</a></p>
+    <p class="note">Pages from the Lisbon 2026 edition.</p>
+    <p style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap"><a href="/delegation/lisbon-2026/delegates/" class="btn" style="background:var(--ink);color:#fff">Meet the delegates</a><a href="/delegation/" class="btn" style="border:1px solid var(--ink);color:var(--ink)">All delegations</a></p>
   </div>
 </section>
 
@@ -476,7 +483,7 @@ html:not(.fso) [data-so]{display:none!important}
     <div>
       <details><summary>Is the Web Summit ticket included? Do I need one?</summary><p>It isn't included, and you don't need one to join. If you want to go inside Web Summit, buy it through Web Summit. If you're still deciding, the delegation works either way, and our famous <a href="https://docs.google.com/spreadsheets/d/1Z-CSAENhQygbIPVqP5WbKbbVAGfJFYoixORwWyN8n9o/edit?usp=sharing" target="_blank" rel="noopener" style="color:var(--red)">master side event spreadsheet</a> lists the side events happening all week.</p></details>
       <details><summary>What is KoiCard, and how do I get access?</summary><p>KoiCard is an app that reads business cards and QR codes and saves them as contacts, with notes and color labels, so you can follow up after Web Summit. Every delegate gets free access for two weeks, with 300 scans, from November 5 to November 18. Once you've joined, we'll send you an access code. Sign up at <a href="https://koicard.app" target="_blank" rel="noopener" style="color:var(--red)">koicard.app</a>, open Settings and enter the code.</p></details>
-      <details><summary>Can I advertise or get editorial coverage in the Deal Book?</summary><p>Yes. The Deal Book is distributed digitally across the Yorkseed network and our channels. Companies, funds and partners can buy ad placements or paid editorial features, in the Lisbon Deal Book and in the annual Yorkseed Delegation edition. Paid editorial is labeled as sponsored. Write to <a href="mailto:partnership@yorkseed.co" style="color:var(--red)">partnership@yorkseed.co</a> for options and rates.</p></details>
+      <details><summary>Can I advertise or get editorial coverage in the Deal Book?</summary><p>Yes. The Deal Book is distributed digitally across the Yorkseed network and our channels. Companies, funds and partners can take a partner page in the Lisbon Deal Book, in The Yorkseed Annual at year end, or both. Partner pages are labelled Partner. See <a href="/delegation/partner/" style="color:var(--red)">packages and rates</a>, or write to <a href="mailto:partnership@yorkseed.co" style="color:var(--red)">partnership@yorkseed.co</a>.</p></details>
       <details><summary>What do I need for my Deal Book page?</summary><p>If you say yes on the application, we ask for a tagline, two or three sentences about your company or firm, three keywords, your website, links to your headshot and logo, and where you'd like the QR code on your page to send people. You can also add a headshot link for each teammate. We'll build the page from that. Please make sure anyone with a photo link can open it.</p></details>
       <details><summary>Will you feature me publicly?</summary><p>Only if you say yes. The application asks whether we can feature you, and if you agree, you send us a link to your headshot and your company or firm logo. We may use your name, role, company, a short description and those images in the Yorkseed Lisbon Delegation press release and on Yorkseed's social channels. This covers founders and investors. If you say no, nothing changes for the rest of the delegation.</p></details>
       <details><summary>Will there be more programs?</summary><p>We might add more programs to the delegation. Everyone will be in one WhatsApp group chat, so you'll hear about anything new there.</p></details>
@@ -485,7 +492,7 @@ html:not(.fso) [data-so]{display:none!important}
       <details><summary>Am I guaranteed a showcase slot?</summary><p>No. Every founder in the delegation is considered and we pick the companies that fit the investors joining. Premium companies go first.</p></details>
       <details><summary>Can I get a refund?</summary><p>Yes, in full, if you cancel before October 30. After that your profile and introduction work are already in motion, so it's non-refundable.</p></details>
       <details><summary>I'm an executive or a service provider. Can I join?</summary><p>Yes, as a Partner Delegate, €995 per company. That covers executives, corporates, advisors, law firms, banks, recruiters, EOR and payroll companies, consultants and other ecosystem organizations. You get a seat at the Executive Lunch on Monday, November 9, a clearly labeled Partner profile in the Deal Book, access to the delegate group and selected gatherings, three months of Yorkseed Connect and relevant connection opportunities. We ask every partner to offer delegates a useful perk, like a free consultation, a discount or credits. Your perk is also listed in the Vault on Yorkseed Connect. Extra teammates are €175 each, and each one gets an Executive Lunch seat too. Choose "Partner" at the top of the form.</p></details>
-      <details><summary>I'm an investor. Can I join?</summary><p>Please do. It's complimentary for VCs, angel groups, LPs, family offices and other allocators, subject to approval. We run due diligence on every investor and approve VCs, angel groups and networks, LPs, family offices and other allocators only. If you raise for others, offer market entry, or are looking for new clients, join as a Partner Delegate. Two people from your investment team join free, and each extra person is €175. Choose "Investor" at the top of the form. If you can only make the virtual showcase, <a href="https://luma.com/relg9v16?utm_source=yorkseed&utm_medium=delegation_page" target="_blank" rel="noopener" style="color:var(--red)">request a seat on Luma</a>.</p></details>
+      <details><summary>I'm an investor. Can I join?</summary><p>Please do. It's complimentary for VCs, angel groups, LPs, family offices and other allocators, subject to approval. We run due diligence on every investor and approve VCs, angel groups and networks, LPs, family offices and other allocators only. If you raise for others, offer market entry, or are looking for new clients, join as a Partner Delegate. Choose "Investor" at the top of the form. If you can only make the virtual showcase, <a href="https://luma.com/relg9v16?utm_source=yorkseed&utm_medium=delegation_page" target="_blank" rel="noopener" style="color:var(--red)">request a seat on Luma</a>.</p></details>
     </div>
   </div>
 </section>
@@ -564,7 +571,7 @@ html:not(.fso) [data-so]{display:none!important}
         </div>
 
         <div class="team-block">
-          <div class="f"><label for="extraCount">Teammates coming</label><p class="hint" id="teamHint" hidden></p><select id="extraCount"><option value="0">Just me</option><option value="1">+1 teammate (€175)</option><option value="2">+2 teammates (€350)</option><option value="3">+3 teammates (€525)</option></select></div>
+          <div class="f"><label for="extraCount">Teammates coming</label><p class="hint" id="teamHint" hidden>Partners: every teammate gets an Executive Lunch seat too.</p><select id="extraCount"><option value="0">Just me</option><option value="1">+1 teammate (€175)</option><option value="2">+2 teammates (€350)</option><option value="3">+3 teammates (€525)</option></select></div>
           <div id="mates"></div>
         </div>
 
@@ -665,26 +672,13 @@ html:not(.fso) [data-so]{display:none!important}
     form.querySelector('.founder-only').hidden=r!=='Founder';
     form.querySelector('.partner-only').hidden=r!=='Partner';
     form.querySelector('.investor-only').hidden=r!=='Investor';
-    setTeamOptions(r);
+    form.querySelector('.team-block').hidden=r==='Investor';
+    $('teamHint').hidden=r!=='Partner';
     $('companyLabel').textContent=c.org;$('logoLabel').textContent='Link to your '+c.org.toLowerCase()+' logo';$('dbAboutLabel').textContent=c.about;
     $('dbTaglineHint').textContent=c.tagline;$('dbTagsHint').textContent=c.tags;
     $('goalsLabel').textContent=c.goals;$('goalsHint').textContent=c.goalsHint;$('submitNote').textContent=c.note;
     updateTicket();
     renderMates();
-  }
-  var TEAM_OPTS={
-    paid:[['0','Just me'],['1','+1 teammate (€175)'],['2','+2 teammates (€350)'],['3','+3 teammates (€525)']],
-    investor:[['0','Just me'],['1','+1 team member (free)'],['2','+2 team members (1 free, €175)'],['3','+3 team members (1 free, €350)']]
-  };
-  function setTeamOptions(r){
-    var sel=$('extraCount'),opts=r==='Investor'?TEAM_OPTS.investor:TEAM_OPTS.paid,cur=sel.value;
-    sel.innerHTML=opts.map(function(o){return '<option value="'+o[0]+'">'+o[1]+'</option>'}).join('');
-    sel.value=opts.some(function(o){return o[0]===cur})?cur:'0';
-    $('extraCount').previousElementSibling.previousElementSibling.textContent=r==='Investor'?'Team members coming':'Teammates coming';
-    var h=$('teamHint');
-    if(r==='Partner'){h.textContent='Partners: every teammate gets an Executive Lunch seat too.';h.hidden=false;}
-    else if(r==='Investor'){h.textContent='Two people per fund join free. Each extra person is €175. Investment team only: partners, principals or associates who take meetings.';h.hidden=false;}
-    else h.hidden=true;
   }
   function updateTicket(){var no=founder()&&ticket.value==='Not going';$('noTicket').hidden=!no;btn.disabled=no;}
   form.querySelectorAll('[name=role]').forEach(function(r){r.addEventListener('change',applyRole);});
@@ -700,7 +694,7 @@ html:not(.fso) [data-so]{display:none!important}
   document.querySelectorAll('[data-tier]').forEach(function(a){a.addEventListener('click',function(){form.querySelector('[name=role][value=Founder]').checked=true;applyRole();form.querySelector('[name=tier][value="'+a.getAttribute('data-tier')+'"]').checked=true;});});
 
   function renderMates(){
-    var n=parseInt(v('extraCount')||'0',10),box=$('mates'),keep={};
+    var n=investor()?0:parseInt(v('extraCount')||'0',10),box=$('mates'),keep={};
     box.querySelectorAll('input').forEach(function(i){keep[i.id]=i.value});
     var h='';
     for(var k=1;k<=n;k++){
@@ -709,7 +703,6 @@ html:not(.fso) [data-so]{display:none!important}
         '<div class="f"><label for="m'+k+'role">Role</label><input type="text" id="m'+k+'role" placeholder="e.g. CTO"/></div></div>'+
         '<div class="two"><div class="f"><label for="m'+k+'email">Email</label><input type="email" id="m'+k+'email" autocomplete="off"/></div>'+
         '<div class="f"><label for="m'+k+'phone">WhatsApp</label><input type="tel" id="m'+k+'phone" placeholder="+351 …" autocomplete="off"/></div></div>'+
-        (investor()?'<div class="f"><label for="m'+k+'li">LinkedIn</label><input type="url" id="m'+k+'li" placeholder="https://linkedin.com/in/…" autocomplete="off"/></div>':'')+
         (dealbookYes()?'<div class="f"><label for="m'+k+'photo">Headshot link (optional)</label><p class="hint">For your teammate\'s spot on your Deal Book page.</p><input type="url" id="m'+k+'photo" placeholder="https://"/></div>':'')+'</div>';
     }
     box.innerHTML=h;
@@ -717,8 +710,8 @@ html:not(.fso) [data-so]{display:none!important}
   }
   $('extraCount').addEventListener('change',renderMates);
   function matesData(){
-    var n=parseInt(v('extraCount')||'0',10),out=[];
-    for(var k=1;k<=n;k++)out.push([v('m'+k+'name'),v('m'+k+'role'),v('m'+k+'email'),v('m'+k+'phone'),$('m'+k+'photo')?v('m'+k+'photo'):'',$('m'+k+'li')?v('m'+k+'li'):'']);
+    var n=investor()?0:parseInt(v('extraCount')||'0',10),out=[];
+    for(var k=1;k<=n;k++)out.push([v('m'+k+'name'),v('m'+k+'role'),v('m'+k+'email'),v('m'+k+'phone'),$('m'+k+'photo')?v('m'+k+'photo'):'']);
     return out;
   }
   function validate(){
@@ -743,7 +736,6 @@ html:not(.fso) [data-so]{display:none!important}
       if(!m[2]){mark($('m'+k+'email'),'Please fill this in.');ok=false;}
       else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(m[2])){mark($('m'+k+'email'),'That email doesn\'t look right.');ok=false;}
       if(!m[3]){mark($('m'+k+'phone'),'Please fill this in.');ok=false;}
-      if(investor()){if(!m[1]){mark($('m'+k+'role'),'Please fill this in.');ok=false;}if(!m[5]){mark($('m'+k+'li'),'Please fill this in.');ok=false;}}
     });
     if(!form.querySelector('[name=dealbook]:checked')){mark($('dealbookGroup').querySelector('.who'),'Please choose Yes or No.');ok=false;}
     if(dealbookYes()){
@@ -773,14 +765,14 @@ html:not(.fso) [data-so]{display:none!important}
     var soldOut=document.documentElement.classList.contains('fso');
     var tier=f?form.querySelector('[name=tier]:checked').value:(p?'Partner Delegate':'Investor (complimentary)');
     var rate=f?(tier==='Premium'?'€695':(soldOut?'€595':'€495 founding')):(p?'€995':'Complimentary');
-    var nm=parseInt(v('extraCount')||'0',10);if(nm)rate+=i?(' + 1 team member (free)'+(nm>1?' + '+(nm-1)+' at €'+(175*(nm-1)):'')):' + teammates €'+(175*nm);if(p)rate+=' (Executive Lunch seats: '+(1+nm)+')';
+    var nm=i?0:parseInt(v('extraCount')||'0',10);if(nm)rate+=' + teammates €'+(175*nm);if(p)rate+=' (Executive Lunch seats: '+(1+nm)+')';
     // Fixed column order so every email lines up as the same row
     var row=[
       ['Form','Lisbon Delegation'],['Submitted at',new Date().toISOString()],['Applying as',r],
       ['First name',v('firstName')],['Last name',v('lastName')],['Role',v('jobTitle')],['Email',v('email')],['WhatsApp',v('phone')],['LinkedIn',v('linkedin')],
       ['Company',v('company')],['Website',v('website')],
       ['One-liner',f?v('oneLiner'):''],['Sector',f?v('sector'):''],['Stage',f?v('stage'):''],['Fundraising',f?v('raising'):''],['Web Summit ticket',f?v('ticket'):''],
-      ['Package',tier],['Rate to send if approved',rate],['Teammates',v('extraCount')],['Teammate details',matesData().map(function(m,k){return (k+1)+'. '+m[0]+(m[1]?' ('+m[1]+')':'')+' · '+m[2]+' · '+m[3]+(m[4]?' · photo: '+m[4]:'')+(m[5]?' · '+m[5]:'')}).join(' | ')],
+      ['Package',tier],['Rate to send if approved',rate],['Teammates',i?'':v('extraCount')],['Teammate details',i?'':matesData().map(function(m,k){return (k+1)+'. '+m[0]+(m[1]?' ('+m[1]+')':'')+' · '+m[2]+' · '+m[3]+(m[4]?' · photo: '+m[4]:'')}).join(' | ')],
       ['Partner field',p?v('pField'):''],['Partner services',p?v('pOffer'):''],['Partner perk for delegates',p?v('pPerk'):''],
       ['Investor stage focus',i?v('iStage'):''],['Investor sectors',i?v('iSectors'):''],['Investor check size',i?v('iCheck'):''],['Portfolio permission',i?(portfolio()==='Yes'?'Yes, choose up to 5 from website':portfolio()):''],['Portfolio companies',i&&portfolio()==='Custom'?v('pfList').split(/\n/).filter(function(x){return x.trim()}).join(' | '):''],
       [f?'Who they want to meet':(p?'Who they want to meet':'What they want to see'),v('goals')],['Heard via',v('referral')],['Heard via details',v('referralDetail')],
