@@ -1,11 +1,14 @@
-# Rebuilds The Yorkseed List every morning (6:15 AM New York), and whenever events are queued for import:
+# Rebuilds The Yorkseed List Mon/Wed/Fri at 6:15 AM New York (daily Nov 1-13 for Web Summit), and whenever events are queued for import:
 # 1. imports queued events and finds each event's real cover photo (scripts/list_enrich.py)
 # 2. rebuilds the city and conference pages (scripts/build_list_pages.py)
 # then commits, which makes Netlify publish the fresh pages automatically.
 name: Rebuild The Yorkseed List pages
 on:
   schedule:
-    - cron: "15 10 * * *"
+    # Each publish costs 15 Netlify credits, so: Mon, Wed, Fri all year (~13/month)...
+    - cron: "15 10 * * 1,3,5"
+    # ...plus every day around Web Summit (Nov 1 to 13)
+    - cron: "15 10 1-13 11 *"
   push:
     branches: [main]
     paths:
