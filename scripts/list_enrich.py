@@ -16,6 +16,7 @@ UA = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit
       "Accept": "text/html,application/xhtml+xml", "Accept-Language": "en-US,en;q=0.9"}
 TODAY = dt.date.today().isoformat()
 DROP_KEYS = re.compile(r'^(utm_.*|ref|ref_src|source|src|via|aff|affiliate|fbclid|gclid|mc_[a-z]+|_gl|tk|lu_ref)$', re.I)
+REG_HOSTS = re.compile(r'(lu\.ma|luma\.com|eventbrite\.|partiful\.com|meetup\.com|ti\.to|tito\.io|posh\.vip|dice\.fm)', re.I)
 SKIP_HOSTS = re.compile(r'(foundercal\.com|side-events-guide\.com|sobremesa[a-z.-]*|google\.[a-z.]+|goo\.gl|maps\.|facebook\.com|instagram\.com|twitter\.com|x\.com|linkedin\.com|tiktok\.com|youtube\.com|apple\.com|play\.google)', re.I)
 
 def get(url, timeout=15):
@@ -144,6 +145,13 @@ def ld_event(page):
 def city_event(args):
     ev_url, hub = args
     try:
+        if REG_HOSTS.search(urlsplit(ev_url).netloc):        # a direct registration link
+            reg = clean(ev_url)
+            if re.search(r'(lu\.ma|luma\.com)', urlsplit(reg).netloc): info = luma_event(reg)
+            else:
+                r, rp = get(ev_url); reg = clean(r)
+                info = ld_event(rp) or {"title": meta(rp, "og:title"), "desc": short(meta(rp, "og:description", "description")), "photo": photo_from(r, rp)}
+            return finish(info or {}, reg, hub)
         final, page = get(ev_url)
         base = ld_event(page) or {"title": meta(page, "og:title"), "start": "", "desc": "", "photo": meta(page, "og:image")}
         hrefs = [urljoin(final, h) for h in re.findall(r'href=["\']([^"\']+)["\']', page)]
@@ -161,6 +169,11 @@ def city_event(args):
             except Exception: continue
         if not reg: return None
         info = {**{k: v for k, v in (base or {}).items() if v}, **{k: v for k, v in (info or {}).items() if v}}
+        return finish(info, reg, hub)
+    except Exception: return None
+
+def finish(info, reg, hub):
+    try:
         if not info.get("title") or not info.get("start"): return None
         tz = hub_tz(hub); date, start = to_local(info["start"], tz)
         if not date: return None
@@ -170,6 +183,7 @@ def city_event(args):
                 "link": reg, "desc": info.get("desc", ""), "_photo": info.get("photo", "")}
     except Exception: return None
 
+REPORT = []
 def import_cities():
     pc_p = f"{REPO}/list/data/pending-cities.json"; cities = load(pc_p, [])
     if not cities: return {}
@@ -177,10 +191,13 @@ def import_cities():
     for c in cities:
         try:
             final, page = get(c["url"])
-            urls = sorted({urljoin(final, h).split("?")[0] for h in re.findall(r'href=["\']([^"\']*/events/[^"\'#?]+)', page)})
-            jobs += [(u, c["hub"]) for u in urls]
-            print(f"city {c['hub']}: {len(urls)} event pages")
-        except Exception as ex: print(f"city {c['hub']}: failed {ex}")
+            hrefs = [html.unescape(urljoin(final, h)) for h in re.findall(r'href=["\']([^"\']+)["\']', page)]
+            urls = sorted({h.split("?")[0] for h in hrefs if "/events/" in urlsplit(h).path and urlsplit(h).netloc == urlsplit(final).netloc})
+            direct = sorted({clean(h) for h in hrefs if h.startswith("http") and REG_HOSTS.search(urlsplit(h).netloc)})
+            jobs += [(u, c["hub"]) for u in urls + direct]
+            REPORT.append({"source": c["url"], "hub": c["hub"], "event_pages": len(urls), "direct_links": len(direct), "page_bytes": len(page)})
+            print(f"city {c['hub']}: {len(urls)} event pages, {len(direct)} direct links")
+        except Exception as ex: print(f"city {c['hub']}: failed {ex}"); REPORT.append({"source": c["url"], "hub": c["hub"], "error": str(ex)[:200]})
     with ThreadPoolExecutor(6) as ex: res = [r for r in ex.map(city_event, jobs) if r]
     events = load(f"{REPO}/list/events.json", []); master = load(f"{REPO}/list/data/master.json", {"events": []})
     norm = lambda s: re.sub(r'[^a-z0-9]+', '', (s or '').lower())[:40]
@@ -199,6 +216,7 @@ def import_cities():
     json.dump(events, open(f"{REPO}/list/events.json", "w"), ensure_ascii=False, indent=1)
     json.dump([], open(pc_p, "w"))
     print(f"cities import: {added} new events from {len(jobs)} pages")
+    REPORT.append({"cities_import_new_events": added, "jobs": len(jobs), "resolved": len(res), "by_hub": dict(__import__("collections").Counter(r["hub"] for r in res))})
     return photos
 
 # ---------- 1c. daily sources: Luma discover categories (list/data/sources.json) ----------
@@ -332,3 +350,4 @@ if __name__ == "__main__":
     try: fill_luma_descriptions()
     except Exception as ex: print(f"descriptions failed: {ex}")
     refresh_photos(seed)
+    if REPORT: json.dump({"date": dt.date.today().isoformat(), "report": REPORT}, open(f"{REPO}/list/data/import-report.json", "w"), indent=1)
