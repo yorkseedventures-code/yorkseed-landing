@@ -78,6 +78,7 @@ def event_ld(e, camp):
           "eventAttendanceMode":"https://schema.org/OnlineEventAttendanceMode" if online else "https://schema.org/OfflineEventAttendanceMode",
           "url": ref(e["link"], camp) if e["link"] else LIST + h["slug"] + "/"}
     if e["end"]: ld["endDate"] = iso(e, "end")
+    if e["link"]: ld["offers"] = {"@type": "Offer", "url": ref(e["link"], camp), "availability": "https://schema.org/InStock", "validFrom": TODAY.isoformat()}
     if e["desc"]: ld["description"] = e["desc"]
     if online: ld["location"] = {"@type":"VirtualLocation","url":ld["url"]}
     else: ld["location"] = {"@type":"Place","name": place(e) or h["name"],"address":{"@type":"PostalAddress","addressLocality":h["name"],**({"addressCountry":h["country"]} if h["country"] else {})}}
