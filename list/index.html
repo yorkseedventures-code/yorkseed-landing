@@ -1502,7 +1502,6 @@ input::placeholder,textarea::placeholder{font-size:13.5px;color:var(--soft);opac
 </main>
 
 
-
 <p id="ysSeoCities" style="max-width:1200px;margin:0 auto;padding:16px 20px;font:400 11px 'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase"><a href="/cities/" style="color:#888;text-decoration:none">Browse startup events by city →</a></p>
 <footer class="foot ysfoot">
   <div class="fwrap">
@@ -2042,13 +2041,30 @@ function startChat(){$("#dlog").innerHTML="";chat.state="ask";chat.draft=null;bo
 function openChat(prefill){$("#drawer").hidden=false;if(!$("#dlog").children.length||chat.state==="done")startChat();setTimeout(()=>{if(prefill)handle(prefill);else $("#dMsg").focus();},prefill?450:60);}
 function closeChat(){$("#drawer").hidden=true;}
 function blank(link){return{title:"",hub:st.hub!=="all"?st.hub:"nyc",date:"",start:"",end:"",venue:"",type:"Meetups",host:"",desc:"",link:link||""};}
+// read a pasted event link through the site's extract function (live site only)
+const CITY_ALIAS={"san francisco":"sf","oakland":"sf","berkeley":"sf","palo alto":"sf","mountain view":"sf","san jose":"sf","menlo park":"sf","brooklyn":"nyc","manhattan":"nyc","queens":"nyc","new york":"nyc","jersey city":"nyc","washington":"dc","abu dhabi":"dxb","dubai":"dxb","sao paulo":"sao","rio de janeiro":"sao","denver":"den","boulder":"den","cambridge":"bos","santa monica":"la","bangalore":"blr","bengaluru":"blr","tel aviv-yafo":"tlv"};
+function normTxt(s){return (s||"").toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z ]/g," ").replace(/\s+/g," ").trim();}
+function cityToHub(city){const n=normTxt(city);if(!n)return null;if(CITY_ALIAS[n])return CITY_ALIAS[n];const h=HUBS.find(h=>normTxt(h.name)===n)||HUBS.find(h=>n.length>3&&(normTxt(h.name).includes(n)||n.includes(normTxt(h.name))));return h?h.id:null;}
+function isoLocal(iso,tz){try{const p=Object.fromEntries(new Intl.DateTimeFormat("en-CA",{timeZone:tz,year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hourCycle:"h23"}).formatToParts(new Date(iso)).map(x=>[x.type,x.value]));return{date:`${p.year}-${p.month}-${p.day}`,time:`${p.hour}:${p.minute}`};}catch(e){return null;}}
+async function extractLink(url){
+  if(!/^https?:$/.test(location.protocol)||/claude\.(ai|site)|claudeusercontent/.test(location.hostname))return null;
+  try{const ctl=new AbortController();const t=setTimeout(()=>ctl.abort(),15000);
+    const r=await fetch("/.netlify/functions/extract?url="+encodeURIComponent(url),{signal:ctl.signal});clearTimeout(t);
+    const x=await r.json();if(!x||!x.ok||!x.title)return null;
+    const hub=x.online?"virtual":(cityToHub(x.city)||null);const h=hub?hubById(hub):null;const tz=x.tz||(h&&h.tz)||myTz;
+    const has=s=>s&&/T\d\d:\d\d/.test(s);const s=x.start?(has(x.start)?isoLocal(x.start,tz):{date:x.start.slice(0,10),time:""}):null;const e=has(x.end)?isoLocal(x.end,tz):null;
+    return{title:x.title,hub:hub||(st.hub!=="all"?st.hub:"nyc"),hubFound:!!hub,city:x.city||"",date:s?s.date:"",start:s?s.time:"",end:e&&s&&e.date===s.date?e.time:"",venue:x.venue||"",type:inferType(x.title),host:x.host||"",desc:x.desc||"",photo:x.image||""};
+  }catch(err){return null;}}
 async function handle(text){
   me(text);
   if(chat.state==="ask"){
     const url=(text.match(/https?:\/\/\S+/)||[])[0];
     if(url){const key=url.split("?")[0].replace(/\/$/,"");const known=EVENTS.find(e=>e.link&&e.link.split("?")[0].replace(/\/$/,"")===key);
       chat.draft=known?{title:known.title,hub:known.hub,date:known.date,start:known.start||"",end:known.end||"",venue:known.venue||"",type:known.type,host:known.host||"",desc:/^(Time, venue|Details and registration|A Yorkseed event\. Apply|Submitted to the List)/.test(known.desc||"")?"":(known.desc||""),link:url,dup:known.id}:blank(url);
-      await bot(known?"I pulled your event details from the link. Review or edit them in the card below, and let me know if everything looks right.":"Thanks. I can't open that page from this preview, so fill in the card below. On the live site I'd pull the details from the link for you.",900);
+      if(known){await bot("That event is already on the List. Review or edit the details in the card below, and let me know if everything looks right.",700);}
+      else{const t=await bot("Reading your event page…",300);const x=await extractLink(url);
+        if(x){chat.draft={...blank(url),...x,link:url};t.innerHTML="I pulled your event details from the link. Check the card below and edit anything that's off."+(x.hubFound?"":(x.city?` I couldn't match <b>${esc(x.city)}</b> to a List city, so pick the closest one.`:" Pick the city below."));}
+        else{t.innerHTML="I couldn't read the details from that page, so fill in the card below. It only takes a minute.";}}
     }else{chat.draft=blank("");await bot("No problem. Fill in the card below.",450);}
     showCard();chat.state="card";
   }else if(chat.state==="card"){await bot("Edit the card above, then tap <b>Looks right</b>.",350);}
