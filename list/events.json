@@ -24,5 +24,926 @@
   "type": "Conferences",
   "desc": "Asia's flagship finance and investment forum, in its 20th edition, organized by the HKTDC. Yorkseed returns with a Yorkseed Delegation of founders, investors and allocators.",
   "yorkseed": true
+ },
+ {
+  "title": "Pitch and Run - Central Park",
+  "hub": "nyc",
+  "date": "2026-10-21",
+  "start": "08:00",
+  "venue": "1800 Broadway",
+  "host": "Pitch and Run",
+  "link": "https://luma.com/gy5bscas",
+  "desc": "Meet at Le Pain, 1800 Broadway Intros 8am - 8:10 Run 4.5 miles in Central Park https://www.strava.com/routes/3314367143117942620"
+ },
+ {
+  "title": "Wednesday Coworking - Founders, Builders, Creatives, Researchers, and Supporters",
+  "hub": "nyc",
+  "date": "2026-10-21",
+  "start": "09:30",
+  "venue": "Moxy NYC Lower East Side, 145 Bowery",
+  "host": "Cohort NYC",
+  "link": "https://luma.com/wed-1021",
+  "desc": "Cohort Wednesday Coworking is a weekly working session in NYC for everyone making something. Spend the day alongside passionate people in different fields and…"
+ },
+ {
+  "title": "AI Tinkerers NYC: Agentic Loops Demo Day ft Conveo",
+  "hub": "nyc",
+  "date": "2026-10-21",
+  "start": "18:00",
+  "venue": "",
+  "host": "AI Tinkerers NYC",
+  "link": "https://nyc.aitinkerers.org/p/agentic-loops-demo-day-ft-conveo",
+  "desc": "Agents that keep working while you sleep"
+ },
+ {
+  "title": "AI AFTER: NYC Founders & Entrepreneurs Afterwork Rooftop Hangout",
+  "hub": "nyc",
+  "date": "2026-10-21",
+  "start": "18:00",
+  "venue": "230 Fifth Rooftop Bar, 1150 Broadway",
+  "host": "AI CIRCLE for Entrepreneurs",
+  "link": "https://www.meetup.com/ai-circle-for-entrepreneurs/events/317002601/",
+  "desc": "**4th EDITION!** An informal AFTERWORK meetup for **entrepreneurs, founders, and builders working with AI** — or simply excited about where it’s heading. **LOCATION: 230 F"
+ },
+ {
+  "title": "Hacktoberfest Hack Day",
+  "hub": "nyc",
+  "date": "2026-10-21",
+  "start": "18:30",
+  "venue": "Our House, 23-71 31st St, Astoria",
+  "host": "Astoria Tech Meetup",
+  "link": "https://www.meetup.com/astoria-tech-meetup/events/316765268/",
+  "desc": "Please register at https://events.mlh.com/events/15192-astoria-tech-meetup-x-hacktoberfest-hack-day Join Astoria Tech Meetup for a 4-hour mini-hackathon celebrating Hackto"
+ },
+ {
+  "title": "Pitch and Run 730am Early Bird Battery Park",
+  "hub": "nyc",
+  "date": "2026-10-22",
+  "start": "07:30",
+  "venue": "Le Pain Quotidien",
+  "host": "Pitch and Run",
+  "link": "https://luma.com/mw005iqm",
+  "desc": "We meet at 730am - at Le Pain 395 S End Ave, New York, NY 10280, USA Intros 730am Paces from 9min/mile to party pace 11min/mile+ 4.5 miles up the piers and…"
+ },
+ {
+  "title": "ops what's cooking? - NYC ops engineering dinner",
+  "hub": "nyc",
+  "date": "2026-10-22",
+  "start": "18:00",
+  "venue": "Lotic",
+  "host": "running things",
+  "link": "https://luma.com/6caw4ypq",
+  "desc": "Bring your build. We'll bring the dinner (and a pretty great room). Behind every great consumer brand is a slightly chaotic collection of spreadsheets,…"
+ },
+ {
+  "title": "Build Your First App with Replit!",
+  "hub": "nyc",
+  "date": "2026-10-22",
+  "start": "18:00",
+  "venue": "",
+  "host": "Prompt Engineers Society",
+  "link": "https://luma.com/c1bw96zu",
+  "desc": "Learn how to build your first app with Replit! Hosted by the Prompt Engineers Society in collaboration with Replit and CUNY, we’re bringing together a curated…"
+ },
+ {
+  "title": "Double Diamond ⬩ October 2026",
+  "hub": "nyc",
+  "date": "2026-10-22",
+  "start": "18:00",
+  "venue": "",
+  "host": "Double Diamond",
+  "link": "https://luma.com/double-diamond-oct-2026",
+  "desc": "Double Diamond, NYC's favorite live design podcast and event series, is BACK with another night of conversations about designing and building at the…"
+ },
+ {
+  "title": "Honcho x Variant Happy Hour - NYC agent builders",
+  "hub": "nyc",
+  "date": "2026-10-22",
+  "start": "18:00",
+  "venue": "",
+  "host": "Plastic Labs",
+  "link": "https://luma.com/honcho-soho",
+  "desc": "Honcho Happy Hour is coming to Manhattan. Meet the people shipping agents in NYC. Trade what's actually working in production. Bring your agent's weirdest…"
+ },
+ {
+  "title": "NYC Ecommerce Founders - Networking Party and Social Mixer",
+  "hub": "nyc",
+  "date": "2026-10-22",
+  "start": "19:00",
+  "venue": "The Folly",
+  "host": "New York Ecom Network",
+  "link": "https://www.meetup.com/new-york-ecom-network/events/316787627/",
+  "desc": "***Tickets must be purchased in advance:*** https://luma.com/ecomNY2610?utm_source=meetup ***(limited early bird & discounted tickets available)*** \\-\\-\\- ​​Surround yourse"
+ },
+ {
+  "title": "AcceleratorCON 2026: Championship Day",
+  "hub": "nyc",
+  "date": "2026-10-23",
+  "start": "08:30",
+  "venue": "The Maison Projects, 229 W 28th St",
+  "host": "AcceleratorCON",
+  "link": "https://acceleratorcon.com/",
+  "desc": "AcceleratorCON event in New York. Details and registration on the event page."
+ },
+ {
+  "title": "Pitch and Run Friday - The Original PNR",
+  "hub": "nyc",
+  "date": "2026-10-23",
+  "start": "09:00",
+  "venue": "Bluestone Lane Chelsea Piers Café",
+  "host": "Pitch and Run",
+  "link": "https://luma.com/vrqiepu2",
+  "desc": "We meet at 8:55am Intros 9-9:10am Paces from 9min/mile to party pace 11min/mile+ Run 4.5 Miles down WSH and back…"
+ },
+ {
+  "title": "NYC Coffee Club | Early-Stage B2B Founders & Funders",
+  "hub": "nyc",
+  "date": "2026-10-23",
+  "start": "10:00",
+  "venue": "",
+  "host": "Forum Events",
+  "link": "https://luma.com/l8bvqyq7",
+  "desc": "Calling early-stage B2B founders and funders! 👋 I'm Olivia, Partner @ Forum Ventures, and there are few things I like more than coffee and community. ☕ I'm…"
+ },
+ {
+  "title": "Forward Pass - Applied AI Builders at Time Out Market DUMBO",
+  "hub": "nyc",
+  "date": "2026-10-23",
+  "start": "18:00",
+  "venue": "Time Out Market DUMBO, 55 Water St",
+  "host": "NYC Applied AI Builders",
+  "link": "https://www.meetup.com/meetup-group-oqhkwcrm/events/316830704/",
+  "desc": "**We're heading to the waterfront for this one.** Join us at Time Out Market in DUMBO — upstairs and on the rooftop — with panoramic views of the Manhattan skyline, Brookl"
+ },
+ {
+  "title": "The AI Era & What It Means To Be Human: Dinner & Dialogue",
+  "hub": "nyc",
+  "date": "2026-10-23",
+  "start": "18:00",
+  "venue": "",
+  "host": "The AI Collective",
+  "link": "https://luma.com/19sc1btx",
+  "desc": "The AI Era & What It Means to Be Human AI is changing how we work, learn, create, and make decisions. But underneath the conversation about models, agents, and…"
+ },
+ {
+  "title": "AI Founders, Operators, & Investors: Mocktails and Legal AMA",
+  "hub": "nyc",
+  "date": "2026-10-23",
+  "start": "19:00",
+  "venue": "",
+  "host": "",
+  "link": "https://luma.com/4os0re4z",
+  "desc": "Join us for an evening of conversation, connection, and startup legal education for founders, investors, and members of the startup ecosystem. 7:00–8:00 PM |…"
+ },
+ {
+  "title": "Founders Running Club x Inngest: Morning 5K, Coffee & Swag!",
+  "hub": "nyc",
+  "date": "2026-10-24",
+  "start": "09:00",
+  "venue": "Abingdon Square",
+  "host": "Founders Running Club",
+  "link": "https://luma.com/2hw2d67w",
+  "desc": "Founders Running Club (FRC) brings founders, builders, investors, and operators together for weekly easy runs and networking. On Saturday, October 17th, we’re…"
+ },
+ {
+  "title": "Founders Running Club :: New York",
+  "hub": "nyc",
+  "date": "2026-10-24",
+  "start": "09:00",
+  "venue": "Abingdon Square Park",
+  "host": "Founders Running Club",
+  "link": "https://www.meetup.com/founders-running-club-new-york/events/316838504/",
+  "desc": "**Founders Running Club (FRC)** brings founders, investors, tech, and creative people together for weekly easy runs and networking. We keep the pace comfortable and finish"
+ },
+ {
+  "title": "AI Tinkerers NYC: Walk and Hack with Twilio",
+  "hub": "nyc",
+  "date": "2026-10-24",
+  "start": "10:00",
+  "venue": "Central Park (meet at Columbus Circle)",
+  "host": "AI Tinkerers NYC",
+  "link": "https://nyc.aitinkerers.org/p/walk-and-hack-with-twilio-build-a-phone-agent-on-a-loop-of-central-park",
+  "desc": "Presented by AI Tinkerers NYC and Twilio"
+ },
+ {
+  "title": "No small talk hike for founders",
+  "hub": "nyc",
+  "date": "2026-10-25",
+  "start": "10:00",
+  "venue": "",
+  "host": "No small talk for founders",
+  "link": "https://www.meetup.com/no-small-talk-for-founders/events/316868936/",
+  "desc": "## The No Small Talk Hike **For founders and people who are interested in business & physiology / philosophy** Going for a hike causal conversations sharing life experien"
+ },
+ {
+  "title": "Creative Women Walk: Fort Tryon Park Foliage",
+  "hub": "nyc",
+  "date": "2026-10-25",
+  "start": "11:00",
+  "venue": "Fort Tryon Park",
+  "host": "Creative Women Entrepreneurs in NYC",
+  "link": "https://www.meetup.com/creativesnyc/events/316962895/",
+  "desc": "Join the **Creative Women Entrepreneurs** community for our next **Creative Women Walk** on **Sunday, October 25th at 11AM.** ​As we should be in peak foliage season, we’l"
+ },
+ {
+  "title": "Founders Club NY: Fall Recharge at Othership Williamsburg",
+  "hub": "nyc",
+  "date": "2026-10-25",
+  "start": "16:00",
+  "venue": "Othership Williamsburg",
+  "host": "Founders Club NY",
+  "link": "https://luma.com/not-onzz",
+  "desc": "Our October gathering will be a fall reset for founders - sauna, cold plunge, and real conversation. Join fellow FCNY members for an afternoon at Othership in…"
+ },
+ {
+  "title": "Pitch and Run Monday",
+  "hub": "nyc",
+  "date": "2026-10-26",
+  "start": "09:00",
+  "venue": "Bluestone Lane Chelsea Piers Café",
+  "host": "Pitch and Run",
+  "link": "https://luma.com/0yc5aeut",
+  "desc": "We meet at 8:55am Intros 9-9:10am Paces from 9min/mile to party pace 11min/mile+ Run 4.5 Miles down WSH and back…"
+ },
+ {
+  "title": "Monday Founders Coworking Pod",
+  "hub": "nyc",
+  "date": "2026-10-26",
+  "start": "10:00",
+  "venue": "Moxy NYC Chelsea",
+  "host": "Cohort NYC",
+  "link": "https://luma.com/mon-1026",
+  "desc": "If you're an early stage founder, building alone is hard. You lose momentum, get stuck with no one to ask, and there's no one checking if you actually did what…"
+ },
+ {
+  "title": "The Shortlist: October Founder Showcase",
+  "hub": "nyc",
+  "date": "2026-10-26",
+  "start": "18:00",
+  "venue": "",
+  "host": "The Shortlist NY",
+  "link": "https://luma.com/shortlistoctober",
+  "desc": "The Shortlist NYC – October Founder Showcase (#10) The Shortlist is back for our monthly Founder Showcase and the room keeps getting better. This is a monthly…"
+ },
+ {
+  "title": "Pitch & Run - Prospect Park",
+  "hub": "nyc",
+  "date": "2026-10-27",
+  "start": "07:30",
+  "venue": "Grand Army Plaza Greenmarket",
+  "host": "Pitch and Run",
+  "link": "https://luma.com/8vxdejas",
+  "desc": "We meet at 7:25am - at Grand Army Plaza Intros 7:30-7:35am Paces from 9min/mile to party pace 11min/mile+ Route:…"
+ },
+ {
+  "title": "BioFuture 2026",
+  "hub": "nyc",
+  "date": "2026-10-27",
+  "start": "08:30",
+  "venue": "Cure",
+  "host": "Demy-Colton",
+  "type": "Conferences",
+  "link": "https://biofuture.com/",
+  "desc": "Experience BioFuture, a healthcare and technology conference in New York City. Explore biopharma, AI, big data in healthcare, & much more!"
+ },
+ {
+  "title": "Swell 2026 by Ripple",
+  "hub": "nyc",
+  "date": "2026-10-27",
+  "start": "09:00",
+  "venue": "The Shed",
+  "host": "Ripple",
+  "type": "Conferences",
+  "link": "https://swell.ripple.com/",
+  "desc": "Ripple’s premier conference where industry pioneers, developers, and innovators to bridge traditional finance and the onchain economy. Register today."
+ },
+ {
+  "title": "State of AI 2026 - NYC launch event",
+  "hub": "nyc",
+  "date": "2026-10-27",
+  "start": "17:30",
+  "venue": "",
+  "host": "Air Street",
+  "link": "https://luma.com/soai-nyc",
+  "desc": "Join us for fireside conversations on the State of AI as we launch the 2026 edition in NYC on 27 October 2026! Important: It is mandatory to bring valid…"
+ },
+ {
+  "title": "The Future of AI Infrastructure",
+  "hub": "nyc",
+  "date": "2026-10-27",
+  "start": "18:00",
+  "venue": "",
+  "host": "Crazy Startup Guy",
+  "link": "https://luma.com/gzudtj1k",
+  "desc": "Let’s talk about what’s coming in the world of AI infra. Anthony Erondu is a Principal Consultant focused on AI infrastructure, GPU compute and Physical AI.…"
+ },
+ {
+  "title": "Founder Pitch Clinic with Anthony Rose & Dave Wolovsky",
+  "hub": "nyc",
+  "date": "2026-10-27",
+  "start": "18:00",
+  "venue": "",
+  "host": "SeedLegals",
+  "link": "https://luma.com/dehgirvb",
+  "desc": "Join us in NYC for an in-person, hands-on pitch clinic designed to help founders become more confident on stage and sharpen the way they pitch to…"
+ },
+ {
+  "title": "Ship Yourself an Assistant: Build Your First Full-Stack App with Base44",
+  "hub": "nyc",
+  "date": "2026-10-27",
+  "start": "18:00",
+  "venue": "Nomadworks Times Square",
+  "host": "No-Code: NYC",
+  "link": "https://www.meetup.com/no-code-nyc/events/316947524/",
+  "desc": "# **🤖 Ship Yourself an Assistant: Build Your First Full-Stack App with Base44** ​You've built landing pages. You've made pretty pages that don't remember anything about t"
+ },
+ {
+  "title": "Meet Your Cofounder & Volunteer for the NYC Kids",
+  "hub": "nyc",
+  "date": "2026-10-27",
+  "start": "18:30",
+  "venue": "",
+  "host": "Antler US",
+  "link": "https://luma.com/fb76l2ki",
+  "desc": "This is for people who will inevitably start something: Exceptional operators seriously considering the founder path Founders today seeking…"
+ },
+ {
+  "title": "The Shortlist Network Dinner",
+  "hub": "nyc",
+  "date": "2026-10-27",
+  "start": "18:30",
+  "venue": "",
+  "host": "Andrew Yeung",
+  "link": "https://luma.com/networkdinner",
+  "desc": "The Shortlist Network Dinner Hosted by The Shortlist Team // Sponsored by Morpheus Join us for an intimate evening with 16 CEOs, founders, startup leaders, and…"
+ },
+ {
+  "title": "YC / VC Pitch & Roast by NYC Founders Club and Brex",
+  "hub": "nyc",
+  "date": "2026-10-27",
+  "start": "19:00",
+  "venue": "",
+  "host": "NYC Founders Club",
+  "link": "https://luma.com/pitchandroast927",
+  "desc": "Think you have a good YC application? Think you know how to fundraise? Think again. Even better, come find out in front of a room full of other founders 👀 Two…"
+ },
+ {
+  "title": "Founder Breakfast",
+  "hub": "nyc",
+  "date": "2026-10-28",
+  "start": "09:00",
+  "venue": "",
+  "host": "Brderless",
+  "link": "https://luma.com/rj5jt99c",
+  "desc": "Join us for a highly curated breakfast for VC-backed founders, ideally have raised a Seed & Series A round. We bring together a carefully selected group of…"
+ },
+ {
+  "title": "Wednesday Coworking - Founders, Builders, Creatives, Researchers, and Supporters",
+  "hub": "nyc",
+  "date": "2026-10-28",
+  "start": "09:30",
+  "venue": "",
+  "host": "Cohort NYC",
+  "link": "https://luma.com/wed-1028",
+  "desc": "Cohort Wednesday Coworking is a weekly working session in NYC for everyone making something. Spend the day alongside passionate people in different fields and…"
+ },
+ {
+  "title": "The Red Sea Ventures Consumer Brand Summit",
+  "hub": "nyc",
+  "date": "2026-10-28",
+  "start": "13:30",
+  "venue": "",
+  "host": "Red Sea Ventures",
+  "link": "https://luma.com/mx9dqfpr",
+  "desc": "Founders. Operators. Industry Leaders. Investors. Twice a year we host the consumer industry's best room: one summit for Consumer Tech, one for Consumer…"
+ },
+ {
+  "title": "AI Founders Supper Club (Hosted by The AI Furnace)",
+  "hub": "nyc",
+  "date": "2026-10-28",
+  "start": "18:00",
+  "venue": "",
+  "host": "The AI Furnace",
+  "link": "https://luma.com/wbn2oa4d",
+  "desc": "Hi fellow founders 👋 Angela and Hamza here from the AI Furnace. The AI Founders Supper Club is a private founders dinner club hosted by The AI Furnace (the…"
+ },
+ {
+  "title": "Consumer Perks (October 29th, 2026)",
+  "hub": "nyc",
+  "date": "2026-10-29",
+  "start": "09:00",
+  "venue": "",
+  "host": "New Edition Events",
+  "link": "https://luma.com/ap8p6g3c",
+  "desc": "On the last Thursday of every month, we invite consumer brand founders, operators, marketers, and investors to our office for coffee and conversation. The kind…"
+ },
+ {
+  "title": "LLMday NYC 2026 Q4",
+  "hub": "nyc",
+  "date": "2026-10-29",
+  "start": "09:00",
+  "venue": "Microsoft Experience Center",
+  "host": "Leap Trace Consulting",
+  "type": "Conferences",
+  "link": "https://www.meetup.com/leap-trace-consulting-llc/events/316951720/",
+  "desc": "Tickets are officially live for **LLM Day**! 🚀 If you’re building with large language models, scaling AI infrastructure, or trying to cut through the hype to see what’s a"
+ },
+ {
+  "title": "Consumer Founder Dinner (with VHS Ventures)",
+  "hub": "nyc",
+  "date": "2026-10-29",
+  "start": "18:30",
+  "venue": "",
+  "host": "Brderless",
+  "link": "https://luma.com/5oc4rw14",
+  "desc": "Join us for an intimate evening with a highly curated group of consumer founders that are actively building and scaling. Who's in the room Founders building in…"
+ },
+ {
+  "title": "Making Better Bets: A Field Guide to Product Strategy with Andrew Skotzko",
+  "hub": "nyc",
+  "date": "2026-10-29",
+  "start": "19:00",
+  "venue": "Pendo",
+  "host": "ProductTank NYC",
+  "link": "https://www.meetup.com/producttanknyc/events/316693978/",
+  "desc": "“Be more strategic” is advice every product leader has heard. But knowing what to actually DO? That's the hard part. Join us for an early look at *[The Strategy Cycle](htt"
+ },
+ {
+  "title": "Marathon Shakeout with SPIbelt",
+  "hub": "nyc",
+  "date": "2026-10-30",
+  "start": "08:30",
+  "venue": "Bluestone Lane Chelsea Piers Café",
+  "host": "Pitch and Run",
+  "link": "https://luma.com/pnr-spibelt-marathon",
+  "desc": "Pitch and Run event in New York. Details and registration on the event page."
+ },
+ {
+  "title": "Google DevFest 2026 - GDG Brooklyn",
+  "hub": "nyc",
+  "date": "2026-10-30",
+  "start": "09:00",
+  "venue": "",
+  "host": "Google Developer Groups",
+  "type": "Conferences",
+  "link": "https://www.meetup.com/google-developer-groups-brooklyn/events/316929122/",
+  "desc": "🚨 **Google Registration Required!** 🚨 Important: RSVPing on this Meetup page does not guarantee your entry. You MUST complete your official registration via the Google De"
+ },
+ {
+  "title": "Full Day Pitch Clinic with David Goldberg and Anthony Rose",
+  "hub": "nyc",
+  "date": "2026-10-30",
+  "start": "13:00",
+  "venue": "Edge Studio",
+  "host": "SeedLegals",
+  "link": "https://luma.com/xkp2ppvs",
+  "desc": "A free, two-hour workshop for founders who want to build a stronger investor pitch and deliver it with confidence. You know your business. You know the…"
+ },
+ {
+  "title": "Tech Happy Hour by Startup Grind",
+  "hub": "nyc",
+  "date": "2026-10-30",
+  "start": "17:00",
+  "venue": "Time Out Market Union Square",
+  "host": "Startup Grind NYC",
+  "link": "https://luma.com/qtkg25bv",
+  "desc": "This is the monthly Startup Grind tech mixer. It's a low-key way to connect with the NYC tech and startup community to discover shared interests, explore areas…"
+ },
+ {
+  "title": "Flushing Tech Bi-Weekly Hackathon",
+  "hub": "nyc",
+  "date": "2026-10-31",
+  "start": "16:00",
+  "venue": "Tech Incubator at Queens College",
+  "host": "Flushing Tech",
+  "link": "https://www.meetup.com/flushingtech/events/316939099/",
+  "desc": "**🚀 Calling all tech enthusiasts 🚀** Come and join us every 2 weeks from 4 PM - 6 PM at Queens College, Flushing! Bring your laptops, your brightest ideas, and/or on-goi"
+ },
+ {
+  "title": "AI DevCon NYC 2026",
+  "hub": "nyc",
+  "date": "2026-11-02",
+  "start": "09:00",
+  "venue": "Industry City, Building 5",
+  "host": "Tessl",
+  "type": "Conferences",
+  "link": "https://tessl.io/devcon",
+  "desc": "The best place to master agentic coding. For the developers and teams building software factories they can trust."
+ },
+ {
+  "title": "Outliers Welcome Party",
+  "hub": "nyc",
+  "date": "2026-11-03",
+  "start": "18:30",
+  "venue": "",
+  "host": "Andrew Yeung",
+  "link": "https://luma.com/outlierswelcome",
+  "desc": "Welcome to the Outliers Welcome Party, presented by the Outliers Summit. This is the event for founders, investors, and tech professionals building what’s…"
+ },
+ {
+  "title": "Prototyping in Public: Where Art and Science Get Tested on the Gallery Floor",
+  "hub": "nyc",
+  "date": "2026-11-03",
+  "start": "19:00",
+  "venue": "The National Arts Club",
+  "host": "Startup Grind NYC",
+  "link": "https://luma.com/startup-ga1b",
+  "desc": "What if a museum ran like a lab, with the experiment still in progress? Ann Neumann is Director of Galleries and Exhibitions at the MIT Museum. Her question…"
+ },
+ {
+  "title": "Outliers Summit VIP Day",
+  "hub": "nyc",
+  "date": "2026-11-04",
+  "start": "11:30",
+  "venue": "",
+  "host": "Andrew Yeung",
+  "link": "https://luma.com/outliersVIP",
+  "desc": "Placeholder for VIP+ ticket holders for the Outliers Summit. 📅 Wednesday, November 4 ⏱️ 11:30 to 6:00pm 📍 NYC Private Club Only VIP and Platinum ticket…"
+ },
+ {
+  "title": "The Growth Council: Off-the-Record Problem Solving for Scaling Founders",
+  "hub": "nyc",
+  "date": "2026-11-04",
+  "start": "18:00",
+  "venue": "",
+  "host": "",
+  "link": "https://luma.com/benji-dixz",
+  "desc": "Are you a founder or entrepreneur? If so, you know that scaling your business past Seed and Series A can expose many gaps in your business all at once -…"
+ },
+ {
+  "title": "Outliers Summit Platinum VIP Dinner",
+  "hub": "nyc",
+  "date": "2026-11-04",
+  "start": "18:30",
+  "venue": "",
+  "host": "Andrew Yeung",
+  "link": "https://luma.com/OutliersPlatinumDinner",
+  "desc": "Placeholder for VIP+ ticket holders for the Outliers Summit. Our private dinner for Platinum ticket holders, with the Outliers Summit speakers and the founders…"
+ },
+ {
+  "title": "The Outliers Summit 2026",
+  "hub": "nyc",
+  "date": "2026-11-05",
+  "start": "09:00",
+  "venue": "",
+  "host": "Ankur Nagpal & Andrew Yeung",
+  "type": "Conferences",
+  "link": "https://outlierssummit.com/",
+  "desc": "Nov 5–6 in NYC"
+ },
+ {
+  "title": "LibreChat Meetup New York",
+  "hub": "nyc",
+  "date": "2026-11-05",
+  "start": "17:00",
+  "venue": "Mindspace Williamsburg",
+  "host": "ClickHouse New York User Group",
+  "link": "https://www.meetup.com/clickhouse-new-york-user-group/events/316900125/",
+  "desc": "[Register Here](https://luma.com/clickh-3qx0) **Event: LibreChat's First NYC Meetup** ​Join us for LibreChat's very first meetup in New York City! We're taking over a roof"
+ },
+ {
+  "title": "Off The Record Dinner: Pt.II",
+  "hub": "nyc",
+  "date": "2026-11-05",
+  "start": "18:30",
+  "venue": "",
+  "host": "1800DTC",
+  "link": "https://luma.com/md59a1v5",
+  "desc": "OFF THE RECORD — PT. II We’re doing it again. 1800DTC and New Edition are bringing the ecommerce crowd together for another night of good food, drinks, and…"
+ },
+ {
+  "title": "Eclectic Convergence 2026",
+  "hub": "nyc",
+  "date": "2026-11-06",
+  "start": "09:00",
+  "venue": "Verizon Executive Education Center, Cornell Tech",
+  "host": "Entrepreneurship at Cornell",
+  "type": "Conferences",
+  "link": "https://eship.cornell.edu/event/eclectic-convergence-26/",
+  "desc": "Entrepreneurship at Cornell hosts an event in New York City featuring speakers who are inspiring, entrepreneurial role models. Don’t miss your chance to listen to amazing speakers, network with fellow […]"
+ },
+ {
+  "title": "AI Tinkerers NYC: Fashion and Finance Agent Hackathon with ZooWork",
+  "hub": "nyc",
+  "date": "2026-11-07",
+  "start": "10:00",
+  "venue": "",
+  "host": "AI Tinkerers NYC",
+  "link": "https://nyc.aitinkerers.org/p/fashion-and-finance-hackathon-with-zoowork",
+  "desc": "Fashion and Finance Hackathon with ZooWork"
+ },
+ {
+  "title": "NYC Code and Coffee 89 at Datadog HQ",
+  "hub": "nyc",
+  "date": "2026-11-08",
+  "start": "14:00",
+  "venue": "620 8th Ave",
+  "host": "New York Code & Coffee",
+  "link": "https://www.meetup.com/new-york-code-coffee/events/317039137/",
+  "desc": "[Code and Coffee](https://www.linkedin.com/company/ny-code-coffee/) is an inclusive, informal co-working session. People of all skill levels attend, and we love it that way"
+ },
+ {
+  "title": "Roundtable Dinner: Personal AI Agents - How CEOs Use Them & Bring Their Teams Along",
+  "hub": "nyc",
+  "date": "2026-11-09",
+  "start": "18:30",
+  "venue": "",
+  "host": "Founders Club NY",
+  "link": "https://luma.com/founders-mz1i",
+  "desc": "Our November 2026 roundtable dinner will be on personal AI agents: how founders are actually using them day-to-day, and how they’re bringing their teams…"
+ },
+ {
+  "title": "AI Founder-Funder Mixer (Hosted by The AI Furnace)",
+  "hub": "nyc",
+  "date": "2026-11-10",
+  "start": "17:30",
+  "venue": "",
+  "host": "The AI Furnace",
+  "link": "https://luma.com/2jhhixkq",
+  "desc": "ABOUT OUR HOSTS & SPONSORS The AI Furnace is NYC's largest and most active AI community. It was started by AI founders, Angela Mascarenas and Hamza Zaveri, who…"
+ },
+ {
+  "title": "Kickoff Middle Aged Female Startup Founders Meetup",
+  "hub": "nyc",
+  "date": "2026-11-10",
+  "start": "17:30",
+  "venue": "Ole & Steen",
+  "host": "Middle Aged Female Startup Founders of New York",
+  "link": "https://www.meetup.com/middle-aged-female-startup-founders-of-new-york-beyond/events/316666190/",
+  "desc": "No laptops. No pitch decks. Just yourself and a willingness to support other middle aged female startup founders. We're a rarefied group! Email eventnationusa200 [at] gmail"
+ },
+ {
+  "title": "Entrepreneurs Roundtable 219",
+  "hub": "nyc",
+  "date": "2026-11-10",
+  "start": "18:00",
+  "venue": "",
+  "host": "Entrepreneurs Roundtable",
+  "link": "https://luma.com/emlbghul",
+  "desc": "Join us for another exciting evening of startup pitches, investor insights, and community networking at Entrepreneurs Roundtable—NYC’s premier and…"
+ },
+ {
+  "title": "Founder Dinner",
+  "hub": "nyc",
+  "date": "2026-11-11",
+  "start": "18:30",
+  "venue": "",
+  "host": "Brderless",
+  "link": "https://luma.com/twuwqh4i",
+  "desc": "Join us for an intimate evening with a highly curated group of Series A/B founders that are scaling at the most beautiful venue in NYC. Who Should…"
+ },
+ {
+  "title": "NYC B2B: SMB Founders & Investors Meetup",
+  "hub": "nyc",
+  "date": "2026-11-12",
+  "start": "17:00",
+  "venue": "",
+  "host": "NYC B2B: Startup Events",
+  "link": "https://luma.com/m7jrwea7",
+  "desc": "NYC B2B is the premier community for B2B Founders, Operators, and Investors in NYC. NYC B2B often hosts happy hour events for founders, builders, and investors…"
+ },
+ {
+  "title": "Founders Live New York City",
+  "hub": "nyc",
+  "date": "2026-11-12",
+  "start": "18:00",
+  "venue": "BELONG NYC",
+  "host": "Founders Live",
+  "link": "https://luma.com/founderslive-new-york-city-2026-11",
+  "desc": "Founders Live New York City is Back for November! Founders Live is NYC’s premier networking event for early-stage startups and part of the global Founders Live…"
+ },
+ {
+  "title": "The Art of Thinking Differently",
+  "hub": "nyc",
+  "date": "2026-11-12",
+  "start": "18:00",
+  "venue": "",
+  "host": "Bereisheet Tech",
+  "link": "https://luma.com/sitatldf",
+  "desc": "An intimate evening for a select group of leaders at Mercer Labs, NYC. Some of the most interesting ideas begin when we step outside the places we usually look…"
+ },
+ {
+  "title": "Founders Basketball New York City (November 2026)",
+  "hub": "nyc",
+  "date": "2026-11-12",
+  "start": "20:00",
+  "venue": "",
+  "host": "Founders Basketball",
+  "link": "https://luma.com/jaan1hqn",
+  "desc": "ABOUT FOUNDERS BASKETBALL Founders Basketball is a growing community of startup founders and investors who love to connect over business and buckets. WHO…"
+ },
+ {
+  "title": "The AI Briefing by Startup Grind: Who Owns the Data Layer Behind Enterprise AI",
+  "hub": "nyc",
+  "date": "2026-11-13",
+  "start": "10:00",
+  "venue": "Civic Hall",
+  "host": "Startup Grind NYC",
+  "link": "https://luma.com/edf6h976",
+  "desc": "The AI Briefing is a recurring AI deep-dive for decision-makers. Each month, we select one high-signal industry report, circulate it in advance, and meet to…"
+ },
+ {
+  "title": "NYC Physical AI Workshop and Meetup",
+  "hub": "nyc",
+  "date": "2026-11-14",
+  "start": "13:30",
+  "venue": "Kimmel Center for University Life",
+  "host": "AI Professionals NYC Machine Learning",
+  "link": "https://www.meetup.com/ai-professionals-nyc-machine-learning/events/316518962/",
+  "desc": "Join us at NYU on Nov 14 for the NYC Physical AI Workshop and Meetup, co-presented by Nebius and Voxel51. Seats are limited, **[Pre-registration is mandatory.](https://vox"
+ },
+ {
+  "title": "AI Coding Summit NYC 2026",
+  "hub": "nyc",
+  "date": "2026-11-16",
+  "start": "09:00",
+  "venue": "Liberty Science Center, Jersey City",
+  "host": "GitNation",
+  "type": "Conferences",
+  "link": "https://aicodingsummit.com/nyc/",
+  "desc": "Discover how AI is revolutionizing software engineering at the AI Coding Summit. Dive into cutting-edge talks and hands-on workshops on AI-powered software development."
+ },
+ {
+  "title": "NYC B2B: Healthcare Founders & Investors Meetup",
+  "hub": "nyc",
+  "date": "2026-11-16",
+  "start": "17:00",
+  "venue": "",
+  "host": "NYC B2B: Startup Events",
+  "link": "https://luma.com/uptm8q9d",
+  "desc": "NYC B2B is the premier community for B2B Founders, Operators, and Investors in NYC. NYC B2B often hosts happy hour events for founders, builders, and investors…"
+ },
+ {
+  "title": "Batter Up NYC!",
+  "hub": "nyc",
+  "date": "2026-11-16",
+  "start": "18:00",
+  "venue": "",
+  "host": "Hustle Fund",
+  "link": "https://luma.com/h1fhgqyf",
+  "desc": "Let's hang! As a founder, going through the fundraising process can be incredibly frustrating. It takes an amazing amount of time and effort to convince an…"
+ },
+ {
+  "title": "Investing Beyond the Pitch: Identifying Enduring Consumer Trends",
+  "hub": "nyc",
+  "date": "2026-11-17",
+  "start": "18:00",
+  "venue": "",
+  "host": "Bereisheet Tech",
+  "link": "https://luma.com/2m2vwler",
+  "desc": "An Evening with Lori Wachs, Founder & Managing Partner, Penultima Capital Hosted in collaboration with BCLP Join Bereisheet Tech and BCLP for an intimate…"
+ },
+ {
+  "title": "NYC B2B: FinTech Founders & Investors Meetup",
+  "hub": "nyc",
+  "date": "2026-11-17",
+  "start": "18:00",
+  "venue": "",
+  "host": "NYC B2B: Startup Events",
+  "link": "https://luma.com/4dk36jal",
+  "desc": "NYC B2B is the premier community for B2B Founders, Operators, and Investors in NYC. NYC B2B often hosts happy hour events for founders, builders, and investors…"
+ },
+ {
+  "title": "Ahead of Anthropic's IPO: What's Next for AI Startups?",
+  "hub": "nyc",
+  "date": "2026-11-18",
+  "start": "17:30",
+  "venue": "31 W 52nd St",
+  "host": "EchoHer Events",
+  "link": "https://luma.com/omfr6c0z",
+  "desc": "As Anthropic moves toward a potential IPO, what does the next chapter look like for AI startups and investors? Join EchoHer, Lair East Labs, and Pillsbury Law…"
+ },
+ {
+  "title": "PEF - Juilliard Classical Music Salon + Dinner",
+  "hub": "nyc",
+  "date": "2026-11-18",
+  "start": "18:00",
+  "venue": "",
+  "host": "Eric J. Friedman",
+  "link": "https://luma.com/8j6n5aqj",
+  "desc": "PEF Eric Friedman - a member of The Juilliard Council - has arranged this special performance just for PEF. Experience the incredible vocal talent of…"
+ },
+ {
+  "title": "Pitch Roast Live",
+  "hub": "nyc",
+  "date": "2026-11-18",
+  "start": "18:30",
+  "venue": "Caveat",
+  "host": "Pitch Roast Live",
+  "link": "https://luma.com/pitchroastnov",
+  "desc": "Pitch Roast Live️‍ brings comedy, startups, and venture capital together. A Shark Tank and comedy roast crossover episode. Real comedians and real VC investors…"
+ },
+ {
+  "title": "NYC B2B: DevTools Founders & Investors Meetup",
+  "hub": "nyc",
+  "date": "2026-11-19",
+  "start": "17:00",
+  "venue": "",
+  "host": "NYC B2B: Startup Events",
+  "link": "https://luma.com/rp1vh0wx",
+  "desc": "NYC B2B is the premier community for B2B Founders, Operators, and Investors in NYC. NYC B2B often hosts happy hour events for founders, builders, and investors…"
+ },
+ {
+  "title": "NYC B2B: AI Founders & Investors Meetup",
+  "hub": "nyc",
+  "date": "2026-11-24",
+  "start": "18:00",
+  "venue": "The Ivory Peacock",
+  "host": "NYC B2B: Startup Events",
+  "link": "https://luma.com/ery2bo3s",
+  "desc": "NYC B2B is the premier community for B2B Founders, Operators, and Investors in NYC. NYC B2B often hosts happy hour events for founders, builders, and investors…"
+ },
+ {
+  "title": "AI Dev 2026 NYC",
+  "hub": "nyc",
+  "date": "2026-11-30",
+  "start": "09:00",
+  "venue": "Chelsea Piers",
+  "host": "DeepLearning.AI",
+  "type": "Conferences",
+  "link": "https://ai-dev.deeplearning.ai/",
+  "desc": "A technical, hands-on conference for people building with AI in New York City."
+ },
+ {
+  "title": "Entrepreneurs Roundtable 220",
+  "hub": "nyc",
+  "date": "2026-12-01",
+  "start": "18:00",
+  "venue": "",
+  "host": "Entrepreneurs Roundtable",
+  "link": "https://luma.com/c1i4jncl",
+  "desc": "Join us for another exciting evening of startup pitches, investor insights, and community networking at Entrepreneurs Roundtable—NYC’s premier and…"
+ },
+ {
+  "title": "AI For Work Summit | NYC",
+  "hub": "nyc",
+  "date": "2026-12-02",
+  "start": "09:00",
+  "venue": "Jay Conference Center, Bryant Park",
+  "host": "ODSC AI New York",
+  "type": "Conferences",
+  "link": "https://www.meetup.com/open-data-science-ny-odsc/events/316165866/",
+  "desc": "## AI has changed. It’s time for workflows to catch up. Join AI builders, business practitioners, product leaders, founders, and executives in Midtown Manhattan for **ODSC"
+ },
+ {
+  "title": "The Sanctum Gala | New York's First Curated Founder Gala",
+  "hub": "nyc",
+  "date": "2026-12-07",
+  "start": "18:30",
+  "venue": "",
+  "host": "Brderless",
+  "link": "https://luma.com/pbtpe9lm",
+  "desc": "Join us for the first ever founder gala night with a highly curated group of Series A/B founders that are scaling at the most beautiful venue in NYC. Who…"
+ },
+ {
+  "title": "NachoTuesday NYC Founder + VC Annual Holiday Happy Hour",
+  "hub": "nyc",
+  "date": "2026-12-08",
+  "start": "20:00",
+  "venue": "",
+  "host": "NachoNacho",
+  "link": "https://luma.com/nemdlbvq",
+  "desc": "NachoNacho - The B2B SaaS & AI + Services Marketplace, MongoDB, and B2B NYC will host this exclusive NYC SaaS & AI Founder + Investor Annual Holiday Happy…"
+ },
+ {
+  "title": "Techstars NYC Demo Day 2026",
+  "hub": "nyc",
+  "date": "2026-12-10",
+  "start": "17:00",
+  "venue": "Techstars NYC",
+  "host": "Techstars",
+  "type": "Demo Days",
+  "link": "https://www.techstars.com/events",
+  "desc": "Connect with founders through Techstars events, Startup Weekend, Startup Week, and programs for every stage."
+ },
+ {
+  "title": "Pitch Roast Live Dune",
+  "hub": "nyc",
+  "date": "2026-12-16",
+  "start": "18:30",
+  "venue": "Caveat",
+  "host": "Pitch Roast Live",
+  "link": "https://luma.com/pitchroastdec",
+  "desc": "Pitch Roast Live️‍ brings comedy, startups, and venture capital together. A Shark Tank and comedy roast crossover episode. Real comedians and real VC investors…"
+ },
+ {
+  "title": "Entrepreneurs Roundtable 221",
+  "hub": "nyc",
+  "date": "2027-01-12",
+  "start": "18:00",
+  "venue": "",
+  "host": "Entrepreneurs Roundtable",
+  "link": "https://luma.com/ndf1fqt5",
+  "desc": "Join us for another exciting evening of startup pitches, investor insights, and community networking at Entrepreneurs Roundtable—NYC’s premier and…"
+ },
+ {
+  "title": "NY(SKI): Founder & Friends Ski Retreat (Volume 3)",
+  "hub": "nyc",
+  "date": "2027-02-01",
+  "start": "06:30",
+  "venue": "",
+  "host": "NYC Founders Club",
+  "link": "https://luma.com/nyski3",
+  "desc": "Join us on February 1st, 2027, for an unforgettable Founder Ski Retreat in the Catskills. Hosted by the NYC Founders Club, this one-day adventure brings…"
  }
 ]

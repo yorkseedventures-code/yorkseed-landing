@@ -6,6 +6,19 @@
  "description": "Upcoming startup, tech, founder and investor events in 50+ cities and around major tech weeks and conferences.",
  "events": [
   {
+   "title": "Pitch and Run - Central Park",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-21T08:00:00-04:00",
+   "end": null,
+   "host": "Pitch and Run",
+   "type": null,
+   "conference_week": "NY App Week",
+   "description": "Meet at Le Pain, 1800 Broadway Intros 8am - 8:10 Run 4.5 miles in Central Park https://www.strava.com/routes/3314367143117942620",
+   "register_url": "https://luma.com/gy5bscas?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
    "title": "Reinventing Industry: Future of Health",
    "city": "Chicago",
    "country": "United States",
@@ -94,6 +107,19 @@
    "conference_week": null,
    "description": "An in-person day at Squarespace's New York headquarters for professional web designers and agencies. Squarespace Circle brings together leading creators and previews what's next for the platform. Registration is waitlisted.",
    "register_url": "https://luma.com/circle-day-2026-in-person?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
+   "title": "Wednesday Coworking - Founders, Builders, Creatives, Researchers, and Supporters",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-21T09:30:00-04:00",
+   "end": null,
+   "host": "Cohort NYC",
+   "type": null,
+   "conference_week": "NY App Week",
+   "description": "Cohort Wednesday Coworking is a weekly working session in NYC for everyone making something. Spend the day alongside passionate people in different fields and…",
+   "register_url": "https://luma.com/wed-1021?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/new-york/"
   },
   {
@@ -760,6 +786,32 @@
    "list_page": "https://list.yorkseed.co/bangkok/"
   },
   {
+   "title": "AI Tinkerers NYC: Agentic Loops Demo Day ft Conveo",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-21T18:00:00-04:00",
+   "end": null,
+   "host": "AI Tinkerers NYC",
+   "type": null,
+   "conference_week": "NY App Week",
+   "description": "Agents that keep working while you sleep",
+   "register_url": "https://nyc.aitinkerers.org/p/agentic-loops-demo-day-ft-conveo?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
+   "title": "AI AFTER: NYC Founders & Entrepreneurs Afterwork Rooftop Hangout",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-21T18:00:00-04:00",
+   "end": null,
+   "host": "AI CIRCLE for Entrepreneurs",
+   "type": null,
+   "conference_week": "NY App Week",
+   "description": "**4th EDITION!** An informal AFTERWORK meetup for **entrepreneurs, founders, and builders working with AI** — or simply excited about where it’s heading. **LOCATION: 230 F",
+   "register_url": "https://www.meetup.com/ai-circle-for-entrepreneurs/events/317002601/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
    "title": "Networking Night Rio",
    "city": "São Paulo & Rio",
    "country": "Brazil",
@@ -810,6 +862,19 @@
    "description": "A casual bar meetup where engineers from recent Y Combinator batches trade notes on stacks, infrastructure and architecture tradeoffs. Hosted by Infisical and Mintlify, with drinks on them. 21+; approval required.",
    "register_url": "https://luma.com/cc7vxzrr?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/san-francisco-bay-area/"
+  },
+  {
+   "title": "Hacktoberfest Hack Day",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-21T18:30:00-04:00",
+   "end": null,
+   "host": "Astoria Tech Meetup",
+   "type": null,
+   "conference_week": "NY App Week",
+   "description": "Please register at https://events.mlh.com/events/15192-astoria-tech-meetup-x-hacktoberfest-hack-day Join Astoria Tech Meetup for a 4-hour mini-hackathon celebrating Hackto",
+   "register_url": "https://www.meetup.com/astoria-tech-meetup/events/316765268/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/new-york/"
   },
   {
    "title": "You Can See Everything: Private Screening, presented by Concentrate AI × RRE Ventures",
@@ -914,6 +979,19 @@
    "description": "Details and registration on the event page.",
    "register_url": "https://luma.com/iw26_Lounge?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/philadelphia/"
+  },
+  {
+   "title": "Pitch and Run 730am Early Bird Battery Park",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-22T07:30:00-04:00",
+   "end": null,
+   "host": "Pitch and Run",
+   "type": null,
+   "conference_week": "NY App Week",
+   "description": "We meet at 730am - at Le Pain 395 S End Ave, New York, NY 10280, USA Intros 730am Paces from 9min/mile to party pace 11min/mile+ 4.5 miles up the piers and…",
+   "register_url": "https://luma.com/mw005iqm?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
   },
   {
    "title": "Paris Accel's AI Innovate Series Hackathon",
@@ -1527,6 +1605,58 @@
    "list_page": "https://list.yorkseed.co/berlin/"
   },
   {
+   "title": "ops what's cooking? - NYC ops engineering dinner",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-22T18:00:00-04:00",
+   "end": null,
+   "host": "running things",
+   "type": null,
+   "conference_week": "NY App Week",
+   "description": "Bring your build. We'll bring the dinner (and a pretty great room). Behind every great consumer brand is a slightly chaotic collection of spreadsheets,…",
+   "register_url": "https://luma.com/6caw4ypq?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
+   "title": "Build Your First App with Replit!",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-22T18:00:00-04:00",
+   "end": null,
+   "host": "Prompt Engineers Society",
+   "type": null,
+   "conference_week": "NY App Week",
+   "description": "Learn how to build your first app with Replit! Hosted by the Prompt Engineers Society in collaboration with Replit and CUNY, we’re bringing together a curated…",
+   "register_url": "https://luma.com/c1bw96zu?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
+   "title": "Double Diamond ⬩ October 2026",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-22T18:00:00-04:00",
+   "end": null,
+   "host": "Double Diamond",
+   "type": null,
+   "conference_week": "NY App Week",
+   "description": "Double Diamond, NYC's favorite live design podcast and event series, is BACK with another night of conversations about designing and building at the…",
+   "register_url": "https://luma.com/double-diamond-oct-2026?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
+   "title": "Honcho x Variant Happy Hour - NYC agent builders",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-22T18:00:00-04:00",
+   "end": null,
+   "host": "Plastic Labs",
+   "type": null,
+   "conference_week": "NY App Week",
+   "description": "Honcho Happy Hour is coming to Manhattan. Meet the people shipping agents in NYC. Trade what's actually working in production. Bring your agent's weirdest…",
+   "register_url": "https://luma.com/honcho-soho?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
    "title": "hack night v0.184 - South Beach",
    "city": "Miami",
    "country": "United States",
@@ -1670,6 +1800,19 @@
    "list_page": "https://list.yorkseed.co/seoul/"
   },
   {
+   "title": "NYC Ecommerce Founders - Networking Party and Social Mixer",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-22T19:00:00-04:00",
+   "end": null,
+   "host": "New York Ecom Network",
+   "type": null,
+   "conference_week": "NY App Week",
+   "description": "***Tickets must be purchased in advance:*** https://luma.com/ecomNY2610?utm_source=meetup ***(limited early bird & discounted tickets available)*** \\-\\-\\- ​​Surround yourse",
+   "register_url": "https://www.meetup.com/new-york-ecom-network/events/316787627/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
    "title": "\"Listen. We Need to Talk\" - An AI breakfast on voice agents with Heyra, ElevenLabs and Lovable",
    "city": "Copenhagen",
    "country": "Denmark",
@@ -1748,6 +1891,32 @@
    "list_page": "https://list.yorkseed.co/sydney/"
   },
   {
+   "title": "AcceleratorCON 2026: Championship Day",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-23T08:30:00-04:00",
+   "end": null,
+   "host": "AcceleratorCON",
+   "type": null,
+   "conference_week": null,
+   "description": "AcceleratorCON event in New York. Details and registration on the event page.",
+   "register_url": "https://acceleratorcon.com/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
+   "title": "Pitch and Run Friday - The Original PNR",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-23T09:00:00-04:00",
+   "end": null,
+   "host": "Pitch and Run",
+   "type": null,
+   "conference_week": null,
+   "description": "We meet at 8:55am Intros 9-9:10am Paces from 9min/mile to party pace 11min/mile+ Run 4.5 Miles down WSH and back…",
+   "register_url": "https://luma.com/vrqiepu2?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
    "title": "Tokyo Hackathon: Build AI with Character",
    "city": "Tokyo",
    "country": "Japan",
@@ -1824,6 +1993,19 @@
    "description": "Details and registration on the event page.",
    "register_url": "https://luma.com/im78drkx?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/lagos/"
+  },
+  {
+   "title": "NYC Coffee Club | Early-Stage B2B Founders & Funders",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-23T10:00:00-04:00",
+   "end": null,
+   "host": "Forum Events",
+   "type": null,
+   "conference_week": null,
+   "description": "Calling early-stage B2B founders and funders! 👋 I'm Olivia, Partner @ Forum Ventures, and there are few things I like more than coffee and community. ☕ I'm…",
+   "register_url": "https://luma.com/l8bvqyq7?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
   },
   {
    "title": "ARC Prize Research Summit 2026",
@@ -1930,6 +2112,32 @@
    "list_page": "https://list.yorkseed.co/tokyo/"
   },
   {
+   "title": "Forward Pass - Applied AI Builders at Time Out Market DUMBO",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-23T18:00:00-04:00",
+   "end": null,
+   "host": "NYC Applied AI Builders",
+   "type": null,
+   "conference_week": null,
+   "description": "**We're heading to the waterfront for this one.** Join us at Time Out Market in DUMBO — upstairs and on the rooftop — with panoramic views of the Manhattan skyline, Brookl",
+   "register_url": "https://www.meetup.com/meetup-group-oqhkwcrm/events/316830704/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
+   "title": "The AI Era & What It Means To Be Human: Dinner & Dialogue",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-23T18:00:00-04:00",
+   "end": null,
+   "host": "The AI Collective",
+   "type": null,
+   "conference_week": null,
+   "description": "The AI Era & What It Means to Be Human AI is changing how we work, learn, create, and make decisions. But underneath the conversation about models, agents, and…",
+   "register_url": "https://luma.com/19sc1btx?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
    "title": "Warning Shot: Making Sense of 2026 AI Incidents",
    "city": "Munich",
    "country": "Germany",
@@ -1967,6 +2175,19 @@
    "description": "A free screening of The Thinking Game, the documentary on Demis Hassabis and DeepMind's pursuit of AGI, at Good Company Books, followed by a group discussion. Organized by the Lisbon AI Safety Hub. Free with registration.",
    "register_url": "https://luma.com/xvf603kz?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/lisbon/"
+  },
+  {
+   "title": "AI Founders, Operators, & Investors: Mocktails and Legal AMA",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-23T19:00:00-04:00",
+   "end": null,
+   "host": null,
+   "type": null,
+   "conference_week": null,
+   "description": "Join us for an evening of conversation, connection, and startup legal education for founders, investors, and members of the startup ecosystem. 7:00–8:00 PM |…",
+   "register_url": "https://luma.com/4os0re4z?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
   },
   {
    "title": "Techify AI Summit 201: Beyond the Basics",
@@ -2099,6 +2320,32 @@
    "list_page": "https://list.yorkseed.co/dubai-uae/"
   },
   {
+   "title": "Founders Running Club x Inngest: Morning 5K, Coffee & Swag!",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-24T09:00:00-04:00",
+   "end": null,
+   "host": "Founders Running Club",
+   "type": null,
+   "conference_week": null,
+   "description": "Founders Running Club (FRC) brings founders, builders, investors, and operators together for weekly easy runs and networking. On Saturday, October 17th, we’re…",
+   "register_url": "https://luma.com/2hw2d67w?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
+   "title": "Founders Running Club :: New York",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-24T09:00:00-04:00",
+   "end": null,
+   "host": "Founders Running Club",
+   "type": null,
+   "conference_week": null,
+   "description": "**Founders Running Club (FRC)** brings founders, investors, tech, and creative people together for weekly easy runs and networking. We keep the pace comfortable and finish",
+   "register_url": "https://www.meetup.com/founders-running-club-new-york/events/316838504/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
    "title": "Startup Reading Club #02",
    "city": "Buenos Aires",
    "country": "Argentina",
@@ -2149,6 +2396,19 @@
    "description": "Time, venue and tickets are on the event page.",
    "register_url": "https://luma.com/mcw2026-t4c0?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/munich/"
+  },
+  {
+   "title": "AI Tinkerers NYC: Walk and Hack with Twilio",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-24T10:00:00-04:00",
+   "end": null,
+   "host": "AI Tinkerers NYC",
+   "type": null,
+   "conference_week": null,
+   "description": "Presented by AI Tinkerers NYC and Twilio",
+   "register_url": "https://nyc.aitinkerers.org/p/walk-and-hack-with-twilio-build-a-phone-agent-on-a-loop-of-central-park?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/new-york/"
   },
   {
    "title": "AI Design-a-thon Edition 5",
@@ -2307,6 +2567,32 @@
    "list_page": "https://list.yorkseed.co/seattle/"
   },
   {
+   "title": "No small talk hike for founders",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-25T10:00:00-04:00",
+   "end": null,
+   "host": "No small talk for founders",
+   "type": null,
+   "conference_week": null,
+   "description": "## The No Small Talk Hike **For founders and people who are interested in business & physiology / philosophy** Going for a hike causal conversations sharing life experien",
+   "register_url": "https://www.meetup.com/no-small-talk-for-founders/events/316868936/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
+   "title": "Creative Women Walk: Fort Tryon Park Foliage",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-25T11:00:00-04:00",
+   "end": null,
+   "host": "Creative Women Entrepreneurs in NYC",
+   "type": null,
+   "conference_week": null,
+   "description": "Join the **Creative Women Entrepreneurs** community for our next **Creative Women Walk** on **Sunday, October 25th at 11AM.** ​As we should be in peak foliage season, we’l",
+   "register_url": "https://www.meetup.com/creativesnyc/events/316962895/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
    "title": "AI & Restaurants",
    "city": "Washington D.C.",
    "country": "United States",
@@ -2331,6 +2617,19 @@
    "description": "Details and registration on the event page.",
    "register_url": "https://luma.com/8mw62kq8?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/dubai-uae/"
+  },
+  {
+   "title": "Founders Club NY: Fall Recharge at Othership Williamsburg",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-25T16:00:00-04:00",
+   "end": null,
+   "host": "Founders Club NY",
+   "type": null,
+   "conference_week": null,
+   "description": "Our October gathering will be a fall reset for founders - sauna, cold plunge, and real conversation. Join fellow FCNY members for an afternoon at Othership in…",
+   "register_url": "https://luma.com/not-onzz?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
   },
   {
    "title": "Future Reality AI Film Festival (NYC)",
@@ -2385,6 +2684,19 @@
    "list_page": "https://list.yorkseed.co/singapore/"
   },
   {
+   "title": "Pitch and Run Monday",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-26T09:00:00-04:00",
+   "end": null,
+   "host": "Pitch and Run",
+   "type": null,
+   "conference_week": null,
+   "description": "We meet at 8:55am Intros 9-9:10am Paces from 9min/mile to party pace 11min/mile+ Run 4.5 Miles down WSH and back…",
+   "register_url": "https://luma.com/0yc5aeut?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
    "title": "Engineering Your Capital Strategy: Fundraising by Design",
    "city": "Washington D.C.",
    "country": "United States",
@@ -2435,6 +2747,19 @@
    "description": "Details and registration on the event page.",
    "register_url": "https://luma.com/e5iu7so0?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/singapore/"
+  },
+  {
+   "title": "Monday Founders Coworking Pod",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-26T10:00:00-04:00",
+   "end": null,
+   "host": "Cohort NYC",
+   "type": null,
+   "conference_week": null,
+   "description": "If you're an early stage founder, building alone is hard. You lose momentum, get stuck with no one to ask, and there's no one checking if you actually did what…",
+   "register_url": "https://luma.com/mon-1026?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
   },
   {
    "title": "Reshoring Rare Earths: Fireside Chat with Phoenix Tailings (+Startup Showcase)",
@@ -2580,6 +2905,19 @@
    "list_page": "https://list.yorkseed.co/singapore/"
   },
   {
+   "title": "The Shortlist: October Founder Showcase",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-26T18:00:00-04:00",
+   "end": null,
+   "host": "The Shortlist NY",
+   "type": null,
+   "conference_week": null,
+   "description": "The Shortlist NYC – October Founder Showcase (#10) The Shortlist is back for our monthly Founder Showcase and the room keeps getting better. This is a monthly…",
+   "register_url": "https://luma.com/shortlistoctober?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
    "title": "The Tech Festival Canada 2026 | Meet, Build, Scale",
    "city": "Toronto",
    "country": "Canada",
@@ -2593,6 +2931,32 @@
    "list_page": "https://list.yorkseed.co/toronto/"
   },
   {
+   "title": "Pitch & Run - Prospect Park",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-27T07:30:00-04:00",
+   "end": null,
+   "host": "Pitch and Run",
+   "type": null,
+   "conference_week": null,
+   "description": "We meet at 7:25am - at Grand Army Plaza Intros 7:30-7:35am Paces from 9min/mile to party pace 11min/mile+ Route:…",
+   "register_url": "https://luma.com/8vxdejas?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
+   "title": "BioFuture 2026",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-27T08:30:00-04:00",
+   "end": null,
+   "host": "Demy-Colton",
+   "type": "Conferences",
+   "conference_week": null,
+   "description": "Experience BioFuture, a healthcare and technology conference in New York City. Explore biopharma, AI, big data in healthcare, & much more!",
+   "register_url": "https://biofuture.com/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
    "title": "Meet Korean Ventures @ SWITCH 2026: 1:1 Private Meetings",
    "city": "Singapore",
    "country": "Singapore",
@@ -2604,6 +2968,19 @@
    "description": "Details and registration on the event page.",
    "register_url": "https://luma.com/2jxgj3hy?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/singapore/"
+  },
+  {
+   "title": "Swell 2026 by Ripple",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-27T09:00:00-04:00",
+   "end": null,
+   "host": "Ripple",
+   "type": "Conferences",
+   "conference_week": null,
+   "description": "Ripple’s premier conference where industry pioneers, developers, and innovators to bridge traditional finance and the onchain economy. Register today.",
+   "register_url": "https://swell.ripple.com/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/new-york/"
   },
   {
    "title": "DC Founders & Funders Open House",
@@ -2684,6 +3061,19 @@
    "list_page": "https://list.yorkseed.co/montreal/"
   },
   {
+   "title": "State of AI 2026 - NYC launch event",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-27T17:30:00-04:00",
+   "end": null,
+   "host": "Air Street",
+   "type": null,
+   "conference_week": null,
+   "description": "Join us for fireside conversations on the State of AI as we launch the 2026 edition in NYC on 27 October 2026! Important: It is mandatory to bring valid…",
+   "register_url": "https://luma.com/soai-nyc?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
    "title": "DevDay Exchange Community: Kuala Lumpur",
    "city": "Kuala Lumpur",
    "country": "Malaysia",
@@ -2723,6 +3113,45 @@
    "list_page": "https://list.yorkseed.co/singapore/"
   },
   {
+   "title": "The Future of AI Infrastructure",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-27T18:00:00-04:00",
+   "end": null,
+   "host": "Crazy Startup Guy",
+   "type": null,
+   "conference_week": null,
+   "description": "Let’s talk about what’s coming in the world of AI infra. Anthony Erondu is a Principal Consultant focused on AI infrastructure, GPU compute and Physical AI.…",
+   "register_url": "https://luma.com/gzudtj1k?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
+   "title": "Founder Pitch Clinic with Anthony Rose & Dave Wolovsky",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-27T18:00:00-04:00",
+   "end": null,
+   "host": "SeedLegals",
+   "type": null,
+   "conference_week": null,
+   "description": "Join us in NYC for an in-person, hands-on pitch clinic designed to help founders become more confident on stage and sharpen the way they pitch to…",
+   "register_url": "https://luma.com/dehgirvb?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
+   "title": "Ship Yourself an Assistant: Build Your First Full-Stack App with Base44",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-27T18:00:00-04:00",
+   "end": null,
+   "host": "No-Code: NYC",
+   "type": null,
+   "conference_week": null,
+   "description": "# **🤖 Ship Yourself an Assistant: Build Your First Full-Stack App with Base44** ​You've built landing pages. You've made pretty pages that don't remember anything about t",
+   "register_url": "https://www.meetup.com/no-code-nyc/events/316947524/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
    "title": "Hack the System by Arcasiles",
    "city": "Madrid",
    "country": "Spain",
@@ -2736,6 +3165,71 @@
    "list_page": "https://list.yorkseed.co/madrid/"
   },
   {
+   "title": "Meet Your Cofounder & Volunteer for the NYC Kids",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-27T18:30:00-04:00",
+   "end": null,
+   "host": "Antler US",
+   "type": null,
+   "conference_week": null,
+   "description": "This is for people who will inevitably start something: Exceptional operators seriously considering the founder path Founders today seeking…",
+   "register_url": "https://luma.com/fb76l2ki?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
+   "title": "The Shortlist Network Dinner",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-27T18:30:00-04:00",
+   "end": null,
+   "host": "Andrew Yeung",
+   "type": null,
+   "conference_week": null,
+   "description": "The Shortlist Network Dinner Hosted by The Shortlist Team // Sponsored by Morpheus Join us for an intimate evening with 16 CEOs, founders, startup leaders, and…",
+   "register_url": "https://luma.com/networkdinner?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
+   "title": "YC / VC Pitch & Roast by NYC Founders Club and Brex",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-27T19:00:00-04:00",
+   "end": null,
+   "host": "NYC Founders Club",
+   "type": null,
+   "conference_week": null,
+   "description": "Think you have a good YC application? Think you know how to fundraise? Think again. Even better, come find out in front of a room full of other founders 👀 Two…",
+   "register_url": "https://luma.com/pitchandroast927?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
+   "title": "Founder Breakfast",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-28T09:00:00-04:00",
+   "end": null,
+   "host": "Brderless",
+   "type": null,
+   "conference_week": null,
+   "description": "Join us for a highly curated breakfast for VC-backed founders, ideally have raised a Seed & Series A round. We bring together a carefully selected group of…",
+   "register_url": "https://luma.com/rj5jt99c?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
+   "title": "Wednesday Coworking - Founders, Builders, Creatives, Researchers, and Supporters",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-28T09:30:00-04:00",
+   "end": null,
+   "host": "Cohort NYC",
+   "type": null,
+   "conference_week": null,
+   "description": "Cohort Wednesday Coworking is a weekly working session in NYC for everyone making something. Spend the day alongside passionate people in different fields and…",
+   "register_url": "https://luma.com/wed-1028?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
    "title": "HOT or NOT: Is your startup fundable or just interesting? Mental Health",
    "city": "Virtual",
    "country": "Online",
@@ -2747,6 +3241,19 @@
    "description": "Startups pitch mental health ideas to investors and healthcare decision-makers on Zoom, and the audience votes each one hot or not. Part of the Yorkseed Expert Series with Health Board Advisors, hosted by Sabrina Runbeck, Val Torres and Jessica Sophia Wong. Open to clinicians, researchers, benefits leaders and investors.",
    "register_url": "https://luma.com/jkkkhcbt?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/online/"
+  },
+  {
+   "title": "The Red Sea Ventures Consumer Brand Summit",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-28T13:30:00-04:00",
+   "end": null,
+   "host": "Red Sea Ventures",
+   "type": null,
+   "conference_week": null,
+   "description": "Founders. Operators. Industry Leaders. Investors. Twice a year we host the consumer industry's best room: one summit for Consumer Tech, one for Consumer…",
+   "register_url": "https://luma.com/mx9dqfpr?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
   },
   {
    "title": "NVIDIA AI Amplified",
@@ -2814,6 +3321,19 @@
    "list_page": "https://list.yorkseed.co/sao-paulo-rio/"
   },
   {
+   "title": "AI Founders Supper Club (Hosted by The AI Furnace)",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-28T18:00:00-04:00",
+   "end": null,
+   "host": "The AI Furnace",
+   "type": null,
+   "conference_week": null,
+   "description": "Hi fellow founders 👋 Angela and Hamza here from the AI Furnace. The AI Founders Supper Club is a private founders dinner club hosted by The AI Furnace (the…",
+   "register_url": "https://luma.com/wbn2oa4d?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
    "title": "House of Kube @ PlatformCon Sydney (Yacht Edition)",
    "city": "Sydney",
    "country": "Australia",
@@ -2864,6 +3384,32 @@
    "description": "Details and registration on the event page.",
    "register_url": "https://luma.com/cqk6i6vd?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/buenos-aires/"
+  },
+  {
+   "title": "Consumer Perks (October 29th, 2026)",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-29T09:00:00-04:00",
+   "end": null,
+   "host": "New Edition Events",
+   "type": null,
+   "conference_week": null,
+   "description": "On the last Thursday of every month, we invite consumer brand founders, operators, marketers, and investors to our office for coffee and conversation. The kind…",
+   "register_url": "https://luma.com/ap8p6g3c?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
+   "title": "LLMday NYC 2026 Q4",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-29T09:00:00-04:00",
+   "end": null,
+   "host": "Leap Trace Consulting",
+   "type": "Conferences",
+   "conference_week": null,
+   "description": "Tickets are officially live for **LLM Day**! 🚀 If you’re building with large language models, scaling AI infrastructure, or trying to cut through the hype to see what’s a",
+   "register_url": "https://www.meetup.com/leap-trace-consulting-llc/events/316951720/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/new-york/"
   },
   {
    "title": "Chicago Investor Ready Workshop",
@@ -3009,6 +3555,58 @@
    "list_page": "https://list.yorkseed.co/seoul/"
   },
   {
+   "title": "Consumer Founder Dinner (with VHS Ventures)",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-29T18:30:00-04:00",
+   "end": null,
+   "host": "Brderless",
+   "type": null,
+   "conference_week": null,
+   "description": "Join us for an intimate evening with a highly curated group of consumer founders that are actively building and scaling. Who's in the room Founders building in…",
+   "register_url": "https://luma.com/5oc4rw14?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
+   "title": "Making Better Bets: A Field Guide to Product Strategy with Andrew Skotzko",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-29T19:00:00-04:00",
+   "end": null,
+   "host": "ProductTank NYC",
+   "type": null,
+   "conference_week": null,
+   "description": "“Be more strategic” is advice every product leader has heard. But knowing what to actually DO? That's the hard part. Join us for an early look at *[The Strategy Cycle](htt",
+   "register_url": "https://www.meetup.com/producttanknyc/events/316693978/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
+   "title": "Marathon Shakeout with SPIbelt",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-30T08:30:00-04:00",
+   "end": null,
+   "host": "Pitch and Run",
+   "type": null,
+   "conference_week": null,
+   "description": "Pitch and Run event in New York. Details and registration on the event page.",
+   "register_url": "https://luma.com/pnr-spibelt-marathon?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
+   "title": "Google DevFest 2026 - GDG Brooklyn",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-30T09:00:00-04:00",
+   "end": null,
+   "host": "Google Developer Groups",
+   "type": "Conferences",
+   "conference_week": null,
+   "description": "🚨 **Google Registration Required!** 🚨 Important: RSVPing on this Meetup page does not guarantee your entry. You MUST complete your official registration via the Google De",
+   "register_url": "https://www.meetup.com/google-developer-groups-brooklyn/events/316929122/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
    "title": "Founders Breakfast Vol. II with Seye Bandele",
    "city": "Lagos",
    "country": "Nigeria",
@@ -3022,6 +3620,19 @@
    "list_page": "https://list.yorkseed.co/lagos/"
   },
   {
+   "title": "Full Day Pitch Clinic with David Goldberg and Anthony Rose",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-30T13:00:00-04:00",
+   "end": null,
+   "host": "SeedLegals",
+   "type": null,
+   "conference_week": null,
+   "description": "A free, two-hour workshop for founders who want to build a stronger investor pitch and deliver it with confidence. You know your business. You know the…",
+   "register_url": "https://luma.com/xkp2ppvs?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
    "title": "Nairobi Business Leaders Sundowner Vol 2",
    "city": "Nairobi",
    "country": "Kenya",
@@ -3033,6 +3644,19 @@
    "description": "Details and registration on the event page.",
    "register_url": "https://luma.com/cp6ud520?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/nairobi/"
+  },
+  {
+   "title": "Tech Happy Hour by Startup Grind",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-30T17:00:00-04:00",
+   "end": null,
+   "host": "Startup Grind NYC",
+   "type": null,
+   "conference_week": null,
+   "description": "This is the monthly Startup Grind tech mixer. It's a low-key way to connect with the NYC tech and startup community to discover shared interests, explore areas…",
+   "register_url": "https://luma.com/qtkg25bv?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
   },
   {
    "title": "Builders Circle Nairobi",
@@ -3074,6 +3698,19 @@
    "list_page": "https://list.yorkseed.co/lagos/"
   },
   {
+   "title": "Flushing Tech Bi-Weekly Hackathon",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-10-31T16:00:00-04:00",
+   "end": null,
+   "host": "Flushing Tech",
+   "type": null,
+   "conference_week": null,
+   "description": "**🚀 Calling all tech enthusiasts 🚀** Come and join us every 2 weeks from 4 PM - 6 PM at Queens College, Flushing! Bring your laptops, your brightest ideas, and/or on-goi",
+   "register_url": "https://www.meetup.com/flushingtech/events/316939099/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
    "title": "AI × Vibe Coding × Trading Workshop",
    "city": "Taipei",
    "country": "Taiwan",
@@ -3085,6 +3722,19 @@
    "description": "A hands-on afternoon workshop on building trading tools with AI and vibe coding, hosted by Gaea Ventures and Logan Chen. For builders and founders curious about AI-assisted development; taught in Mandarin.",
    "register_url": "https://luma.com/8e2vn5zl?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/taipei/"
+  },
+  {
+   "title": "AI DevCon NYC 2026",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-11-02T09:00:00-05:00",
+   "end": null,
+   "host": "Tessl",
+   "type": "Conferences",
+   "conference_week": null,
+   "description": "The best place to master agentic coding. For the developers and teams building software factories they can trust.",
+   "register_url": "https://tessl.io/devcon?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/new-york/"
   },
   {
    "title": "DIGITAS 2026 | Digitalization & Smart Solutions",
@@ -3165,6 +3815,45 @@
    "list_page": "https://list.yorkseed.co/hong-kong/"
   },
   {
+   "title": "Outliers Welcome Party",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-11-03T18:30:00-05:00",
+   "end": null,
+   "host": "Andrew Yeung",
+   "type": null,
+   "conference_week": null,
+   "description": "Welcome to the Outliers Welcome Party, presented by the Outliers Summit. This is the event for founders, investors, and tech professionals building what’s…",
+   "register_url": "https://luma.com/outlierswelcome?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
+   "title": "Prototyping in Public: Where Art and Science Get Tested on the Gallery Floor",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-11-03T19:00:00-05:00",
+   "end": null,
+   "host": "Startup Grind NYC",
+   "type": null,
+   "conference_week": null,
+   "description": "What if a museum ran like a lab, with the experiment still in progress? Ann Neumann is Director of Galleries and Exhibitions at the MIT Museum. Her question…",
+   "register_url": "https://luma.com/startup-ga1b?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
+   "title": "Outliers Summit VIP Day",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-11-04T11:30:00-05:00",
+   "end": null,
+   "host": "Andrew Yeung",
+   "type": null,
+   "conference_week": null,
+   "description": "Placeholder for VIP+ ticket holders for the Outliers Summit. 📅 Wednesday, November 4 ⏱️ 11:30 to 6:00pm 📍 NYC Private Club Only VIP and Platinum ticket…",
+   "register_url": "https://luma.com/outliersVIP?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
    "title": "Venture Vitality Health Tech Investor Virtual Roundtable: Women's Health",
    "city": "Virtual",
    "country": "Online",
@@ -3243,6 +3932,32 @@
    "list_page": "https://list.yorkseed.co/lisbon/"
   },
   {
+   "title": "The Growth Council: Off-the-Record Problem Solving for Scaling Founders",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-11-04T18:00:00-05:00",
+   "end": null,
+   "host": null,
+   "type": null,
+   "conference_week": null,
+   "description": "Are you a founder or entrepreneur? If so, you know that scaling your business past Seed and Series A can expose many gaps in your business all at once -…",
+   "register_url": "https://luma.com/benji-dixz?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
+   "title": "Outliers Summit Platinum VIP Dinner",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-11-04T18:30:00-05:00",
+   "end": null,
+   "host": "Andrew Yeung",
+   "type": null,
+   "conference_week": null,
+   "description": "Placeholder for VIP+ ticket holders for the Outliers Summit. Our private dinner for Platinum ticket holders, with the Outliers Summit speakers and the founders…",
+   "register_url": "https://luma.com/OutliersPlatinumDinner?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
    "title": "Dinner with Entrepreneurs Monthly: Lisbon",
    "city": "Lisbon",
    "country": "Portugal",
@@ -3295,6 +4010,19 @@
    "list_page": "https://list.yorkseed.co/lisbon/"
   },
   {
+   "title": "The Outliers Summit 2026",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-11-05T09:00:00-05:00",
+   "end": null,
+   "host": "Ankur Nagpal & Andrew Yeung",
+   "type": "Conferences",
+   "conference_week": null,
+   "description": "Nov 5–6 in NYC",
+   "register_url": "https://outlierssummit.com/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
    "title": "UNDERSTAND: Beyond the Tools: What Generative AI Is Changing in Higher Education",
    "city": "Lisbon",
    "country": "Portugal",
@@ -3308,6 +4036,32 @@
    "list_page": "https://list.yorkseed.co/lisbon/"
   },
   {
+   "title": "LibreChat Meetup New York",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-11-05T17:00:00-05:00",
+   "end": null,
+   "host": "ClickHouse New York User Group",
+   "type": null,
+   "conference_week": null,
+   "description": "[Register Here](https://luma.com/clickh-3qx0) **Event: LibreChat's First NYC Meetup** ​Join us for LibreChat's very first meetup in New York City! We're taking over a roof",
+   "register_url": "https://www.meetup.com/clickhouse-new-york-user-group/events/316900125/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
+   "title": "Off The Record Dinner: Pt.II",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-11-05T18:30:00-05:00",
+   "end": null,
+   "host": "1800DTC",
+   "type": null,
+   "conference_week": null,
+   "description": "OFF THE RECORD — PT. II We’re doing it again. 1800DTC and New Edition are bringing the ecommerce crowd together for another night of good food, drinks, and…",
+   "register_url": "https://luma.com/md59a1v5?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
    "title": "Spark: A Night at the Academy of Sciences of Lisbon",
    "city": "Lisbon",
    "country": "Portugal",
@@ -3319,6 +4073,19 @@
    "description": "An evening at the Academy of Sciences of Lisbon for the scientific and academic community, part of the IUMS 2026 congress. €60, or €45 for students.",
    "register_url": "https://iums2026.com/networking-events/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/lisbon/"
+  },
+  {
+   "title": "Eclectic Convergence 2026",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-11-06T09:00:00-05:00",
+   "end": null,
+   "host": "Entrepreneurship at Cornell",
+   "type": "Conferences",
+   "conference_week": null,
+   "description": "Entrepreneurship at Cornell hosts an event in New York City featuring speakers who are inspiring, entrepreneurial role models. Don’t miss your chance to listen to amazing speakers, network with fellow […]",
+   "register_url": "https://eship.cornell.edu/event/eclectic-convergence-26/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/new-york/"
   },
   {
    "title": "Dev Days: Students Madrid",
@@ -3399,6 +4166,19 @@
    "list_page": "https://list.yorkseed.co/lisbon/"
   },
   {
+   "title": "AI Tinkerers NYC: Fashion and Finance Agent Hackathon with ZooWork",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-11-07T10:00:00-05:00",
+   "end": null,
+   "host": "AI Tinkerers NYC",
+   "type": null,
+   "conference_week": null,
+   "description": "Fashion and Finance Hackathon with ZooWork",
+   "register_url": "https://nyc.aitinkerers.org/p/fashion-and-finance-hackathon-with-zoowork?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
    "title": "Startup Websummit Kick-off - 2nd edition",
    "city": "Lisbon",
    "country": "Portugal",
@@ -3462,6 +4242,19 @@
    "description": "Tech Run / iOn live + 351 Startup Association + Unicorn Factory Lisboa · official Portugal Tech Week innovation-ecosystem run · 30-minute heats on a 400m closed circuit · event opens 2pm; race heats 4:00/4:45/5:30pm; after-run party at Casa Capitão through 10pm · early-bird tickets on sale",
    "register_url": "https://techrun.live/lisbon-2026/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/lisbon/"
+  },
+  {
+   "title": "NYC Code and Coffee 89 at Datadog HQ",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-11-08T14:00:00-05:00",
+   "end": null,
+   "host": "New York Code & Coffee",
+   "type": null,
+   "conference_week": null,
+   "description": "[Code and Coffee](https://www.linkedin.com/company/ny-code-coffee/) is an inclusive, informal co-working session. People of all skill levels attend, and we love it that way",
+   "register_url": "https://www.meetup.com/new-york-code-coffee/events/317039137/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/new-york/"
   },
   {
    "title": "Web Summit Week Opening Built Different: The Gathering",
@@ -3995,6 +4788,19 @@
    "description": "weperimeno · intimate Web Summit gathering on perimenopause + women’s health · femtech, research, investment + partnerships · expert panel + structured networking · €12 ticket includes one welcome drink, but it is ticket-included rather than explicitly complimentary · Free Food/Drinks FALSE",
    "register_url": "https://luma.com/bq9hu4n3?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/lisbon/"
+  },
+  {
+   "title": "Roundtable Dinner: Personal AI Agents - How CEOs Use Them & Bring Their Teams Along",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-11-09T18:30:00-05:00",
+   "end": null,
+   "host": "Founders Club NY",
+   "type": null,
+   "conference_week": null,
+   "description": "Our November 2026 roundtable dinner will be on personal AI agents: how founders are actually using them day-to-day, and how they’re bringing their teams…",
+   "register_url": "https://luma.com/founders-mz1i?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
   },
   {
    "title": "OPUS Founders' Table - Web Summit Edition",
@@ -4569,6 +5375,32 @@
    "list_page": "https://list.yorkseed.co/lisbon/"
   },
   {
+   "title": "AI Founder-Funder Mixer (Hosted by The AI Furnace)",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-11-10T17:30:00-05:00",
+   "end": null,
+   "host": "The AI Furnace",
+   "type": null,
+   "conference_week": null,
+   "description": "ABOUT OUR HOSTS & SPONSORS The AI Furnace is NYC's largest and most active AI community. It was started by AI founders, Angela Mascarenas and Hamza Zaveri, who…",
+   "register_url": "https://luma.com/2jhhixkq?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
+   "title": "Kickoff Middle Aged Female Startup Founders Meetup",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-11-10T17:30:00-05:00",
+   "end": null,
+   "host": "Middle Aged Female Startup Founders of New York",
+   "type": null,
+   "conference_week": null,
+   "description": "No laptops. No pitch decks. Just yourself and a willingness to support other middle aged female startup founders. We're a rarefied group! Email eventnationusa200 [at] gmail",
+   "register_url": "https://www.meetup.com/middle-aged-female-startup-founders-of-new-york-beyond/events/316666190/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
    "title": "Night Summit | Pavilion 5 + Cais do Sodré",
    "city": "Lisbon",
    "country": "Portugal",
@@ -4658,6 +5490,19 @@
    "description": "Details and registration on the event page.",
    "register_url": "https://luma.com/17sdoj9j?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/jakarta/"
+  },
+  {
+   "title": "Entrepreneurs Roundtable 219",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-11-10T18:00:00-05:00",
+   "end": null,
+   "host": "Entrepreneurs Roundtable",
+   "type": null,
+   "conference_week": null,
+   "description": "Join us for another exciting evening of startup pitches, investor insights, and community networking at Entrepreneurs Roundtable—NYC’s premier and…",
+   "register_url": "https://luma.com/emlbghul?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
   },
   {
    "title": "FemTech Portugal: One Year Anniversary",
@@ -5362,6 +6207,19 @@
    "list_page": "https://list.yorkseed.co/lisbon/"
   },
   {
+   "title": "Founder Dinner",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-11-11T18:30:00-05:00",
+   "end": null,
+   "host": "Brderless",
+   "type": null,
+   "conference_week": null,
+   "description": "Join us for an intimate evening with a highly curated group of Series A/B founders that are scaling at the most beautiful venue in NYC. Who Should…",
+   "register_url": "https://luma.com/twuwqh4i?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
    "title": "Foundacious Lisbon",
    "city": "Lisbon",
    "country": "Portugal",
@@ -5557,6 +6415,19 @@
    "list_page": "https://list.yorkseed.co/lisbon/"
   },
   {
+   "title": "NYC B2B: SMB Founders & Investors Meetup",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-11-12T17:00:00-05:00",
+   "end": null,
+   "host": "NYC B2B: Startup Events",
+   "type": null,
+   "conference_week": null,
+   "description": "NYC B2B is the premier community for B2B Founders, Operators, and Investors in NYC. NYC B2B often hosts happy hour events for founders, builders, and investors…",
+   "register_url": "https://luma.com/m7jrwea7?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
    "title": "Building Better Trading Strategies with AI",
    "city": "Lisbon",
    "country": "Portugal",
@@ -5620,6 +6491,32 @@
    "description": "Details and registration on the event page.",
    "register_url": "https://luma.com/tx2ao2t6?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/madrid/"
+  },
+  {
+   "title": "Founders Live New York City",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-11-12T18:00:00-05:00",
+   "end": null,
+   "host": "Founders Live",
+   "type": null,
+   "conference_week": null,
+   "description": "Founders Live New York City is Back for November! Founders Live is NYC’s premier networking event for early-stage startups and part of the global Founders Live…",
+   "register_url": "https://luma.com/founderslive-new-york-city-2026-11?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
+   "title": "The Art of Thinking Differently",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-11-12T18:00:00-05:00",
+   "end": null,
+   "host": "Bereisheet Tech",
+   "type": null,
+   "conference_week": null,
+   "description": "An intimate evening for a select group of leaders at Mercer Labs, NYC. Some of the most interesting ideas begin when we step outside the places we usually look…",
+   "register_url": "https://luma.com/sitatldf?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
   },
   {
    "title": "staaake Side Event. Hangover Rooftop AI/Tech Event: Reverse Network Meet",
@@ -5726,6 +6623,19 @@
    "list_page": "https://list.yorkseed.co/lisbon/"
   },
   {
+   "title": "Founders Basketball New York City (November 2026)",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-11-12T20:00:00-05:00",
+   "end": null,
+   "host": "Founders Basketball",
+   "type": null,
+   "conference_week": null,
+   "description": "ABOUT FOUNDERS BASKETBALL Founders Basketball is a growing community of startup founders and investors who love to connect over business and buckets. WHO…",
+   "register_url": "https://luma.com/jaan1hqn?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
    "title": "Unblock AI Conference 2026",
    "city": "Lisbon",
    "country": "Portugal",
@@ -5776,6 +6686,19 @@
    "description": "Venture Capital World Summit · one-day founder + investor conference · talks, investor meetings + international growth networking · paid ticket",
    "register_url": "https://vcworldsummit.com/tickets/lisbon-2026/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/lisbon/"
+  },
+  {
+   "title": "The AI Briefing by Startup Grind: Who Owns the Data Layer Behind Enterprise AI",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-11-13T10:00:00-05:00",
+   "end": null,
+   "host": "Startup Grind NYC",
+   "type": null,
+   "conference_week": null,
+   "description": "The AI Briefing is a recurring AI deep-dive for decision-makers. Each month, we select one high-signal industry report, circulate it in advance, and meet to…",
+   "register_url": "https://luma.com/edf6h976?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
   },
   {
    "title": "Beach Field Trip post Tech/AI Conference.: Reverse Network Meet",
@@ -5895,6 +6818,19 @@
    "list_page": "https://list.yorkseed.co/taipei/"
   },
   {
+   "title": "NYC Physical AI Workshop and Meetup",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-11-14T13:30:00-05:00",
+   "end": null,
+   "host": "AI Professionals NYC Machine Learning",
+   "type": null,
+   "conference_week": null,
+   "description": "Join us at NYU on Nov 14 for the NYC Physical AI Workshop and Meetup, co-presented by Nebius and Voxel51. Seats are limited, **[Pre-registration is mandatory.](https://vox",
+   "register_url": "https://www.meetup.com/ai-professionals-nyc-machine-learning/events/316518962/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
    "title": "staaake Side Event: Saturday Tech/AI Dinner staaake Dinner Club",
    "city": "Lisbon",
    "country": "Portugal",
@@ -5906,6 +6842,45 @@
    "description": "staaake · curated Lisbon Tech Conference / post-Web Summit tech + AI dinner · founders + people in tech · intimate hand-picked dinner-club format · food explicitly NOT included · free creator ticket applications available; other ticket tiers offered",
    "register_url": "https://luma.com/n117wylo?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/lisbon/"
+  },
+  {
+   "title": "AI Coding Summit NYC 2026",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-11-16T09:00:00-05:00",
+   "end": null,
+   "host": "GitNation",
+   "type": "Conferences",
+   "conference_week": null,
+   "description": "Discover how AI is revolutionizing software engineering at the AI Coding Summit. Dive into cutting-edge talks and hands-on workshops on AI-powered software development.",
+   "register_url": "https://aicodingsummit.com/nyc/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
+   "title": "NYC B2B: Healthcare Founders & Investors Meetup",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-11-16T17:00:00-05:00",
+   "end": null,
+   "host": "NYC B2B: Startup Events",
+   "type": null,
+   "conference_week": null,
+   "description": "NYC B2B is the premier community for B2B Founders, Operators, and Investors in NYC. NYC B2B often hosts happy hour events for founders, builders, and investors…",
+   "register_url": "https://luma.com/uptm8q9d?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
+   "title": "Batter Up NYC!",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-11-16T18:00:00-05:00",
+   "end": null,
+   "host": "Hustle Fund",
+   "type": null,
+   "conference_week": null,
+   "description": "Let's hang! As a founder, going through the fundraising process can be incredibly frustrating. It takes an amazing amount of time and effort to convince an…",
+   "register_url": "https://luma.com/h1fhgqyf?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
   },
   {
    "title": "Slush Day 0 Run: FRC x Tangently",
@@ -5971,6 +6946,32 @@
    "description": "Details and registration on the event page.",
    "register_url": "https://luma.com/baeslush2026?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/helsinki/"
+  },
+  {
+   "title": "Investing Beyond the Pitch: Identifying Enduring Consumer Trends",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-11-17T18:00:00-05:00",
+   "end": null,
+   "host": "Bereisheet Tech",
+   "type": null,
+   "conference_week": null,
+   "description": "An Evening with Lori Wachs, Founder & Managing Partner, Penultima Capital Hosted in collaboration with BCLP Join Bereisheet Tech and BCLP for an intimate…",
+   "register_url": "https://luma.com/2m2vwler?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
+   "title": "NYC B2B: FinTech Founders & Investors Meetup",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-11-17T18:00:00-05:00",
+   "end": null,
+   "host": "NYC B2B: Startup Events",
+   "type": null,
+   "conference_week": null,
+   "description": "NYC B2B is the premier community for B2B Founders, Operators, and Investors in NYC. NYC B2B often hosts happy hour events for founders, builders, and investors…",
+   "register_url": "https://luma.com/4dk36jal?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
   },
   {
    "title": "Slush Investors Boat Party (OVNI Capital x Corgi)",
@@ -6064,6 +7065,110 @@
    "list_page": "https://list.yorkseed.co/helsinki/"
   },
   {
+   "title": "Ahead of Anthropic's IPO: What's Next for AI Startups?",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-11-18T17:30:00-05:00",
+   "end": null,
+   "host": "EchoHer Events",
+   "type": null,
+   "conference_week": null,
+   "description": "As Anthropic moves toward a potential IPO, what does the next chapter look like for AI startups and investors? Join EchoHer, Lair East Labs, and Pillsbury Law…",
+   "register_url": "https://luma.com/omfr6c0z?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
+   "title": "PEF - Juilliard Classical Music Salon + Dinner",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-11-18T18:00:00-05:00",
+   "end": null,
+   "host": "Eric J. Friedman",
+   "type": null,
+   "conference_week": null,
+   "description": "PEF Eric Friedman - a member of The Juilliard Council - has arranged this special performance just for PEF. Experience the incredible vocal talent of…",
+   "register_url": "https://luma.com/8j6n5aqj?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
+   "title": "Pitch Roast Live",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-11-18T18:30:00-05:00",
+   "end": null,
+   "host": "Pitch Roast Live",
+   "type": null,
+   "conference_week": null,
+   "description": "Pitch Roast Live️‍ brings comedy, startups, and venture capital together. A Shark Tank and comedy roast crossover episode. Real comedians and real VC investors…",
+   "register_url": "https://luma.com/pitchroastnov?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
+   "title": "NYC B2B: DevTools Founders & Investors Meetup",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-11-19T17:00:00-05:00",
+   "end": null,
+   "host": "NYC B2B: Startup Events",
+   "type": null,
+   "conference_week": null,
+   "description": "NYC B2B is the premier community for B2B Founders, Operators, and Investors in NYC. NYC B2B often hosts happy hour events for founders, builders, and investors…",
+   "register_url": "https://luma.com/rp1vh0wx?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
+   "title": "NYC B2B: AI Founders & Investors Meetup",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-11-24T18:00:00-05:00",
+   "end": null,
+   "host": "NYC B2B: Startup Events",
+   "type": null,
+   "conference_week": null,
+   "description": "NYC B2B is the premier community for B2B Founders, Operators, and Investors in NYC. NYC B2B often hosts happy hour events for founders, builders, and investors…",
+   "register_url": "https://luma.com/ery2bo3s?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
+   "title": "AI Dev 2026 NYC",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-11-30T09:00:00-05:00",
+   "end": null,
+   "host": "DeepLearning.AI",
+   "type": "Conferences",
+   "conference_week": null,
+   "description": "A technical, hands-on conference for people building with AI in New York City.",
+   "register_url": "https://ai-dev.deeplearning.ai/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
+   "title": "Entrepreneurs Roundtable 220",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-12-01T18:00:00-05:00",
+   "end": null,
+   "host": "Entrepreneurs Roundtable",
+   "type": null,
+   "conference_week": null,
+   "description": "Join us for another exciting evening of startup pitches, investor insights, and community networking at Entrepreneurs Roundtable—NYC’s premier and…",
+   "register_url": "https://luma.com/c1i4jncl?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
+   "title": "AI For Work Summit | NYC",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-12-02T09:00:00-05:00",
+   "end": null,
+   "host": "ODSC AI New York",
+   "type": "Conferences",
+   "conference_week": null,
+   "description": "## AI has changed. It’s time for workflows to catch up. Join AI builders, business practitioners, product leaders, founders, and executives in Midtown Manhattan for **ODSC",
+   "register_url": "https://www.meetup.com/open-data-science-ny-odsc/events/316165866/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
    "title": "Techstars Boulder 2026 Demo Day",
    "city": "Denver & Boulder",
    "country": "United States",
@@ -6075,6 +7180,71 @@
    "description": "Details and registration on the event page.",
    "register_url": "https://luma.com/t48q19mv?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/denver-boulder/"
+  },
+  {
+   "title": "The Sanctum Gala | New York's First Curated Founder Gala",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-12-07T18:30:00-05:00",
+   "end": null,
+   "host": "Brderless",
+   "type": null,
+   "conference_week": null,
+   "description": "Join us for the first ever founder gala night with a highly curated group of Series A/B founders that are scaling at the most beautiful venue in NYC. Who…",
+   "register_url": "https://luma.com/pbtpe9lm?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
+   "title": "NachoTuesday NYC Founder + VC Annual Holiday Happy Hour",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-12-08T20:00:00-05:00",
+   "end": null,
+   "host": "NachoNacho",
+   "type": null,
+   "conference_week": null,
+   "description": "NachoNacho - The B2B SaaS & AI + Services Marketplace, MongoDB, and B2B NYC will host this exclusive NYC SaaS & AI Founder + Investor Annual Holiday Happy…",
+   "register_url": "https://luma.com/nemdlbvq?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
+   "title": "Techstars NYC Demo Day 2026",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-12-10T17:00:00-05:00",
+   "end": null,
+   "host": "Techstars",
+   "type": "Demo Days",
+   "conference_week": null,
+   "description": "Connect with founders through Techstars events, Startup Weekend, Startup Week, and programs for every stage.",
+   "register_url": "https://www.techstars.com/events?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
+   "title": "Pitch Roast Live Dune",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-12-16T18:30:00-05:00",
+   "end": null,
+   "host": "Pitch Roast Live",
+   "type": null,
+   "conference_week": null,
+   "description": "Pitch Roast Live️‍ brings comedy, startups, and venture capital together. A Shark Tank and comedy roast crossover episode. Real comedians and real VC investors…",
+   "register_url": "https://luma.com/pitchroastdec?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
+   "title": "Entrepreneurs Roundtable 221",
+   "city": "New York",
+   "country": "United States",
+   "start": "2027-01-12T18:00:00-05:00",
+   "end": null,
+   "host": "Entrepreneurs Roundtable",
+   "type": null,
+   "conference_week": null,
+   "description": "Join us for another exciting evening of startup pitches, investor insights, and community networking at Entrepreneurs Roundtable—NYC’s premier and…",
+   "register_url": "https://luma.com/ndf1fqt5?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
   },
   {
    "title": "Asian Financial Forum 2027 (AFF)",
@@ -6101,6 +7271,19 @@
    "description": "Asia's flagship finance and investment forum, in its 20th edition, organized by the HKTDC. Yorkseed returns with a Yorkseed Delegation of founders, investors and allocators.",
    "register_url": "https://www.asianfinancialforum.com/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/hong-kong/"
+  },
+  {
+   "title": "NY(SKI): Founder & Friends Ski Retreat (Volume 3)",
+   "city": "New York",
+   "country": "United States",
+   "start": "2027-02-01T06:30:00-05:00",
+   "end": null,
+   "host": "NYC Founders Club",
+   "type": null,
+   "conference_week": null,
+   "description": "Join us on February 1st, 2027, for an unforgettable Founder Ski Retreat in the Catskills. Hosted by the NYC Founders Club, this one-day adventure brings…",
+   "register_url": "https://luma.com/nyski3?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
   }
  ]
 }

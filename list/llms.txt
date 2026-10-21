@@ -1,11 +1,11 @@
 # The Yorkseed List
 
-> The Yorkseed List (https://list.yorkseed.co/) is a free global calendar of startup, tech, founder and investor events in 50+ cities and around the major tech weeks and conferences, run by Yorkseed. 469 upcoming events as of 2026-10-21. Updated continuously. Anyone can list an event for free.
+> The Yorkseed List (https://list.yorkseed.co/) is a free global calendar of startup, tech, founder and investor events in 50+ cities and around the major tech weeks and conferences, run by Yorkseed. 560 upcoming events as of 2026-10-21. Updated continuously. Anyone can list an event for free.
 
 ## Startup and tech events by city
 
 - [Startup events in Lisbon](https://list.yorkseed.co/lisbon/): 204 upcoming
-- [Startup events in New York](https://list.yorkseed.co/new-york/): 21 upcoming
+- [Startup events in New York](https://list.yorkseed.co/new-york/): 112 upcoming
 - [Startup events in Singapore](https://list.yorkseed.co/singapore/): 17 upcoming
 - [Startup events in Bay Area](https://list.yorkseed.co/san-francisco-bay-area/): 16 upcoming
 - [Startup events in Helsinki](https://list.yorkseed.co/helsinki/): 12 upcoming
@@ -56,7 +56,7 @@
 
 ## Conference and tech week side events
 
-- [NY App Week 2026 side events](https://list.yorkseed.co/ny-app-week-2026-side-events/): New York, 2026-10-19 to 2026-10-22, 6 events
+- [NY App Week 2026 side events](https://list.yorkseed.co/ny-app-week-2026-side-events/): New York, 2026-10-19 to 2026-10-22, 17 events
 - [SF Open Source AI Week 2026 side events](https://list.yorkseed.co/sf-open-source-ai-week-2026-side-events/): Bay Area, 2026-10-18 to 2026-10-26, 2 events
 - [NVIDIA GTC Berlin 2026 side events](https://list.yorkseed.co/nvidia-gtc-berlin-2026-side-events/): Berlin, 2026-10-18 to 2026-10-22, 5 events
 - [Munich Climate Week 2026 side events](https://list.yorkseed.co/munich-climate-week-2026-side-events/): Munich, 2026-10-19 to 2026-10-24, 4 events
