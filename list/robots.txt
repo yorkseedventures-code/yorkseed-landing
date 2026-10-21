@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# The Yorkseed List: startup and tech events by city
+# AI index: https://list.yorkseed.co/llms.txt
+# Event feed: https://list.yorkseed.co/feed.json
+
+Sitemap: https://list.yorkseed.co/sitemap.xml
