@@ -51,6 +51,7 @@
 - [Startup events in Melbourne](https://list.yorkseed.co/melbourne/): 1 upcoming
 - [Startup events in Cannes](https://list.yorkseed.co/cannes/): 0 upcoming
 - [Startup events in Dublin](https://list.yorkseed.co/dublin/): 0 upcoming
+- [Startup events in Mumbai](https://list.yorkseed.co/mumbai/): 0 upcoming
 - [Startup events in Stockholm](https://list.yorkseed.co/stockholm/): 0 upcoming
 - [Startup events in Warsaw](https://list.yorkseed.co/warsaw/): 0 upcoming
 

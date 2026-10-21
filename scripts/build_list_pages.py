@@ -89,7 +89,7 @@ def event_ld(e, camp):
     else: ld["location"] = {"@type":"Place","name": place(e) or h["name"],"address":{"@type":"PostalAddress","addressLocality":h["name"],**({"addressCountry":h["country"]} if h["country"] else {})}}
     if e["host"]: ld["organizer"] = {"@type":"Organization","name":e["host"]}
     if PHOTOS.get(e["link"]): ld["image"] = [PHOTOS[e["link"]]]
-    elif IMGPATH.get(h["img"] or h["id"]): ld["image"] = [LISTHOST + IMGPATH[h["img"] or h["id"]]]
+    elif IMGPATH.get(h["img"] or h["id"]): _p = IMGPATH[h["img"] or h["id"]]; ld["image"] = [_p if _p.startswith("http") else LISTHOST + _p]
     return ld
 
 CSS = """
@@ -119,7 +119,7 @@ h2{font:400 26px/1.2 var(--serif);margin:40px 0 6px}h2 em{color:var(--red)}
 """
 
 def page(path, title, desc, canon, body, ld, img=None, index=True):
-    og = LISTHOST + img if img else SITE + "/og-image.png"
+    og = (img if img.startswith("http") else LISTHOST + img) if img else SITE + "/og-image.png"
     doc = f"""<!DOCTYPE html>
 <html lang="en">
 <head>

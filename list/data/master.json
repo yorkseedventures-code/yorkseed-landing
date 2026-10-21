@@ -393,6 +393,14 @@
 "country": "Poland",
 "region": "",
 "img": ""
+},
+{
+"id": "bom",
+"name": "Mumbai",
+"tz": "Asia/Kolkata",
+"country": "India",
+"region": "",
+"img": "bom"
 }
 ],
 "weeks": [
@@ -512,7 +520,8 @@
 "ev2": "/list/img/5edf076bc5.jpg",
 "ber": "/list/img/d49f5df25e.jpg",
 "ev6": "/list/img/abcd6db6a6.jpg",
-"ev7": "/list/img/933dd859af.jpg"
+"ev7": "/list/img/933dd859af.jpg",
+"bom": "https://images.unsplash.com/photo-1497699388599-0b743c1245ff?auto=format&fit=crop&w=1400&q=72"
 },
 "events": [
 {
