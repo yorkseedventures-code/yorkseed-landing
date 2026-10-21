@@ -1,5 +1,39 @@
 User-agent: *
 Allow: /
+Disallow: /data/
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: DataForSeoBot
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: serpstatbot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: ZoominfoBot
+Disallow: /
+
+User-agent: Barkrowler
+Disallow: /
 
 # The Yorkseed List: startup and tech events by city
 # AI index: https://list.yorkseed.co/llms.txt

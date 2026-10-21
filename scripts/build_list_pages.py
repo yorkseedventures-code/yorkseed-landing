@@ -163,6 +163,7 @@ def page(path, title, desc, canon, body, ld, img=None, index=True):
 <main class="w">
 {body}
 </main>
+<p class="w" style="font:400 11px var(--mono);color:var(--ink4);margin:24px auto 0">© Yorkseed. The Yorkseed List is curated by Yorkseed; automated copying or republishing is not permitted.</p>
 <yk-footer><a href="https://yorkseed.co/">Home</a> <a href="/">The List</a> <a href="https://yorkseed.co/events.html">Events</a></yk-footer>
 </body>
 </html>
@@ -444,7 +445,7 @@ open(f"{REPO}/sitemap.xml","w").write(sm)
 ent = f"  <url>\n    <loc>{LIST}</loc>\n    <lastmod>{TODAY.isoformat()}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>1.0</priority>\n  </url>\n"
 ent += "".join(f"  <url>\n    <loc>{u}</loc>\n    <lastmod>{TODAY.isoformat()}</lastmod>\n    <changefreq>{cf}</changefreq>\n    <priority>{pr}</priority>\n  </url>\n" for u, ok, cf, pr in written if ok)
 open(f"{REPO}/list/sitemap.xml","w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ent + '</urlset>\n')
-open(f"{REPO}/list/robots.txt","w").write("User-agent: *\nAllow: /\n\n# The Yorkseed List: startup and tech events by city\n# AI index: https://list.yorkseed.co/llms.txt\n# Event feed: https://list.yorkseed.co/feed.json\n\nSitemap: https://list.yorkseed.co/sitemap.xml\n")
+open(f"{REPO}/list/robots.txt","w").write("User-agent: *\nAllow: /\nDisallow: /data/\n\n"+"".join(f"User-agent: {x}\nDisallow: /\n\n" for x in ["AhrefsBot","SemrushBot","MJ12bot","DotBot","DataForSeoBot","PetalBot","BLEXBot","serpstatbot","Bytespider","ZoominfoBot","Barkrowler"])+"# The Yorkseed List: startup and tech events by city\n# AI index: https://list.yorkseed.co/llms.txt\n# Event feed: https://list.yorkseed.co/feed.json\n\nSitemap: https://list.yorkseed.co/sitemap.xml\n")
 print(f"{len(hubs)} city pages ({sum(1 for _,ok,_,_ in written if ok)} indexable), {len(weeks)} week pages, {total} events")
 
 # ---- internal links: each city's community guide points to its events page ----
