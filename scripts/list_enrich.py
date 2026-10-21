@@ -193,7 +193,10 @@ def import_cities():
             final, page = get(c["url"])
             hrefs = [html.unescape(urljoin(final, h)) for h in re.findall(r'href=["\']([^"\']+)["\']', page)]
             urls = sorted({h.split("?")[0] for h in hrefs if "/events/" in urlsplit(h).path and urlsplit(h).netloc == urlsplit(final).netloc})
-            direct = sorted({clean(h) for h in hrefs if h.startswith("http") and REG_HOSTS.search(urlsplit(h).netloc)})
+            raw = re.findall(r'https?:(?:\\?/){2}(?:www\.)?eventbrite\.[a-z.]+(?:\\?/)e(?:\\?/)[A-Za-z0-9-]+', page)   # links inside page data
+            hrefs += [r.replace("\\/", "/") for r in raw]
+            direct = sorted({clean(h) for h in hrefs if h.startswith("http") and REG_HOSTS.search(urlsplit(h).netloc)
+                             and not re.search(r'eventbrite\.[a-z.]+/(?!e/)', h)})
             jobs += [(u, c["hub"]) for u in urls + direct]
             REPORT.append({"source": c["url"], "hub": c["hub"], "event_pages": len(urls), "direct_links": len(direct), "page_bytes": len(page)})
             print(f"city {c['hub']}: {len(urls)} event pages, {len(direct)} direct links")
