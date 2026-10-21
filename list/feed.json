@@ -65,7 +65,7 @@
    "end": "2026-10-21T15:00:00-07:00",
    "host": "Bond AI",
    "type": "Meetups",
-   "conference_week": null,
+   "conference_week": "SF Open Source AI Week",
    "description": "A free three-day build sprint for pre-seed founders at SAP Labs in Palo Alto. Judges from Stanford, Nvidia, Meta and Microsoft AI watch teams build, then question them on their decisions. Hosted by Mark Evans and Sahar Mor; registration needs approval.",
    "register_url": "https://luma.com/7ndhdy7n?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/san-francisco-bay-area/"
@@ -104,7 +104,7 @@
    "end": "2026-10-21T17:30:00-04:00",
    "host": "Squarespace Circle",
    "type": "Conferences",
-   "conference_week": null,
+   "conference_week": "NY App Week",
    "description": "An in-person day at Squarespace's New York headquarters for professional web designers and agencies. Squarespace Circle brings together leading creators and previews what's next for the platform. Registration is waitlisted.",
    "register_url": "https://luma.com/circle-day-2026-in-person?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/new-york/"
@@ -208,7 +208,7 @@
    "end": "2026-10-21T16:30:00-07:00",
    "host": "South Park Commons",
    "type": "Meetups",
-   "conference_week": null,
+   "conference_week": "SF Open Source AI Week",
    "description": "A fireside chat with Trae Stephens, Founders Fund general partner and Anduril co-founder, at South Park Commons. Doors open early for mingling. For founders, researchers and technologists in the SPC community; registration needs approval.",
    "register_url": "https://luma.com/trae-stephens-spc?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/san-francisco-bay-area/"
@@ -247,7 +247,7 @@
    "end": "2026-10-21T17:00:00+02:00",
    "host": "Delta Campus",
    "type": "Workshops",
-   "conference_week": null,
+   "conference_week": "NVIDIA GTC Berlin",
    "description": "Details and registration on the event page.",
    "register_url": "https://luma.com/dzgdh4g4?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/berlin/"
@@ -273,7 +273,7 @@
    "end": "2026-10-21T20:30:00-04:00",
    "host": "Yorkseed partner",
    "type": "Pitch",
-   "conference_week": null,
+   "conference_week": "NY App Week",
    "description": "Pre-seed to Series A startups get pre-matched, eight-minute 1:1 meetings with investors. Organized by The Startup Station with Pearl Cohen as sponsor and host. Founders apply; selected founders pay an admission fee.",
    "register_url": "https://luma.com/7fudgbbj?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/new-york/"
@@ -312,7 +312,7 @@
    "end": "2026-10-21T20:30:00-04:00",
    "host": "Monk",
    "type": "Conferences",
-   "conference_week": null,
+   "conference_week": "NY App Week",
    "description": "A free, invite-only applied AI summit on the future of finance at The Times Center, presented by Monk. About 150 CFOs, operators, founders and researchers, with speakers from AI-native firms and large enterprises. Attendance by application.",
    "register_url": "https://luma.com/3tto5407?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/new-york/"
@@ -338,7 +338,7 @@
    "end": "2026-10-21T19:30:00-04:00",
    "host": "Startup Grind",
    "type": "Demo Days",
-   "conference_week": null,
+   "conference_week": "NY App Week",
    "description": "Startup Grind NYC's live demo night at The Yard in Herald Square. Each startup gets six minutes to pitch and demo working product, then four minutes of audience questions. $5 tickets; startups apply to present.",
    "register_url": "https://luma.com/mrkdgmp5?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/new-york/"
@@ -429,7 +429,7 @@
    "end": "2026-10-21T20:00:00-07:00",
    "host": "Temporal",
    "type": "Meetups",
-   "conference_week": null,
+   "conference_week": "SF Open Source AI Week",
    "description": "A meetup on keeping long-running AI agents reliable: surviving crashes, acting on outside systems and staying observable. Talks and demos from Temporal, Kernel and Oodle.ai, then a panel and networking. For engineers running agents in production; approval required.",
    "register_url": "https://luma.com/durable-ai-october?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/san-francisco-bay-area/"
@@ -442,7 +442,7 @@
    "end": "2026-10-21T20:00:00-07:00",
    "host": "Sentry & Plain",
    "type": "Meetups",
-   "conference_week": null,
+   "conference_week": "SF Open Source AI Week",
    "description": "An evening at Sentry's SF office on how AI agents, MCP and APIs are changing support engineering. Speakers from Sentry and Plain, audience Q&A and open discussion. For support and customer-facing engineers; approval required.",
    "register_url": "https://luma.com/plain-sentry?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/san-francisco-bay-area/"
@@ -455,7 +455,7 @@
    "end": "2026-10-21T20:30:00-07:00",
    "host": "The Frontier Syndicate",
    "type": "Meetups",
-   "conference_week": null,
+   "conference_week": "SF Open Source AI Week",
    "description": "Dinner at Stanford with two short talks on colorectal cancer biology and AI virtual cell models, by Ganesh Pusapati and Angela Oliveira Pisco. For researchers, computational biologists and drug discovery teams. Hosted by The Frontier Syndicate; approval required.",
    "register_url": "https://luma.com/dj22bayb?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/san-francisco-bay-area/"
@@ -481,7 +481,7 @@
    "end": "2026-10-21T18:45:00-07:00",
    "host": "Cloudflare",
    "type": "Meetups",
-   "conference_week": null,
+   "conference_week": "SF Open Source AI Week",
    "description": "A free open-source happy hour at Cloudflare's SF office before func(tion) at Oracle Park, with drinks, food and a DJ. Intros from Evan You, Fred Schott, Ryan Dahl, Bert Belder and others. Free; currently full.",
    "register_url": "https://luma.com/ddz6vkfs?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/san-francisco-bay-area/"
@@ -507,7 +507,7 @@
    "end": "2026-10-21T21:00:00-07:00",
    "host": "PostHog, 1984 VC",
    "type": "Meetups",
-   "conference_week": null,
+   "conference_week": "SF Open Source AI Week",
    "description": "An OSS Week evening at Hogpatch for founders, maintainers and engineers building with open-source AI tools. Speakers from PostHog, Cline, Unikraft and other open-source startups lead short round-table talks, then drinks. Hosted by PostHog and 1984 Ventures; rolling approval.",
    "register_url": "https://luma.com/bfgu761e?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/san-francisco-bay-area/"
@@ -546,7 +546,7 @@
    "end": "2026-10-21T20:30:00-04:00",
    "host": "Corgi NYC",
    "type": "Meetups",
-   "conference_week": null,
+   "conference_week": "NY App Week",
    "description": "An evening at Corgi Cafe for founders, operators and real estate people. Drinks, then a founder-led talk on scaling teams and offices in person, with CBRE on leases. Registration needs approval.",
    "register_url": "https://luma.com/corginyc-ervo?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/new-york/"
@@ -598,7 +598,7 @@
    "end": "2026-10-21T22:00:00+02:00",
    "host": "Ampli Berlin",
    "type": "Meetups",
-   "conference_week": null,
+   "conference_week": "NVIDIA GTC Berlin",
    "description": "Time, venue and tickets are on the event page.",
    "register_url": "https://luma.com/zngc7x4t?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/berlin/"
@@ -702,7 +702,7 @@
    "end": "2026-10-21T21:00:00+02:00",
    "host": "K8s Meetup Munich",
    "type": "Meetups",
-   "conference_week": null,
+   "conference_week": "Munich Climate Week",
    "description": "Details and registration on the event page.",
    "register_url": "https://luma.com/9sfx42ez?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/munich/"
@@ -741,7 +741,7 @@
    "end": "2026-10-21T21:00:00-04:00",
    "host": null,
    "type": "Conferences",
-   "conference_week": null,
+   "conference_week": "NY App Week",
    "description": "The first of a quarterly series on care robots that take on repetitive clinical tasks under staff supervision. Keynotes, a panel and demos, with speakers from Norbert Health and Wandercraft. For operators, clinicians, roboticists, payers, regulators and investors; currently waitlisted.",
    "register_url": "https://luma.com/8fobi9xw?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/new-york/"
@@ -754,7 +754,7 @@
    "end": "2026-10-21T20:30:00-07:00",
    "host": "MBC BioLabs",
    "type": "Meetups",
-   "conference_week": null,
+   "conference_week": "SF Open Source AI Week",
    "description": "Bioptimus CEO Jean-Philippe Vert presents M-Optimus, a biology world model that combines histology, single-cell and spatial data. A demo, Q&A, food and drinks. Hosted by Bits in Bio SF and MBC BioLabs; currently waitlisted.",
    "register_url": "https://luma.com/mupawovc?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/san-francisco-bay-area/"
@@ -858,7 +858,7 @@
    "end": "2026-10-21T21:00:00-07:00",
    "host": "Infisical",
    "type": "Meetups",
-   "conference_week": null,
+   "conference_week": "SF Open Source AI Week",
    "description": "A casual bar meetup where engineers from recent Y Combinator batches trade notes on stacks, infrastructure and architecture tradeoffs. Hosted by Infisical and Mintlify, with drinks on them. 21+; approval required.",
    "register_url": "https://luma.com/cc7vxzrr?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/san-francisco-bay-area/"
@@ -884,7 +884,7 @@
    "end": "2026-10-21T22:30:00-04:00",
    "host": "Concentrate AI",
    "type": "Meetups",
-   "conference_week": null,
+   "conference_week": "NY App Week",
    "description": "A private screening of A24's documentary on Theranos founder Elizabeth Holmes, hosted by Concentrate AI and RRE Ventures. For AI founders, CTOs, engineers and builders. Request to join; approval required.",
    "register_url": "https://luma.com/yshtx07x?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/new-york/"
@@ -897,7 +897,7 @@
    "end": "2026-10-21T22:00:00+02:00",
    "host": "Together AI",
    "type": "Meetups",
-   "conference_week": null,
+   "conference_week": "NVIDIA GTC Berlin",
    "description": "Time, venue and tickets are on the event page.",
    "register_url": "https://luma.com/untergrund-berlin?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/berlin/"
@@ -910,7 +910,7 @@
    "end": "2026-10-21T22:00:00+02:00",
    "host": "Reimann Investors",
    "type": "Investor Events",
-   "conference_week": null,
+   "conference_week": "Munich Climate Week",
    "description": "Time, venue and tickets are on the event page.",
    "register_url": "https://luma.com/l1gq7mya?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/munich/"
@@ -1170,7 +1170,7 @@
    "end": "2026-10-22T20:00:00-07:00",
    "host": "Nucleate",
    "type": "Meetups",
-   "conference_week": null,
+   "conference_week": "SF Open Source AI Week",
    "description": "A Halloween networking happy hour in San Carlos for early-stage biotech founders, builders, investors and industry experts. A fireside chat and Q&A, then drinks, food and a costume contest. Co-hosted by Twist Bioscience, MBC BioLabs and others; approval required.",
    "register_url": "https://luma.com/s8gi4oqd?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/san-francisco-bay-area/"
@@ -1443,7 +1443,7 @@
    "end": "2026-10-22T21:00:00-07:00",
    "host": "StepFun, Together AI",
    "type": "Demo Days",
-   "conference_week": null,
+   "conference_week": "SF Open Source AI Week",
    "description": "StepFun launches its open-weights Step 5 Preview model for developers, founders and investors, co-hosted with Together AI. A model walkthrough, a panel with Pear VC, Cline and Harvey, live Q&A and networking. Approval required.",
    "register_url": "https://luma.com/12t5e4lc?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/san-francisco-bay-area/"
@@ -1456,7 +1456,7 @@
    "end": "2026-10-22T21:00:00-04:00",
    "host": "Nanonite",
    "type": "Meetups",
-   "conference_week": null,
+   "conference_week": "NY App Week",
    "description": "A casual recurring meetup at Harlem Tavern for people in nanotech, semiconductors, biotech and deep tech: researchers, engineers, founders, students and the curious. No talks or agenda, just conversation. Organized by Nanotech NYC; free.",
    "register_url": "https://luma.com/hhl725g4?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/new-york/"
@@ -1521,7 +1521,7 @@
    "end": "2026-10-22T21:00:00+02:00",
    "host": "Merantix Momentum",
    "type": "Meetups",
-   "conference_week": null,
+   "conference_week": "NVIDIA GTC Berlin",
    "description": "Time, venue and tickets are on the event page.",
    "register_url": "https://luma.com/njgz328h?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/berlin/"
@@ -1599,7 +1599,7 @@
    "end": "2026-10-22T21:30:00+02:00",
    "host": "Claude Community",
    "type": "Workshops",
-   "conference_week": null,
+   "conference_week": "NVIDIA GTC Berlin",
    "description": "Details and registration on the event page.",
    "register_url": "https://luma.com/claude-fxrb?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/berlin/"
@@ -1716,7 +1716,7 @@
    "end": "2026-10-22T22:00:00+02:00",
    "host": "appliedAI",
    "type": "Meetups",
-   "conference_week": null,
+   "conference_week": "Munich Climate Week",
    "description": "Details and registration on the event page.",
    "register_url": "https://luma.com/h1jfabf1?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/munich/"
@@ -1755,7 +1755,7 @@
    "end": "2026-10-22T23:00:00-04:00",
    "host": "Fonzi, NYC AI Engineers",
    "type": "Meetups",
-   "conference_week": null,
+   "conference_week": "NY App Week",
    "description": "A Halloween party at Fonzi's Williamsburg office for NYC engineers, founders and friends: costumes, drinks, games, music and fortune telling. Hosted by Fonzi, sponsored by Menlo Ventures. Approval required.",
    "register_url": "https://luma.com/fonzinyc-va2l?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/new-york/"
@@ -1937,7 +1937,7 @@
    "end": "2026-10-23T18:30:00-07:00",
    "host": "Beta University",
    "type": "Hackathons",
-   "conference_week": null,
+   "conference_week": "SF Open Source AI Week",
    "description": "A one-day hackathon at the AWS Builder Loft where builders, researchers, founders and investors build multimodal products using models from AWS and OpenAI. Teams of two to four must ship a working demo. Hosted by Beta University; approval required.",
    "register_url": "https://luma.com/beta-79jb?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/san-francisco-bay-area/"
@@ -2145,7 +2145,7 @@
    "end": "2026-10-23T22:30:00+02:00",
    "host": "Netlight",
    "type": "Meetups",
-   "conference_week": null,
+   "conference_week": "Munich Climate Week",
    "description": "Details and registration on the event page.",
    "register_url": "https://luma.com/8c18gr7w?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/munich/"
@@ -2210,7 +2210,7 @@
    "end": "2026-10-24T18:30:00-07:00",
    "host": "Emergent",
    "type": "Conferences",
-   "conference_week": null,
+   "conference_week": "SF Open Source AI Week",
    "description": "A weekend build event at Y Combinator's SF office where 175 selected builders use AI to ship products, with YC and partners judging. Open by application to pre-company founders, designers and non-engineers with two or more years of experience.",
    "register_url": "https://luma.com/q5v9a6ak?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/san-francisco-bay-area/"
@@ -2236,7 +2236,7 @@
    "end": "2026-10-24T18:00:00-07:00",
    "host": "Hack for Social Impact",
    "type": "Hackathons",
-   "conference_week": null,
+   "conference_week": "SF Open Source AI Week",
    "description": "A weekend hackathon where engineers, designers and non-technical builders take on nonprofit challenges in climate, mental health, justice and the arts. Run by Hack for Social Impact with the UN Convention to Combat Desertification and local nonprofits, with $5,000 in prizes. Approval required.",
    "register_url": "https://luma.com/59t8euck?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/san-francisco-bay-area/"
@@ -3276,7 +3276,7 @@
    "end": "2026-10-28T19:00:00-05:00",
    "host": "Fridgeside",
    "type": "Investor Events",
-   "conference_week": null,
+   "conference_week": "Austin Tech Week",
    "description": "Details and registration on the event page.",
    "register_url": "https://luma.com/lz393xbt?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/austin/"
@@ -3302,7 +3302,7 @@
    "end": "2026-10-28T20:00:00-05:00",
    "host": "Ecodrive Community",
    "type": "Meetups",
-   "conference_week": null,
+   "conference_week": "Austin Tech Week",
    "description": "Details and registration on the event page.",
    "register_url": "https://luma.com/lmtsm78y?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/austin/"
@@ -3432,7 +3432,7 @@
    "end": "2026-10-29T20:00:00-05:00",
    "host": "Casa TechMex",
    "type": "Meetups",
-   "conference_week": null,
+   "conference_week": "Austin Tech Week",
    "description": "Details and registration on the event page.",
    "register_url": "https://luma.com/hli103zl?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/austin/"

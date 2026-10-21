@@ -57,12 +57,12 @@
 
 ## Conference and tech week side events
 
-- [NY App Week 2026 side events](https://list.yorkseed.co/ny-app-week-2026-side-events/): New York, 2026-10-19 to 2026-10-22, 17 events
-- [SF Open Source AI Week 2026 side events](https://list.yorkseed.co/sf-open-source-ai-week-2026-side-events/): Bay Area, 2026-10-18 to 2026-10-26, 2 events
-- [NVIDIA GTC Berlin 2026 side events](https://list.yorkseed.co/nvidia-gtc-berlin-2026-side-events/): Berlin, 2026-10-18 to 2026-10-22, 5 events
-- [Munich Climate Week 2026 side events](https://list.yorkseed.co/munich-climate-week-2026-side-events/): Munich, 2026-10-19 to 2026-10-24, 4 events
+- [NY App Week 2026 side events](https://list.yorkseed.co/ny-app-week-2026-side-events/): New York, 2026-10-19 to 2026-10-22, 26 events
+- [SF Open Source AI Week 2026 side events](https://list.yorkseed.co/sf-open-source-ai-week-2026-side-events/): Bay Area, 2026-10-18 to 2026-10-26, 16 events
+- [NVIDIA GTC Berlin 2026 side events](https://list.yorkseed.co/nvidia-gtc-berlin-2026-side-events/): Berlin, 2026-10-18 to 2026-10-22, 10 events
+- [Munich Climate Week 2026 side events](https://list.yorkseed.co/munich-climate-week-2026-side-events/): Munich, 2026-10-19 to 2026-10-24, 8 events
 - [Tough Tech Week 2026 side events](https://list.yorkseed.co/tough-tech-week-2026-side-events/): Boston, 2026-10-26 to 2026-10-30, 4 events
-- [Austin Tech Week 2026 side events](https://list.yorkseed.co/austin-tech-week-2026-side-events/): Austin, 2026-10-26 to 2026-10-30, 1 events
+- [Austin Tech Week 2026 side events](https://list.yorkseed.co/austin-tech-week-2026-side-events/): Austin, 2026-10-26 to 2026-10-30, 4 events
 - [SWITCH Singapore 2026 side events](https://list.yorkseed.co/switch-singapore-2026-side-events/): Singapore, 2026-10-26 to 2026-10-29, 10 events
 - [Slush Helsinki 2026 side events](https://list.yorkseed.co/slush-helsinki-2026-side-events/): Helsinki, 2026-11-16 to 2026-11-20, 12 events
 - [Web Summit Lisbon 2026 side events](https://list.yorkseed.co/web-summit-lisbon-2026-side-events/): Lisbon, 2026-11-02 to 2026-11-16, 201 events

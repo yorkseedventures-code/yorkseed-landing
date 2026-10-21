@@ -58,6 +58,11 @@ def ref(u, camp):
 events = [e for e in data["events"] if e["hub"] in hubs and TODAY <= dt.date.fromisoformat(e["date"]) <= HORIZON]
 events.sort(key=lambda e: (e["date"], e["start"] or "99"))
 for e in events: e.setdefault("week", None); e.setdefault("place", None)
+# imported events join a conference week by city and date, same rule as the List app
+for e in events:
+    if not e["week"]:
+        w = next((w for w in data["weeks"] if w["hub"] == e["hub"] and w["start"] <= e["date"] <= w["end"]), None)
+        if w: e["week"] = w["id"]
 import unicodedata
 def ev_slug(e):
     t = unicodedata.normalize("NFKD", (e.get("title") or "event").lower())
