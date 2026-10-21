@@ -2,178 +2,35 @@
  "date": "2026-10-21",
  "report": [
   {
-   "source": "https://side-events-guide.com/",
+   "source": "https://www.eventbrite.com/d/portugal--lisboa/web-summit/",
    "hub": "lis",
-   "event_pages": 219,
-   "direct_links": 207,
-   "page_bytes": 1498450
+   "error": "HTTP Error 405: Not Allowed"
   },
   {
-   "source": "https://foundercal.com/cities/nyc",
-   "hub": "nyc",
-   "event_pages": 247,
-   "direct_links": 0,
-   "page_bytes": 473075
-  },
-  {
-   "source": "https://foundercal.com/cities/sf",
-   "hub": "sf",
-   "event_pages": 439,
-   "direct_links": 0,
-   "page_bytes": 500966
-  },
-  {
-   "source": "https://foundercal.com/cities/london",
-   "hub": "ldn",
-   "event_pages": 280,
-   "direct_links": 0,
-   "page_bytes": 498653
-  },
-  {
-   "source": "https://foundercal.com/cities/seattle",
-   "hub": "sea",
-   "event_pages": 129,
-   "direct_links": 0,
-   "page_bytes": 416471
-  },
-  {
-   "source": "https://foundercal.com/cities/berlin",
-   "hub": "ber",
-   "event_pages": 181,
-   "direct_links": 0,
-   "page_bytes": 397705
-  },
-  {
-   "source": "https://foundercal.com/cities/lisbon",
+   "source": "https://www.eventbrite.com/d/portugal--lisboa/web-summit/?page=2",
    "hub": "lis",
-   "event_pages": 89,
-   "direct_links": 0,
-   "page_bytes": 243136
+   "error": "HTTP Error 405: Not Allowed"
   },
   {
-   "source": "https://foundercal.com/cities/singapore",
-   "hub": "sgp",
-   "event_pages": 156,
-   "direct_links": 0,
-   "page_bytes": 340155
+   "source": "https://www.eventbrite.com/d/portugal--lisboa/web-summit/?page=3",
+   "hub": "lis",
+   "error": "HTTP Error 405: Not Allowed"
   },
   {
-   "source": "https://foundercal.com/cities/toronto",
-   "hub": "tor",
-   "event_pages": 93,
-   "direct_links": 0,
-   "page_bytes": 210346
+   "source": "https://www.eventbrite.com/d/portugal--lisboa/web-summit/?page=4",
+   "hub": "lis",
+   "error": "HTTP Error 405: Not Allowed"
   },
   {
-   "source": "https://foundercal.com/cities/boston",
-   "hub": "bos",
-   "event_pages": 88,
-   "direct_links": 0,
-   "page_bytes": 235511
+   "source": "https://www.eventbrite.com/d/portugal--lisboa/web-summit/?page=5",
+   "hub": "lis",
+   "error": "HTTP Error 405: Not Allowed"
   },
   {
-   "source": "https://foundercal.com/cities/bangalore",
-   "hub": "blr",
-   "event_pages": 114,
-   "direct_links": 0,
-   "page_bytes": 243167
-  },
-  {
-   "source": "https://foundercal.com/cities/austin",
-   "hub": "atx",
-   "event_pages": 83,
-   "direct_links": 0,
-   "page_bytes": 233573
-  },
-  {
-   "source": "https://foundercal.com/cities/denver",
-   "hub": "den",
-   "event_pages": 59,
-   "direct_links": 0,
-   "page_bytes": 205460
-  },
-  {
-   "source": "https://foundercal.com/cities/mexico-city",
-   "hub": "mex",
-   "event_pages": 50,
-   "direct_links": 0,
-   "page_bytes": 195990
-  },
-  {
-   "source": "https://foundercal.com/cities/munich",
-   "hub": "muc",
-   "event_pages": 77,
-   "direct_links": 0,
-   "page_bytes": 221846
-  },
-  {
-   "source": "https://foundercal.com/cities/vancouver",
-   "hub": "yvr",
-   "event_pages": 67,
-   "direct_links": 0,
-   "page_bytes": 188533
-  },
-  {
-   "source": "https://foundercal.com/cities/tokyo",
-   "hub": "tyo",
-   "event_pages": 73,
-   "direct_links": 0,
-   "page_bytes": 191907
-  },
-  {
-   "source": "https://foundercal.com/cities/tel-aviv",
-   "hub": "tlv",
-   "event_pages": 55,
-   "direct_links": 0,
-   "page_bytes": 171936
-  },
-  {
-   "source": "https://foundercal.com/cities/helsinki",
-   "hub": "hel",
-   "event_pages": 65,
-   "direct_links": 0,
-   "page_bytes": 168903
-  },
-  {
-   "source": "https://foundercal.com/cities/miami",
-   "hub": "mia",
-   "event_pages": 67,
-   "direct_links": 0,
-   "page_bytes": 193762
-  },
-  {
-   "source": "https://foundercal.com/cities/barcelona",
-   "hub": "bcn",
-   "event_pages": 72,
-   "direct_links": 0,
-   "page_bytes": 188560
-  },
-  {
-   "cities_import_new_events": 525,
-   "jobs": 2910,
-   "resolved": 2693,
-   "by_hub": {
-    "lis": 320,
-    "nyc": 247,
-    "sf": 426,
-    "ldn": 277,
-    "sea": 127,
-    "ber": 181,
-    "sgp": 154,
-    "tor": 93,
-    "bos": 88,
-    "blr": 113,
-    "atx": 83,
-    "den": 59,
-    "mex": 50,
-    "muc": 76,
-    "yvr": 67,
-    "tyo": 73,
-    "tlv": 55,
-    "hel": 65,
-    "mia": 67,
-    "bcn": 72
-   }
+   "cities_import_new_events": 0,
+   "jobs": 0,
+   "resolved": 0,
+   "by_hub": {}
   }
  ]
 }
