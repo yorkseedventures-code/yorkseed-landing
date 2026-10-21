@@ -5,8 +5,8 @@ https://list.yorkseed.co/llms.txt     /list/llms.txt     200!
 https://list.yorkseed.co/feed.json    /list/feed.json    200!
 https://list.yorkseed.co/             /list/index.html   200!
 https://list.yorkseed.co/*            /list/:splat       200
-# (enable once list.yorkseed.co is live) https://yorkseed.co/list/*  https://list.yorkseed.co/:splat  301!
-# (enable once list.yorkseed.co is live) https://www.yorkseed.co/list/*  https://list.yorkseed.co/:splat  301!
+https://yorkseed.co/list/*            https://list.yorkseed.co/:splat  301!
+https://www.yorkseed.co/list/*        https://list.yorkseed.co/:splat  301!
 /e/urban-tech-day-stockholm-2026 /events/urban-tech-day-stockholm-2026.html 200
 /e/bootstrapped-solo-founders-afterwork-nyc-2026 /events/bootstrapped-solo-founders-afterwork-nyc-2026.html 200
 /e/curious-about-starting-a-startup-nyc-2026 /events/curious-about-starting-a-startup-nyc-2026.html 200
