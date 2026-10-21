@@ -40,3 +40,5 @@ jobs:
           git commit -m "The List: daily rebuild $(date -u +%Y-%m-%d)"
           git pull --rebase -q origin main || true
           git push
+      - name: Tell search engines about new pages (IndexNow)
+        run: sleep 90; python3 scripts/indexnow.py || true

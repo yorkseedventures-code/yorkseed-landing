@@ -1,4 +1,13 @@
 # The Yorkseed List lives on list.yorkseed.co (same Netlify project, files in /list/)
+# Web Summit short links
+https://list.yorkseed.co/web-summit                 https://list.yorkseed.co/web-summit-lisbon-2026-side-events/  301!
+https://list.yorkseed.co/websummit                  https://list.yorkseed.co/web-summit-lisbon-2026-side-events/  301!
+https://list.yorkseed.co/web-summit-side-events     https://list.yorkseed.co/web-summit-lisbon-2026-side-events/  301!
+https://list.yorkseed.co/web-summit-2026            https://list.yorkseed.co/web-summit-lisbon-2026-side-events/  301!
+https://yorkseed.co/web-summit-side-events          https://list.yorkseed.co/web-summit-lisbon-2026-side-events/  301!
+https://www.yorkseed.co/web-summit-side-events      https://list.yorkseed.co/web-summit-lisbon-2026-side-events/  301!
+https://yorkseed.co/websummit-side-events           https://list.yorkseed.co/web-summit-lisbon-2026-side-events/  301!
+https://yorkseed.co/web-summit-2026-side-events     https://list.yorkseed.co/web-summit-lisbon-2026-side-events/  301!
 https://list.yorkseed.co/robots.txt   /list/robots.txt   200!
 https://list.yorkseed.co/sitemap.xml  /list/sitemap.xml  200!
 https://list.yorkseed.co/llms.txt     /list/llms.txt     200!
