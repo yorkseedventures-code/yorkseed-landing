@@ -21,7 +21,7 @@ for x in extra:
             "host": x.get("host", ""), "venue": x.get("venue", ""), "link": x.get("link", ""), "desc": x.get("desc", ""), "type": x.get("type", ""),
             "week": next((w["id"] for w in data["weeks"] if w["hub"] == x["hub"] and w["start"] <= x["date"] <= w["end"]), None),
             "place": "featured" if x.get("featured") else ("spotlight" if x.get("yorkseed") else None)})
-SITE = "https://yorkseed.co"; LIST = SITE + "/list/"
+SITE = "https://yorkseed.co"; LISTHOST = "https://list.yorkseed.co"; LIST = LISTHOST + "/"
 TODAY = dt.datetime.now(ZoneInfo("America/New_York")).date(); HORIZON = TODAY + dt.timedelta(days=120)
 e_ = lambda s: html.escape(str(s or ""), quote=True)
 
@@ -82,7 +82,7 @@ def event_ld(e, camp):
     if online: ld["location"] = {"@type":"VirtualLocation","url":ld["url"]}
     else: ld["location"] = {"@type":"Place","name": place(e) or h["name"],"address":{"@type":"PostalAddress","addressLocality":h["name"],**({"addressCountry":h["country"]} if h["country"] else {})}}
     if e["host"]: ld["organizer"] = {"@type":"Organization","name":e["host"]}
-    if IMGPATH.get(h["img"] or h["id"]): ld["image"] = [SITE + IMGPATH[h["img"] or h["id"]]]
+    if IMGPATH.get(h["img"] or h["id"]): ld["image"] = [LISTHOST + IMGPATH[h["img"] or h["id"]]]
     return ld
 
 CSS = """
@@ -112,7 +112,7 @@ h2{font:400 26px/1.2 var(--serif);margin:40px 0 6px}h2 em{color:var(--red)}
 """
 
 def page(path, title, desc, canon, body, ld, img=None, index=True):
-    og = SITE + img if img else SITE + "/og-image.png"
+    og = LISTHOST + img if img else SITE + "/og-image.png"
     doc = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -137,11 +137,11 @@ def page(path, title, desc, canon, body, ld, img=None, index=True):
 <style>yk-header:not(:defined){{display:block;min-height:73px}}{CSS}</style>
 </head>
 <body>
-<yk-header><a href="/">Yorkseed</a> <a href="/list/">The List</a> <a href="/events.html">Events</a></yk-header>
+<yk-header><a href="https://yorkseed.co/">Yorkseed</a> <a href="/">The List</a> <a href="https://yorkseed.co/events.html">Events</a></yk-header>
 <main class="w">
 {body}
 </main>
-<yk-footer><a href="/">Home</a> <a href="/list/">The List</a> <a href="/events.html">Events</a></yk-footer>
+<yk-footer><a href="https://yorkseed.co/">Home</a> <a href="/">The List</a> <a href="https://yorkseed.co/events.html">Events</a></yk-footer>
 </body>
 </html>
 """
@@ -170,7 +170,7 @@ for w in weeks:
     w["events"] = [e for e in events if e["week"] == w["id"]]
 city_order = sorted(hubs.values(), key=lambda h: (-len(by_hub.get(h["id"], [])), h["name"]))
 def city_grid(exclude=None):
-    return '<div class="grid">' + "".join(f'<a href="/list/{h["slug"]}/">{e_(h["name"] if h["id"]!="virtual" else "Online")}<small>{len(by_hub.get(h["id"],[]))}</small></a>' for h in city_order if h["id"] != exclude) + "</div>"
+    return '<div class="grid">' + "".join(f'<a href="/{h["slug"]}/">{e_(h["name"] if h["id"]!="virtual" else "Online")}<small>{len(by_hub.get(h["id"],[]))}</small></a>' for h in city_order if h["id"] != exclude) + "</div>"
 ORG = {"@type":"Organization","@id":SITE+"/#organization","name":"Yorkseed","url":SITE}
 written = []
 
@@ -199,19 +199,19 @@ for h in hubs.values():
             + (f", plus {', '.join(w['name'] for w in hw)} side events" if hw else "") + ". Updated continuously. Free to list your event.")
     canon = f"{LIST}{h['slug']}/"; img = IMGPATH.get(h["img"] or h["id"])
     fh, fld = faq(city, n, h["id"])
-    weeks_html = ('<h2>Conference and tech weeks</h2><div class="weeks">' + "".join(f'<a href="/list/{w["slug"]}/">{e_(w["name"])} · {len(w["events"])} side events</a>' for w in hw) + "</div>") if hw else ""
-    body = f"""<div class="crumb"><a href="/">Yorkseed</a> / <a href="/list/">The List</a> / <a href="/list/cities/">Cities</a> / {e_(city if not online else 'Online')}</div>
+    weeks_html = ('<h2>Conference and tech weeks</h2><div class="weeks">' + "".join(f'<a href="/{w["slug"]}/">{e_(w["name"])} · {len(w["events"])} side events</a>' for w in hw) + "</div>") if hw else ""
+    body = f"""<div class="crumb"><a href="https://yorkseed.co/">Yorkseed</a> / <a href="/">The List</a> / <a href="/cities/">Cities</a> / {e_(city if not online else 'Online')}</div>
 <div class="hero"><div><h1>{'Online startup events' if online else f'Startup and tech events in <em>{e_(city)}</em>'}</h1>
 <p class="lede">Every startup, founder, investor and tech event worth going to {'online' if online else 'in '+e_(city)}, in one calendar. Picked by Yorkseed, updated continuously.</p>
 <p class="meta">{n} upcoming event{'s' if n!=1 else ''} · Updated {TODAY.strftime('%B')} {TODAY.day}, {TODAY.year}</p>
-<div class="cta"><a class="btn r" href="/list/#{h['id']}">Open the interactive List</a><a class="btn" href="/list/#submit">List your event free</a></div></div>
+<div class="cta"><a class="btn r" href="/#{h['id']}">Open the interactive List</a><a class="btn" href="/#submit">List your event free</a></div></div>
 {f'<img src="{img}" alt="{e_(city)} skyline" width="800" height="600" loading="eager">' if img else ''}</div>
 {weeks_html}
 <h2>Upcoming events {'online' if online else 'in <em>'+e_(city)+'</em>'}</h2>
-{rows(evs, camp) if evs else f'<div class="empty">No events are listed {"online" if online else "in "+e_(city)} yet. Hosting one? <a href="/list/#submit" style="color:var(--red)">List it free</a> and it will appear here within a day.</div>'}
+{rows(evs, camp) if evs else f'<div class="empty">No events are listed {"online" if online else "in "+e_(city)} yet. Hosting one? <a href="/#submit" style="color:var(--red)">List it free</a> and it will appear here within a day.</div>'}
 <h2>Questions</h2>
 {fh}
-{f'<p style="margin-top:28px">Looking for the people behind these events? See the <a href="{h["community"]}" style="color:var(--red)">best startup communities in {e_(city)}</a>.</p>' if h["community"] else ''}
+{f'<p style="margin-top:28px">Looking for the people behind these events? See the <a href="{SITE}{h["community"]}" style="color:var(--red)">best startup communities in {e_(city)}</a>.</p>' if h["community"] else ''}
 <h2>Startup events in other cities</h2>
 {city_grid(h['id'])}
 <div class="band"><p>The best events in {'your city' if online else e_(city)}, every Monday. One short email, free.</p><a class="btn r" href="https://pulse.yorkseed.co/subscribe?utm_source=yorkseed&utm_medium=the_list&utm_campaign={camp}" target="_blank" rel="noopener">Subscribe</a></div>"""
@@ -236,17 +236,17 @@ for w in weeks:
           (f"Do I need a {w['name']} ticket for side events?", "Most side events are separate from the main conference and have their own registration. Check each event's page, many are free with approval."),
           ("How do I add my side event?", "Listing is free. Paste your event link at yorkseed.co/list and the Yorkseed team reviews it within a day.")]
     fh = '<div class="faq">' + "".join(f"<details><summary>{e_(q)}</summary><p>{e_(a)}</p></details>" for q, a in qs) + "</div>"
-    body = f"""<div class="crumb"><a href="/">Yorkseed</a> / <a href="/list/">The List</a> / <a href="/list/{h['slug']}/">{e_(h['name'])}</a> / {e_(w['name'])}</div>
+    body = f"""<div class="crumb"><a href="https://yorkseed.co/">Yorkseed</a> / <a href="/">The List</a> / <a href="/{h['slug']}/">{e_(h['name'])}</a> / {e_(w['name'])}</div>
 <div class="hero"><div><h1>{e_(w['name'])} {s.year} <em>side events</em></h1>
 <p class="lede">The master side event list for {e_(w['name'])} in {e_(h['name'])}, {rng}. Every founder, investor and startup event around the week, in one place.</p>
 <p class="meta">{n} side event{'s' if n!=1 else ''} · Updated {TODAY.strftime('%B')} {TODAY.day}, {TODAY.year}</p>
-<div class="cta"><a class="btn r" href="/list/#{h['id']}">Open the interactive List</a><a class="btn" href="/list/#submit">Add a side event</a></div></div>
+<div class="cta"><a class="btn r" href="/#{h['id']}">Open the interactive List</a><a class="btn" href="/#submit">Add a side event</a></div></div>
 {f'<img src="{img}" alt="{e_(h["name"])}" width="800" height="600">' if img else ''}</div>
 <h2>All {e_(w['name'])} side events</h2>
 {rows(evs, camp) if evs else '<div class="empty">Side events will appear here as they are announced.</div>'}
 <h2>Questions</h2>{fh}
 <h2>More from The Yorkseed List</h2>
-<p><a href="/list/{h['slug']}/" style="color:var(--red)">All startup events in {e_(h['name'])}</a></p>{city_grid()}"""
+<p><a href="/{h['slug']}/" style="color:var(--red)">All startup events in {e_(h['name'])}</a></p>{city_grid()}"""
     ld = [ORG, {"@type":"CollectionPage","@id":canon,"url":canon,"name":title,"description":desc,"publisher":{"@id":ORG["@id"]},"dateModified":TODAY.isoformat()},
           {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"The List","item":LIST},{"@type":"ListItem","position":2,"name":h["name"],"item":f"{LIST}{h['slug']}/"},{"@type":"ListItem","position":3,"name":w["name"],"item":canon}]},
           {"@type":"ItemList","name":f"{w['name']} {s.year} side events","numberOfItems":n,"itemListElement":[{"@type":"ListItem","position":i+1,"item":event_ld(e, camp)} for i, e in enumerate(evs[:200])]},
@@ -256,13 +256,13 @@ for w in weeks:
 
 # ---- cities index ----
 total = len(events)
-body = f"""<div class="crumb"><a href="/">Yorkseed</a> / <a href="/list/">The List</a> / Cities</div>
+body = f"""<div class="crumb"><a href="https://yorkseed.co/">Yorkseed</a> / <a href="/">The List</a> / Cities</div>
 <h1>Startup events <em>by city</em></h1>
 <p class="lede">{total} upcoming startup, tech, founder and investor events across {len([h for h in hubs.values() if h['id']!='virtual'])} cities, plus the side events around the major tech weeks and conferences.</p>
 <p class="meta">Updated {TODAY.strftime('%B')} {TODAY.day}, {TODAY.year}</p>
-<div class="cta"><a class="btn r" href="/list/">Open the interactive List</a><a class="btn" href="/list/#submit">List your event free</a></div>
+<div class="cta"><a class="btn r" href="/">Open the interactive List</a><a class="btn" href="/#submit">List your event free</a></div>
 <h2>Cities</h2>{city_grid()}
-{('<h2>Conference and tech weeks</h2><div class="weeks">' + "".join(f'<a href="/list/{w["slug"]}/">{e_(w["name"])} · {e_(hubs[w["hub"]]["name"])}</a>' for w in weeks) + '</div>') if weeks else ''}
+{('<h2>Conference and tech weeks</h2><div class="weeks">' + "".join(f'<a href="/{w["slug"]}/">{e_(w["name"])} · {e_(hubs[w["hub"]]["name"])}</a>' for w in weeks) + '</div>') if weeks else ''}
 <h2>Coming up <em>everywhere</em></h2>
 {rows([e for e in events if (dt.date.fromisoformat(e['date'])-TODAY).days<=7][:60], 'list_cities', True)}
 <div class="band"><p>The week's best events in your city, every Monday. Free.</p><a class="btn r" href="https://pulse.yorkseed.co/subscribe?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_cities" target="_blank" rel="noopener">Subscribe</a></div>"""
@@ -280,7 +280,7 @@ feed = {"name":"The Yorkseed List","url":LIST,"publisher":"Yorkseed","updated":T
                    "host":e["host"] or None,"type":e["type"] or None,"conference_week":next((w["name"] for w in weeks if w["id"]==e["week"]), None),
                    "description":e["desc"] or None,"register_url":ref(e["link"],"list_feed") if e["link"] else None,"list_page":f"{LIST}{hubs[e['hub']]['slug']}/"} for e in events]}
 json.dump(feed, open(f"{REPO}/list/feed.json","w"), ensure_ascii=False, indent=1)
-L = [f"# The Yorkseed List", "", f"> The Yorkseed List (https://yorkseed.co/list/) is a free global calendar of startup, tech, founder and investor events in 50+ cities and around the major tech weeks and conferences, run by Yorkseed. {total} upcoming events as of {TODAY.isoformat()}. Updated continuously. Anyone can list an event for free.", "",
+L = [f"# The Yorkseed List", "", f"> The Yorkseed List (https://list.yorkseed.co/) is a free global calendar of startup, tech, founder and investor events in 50+ cities and around the major tech weeks and conferences, run by Yorkseed. {total} upcoming events as of {TODAY.isoformat()}. Updated continuously. Anyone can list an event for free.", "",
      "## Startup and tech events by city", ""]
 L += [f"- [Startup events in {h['name'] if h['id']!='virtual' else 'Online'}]({LIST}{h['slug']}/): {len(by_hub.get(h['id'],[]))} upcoming" for h in city_order]
 if weeks:
@@ -295,20 +295,22 @@ open(f"{REPO}/list/llms.txt","w").write("\n".join(L) + "\n")
 li = open(f"{REPO}/list/index.html").read()
 block = ('<section id="ysSeoCities" style="max-width:1200px;margin:0 auto;padding:28px 20px 8px;font-family:\'DM Sans\',system-ui,sans-serif">'
          '<h2 style="font:400 22px Georgia,serif;margin:0 0 10px">Startup events by city</h2><p style="margin:0 0 12px;font-size:14px;color:#555">'
-         + " · ".join(f'<a href="/list/{h["slug"]}/" style="color:inherit">{e_(h["name"] if h["id"]!="virtual" else "Online")}</a>' for h in city_order)
-         + (('</p><p style="margin:0;font-size:14px;color:#555">Side events: ' + " · ".join(f'<a href="/list/{w["slug"]}/" style="color:inherit">{e_(w["name"])}</a>' for w in weeks)) if weeks else "")
-         + ' · <a href="/list/cities/" style="color:#c8102e">All cities</a></p></section>')
+         + " · ".join(f'<a href="/{h["slug"]}/" style="color:inherit">{e_(h["name"] if h["id"]!="virtual" else "Online")}</a>' for h in city_order)
+         + (('</p><p style="margin:0;font-size:14px;color:#555">Side events: ' + " · ".join(f'<a href="/{w["slug"]}/" style="color:inherit">{e_(w["name"])}</a>' for w in weeks)) if weeks else "")
+         + ' · <a href="/cities/" style="color:#c8102e">All cities</a></p></section>')
 li = re.sub(r'<section id="ysSeoCities".*?</section>', '', li, flags=re.S)
 i = li.find('<footer class="foot ysfoot"')
 li = li[:i] + block + "\n" + li[i:] if i > 0 else li.replace("</body>", block + "</body>")
 open(f"{REPO}/list/index.html","w").write(li)
 
-# ---- sitemap ----
+# ---- sitemaps: the List has its own on list.yorkseed.co; main sitemap drops list URLs ----
 sm = open(f"{REPO}/sitemap.xml").read()
-sm = re.sub(r'  <url>\n    <loc>https://yorkseed\.co/list/[^<]+/</loc>.*?</url>\n', '', sm, flags=re.S)
-ent = "".join(f"  <url>\n    <loc>{u}</loc>\n    <lastmod>{TODAY.isoformat()}</lastmod>\n    <changefreq>{cf}</changefreq>\n    <priority>{pr}</priority>\n  </url>\n" for u, ok, cf, pr in written if ok)
-sm = sm.replace("</urlset>", ent + "</urlset>")
+sm = re.sub(r'\s*<url>\s*<loc>https://(?:yorkseed\.co/list/|list\.yorkseed\.co/)[^<]*</loc>.*?</url>', '', sm, flags=re.S)
 open(f"{REPO}/sitemap.xml","w").write(sm)
+ent = f"  <url>\n    <loc>{LIST}</loc>\n    <lastmod>{TODAY.isoformat()}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>1.0</priority>\n  </url>\n"
+ent += "".join(f"  <url>\n    <loc>{u}</loc>\n    <lastmod>{TODAY.isoformat()}</lastmod>\n    <changefreq>{cf}</changefreq>\n    <priority>{pr}</priority>\n  </url>\n" for u, ok, cf, pr in written if ok)
+open(f"{REPO}/list/sitemap.xml","w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ent + '</urlset>\n')
+open(f"{REPO}/list/robots.txt","w").write("User-agent: *\nAllow: /\n\n# The Yorkseed List: startup and tech events by city\n# AI index: https://list.yorkseed.co/llms.txt\n# Event feed: https://list.yorkseed.co/feed.json\n\nSitemap: https://list.yorkseed.co/sitemap.xml\n")
 print(f"{len(hubs)} city pages ({sum(1 for _,ok,_,_ in written if ok)} indexable), {len(weeks)} week pages, {total} events")
 
 # ---- internal links: each city's community guide points to its events page ----
@@ -319,7 +321,7 @@ for h in hubs.values():
     n = len(by_hub.get(h["id"], []))
     box = (f'\n<aside id="ysListLink" style="max-width:760px;margin:32px auto;padding:20px 24px;border:1px solid rgba(0,0,0,.1);background:#fff;font-family:\'DM Sans\',system-ui,sans-serif">'
            f'<div style="font:400 10px \'DM Mono\',monospace;letter-spacing:.1em;text-transform:uppercase;color:#c8102e;margin-bottom:6px">The Yorkseed List</div>'
-           f'<a href="/list/{h["slug"]}/" style="font:400 20px \'Playfair Display\',Georgia,serif;color:#111;text-decoration:none">Startup and tech events in {e_(h["name"])} →</a>'
+           f'<a href="{LIST}{h["slug"]}/" style="font:400 20px \'Playfair Display\',Georgia,serif;color:#111;text-decoration:none">Startup and tech events in {e_(h["name"])} →</a>'
            f'<p style="margin:6px 0 0;font-size:14px;color:#555">{n} upcoming founder, investor and tech events, updated continuously.</p></aside>\n')
     i = s.find("<yk-footer")
     if i < 0: i = s.rfind("<footer")
