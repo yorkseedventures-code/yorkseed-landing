@@ -2,6 +2,8 @@
 # Each deploy rebuilds The Yorkseed List pages from list/data/master.json + list/events.json.
 # The "|| echo" means a failed rebuild never blocks a deploy: the last built pages stay live.
 [build]
+  # Publish only the weekly rebuild or a commit marked [deploy]; every other push is skipped (no credits used)
+  ignore = "git log -1 --pretty=%B | grep -qF '[deploy]' && exit 1 || exit 0"
   publish = "."
   command = "python3 scripts/build_list_pages.py || echo 'List rebuild skipped'"
 
