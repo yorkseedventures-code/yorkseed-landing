@@ -38,7 +38,10 @@ jobs:
           git add -A list sitemap.xml *-startup-communities.html
           if git diff --cached --quiet; then echo "No changes"; exit 0; fi
           git commit -m "The List: daily rebuild $(date -u +%Y-%m-%d)"
-          git pull --rebase -q origin main || true
-          git push
+          # if someone pushed while this ran, keep their changes and this run's imported data
+          for i in 1 2 3; do
+            git pull --rebase -X theirs -q origin main || { git rebase --abort; git pull --no-rebase -X ours -q origin main; }
+            git push && break; sleep 5
+          done
       - name: Tell search engines about new pages (IndexNow)
         run: sleep 90; python3 scripts/indexnow.py || true
