@@ -71,7 +71,7 @@ def resolve(item):
 def import_pending():
     pend_p, ev_p, mas_p = f"{REPO}/list/data/pending-import.json", f"{REPO}/list/events.json", f"{REPO}/list/data/master.json"
     pend = load(pend_p, [])
-    if not pend: return []
+    if not pend: return {}
     events = load(ev_p, []); master = load(mas_p, {"events": []})
     norm = lambda s: re.sub(r'[^a-z0-9]+', '', (s or '').lower())[:40]
     seen_l = {(e.get("link") or "").split("?")[0].rstrip("/") for e in events + master["events"]}
@@ -90,6 +90,111 @@ def import_pending():
     json.dump(events, open(ev_p, "w"), ensure_ascii=False, indent=1)
     json.dump(left, open(pend_p, "w"), ensure_ascii=False, indent=1)
     print(f"import: {added} added, {len(left)} still unresolved")
+    return photos
+
+# ---------- 1b. import whole city calendars (list/data/pending-cities.json) ----------
+from zoneinfo import ZoneInfo
+def hub_tz(hub):
+    m = load(f"{REPO}/list/data/master.json", {"hubs": []})
+    return next((h["tz"] for h in m["hubs"] if h["id"] == hub), "UTC")
+
+def to_local(iso, tz):
+    try:
+        d = dt.datetime.fromisoformat(iso.replace("Z", "+00:00"))
+        if d.tzinfo is None: return d.date().isoformat(), d.strftime("%H:%M") if "T" in iso else None
+        d = d.astimezone(ZoneInfo(tz)); return d.date().isoformat(), d.strftime("%H:%M")
+    except Exception: return None, None
+
+def luma_event(link):
+    slug = urlsplit(link).path.strip("/").split("/")[0]
+    try:
+        r = urlopen(Request("https://api.lu.ma/url?url=" + slug, headers={**UA, "Accept": "application/json"}), timeout=15)
+        d = json.loads(r.read().decode("utf-8", "ignore")).get("data") or {}; e = d.get("event") or {}
+        if not e.get("name"): return None
+        g = e.get("geo_address_info") or {}
+        def txt(n):
+            if isinstance(n, list): return " ".join(txt(x) for x in n)
+            if isinstance(n, dict): return (n.get("text") or "") + " " + txt(n.get("content") or [])
+            return ""
+        return {"title": e["name"], "start": e.get("start_at"), "end": e.get("end_at"), "city": g.get("city", ""),
+                "venue": (g.get("sublocality") if g.get("mode") == "obfuscated" else (g.get("address") or "")) or "",
+                "host": " & ".join([h.get("name") for h in (d.get("hosts") or []) if h.get("name")][:2]),
+                "desc": short(txt(d.get("description_mirror"))), "photo": e.get("cover_url") or ""}
+    except Exception: return None
+
+def ld_event(page):
+    for b in re.findall(r'<script[^>]+application/ld\+json[^>]*>(.*?)</script>', page, re.S | re.I):
+        try: data = json.loads(b.strip())
+        except Exception: continue
+        for it in (data.get("@graph") if isinstance(data, dict) and data.get("@graph") else (data if isinstance(data, list) else [data])):
+            if isinstance(it, dict) and "Event" in str(it.get("@type", "")):
+                loc = it.get("location") or {}; loc = loc[0] if isinstance(loc, list) and loc else loc
+                addr = loc.get("address") if isinstance(loc, dict) else ""
+                org = it.get("organizer") or {}; org = org[0] if isinstance(org, list) and org else org
+                img = it.get("image"); img = img[0] if isinstance(img, list) and img else img
+                return {"title": html.unescape(it.get("name") or ""), "start": it.get("startDate"), "end": it.get("endDate"),
+                        "city": addr.get("addressLocality", "") if isinstance(addr, dict) else "",
+                        "venue": ", ".join(x for x in [loc.get("name") if isinstance(loc, dict) else "", addr.get("streetAddress") if isinstance(addr, dict) else ""] if x),
+                        "host": org.get("name", "") if isinstance(org, dict) else "", "desc": short(html.unescape(it.get("description") or "")),
+                        "photo": img if isinstance(img, str) else ((img or {}).get("url") if isinstance(img, dict) else "")}
+    return None
+
+def city_event(args):
+    ev_url, hub = args
+    try:
+        final, page = get(ev_url)
+        base = ld_event(page) or {"title": meta(page, "og:title"), "start": "", "desc": "", "photo": meta(page, "og:image")}
+        hrefs = [urljoin(final, h) for h in re.findall(r'href=["\']([^"\']+)["\']', page)]
+        outs = [h for h in hrefs if "/out/" in h] + [h for h in hrefs if h.startswith("http") and not SKIP_HOSTS.search(urlsplit(h).netloc)]
+        reg, info = "", None
+        for c in outs[:4]:
+            try:
+                r, rp = get(c)
+                if SKIP_HOSTS.search(urlsplit(r).netloc): continue
+                reg = clean(r)
+                info = luma_event(reg) if re.search(r'(lu\.ma|luma\.com)', urlsplit(reg).netloc) else (ld_event(rp) or {"title": meta(rp, "og:title"), "desc": short(meta(rp, "og:description", "description")), "photo": photo_from(r, rp)})
+                break
+            except Exception: continue
+        if not reg: return None
+        info = {**{k: v for k, v in (base or {}).items() if v}, **{k: v for k, v in (info or {}).items() if v}}
+        if not info.get("title") or not info.get("start"): return None
+        tz = hub_tz(hub); date, start = to_local(info["start"], tz)
+        if not date: return None
+        end = to_local(info["end"], tz) if info.get("end") else (None, None)
+        return {"title": re.sub(r'\s*[|·-]\s*(Luma|Eventbrite|Meetup|Partiful)\s*$', '', info["title"]).strip(), "hub": hub, "date": date,
+                "start": start, "end": end[1] if end[0] == date else None, "venue": info.get("venue", ""), "host": info.get("host", ""),
+                "link": reg, "desc": info.get("desc", ""), "_photo": info.get("photo", "")}
+    except Exception: return None
+
+def import_cities():
+    pc_p = f"{REPO}/list/data/pending-cities.json"; cities = load(pc_p, [])
+    if not cities: return {}
+    jobs = []
+    for c in cities:
+        try:
+            final, page = get(c["url"])
+            urls = sorted({urljoin(final, h).split("?")[0] for h in re.findall(r'href=["\']([^"\']*/events/[^"\'#?]+)', page)})
+            jobs += [(u, c["hub"]) for u in urls]
+            print(f"city {c['hub']}: {len(urls)} event pages")
+        except Exception as ex: print(f"city {c['hub']}: failed {ex}")
+    with ThreadPoolExecutor(6) as ex: res = [r for r in ex.map(city_event, jobs) if r]
+    events = load(f"{REPO}/list/events.json", []); master = load(f"{REPO}/list/data/master.json", {"events": []})
+    norm = lambda s: re.sub(r'[^a-z0-9]+', '', (s or '').lower())[:40]
+    seen_l = {(e.get("link") or "").split("?")[0].rstrip("/") for e in events + master["events"]}
+    seen_t = {(norm(e.get("title")), e.get("date")) for e in events + master["events"]}
+    photos, added = {}, 0
+    for r in res:
+        if r["date"] < TODAY: continue
+        k = r["link"].split("?")[0].rstrip("/")
+        if k in seen_l or (norm(r["title"]), r["date"]) in seen_t: continue
+        seen_l.add(k); seen_t.add((norm(r["title"]), r["date"]))
+        if r.get("_photo"): photos[r["link"]] = r["_photo"]
+        r.pop("_photo", None)
+        if not r.get("desc"): r["desc"] = "Details and registration on the event page."
+        events.append(r); added += 1
+    json.dump(events, open(f"{REPO}/list/events.json", "w"), ensure_ascii=False, indent=1)
+    json.dump([], open(pc_p, "w"))
+    print(f"cities import: {added} new events from {len(jobs)} pages")
     return photos
 
 # ---------- 2. real event photos ----------
@@ -137,4 +242,8 @@ def refresh_photos(seed):
     print(f"photos: {sum(1 for v in cache.values() if v.get('img'))} of {len(cache)} events have a real photo ({len(todo)} checked)")
 
 if __name__ == "__main__":
-    refresh_photos(import_pending())
+    seed = {}
+    for step in (import_pending, import_cities):
+        try: seed.update(step() or {})
+        except Exception as ex: print(f"{step.__name__} failed: {ex}")
+    refresh_photos(seed)
