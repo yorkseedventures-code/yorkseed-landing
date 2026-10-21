@@ -157,7 +157,7 @@ def rows(evs, camp, show_city=False):
         h = hubs[e["hub"]]
         bits = [x for x in [h["name"] if show_city else "", e["host"], place(e), e["type"]] if x]
         title = f'<a href="{e_(ref(e["link"], camp))}" target="_blank" rel="noopener">{e_(e["title"])}</a>' if e["link"] else e_(e["title"])
-        ys = '<span class="ys">Yorkseed</span>' if e["place"] == "spotlight" else ""
+        ys = '<span class="ys">★ Yorkseed</span>' if e["place"] == "spotlight" else ""
         out.append(f'<article class="ev"><time datetime="{iso(e,"start")}">{t12(e["start"])}</time><div><h4>{title}{ys}</h4><div class="s">{e_(" · ".join(bits))}</div>{f"<p>{e_(e[chr(100)+chr(101)+chr(115)+chr(99)])}</p>" if e["desc"] else ""}</div></article>')
     if cur is not None: out.append("</section>")
     return "\n".join(out)
@@ -293,12 +293,9 @@ open(f"{REPO}/list/llms.txt","w").write("\n".join(L) + "\n")
 
 # ---- static city index injected into the interactive List (crawlable links) ----
 li = open(f"{REPO}/list/index.html").read()
-block = ('<section id="ysSeoCities" style="max-width:1200px;margin:0 auto;padding:28px 20px 8px;font-family:\'DM Sans\',system-ui,sans-serif">'
-         '<h2 style="font:400 22px Georgia,serif;margin:0 0 10px">Startup events by city</h2><p style="margin:0 0 12px;font-size:14px;color:#555">'
-         + " · ".join(f'<a href="/{h["slug"]}/" style="color:inherit">{e_(h["name"] if h["id"]!="virtual" else "Online")}</a>' for h in city_order)
-         + (('</p><p style="margin:0;font-size:14px;color:#555">Side events: ' + " · ".join(f'<a href="/{w["slug"]}/" style="color:inherit">{e_(w["name"])}</a>' for w in weeks)) if weeks else "")
-         + ' · <a href="/cities/" style="color:#c8102e">All cities</a></p></section>')
-li = re.sub(r'<section id="ysSeoCities".*?</section>', '', li, flags=re.S)
+block = ('<p id="ysSeoCities" style="max-width:1200px;margin:0 auto;padding:16px 20px;font:400 11px \'DM Mono\',monospace;letter-spacing:.1em;text-transform:uppercase">'
+         '<a href="/cities/" style="color:#888;text-decoration:none">Browse startup events by city →</a></p>')
+li = re.sub(r'<(section|details|p) id="ysSeoCities".*?</(section|details|p)>', '', li, flags=re.S)
 i = li.find('<footer class="foot ysfoot"')
 li = li[:i] + block + "\n" + li[i:] if i > 0 else li.replace("</body>", block + "</body>")
 open(f"{REPO}/list/index.html","w").write(li)
