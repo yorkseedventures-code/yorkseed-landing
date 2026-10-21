@@ -1501,15 +1501,6 @@ input::placeholder,textarea::placeholder{font-size:13.5px;color:var(--soft);opac
 </div>
 </main>
 
-
-
-
-
-
-
-
-
-
 <p id="ysSeoCities" style="max-width:1200px;margin:0 auto;padding:16px 20px;font:400 11px 'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase"><a href="/cities/" style="color:#888;text-decoration:none">Browse startup events by city →</a></p>
 <footer class="foot ysfoot">
   <div class="fwrap">
@@ -1664,7 +1655,7 @@ function evSlug(e){return ((e.title||"event").toLowerCase().normalize("NFKD").re
 function evUrl(e){return "https://list.yorkseed.co/#e/"+evSlug(e);}
 function evBySlug(s){return EVENTS.find(x=>evSlug(x)===s);}
 let PENDING_EV=null;
-function openFromHash(){const m=(location.hash||"").match(/^#e\/(.+)$/);if(!m)return false;const s=decodeURIComponent(m[1]);const e=evBySlug(s);if(e){PENDING_EV=null;if(st.view!=="event"||st.evId!==e.id)goEvent(e.id);return true;}PENDING_EV=s;return false;}
+function openFromHash(){const m=(location.hash||"").match(/^#e\/(.+)$/);if(!m)return false;const s=decodeURIComponent(m[1]);const e=evBySlug(s);if(e){PENDING_EV=null;if(st.view!=="event"||st.evId!==e.id){const was=NAV_SILENT;NAV_SILENT=NAV_SILENT||!(history.state&&history.state.ys);try{goEvent(e.id);}finally{NAV_SILENT=was;}}return true;}PENDING_EV=s;return false;}
 function setEvHash(e){try{history.replaceState(null,"","#e/"+evSlug(e));}catch(err){}}
 function clearEvHash(){try{if(/^#e\//.test(location.hash))history.replaceState(null,"",location.pathname+location.search);}catch(err){}}
 window.addEventListener("hashchange",openFromHash);
@@ -1687,15 +1678,25 @@ function calMenu(e,btn){let m=document.getElementById("calMenu");if(m){m.remove(
 async function shareEv(e){const h=hubById(e.hub),d=dParts(e.date),url=evUrl(e);const text=`${e.title} · ${d.long}${e.noTime?"":", "+fE(e,h.tz)+" "+abE(e,h.tz)} · ${h.name}`;
   if(navigator.share){try{await navigator.share({title:e.title,text,url});return;}catch(err){if(err&&err.name==="AbortError")return;}}
   try{await navigator.clipboard.writeText(url);toast("Link copied. Paste it anywhere to share this event.");}catch(err){toast(url);}}
-function show(view){
-  if(view!=="event")clearEvHash();
+/* each screen is its own browser history step, so swipe-back and the Back button return to the previous screen */
+let NAV_SILENT=false,NAV_DEPTH=0;
+function navKey(){return st.view+"|"+(st.view==="city"?st.hub:"")+"|"+(st.view==="event"?st.evId:"");}
+function navState(){return{ys:1,view:st.view,hub:st.hub,evId:st.evId};}
+function navUrl(){const e=st.view==="event"&&EVENTS.find(x=>x.id===st.evId);return e?"#e/"+evSlug(e):location.pathname+location.search;}
+function show(view,prevKey){
+  if(prevKey===undefined)prevKey=navKey();
+  if(!NAV_SILENT){try{history.replaceState({...(history.state&&history.state.ys?history.state:navState()),y:scrollY},"");}catch(err){}}
   st.view=view;
   $("#vHome").hidden=view!=="home";$("#vCity").hidden=view!=="city";$("#vEvent").hidden=view!=="event";
   if(view==="city")renderCity();if(view==="event")renderEvent();
   scrollTo({top:0,behavior:"instant"});
+  if(navKey()!==prevKey){try{if(NAV_SILENT)history.replaceState(navState(),"",navUrl());else{history.pushState(navState(),"",navUrl());NAV_DEPTH++;}}catch(err){}}
 }
-function goCity(hub,keepSaved){if(!keepSaved)st.savedOnly=false;if(hub)st.hub=hub;st.day=null;st.month="";st.prev="city";show("city");}
-function goEvent(id){st.prev=st.view==="event"?st.prev:st.view;st.evId=id;show("event");const e=EVENTS.find(x=>x.id===id);if(e)setEvHash(e);}
+function goCity(hub,keepSaved){const k=navKey();if(!keepSaved)st.savedOnly=false;if(hub)st.hub=hub;st.day=null;st.month="";st.prev="city";show("city",k);}
+function goEvent(id){const k=navKey();st.prev=st.view==="event"?st.prev:st.view;st.evId=id;show("event",k);}
+window.addEventListener("popstate",ev=>{const s=ev.state;NAV_SILENT=true;
+  try{if(s&&s.ys){NAV_DEPTH=Math.max(0,NAV_DEPTH-1);if(s.hub)st.hub=s.hub;if(s.evId)st.evId=s.evId;show(s.view||"home");const y=s.y||0;requestAnimationFrame(()=>requestAnimationFrame(()=>scrollTo({top:y,behavior:"instant"})));}
+      else if(!openFromHash())show("home");}finally{NAV_SILENT=false;}});
 
 // home
 function renderHome(){
@@ -2011,7 +2012,7 @@ document.addEventListener("click",ev=>{
   if(t.dataset.clear){if(t.dataset.clear==="date")st.date="any";else if(t.dataset.clear==="day")st.day=null;else if(t.dataset.clear==="savedOnly")st.savedOnly=false;else st[t.dataset.clear]=t.dataset.clear==="q"?"":null;renderCity();return;}
 });
 document.addEventListener("keydown",ev=>{if(ev.key==="Enter"&&ev.target.matches("article[data-ev]"))goEvent(ev.target.dataset.ev);if(ev.key==="Escape")$("#modal").hidden=true;});
-$("#backBtn").onclick=()=>show(st.prev==="event"?"home":st.prev);
+$("#backBtn").onclick=()=>{if(NAV_DEPTH>0)history.back();else show(st.prev==="event"?"home":st.prev);};
 $("#fCity").onchange=e=>{st.hub=e.target.value;st.week=null;st.day=null;st.month="";renderCity();};$("#fType").onchange=e=>{st.type=e.target.value;renderCity();};$("#fDate").onchange=e=>{st.date=e.target.value;st.day=null;renderCity();};
 {const mb=$("#menuBtn"),mn=$("#mnav");const setM=o=>{mn.hidden=!o;mb.setAttribute("aria-expanded",String(o));mb.classList.toggle("on",o);};mb.onclick=()=>setM(mn.hidden);mn.addEventListener("click",e=>{if(e.target.closest("button,a"))setM(false);});addEventListener("resize",()=>{if(innerWidth>980)setM(false);});}
 $("#homeSel").onchange=e=>{const v=e.target.value;setHome(v);st.q="";st.date="any";st.topic=null;st.week=null;st.type="all";goCity(v);};
@@ -2317,7 +2318,7 @@ if($("#tiers"))$("#tiers").innerHTML=TIERS.map(t=>`<div class="tier${t.rec?" rec
 syncWeeks();renderHome();paneShow();
 setInterval(()=>{if(st.view==="home")renderCityRow();},30000);
 const hash=(location.hash||"").slice(1);
-if(/^e\//.test(hash))openFromHash();else if(hash==="events")goCity("all");else if(HUBS.some(h=>h.id===hash))goCity(hash);else if(["submit","pricing","partner","weeks"].includes(hash))scrollToId(hash);
+NAV_SILENT=true;try{if(/^e\//.test(hash))openFromHash();else if(hash==="events")goCity("all");else if(HUBS.some(h=>h.id===hash))goCity(hash);else if(["submit","pricing","partner","weeks"].includes(hash))scrollToId(hash);}finally{NAV_SILENT=false;}
 
 makePicker($("#homeSel"));makePicker($("#hHub"),true);makePicker($("#fCity"),true);
 
