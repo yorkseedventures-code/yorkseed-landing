@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Free Startup Funding Calculators — SAFE, Convertible Note, ASA/SeedFAST, BSA Air | Yorkseed</title>
-<meta name="description" content="Free venture calculators by Yorkseed — SAFE notes (post-money, YC standard), convertible notes, UK ASA/SeedFAST, and French BSA Air. Model equity conversion before you sign. No sign-up required."/>
+<title>Free Startup Funding Calculators | SAFE, Convertible Note, ASA/SeedFAST, BSA Air | Yorkseed</title>
+<meta name="description" content="Free venture calculators by Yorkseed, SAFE notes (post-money, YC standard), convertible notes, UK ASA/SeedFAST, and French BSA Air. Model equity conversion before you sign. No sign-up required."/>
 <meta name="keywords" content="SAFE note calculator, convertible note calculator, ASA SeedFAST calculator, BSA Air calculator, free startup calculator, equity dilution calculator, funding calculator, pre-money SAFE, post-money SAFE, YC SAFE, startup equity tool, venture calculator, free tools startup, Yorkseed tools, Yorkseed free tools, Valois, venture tools, founder tools, cap table tool, fundraising calculator, convertible instrument"/>
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
 <link rel="canonical" href="https://yorkseed.co/tools"/>
@@ -264,8 +264,8 @@ footer{background:var(--ink2);padding:24px 6vw 20px;border-top:1px solid rgba(25
       "@type": "WebPage",
       "@id": "https://yorkseed.co/tools#webpage",
       "url": "https://yorkseed.co/tools",
-      "name": "Free Startup Funding Calculators — SAFE, Convertible Note, ASA/SeedFAST, BSA Air | Yorkseed",
-      "description": "Free venture calculators by Yorkseed — SAFE notes (post-money, YC standard), convertible notes, UK ASA/SeedFAST, and French BSA Air. Model equity conversion before you sign. No sign-up required.",
+      "name": "Free Startup Funding Calculators, SAFE, Convertible Note, ASA/SeedFAST, BSA Air | Yorkseed",
+      "description": "Free venture calculators by Yorkseed, SAFE notes (post-money, YC standard), convertible notes, UK ASA/SeedFAST, and French BSA Air. Model equity conversion before you sign. No sign-up required.",
       "isPartOf": {"@id": "https://yorkseed.co/#website"},
       "about": {"@id": "https://yorkseed.co/#organization"},
       "breadcrumb": {
@@ -281,10 +281,13 @@ footer{background:var(--ink2);padding:24px 6vw 20px;border-top:1px solid rgba(25
 </script>
 <meta name="twitter:site" content="@yorkseed"/>
 <meta name="twitter:image" content="https://s6.imgcdn.dev/Yfq1dl.png"/>
-<meta name="twitter:image:alt" content="Yorkseed — The Private Global Venture Network"/>
+<meta name="twitter:image:alt" content="Yorkseed | The Private Global Venture Network"/>
 <meta property="og:type" content="website"/>
 <script src="/assets/site-chrome.js" defer></script>
 <style>yk-header:not(:defined){display:block;min-height:73px}</style>
+<script src="/assets/ys-ref.js" defer></script>
+<meta property="og:image" content="https://yorkseed.co/og-image.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
 </head>
 <body>
 
@@ -297,7 +300,7 @@ footer{background:var(--ink2);padding:24px 6vw 20px;border-top:1px solid rgba(25
     <div class="kicker">Free Resources</div>
     <h1 class="page-h1">Venture calculators.<br><em>No sign-up required.</em></h1>
     <div class="page-rule"></div>
-    <p class="page-sub">Model equity conversion for SAFE notes, convertible notes, UK ASA / SeedFAST, and French BSA Air — before you sign anything.</p>
+    <p class="page-sub">Model equity conversion for SAFE notes, convertible notes, UK ASA / SeedFAST, and French BSA Air, before you sign anything.</p>
     <span class="free-badge">✦ Completely free &nbsp;·&nbsp; No account needed</span>
     <div class="region-badges">
       <span class="region-badge">🌍 US SAFE (YC post-money)</span>
@@ -327,13 +330,13 @@ footer{background:var(--ink2);padding:24px 6vw 20px;border-top:1px solid rgba(25
 </div>
 
 <!-- ════════════════════════════════════════════════════════════
-     TAB 1 — SAFE (Post-money, YC standard)
+     TAB 1, SAFE (Post-money, YC standard)
      ════════════════════════════════════════════════════════════ -->
 <div class="calc-section active" id="tab-safe">
   <div class="section-heading">
-    <h2>SAFE Note Calculator <em>— post-money cap (YC standard)</em></h2>
+    <h2>SAFE Note Calculator <em>post-money cap (YC standard)</em></h2>
     <p>
-      Used primarily in the US. Ownership % = Investment ÷ Post-money cap — locked at signing.<br>
+      Used primarily in the US. Ownership % = Investment ÷ Post-money cap, locked at signing.<br>
       e.g. $1M on a $10M cap = exactly <strong>10%</strong>, regardless of share count.<br>
       <strong>Exception:</strong> if the next round valuation is <em>below</em> the cap, the investor converts at the round price and may receive <em>more</em> than the headline ownership %.
     </p>
@@ -347,7 +350,7 @@ footer{background:var(--ink2);padding:24px 6vw 20px;border-top:1px solid rgba(25
       </div>
       <div class="field"><label>Investment amount ($)</label><input type="text" id="s-inv" placeholder="e.g. 1,000,000" oninput="calcSafe()"/></div>
       <div class="field"><label>Post-money valuation cap ($)</label><input type="text" id="s-cap" placeholder="e.g. 10,000,000" oninput="calcSafe()"/></div>
-      <div class="field"><label>Discount (% off round price — optional)</label><input type="text" id="s-disc" placeholder="e.g. 20 (leave blank if none)" oninput="calcSafe()"/></div>
+      <div class="field"><label>Discount (% off round price: optional)</label><input type="text" id="s-disc" placeholder="e.g. 20 (leave blank if none)" oninput="calcSafe()"/></div>
       <div class="field-divider"></div>
       <div class="section-label" style="margin-bottom:8px">Next priced round (for discount comparison)</div>
       <div class="field"><label>Pre-money valuation at next round ($)</label><input type="text" id="s-pre" placeholder="e.g. 15,000,000" oninput="calcSafe()"/></div>
@@ -356,17 +359,17 @@ footer{background:var(--ink2);padding:24px 6vw 20px;border-top:1px solid rgba(25
         <label>MFN clause?</label>
         <select id="s-mfn" onchange="calcSafe()">
           <option value="no">No MFN clause</option>
-          <option value="yes">Yes — MFN clause included</option>
+          <option value="yes">Yes: MFN clause included</option>
         </select>
       </div>
       <div class="note warn" id="s-mfn-note" style="display:none">
-        <strong>MFN (Most Favoured Nation):</strong> if you issue a later SAFE on better terms, this investor automatically upgrades. Founder-unfriendly — negotiate out if possible.
+        <strong>MFN (Most Favoured Nation):</strong> if you issue a later SAFE on better terms, this investor automatically upgrades. Founder-unfriendly, negotiate out if possible.
       </div>
       <div class="note info">
-        <strong>Note on terminology:</strong> A "20% discount" means the investor pays 20% less than the round price (80% of round price). YC uses "discount rate" to mean the rate itself (e.g. 80%) — this calculator uses the simpler term: just enter <em>20</em> to mean 20% off.
+        <strong>Note on terminology:</strong> A "20% discount" means the investor pays 20% less than the round price (80% of round price). YC uses "discount rate" to mean the rate itself (e.g. 80%); this calculator uses the simpler term: just enter <em>20</em> to mean 20% off.
       </div>
       <div class="note gold">
-        <strong>Post-money cap formula:</strong> Ownership % = Investment ÷ Cap. If the round valuation is below the cap, the SAFE converts at the lower round price — which means the investor gets <em>more</em> shares than the headline % implies.
+        <strong>Post-money cap formula:</strong> Ownership % = Investment ÷ Cap. If the round valuation is below the cap, the SAFE converts at the lower round price, which means the investor gets <em>more</em> shares than the headline % implies.
       </div>
     </div>
     <!-- RESULTS -->
@@ -375,19 +378,19 @@ footer{background:var(--ink2);padding:24px 6vw 20px;border-top:1px solid rgba(25
         <div class="results-empty" id="safe-empty"><div class="big">S</div><div class="msg">Fill in the inputs to model conversion</div></div>
         <div id="safe-output" style="display:none">
           <div class="result-section-label">Ownership (cap route)</div>
-          <div class="result-row"><span class="result-label">Ownership locked at signing</span><span class="result-value" id="s-ownership-locked">—</span></div>
-          <div class="result-row"><span class="result-label">Conversion scenario</span><span class="result-value" id="s-scenario">—</span></div>
-          <div class="result-row"><span class="result-label">Active conversion method</span><span class="result-value" id="s-method">—</span></div>
-          <div class="result-row"><span class="result-label">Conversion price / share</span><span class="result-value" id="s-price">—</span></div>
-          <div class="result-row"><span class="result-label">Shares issued</span><span class="result-value" id="s-issued">—</span></div>
-          <div class="result-row"><span class="result-label">Post-conversion total shares</span><span class="result-value" id="s-post-shares">—</span></div>
-          <div class="result-row"><span class="result-label">Actual ownership post-conversion</span><span class="result-value" id="s-ownership">—</span></div>
-          <div class="result-row" id="s-disc-row" style="display:none"><span class="result-label">Discount price / share</span><span class="result-value" id="s-discount-price">—</span></div>
+          <div class="result-row"><span class="result-label">Ownership locked at signing</span><span class="result-value" id="s-ownership-locked">-</span></div>
+          <div class="result-row"><span class="result-label">Conversion scenario</span><span class="result-value" id="s-scenario">-</span></div>
+          <div class="result-row"><span class="result-label">Active conversion method</span><span class="result-value" id="s-method">-</span></div>
+          <div class="result-row"><span class="result-label">Conversion price / share</span><span class="result-value" id="s-price">-</span></div>
+          <div class="result-row"><span class="result-label">Shares issued</span><span class="result-value" id="s-issued">-</span></div>
+          <div class="result-row"><span class="result-label">Post-conversion total shares</span><span class="result-value" id="s-post-shares">-</span></div>
+          <div class="result-row"><span class="result-label">Actual ownership post-conversion</span><span class="result-value" id="s-ownership">-</span></div>
+          <div class="result-row" id="s-disc-row" style="display:none"><span class="result-label">Discount price / share</span><span class="result-value" id="s-discount-price">-</span></div>
         </div>
       </div>
       <div class="stat-blocks" id="safe-stats" style="display:none">
-        <div class="stat-block"><div class="sl">Cap ownership %</div><div class="sv" id="s-stat-own">—</div><div class="sh" id="s-stat-own-note">locked at signing</div></div>
-        <div class="stat-block"><div class="sl">Shares issued</div><div class="sv" id="s-stat-shares">—</div><div class="sh" id="s-stat-shares-note">—</div></div>
+        <div class="stat-block"><div class="sl">Cap ownership %</div><div class="sv" id="s-stat-own">-</div><div class="sh" id="s-stat-own-note">locked at signing</div></div>
+        <div class="stat-block"><div class="sl">Shares issued</div><div class="sv" id="s-stat-shares">-</div><div class="sh" id="s-stat-shares-note">-</div></div>
       </div>
       <div class="insight-box" id="safe-insights" style="display:none">
         <div class="il">Insight</div>
@@ -398,11 +401,11 @@ footer{background:var(--ink2);padding:24px 6vw 20px;border-top:1px solid rgba(25
 </div>
 
 <!-- ════════════════════════════════════════════════════════════
-     TAB 2 — CONVERTIBLE NOTE
+     TAB 2, CONVERTIBLE NOTE
      ════════════════════════════════════════════════════════════ -->
 <div class="calc-section" id="tab-conv">
   <div class="section-heading">
-    <h2>Convertible Note Calculator <em>— principal + interest → shares</em></h2>
+    <h2>Convertible Note Calculator <em>principal + interest → shares</em></h2>
     <p>Convertible notes are debt instruments. They accrue interest (simple or compound), which converts alongside principal. Common globally but especially in the US and Europe.</p>
   </div>
   <div class="calc-grid">
@@ -425,7 +428,7 @@ footer{background:var(--ink2);padding:24px 6vw 20px;border-top:1px solid rgba(25
         <div class="field"><label>Maturity date</label><input type="date" id="c-maturity" oninput="calcConv()"/></div>
       </div>
       <div class="field"><label>Valuation cap ($)</label><input type="text" id="c-cap" placeholder="e.g. 6,000,000" oninput="calcConv()"/></div>
-      <div class="field"><label>Discount (% off round price — optional)</label><input type="text" id="c-disc" placeholder="e.g. 20" oninput="calcConv()"/></div>
+      <div class="field"><label>Discount (% off round price: optional)</label><input type="text" id="c-disc" placeholder="e.g. 20" oninput="calcConv()"/></div>
       <div class="field-divider"></div>
       <div class="section-label" style="margin-bottom:8px">Priced round details</div>
       <div class="field"><label>Pre-money valuation at next round ($)</label><input type="text" id="c-pre" placeholder="e.g. 12,000,000" oninput="calcConv()"/></div>
@@ -446,22 +449,22 @@ footer{background:var(--ink2);padding:24px 6vw 20px;border-top:1px solid rgba(25
         <div class="results-empty" id="conv-empty"><div class="big">C</div><div class="msg">Fill in the inputs to model note conversion</div></div>
         <div id="conv-output" style="display:none">
           <div class="result-section-label">Interest &amp; principal</div>
-          <div class="result-row"><span class="result-label">Principal</span><span class="result-value" id="c-r-principal">—</span></div>
-          <div class="result-row"><span class="result-label">Term</span><span class="result-value" id="c-r-term">—</span></div>
-          <div class="result-row"><span class="result-label">Interest type</span><span class="result-value" id="c-r-itype">—</span></div>
-          <div class="result-row"><span class="result-label">Accrued interest</span><span class="result-value" id="c-r-interest">—</span></div>
-          <div class="result-row"><span class="result-label">Total converting amount</span><span class="result-value" id="c-r-total">—</span></div>
+          <div class="result-row"><span class="result-label">Principal</span><span class="result-value" id="c-r-principal">-</span></div>
+          <div class="result-row"><span class="result-label">Term</span><span class="result-value" id="c-r-term">-</span></div>
+          <div class="result-row"><span class="result-label">Interest type</span><span class="result-value" id="c-r-itype">-</span></div>
+          <div class="result-row"><span class="result-label">Accrued interest</span><span class="result-value" id="c-r-interest">-</span></div>
+          <div class="result-row"><span class="result-label">Total converting amount</span><span class="result-value" id="c-r-total">-</span></div>
           <div class="result-section-label" style="margin-top:16px">Conversion</div>
-          <div class="result-row"><span class="result-label">Conversion method</span><span class="result-value" id="c-method">—</span></div>
-          <div class="result-row"><span class="result-label">Conversion price / share</span><span class="result-value" id="c-price">—</span></div>
-          <div class="result-row"><span class="result-label">Shares issued</span><span class="result-value" id="c-issued">—</span></div>
-          <div class="result-row"><span class="result-label">Investor ownership post-conversion</span><span class="result-value" id="c-ownership">—</span></div>
-          <div class="result-row"><span class="result-label">Effective entry valuation</span><span class="result-value" id="c-effective">—</span></div>
+          <div class="result-row"><span class="result-label">Conversion method</span><span class="result-value" id="c-method">-</span></div>
+          <div class="result-row"><span class="result-label">Conversion price / share</span><span class="result-value" id="c-price">-</span></div>
+          <div class="result-row"><span class="result-label">Shares issued</span><span class="result-value" id="c-issued">-</span></div>
+          <div class="result-row"><span class="result-label">Investor ownership post-conversion</span><span class="result-value" id="c-ownership">-</span></div>
+          <div class="result-row"><span class="result-label">Effective entry valuation</span><span class="result-value" id="c-effective">-</span></div>
         </div>
       </div>
       <div class="stat-blocks" id="conv-stats" style="display:none">
-        <div class="stat-block"><div class="sl">Ownership granted</div><div class="sv" id="c-stat-own">—</div><div class="sh" id="c-stat-own-note">—</div></div>
-        <div class="stat-block"><div class="sl">Total converting</div><div class="sv" id="c-stat-total">—</div><div class="sh" id="c-stat-interest-note">—</div></div>
+        <div class="stat-block"><div class="sl">Ownership granted</div><div class="sv" id="c-stat-own">-</div><div class="sh" id="c-stat-own-note">-</div></div>
+        <div class="stat-block"><div class="sl">Total converting</div><div class="sv" id="c-stat-total">-</div><div class="sh" id="c-stat-interest-note">-</div></div>
       </div>
       <div class="note danger" id="conv-maturity-warn" style="display:none;margin-top:10px"></div>
     </div>
@@ -469,14 +472,14 @@ footer{background:var(--ink2);padding:24px 6vw 20px;border-top:1px solid rgba(25
 </div>
 
 <!-- ════════════════════════════════════════════════════════════
-     TAB 3 — ASA / SeedFAST (UK)
+     TAB 3, ASA / SeedFAST (UK)
      ════════════════════════════════════════════════════════════ -->
 <div class="calc-section" id="tab-asa">
   <div class="section-heading">
-    <h2>ASA / SeedFAST Calculator <em>— UK standard</em></h2>
+    <h2>ASA / SeedFAST Calculator <em>UK standard</em></h2>
     <p>
       In the UK, founders don't use SAFEs. The standard instruments are the <strong>ASA (Advance Subscription Agreement)</strong> and <strong>SeedFAST</strong>.<br>
-      Both convert at a <strong>pre-money valuation</strong> — not post-money like a YC SAFE. The discount and cap apply to the pre-money valuation at the qualifying round.
+      Both convert at a <strong>pre-money valuation</strong>not post-money like a YC SAFE. The discount and cap apply to the pre-money valuation at the qualifying round.
     </p>
   </div>
   <div class="calc-grid">
@@ -487,7 +490,7 @@ footer{background:var(--ink2);padding:24px 6vw 20px;border-top:1px solid rgba(25
       </div>
       <div class="field"><label>Investment amount (£ or $)</label><input type="text" id="a-inv" placeholder="e.g. 250,000" oninput="calcAsa()"/></div>
       <div class="field"><label>Valuation cap (pre-money)</label><input type="text" id="a-cap" placeholder="e.g. 5,000,000" oninput="calcAsa()"/></div>
-      <div class="field"><label>Discount (% off round price — optional)</label><input type="text" id="a-disc" placeholder="e.g. 20 (leave blank if none)" oninput="calcAsa()"/></div>
+      <div class="field"><label>Discount (% off round price: optional)</label><input type="text" id="a-disc" placeholder="e.g. 20 (leave blank if none)" oninput="calcAsa()"/></div>
       <div class="field-divider"></div>
       <div class="section-label" style="margin-bottom:8px">Qualifying round details</div>
       <div class="field"><label>Pre-money valuation at qualifying round</label><input type="text" id="a-pre" placeholder="e.g. 8,000,000" oninput="calcAsa()"/></div>
@@ -495,7 +498,7 @@ footer{background:var(--ink2);padding:24px 6vw 20px;border-top:1px solid rgba(25
       <div class="note uk">
         <strong>ASA / SeedFAST key differences vs SAFE:</strong><br>
         • Converts at a <strong>pre-money cap</strong> (not post-money)<br>
-        • Commonly used with SEIS/EIS — ensure your structure is SEIS/EIS compatible<br>
+        • Commonly used with SEIS/EIS: ensure your structure is SEIS/EIS compatible<br>
         • No interest, no maturity date (similar to SAFE in that respect)<br>
         • Cap and discount apply to the pre-money valuation at the qualifying round<br>
         • Investor gets whichever gives the lower price (more shares)
@@ -506,18 +509,18 @@ footer{background:var(--ink2);padding:24px 6vw 20px;border-top:1px solid rgba(25
         <div class="results-empty" id="asa-empty"><div class="big">🇬🇧</div><div class="msg">Fill in the inputs to model ASA / SeedFAST conversion</div></div>
         <div id="asa-output" style="display:none">
           <div class="result-section-label">Conversion summary</div>
-          <div class="result-row"><span class="result-label">Conversion method</span><span class="result-value" id="a-method">—</span></div>
-          <div class="result-row"><span class="result-label">Conversion price / share</span><span class="result-value" id="a-price">—</span></div>
-          <div class="result-row"><span class="result-label">Shares issued</span><span class="result-value" id="a-issued">—</span></div>
-          <div class="result-row"><span class="result-label">Post-conversion total shares</span><span class="result-value" id="a-post-shares">—</span></div>
-          <div class="result-row"><span class="result-label">Investor ownership post-conversion</span><span class="result-value" id="a-ownership">—</span></div>
-          <div class="result-row"><span class="result-label">Effective entry valuation (pre-money)</span><span class="result-value" id="a-effective">—</span></div>
-          <div class="result-row" id="a-disc-row" style="display:none"><span class="result-label">Discount price / share</span><span class="result-value" id="a-discount-price">—</span></div>
+          <div class="result-row"><span class="result-label">Conversion method</span><span class="result-value" id="a-method">-</span></div>
+          <div class="result-row"><span class="result-label">Conversion price / share</span><span class="result-value" id="a-price">-</span></div>
+          <div class="result-row"><span class="result-label">Shares issued</span><span class="result-value" id="a-issued">-</span></div>
+          <div class="result-row"><span class="result-label">Post-conversion total shares</span><span class="result-value" id="a-post-shares">-</span></div>
+          <div class="result-row"><span class="result-label">Investor ownership post-conversion</span><span class="result-value" id="a-ownership">-</span></div>
+          <div class="result-row"><span class="result-label">Effective entry valuation (pre-money)</span><span class="result-value" id="a-effective">-</span></div>
+          <div class="result-row" id="a-disc-row" style="display:none"><span class="result-label">Discount price / share</span><span class="result-value" id="a-discount-price">-</span></div>
         </div>
       </div>
       <div class="stat-blocks" id="asa-stats" style="display:none">
-        <div class="stat-block"><div class="sl">Ownership %</div><div class="sv" id="a-stat-own">—</div><div class="sh" id="a-stat-own-note">post-conversion</div></div>
-        <div class="stat-block"><div class="sl">Shares issued</div><div class="sv" id="a-stat-shares">—</div><div class="sh" id="a-stat-shares-note">—</div></div>
+        <div class="stat-block"><div class="sl">Ownership %</div><div class="sv" id="a-stat-own">-</div><div class="sh" id="a-stat-own-note">post-conversion</div></div>
+        <div class="stat-block"><div class="sl">Shares issued</div><div class="sv" id="a-stat-shares">-</div><div class="sh" id="a-stat-shares-note">-</div></div>
       </div>
       <div class="insight-box" id="asa-insights" style="display:none">
         <div class="il">Insight</div>
@@ -528,13 +531,13 @@ footer{background:var(--ink2);padding:24px 6vw 20px;border-top:1px solid rgba(25
 </div>
 
 <!-- ════════════════════════════════════════════════════════════
-     TAB 4 — BSA AIR (France)
+     TAB 4, BSA AIR (France)
      ════════════════════════════════════════════════════════════ -->
 <div class="calc-section" id="tab-bsa">
   <div class="section-heading">
-    <h2>BSA Air Calculator <em>— French standard</em></h2>
+    <h2>BSA Air Calculator <em>French standard</em></h2>
     <p>
-      In France, the standard early-stage instrument is the <strong>BSA Air (Bon de Souscription d'Actions — Accord d'Investissement Rapide)</strong>.<br>
+      In France, the standard early-stage instrument is the <strong>BSA Air (Bon de Souscription d'Actions: Accord d'Investissement Rapide)</strong>.<br>
       Like the UK ASA, it converts at a <strong>pre-money valuation cap</strong>. A discount can be applied to the qualifying round price. No interest, no maturity date.
     </p>
   </div>
@@ -546,7 +549,7 @@ footer{background:var(--ink2);padding:24px 6vw 20px;border-top:1px solid rgba(25
       </div>
       <div class="field"><label>Investment amount (€ or $)</label><input type="text" id="b-inv" placeholder="e.g. 200,000" oninput="calcBsa()"/></div>
       <div class="field"><label>Valuation cap (pre-money)</label><input type="text" id="b-cap" placeholder="e.g. 4,000,000" oninput="calcBsa()"/></div>
-      <div class="field"><label>Discount (% off round price — optional)</label><input type="text" id="b-disc" placeholder="e.g. 20 (leave blank if none)" oninput="calcBsa()"/></div>
+      <div class="field"><label>Discount (% off round price: optional)</label><input type="text" id="b-disc" placeholder="e.g. 20 (leave blank if none)" oninput="calcBsa()"/></div>
       <div class="field-divider"></div>
       <div class="section-label" style="margin-bottom:8px">Qualifying round details</div>
       <div class="field"><label>Pre-money valuation at qualifying round</label><input type="text" id="b-pre" placeholder="e.g. 8,000,000" oninput="calcBsa()"/></div>
@@ -565,18 +568,18 @@ footer{background:var(--ink2);padding:24px 6vw 20px;border-top:1px solid rgba(25
         <div class="results-empty" id="bsa-empty"><div class="big">🇫🇷</div><div class="msg">Fill in the inputs to model BSA Air conversion</div></div>
         <div id="bsa-output" style="display:none">
           <div class="result-section-label">Conversion summary</div>
-          <div class="result-row"><span class="result-label">Conversion method</span><span class="result-value" id="b-method">—</span></div>
-          <div class="result-row"><span class="result-label">Conversion price / share</span><span class="result-value" id="b-price">—</span></div>
-          <div class="result-row"><span class="result-label">Shares issued</span><span class="result-value" id="b-issued">—</span></div>
-          <div class="result-row"><span class="result-label">Post-conversion total shares</span><span class="result-value" id="b-post-shares">—</span></div>
-          <div class="result-row"><span class="result-label">Investor ownership post-conversion</span><span class="result-value" id="b-ownership">—</span></div>
-          <div class="result-row"><span class="result-label">Effective entry valuation (pre-money)</span><span class="result-value" id="b-effective">—</span></div>
-          <div class="result-row" id="b-disc-row" style="display:none"><span class="result-label">Discount price / share</span><span class="result-value" id="b-discount-price">—</span></div>
+          <div class="result-row"><span class="result-label">Conversion method</span><span class="result-value" id="b-method">-</span></div>
+          <div class="result-row"><span class="result-label">Conversion price / share</span><span class="result-value" id="b-price">-</span></div>
+          <div class="result-row"><span class="result-label">Shares issued</span><span class="result-value" id="b-issued">-</span></div>
+          <div class="result-row"><span class="result-label">Post-conversion total shares</span><span class="result-value" id="b-post-shares">-</span></div>
+          <div class="result-row"><span class="result-label">Investor ownership post-conversion</span><span class="result-value" id="b-ownership">-</span></div>
+          <div class="result-row"><span class="result-label">Effective entry valuation (pre-money)</span><span class="result-value" id="b-effective">-</span></div>
+          <div class="result-row" id="b-disc-row" style="display:none"><span class="result-label">Discount price / share</span><span class="result-value" id="b-discount-price">-</span></div>
         </div>
       </div>
       <div class="stat-blocks" id="bsa-stats" style="display:none">
-        <div class="stat-block"><div class="sl">Ownership %</div><div class="sv" id="b-stat-own">—</div><div class="sh" id="b-stat-own-note">post-conversion</div></div>
-        <div class="stat-block"><div class="sl">Shares issued</div><div class="sv" id="b-stat-shares">—</div><div class="sh" id="b-stat-shares-note">—</div></div>
+        <div class="stat-block"><div class="sl">Ownership %</div><div class="sv" id="b-stat-own">-</div><div class="sh" id="b-stat-own-note">post-conversion</div></div>
+        <div class="stat-block"><div class="sl">Shares issued</div><div class="sv" id="b-stat-shares">-</div><div class="sh" id="b-stat-shares-note">-</div></div>
       </div>
       <div class="insight-box" id="bsa-insights" style="display:none">
         <div class="il">Insight</div>
@@ -590,7 +593,7 @@ footer{background:var(--ink2);padding:24px 6vw 20px;border-top:1px solid rgba(25
 <div class="upgrade-strip">
   <div class="us-left">
     <div class="ut">Want 15 more tools like these?</div>
-    <div class="us">Investor match engine, deal readiness score, term sheet decoder, cap table modeler, runway planner — and more.</div>
+    <div class="us">Investor match engine, deal readiness score, term sheet decoder, cap table modeler, runway planner, and more.</div>
     <div class="us-tools">
       <span class="us-chip">Investor Match</span>
       <span class="us-chip">Deal Readiness Score</span>
@@ -612,31 +615,31 @@ footer{background:var(--ink2);padding:24px 6vw 20px;border-top:1px solid rgba(25
   <div style="border:1px solid var(--border);border-radius:10px;overflow:hidden">
     <div class="faq-item" onclick="toggleFaq(this)">
       <div class="faq-q">What is the difference between a post-money SAFE and a pre-money SAFE?</div>
-      <div class="faq-a">A <strong>post-money SAFE</strong> (YC standard since 2018) locks the investor's ownership at signing: Ownership % = Investment ÷ Cap. A $1M investment on a $10M cap guarantees exactly 10%, regardless of share count. A <strong>pre-money SAFE</strong> (older format) calculates ownership at conversion using existing shares — the investor typically ends up with slightly less than expected (e.g. 9.09% instead of 10%). Post-money is more transparent and is now the global standard for SAFEs.</div>
+      <div class="faq-a">A <strong>post-money SAFE</strong> (YC standard since 2018) locks the investor's ownership at signing: Ownership % = Investment ÷ Cap. A $1M investment on a $10M cap guarantees exactly 10%, regardless of share count. A <strong>pre-money SAFE</strong> (older format) calculates ownership at conversion using existing shares, the investor typically ends up with slightly less than expected (e.g. 9.09% instead of 10%). Post-money is more transparent and is now the global standard for SAFEs.</div>
     </div>
     <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">What does "20% discount" mean — is it different to "discount rate"?</div>
-      <div class="faq-a">Yes — and this trips everyone up. A <strong>"20% discount"</strong> means the investor pays 20% less than the round price (they pay 80% of the round price per share). YC uses the term <strong>"discount rate"</strong> to mean 80% — because that is the rate at which conversion happens. This calculator uses the more intuitive plain-English version: just enter 20 if the investor gets 20% off.</div>
+      <div class="faq-q">What does "20% discount" mean: is it different to "discount rate"?</div>
+      <div class="faq-a">Yes: and this trips everyone up. A <strong>"20% discount"</strong> means the investor pays 20% less than the round price (they pay 80% of the round price per share). YC uses the term <strong>"discount rate"</strong> to mean 80%, because that is the rate at which conversion happens. This calculator uses the more intuitive plain-English version: just enter 20 if the investor gets 20% off.</div>
     </div>
     <div class="faq-item" onclick="toggleFaq(this)">
       <div class="faq-q">What happens if the next round valuation is below the SAFE cap?</div>
-      <div class="faq-a">If the qualifying round's pre-money valuation is <em>below</em> the cap, the SAFE converts at the round price (not the cap price). This means the investor gets a larger ownership % than the headline cap implied — because they're converting at a lower price. This is the correct behaviour for post-money SAFEs and is important for founders raising multiple SAFEs to model carefully.</div>
+      <div class="faq-a">If the qualifying round's pre-money valuation is <em>below</em> the cap, the SAFE converts at the round price (not the cap price). This means the investor gets a larger ownership % than the headline cap implied, because they're converting at a lower price. This is the correct behaviour for post-money SAFEs and is important for founders raising multiple SAFEs to model carefully.</div>
     </div>
     <div class="faq-item" onclick="toggleFaq(this)">
       <div class="faq-q">What is an ASA or SeedFAST and why is it used in the UK instead of a SAFE?</div>
-      <div class="faq-a">UK companies cannot easily issue SAFEs because the SAFE structure is optimised for US Delaware C-Corps. UK founders use <strong>Advance Subscription Agreements (ASA)</strong> or <strong>SeedFASTs</strong> instead — both are legally similar to SAFEs but adapted for UK company law. A key difference is that ASAs/SeedFASTs convert at a <strong>pre-money valuation cap</strong>, not post-money. They are also commonly structured to be SEIS/EIS compatible, which gives investors significant UK tax reliefs.</div>
+      <div class="faq-a">UK companies cannot easily issue SAFEs because the SAFE structure is optimised for US Delaware C-Corps. UK founders use <strong>Advance Subscription Agreements (ASA)</strong> or <strong>SeedFASTs</strong> instead, both are legally similar to SAFEs but adapted for UK company law. A key difference is that ASAs/SeedFASTs convert at a <strong>pre-money valuation cap</strong>, not post-money. They are also commonly structured to be SEIS/EIS compatible, which gives investors significant UK tax reliefs.</div>
     </div>
     <div class="faq-item" onclick="toggleFaq(this)">
       <div class="faq-q">What is a BSA Air and how does it work in France?</div>
-      <div class="faq-a">A <strong>BSA Air (Bon de Souscription d'Actions — Accord d'Investissement Rapide)</strong> is the French equivalent of the SAFE/ASA. It is issued by French SAS or SA companies and gives investors the right to subscribe to shares at a future qualifying round. Like the ASA, it converts at a <strong>pre-money valuation cap</strong>. A discount can be negotiated. No interest accrues and there is no maturity date. Under certain conditions it can qualify for preferential French tax treatment.</div>
+      <div class="faq-a">A <strong>BSA Air (Bon de Souscription d'Actions: Accord d'Investissement Rapide)</strong> is the French equivalent of the SAFE/ASA. It is issued by French SAS or SA companies and gives investors the right to subscribe to shares at a future qualifying round. Like the ASA, it converts at a <strong>pre-money valuation cap</strong>. A discount can be negotiated. No interest accrues and there is no maturity date. Under certain conditions it can qualify for preferential French tax treatment.</div>
     </div>
     <div class="faq-item" onclick="toggleFaq(this)">
       <div class="faq-q">Should I use simple or compound interest for a convertible note?</div>
-      <div class="faq-a"><strong>Simple interest</strong> is far more common for convertible notes and is the default assumption unless your term sheet explicitly states otherwise. Simple interest = Principal × Rate × Years. <strong>Compound interest</strong> accrues interest on top of previously accrued interest — it results in more shares being issued to the investor and is generally more investor-friendly. Always check your note terms and clarify with your lawyer.</div>
+      <div class="faq-a"><strong>Simple interest</strong> is far more common for convertible notes and is the default assumption unless your term sheet explicitly states otherwise. Simple interest = Principal × Rate × Years. <strong>Compound interest</strong> accrues interest on top of previously accrued interest; it results in more shares being issued to the investor and is generally more investor-friendly. Always check your note terms and clarify with your lawyer.</div>
     </div>
     <div class="faq-item" onclick="toggleFaq(this)">
       <div class="faq-q">What is an MFN clause?</div>
-      <div class="faq-a">MFN stands for Most Favoured Nation. An MFN clause means that if you later issue another SAFE (or ASA/BSA Air) on better terms, the original investor automatically receives those better terms retroactively. It is considered founder-unfriendly because it creates uncertainty about the economics of future fundraises. Negotiate it out if you can — particularly if you plan to raise from multiple angels before a priced round.</div>
+      <div class="faq-a">MFN stands for Most Favoured Nation. An MFN clause means that if you later issue another SAFE (or ASA/BSA Air) on better terms, the original investor automatically receives those better terms retroactively. It is considered founder-unfriendly because it creates uncertainty about the economics of future fundraises. Negotiate it out if you can, particularly if you plan to raise from multiple angels before a priced round.</div>
     </div>
   </div>
 </div>
@@ -660,9 +663,9 @@ function toggleDrop(){var d=document.getElementById('ecosDrop');if(d)d.classList
 document.addEventListener('click',function(e){var d=document.getElementById('ecosDrop');if(d&&!d.contains(e.target))d.classList.remove('open')});
 // ── Helpers ───────────────────────────────────────────────────────────────────
 function n(id){return Number((document.getElementById(id)||{value:''}).value.replace(/[,$€£%\s]/g,''))||0}
-function fmtD(v,dec){if(!v||!isFinite(v))return'—';return new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',minimumFractionDigits:dec==null?0:dec,maximumFractionDigits:dec==null?2:dec}).format(v)}
-function fmtP(v){if(v==null||!isFinite(v))return'—';return v.toFixed(2)+'%'}
-function fmtN(v){if(!v||!isFinite(v))return'—';return Math.round(v).toLocaleString()}
+function fmtD(v,dec){if(!v||!isFinite(v))return'-';return new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',minimumFractionDigits:dec==null?0:dec,maximumFractionDigits:dec==null?2:dec}).format(v)}
+function fmtP(v){if(v==null||!isFinite(v))return'-';return v.toFixed(2)+'%'}
+function fmtN(v){if(!v||!isFinite(v))return'-';return Math.round(v).toLocaleString()}
 function set(id,val,cls){var el=document.getElementById(id);if(!el)return;el.textContent=val;el.className='result-value'+(cls?' '+cls:'')}
 function show(id,on){var el=document.getElementById(id);if(el)el.style.display=on?'block':'none'}
 function showGrid(id,on){var el=document.getElementById(id);if(el)el.style.display=on?'grid':'none'}
@@ -676,14 +679,14 @@ function switchTab(id,btn){
 }
 
 // ══════════════════════════════════════════════════════════════════════════════
-// TAB 1 — SAFE (Post-money YC standard)
+// TAB 1, SAFE (Post-money YC standard)
 //
 // Core logic:
 //   capOwnership  = inv / cap                      (e.g. 0.10 = 10%)
-//   Scenario A — round valuation >= cap:
+//   Scenario A, round valuation >= cap:
 //     sharesIssued = capOwnership × existingShares / (1 - capOwnership)
 //     price        = inv / sharesIssued
-//   Scenario B — round valuation < cap (converts at round price):
+//   Scenario B, round valuation < cap (converts at round price):
 //     roundPrice   = preMoney / existingShares
 //     sharesIssued = inv / roundPrice
 //   Discount route: discPrice = roundPrice × (1 - disc/100)
@@ -749,12 +752,12 @@ function calcSafe(){
     }
   } else if(shares>0){
     // Have shares but no round valuation
-    scenario = 'No round valuation entered — showing cap route only';
+    scenario = 'No round valuation entered, showing cap route only';
     finalShares=capShares; finalPrice=capImpliedPrice; method='Valuation cap';
     totalPost=shares+finalShares;
     actualOwnPct=(finalShares/totalPost)*100;
   } else {
-    // Only cap — show ownership % only
+    // Only cap, show ownership % only
     scenario = 'Enter share count for full detail';
     method='Valuation cap (post-money)';
   }
@@ -766,7 +769,7 @@ function calcSafe(){
   set('s-method', method);
   set('s-price', finalPrice?fmtD(finalPrice,4):'Enter share count above');
   set('s-issued', finalShares?fmtN(finalShares):'Enter share count above');
-  set('s-post-shares', totalPost>0?fmtN(totalPost):'—');
+  set('s-post-shares', totalPost>0?fmtN(totalPost):'-');
   set('s-ownership', fmtP(actualOwnPct), actualOwnPct>25?'amber':'green');
 
   if(disc>0&&discPrice>0){
@@ -775,27 +778,27 @@ function calcSafe(){
   } else { show('s-disc-row',false); }
 
   document.getElementById('s-stat-own').textContent=fmtP(capOwnPct);
-  document.getElementById('s-stat-shares').textContent=finalShares?fmtN(finalShares):'—';
-  document.getElementById('s-stat-shares-note').textContent=totalPost>0?'of '+fmtN(totalPost)+' total':'—';
+  document.getElementById('s-stat-shares').textContent=finalShares?fmtN(finalShares):'-';
+  document.getElementById('s-stat-shares-note').textContent=totalPost>0?'of '+fmtN(totalPost)+' total':'-';
 
   var body='';
   body+='<div class="insight-row"><div class="dot"></div><div>Ownership locked at signing: <strong>'+fmtP(capOwnPct)+'</strong> based on post-money cap.</div></div>';
   if(hasRoundData && pre<cap){
-    body+='<div class="insight-row"><div class="dot warn"></div><div>Round valuation is <strong>below the cap</strong> — investor converts at the round price and receives <strong>more</strong> than '+fmtP(capOwnPct)+'.</div></div>';
+    body+='<div class="insight-row"><div class="dot warn"></div><div>Round valuation is <strong>below the cap</strong>investor converts at the round price and receives <strong>more</strong> than '+fmtP(capOwnPct)+'.</div></div>';
   }
   if(hasRoundData && pre>cap){
     var upPct=((pre-cap)/cap)*100;
-    body+='<div class="insight-row"><div class="dot"></div><div>Round valuation is <strong>'+upPct.toFixed(0)+'% above the cap</strong> — the cap is protecting the investor\'s upside.</div></div>';
+    body+='<div class="insight-row"><div class="dot"></div><div>Round valuation is <strong>'+upPct.toFixed(0)+'% above the cap</strong>the cap is protecting the investor\'s upside.</div></div>';
   }
-  if(capOwnPct>20) body+='<div class="insight-row"><div class="dot warn"></div><div>Ownership above 20% on a single SAFE is on the high side — consider how multiple SAFEs stack.</div></div>';
-  if(mfn==='yes') body+='<div class="insight-row"><div class="dot warn"></div><div>MFN clause active — future SAFEs on better terms will automatically apply to this investor.</div></div>';
+  if(capOwnPct>20) body+='<div class="insight-row"><div class="dot warn"></div><div>Ownership above 20% on a single SAFE is on the high side, consider how multiple SAFEs stack.</div></div>';
+  if(mfn==='yes') body+='<div class="insight-row"><div class="dot warn"></div><div>MFN clause active, future SAFEs on better terms will automatically apply to this investor.</div></div>';
 
   show('safe-insights',!!body);
   if(body) document.getElementById('safe-insights-body').innerHTML=body;
 }
 
 // ══════════════════════════════════════════════════════════════════════════════
-// TAB 2 — CONVERTIBLE NOTE
+// TAB 2, CONVERTIBLE NOTE
 // ══════════════════════════════════════════════════════════════════════════════
 function calcConv(){
   var action=document.getElementById('c-action').value;
@@ -873,7 +876,7 @@ function calcConv(){
 }
 
 // ══════════════════════════════════════════════════════════════════════════════
-// TAB 3 — ASA / SeedFAST (UK) — Pre-money cap
+// TAB 3, ASA / SeedFAST (UK), Pre-money cap
 // ══════════════════════════════════════════════════════════════════════════════
 function calcAsa(){
   var inv=n('a-inv'), cap=n('a-cap'), disc=n('a-disc'), pre=n('a-pre'), shares=n('a-shares');
@@ -886,7 +889,7 @@ function calcAsa(){
 }
 
 // ══════════════════════════════════════════════════════════════════════════════
-// TAB 4 — BSA Air (France) — Pre-money cap
+// TAB 4, BSA Air (France), Pre-money cap
 // ══════════════════════════════════════════════════════════════════════════════
 function calcBsa(){
   var inv=n('b-inv'), cap=n('b-cap'), disc=n('b-disc'), pre=n('b-pre'), shares=n('b-shares');
@@ -946,12 +949,12 @@ function preMoneyCalc(prefix,inv,cap,disc,pre,shares,tab){
   body+='<div class="insight-row"><div class="dot"></div><div>Investor ownership: <strong>'+fmtP(ownPct)+'</strong> post-conversion.</div></div>';
   if(cap>0&&pre>0&&pre>cap){
     var uplift=((pre-cap)/cap)*100;
-    body+='<div class="insight-row"><div class="dot"></div><div>Round valuation is <strong>'+uplift.toFixed(0)+'% above the cap</strong> — the cap is protecting significant investor upside.</div></div>';
+    body+='<div class="insight-row"><div class="dot"></div><div>Round valuation is <strong>'+uplift.toFixed(0)+'% above the cap</strong>the cap is protecting significant investor upside.</div></div>';
   }
   if(cap>0&&pre>0&&pre<cap){
-    body+='<div class="insight-row"><div class="dot warn"></div><div>Round valuation is <strong>below the cap</strong> — investor converts at round price, getting more shares than cap implied.</div></div>';
+    body+='<div class="insight-row"><div class="dot warn"></div><div>Round valuation is <strong>below the cap</strong>investor converts at round price, getting more shares than cap implied.</div></div>';
   }
-  if(ownPct>20) body+='<div class="insight-row"><div class="dot warn"></div><div>Ownership above 20% is on the high side — model how multiple instruments stack before your qualifying round.</div></div>';
+  if(ownPct>20) body+='<div class="insight-row"><div class="dot warn"></div><div>Ownership above 20% is on the high side, model how multiple instruments stack before your qualifying round.</div></div>';
 
   show(tab+'-insights',!!body);
   if(body) document.getElementById(tab+'-insights-body').innerHTML=body;

@@ -1,0 +1,9 @@
+# Yorkseed site on Netlify.
+# Each deploy rebuilds The Yorkseed List pages from list/data/master.json + list/events.json.
+# The "|| echo" means a failed rebuild never blocks a deploy: the last built pages stay live.
+[build]
+  publish = "."
+  command = "python3 scripts/build_list_pages.py || echo 'List rebuild skipped'"
+
+[build.environment]
+  PYTHON_VERSION = "3.11"

@@ -7,7 +7,7 @@
 <meta name="robots" content="noindex,nofollow"/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
 <style>
-/* NUCLEAR RESET — scope everything to #pr-app so site CSS can't touch it */
+/* NUCLEAR RESET, scope everything to #pr-app so site CSS can't touch it */
 #pr-app {
   all: initial;
   display: block;
@@ -341,7 +341,7 @@
 
 @media(max-width:560px) { #pr-app .frow { grid-template-columns: 1fr !important; } }
 /* ── MOBILE ── */
-/* Prevent iOS auto-zoom on input focus — must be 16px */
+/* Prevent iOS auto-zoom on input focus, must be 16px */
 #pr-app input[type=text],
 #pr-app input[type=password],
 #pr-app input[type=number],
@@ -349,7 +349,7 @@
 #pr-app select { font-size: 16px; }
 
 @media (max-width: 480px) {
-  /* Single-column form fields — side-by-side is cramped on phones */
+  /* Single-column form fields, side-by-side is cramped on phones */
   #pr-app .frow { grid-template-columns: 1fr; }
 
   /* Taller tap targets */
@@ -365,15 +365,15 @@
   /* Extra bottom padding for mobile browser chrome (address bar, home bar) */
   #pr-app .wrap { padding-bottom: 100px; }
 
-  /* Score circles — slightly tighter gap, min height so they're tappable */
+  /* Score circles, slightly tighter gap, min height so they're tappable */
   #pr-app .srow { gap: 3px; margin: 10px 0 5px; }
   #pr-app .scir { min-height: 34px; font-size: 12px; }
 
-  /* Score category header — more space between title and value */
+  /* Score category header, more space between title and value */
   #pr-app .scat-hd { margin-bottom: 2px; }
   #pr-app .scat-val { font-size: 22px; }
 
-  /* Live total — prominent */
+  /* Live total, prominent */
   #pr-app .stot { padding: 16px; margin: 8px 0 18px; }
   #pr-app .stot-n { font-size: 36px; }
 
@@ -381,7 +381,7 @@
   #pr-app .spview { padding: 12px 14px; }
   #pr-app .spview-n { font-size: 16px; }
 
-  /* Host grid — full width on phone */
+  /* Host grid, full width on phone */
   #pr-app .hcg { grid-template-columns: 1fr; }
 
   /* Results card */
@@ -401,6 +401,7 @@
 }
 
 </style>
+<script src="/assets/ys-ref.js" defer></script>
 </head>
 <body>
 
@@ -447,7 +448,7 @@
 
     <div id="p-sup">
       <div id="closed-card" class="card" style="display:none">
-        <div class="closed-wrap"><div class="closed-ico">🔒</div><div class="closed-t">Sign-ups are closed</div><div class="closed-s">Pitching is in progress — scoring still open!</div></div>
+        <div class="closed-wrap"><div class="closed-ico">🔒</div><div class="closed-t">Sign-ups are closed</div><div class="closed-s">Pitching is in progress: scoring still open!</div></div>
       </div>
       <div id="sup-wrap">
         <div class="card">
@@ -473,7 +474,7 @@
         <div class="slbl">Score a Pitcher</div>
         <div style="margin-bottom:18px">
           <label class="flbl" style="margin-bottom:6px">Who are you scoring?</label>
-          <select id="sc-sel" onchange="onSelPitcher()"><option value="">— choose pitcher —</option></select>
+          <select id="sc-sel" onchange="onSelPitcher()"><option value="">choose pitcher</option></select>
           <div class="spview" id="spview">
             <span class="spview-n" id="spview-n"></span>
             <span class="spview-c" id="spview-c"></span>
@@ -482,7 +483,7 @@
         <div class="scat" id="scat-ov">
           <div class="scat-hd">
             <div><span class="scat-title">The Business</span><span class="scat-sub">Problem · Solution · Market</span></div>
-            <span class="scat-val" id="v-ov">—</span>
+            <span class="scat-val" id="v-ov">-</span>
           </div>
           <div class="srow" id="sr-ov"></div>
           <div class="sanch"><span>Unclear</span><span>Interesting</span><span>Fundable</span></div>
@@ -490,7 +491,7 @@
         <div class="scat" id="scat-dl">
           <div class="scat-hd">
             <div><span class="scat-title">The Pitch</span><span class="scat-sub">Clarity · Structure · Story</span></div>
-            <span class="scat-val" id="v-dl">—</span>
+            <span class="scat-val" id="v-dl">-</span>
           </div>
           <div class="srow" id="sr-dl"></div>
           <div class="sanch"><span>Scattered</span><span>Clear</span><span>Compelling</span></div>
@@ -498,14 +499,14 @@
         <div class="scat" id="scat-fd">
           <div class="scat-hd">
             <div><span class="scat-title">The Founder</span><span class="scat-sub">Conviction · Confidence · Energy</span></div>
-            <span class="scat-val" id="v-fd">—</span>
+            <span class="scat-val" id="v-fd">-</span>
           </div>
           <div class="srow" id="sr-fd"></div>
           <div class="sanch"><span>Hesitant</span><span>Solid</span><span>Magnetic</span></div>
         </div>
         <div class="scat ex" id="scat-ex">
           <div class="scat-hd">
-            <div><span class="scat-title" style="color:var(--gold)">Wow Factor ✦</span><span class="scat-sub">Bonus points — your call</span></div>
+            <div><span class="scat-title" style="color:var(--gold)">Wow Factor ✦</span><span class="scat-sub">Bonus points: your call</span></div>
             <span class="scat-val" id="v-ex">0</span>
           </div>
           <div class="srow" id="sr-ex"></div>
@@ -515,7 +516,7 @@
             <textarea id="ex-rsn" rows="2" placeholder="e.g. Bold vision, unexpected insight..."></textarea>
           </div>
         </div>
-        <div class="stot"><span class="stot-n" id="score-total">—</span><span class="stot-l">/ 35 pts</span></div>
+        <div class="stot"><span class="stot-n" id="score-total">-</span><span class="stot-l">/ 35 pts</span></div>
         <div style="margin-bottom:12px">
           <label class="flbl" style="margin-bottom:5px">Your name <span style="color:#bbb;font-size:9px">optional</span></label>
           <input type="text" id="sc-name" placeholder="Anonymous"/>
@@ -533,7 +534,7 @@
         <div><div class="trow-t">Sign-ups Open</div><div class="trow-s" id="sig-s">People can register to pitch</div></div>
         <label class="tsw"><input type="checkbox" id="tog" checked onchange="saveSig()"/><span class="tsl"></span></label>
       </div>
-      <div class="sc" style="margin-bottom:0"><div class="sc-top"><div class="sc-nm">Pitcher Slots</div><div class="sc-ct" id="cnt-a">—</div></div>
+      <div class="sc" style="margin-bottom:0"><div class="sc-top"><div class="sc-nm">Pitcher Slots</div><div class="sc-ct" id="cnt-a">-</div></div>
         <div class="sc-row"><label class="flbl" style="margin-bottom:0;white-space:nowrap">Max:</label>
           <input type="number" id="max-a" min="1" max="30" value="5" style="width:65px;text-align:center;font-size:16px;padding:7px"/>
           <button class="btn btn-dark btn-sm" onclick="saveMax('a')">Save</button></div>
@@ -541,7 +542,7 @@
       </div>
     </div>
     <div class="hcg" style="grid-template-columns:1fr">
-      <div class="hcc"><div class="hcc-l">Pitchers</div><div class="hcc-v cv-g" id="st-a">—</div><div class="hcc-s" id="st-as">—</div></div>
+      <div class="hcc"><div class="hcc-l">Pitchers</div><div class="hcc-v cv-g" id="st-a">-</div><div class="hcc-s" id="st-as">-</div></div>
     </div>
     <div class="hp">
       <div class="hph"><div class="hph-t">Live Activity</div><div class="nc" id="n-cnt">0</div><div style="font-size:10px;font-family:var(--mono);color:#ccc;margin-left:auto" id="ls">Syncing...</div></div>
@@ -614,7 +615,7 @@ function cntS(){return pitchers.length;}
 
 function renderSlots(){
   var c=cntS(),m=cfg.mA;
-  // No slot buttons needed — slot selection removed
+  // No slot buttons needed, slot selection removed
 }
 function selType(t){sType=t;G('tf').classList.toggle('sel',t==='f');G('ti').classList.toggle('sel',t==='i');}
 
@@ -637,14 +638,14 @@ function renderSigState(){
   var cl=!cfg.open;
   G('closed-card').style.display=cl?'block':'none';
   G('sup-wrap').style.display=cl?'none':'block';
-  G('sig-s').textContent=cfg.open?'People can register to pitch':'Closed — scoring still open';
+  G('sig-s').textContent=cfg.open?'People can register to pitch':'Closed, scoring still open';
   G('tog').checked=cfg.open;
   renderSlots();
 }
 
 function qRows(rm){
   var h='';
-  if(!pitchers.length)return '<div class="ld">'+(rm?'No pitchers yet':'No pitchers yet — be the first!')+'</div>';
+  if(!pitchers.length)return '<div class="ld">'+(rm?'No pitchers yet':'No pitchers yet, be the first!')+'</div>';
   pitchers.forEach(function(p,i){
     var pill='<span class="pill '+(p.type==='i'?'pill-i':'pill-f')+'">'+(p.type==='i'?'Investor':'Founder')+'</span>';
     var del=rm?'<button class="rm" onclick="delP(\''+p.id+'\')">×</button>':'';
@@ -656,7 +657,7 @@ function renderPQ(){G('pub-q').innerHTML=qRows(false);}
 function renderHQ(){G('hq').innerHTML=qRows(true);}
 function renderSel(){
   var sel=G('sc-sel'),cur=sel.value;
-  sel.innerHTML='<option value="">— choose pitcher —</option>';
+  sel.innerHTML='<option value="">choose pitcher</option>';
   pitchers.forEach(function(p){var i=pitchers.indexOf(p),o=document.createElement('option');o.value=p.id;o.textContent='#'+(i+1)+' '+p.name+' · '+p.co+' ('+(p.type==='i'?'Investor':'Founder')+')';sel.appendChild(o);});
   if(cur)sel.value=cur;
 }
@@ -672,7 +673,7 @@ async function poll(){
     var np=pd.records.map(function(r){return{id:r.id,name:r.fields.Name||'',co:r.fields.Company||'',type:r.fields.Type||'f'};});
     if(JSON.stringify(np.map(function(p){return p.id;}))!==JSON.stringify(pitchers.map(function(p){return p.id;}))){pitchers=np;renderPQ();renderHQ();renderSel();renderSlots();renderStats();}
     var sd=await api('Scores');
-    sd.records.forEach(function(r){if(!seen.has(r.id)){seen.add(r.id);var f=r.fields;addN('<strong>'+esc(f.Scorer||'Someone')+'</strong> scored <strong>'+esc(f.PitcherName||'?')+'</strong> — '+f.Overall+' overall, '+f.Delivery+' delivery'+(f.Extra>0?', +'+f.Extra+' extra':''));}});
+    sd.records.forEach(function(r){if(!seen.has(r.id)){seen.add(r.id);var f=r.fields;addN('<strong>'+esc(f.Scorer||'Someone')+'</strong> scored <strong>'+esc(f.PitcherName||'?')+'</strong>- '+f.Overall+' overall, '+f.Delivery+' delivery'+(f.Extra>0?', +'+f.Extra+' extra':''));}});
     G('dot').className='dot on';G('ls').textContent='Synced '+new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
   }catch(e){G('dot').className='dot';}
 }
@@ -706,13 +707,13 @@ async function doScore(){
   var p=pitchers.find(function(x){return x.id===pid;});
   var btn=G('sc-btn');btn.disabled=true;btn.textContent='Submitting...';
   try{
-    // Encode founder score into Reason field — no schema change needed
+    // Encode founder score into Reason field, no schema change needed
     var fullReason='F:'+fd+(rsn?'|'+rsn:'');
     var fields={PitcherId:pid,PitcherName:p?p.name:'',Overall:ov,Delivery:dl,Extra:ex,Reason:fullReason,Scorer:scr};
     var res=await api('Scores',{method:'POST',body:JSON.stringify({records:[{fields:fields}]})});
     seen.add(res.records[0].id);
     setSt('sc-st','Score submitted! ✓','ok');
-    addN('<strong>'+esc(scr)+'</strong> scored <strong>'+esc(p?p.name:'?')+'</strong> — business '+ov+', pitch '+dl+', founder '+fd+(ex>0?', +'+ex+'✦':''));
+    addN('<strong>'+esc(scr)+'</strong> scored <strong>'+esc(p?p.name:'?')+'</strong>business '+ov+', pitch '+dl+', founder '+fd+(ex>0?', +'+ex+'✦':''));
     resetScores();
   }catch(e){setSt('sc-st','Error: '+e.message,'err');}
   btn.disabled=false;btn.textContent='Submit Score →';
@@ -808,7 +809,7 @@ function selSc(cat,val){
 }
 function updateTotal(){
   var t=G('score-total');if(!t)return;
-  t.textContent=(scores.ov!==null&&scores.dl!==null&&scores.fd!==null)?(scores.ov+scores.dl+scores.fd+scores.ex):'—';
+  t.textContent=(scores.ov!==null&&scores.dl!==null&&scores.fd!==null)?(scores.ov+scores.dl+scores.fd+scores.ex):'-';
 }
 function onSelPitcher(){
   var pid=G('sc-sel').value,pv=G('spview'),pn=G('spview-n'),pc=G('spview-c');
@@ -819,8 +820,8 @@ function onSelPitcher(){
 
 function resetScores(){
   scores={ov:null,dl:null,fd:null,ex:0};initCircles();
-  G('v-ov').textContent='—';G('v-dl').textContent='—';G('v-fd').textContent='—';G('v-ex').textContent='0';
-  G('score-total').textContent='—';G('ex-rsn').value='';G('sc-sel').value='';
+  G('v-ov').textContent='-';G('v-dl').textContent='-';G('v-fd').textContent='-';G('v-ex').textContent='0';
+  G('score-total').textContent='-';G('ex-rsn').value='';G('sc-sel').value='';
   var pv=G('spview');if(pv)pv.classList.remove('on');
 }
 

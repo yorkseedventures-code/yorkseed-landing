@@ -1,0 +1,28 @@
+[
+ {
+  "title": "Asian Financial Forum 2027 (AFF)",
+  "hub": "hkg",
+  "date": "2027-01-26",
+  "start": "09:00",
+  "end": "18:00",
+  "host": "Hong Kong Trade Development Council",
+  "venue": "Hong Kong Convention and Exhibition Centre",
+  "link": "https://www.asianfinancialforum.com/",
+  "type": "Conferences",
+  "desc": "Asia's flagship finance and investment forum, in its 20th edition, organized by the HKTDC. Yorkseed returns with a Yorkseed Delegation of founders, investors and allocators.",
+  "yorkseed": true
+ },
+ {
+  "title": "Asian Financial Forum 2027 (AFF) · Day 2",
+  "hub": "hkg",
+  "date": "2027-01-27",
+  "start": "09:00",
+  "end": "18:00",
+  "host": "Hong Kong Trade Development Council",
+  "venue": "Hong Kong Convention and Exhibition Centre",
+  "link": "https://www.asianfinancialforum.com/",
+  "type": "Conferences",
+  "desc": "Asia's flagship finance and investment forum, in its 20th edition, organized by the HKTDC. Yorkseed returns with a Yorkseed Delegation of founders, investors and allocators.",
+  "yorkseed": true
+ }
+]

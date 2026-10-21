@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Yorkseed Events — Exclusive Founder & Investor Events Worldwide | Yorkseed</title>
+<title>Yorkseed Events | Exclusive Founder & Investor Events Worldwide | Yorkseed</title>
 <meta name="description" content="Join exclusive Yorkseed events for founders, investors, and operators worldwide. Private dinners, investor meetups, hub gatherings, and the Yorkseed Passport Series worldwide."/>
 <meta name="robots" content="index, follow"/>
 <link rel="canonical" href="https://yorkseed.co/events"/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://yorkseed.co/events"/>
-<meta property="og:title" content="Yorkseed Events — Exclusive Founder & Investor Events Worldwide"/>
+<meta property="og:title" content="Yorkseed Events | Exclusive Founder & Investor Events Worldwide"/>
 <meta property="og:description" content="Join exclusive Yorkseed events for founders, investors, and operators worldwide."/>
 <meta property="og:image" content="https://s6.imgcdn.dev/Yfq1dl.png"/>
 <meta name="twitter:card" content="summary_large_image"/>
@@ -93,7 +93,7 @@ h1 em{font-style:italic;color:var(--red)}
 .section-eyebrow{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:24px;display:flex;align-items:center;gap:10px}
 .section-eyebrow::before{content:'';display:block;width:16px;height:1px;background:var(--red);opacity:.5}
 
-/* Featured card — hero upcoming event */
+/* Featured card, hero upcoming event */
 .featured-card{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border2);border-radius:12px;overflow:hidden;margin-bottom:28px;background:var(--white);transition:box-shadow .2s}
 .featured-card:hover{box-shadow:0 6px 32px rgba(0,0,0,.08)}
 .featured-card-img{background:linear-gradient(135deg,#1a1209 0%,#2e1e0a 40%,#3d2810 100%);position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:32px;min-height:280px}
@@ -128,7 +128,7 @@ h1 em{font-style:italic;color:var(--red)}
 .btn-secondary{display:inline-flex;align-items:center;gap:7px;background:transparent;color:var(--ink3);padding:11px 18px;border-radius:6px;font-size:12.5px;border:1px solid var(--border2);transition:all .15s;white-space:nowrap}
 .btn-secondary:hover{color:var(--ink);border-color:var(--border2)}
 
-/* Upcoming grid — smaller cards */
+/* Upcoming grid, smaller cards */
 .upcoming-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
 @media(max-width:1000px){.upcoming-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.upcoming-grid{grid-template-columns:1fr}}
@@ -294,6 +294,7 @@ h1 em{font-style:italic;color:var(--red)}
 </style>
 <script src="/assets/site-chrome.js" defer></script>
 <style>yk-header:not(:defined){display:block;min-height:73px}</style>
+<script src="/assets/ys-ref.js" defer></script>
 </head>
 <body>
 
@@ -307,7 +308,7 @@ h1 em{font-style:italic;color:var(--red)}
     <div>
       <div class="ey"><div class="ey-line"></div>2023 – present</div>
       <h1>Events &amp; <em>gatherings.</em></h1>
-      <p class="hero-sub">Upcoming Yorkseed events worldwide — plus the full archive of every gathering, Expert Session, Passport activation, and Summit since 2023.</p>
+      <p class="hero-sub">Upcoming Yorkseed events worldwide: plus the full archive of every gathering, Expert Session, Passport activation, and Summit since 2023.</p>
     </div>
     <div class="hero-stats">
       <div class="hstat"><div class="hstat-n">100+</div><div class="hstat-l">Events</div></div>
@@ -395,7 +396,7 @@ function filterEvents(type,el){
 function typeLabel(t){return{passport:'Passport',expert:'Expert',summit:'Summit',house:'House',community:'Community Partner'}[t]||t}
 function typeRowClass(t){return{passport:'type-passport',expert:'type-expert',summit:'type-summit',house:'type-house',community:'type-community'}[t]||'type-summit'}
 function badgeClass(t){return{passport:'badge-passport',expert:'badge-expert',summit:'badge-summit',house:'badge-house'}[t]||'badge-summit'}
-// Valois branding overrides — applied on top of the underlying type (which stays intact for filtering)
+// Valois branding overrides, applied on top of the underlying type (which stays intact for filtering)
 function evLabel(ev){return ev.valois?'Valois':ev.nycfw?'NYC Founder Week':typeLabel(ev.type)}
 function evRowClass(ev){return ev.valois?'type-valois':ev.nycfw?'type-nycfw':typeRowClass(ev.type)}
 function evBadgeClass(ev){return ev.valois?'badge-valois':ev.nycfw?'badge-nycfw':badgeClass(ev.type)}
@@ -524,7 +525,7 @@ function openModal(idx){
   const promo = document.getElementById('modalPromo');
   if(ev.promoCode){
     promo.style.display = 'block';
-    promo.textContent = `🎟 Promo code: ${ev.promoCode} — use at checkout`;
+    promo.textContent = `🎟 Promo code: ${ev.promoCode}, use at checkout`;
   } else {
     promo.style.display = 'none';
   }
@@ -630,7 +631,7 @@ async function init(){
       });
     });
 
-    // Collect community partner events from archive — only upcoming ones
+    // Collect community partner events from archive, only upcoming ones
     const today = new Date(); today.setHours(0,0,0,0);
     const communityEvents = [];
     archive.forEach(yb => yb.groups.forEach(g => g.events.forEach(ev => {

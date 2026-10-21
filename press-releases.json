@@ -1,13 +1,94 @@
 {
   "releases": [
     {
+      "slug": "frontier-day-2027",
+      "title": "Yorkseed Moves Frontier Day to 2027 and Opens Partnerships for Its Deep Tech, Physical AI and Health Tech Gathering",
+      "dateline": "NEW YORK",
+      "date": "2026-10-21",
+      "category": "Announcement",
+      "summary": "Yorkseed announced Frontier Day, its gathering for Deep Tech, Physical AI, AI Applications and Health Tech, will take place in 2027 after postponing the 2026 edition, and opened partner and sponsor applications.",
+      "featured": false
+    },
+    {
+      "slug": "yorkseed-vivatech-paris-2026-recap",
+      "title": "Yorkseed Wraps VivaTech Paris 2026 with the Passport Series and a Free Student Delegation with START Paris",
+      "dateline": "PARIS",
+      "date": "2026-10-21",
+      "category": "Event Recap",
+      "summary": "Yorkseed ran the Passport Series around VivaTech Paris 2026, June 17 to 19, and brought a free student founder delegation to VivaTech with START Paris.",
+      "featured": false
+    },
+    {
+      "slug": "yorkseed-founder-featured-in-mercury",
+      "title": "Yorkseed Founder Jessica Sophia Wong Featured in Mercury on Building Yorkseed Connect with AI Coding Tools",
+      "dateline": "NEW YORK",
+      "date": "2026-10-21",
+      "category": "In the News",
+      "summary": "Mercury featured Yorkseed founder Jessica Sophia Wong in “The possibilities are vibe coded,” on how she built Yorkseed Connect as a non-technical founder using AI coding tools.",
+      "featured": false
+    },
+    {
+      "slug": "host-with-yorkseed-and-event-partners-launch",
+      "title": "Yorkseed Launches Host with Yorkseed and Event Partner Programs for Brands and Organizers Across 50+ City Hubs",
+      "dateline": "NEW YORK",
+      "date": "2026-10-21",
+      "category": "Announcement",
+      "summary": "Yorkseed today launched Host with Yorkseed, curated lunches, dinners and side events for brands, and Yorkseed Event Partners, community, ecosystem and co-host partnerships for organizers across 50+ city hubs.",
+      "featured": false
+    },
+    {
+      "slug": "yorkseed-deal-book-and-annual-launch",
+      "title": "Yorkseed Launches The Deal Book and The Yorkseed Annual, Turning Every Delegation into a Lasting Directory of Founders and Investors",
+      "dateline": "NEW YORK",
+      "date": "2026-10-21",
+      "category": "Product Launch",
+      "summary": "Yorkseed today launched The Deal Book, the published directory of every Yorkseed Delegation, starting with Lisbon at Web Summit 2026, and announced The Yorkseed Annual 2026, a year-end edition collecting every delegation of the year.",
+      "featured": false
+    },
+    {
+      "slug": "the-yorkseed-list-launch",
+      "title": "Yorkseed Launches The Yorkseed List, a Free Global Calendar of Startup, Tech and Investor Events in 50+ Cities",
+      "dateline": "NEW YORK",
+      "date": "2026-10-21",
+      "category": "Product Launch",
+      "summary": "Yorkseed today launched The Yorkseed List, a free calendar of startup, tech, founder and investor events across 50+ cities and around the major tech weeks, with 467 upcoming events at launch.",
+      "featured": true
+    },
+    {
+      "slug": "yorkseed-delegation-lisbon-launch-aff-hong-kong-2027",
+      "title": "Yorkseed Launches Its Lisbon Delegation at Web Summit and Will Lead a Delegation Back to the Asian Financial Forum in Hong Kong in 2027",
+      "dateline": "NEW YORK",
+      "date": "2026-10-21",
+      "category": "Announcement",
+      "summary": "Yorkseed today launched the Yorkseed Lisbon Delegation for Web Summit 2026, November 8 to 12, and announced it will return to the Asian Financial Forum in Hong Kong on January 26 and 27, 2027 leading another Yorkseed Delegation.",
+      "featured": false
+    },
+    {
+      "slug": "arc-humanoid-fight-night-singapore-yorkseed-community-partner",
+      "title": "Yorkseed Community Partner ARC Stages Singapore's First Full-Sized Humanoid Fight Night During TOKEN2049 and F1 Race Week",
+      "dateline": "NEW YORK",
+      "date": "2026-10-21",
+      "category": "Partner News",
+      "summary": "ARC Night Singapore drew more than 380 attendees and over 5 million views in 24 hours. Yorkseed, ARC's community partner in Singapore and at its New York debut during NY Tech Week 2026, congratulates ARC and Katena.",
+      "featured": false
+    },
+    {
       "slug": "yorkseed-house-nytw-2027-announcement",
       "title": "Yorkseed House Announces Return to New York for NY Tech Week 2027",
       "dateline": "NEW YORK",
       "date": "2026-07-18",
       "category": "Announcement",
       "summary": "Yorkseed House will return to New York for NY Tech Week 2027, building on its 2026 debut at BelongNYC in SoHo with founding partners BelongNYC, Flowstate, and Elevate. Waitlist now open.",
-      "featured": true
+      "featured": false
+    },
+    {
+      "slug": "yorkseed-house-sxsw-2027-announcement",
+      "title": "Yorkseed House Announces Return to SXSW Austin for 2027",
+      "dateline": "AUSTIN",
+      "date": "2026-07-18",
+      "category": "Announcement",
+      "summary": "Yorkseed House will return to Austin for SXSW 2027, building on its 2025 debut hosted in partnership with The Lively & Grit Daily House, which drew 107 attendees and 6 investors in a house built in under 24 hours. Waitlist now open.",
+      "featured": false
     },
     {
       "slug": "valois-by-yorkseed-launches",
@@ -15,7 +96,7 @@
       "dateline": "NEW YORK",
       "date": "2026-07-17",
       "category": "Product Launch",
-      "summary": "Yorkseed today announced the launch of Valois, its invitation-only upper tier for family offices, GPs, LPs, and allocators — extending the Yorkseed network to the principals who move capital, not just the founders who raise it.",
+      "summary": "Yorkseed today announced the launch of Valois, its invitation-only upper tier for family offices, GPs, LPs, and allocators, extending the Yorkseed network to the principals who move capital, not just the founders who raise it.",
       "featured": false
     },
     {
@@ -24,7 +105,7 @@
       "dateline": "PARIS",
       "date": "2026-07-11",
       "category": "Event Recap",
-      "summary": "Yorkseed House ran a five-day venture headquarters at Osha Bergman Watanabe & Burton LLP (OBWB) in Paris during RAISE Summit 2026, culminating in Valois at the Louvre — Valois' first Paris salon for family offices, GPs, and LPs.",
+      "summary": "Yorkseed House ran a five-day venture headquarters at Osha Bergman Watanabe & Burton LLP (OBWB) in Paris during RAISE Summit 2026, culminating in Valois at the Louvre, Valois' first Paris salon for family offices, GPs, and LPs.",
       "featured": false
     },
     {
@@ -43,15 +124,6 @@
       "date": "2025-03-10",
       "category": "Event Recap",
       "summary": "Yorkseed House's first-ever edition, hosted in partnership with The Lively & Grit Daily House during SXSW 2025, assembled in under 24 hours and drawing 107 attendees and 6 investors, anchored by the Beyond the Check investor panel.",
-      "featured": false
-    },
-    {
-      "slug": "yorkseed-house-sxsw-2027-announcement",
-      "title": "Yorkseed House Announces Return to SXSW Austin for 2027",
-      "dateline": "AUSTIN",
-      "date": "2026-07-18",
-      "category": "Announcement",
-      "summary": "Yorkseed House will return to Austin for SXSW 2027, building on its 2025 debut hosted in partnership with The Lively & Grit Daily House, which drew 107 attendees and 6 investors in a house built in under 24 hours. Waitlist now open.",
       "featured": false
     }
   ]

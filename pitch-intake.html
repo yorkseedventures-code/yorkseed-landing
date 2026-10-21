@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Pitch Application — Yorkseed</title>
+<title>Pitch Application | Yorkseed</title>
 <meta name="description" content="Apply to pitch at a Yorkseed event. We surface high-conviction founders to curated investors across global innovation hubs."/>
 <meta name="robots" content="index, follow"/>
 <link rel="canonical" href="https://yorkseed.co/pitch-intake"/>
@@ -274,13 +274,16 @@ img{display:block;max-width:100%}
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400&display=swap">
 <script src="/assets/site-chrome.js" defer></script>
 <style>yk-header:not(:defined){display:block;min-height:73px}</style>
+<script src="/assets/ys-ref.js" defer></script>
+<meta property="og:image" content="https://yorkseed.co/og-image.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
 </head>
 <body>
 
-<!-- DESKTOP NAV — exact from index.html -->
+<!-- DESKTOP NAV, exact from index.html -->
 <yk-header><a href="/">Yorkseed</a> <a href="/hubs.html">Hubs</a> <a href="/events.html">Events</a> <a href="/investors">Investor list</a> <a href="/contact.html">Contact</a></yk-header>
 
-<!-- MOBILE TAB BAR — exact from index.html -->
+<!-- MOBILE TAB BAR, exact from index.html -->
 
 
 <!-- HERO -->
@@ -289,7 +292,7 @@ img{display:block;max-width:100%}
   <div class="hero-inner">
     <div class="hero-eyebrow">Yorkseed Events &nbsp;·&nbsp; Pitch Application</div>
     <h1 class="hero-title">Apply to Pitch</h1>
-    <p class="hero-sub">We curate high-conviction founders for investor-facing pitch forums across our global network. Tell us about your company — we review every submission.</p>
+    <p class="hero-sub">We curate high-conviction founders for investor-facing pitch forums across our global network. Tell us about your company; we review every submission.</p>
   </div>
 </section>
 
@@ -371,21 +374,21 @@ img{display:block;max-width:100%}
               <div class="field-row single">
                 <div class="field">
                   <label for="coFounders">Co-founders (if any)</label>
-                  <input type="text" id="coFounders" name="Co-Founders" placeholder="Name — role, Name — role"/>
+                  <input type="text" id="coFounders" name="Co-Founders" placeholder="Name, role, Name, role"/>
                   <span class="field-hint">List names and roles, separated by commas.</span>
                 </div>
               </div>
               <div class="field-row single">
                 <div class="field">
                   <label for="teamMembers">Key team members</label>
-                  <textarea id="teamMembers" name="Team Members" rows="3" placeholder="e.g. Jane Smith — CTO (ex-Google), John Doe — Head of Sales (10 yrs enterprise SaaS)…"></textarea>
+                  <textarea id="teamMembers" name="Team Members" rows="3" placeholder="e.g. Jane Smith, CTO (ex-Google), John Doe, Head of Sales (10 yrs enterprise SaaS)…"></textarea>
                   <span class="field-hint">List name, role, and a brief note on relevant background. Investors want to know who's building this.</span>
                 </div>
               </div>
               <div class="field-row single">
                 <div class="field">
                   <label for="advisors">Advisors</label>
-                  <textarea id="advisors" name="Advisors" rows="2" placeholder="e.g. Sarah Lee — ex-Partner at a16z, Michael Tan — Serial founder (2x exits)…"></textarea>
+                  <textarea id="advisors" name="Advisors" rows="2" placeholder="e.g. Sarah Lee, ex-Partner at a16z, Michael Tan, Serial founder (2x exits)…"></textarea>
                   <span class="field-hint">Optional. List any notable advisors and their relevance.</span>
                 </div>
               </div>
@@ -418,7 +421,7 @@ img{display:block;max-width:100%}
             <div class="card-body">
               <div class="field-row single">
                 <div class="field">
-                  <label for="oneLiner">One-liner — what do you do? <span class="req">*</span></label>
+                  <label for="oneLiner">One-liner: what do you do? <span class="req">*</span></label>
                   <input type="text" id="oneLiner" name="One-Liner" placeholder="We help [audience] to [outcome] by [method]." maxlength="160" required/>
                   <div class="char-count" id="cc-oneLiner">0 / 160</div>
                   <span class="field-error" id="err-oneLiner"></span>
@@ -481,7 +484,7 @@ img{display:block;max-width:100%}
               <div class="field-row single">
                 <div class="field">
                   <label for="revenueAndTraction">Revenue &amp; traction <span class="req">*</span></label>
-                  <textarea id="revenueAndTraction" name="Revenue / Traction" rows="4" placeholder="Share your key metrics: MRR/ARR, growth rate, paying customers, pilots, LOIs — whatever best tells the story of where you are." required></textarea>
+                  <textarea id="revenueAndTraction" name="Revenue / Traction" rows="4" placeholder="Share your key metrics: MRR/ARR, growth rate, paying customers, pilots, LOIs, whatever best tells the story of where you are." required></textarea>
                   <span class="field-error" id="err-revenueAndTraction"></span>
                 </div>
               </div>
@@ -602,7 +605,7 @@ img{display:block;max-width:100%}
       <button class="modal-back" onclick="closeModal()">Go back &amp; review</button>
     </div>
     <div id="modal-connect-notice" style="display:none;margin-top:20px;padding:14px 16px;background:rgba(176,141,87,.08);border:1px solid rgba(176,141,87,.22);border-radius:10px;font-size:12.5px;color:var(--ink3);line-height:1.65;">
-      💡 <strong style="color:var(--ink);">Not a Yorkseed Connect member yet?</strong> Join our founder network before you pitch — it strengthens your application and keeps you in the loop. <a href="https://yorkseed.co/connect" target="_blank" rel="noopener noreferrer" style="color:var(--red);font-weight:500;text-decoration:underline;text-underline-offset:2px;">Sign up today at yorkseed.co/connect →</a>
+      💡 <strong style="color:var(--ink);">Not a Yorkseed Connect member yet?</strong> Join our founder network before you pitch; it strengthens your application and keeps you in the loop. <a href="https://yorkseed.co/connect" target="_blank" rel="noopener noreferrer" style="color:var(--red);font-weight:500;text-decoration:underline;text-underline-offset:2px;">Sign up today at yorkseed.co/connect →</a>
     </div>
   </div>
 </div>
@@ -612,12 +615,12 @@ img{display:block;max-width:100%}
   <div class="success-inner">
     <div class="success-icon">🎯</div>
     <h2 class="success-title">Application received.</h2>
-    <p class="success-body">Thank you for applying to pitch at a Yorkseed event. Our team reviews every submission — we'll be in touch within 5–7 business days if there's a fit.</p>
+    <p class="success-body">Thank you for applying to pitch at a Yorkseed event. Our team reviews every submission, we'll be in touch within 5–7 business days if there's a fit.</p>
     <a href="/" class="success-home">← Back to Yorkseed</a>
   </div>
 </div>
 
-<!-- FOOTER — exact from index.html -->
+<!-- FOOTER, exact from index.html -->
 <yk-footer><a href="/">Home</a> <a href="/hubs.html">Hubs</a> <a href="/events.html">Events</a> <a href="/about.html">About</a> <a href="/contact.html">Contact</a></yk-footer>
 
 <script>
@@ -685,7 +688,7 @@ document.getElementById('confirmModal').addEventListener('click',function(e){if(
 function submitForm(){
   closeModal();
   var btn=document.getElementById('submitBtn');btn.disabled=true;btn.classList.add('loading');
-  var data={access_key:'b173055d-46cb-45c9-8906-db0ff327f9a4',subject:'New Pitch Application — Yorkseed'};
+  var data={access_key:'b173055d-46cb-45c9-8906-db0ff327f9a4',subject:'New Pitch Application, Yorkseed'};
   var form=document.getElementById('pitchForm');
   ['First Name','Last Name','Email','Phone','Company Name','Co-Founders','Team Members','Advisors','Job Title','Based City','Website','LinkedIn','One-Liner','Funding Stage','Amount Raising','Revenue / Traction','Pitch Deck','Video Link','Headshot Link','Logo Link','Why Pick You','Additional Info','Referral','Yorkseed Connect Member'].forEach(function(name){
     var el=form.querySelector('[name="'+name+'"]');if(el)data[name]=el.value.trim();

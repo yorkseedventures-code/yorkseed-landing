@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Speaker Application — Yorkseed</title>
+<title>Speaker Application | Yorkseed</title>
 <meta name="description" content="Apply to speak at a Yorkseed event. We host curated gatherings for founders, investors, and operators across global innovation hubs."/>
 <meta name="robots" content="index, follow"/>
 <link rel="canonical" href="https://yorkseed.co/speaker-intake"/>
@@ -273,6 +273,9 @@ img{display:block;max-width:100%}
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400&display=swap">
 <script src="/assets/site-chrome.js" defer></script>
 <style>yk-header:not(:defined){display:block;min-height:73px}</style>
+<script src="/assets/ys-ref.js" defer></script>
+<meta property="og:image" content="https://yorkseed.co/og-image.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
 </head>
 <body>
 <yk-header><a href="/">Yorkseed</a> <a href="/hubs.html">Hubs</a> <a href="/events.html">Events</a> <a href="/investors">Investor list</a> <a href="/contact.html">Contact</a></yk-header>
@@ -289,7 +292,7 @@ img{display:block;max-width:100%}
 <div class="notice">
   <div class="notice-inner">
     <div class="notice-icon">💡</div>
-    <p class="notice-text"><strong>On speaker fees:</strong> Yorkseed does not cover speaking fees. In return, we offer meaningful exposure to a curated network of founders, investors, and operators across our global events and the Yorkseed Insider newsletter — reaching thousands of members worldwide.</p>
+    <p class="notice-text"><strong>On speaker fees:</strong> Yorkseed does not cover speaking fees. In return, we offer meaningful exposure to a curated network of founders, investors, and operators across our global events and the Yorkseed Insider newsletter, reaching thousands of members worldwide.</p>
   </div>
 </div>
 
@@ -405,7 +408,7 @@ img{display:block;max-width:100%}
               <div class="field-row single">
                 <div class="field">
                   <label for="headshot">Headshot URL</label>
-                  <span class="field-hint">High-res photo link — Dropbox, Google Drive, etc. A photo significantly increases your chances of being selected.</span>
+                  <span class="field-hint">High-res photo link: Dropbox, Google Drive, etc. A photo significantly increases your chances of being selected.</span>
                   <input type="url" id="headshot" name="headshot" placeholder="https://drive.google.com/…"/>
                   <div class="url-hint" id="headshotHint" style="display:none"></div>
                 </div>
@@ -669,11 +672,11 @@ img{display:block;max-width:100%}
     <h2 class="modal-title">Before you submit…</h2>
     <p class="modal-body">A complete profile significantly increases your chances of being selected. Please confirm you've included the following:</p>
     <div class="modal-checklist">
-      <div class="modal-check-item"><span class="check-icon">🔗</span><span><strong>LinkedIn URL</strong> — full link starting with https://linkedin.com/in/</span></div>
-      <div class="modal-check-item"><span class="check-icon">🖼️</span><span><strong>Headshot URL</strong> — a high-res photo link (Dropbox, Drive, etc.)</span></div>
-      <div class="modal-check-item"><span class="check-icon">🎥</span><span><strong>Talk video</strong> — a YouTube or Vimeo link of you speaking</span></div>
-      <div class="modal-check-item"><span class="check-icon">🎙️</span><span><strong>Media links</strong> — podcast episodes, press features, or interviews</span></div>
-      <div class="modal-check-item"><span class="check-icon">📝</span><span><strong>Bio &amp; talk summary</strong> — clear, complete, and in third person</span></div>
+      <div class="modal-check-item"><span class="check-icon">🔗</span><span><strong>LinkedIn URL</strong>full link starting with https://linkedin.com/in/</span></div>
+      <div class="modal-check-item"><span class="check-icon">🖼️</span><span><strong>Headshot URL</strong>a high-res photo link (Dropbox, Drive, etc.)</span></div>
+      <div class="modal-check-item"><span class="check-icon">🎥</span><span><strong>Talk video</strong>a YouTube or Vimeo link of you speaking</span></div>
+      <div class="modal-check-item"><span class="check-icon">🎙️</span><span><strong>Media links</strong>podcast episodes, press features, or interviews</span></div>
+      <div class="modal-check-item"><span class="check-icon">📝</span><span><strong>Bio &amp; talk summary</strong>clear, complete, and in third person</span></div>
     </div>
     <div class="modal-actions">
       <button class="modal-back" onclick="closeModal()">← Go back and check</button>
@@ -737,7 +740,7 @@ function validateUrlField(inputId, hintId, validator, errorMsg, successMsg) {
     }
   });
 }
-// LinkedIn — strict
+// LinkedIn, strict
 validateUrlField('linkedin', 'linkedinHint', isLinkedIn,
   'Must be a full LinkedIn URL: https://linkedin.com/in/yourname',
   'Valid LinkedIn URL');
