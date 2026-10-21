@@ -93,8 +93,27 @@ def import_pending():
     return photos
 
 # ---------- 2. real event photos ----------
+import time
+def luma_cover(link):
+    p = urlsplit(link); slug = p.path.strip("/").split("/")[0]
+    if not slug: return ""
+    for attempt in range(4):
+        try:
+            r = urlopen(Request("https://api.lu.ma/url?url=" + slug, headers={**UA, "Accept": "application/json"}), timeout=15)
+            d = json.loads(r.read().decode("utf-8", "ignore"))
+            ev = (d.get("data") or {}).get("event") or {}
+            return ev.get("cover_url") or ""
+        except Exception as ex:
+            code = getattr(ex, "code", 0)
+            if code in (429, 500, 502, 503, 504) or not code: time.sleep(2 * (attempt + 1)); continue
+            return ""
+    return ""
+
 def fetch_photo(link):
     try:
+        if re.search(r'(^|\.)(lu\.ma|luma\.com)$', urlsplit(link).hostname or ""):
+            img = luma_cover(link)
+            if img: return link, img
         final, page = get(link)
         return link, photo_from(final, page)
     except Exception:
@@ -106,10 +125,13 @@ def refresh_photos(seed):
     for k, v in seed.items(): cache[k] = {"img": v, "t": TODAY}
     master = load(f"{REPO}/list/data/master.json", {"events": []}); extra = load(f"{REPO}/list/events.json", [])
     links = sorted({e["link"] for e in master["events"] + extra if e.get("link") and e.get("date", "") >= TODAY})
-    week_ago = (dt.date.today() - dt.timedelta(days=7)).isoformat()
-    todo = [l for l in links if l not in cache or (not cache[l].get("img") and cache[l].get("t", "") < week_ago)][:500]
-    with ThreadPoolExecutor(16) as ex:
-        for link, img in ex.map(fetch_photo, todo): cache[link] = {"img": img or None, "t": TODAY}
+    retry_after = (dt.date.today() - dt.timedelta(days=2)).isoformat()
+    todo = [l for l in links if l not in cache or (not cache[l].get("img") and cache[l].get("t", "") < retry_after)][:600]
+    luma = [l for l in todo if re.search(r'(lu\.ma|luma\.com)', l)]; other = [l for l in todo if l not in luma]
+    with ThreadPoolExecutor(12) as ex:            # other sites: in parallel
+        for link, img in ex.map(fetch_photo, other): cache[link] = {"img": img or None, "t": TODAY}
+    with ThreadPoolExecutor(3) as ex:             # Luma: gently, to stay under its rate limit
+        for link, img in ex.map(lambda l: (time.sleep(0.3), fetch_photo(l))[1], luma): cache[link] = {"img": img or None, "t": TODAY}
     cache = {k: v for k, v in cache.items() if k in links}
     json.dump(cache, open(ph_p, "w"), ensure_ascii=False, indent=0)
     print(f"photos: {sum(1 for v in cache.values() if v.get('img'))} of {len(cache)} events have a real photo ({len(todo)} checked)")
