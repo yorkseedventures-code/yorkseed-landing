@@ -94,9 +94,11 @@ def import_pending():
 
 # ---------- 1b. import whole city calendars (list/data/pending-cities.json) ----------
 from zoneinfo import ZoneInfo
+_TZ = {}
 def hub_tz(hub):
-    m = load(f"{REPO}/list/data/master.json", {"hubs": []})
-    return next((h["tz"] for h in m["hubs"] if h["id"] == hub), "UTC")
+    if not _TZ:
+        for h in load(f"{REPO}/list/data/master.json", {"hubs": []})["hubs"]: _TZ[h["id"]] = h["tz"]
+    return _TZ.get(hub, "UTC")
 
 def to_local(iso, tz):
     try:
@@ -197,6 +199,85 @@ def import_cities():
     print(f"cities import: {added} new events from {len(jobs)} pages")
     return photos
 
+# ---------- 1c. daily sources: Luma discover categories (list/data/sources.json) ----------
+CITY_ALIAS = {"san francisco": "sf", "oakland": "sf", "berkeley": "sf", "palo alto": "sf", "mountain view": "sf", "san jose": "sf",
+    "menlo park": "sf", "sunnyvale": "sf", "santa clara": "sf", "redwood city": "sf", "san mateo": "sf", "cupertino": "sf", "south san francisco": "sf",
+    "new york": "nyc", "brooklyn": "nyc", "manhattan": "nyc", "queens": "nyc", "jersey city": "nyc", "hoboken": "nyc", "long island city": "nyc",
+    "washington": "dc", "arlington": "dc", "abu dhabi": "dxb", "dubai": "dxb", "sao paulo": "sao", "rio de janeiro": "sao", "denver": "den",
+    "boulder": "den", "cambridge|united states": "bos", "somerville": "bos", "santa monica": "la", "culver city": "la", "pasadena": "la",
+    "venice": "la", "bangalore": "blr", "bengaluru": "blr", "mumbai": "bom", "navi mumbai": "bom", "tel aviv yafo": "tlv", "tel aviv": "tlv",
+    "kowloon": "hkg", "shibuya": "tyo", "minato city": "tyo", "chiyoda city": "tyo", "shinjuku city": "tyo", "bellevue": "sea", "redmond": "sea",
+    "kirkland": "sea", "vancouver|canada": "yvr", "burnaby": "yvr", "espoo": "hel", "london|united kingdom": "ldn", "ciudad de mexico": "mex", "mexico city": "mex"}
+def _n(s): return re.sub(r'\s+', ' ', re.sub(r'[^a-z ]', ' ', __import__("unicodedata").normalize("NFKD", s or "").encode("ascii", "ignore").decode().lower())).strip()
+def city_hub(city, country, hubs):
+    c, k = _n(city), _n(country)
+    if not c: return None
+    if f"{c}|{k}" in CITY_ALIAS: return CITY_ALIAS[f"{c}|{k}"]
+    if c in CITY_ALIAS and "|" not in c: return CITY_ALIAS[c]
+    for h in hubs:
+        if h["id"] != "virtual" and _n(h["name"]) == c: return h["id"]
+    return None
+
+def import_sources():
+    srcs = load(f"{REPO}/list/data/sources.json", [])
+    if not srcs: return {}
+    master = load(f"{REPO}/list/data/master.json", {"events": [], "hubs": []}); hubs = master["hubs"]
+    events = load(f"{REPO}/list/events.json", [])
+    norm = lambda s: re.sub(r'[^a-z0-9]+', '', (s or '').lower())[:40]
+    seen_l = {(e.get("link") or "").split("?")[0].rstrip("/") for e in events + master["events"]}
+    seen_t = {(norm(e.get("title")), e.get("date")) for e in events + master["events"]}
+    horizon = (dt.date.today() + dt.timedelta(days=120)).isoformat()
+    photos, added = {}, 0
+    for src in srcs:
+        if src.get("type") != "luma_category": continue
+        cursor, pages, kept = None, 0, 0
+        while pages < int(src.get("max_pages", 60)):
+            q = f"https://api.lu.ma/discover/get-paginated-events?category_api_id={src['id']}&pagination_limit=50" + (f"&pagination_cursor={cursor}" if cursor else "")
+            try:
+                r = urlopen(Request(q, headers={**UA, "Accept": "application/json"}), timeout=20); d = json.loads(r.read().decode("utf-8", "ignore"))
+            except Exception as ex:
+                code = getattr(ex, "code", 0)
+                if code == 429: time.sleep(5); continue
+                print(f"source {src['id']}: stopped ({ex})"); break
+            pages += 1
+            for en in d.get("entries") or []:
+                e = en.get("event") or {}; g = e.get("geo_address_info") or {}
+                if not e.get("name") or not e.get("start_at") or not e.get("url"): continue
+                if e.get("location_type") == "online": continue          # in-person events only
+                hub = city_hub(g.get("city"), g.get("country"), hubs)
+                if not hub: continue
+                tz = hub_tz(hub) if hub != "virtual" else "America/New_York"
+                date, start = to_local(e["start_at"], tz)
+                if not date or date < TODAY or date > horizon: continue
+                link = "https://luma.com/" + e["url"]
+                if link in seen_l or (norm(e["name"]), date) in seen_t: continue
+                ed, et = to_local(e["end_at"], tz) if e.get("end_at") else (None, None)
+                venue = (g.get("sublocality") if g.get("mode") == "obfuscated" else (g.get("address") or "")) or ""
+                host = " & ".join([h.get("name") for h in (en.get("hosts") or []) if h.get("name")][:2]) or ((en.get("calendar") or {}).get("name") or "")
+                events.append({"title": e["name"].strip(), "hub": hub, "date": date, "start": start, "end": et if ed == date else None,
+                               "venue": venue, "host": host, "link": link, "desc": "Details and registration on the event page.", "src": "luma"})
+                if e.get("cover_url"): photos[link] = e["cover_url"]
+                seen_l.add(link); seen_t.add((norm(e["name"]), date)); added += 1; kept += 1
+            if not d.get("has_more") or not d.get("next_cursor"): break
+            cursor = d["next_cursor"]; time.sleep(0.4)
+        print(f"source {src['id']}: {pages} pages, {kept} new events in List cities")
+    json.dump(events, open(f"{REPO}/list/events.json", "w"), ensure_ascii=False, indent=1)
+    return photos
+
+def fill_luma_descriptions(limit=250):
+    """Add the organizer's own description to Luma-sourced events that only have the placeholder."""
+    p = f"{REPO}/list/events.json"; events = load(p, [])
+    todo = [e for e in events if e.get("src") == "luma" and e.get("desc", "").startswith("Details and registration") and e.get("date", "") >= TODAY][:limit]
+    def one(e):
+        info = luma_event(e["link"]); time.sleep(0.3)
+        return e, info
+    with ThreadPoolExecutor(3) as ex:
+        for e, info in ex.map(one, todo):
+            if info and info.get("desc"): e["desc"] = info["desc"]
+            if info and info.get("venue") and not e.get("venue"): e["venue"] = info["venue"]
+    json.dump(events, open(p, "w"), ensure_ascii=False, indent=1)
+    print(f"descriptions: filled {sum(1 for e in todo if not e['desc'].startswith('Details and registration'))} of {len(todo)}")
+
 # ---------- 2. real event photos ----------
 import time
 def luma_cover(link):
@@ -243,7 +324,9 @@ def refresh_photos(seed):
 
 if __name__ == "__main__":
     seed = {}
-    for step in (import_pending, import_cities):
+    for step in (import_pending, import_cities, import_sources):
         try: seed.update(step() or {})
         except Exception as ex: print(f"{step.__name__} failed: {ex}")
+    try: fill_luma_descriptions()
+    except Exception as ex: print(f"descriptions failed: {ex}")
     refresh_photos(seed)
