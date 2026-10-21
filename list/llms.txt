@@ -1,53 +1,53 @@
 # The Yorkseed List
 
-> The Yorkseed List (https://list.yorkseed.co/) is a free global calendar of startup, tech, founder and investor events in 50+ cities and around the major tech weeks and conferences, run by Yorkseed. 1480 upcoming events as of 2026-10-21. Updated continuously. Anyone can list an event for free.
+> The Yorkseed List (https://list.yorkseed.co/) is a free global calendar of startup, tech, founder and investor events in 50+ cities and around the major tech weeks and conferences, run by Yorkseed. 1973 upcoming events as of 2026-10-21. Updated continuously. Anyone can list an event for free.
 
 ## Startup and tech events by city
 
-- [Startup events in Bay Area](https://list.yorkseed.co/san-francisco-bay-area/): 705 upcoming
-- [Startup events in Lisbon](https://list.yorkseed.co/lisbon/): 213 upcoming
-- [Startup events in New York](https://list.yorkseed.co/new-york/): 112 upcoming
+- [Startup events in Bay Area](https://list.yorkseed.co/san-francisco-bay-area/): 747 upcoming
+- [Startup events in Lisbon](https://list.yorkseed.co/lisbon/): 244 upcoming
+- [Startup events in New York](https://list.yorkseed.co/new-york/): 130 upcoming
+- [Startup events in Berlin](https://list.yorkseed.co/berlin/): 56 upcoming
+- [Startup events in Singapore](https://list.yorkseed.co/singapore/): 45 upcoming
+- [Startup events in London](https://list.yorkseed.co/london/): 40 upcoming
+- [Startup events in Bengaluru](https://list.yorkseed.co/bengaluru/): 35 upcoming
+- [Startup events in Denver & Boulder](https://list.yorkseed.co/denver-boulder/): 34 upcoming
 - [Startup events in Mumbai](https://list.yorkseed.co/mumbai/): 34 upcoming
+- [Startup events in Toronto](https://list.yorkseed.co/toronto/): 34 upcoming
+- [Startup events in Munich](https://list.yorkseed.co/munich/): 33 upcoming
+- [Startup events in Tokyo](https://list.yorkseed.co/tokyo/): 31 upcoming
+- [Startup events in Austin](https://list.yorkseed.co/austin/): 30 upcoming
+- [Startup events in Barcelona](https://list.yorkseed.co/barcelona/): 30 upcoming
+- [Startup events in Seattle](https://list.yorkseed.co/seattle/): 28 upcoming
+- [Startup events in Boston](https://list.yorkseed.co/boston/): 27 upcoming
+- [Startup events in Tel Aviv](https://list.yorkseed.co/tel-aviv/): 26 upcoming
+- [Startup events in Vancouver](https://list.yorkseed.co/vancouver/): 25 upcoming
+- [Startup events in Helsinki](https://list.yorkseed.co/helsinki/): 24 upcoming
 - [Startup events in UAE](https://list.yorkseed.co/dubai-uae/): 24 upcoming
 - [Startup events in Amsterdam](https://list.yorkseed.co/amsterdam/): 23 upcoming
 - [Startup events in Los Angeles](https://list.yorkseed.co/los-angeles/): 23 upcoming
 - [Startup events in Paris](https://list.yorkseed.co/paris/): 20 upcoming
 - [Startup events in Zurich](https://list.yorkseed.co/zurich/): 20 upcoming
 - [Startup events in Chicago](https://list.yorkseed.co/chicago/): 18 upcoming
-- [Startup events in Singapore](https://list.yorkseed.co/singapore/): 17 upcoming
 - [Startup events in Madrid](https://list.yorkseed.co/madrid/): 16 upcoming
 - [Startup events in Washington D.C.](https://list.yorkseed.co/washington-dc/): 16 upcoming
+- [Startup events in Mexico City](https://list.yorkseed.co/mexico-city/): 15 upcoming
+- [Startup events in Miami](https://list.yorkseed.co/miami/): 15 upcoming
 - [Startup events in Milan](https://list.yorkseed.co/milan/): 15 upcoming
 - [Startup events in Copenhagen](https://list.yorkseed.co/copenhagen/): 14 upcoming
 - [Startup events in Hong Kong](https://list.yorkseed.co/hong-kong/): 14 upcoming
 - [Startup events in Sydney](https://list.yorkseed.co/sydney/): 14 upcoming
-- [Startup events in Helsinki](https://list.yorkseed.co/helsinki/): 12 upcoming
 - [Startup events in Seoul](https://list.yorkseed.co/seoul/): 12 upcoming
-- [Startup events in Berlin](https://list.yorkseed.co/berlin/): 11 upcoming
-- [Startup events in Toronto](https://list.yorkseed.co/toronto/): 11 upcoming
-- [Startup events in Boston](https://list.yorkseed.co/boston/): 10 upcoming
 - [Startup events in Buenos Aires](https://list.yorkseed.co/buenos-aires/): 10 upcoming
 - [Startup events in Dublin](https://list.yorkseed.co/dublin/): 10 upcoming
-- [Startup events in London](https://list.yorkseed.co/london/): 10 upcoming
-- [Startup events in Austin](https://list.yorkseed.co/austin/): 8 upcoming
-- [Startup events in Bengaluru](https://list.yorkseed.co/bengaluru/): 8 upcoming
-- [Startup events in Munich](https://list.yorkseed.co/munich/): 8 upcoming
 - [Startup events in Kuala Lumpur](https://list.yorkseed.co/kuala-lumpur/): 7 upcoming
 - [Startup events in Stockholm](https://list.yorkseed.co/stockholm/): 7 upcoming
-- [Startup events in Seattle](https://list.yorkseed.co/seattle/): 6 upcoming
 - [Startup events in São Paulo & Rio](https://list.yorkseed.co/sao-paulo-rio/): 5 upcoming
-- [Startup events in Tel Aviv](https://list.yorkseed.co/tel-aviv/): 5 upcoming
-- [Startup events in Mexico City](https://list.yorkseed.co/mexico-city/): 4 upcoming
 - [Startup events in Montreal](https://list.yorkseed.co/montreal/): 4 upcoming
-- [Startup events in Tokyo](https://list.yorkseed.co/tokyo/): 4 upcoming
-- [Startup events in Vancouver](https://list.yorkseed.co/vancouver/): 4 upcoming
-- [Startup events in Barcelona](https://list.yorkseed.co/barcelona/): 3 upcoming
-- [Startup events in Denver & Boulder](https://list.yorkseed.co/denver-boulder/): 3 upcoming
 - [Startup events in Jakarta](https://list.yorkseed.co/jakarta/): 3 upcoming
 - [Startup events in Lagos](https://list.yorkseed.co/lagos/): 3 upcoming
 - [Startup events in Nairobi](https://list.yorkseed.co/nairobi/): 3 upcoming
 - [Startup events in Taipei](https://list.yorkseed.co/taipei/): 3 upcoming
-- [Startup events in Miami](https://list.yorkseed.co/miami/): 2 upcoming
 - [Startup events in Philadelphia](https://list.yorkseed.co/philadelphia/): 2 upcoming
 - [Startup events in Online](https://list.yorkseed.co/online/): 2 upcoming
 - [Startup events in Bangkok](https://list.yorkseed.co/bangkok/): 1 upcoming
@@ -57,15 +57,15 @@
 
 ## Conference and tech week side events
 
-- [NY App Week 2026 side events](https://list.yorkseed.co/ny-app-week-2026-side-events/): New York, 2026-10-19 to 2026-10-22, 26 events
-- [SF Open Source AI Week 2026 side events](https://list.yorkseed.co/sf-open-source-ai-week-2026-side-events/): Bay Area, 2026-10-18 to 2026-10-26, 242 events
-- [NVIDIA GTC Berlin 2026 side events](https://list.yorkseed.co/nvidia-gtc-berlin-2026-side-events/): Berlin, 2026-10-18 to 2026-10-22, 10 events
-- [Munich Climate Week 2026 side events](https://list.yorkseed.co/munich-climate-week-2026-side-events/): Munich, 2026-10-19 to 2026-10-24, 8 events
-- [Tough Tech Week 2026 side events](https://list.yorkseed.co/tough-tech-week-2026-side-events/): Boston, 2026-10-26 to 2026-10-30, 4 events
-- [Austin Tech Week 2026 side events](https://list.yorkseed.co/austin-tech-week-2026-side-events/): Austin, 2026-10-26 to 2026-10-30, 4 events
-- [SWITCH Singapore 2026 side events](https://list.yorkseed.co/switch-singapore-2026-side-events/): Singapore, 2026-10-26 to 2026-10-29, 10 events
-- [Slush Helsinki 2026 side events](https://list.yorkseed.co/slush-helsinki-2026-side-events/): Helsinki, 2026-11-16 to 2026-11-20, 12 events
-- [Web Summit Lisbon 2026 side events](https://list.yorkseed.co/web-summit-lisbon-2026-side-events/): Lisbon, 2026-11-02 to 2026-11-16, 210 events
+- [NY App Week 2026 side events](https://list.yorkseed.co/ny-app-week-2026-side-events/): New York, 2026-10-19 to 2026-10-22, 31 events
+- [SF Open Source AI Week 2026 side events](https://list.yorkseed.co/sf-open-source-ai-week-2026-side-events/): Bay Area, 2026-10-18 to 2026-10-26, 253 events
+- [NVIDIA GTC Berlin 2026 side events](https://list.yorkseed.co/nvidia-gtc-berlin-2026-side-events/): Berlin, 2026-10-18 to 2026-10-22, 16 events
+- [Munich Climate Week 2026 side events](https://list.yorkseed.co/munich-climate-week-2026-side-events/): Munich, 2026-10-19 to 2026-10-24, 13 events
+- [Tough Tech Week 2026 side events](https://list.yorkseed.co/tough-tech-week-2026-side-events/): Boston, 2026-10-26 to 2026-10-30, 10 events
+- [Austin Tech Week 2026 side events](https://list.yorkseed.co/austin-tech-week-2026-side-events/): Austin, 2026-10-26 to 2026-10-30, 12 events
+- [SWITCH Singapore 2026 side events](https://list.yorkseed.co/switch-singapore-2026-side-events/): Singapore, 2026-10-26 to 2026-10-29, 17 events
+- [Slush Helsinki 2026 side events](https://list.yorkseed.co/slush-helsinki-2026-side-events/): Helsinki, 2026-11-16 to 2026-11-20, 17 events
+- [Web Summit Lisbon 2026 side events](https://list.yorkseed.co/web-summit-lisbon-2026-side-events/): Lisbon, 2026-11-02 to 2026-11-16, 227 events
 
 ## Machine-readable data
 
