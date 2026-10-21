@@ -1,9 +1,16 @@
-# Rebuilds The Yorkseed List city and conference pages every morning (6:15 AM New York)
-# and commits them, which makes Netlify publish the fresh pages automatically.
+# Rebuilds The Yorkseed List every morning (6:15 AM New York), and whenever events are queued for import:
+# 1. imports queued events and finds each event's real cover photo (scripts/list_enrich.py)
+# 2. rebuilds the city and conference pages (scripts/build_list_pages.py)
+# then commits, which makes Netlify publish the fresh pages automatically.
 name: Rebuild The Yorkseed List pages
 on:
   schedule:
     - cron: "15 10 * * *"
+  push:
+    branches: [main]
+    paths:
+      - "list/data/pending-import.json"
+      - "scripts/list_enrich.py"
   workflow_dispatch: {}
 permissions:
   contents: write
@@ -18,11 +25,15 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: python3 scripts/build_list_pages.py
+      - name: Import queued events and find event photos
+        run: python3 scripts/list_enrich.py || echo "enrich step skipped"
+      - name: Rebuild city and conference pages
+        run: python3 scripts/build_list_pages.py
       - run: |
           git config user.name "yorkseed-list-bot"
           git config user.email "actions@users.noreply.github.com"
           git add -A list sitemap.xml *-startup-communities.html
           if git diff --cached --quiet; then echo "No changes"; exit 0; fi
           git commit -m "The List: daily rebuild $(date -u +%Y-%m-%d)"
+          git pull --rebase -q origin main || true
           git push

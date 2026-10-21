@@ -27,6 +27,11 @@ e_ = lambda s: html.escape(str(s or ""), quote=True)
 
 # ---- city photos (same hashed files build_site.py writes) ----
 IMGPATH = data.get("img", {})
+# real event cover photos found by scripts/list_enrich.py (link -> {"img": url})
+try:
+    PHOTOS = {k: v["img"] for k, v in json.load(open(f"{REPO}/list/data/photos.json")).items() if v and v.get("img")}
+except Exception:
+    PHOTOS = {}
 
 SLUG = {"nyc":"new-york","sf":"san-francisco-bay-area","la":"los-angeles","dc":"washington-dc","sao":"sao-paulo-rio","den":"denver-boulder",
         "dxb":"dubai-uae","virtual":"online","hkg":"hong-kong","tlv":"tel-aviv","bue":"buenos-aires","kul":"kuala-lumpur","mex":"mexico-city"}
@@ -83,7 +88,8 @@ def event_ld(e, camp):
     if online: ld["location"] = {"@type":"VirtualLocation","url":ld["url"]}
     else: ld["location"] = {"@type":"Place","name": place(e) or h["name"],"address":{"@type":"PostalAddress","addressLocality":h["name"],**({"addressCountry":h["country"]} if h["country"] else {})}}
     if e["host"]: ld["organizer"] = {"@type":"Organization","name":e["host"]}
-    if IMGPATH.get(h["img"] or h["id"]): ld["image"] = [LISTHOST + IMGPATH[h["img"] or h["id"]]]
+    if PHOTOS.get(e["link"]): ld["image"] = [PHOTOS[e["link"]]]
+    elif IMGPATH.get(h["img"] or h["id"]): ld["image"] = [LISTHOST + IMGPATH[h["img"] or h["id"]]]
     return ld
 
 CSS = """
@@ -102,7 +108,7 @@ h2{font:400 26px/1.2 var(--serif);margin:40px 0 6px}h2 em{color:var(--red)}
 .day{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--ink);margin:30px 0 0;padding-bottom:6px}
 .day h3{font:400 21px var(--serif);margin:0}.day span{font:400 11px var(--mono);letter-spacing:.1em;color:var(--ink3);text-transform:uppercase}
 .ev{display:grid;grid-template-columns:96px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
-.ev time{font:400 15px var(--serif)}.ev h4{font:400 18px/1.3 var(--serif);margin:0 0 3px}.ev h4 a{text-decoration:none}.ev h4 a:hover{color:var(--red)}
+.ev time{font:400 15px var(--serif)}.ev .pic{float:right;width:132px;height:88px;object-fit:cover;margin:0 0 8px 14px;background:#eee}@media(max-width:720px){.ev .pic{width:96px;height:64px}}.ev h4{font:400 18px/1.3 var(--serif);margin:0 0 3px}.ev h4 a{text-decoration:none}.ev h4 a:hover{color:var(--red)}
 .ev .s{font-size:13px;color:var(--ink3)}.ev p{font-size:14px;color:var(--ink2);margin:6px 0 0}.ev .ys{color:var(--red);font:400 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;margin-left:6px}
 .empty{padding:28px;background:#fff;border:1px solid var(--line);margin-top:20px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;margin-top:14px}
@@ -159,7 +165,8 @@ def rows(evs, camp, show_city=False):
         bits = [x for x in [h["name"] if show_city else "", e["host"], place(e), e["type"]] if x]
         title = f'<a href="{e_(ref(e["link"], camp))}" target="_blank" rel="noopener">{e_(e["title"])}</a>' if e["link"] else e_(e["title"])
         ys = '<span class="ys">★ Yorkseed</span>' if e["place"] == "spotlight" else ""
-        out.append(f'<article class="ev"><time datetime="{iso(e,"start")}">{t12(e["start"])}</time><div><h4>{title}{ys}</h4><div class="s">{e_(" · ".join(bits))}</div>{f"<p>{e_(e[chr(100)+chr(101)+chr(115)+chr(99)])}</p>" if e["desc"] else ""}</div></article>')
+        pic = f'<img class="pic" src="{e_(PHOTOS[e["link"]])}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">' if PHOTOS.get(e["link"]) else ""
+        out.append(f'<article class="ev"><time datetime="{iso(e,"start")}">{t12(e["start"])}</time><div>{pic}<h4>{title}{ys}</h4><div class="s">{e_(" · ".join(bits))}</div>{f"<p>{e_(e[chr(100)+chr(101)+chr(115)+chr(99)])}</p>" if e["desc"] else ""}</div></article>')
     if cur is not None: out.append("</section>")
     return "\n".join(out)
 
@@ -315,7 +322,7 @@ print(f"{len(hubs)} city pages ({sum(1 for _,ok,_,_ in written if ok)} indexable
 for h in hubs.values():
     if not h["community"]: continue
     f = REPO + h["community"]; s = open(f).read()
-    s = re.sub(r'\n?<aside id="ysListLink".*?</aside>', '', s, flags=re.S)
+    s = re.sub(r'\n*<aside id="ysListLink".*?</aside>\n?', '', s, flags=re.S)
     n = len(by_hub.get(h["id"], []))
     box = (f'\n<aside id="ysListLink" style="max-width:760px;margin:32px auto;padding:20px 24px;border:1px solid rgba(0,0,0,.1);background:#fff;font-family:\'DM Sans\',system-ui,sans-serif">'
            f'<div style="font:400 10px \'DM Mono\',monospace;letter-spacing:.1em;text-transform:uppercase;color:#c8102e;margin-bottom:6px">The Yorkseed List</div>'

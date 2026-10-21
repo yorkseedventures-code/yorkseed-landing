@@ -277,6 +277,9 @@ form.fcard{background:var(--surface);border:1px solid var(--line);padding:28px;d
 
 .modal{position:fixed;inset:0;z-index:40;background:rgba(16,14,12,.6);display:grid;place-items:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
 .sheet{background:var(--surface);max-width:500px;width:100%;max-height:90%;overflow:auto;padding:28px;display:grid;gap:16px;border-top:3px solid var(--accent)}
+.calmenu{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.calmenu a,.calmenu button{display:block;text-align:center;padding:12px 10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:inherit;font-size:14px;text-decoration:none;cursor:pointer}
+.calmenu a:hover,.calmenu button:hover{border-color:var(--ink)}
 .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:50;background:var(--surface);color:var(--ink);box-shadow:0 10px 30px -12px rgba(30,27,24,.35);padding:14px 20px;max-width:min(520px,calc(100% - 32px));font-size:15px;border-left:3px solid #B3261E}
 footer{background:var(--bg-2);color:var(--muted);border-top:1px solid var(--ink);margin-top:80px;padding-block:32px calc(32px + env(safe-area-inset-bottom,0px));font-family:var(--f-label);font-size:11px;letter-spacing:.18em;text-transform:uppercase}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
@@ -1498,8 +1501,6 @@ input::placeholder,textarea::placeholder{font-size:13.5px;color:var(--soft);opac
 </div>
 </main>
 
-<p style="margin:0;font-size:14px;color:#555">Side events: <a href="/ny-app-week-2026-side-events/" style="color:inherit">NY App Week</a> · <a href="/sf-open-source-ai-week-2026-side-events/" style="color:inherit">SF Open Source AI Week</a> · <a href="/nvidia-gtc-berlin-2026-side-events/" style="color:inherit">NVIDIA GTC Berlin</a> · <a href="/munich-climate-week-2026-side-events/" style="color:inherit">Munich Climate Week</a> · <a href="/tough-tech-week-2026-side-events/" style="color:inherit">Tough Tech Week</a> · <a href="/austin-tech-week-2026-side-events/" style="color:inherit">Austin Tech Week</a> · <a href="/switch-singapore-2026-side-events/" style="color:inherit">SWITCH Singapore</a> · <a href="/slush-helsinki-2026-side-events/" style="color:inherit">Slush Helsinki</a> · <a href="/web-summit-lisbon-2026-side-events/" style="color:inherit">Web Summit Lisbon</a> · <a href="/cities/" style="color:#c8102e">All cities</a></p></section>
-
 <p id="ysSeoCities" style="max-width:1200px;margin:0 auto;padding:16px 20px;font:400 11px 'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase"><a href="/cities/" style="color:#888;text-decoration:none">Browse startup events by city →</a></p>
 <footer class="foot ysfoot">
   <div class="fwrap">
@@ -1649,14 +1650,43 @@ function showSaved(){const m=document.getElementById("mnav");if(m)m.hidden=true;
 function heartBtn(e,cls){return`<button class="${cls}" type="button" data-save="${e.id}" aria-pressed="${saved.has(e.id)}" aria-label="Save event"><svg class="ico" style="width:17px;height:17px"><use href="#i-heart"/></svg></button>`;}
 
 // ---------- views ----------
+// ---------- shareable event links (#e/<slug>) ----------
+function evSlug(e){return ((e.title||"event").toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,70)||"event")+"-"+e.date;}
+function evUrl(e){return "https://list.yorkseed.co/#e/"+evSlug(e);}
+function evBySlug(s){return EVENTS.find(x=>evSlug(x)===s);}
+let PENDING_EV=null;
+function openFromHash(){const m=(location.hash||"").match(/^#e\/(.+)$/);if(!m)return false;const s=decodeURIComponent(m[1]);const e=evBySlug(s);if(e){PENDING_EV=null;if(st.view!=="event"||st.evId!==e.id)goEvent(e.id);return true;}PENDING_EV=s;return false;}
+function setEvHash(e){try{history.replaceState(null,"","#e/"+evSlug(e));}catch(err){}}
+function clearEvHash(){try{if(/^#e\//.test(location.hash))history.replaceState(null,"",location.pathname+location.search);}catch(err){}}
+window.addEventListener("hashchange",openFromHash);
+// ---------- add to calendar ----------
+function calTimes(e){const pad=n=>String(n).padStart(2,"0");const z=t=>{const d=new Date(t);return d.getUTCFullYear()+pad(d.getUTCMonth()+1)+pad(d.getUTCDate())+"T"+pad(d.getUTCHours())+pad(d.getUTCMinutes())+"00Z";};
+  if(e.noTime){const a=e.date.replace(/-/g,""),nd=new Date(e.date+"T12:00:00Z");nd.setUTCDate(nd.getUTCDate()+1);const b=nd.toISOString().slice(0,10).replace(/-/g,"");return{allDay:true,start:a,end:b};}
+  const end=e.end?e.utcEnd:(e.utc+2*36e5);return{allDay:false,start:z(e.utc),end:z(end)};}
+function calText(e){const h=hubById(e.hub);return{title:e.title,where:placeText(e,h),details:[(e.desc||"").slice(0,600),e.link?"Register: "+refLink(e.link,"calendar"):"","Found on The Yorkseed List: "+evUrl(e)].filter(Boolean).join("\n\n")};}
+function gcalUrl(e){const t=calTimes(e),x=calText(e);return"https://calendar.google.com/calendar/render?action=TEMPLATE&text="+encodeURIComponent(x.title)+"&dates="+t.start+"/"+t.end+"&details="+encodeURIComponent(x.details)+"&location="+encodeURIComponent(x.where);}
+function outlookUrl(e){const t=calTimes(e),x=calText(e);const iso=s=>s.length===8?s.slice(0,4)+"-"+s.slice(4,6)+"-"+s.slice(6,8):s.slice(0,4)+"-"+s.slice(4,6)+"-"+s.slice(6,8)+"T"+s.slice(9,11)+":"+s.slice(11,13)+":00Z";return"https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&subject="+encodeURIComponent(x.title)+"&startdt="+encodeURIComponent(iso(t.start))+"&enddt="+encodeURIComponent(iso(t.end))+(t.allDay?"&allday=true":"")+"&body="+encodeURIComponent(x.details)+"&location="+encodeURIComponent(x.where);}
+function icsFor(e){const t=calTimes(e),x=calText(e);const q=s=>String(s).replace(/\\/g,"\\\\").replace(/;/g,"\\;").replace(/,/g,"\\,").replace(/\r?\n/g,"\\n");const now=new Date().toISOString().replace(/[-:]/g,"").replace(/\.\d+/,"");
+  return["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Yorkseed//The Yorkseed List//EN","CALSCALE:GREGORIAN","METHOD:PUBLISH","BEGIN:VEVENT","UID:"+evSlug(e)+"@list.yorkseed.co","DTSTAMP:"+now,(t.allDay?"DTSTART;VALUE=DATE:":"DTSTART:")+t.start,(t.allDay?"DTEND;VALUE=DATE:":"DTEND:")+t.end,"SUMMARY:"+q(x.title),"DESCRIPTION:"+q(x.details),"LOCATION:"+q(x.where),"URL:"+evUrl(e),"END:VEVENT","END:VCALENDAR"].join("\r\n");}
+function downloadIcs(e){try{const b=new Blob([icsFor(e)],{type:"text/calendar;charset=utf-8"});const u=URL.createObjectURL(b);const a=document.createElement("a");a.href=u;a.download=evSlug(e)+".ics";document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(u);a.remove();},1500);}catch(err){toast("Couldn't create the calendar file.");}}
+function calMenu(e,btn){let m=document.getElementById("calMenu");if(m){m.remove();return;}
+  m=document.createElement("div");m.id="calMenu";m.className="calmenu";
+  m.innerHTML=`<a href="${gcalUrl(e)}" target="_blank" rel="noopener">Google Calendar</a><button type="button" data-ics="1">Apple Calendar (.ics)</button><a href="${outlookUrl(e)}" target="_blank" rel="noopener">Outlook.com</a><button type="button" data-ics="1">Outlook desktop (.ics)</button>`;
+  m.querySelectorAll("[data-ics]").forEach(b=>b.onclick=()=>{downloadIcs(e);m.remove();});
+  m.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>setTimeout(()=>m.remove(),50)));
+  btn.closest(".two").insertAdjacentElement("afterend",m);}
+async function shareEv(e){const h=hubById(e.hub),d=dParts(e.date),url=evUrl(e);const text=`${e.title} · ${d.long}${e.noTime?"":", "+fE(e,h.tz)+" "+abE(e,h.tz)} · ${h.name}`;
+  if(navigator.share){try{await navigator.share({title:e.title,text,url});return;}catch(err){if(err&&err.name==="AbortError")return;}}
+  try{await navigator.clipboard.writeText(url);toast("Link copied. Paste it anywhere to share this event.");}catch(err){toast(url);}}
 function show(view){
+  if(view!=="event")clearEvHash();
   st.view=view;
   $("#vHome").hidden=view!=="home";$("#vCity").hidden=view!=="city";$("#vEvent").hidden=view!=="event";
   if(view==="city")renderCity();if(view==="event")renderEvent();
   scrollTo({top:0,behavior:"instant"});
 }
 function goCity(hub,keepSaved){if(!keepSaved)st.savedOnly=false;if(hub)st.hub=hub;st.day=null;st.month="";st.prev="city";show("city");}
-function goEvent(id){st.prev=st.view==="event"?st.prev:st.view;st.evId=id;show("event");}
+function goEvent(id){st.prev=st.view==="event"?st.prev:st.view;st.evId=id;show("event");const e=EVENTS.find(x=>x.id===id);if(e)setEvHash(e);}
 
 // home
 function renderHome(){
@@ -1669,7 +1699,7 @@ function renderHome(){
   for(const e of feat){if(pick.length>=4)break;if(!pick.includes(e))pick.push(e);}
   pick.sort((a,b)=>a.utc-b.utc);
   $("#featCards").innerHTML=pick.map(e=>{const h=hubById(e.hub),d=dParts(e.date);return`<article class="card" data-ev="${e.id}" tabindex="0">
-    <div class="ph"><img src="${IMG[e.img]}" alt="">${badge(e.place)}${heartBtn(e,"heart")}</div>
+    <div class="ph">${evImgTag(e,IMG[e.img])}${badge(e.place)}${heartBtn(e,"heart")}</div>
     <div class="body"><h3>${esc(e.title)}</h3>
       <div class="meta">${ico("cal")}${d.long}${e.noTime?"":" · "+fE(e,h.tz)}</div>
       <div class="meta">${ico("pin")}${h.name}</div>
@@ -1837,7 +1867,7 @@ function renderCal(h,w){
   $("#rows").innerHTML=`<div class="calhead"><h3>${mName} <em>${y}</em></h3><div class="nav2"><span>${inMonth} event${inMonth===1?"":"s"}</span><button type="button" data-mon="-1" aria-label="Previous month">‹</button><button type="button" data-mon="1" aria-label="Next month">›</button></div></div><div class="cal">${cells}</div>`;
 }
 function cardHtml(e){const h=hubById(e.hub),d=dParts(e.date);return`<article class="card" data-ev="${e.id}" tabindex="0">
-    <div class="ph"><img src="${IMG[e.img]}" alt="">${badge(e.place)}${heartBtn(e,"heart")}</div>
+    <div class="ph">${evImgTag(e,IMG[e.img])}${badge(e.place)}${heartBtn(e,"heart")}</div>
     <div class="body"><h3>${esc(e.title)}</h3>
       <div class="meta">${ico("cal")}${d.long}${e.noTime?"":" · "+fE(e,h.tz)}</div>
       <div class="meta">${ico("pin")}${h.name}</div>
@@ -1879,7 +1909,7 @@ function renderEvent(){
   const e=EVENTS.find(x=>x.id===st.evId);if(!e){show("home");return;}
   const h=hubById(e.hub),d=dParts(e.date),wk=e.week?weekById(e.week):null;
   const initials=e.host.split(/\s+/).map(w=>w[0]).join("").slice(0,2).toUpperCase();
-  $("#evPage").innerHTML=`<div class="evimg"><img src="${e.hub==="nyc"&&e.place?IMG.detail:IMG[{ev5:"ev1",ev6:"ev4",ev7:"ev3",ev8:"ev2"}[e.img]||e.img]}" alt=""><div class="dblk">${d.mon}<b>${d.day}</b>${d.wd}</div></div>
+  $("#evPage").innerHTML=`<div class="evimg">${evImgTag(e,e.hub==="nyc"&&e.place?IMG.detail:IMG[{ev5:"ev1",ev6:"ev4",ev7:"ev3",ev8:"ev2"}[e.img]||e.img])}<div class="dblk">${d.mon}<b>${d.day}</b>${d.wd}</div></div>
   <div class="evinfo">
     <div style="display:flex;justify-content:space-between;gap:12px;align-items:start"><h1>${esc(e.title)}</h1>${badge(e.place)}</div>
     <div class="meta">${ico("clock")}${e.noTime?"Time on the event page":fE(e,h.tz)+(e.end?" – "+fEnd(e,h.tz):"")+" "+abE(e,h.tz)}</div>
@@ -1898,8 +1928,8 @@ function renderEvent(){
   $("#evPage").insertAdjacentHTML("beforeend",sponsorsHtml());
   if($("#follow"))$("#follow").onclick=ev=>{ev.target.textContent=ev.target.textContent==="Follow"?"Following":"Follow";};
   const rb=$("#regBtn");if(rb)rb.onclick=()=>toast("Sample event: real listings link to the organizer's registration page.");
-  $("#calBtn").onclick=()=>toast("On the live site this adds the event to Google, Apple or Outlook calendar in local time.");
-  $("#shareBtn").onclick=async()=>{const txt=`${e.title}, ${d.long}, ${fE(e,h.tz)} ${abE(e,h.tz)}, ${h.name}. Found on list.yorkseed.co`;try{await navigator.clipboard.writeText(txt);toast("Event details copied.");}catch(err){toast(txt);}};
+  $("#calBtn").onclick=ev=>calMenu(e,ev.currentTarget);
+  $("#shareBtn").onclick=()=>shareEv(e);
 }
 function mapSvg(seed){let s=[...seed].reduce((a,c)=>a+c.charCodeAt(0),7);const r=()=>(s=(s*9301+49297)%233280)/233280;let l="";for(let i=0;i<9;i++){const y=12+i*12+r()*4;l+=`<path d="M0 ${y} L400 ${y+r()*14-7}" stroke="var(--line)" stroke-width="${r()>.75?4:1.5}"/>`;}for(let i=0;i<14;i++){const x=10+i*30+r()*8;l+=`<path d="M${x} 0 L${x+r()*30-15} 120" stroke="var(--line)" stroke-width="${r()>.8?4:1.5}"/>`;}return`<svg viewBox="0 0 400 120"><rect width="400" height="120" fill="var(--bg-2)"/>${l}<path d="M330 0 C310 40 350 80 320 120" stroke="var(--accent-soft)" stroke-width="14" fill="none"/><g transform="translate(200 52)"><path d="M0 18 C-9 6 -10 2 -10 -2 a10 10 0 0 1 20 0 c0 4 -1 8 -10 20z" fill="#E5484D"/><circle cy="-2" r="3.5" fill="#fff"/></g></svg>`;}
 
@@ -2261,7 +2291,7 @@ if($("#tiers"))$("#tiers").innerHTML=TIERS.map(t=>`<div class="tier${t.rec?" rec
 syncWeeks();renderHome();paneShow();
 setInterval(()=>{if(st.view==="home")renderCityRow();},30000);
 const hash=(location.hash||"").slice(1);
-if(hash==="events")goCity("all");else if(HUBS.some(h=>h.id===hash))goCity(hash);else if(["submit","pricing","partner","weeks"].includes(hash))scrollToId(hash);
+if(/^e\//.test(hash))openFromHash();else if(hash==="events")goCity("all");else if(HUBS.some(h=>h.id===hash))goCity(hash);else if(["submit","pricing","partner","weeks"].includes(hash))scrollToId(hash);
 
 makePicker($("#homeSel"));makePicker($("#hHub"),true);makePicker($("#fCity"),true);
 
@@ -2276,9 +2306,12 @@ const STRIPE_ACCT="acct_1R626g2cSomcPXKP";
 
 function liveBookings(){const t=addDays(0);return LIVE_BANNERS.filter(b=>b.active!==false&&(!b.start||b.start<=t)&&(!b.end||b.end>=t));}
 function allBookings(){return [...liveBookings(),...BOOKINGS];}
-function rerenderAll(){try{renderHome();}catch(e){}try{if(st.view==="city")renderCity();if(st.view==="event")renderEvent();}catch(e){}try{renderBanners();}catch(e){}try{drawMZ();}catch(e){}}
+function rerenderAll(){if(PENDING_EV&&openFromHash())return;try{renderHome();}catch(e){}try{if(st.view==="city")renderCity();if(st.view==="event")renderEvent();}catch(e){}try{renderBanners();}catch(e){}try{drawMZ();}catch(e){}}
 function dbEvent(id,d){const w=WEEKS.find(x=>x.hub===d.hub&&d.date>=x.start&&d.date<=x.end);
   return decorate({id:"d_"+id,title:d.title||"Untitled",hub:d.hub,date:d.date,start:d.start||null,end:d.start?(d.end||null):null,type:d.type||inferType(d.title||""),host:d.host||"",tags:(()=>{const t=inferTags((d.title||"")+" "+(d.desc||""));return t.length?t.slice(0,3):["Founders"];})(),aud:[],place:d.featured?"featured":(d.yorkseed?"spotlight":null),week:w?w.id:null,img:"ev"+(1+(id.charCodeAt(0)%8)),venue:d.venue||"",link:d.link||"",desc:d.desc||"",live:true});}
+var PHOTOS={};
+function evImgTag(e,fb){const p=e&&e.link&&(PHOTOS||{})[e.link];return p?`<img src="${esc(p)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src=this.dataset.fb" data-fb="${fb}">`:`<img src="${fb}" alt="">`;}
+if(window.YS_STATIC){fetch(String(window.YS_STATIC).replace(/^1$/,"")+"data/photos.json",{cache:"no-store"}).then(r=>r.ok?r.json():{}).then(m=>{let n=0;for(const k in m){if(m[k]&&m[k].img){PHOTOS[k]=m[k].img;n++;}}if(n&&typeof rerenderAll==="function")rerenderAll();}).catch(()=>{});}
 if(window.YS_STATIC){const J=f=>fetch(String(window.YS_STATIC).replace(/^1$/,"")+f,{cache:"no-store"}).then(r=>r.ok?r.json():[]).catch(()=>[]);
   J("events.json").then(a=>{a=Array.isArray(a)?a:(a&&a.events)||[];const seen=new Set(EVENTS.map(e=>(e.link||e.title)+"|"+e.date));let n=0;
     a.forEach((d,i)=>{if(!d||!d.hub||!d.date||!HUBS.some(h=>h.id===d.hub))return;const k=(d.link||d.title)+"|"+d.date;if(seen.has(k))return;seen.add(k);EVENTS.push(dbEvent((d.title||"e").slice(0,1)+i,d));n++;});if(n)rerenderAll();});
