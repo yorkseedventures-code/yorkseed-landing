@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">Your Matches</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
+
+  :root {
+    --ink: #0e0e0e;
+    --ink2: #1a1a1a;
+    --ink3: #555;
+    --ink4: #999;
+    --white: #fff;
+    --off: #fafafa;
+    --light: #f5f4f1;
+    --mid: #e8e6e1;
+    --red: #c8372d;
+    --red-dim: rgba(200,55,45,.06);
+    --red-border: rgba(200,55,45,.18);
+    --gold: #b08d57;
+    --gold-dim: rgba(176,141,87,.07);
+    --gold-border: rgba(176,141,87,.22);
+    --border: rgba(0,0,0,.07);
+    --border2: rgba(0,0,0,.12);
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --mono: 'DM Mono', monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--off);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 300;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 92px 24px 80px;
+  }
+  .brand-logo { display: block; margin-bottom: 28px; }
+
+  .nav {
+    display: flex;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 60px;
+    background: rgba(255,255,255,.97);
+    border-bottom: 1px solid var(--border);
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    z-index: 100;
+    backdrop-filter: blur(6px);
+  }
+  .nav img { display: block; height: 22px; }
+  .nav-r { display: flex; align-items: center; gap: 8px; }
+  .nav-r a {
+    display: inline-block;
+    font-size: 13px; color: var(--ink3);
+    padding: 6px 10px; border-radius: 5px;
+    text-decoration: none; cursor: pointer;
+    font-family: var(--sans);
+  }
+  .nav-r a:hover { background: rgba(0,0,0,.05); }
+  .nav-r .join {
+    background: var(--red); color: #fff !important;
+    border-radius: 6px; padding: 7px 16px; font-size: 13px;
+  }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--red);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  .product-kicker {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+  h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(32px, 6vw, 48px);
+    line-height: 1.08;
+    margin: 0 0 8px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .sub {
+    color: var(--ink3);
+    font-size: 16px;
+    font-weight: 300;
+    max-width: 46ch;
+    line-height: 1.55;
+    margin-bottom: 36px;
+  }
+  .event-detail {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--ink3);
+    margin: 0 0 22px;
+    line-height: 1.6;
+  }
+  .event-detail a { color: var(--red); text-decoration: underline; }
+  .venue-address {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink4);
+    margin: -16px 0 22px;
+  }
+  .onsite-contact {
+    font-family: var(--sans);
+    font-size: 11.5px;
+    font-weight: 300;
+    color: var(--ink4);
+    margin: -18px 0 22px;
+  }
+
+  /* Login card */
+  .login-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 36px 32px;
+    box-shadow: 0 1px 2px rgba(14,14,14,0.03);
+  }
+  .field { margin-bottom: 18px; }
+  label {
+    display: block;
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    font-weight: 500;
+    margin-bottom: 7px;
+    color: var(--ink2);
+  }
+  input[type="text"], input[type="email"] {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid var(--border2);
+    border-radius: 3px;
+    font-size: 16px;
+    font-family: var(--sans);
+    font-weight: 400;
+    background: var(--off);
+    color: var(--ink);
+    transition: border-color .15s ease;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  input:focus {
+    outline: none;
+    border-color: var(--red);
+  }
+  button.primary {
+    width: 100%;
+    background: var(--red);
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 13px 18px;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: var(--sans);
+    cursor: pointer;
+    transition: opacity .15s ease;
+    margin-top: 6px;
+  }
+  button.primary:hover { opacity: .88; }
+  button.primary:disabled { opacity: 0.55; cursor: default; }
+
+  .error-msg {
+    background: var(--red-dim);
+    border: 1px solid var(--red-border);
+    color: var(--red);
+    font-size: 14px;
+    padding: 10px 14px;
+    border-radius: 3px;
+    margin-bottom: 18px;
+    display: none;
+  }
+  .error-msg.show { display: block; }
+
+  /* Results */
+  .results-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .logout {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink3);
+    text-decoration: underline;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+  }
+  .logout:hover { color: var(--ink); }
+
+  .match-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    border-radius: 3px;
+    padding: 22px 24px;
+    margin-bottom: 18px;
+  }
+  .match-index {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--red);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .match-name {
+    font-family: var(--serif);
+    font-size: 21px;
+    font-weight: 600;
+    margin: 0 0 2px;
+    color: var(--ink);
+  }
+
+  .match-linkedin {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--gold);
+    text-decoration: none;
+    margin-top: 5px;
+    letter-spacing: 0.04em;
+    opacity: 0.85;
+  }
+  .match-linkedin:hover { opacity: 1; text-decoration: underline; }
+  .match-role {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 14px;
+  }
+  .match-hook {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 15.5px;
+    font-weight: 500;
+    color: var(--ink2);
+    line-height: 1.45;
+    margin: 0 0 16px;
+  }
+  .why-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink4);
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  ul.bullets {
+    margin: 0 0 16px;
+    padding-left: 18px;
+  }
+  ul.bullets li {
+    font-size: 14.5px;
+    font-weight: 300;
+    line-height: 1.55;
+    margin-bottom: 5px;
+    color: var(--ink2);
+  }
+  .starter {
+    background: var(--off);
+    border: 1px dashed var(--border2);
+    border-radius: 3px;
+    padding: 12px 14px;
+    font-size: 14px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--ink2);
+  }
+  .starter b {
+    font-style: normal;
+    font-weight: 600;
+    color: var(--red);
+  }
+
+  .footer-note {
+    margin-top: 36px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink4);
+    text-align: center;
+  }
+
+  .bonus-card {
+    background: var(--ink);
+    border-radius: 4px;
+    padding: 28px 26px;
+    margin: 28px 0 8px;
+  }
+  .bonus-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .bonus-title {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--white);
+    margin: 0 0 10px;
+    line-height: 1.25;
+  }
+  .bonus-body {
+    font-size: 14.5px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: rgba(255,255,255,.72);
+    margin: 0 0 18px;
+    max-width: 58ch;
+  }
+  .bonus-cta {
+    display: inline-block;
+    background: var(--red);
+    color: #fff;
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 11px 20px;
+    border-radius: 3px;
+    text-decoration: none;
+  }
+  .bonus-cta:hover { opacity: .88; }
+  .bonus-note {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: rgba(255,255,255,.45);
+    margin-top: 14px;
+  }
+  .bonus-note a { color: var(--gold); text-decoration: underline; }
+
+  #login-view, #results-view { display: none; }
+  #login-view.active, #results-view.active { display: block; }
+
+  /* ── Tablet (iPad portrait/landscape) ── */
+  @media (min-width: 601px) and (max-width: 1024px) {
+    .wrap { max-width: 680px; padding: 104px 32px 90px; }
+    .login-card { padding: 40px 36px; }
+    .match-card { padding: 26px 28px; }
+    .bonus-card { padding: 32px 30px; }
+  }
+
+  /* ── Desktop ── */
+  @media (min-width: 1025px) {
+    .wrap { max-width: 760px; padding: 116px 24px 100px; }
+    .brand-logo { margin-bottom: 32px; }
+    .login-card { padding: 40px 38px; }
+    .match-card { padding: 26px 30px; transition: box-shadow .15s ease, transform .15s ease; }
+    .match-card:hover { box-shadow: 0 4px 16px rgba(14,14,14,0.06); transform: translateY(-1px); }
+    .bonus-card { padding: 36px 38px; }
+    input[type="text"], input[type="email"] { font-size: 15px; }
+    button.primary:hover { cursor: pointer; }
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 600px) {
+    .nav { padding: 0 16px; height: 54px; }
+    .nav img { height: 18px; }
+    .nav-r { gap: 2px; }
+    .nav-r a { font-size: 11.5px; padding: 5px 7px; }
+    .nav-r .join { padding: 6px 11px; }
+    .wrap { padding: 70px 16px 56px; }
+    .brand-logo { margin-bottom: 20px; }
+    h1 { font-size: clamp(26px, 8vw, 34px); }
+    .sub { font-size: 14.5px; margin-bottom: 26px; }
+    .login-card { padding: 24px 18px; }
+    .field { margin-bottom: 15px; }
+    .results-header {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+    .logout { font-size: 12.5px; }
+    .match-card { padding: 18px 16px; margin-bottom: 14px; }
+    .match-name { font-size: 19px; }
+    ul.bullets li { font-size: 14px; }
+    .starter { font-size: 13.5px; padding: 11px 12px; }
+    .bonus-card { padding: 22px 18px; margin: 22px 0 6px; }
+    .bonus-title { font-size: 20px; }
+    .bonus-body { font-size: 14px; }
+    .bonus-cta { width: 100%; text-align: center; }
+    .event-detail { font-size: 12px; }
+  }
+
+  /* ── Extra-narrow phones (e.g. iPhone SE), guarantee nav never wraps ── */
+  @media (max-width: 360px) {
+    .nav-r a[href="/events.html"] { display: none; }
+  }
+</style>
+<script src="/assets/site-chrome.js" defer></script>
+<style>yk-header:not(:defined){display:block;min-height:73px}</style>
+<script src="/assets/ys-ref.js" defer></script>
+</head>
+<body>
+<yk-header><a href="/">Yorkseed</a> <a href="/hubs.html">Hubs</a> <a href="/events.html">Events</a> <a href="/investors">Investor list</a> <a href="/contact.html">Contact</a></yk-header>
+<div class="wrap">
+
+  <div id="login-view" class="active">
+    <div class="product-kicker">Yorkseed Event In-Person Match</div>
+    <div class="eyebrow" id="login-event-name">Yorkseed Venture Social</div>
+    <h1>Find out who to meet.</h1>
+    <p class="event-detail" id="login-event-detail">New York City &middot; Tuesday, June 30 &middot; 5:00&ndash;7:30 PM EDT &middot; Hosted by Peter and Jason</p>
+    <p class="sub">Enter the first name and email you registered with, the venue address will be shown once we confirm you're on the guest list.</p>
+
+    <div class="login-card">
+      <div class="error-msg" id="error-msg"></div>
+      <div class="field">
+        <label for="first-name">First name</label>
+        <input type="text" id="first-name" placeholder="e.g. Pallav" autocomplete="given-name">
+      </div>
+      <div class="field">
+        <label for="email">Email address</label>
+        <input type="email" id="email" placeholder="you@company.com" autocomplete="email">
+      </div>
+      <button class="primary" id="login-btn">See my matches</button>
+    </div>
+  </div>
+
+  <div id="results-view">
+    <div class="results-header">
+      <div>
+        <div class="product-kicker">Yorkseed Event In-Person Match</div>
+        <div class="eyebrow" id="results-eyebrow">Your matches</div>
+        <h1 id="results-heading" style="font-size: clamp(26px,5vw,36px);">Hi there.</h1>
+      </div>
+      <button class="logout" id="logout-btn">Not you? Switch account</button>
+    </div>
+    <p class="event-detail" id="results-event-detail">Tuesday, June 30 &middot; 5:00&ndash;7:30 PM EDT &middot; <a href="https://www.google.com/maps/search/?api=1&query=The%20Ready%20Cantina&query_place_id=ChIJ-1HxQCdZwokRLHj8Dl1rVOo" target="_blank" rel="noopener">The Ready Cantina, New York</a></p>
+    <p class="venue-address" id="results-venue-address">112 E 11th St, New York, NY 10003</p>
+    <p class="onsite-contact" id="results-host-label">Peter and Jason are your on-site contacts</p>
+    <p class="sub" id="results-sub">Based on what you shared in your RSVP, here's who we think you should meet.</p>
+    <div id="match-list"></div>
+
+    <div class="bonus-card">
+      <div class="bonus-eyebrow">Complimentary Bonus</div>
+      <h3 class="bonus-title">2 Months of Yorkseed Connect</h3>
+      <p class="bonus-body">Yorkseed Connect is our venture relationship platform designed to help founders and investors build stronger connections beyond events through verified profiles, warm introductions, opportunity discovery, and access to Yorkseed's global network.</p>
+      <p class="bonus-body">All approved founders and investors attending this event will be eligible to receive a special code for complimentary access to Yorkseed Connect.</p>
+      <a class="bonus-cta" href="https://app.yorkseed.co/eventoffer?utm_source=luma" target="_blank" rel="noopener">Claim 2 months free</a>
+      <div class="bonus-note">Space is limited and registration is required &middot; <a href="https://app.yorkseed.co/eventoffer?utm_source=luma" target="_blank" rel="noopener">app.yorkseed.co/eventoffer</a></div>
+    </div>
+
+    <div class="footer-note" id="footer-note">See you at Founders x Capitals NYC.</div>
+  </div>
+
+</div>
+
+<script>
+// ── EVENT CONFIG, edit this block for each new event, nothing else ──
+const EVENT = {
+  slug: "founders-x-capitals-nyc",
+  name: "Founders x Capitals NYC",
+  city: "New York, NY",
+  dateLabel: "Friday, October 23",
+  timeLabel: "5:00–7:30 PM EST",
+  onsiteContact: "Jessica is your on-site host",
+  venueName: "Everything's Jake NYC Bar & Lounge",
+  venueAddress: "New York, NY",
+  venueMapUrl: "https://www.google.com/maps/search/?api=1&query=40.7341957%2C-73.9916951&query_place_id=ChIJM0VMwFVZwokRwkNE8e6JcTY"
+};
+const ATTENDEES = [{"name": "Jessica Wong", "first_name": "Jessica", "email": "jess.sophia@gmail.com", "role": "Founder | Yorkseed", "matches": [{"name": "DJ Patel", "role": "Head of Directs | UV", "linkedin": "https://www.linkedin.com/in/djpat", "hook": "Most active capital in the room tonight.", "bullets": ["Writes angel and direct checks in healthtech, fintech, and AI infrastructure.", "Attended by email invite -- already primed for warm founder introductions from you."], "starter": "What deal thesis is UV most aggressively pursuing right now?"}, {"name": "Ajay Jadhav", "role": "CEO | Clouds Inc.", "linkedin": "https://www.linkedin.com/in/ajay-jadhav-a3991737", "hook": "$30M raised in AI. Here specifically looking for a lead investor intro.", "bullets": ["Physical AI for sustainability and well-being -- Seed stage with serious traction.", "High signal founder worth featuring in your post-event follow-up to your investor network."], "starter": "What does your ideal next investor bring to the table beyond the check?"}, {"name": "Noel Guinane", "role": "Managing Partner | Blood & Treasure", "linkedin": "https://www.linkedin.com/in/noelguinane", "hook": "Angel and VC investor here to find credible founders.", "bullets": ["Covers HR and Logistics -- broader than the sector suggests, open to the right founder.", "Exactly the kind of capital relationship you want to build for future deal flow."], "starter": "What makes a founder credible to you before you've seen their deck?"}]}, {"name": "Ajay Jadhav", "first_name": "Ajay", "email": "ajay.jadhav@cloudsinc.com", "role": "CEO | Clouds Inc.", "matches": [{"name": "DJ Patel", "role": "Head of Directs | UV", "linkedin": "https://www.linkedin.com/in/djpat", "hook": "AI and tech infrastructure investor. Exactly your sector.", "bullets": ["Writes direct checks in AI hardware and software -- Physical AI is in his sweet spot.", "Also an exited founder, so he'll get your product faster than most."], "starter": "What types of AI deals are you most actively looking at right now?"}, {"name": "Andres Fernandez Vilches", "role": "Angel Investor | Mithril Capital", "linkedin": "https://www.linkedin.com/in/afernandezvilches", "hook": "Angel writing checks in tech. Looking for founders to talk to tonight.", "bullets": ["Explicitly came for deal flow -- you're exactly who he came to meet.", "Open portfolio with tech focus means he can move fast without committee overhead."], "starter": "What does your diligence process look like for an AI SaaS at this stage?"}, {"name": "Noel Guinane", "role": "Managing Partner | Blood & Treasure", "linkedin": "https://www.linkedin.com/in/noelguinane", "hook": "Angel and VC looking for credible founders. You fit the profile.", "bullets": ["Here specifically to discover founders -- you came specifically to be found.", "$30M raised gives you the credibility signal he's screening for."], "starter": "What does the road to your next milestone look like from here?"}]}, {"name": "Raquel de Lavandeyra", "first_name": "Raquel", "email": "altcal@icloud.com", "role": "CEO & Founder | AltCal", "matches": [{"name": "DJ Patel", "role": "Head of Directs | UV", "linkedin": "https://www.linkedin.com/in/djpat", "hook": "Investor with consumer tech exposure. Here to find companies.", "bullets": ["Covers consumer-facing sectors and writes angel and direct checks.", "You came for consumer investor intros -- he came for exactly that conversation."], "starter": "What does distribution look like for a consumer tech product at your stage?"}, {"name": "Jon Parks", "role": "CEO | daRosario LLC", "linkedin": "https://www.linkedin.com/in/parksjon", "hook": "Consumer founder and family office investor. Rare combination.", "bullets": ["Runs a consumer brand himself -- understands the B2C grind from the inside.", "Also deploys family office capital, so he can be both a peer and a check-writer."], "starter": "What's the hardest part of consumer acquisition that nobody talks about?"}, {"name": "Mark Nguyen", "role": "Founder | The Well Network", "linkedin": "https://www.linkedin.com/in/markdnguyen/", "hook": "Consumer ecosystem builder who connects founders and investors.", "bullets": ["Built The Well Network specifically for consumer connections -- your category.", "Growth stage with warm intros into the consumer investor community."], "starter": "Which consumer investors in your network would be most relevant for an early-stage B2C tech company?"}]}, {"name": "Jill Jahns", "first_name": "Jill", "email": "jilljahns@gmail.com", "role": "Director, Public Health & Navigation | Legacy Community Health", "matches": [{"name": "Andrew Probasco", "role": "Director of Strategy | Born Global Community", "linkedin": "https://www.linkedin.com/in/andrew-probasco-4421b449/", "hook": "Ecosystem leader with a strategy and research lens. Natural peer.", "bullets": ["Works across EP, academia, and mid-size organizations -- overlaps with your world.", "Here to build meaningful connections and understand the NYC business ecosystem."], "starter": "How do you see the intersection of public health and community strategy evolving in NYC?"}, {"name": "DJ Patel", "role": "Head of Directs | UV", "linkedin": "https://www.linkedin.com/in/djpat", "hook": "Healthtech investor. Your world, from the capital side.", "bullets": ["UV actively writes checks in healthtech -- your expertise is directly relevant.", "An investor who understands public health makes for a more interesting conversation than most."], "starter": "What problem in public health do you think is most underinvested from a capital standpoint?"}, {"name": "Mark Nguyen", "role": "Founder | The Well Network", "linkedin": "https://www.linkedin.com/in/markdnguyen/", "hook": "Consumer wellness builder who supports founders and communities.", "bullets": ["The Well Network operates at the health and community intersection -- aligned with your work.", "Actively looking to support founders and connect them into his network."], "starter": "What does community health mean in practice at Legacy, and how do you measure impact?"}]}, {"name": "Andrew Probasco", "first_name": "Andrew", "email": "asprobasco@gmail.com", "role": "Director of Strategy & Research | Born Global Community", "matches": [{"name": "Zheng Zhang", "role": "Lawyer | THC Lawyers", "linkedin": "https://www.linkedin.com/in/zheng-sharon-zhang-1a5179149/", "hook": "Legal connector here to build across founders and service providers.", "bullets": ["Here explicitly to network with founders, investors, and ecosystem players like you.", "Cross-sector legal perspective can surface angles on community and international strategy."], "starter": "What kinds of organizations does THC Lawyers typically work with?"}, {"name": "Mark Nguyen", "role": "Founder | The Well Network", "linkedin": "https://www.linkedin.com/in/markdnguyen/", "hook": "Community builder with deep roots in the NYC consumer ecosystem.", "bullets": ["The Well Network is a connector hub for founders -- high overlap with Born Global's mission.", "Growth stage company with experience in community-driven models."], "starter": "How does The Well Network activate its community around founders specifically?"}, {"name": "Jill Jahns", "role": "Director, Public Health & Navigation | Legacy Community Health", "linkedin": "https://www.linkedin.com/in/jill-jahns", "hook": "Public health and community leader. Rare profile in a venture room.", "bullets": ["Her work on community navigation maps closely to strategy and impact infrastructure.", "Both of you are ecosystem builders -- rare to find in a founder-investor crowd."], "starter": "How does community health strategy intersect with economic development in your experience?"}]}, {"name": "Diallo Molina", "first_name": "Diallo", "email": "molinadiallo@gmail.com", "role": "Founder | Anamis", "matches": [{"name": "Stony Grunow", "role": "Founder | Kipper / SuiteMigration", "linkedin": "https://kipper.com", "hook": "Fellow SaaS builder. Prior exit. Knows what scaling looks like.", "bullets": ["Built and bootstrapped a prior company to $4M ARR -- tactical early-stage peer.", "Now in AI and data migrations -- B2B SaaS overlap with Anamis."], "starter": "What surprised you most about going from bootstrapped to VC-backed?"}, {"name": "Kimberly Neer", "role": "Founder | PeridotOS", "linkedin": "https://www.linkedin.com/in/kimberly-neer/", "hook": "Early-stage founder working on GTM. Great peer for this stage.", "bullets": ["PeridotOS is in the go-to-market engine space -- potential user or partner.", "She's building the infrastructure that makes B2B SaaS companies like yours grow."], "starter": "What does your GTM motion look like at Anamis right now?"}, {"name": "Noam Raguan", "role": "Founder | Use Thrive", "linkedin": "https://www.linkedin.com/in/noam-raguan/", "hook": "B2B SaaS founder who got to profitability without VC. Worth talking to.", "bullets": ["Bootstrapped Use Thrive to profitability in fintech -- a different playbook to learn from.", "You're both building B2B products in early stages -- useful perspective on sustainable growth."], "starter": "What did getting to profitability without VC teach you about product prioritization?"}]}, {"name": "Tatyana Jones", "first_name": "Tatyana", "email": "tatyana.jones@defi-snacks.com", "role": "Founder & CEO | DEFI Snacks", "matches": [{"name": "Andres Fernandez Vilches", "role": "Angel Investor | Mithril Capital", "linkedin": "https://www.linkedin.com/in/afernandezvilches", "hook": "Angel who explicitly invests in CPG. He came for founders like you.", "bullets": ["CPG is one of his stated focus sectors -- $415k committed makes this a warm conversation.", "He wants founder deal flow tonight. Your raise is exactly what he's here for."], "starter": "What does your current CPG investment criteria look like, and what stage do you typically lead?"}, {"name": "Jon Parks", "role": "CEO | daRosario LLC", "linkedin": "https://www.linkedin.com/in/parksjon", "hook": "CPG founder and family office investor. Both sides of the table.", "bullets": ["Runs daRosario in the affordable luxury food space -- understands your market.", "Also deploys family office capital, which could be a path to closing your round."], "starter": "What does family office investment look like in the CPG space right now?"}, {"name": "Noel Guinane", "role": "Managing Partner | Blood & Treasure", "linkedin": "https://www.linkedin.com/in/noelguinane", "hook": "Angel and VC investor here looking for credible founders raising.", "bullets": ["Actively seeking founder relationships -- you're mid-raise, which means timing is right.", "Bringing committed capital into the intro makes this a stronger first conversation."], "starter": "What's the profile of founder you most like to back at early stage?"}]}, {"name": "Andres Fernandez Vilches", "first_name": "Andres", "email": "andres@fernandezvilches.com", "role": "Angel Investor | Mithril Capital", "matches": [{"name": "Tatyana Jones", "role": "Founder & CEO | DEFI Snacks", "linkedin": "https://defisnacks.com", "hook": "CPG founder mid-raise. $415k committed. Looking for an angel.", "bullets": ["CPG is in your stated investment thesis -- this is exactly who you came to find.", "She's indulgent snacking, early stage, with real committed capital already in."], "starter": "Tell me what's already committed and what the round structure looks like."}, {"name": "Ajay Jadhav", "role": "CEO | Clouds Inc.", "linkedin": "https://www.linkedin.com/in/ajay-jadhav-a3991737", "hook": "AI and SaaS founder who's already raised $30M. Looking for a lead.", "bullets": ["Physical AI for sustainability -- tech investment thesis overlap.", "Seed stage with demonstrated fundraising ability. Lower risk profile."], "starter": "What's the problem you're solving that $30M in funding hasn't fully solved yet?"}, {"name": "Jared Lerner", "role": "ZzZEO | Nappr", "linkedin": "https://www.linkedin.com/in/jaredlerner", "hook": "Travel/hospitality seed-stage founder. Fresh angle on consumer lifestyle.", "bullets": ["Consumer lifestyle is in your portfolio thesis -- Nappr is a clean early bet.", "Self-aware enough to call himself ZzZEO. The kind of founder who's easy to work with."], "starter": "What does traction look like for Nappr right now, and what does the $90k F&F get you to?"}]}, {"name": "Kimberly Neer", "first_name": "Kimberly", "email": "neerkim@gmail.com", "role": "Founder | PeridotOS", "matches": [{"name": "Andrew Probasco", "role": "Director of Strategy | Born Global Community", "linkedin": "https://www.linkedin.com/in/andrew-probasco-4421b449/", "hook": "Strategy and research background. Exactly the GTM lens you need.", "bullets": ["His work spans EP, academia, and mid-sized organizations -- potential PeridotOS user profile.", "Here to build meaningful connections -- a strategy conversation with him is both a sales call and a reference check."], "starter": "What does GTM infrastructure look like inside Born Global Community right now?"}, {"name": "Stony Grunow", "role": "Founder | Kipper / SuiteMigration", "linkedin": "https://kipper.com", "hook": "Founder who bootstrapped to $4M ARR and is now looking to accelerate GTM.", "bullets": ["He explicitly wants GTM acceleration help -- you build the infrastructure for that.", "Prior exit gives him the credibility to be a powerful reference customer if PeridotOS fits."], "starter": "What's the GTM motion that took you from zero to $4M ARR, and what broke at scale?"}, {"name": "Mark Nguyen", "role": "Founder | The Well Network", "linkedin": "https://www.linkedin.com/in/markdnguyen/", "hook": "Growth-stage ecosystem builder. Could be a user, partner, or connector.", "bullets": ["The Well Network supports founders -- which means he understands the tools founders need.", "His community reach could open warm intro channels into your target ICP."], "starter": "How does The Well Network help founders with go-to-market specifically?"}]}, {"name": "Jon Parks", "first_name": "Jon", "email": "jon@darosario.com", "role": "CEO | daRosario LLC", "matches": [{"name": "Tatyana Jones", "role": "Founder & CEO | DEFI Snacks", "linkedin": "https://defisnacks.com", "hook": "CPG founder building in the indulgent snacking space. Peer and deal.", "bullets": ["Both of you are building food brands -- she brings a different angle on the category.", "She's mid-raise and you invest via family office -- worth hearing the pitch."], "starter": "What's the distribution strategy that's working for DEFI Snacks right now?"}, {"name": "Mark Nguyen", "role": "Founder | The Well Network", "linkedin": "https://www.linkedin.com/in/markdnguyen/", "hook": "Consumer and wellness ecosystem builder with real network depth.", "bullets": ["Consumer is your world and his -- The Well Network spans exactly this community.", "Growth stage means he's been through the same challenges daRosario is navigating."], "starter": "What consumer brands or founders has The Well Network been most helpful for?"}, {"name": "Andres Fernandez Vilches", "role": "Angel Investor | Mithril Capital", "linkedin": "https://www.linkedin.com/in/afernandezvilches", "hook": "CPG and consumer lifestyle angel. Potential co-investor or LP.", "bullets": ["His CPG thesis overlaps with your portfolio -- useful to know what he's seeing.", "Angel with a diversified consumer portfolio means he's seen more deal flow than most."], "starter": "What's the most interesting consumer brand you've backed in the last 12 months?"}]}, {"name": "Daniel Fischer", "first_name": "Daniel", "email": "danielrf314@gmail.com", "role": "Director of AI | M Securities", "matches": [{"name": "DJ Patel", "role": "Head of Directs | UV", "linkedin": "https://www.linkedin.com/in/djpat", "hook": "Fintech and AI investor actively writing checks.", "bullets": ["UV invests in fintech and AI infrastructure -- financial research is right in that lane.", "Exited founder himself, so he evaluates technical depth differently than most investors."], "starter": "What does the AI layer in financial research look like to you right now as an investor?"}, {"name": "Noam Raguan", "role": "Founder | Use Thrive", "linkedin": "https://www.linkedin.com/in/noam-raguan/", "hook": "Profitable fintech founder building in your adjacent space.", "bullets": ["Use Thrive is live and profitable in fintech -- a strong peer benchmark for financial AI.", "Bootstrapped to sustainability, which means he's solved problems you'll face without VC overhead."], "starter": "How did you get Use Thrive to profitability, and what would you do differently?"}, {"name": "Ajay Jadhav", "role": "CEO | Clouds Inc.", "linkedin": "https://www.linkedin.com/in/ajay-jadhav-a3991737", "hook": "AI founder with serious traction. Great peer and potential collaborator.", "bullets": ["Physical AI and SaaS at scale -- useful benchmark for anyone building in the AI stack.", "Both of you are building with AI as the core product layer, not just a feature."], "starter": "What does enterprise AI adoption actually look like in your customer base?"}]}, {"name": "Mark Nguyen", "first_name": "Mark", "email": "mark@followthewell.com", "role": "Founder | The Well Network", "matches": [{"name": "Jon Parks", "role": "CEO | daRosario LLC", "linkedin": "https://www.linkedin.com/in/parksjon", "hook": "Consumer founder and family office investor. Both sides of your world.", "bullets": ["daRosario is in the affordable luxury food space -- consumer and wellness adjacency.", "He also deploys capital, so this is a potential investor conversation too."], "starter": "What's the Well Network community doing for consumer founders specifically?"}, {"name": "Raquel de Lavandeyra", "role": "CEO & Founder | AltCal", "linkedin": "https://www.linkedin.com/in/raquel-de-lavandeyra-a44574225", "hook": "Consumer tech founder who needs exactly the network you have.", "bullets": ["AltCal is building B2B and B2C consumer tech -- your network is her distribution.", "She came looking for consumer investors -- you can shorten that path."], "starter": "What does AltCal do and who's the primary user you're building for?"}, {"name": "Jill Jahns", "role": "Director, Public Health & Navigation | Legacy Community Health", "linkedin": "https://www.linkedin.com/in/jill-jahns", "hook": "Community health leader. Rare find at a venture event.", "bullets": ["Legacy Community Health spans exactly the intersection of wellness and community you care about.", "A non-traditional but high-impact connection for The Well Network's mission."], "starter": "What does community navigation mean in practice at Legacy?"}]}, {"name": "Sebastian Felipe", "first_name": "Sebastian", "email": "sebastianrfelipe@gmail.com", "role": "CEO | Redwood North", "matches": [{"name": "DJ Patel", "role": "Head of Directs | UV", "linkedin": "https://www.linkedin.com/in/djpat", "hook": "AI infrastructure investor. Datacenter is exactly his territory.", "bullets": ["UV writes checks in AI hardware and software infrastructure -- Redwood North is a direct fit.", "He's actively looking for deals tonight. You're actively raising. Optimal timing."], "starter": "What does the datacenter demand curve look like from your vantage point, and where's the gap you're filling?"}, {"name": "Ajay Jadhav", "role": "CEO | Clouds Inc.", "linkedin": "https://www.linkedin.com/in/ajay-jadhav-a3991737", "hook": "AI founder scaling compute infrastructure in his stack.", "bullets": ["Physical AI at scale means Clouds Inc. needs exactly the infrastructure you're building.", "A founder-to-founder conversation about datacenter constraints can lead to a partnership."], "starter": "What's the biggest compute or infrastructure bottleneck you're hitting right now?"}, {"name": "Noel Guinane", "role": "Managing Partner | Blood & Treasure", "linkedin": "https://www.linkedin.com/in/noelguinane", "hook": "Angel and VC investor here to find serious founders raising.", "bullets": ["He's actively seeking credible founders to back -- currently raising is a green flag.", "Datacenter is an underserved corner of the angel market, which makes you stand out."], "starter": "What's the investment thesis that would make a generalist angel excited about datacenter infrastructure?"}]}, {"name": "Noam Raguan", "first_name": "Noam", "email": "noam@use-thrive.com", "role": "Founder | Use Thrive", "matches": [{"name": "DJ Patel", "role": "Head of Directs | UV", "linkedin": "https://www.linkedin.com/in/djpat", "hook": "Fintech investor actively looking for interesting companies.", "bullets": ["UV invests in fintech -- live product with profitability is exactly the signal he wants.", "Exited founder himself, so he understands the bootstrapped-to-profitable path you've walked."], "starter": "What does a bootstrapped, profitable fintech tell you that VC-backed companies don't?"}, {"name": "Daniel Fischer", "role": "Director of AI | M Securities", "linkedin": "https://www.linkedin.com/in/DanielFischer314", "hook": "AI in financial research. Sector peer with a different product lens.", "bullets": ["Both of you are building at the intersection of AI and financial services.", "His financial research angle could be a complementary use case or distribution channel."], "starter": "Where does Use Thrive sit in the fintech stack -- workflow, data, or something else?"}, {"name": "Vaibhav Sharma", "role": "Co-founder & CEO | Aquon AI", "linkedin": "https://www.linkedin.com/in/vaibhavaq/", "hook": "AI in wealth management. Fintech peer building for the same capital layer.", "bullets": ["Aquon AI works with family offices and wealth managers -- adjacent to your fintech stack.", "Comparing notes on selling into financial institutions is a conversation worth having."], "starter": "What's the hardest objection you face selling AI into financial institutions?"}]}, {"name": "Jared Lerner", "first_name": "Jared", "email": "jared@nappr.io", "role": "ZzZEO | Nappr", "matches": [{"name": "DJ Patel", "role": "Head of Directs | UV", "linkedin": "https://www.linkedin.com/in/djpat", "hook": "Active investor across multiple consumer and tech sectors.", "bullets": ["UV covers healthtech -- travel and wellness adjacency is worth raising with him.", "He's an exited founder, so he'll evaluate your traction honestly, not just the deck."], "starter": "What's the investor angle on travel and hospitality that most people get wrong?"}, {"name": "Andres Fernandez Vilches", "role": "Angel Investor | Mithril Capital", "linkedin": "https://www.linkedin.com/in/afernandezvilches", "hook": "Consumer lifestyle angel here for deal flow. Nappr fits the thesis.", "bullets": ["Consumer lifestyle is one of his stated focus areas -- travel/hospitality lands in there.", "He came specifically to meet founders raising. Seed stage with F&F is a clean story."], "starter": "What's the core experience hypothesis behind Nappr?"}, {"name": "Mark Nguyen", "role": "Founder | The Well Network", "linkedin": "https://www.linkedin.com/in/markdnguyen/", "hook": "Consumer wellness ecosystem builder with investor connections.", "bullets": ["The Well Network touches wellness, which overlaps with travel and hospitality at the experience layer.", "Growth-stage founder who knows which investors are active in consumer -- useful warm intro source."], "starter": "What's the wellness and travel intersection that you think is underserved right now?"}]}, {"name": "Vaibhav Sharma", "first_name": "Vaibhav", "email": "vaibhav.sharma112@gmail.com", "role": "Co-founder & CEO | Aquon AI", "matches": [{"name": "DJ Patel", "role": "Head of Directs | UV", "linkedin": "https://www.linkedin.com/in/djpat", "hook": "AI and fintech investor. Aquon AI is exactly his thesis.", "bullets": ["UV invests in AI software and fintech -- wealth management AI is a direct hit.", "Family office exposure in his own investor network makes him unusually relevant here."], "starter": "What does the AI layer in wealth management look like to you as an investor right now?"}, {"name": "Andres Fernandez Vilches", "role": "Angel Investor | Mithril Capital", "linkedin": "https://www.linkedin.com/in/afernandezvilches", "hook": "Tech angel with portfolio breadth. AI-first companies are on his radar.", "bullets": ["Mithril Capital has a tech thesis -- B2B AI for financial services fits that frame.", "Angel check size means faster movement than institutional capital."], "starter": "What does the diligence process look like when you're evaluating a vertical AI company?"}, {"name": "Noam Raguan", "role": "Founder | Use Thrive", "linkedin": "https://www.linkedin.com/in/noam-raguan/", "hook": "Profitable fintech founder. The peer you want at this stage.", "bullets": ["Use Thrive is live and profitable in fintech -- a relevant benchmark for your path.", "Selling into the same financial services market means he has intel you need."], "starter": "What's the single hardest thing about getting financial institutions to adopt a new AI product?"}]}, {"name": "Noel Guinane", "first_name": "Noel", "email": "noel@bloodandtreasure.com", "role": "Managing Partner | Blood & Treasure", "matches": [{"name": "Tatyana Jones", "role": "Founder & CEO | DEFI Snacks", "linkedin": "https://defisnacks.com", "hook": "CPG founder mid-raise. $415k committed. Came here for an angel.", "bullets": ["She's early stage CPG with real capital committed -- the profile you're screening for.", "Food and consumer brands are broad enough to sit within your investment aperture."], "starter": "What's your current raise structure and what does the ideal angel bring to DEFI Snacks?"}, {"name": "Stony Grunow", "role": "Founder | Kipper / SuiteMigration", "linkedin": "https://kipper.com", "hook": "Prior exit, bootstrapped to $4M ARR. High credibility signal.", "bullets": ["Founder with a proven track record and a new seed-stage company -- your ideal profile.", "AI and data migrations is an unsexy but durable market -- interesting for a value-oriented investor."], "starter": "What does the GTM acceleration look like that you need right now to get to the next milestone?"}, {"name": "Sebastian Felipe", "role": "CEO | Redwood North", "linkedin": "https://www.linkedin.com/in/sebastian-felipe", "hook": "Datacenter founder currently raising. Rare infrastructure play.", "bullets": ["AI infrastructure is a category with serious tailwinds -- Redwood North is building in it.", "Currently raising and looking for credible capital -- this is the right time to talk."], "starter": "What does the datacenter build-out at Redwood North enable that doesn't exist today?"}]}, {"name": "Nova Phoenix", "first_name": "Nova", "email": "novap@lyfeblood.com", "role": "Founder | LyfebloodDAO", "matches": [{"name": "DJ Patel", "role": "Head of Directs | UV", "linkedin": "https://www.linkedin.com/in/djpat", "hook": "Exited founder turned investor. Open mind on emerging categories.", "bullets": ["His background as an operator means he evaluates new categories on fundamentals, not labels.", "Family office and LP exposure means he's seen crypto-native investment theses play out."], "starter": "How do you think about blockchain infrastructure investment in the current market?"}, {"name": "Diallo Molina", "role": "Founder | Anamis", "linkedin": "https://anamis.org", "hook": "Fellow early-stage founder. Community-first approach like yours.", "bullets": ["Anamis is community-driven B2B SaaS -- parallel philosophy to a DAO-based model.", "Early stage peer in a different sector means useful pattern recognition without competition."], "starter": "How do you think about community governance as a product design constraint?"}, {"name": "Zheng Zhang", "role": "Lawyer | THC Lawyers", "linkedin": "https://www.linkedin.com/in/zheng-sharon-zhang-1a5179149/", "hook": "Legal connector explicitly looking to work with founders.", "bullets": ["Blockchain and DAO structures have specific legal complexity worth knowing early.", "She came to meet founders and service providers -- LyfebloodDAO is a natural fit."], "starter": "What's the legal structure for a DAO that actually holds up?"}]}, {"name": "Stony Grunow", "first_name": "Stony", "email": "stony@breadwinner.com", "role": "Founder | Kipper / SuiteMigration", "matches": [{"name": "Noel Guinane", "role": "Managing Partner | Blood & Treasure", "linkedin": "https://www.linkedin.com/in/noelguinane", "hook": "Angel and VC investor looking for serious founders with track records.", "bullets": ["Prior bootstrapped exit to $4M ARR is exactly the credibility signal he's screening for.", "He came explicitly to find founders -- and you came explicitly to find investors."], "starter": "What does an angel investor bring to a company like Kipper at this stage beyond capital?"}, {"name": "Kimberly Neer", "role": "Founder | PeridotOS", "linkedin": "https://www.linkedin.com/in/kimberly-neer/", "hook": "Founder building the GTM infrastructure you said you need.", "bullets": ["PeridotOS is focused on go-to-market engine building -- she may be building your toolstack.", "She's looking for companies exactly like Kipper to work with and learn from."], "starter": "What's the specific GTM motion that took you to $4M ARR, and where did it break?"}, {"name": "Ajay Jadhav", "role": "CEO | Clouds Inc.", "linkedin": "https://www.linkedin.com/in/ajay-jadhav-a3991737", "hook": "AI founder at seed with serious traction. Useful peer at your stage.", "bullets": ["Physical AI at enterprise scale -- different category but similar go-to-market challenges.", "Both of you are building AI products that touch infrastructure. Partnership potential."], "starter": "How are you thinking about enterprise sales motion for an AI product that touches migrations?"}]}, {"name": "DJ Patel", "first_name": "DJ", "email": "djpatelemail@gmail.com", "role": "Head of Directs | UV", "matches": [{"name": "Ajay Jadhav", "role": "CEO | Clouds Inc.", "linkedin": "https://www.linkedin.com/in/ajay-jadhav-a3991737", "hook": "$30M raised in AI for sustainability and well-being. High signal founder.", "bullets": ["Physical AI and SaaS at seed -- the traction milestone that separates real companies.", "Explicitly here to find a lead investor. Comes prepared. Worth your time."], "starter": "What does the next 18 months look like for Clouds Inc., and what does the capital go toward?"}, {"name": "Vaibhav Sharma", "role": "Co-founder & CEO | Aquon AI", "linkedin": "https://www.linkedin.com/in/vaibhavaq/", "hook": "AI for family offices and wealth management. Sits in your thesis.", "bullets": ["Fintech and AI are both in UV's stated investment categories -- Aquon AI is a direct match.", "Working with family offices means he's selling into the same capital layer you invest from."], "starter": "What's the core AI workflow Aquon delivers for a wealth manager?"}, {"name": "Daniel Fischer", "role": "Director of AI | M Securities", "linkedin": "https://www.linkedin.com/in/DanielFischer314", "hook": "AI in financial research at a securities firm. Smart operator in your space.", "bullets": ["Financial research AI is an underserved enterprise wedge in your fintech thesis.", "He's coming from the operator side -- a different view than most founders you'll meet tonight."], "starter": "What does AI-driven financial research look like inside a securities firm today?"}]}, {"name": "Peter Humphreys", "first_name": "Peter", "email": "petergonz@icloud.com", "role": "Growth & Partnerships | Yorkseed", "matches": [{"name": "Kimberly Neer", "role": "Founder | PeridotOS", "linkedin": "https://www.linkedin.com/in/kimberly-neer/", "hook": "GTME startup founder. Yorkseed Connect is a natural partnership conversation.", "bullets": ["PeridotOS is building go-to-market infrastructure -- Yorkseed's event ecosystem could be a channel.", "She came looking for GTM consultants. You represent one of the best networks in the room."], "starter": "What does the ideal GTM partner for PeridotOS look like?"}, {"name": "Mark Nguyen", "role": "Founder | The Well Network", "linkedin": "https://www.linkedin.com/in/markdnguyen/", "hook": "Community builder with a network that complements Yorkseed's.", "bullets": ["The Well Network supports founders in consumer and wellness -- adjacent to Yorkseed's community.", "He's already interested in collaborating in NYC. Follow up and make it concrete."], "starter": "What would a Yorkseed and Well Network collaboration look like in practice?"}, {"name": "Andrew Probasco", "role": "Director of Strategy | Born Global Community", "linkedin": "https://www.linkedin.com/in/andrew-probasco-4421b449/", "hook": "International community builder looking to understand the NYC ecosystem.", "bullets": ["Born Global works across academia and EP networks -- potential co-programming partner for Yorkseed.", "He came here to map the ecosystem. Show him what Yorkseed builds in it."], "starter": "What does Born Global do for founders trying to enter new international markets?"}]}, {"name": "Zheng Zhang", "first_name": "Zheng", "email": "szhang@thclawyers.com", "role": "Lawyer | THC Lawyers", "matches": [{"name": "Tatyana Jones", "role": "Founder & CEO | DEFI Snacks", "linkedin": "https://defisnacks.com", "hook": "CPG founder mid-raise. Legal complexity around consumer food brands is real.", "bullets": ["Early-stage CPG has labeling, distribution, and fundraising legal needs -- you can help now.", "She came looking for investors. You can be a warm intro to legal support she'll need regardless."], "starter": "What's the most common legal gap you see in early-stage consumer food brands?"}, {"name": "Sebastian Felipe", "role": "CEO | Redwood North", "linkedin": "https://www.linkedin.com/in/sebastian-felipe", "hook": "Raising startup in datacenter infrastructure. Legal complexity is high.", "bullets": ["Infrastructure deals involve permitting, land, and capital structure complexity -- strong fit.", "Currently raising means he needs legal support now, not in six months."], "starter": "What stage is your raise at, and do you have legal counsel in place for the structure?"}, {"name": "Andrew Probasco", "role": "Director of Strategy | Born Global Community", "linkedin": "https://www.linkedin.com/in/andrew-probasco-4421b449/", "hook": "Ecosystem strategist here to understand the NYC business landscape.", "bullets": ["Born Global works across EP and academia -- international and community law adjacent.", "Both of you came to build ecosystem relationships, not just close deals."], "starter": "What's the legal landscape for organizations operating across multiple countries like Born Global?"}]}];
+
+function applyEventConfig() {
+  document.getElementById('page-title').textContent = 'Yorkseed Event In-Person Match' + EVENT.name;
+  document.getElementById('login-event-name').textContent = EVENT.name;
+  const loginDetail = `${EVENT.city} \u00b7 ${EVENT.dateLabel} \u00b7 ${EVENT.timeLabel}`;
+  document.getElementById('login-event-detail').textContent = loginDetail;
+  const resultsDetailHtml = `${EVENT.dateLabel} &middot; ${EVENT.timeLabel} &middot; <a href="${EVENT.venueMapUrl}" target="_blank" rel="noopener">${EVENT.venueName}</a>`;
+  document.getElementById('results-event-detail').innerHTML = resultsDetailHtml;
+  document.getElementById('results-venue-address').textContent = EVENT.venueAddress;
+  const contactEl = document.getElementById('results-host-label');
+  if (EVENT.onsiteContact) {
+    contactEl.textContent = EVENT.onsiteContact;
+    contactEl.style.display = '';
+  } else {
+    contactEl.style.display = 'none';
+  }
+  document.getElementById('footer-note').textContent = 'See you at the ' + EVENT.name + '.';
+}
+applyEventConfig();
+
+function normalize(s) {
+  return (s || '').trim().toLowerCase();
+}
+
+function findAttendee(firstName, email) {
+  const fn = normalize(firstName);
+  const em = normalize(email);
+  return ATTENDEES.find(a => {
+    const nameMatches = normalize(a.first_name) === fn ||
+      (a.aliases || []).some(alias => normalize(alias) === fn);
+    return nameMatches && a.email === em;
+  });
+}
+
+function renderMatches(attendee) {
+  document.getElementById('results-heading').textContent = 'Hi ' + attendee.first_name + '.';
+  document.getElementById('results-eyebrow').textContent = attendee.matches.length + ' people curated for you';
+  const subEl = document.getElementById('results-sub');
+  const baseSub = "Based on what you shared in your RSVP, here's who we think you should meet.";
+  subEl.textContent = attendee.bio ? (baseSub + ' ' + attendee.bio) : baseSub;
+  const list = document.getElementById('match-list');
+  list.innerHTML = '';
+  attendee.matches.forEach((m, i) => {
+    const card = document.createElement('div');
+    card.className = 'match-card';
+    const bullets = m.bullets.map(b => '<li>' + b.replace(/</g,'&lt;') + '</li>').join('');
+    const hookHtml = m.hook ? `<div class="match-hook">${m.hook.replace(/</g,'&lt;')}</div>` : '';
+    card.innerHTML = `
+      <div class="match-index">MATCH ${i+1} OF ${attendee.matches.length}</div>
+      <div class="match-name">${m.name}</div>
+      <div class="match-role">${m.role}</div>
+      ${m.linkedin ? `<a class="match-linkedin" href="${m.linkedin}" target="_blank" rel="noopener">LinkedIn ↗</a>` : ''}
+      ${hookHtml}
+      <div class="why-label">Why we think you should meet</div>
+      <ul class="bullets">${bullets}</ul>
+      <div class="starter"><b>Conversation starter:</b> "${m.starter}"</div>
+    `;
+    list.appendChild(card);
+  });
+}
+
+function showError(msg) {
+  const el = document.getElementById('error-msg');
+  el.textContent = msg;
+  el.classList.add('show');
+}
+function hideError() {
+  document.getElementById('error-msg').classList.remove('show');
+}
+
+document.getElementById('login-btn').addEventListener('click', () => {
+  hideError();
+  const fn = document.getElementById('first-name').value;
+  const em = document.getElementById('email').value;
+  if (!fn.trim() || !em.trim()) {
+    showError('Please enter both your first name and email.');
+    return;
+  }
+  const attendee = findAttendee(fn, em);
+  if (!attendee) {
+    showError("We couldn't find a match for that name and email. Please double check what you used to RSVP.");
+    return;
+  }
+  renderMatches(attendee);
+  document.getElementById('login-view').classList.remove('active');
+  document.getElementById('results-view').classList.add('active');
+  document.activeElement && document.activeElement.blur && document.activeElement.blur();
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+  window.scrollTo(0, 0);
+  // Mobile keyboard closing resizes the viewport after the click handler runs,
+  // which can re-shift scroll position, reset again once that settles.
+  setTimeout(() => { window.scrollTo(0, 0); }, 50);
+  setTimeout(() => { window.scrollTo(0, 0); }, 300);
+});
+
+document.getElementById('logout-btn').addEventListener('click', () => {
+  document.getElementById('results-view').classList.remove('active');
+  document.getElementById('login-view').classList.add('active');
+  document.getElementById('first-name').value = '';
+  document.getElementById('email').value = '';
+  hideError();
+  document.activeElement && document.activeElement.blur && document.activeElement.blur();
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+  window.scrollTo(0, 0);
+  // Mobile keyboard closing resizes the viewport after the click handler runs,
+  // which can re-shift scroll position, reset again once that settles.
+  setTimeout(() => { window.scrollTo(0, 0); }, 50);
+  setTimeout(() => { window.scrollTo(0, 0); }, 300);
+});
+
+// Allow Enter key to submit
+['first-name','email'].forEach(id => {
+  document.getElementById(id).addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') document.getElementById('login-btn').click();
+  });
+});
+</script>
+
+<yk-footer><a href="/">Home</a> <a href="/hubs.html">Hubs</a> <a href="/events.html">Events</a> <a href="/about.html">About</a> <a href="/contact.html">Contact</a></yk-footer>
+</body>
+</html>
