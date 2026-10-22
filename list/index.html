@@ -1103,7 +1103,9 @@ select:hover{border-color:var(--ink)}
 
 .mapbox .cptri,.maplegend .cptri{fill:#2F5BD3;stroke:#fff;stroke-width:2.5;stroke-linejoin:round;pointer-events:none}
 .maplegend .cptri{stroke:#16307A;stroke-width:1.2}
-.tipcp{color:#2F5BD3!important}
+.tipcp{color:#2F5BD3!important}.tiphs{color:#E0457B!important}
+.mapbox .hsq,.maplegend .hsq{fill:#E0457B;stroke:#fff;stroke-width:2.5;stroke-linejoin:round;pointer-events:none}.maplegend .hsq{stroke:#8E1E47;stroke-width:1.2}
+.badge.b-hs{background:#E0457B;color:#fff}
 .badge.b-cp{background:#2F5BD3;color:#fff}
 
 /* ===== phone: compact text (final) ===== */
@@ -1344,7 +1346,7 @@ input::placeholder,textarea::placeholder{font-size:13.5px;color:var(--soft);opac
           <div class="regions" id="regions"></div>
           <div class="mapbox" id="worldMap">
             <div class="mapctl"><button type="button" id="zIn" aria-label="Zoom in">+</button><button type="button" id="zOut" aria-label="Zoom out">−</button><button type="button" id="zReset" aria-label="Show the whole world">⤢</button></div>
-            <div class="maphint">Drag to move · scroll or pinch to zoom · tap a dot</div><div class="maplegend"><span><i class="ld"></i>Events</span><span id="mzLegendSp" hidden><svg viewBox="-12 -12 24 24" aria-hidden="true"><path class="fstar" d="M0 -11L2.9 -4L10.5 -3.4L4.7 1.5L6.5 8.9L0 4.9L-6.5 8.9L-4.7 1.5L-10.5 -3.4L-2.9 -4Z"/></svg>Featured event</span><span><svg viewBox="-12 -12 24 24" aria-hidden="true"><path class="ystar" d="M0 -11L2.9 -4L10.5 -3.4L4.7 1.5L6.5 8.9L0 4.9L-6.5 8.9L-4.7 1.5L-10.5 -3.4L-2.9 -4Z"/></svg>Yorkseed event</span><span><svg viewBox="-12 -12 24 24" aria-hidden="true"><path class="cptri" d="M0 -10 L10 8 L-10 8 Z"/></svg>Community partner</span></div><div class="mappill" id="mzPill"></div>
+            <div class="maphint">Drag to move · scroll or pinch to zoom · tap a dot</div><div class="maplegend"><span><i class="ld"></i>Events</span><span id="mzLegendSp" hidden><svg viewBox="-12 -12 24 24" aria-hidden="true"><path class="fstar" d="M0 -11L2.9 -4L10.5 -3.4L4.7 1.5L6.5 8.9L0 4.9L-6.5 8.9L-4.7 1.5L-10.5 -3.4L-2.9 -4Z"/></svg>Featured event</span><span><svg viewBox="-12 -12 24 24" aria-hidden="true"><path class="ystar" d="M0 -11L2.9 -4L10.5 -3.4L4.7 1.5L6.5 8.9L0 4.9L-6.5 8.9L-4.7 1.5L-10.5 -3.4L-2.9 -4Z"/></svg>Yorkseed event</span><span><svg viewBox="-12 -12 24 24" aria-hidden="true"><path class="cptri" d="M0 -10 L10 8 L-10 8 Z"/></svg>Community partner</span><span><svg viewBox="-12 -12 24 24" aria-hidden="true"><rect class="hsq" x="-9" y="-9" width="18" height="18" rx="1.5"/></svg>Yorkseed House</span></div><div class="mappill" id="mzPill"></div>
             <div class="maptip" id="mapTip" hidden></div>
           </div>
         </div>
@@ -1733,6 +1735,9 @@ function fitRegion(id){MZ.region=id;if(id==="world"){MZ.k=1;MZ.x=0;MZ.y=0;}else{
   document.querySelectorAll("#regions button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.reg===id)));drawMZ();}
 function starPath(R){const r=R*.45;let d="";for(let i=0;i<10;i++){const a=-Math.PI/2+i*Math.PI/5,rr=i%2?r:R;d+=(i?"L":"M")+(Math.cos(a)*rr).toFixed(1)+" "+(Math.sin(a)*rr).toFixed(1);}return d+"Z";}
 function featCount(id){return upcoming().filter(e=>e.hub===id&&(e.place==="featured"||e.place==="week")).length;}
+function isHouse(e){return/yorkseed\s+house/i.test((e&&e.title)||"")||!!(e&&e.house);}
+function hsCount(id){return upcoming().filter(e=>e.hub===id&&isHouse(e)).length;}
+function hsBadge(e){return isHouse(e)?'<span class="badge b-hs">■ Yorkseed House</span>':"";}
 function cpCount(id){return upcoming().filter(e=>e.hub===id&&e.partner).length;}
 function ysCount(id){return upcoming().filter(e=>e.hub===id&&e.place==="spotlight").length;}
 function drawMZ(){
@@ -1749,7 +1754,7 @@ function drawMZ(){
     if(!pick&&top3.has(h.id))pick=["r",[x+r+9,y-16,x+r+9+w,y+16]];
     if(pick){boxes.push(pick[1]);LAB.set(h.id,pick[0]);}});
   $("#mzDots").innerHTML=counts.map(({h,n})=>{const [px,py]=MAP.pts[h.id];const x=px*MZ.k+MZ.x,y=py*MZ.k+MZ.y;if(x<-40||y<-40||x>MAP.W+40||y>MAP.H+40)return"";if(x>=0&&y>=0&&x<=MAP.W&&y<=MAP.H)inView.push({h,n});const r=n?15+Math.min(Math.sqrt(n),6.5)*5:9;
-    return`<g class="hubdot${n?"":" zero"}" data-city="${h.id}" tabindex="0" role="button" aria-label="${h.name}: ${n} event${n===1?"":"s"}" transform="translate(${x.toFixed(1)} ${y.toFixed(1)})"><circle r="${r+9}" class="halo"/><circle r="${r}"/>${n?`<text class="cnt" dy="8" text-anchor="middle">${n}</text>`:""}${featCount(h.id)?`<path class="fstar" transform="translate(${(-r*.85).toFixed(1)} ${(-r*.85).toFixed(1)})" d="${starPath(27)}"/>`:""}${cpCount(h.id)?`<path class="cptri" transform="translate(${(r*.85).toFixed(1)} ${(r*.8).toFixed(1)})" d="M0 -20 L18 12 L-18 12 Z"/>`:""}${ysCount(h.id)?`<path class="ystar" transform="translate(${(r*.85).toFixed(1)} ${(-r*.85).toFixed(1)})" d="${starPath(27)}"/>`:""}${LAB.has(h.id)?(()=>{const sd=LAB.get(h.id);return`<text class="lbl" x="${sd==="r"?r+9:sd==="l"?-(r+9):0}" y="${sd==="t"?-(r+14):sd==="b"?r+28:0}" text-anchor="${sd==="r"?"start":sd==="l"?"end":"middle"}" dy="${sd==="t"||sd==="b"?0:10}">${h.name}</text>`;})():""}</g>`}).join("");
+    return`<g class="hubdot${n?"":" zero"}" data-city="${h.id}" tabindex="0" role="button" aria-label="${h.name}: ${n} event${n===1?"":"s"}" transform="translate(${x.toFixed(1)} ${y.toFixed(1)})"><circle r="${r+9}" class="halo"/><circle r="${r}"/>${n?`<text class="cnt" dy="8" text-anchor="middle">${n}</text>`:""}${featCount(h.id)?`<path class="fstar" transform="translate(${(-r*.85).toFixed(1)} ${(-r*.85).toFixed(1)})" d="${starPath(27)}"/>`:""}${hsCount(h.id)?`<rect class="hsq" x="${(-r*.85-14).toFixed(1)}" y="${(r*.8-14).toFixed(1)}" width="28" height="28" rx="2"/>`:""}${cpCount(h.id)?`<path class="cptri" transform="translate(${(r*.85).toFixed(1)} ${(r*.8).toFixed(1)})" d="M0 -20 L18 12 L-18 12 Z"/>`:""}${ysCount(h.id)?`<path class="ystar" transform="translate(${(r*.85).toFixed(1)} ${(-r*.85).toFixed(1)})" d="${starPath(27)}"/>`:""}${LAB.has(h.id)?(()=>{const sd=LAB.get(h.id);return`<text class="lbl" x="${sd==="r"?r+9:sd==="l"?-(r+9):0}" y="${sd==="t"?-(r+14):sd==="b"?r+28:0}" text-anchor="${sd==="r"?"start":sd==="l"?"end":"middle"}" dy="${sd==="t"||sd==="b"?0:10}">${h.name}</text>`;})():""}</g>`}).join("");
   const sp=allBookings().filter(b=>b.kind==="map"&&b.hub&&MAP.pts[b.hub]);
   $("#mzDots").insertAdjacentHTML("beforeend",sp.map(b=>{const [px,py]=MAP.pts[b.hub];const x=px*MZ.k+MZ.x,y=py*MZ.k+MZ.y;if(x<-200||y<-80||x>MAP.W+200||y>MAP.H+80)return"";const w=Math.max(230,(b.headline||b.brand).length*15+90);
     return`<a class="spin-pin" href="${esc(b.url||"#")}" target="_blank" rel="noopener" transform="translate(${x.toFixed(1)} ${y.toFixed(1)})"><path class="sp-tail" d="M-12 -44 L0 -20 L12 -44 Z"/><rect class="sp-box" x="${-w/2}" y="-112" width="${w}" height="68"/><path class="fstar" transform="translate(${-w/2+34} -78)" d="${starPath(18)}"/><text class="sp-lab" x="${-w/2+62}" y="-86">FEATURED EVENT</text><text class="sp-name" x="${-w/2+62}" y="-58">${esc(b.headline||b.brand)}</text></a>`}).join(""));
@@ -1773,7 +1778,7 @@ function renderMap(){
     const up=e=>{ptrs.delete(e.pointerId);if(ptrs.size<2)pinch=null;if(!ptrs.size){box.classList.remove("dragging");const g=e.target.closest&&e.target.closest(".hubdot");if(g&&moved<=4)goCity(g.dataset.city);start=null;}};
     svg.addEventListener("pointerup",up);svg.addEventListener("pointercancel",up);
     svg.addEventListener("dblclick",e=>{const p=mapSvgPt(svg,e.clientX,e.clientY);zoomAt(2,p.x,p.y);});
-    svg.addEventListener("mouseover",e=>{const g=e.target.closest(".hubdot");if(!g||start&&moved>4)return;const h=hubById(g.dataset.city),n=hubCount(h.id);const cp=cpCount(h.id),ys=ysCount(h.id),fe=featCount(h.id);tip.innerHTML=`<b>${h.name}</b><span>${n} event${n===1?"":"s"} · ${fT(Date.now(),h.tz)} local</span>${fe?`<span class="tipfe">★ ${fe} featured event${fe===1?"":"s"}</span>`:""}${ys?`<span class="tipys">★ ${ys} Yorkseed event${ys===1?"":"s"}</span>`:""}${cp?`<span class="tipcp">▲ ${cp} Yorkseed community partner event${cp===1?"":"s"}</span>`:""}`;tip.hidden=false;const b=g.querySelector("circle:last-of-type").getBoundingClientRect(),c=box.getBoundingClientRect();tip.style.left=(b.left-c.left+b.width/2)+"px";tip.style.top=(b.top-c.top)+"px";});
+    svg.addEventListener("mouseover",e=>{const g=e.target.closest(".hubdot");if(!g||start&&moved>4)return;const h=hubById(g.dataset.city),n=hubCount(h.id);const cp=cpCount(h.id),ys=ysCount(h.id),fe=featCount(h.id);tip.innerHTML=`<b>${h.name}</b><span>${n} event${n===1?"":"s"} · ${fT(Date.now(),h.tz)} local</span>${fe?`<span class="tipfe">★ ${fe} featured event${fe===1?"":"s"}</span>`:""}${ys?`<span class="tipys">★ ${ys} Yorkseed event${ys===1?"":"s"}</span>`:""}${hsCount(h.id)?`<span class="tiphs">■ ${hsCount(h.id)} Yorkseed House event${hsCount(h.id)===1?"":"s"}</span>`:""}${cp?`<span class="tipcp">▲ ${cp} Yorkseed community partner event${cp===1?"":"s"}</span>`:""}`;tip.hidden=false;const b=g.querySelector("circle:last-of-type").getBoundingClientRect(),c=box.getBoundingClientRect();tip.style.left=(b.left-c.left+b.width/2)+"px";tip.style.top=(b.top-c.top)+"px";});
     svg.addEventListener("mouseout",e=>{if(e.target.closest(".hubdot"))tip.hidden=true;});
     svg.addEventListener("keydown",e=>{const g=e.target.closest(".hubdot");if(g&&e.key==="Enter")goCity(g.dataset.city);});
     $("#zIn").onclick=()=>zoomAt(1.6,MAP.W/2,MAP.H/2);$("#zOut").onclick=()=>zoomAt(1/1.6,MAP.W/2,MAP.H/2);$("#zReset").onclick=()=>fitRegion("world");
@@ -1802,7 +1807,7 @@ const PAGE=40;
 function rowHtml(e,withDate){const h=hubById(e.hub),y=yourTime(e),wk=e.week&&!st.week?weekById(e.week):null,d=dParts(e.date);
   const host=e.host===e.title?"":esc(e.host);const at=e.venue?`<span class="at">${/after (rsvp|registration|approval)/i.test(e.venue)?"· "+esc(e.venue):"at "+esc(e.venue)}</span>`:"";
   return`<div class="crow${e.noTime?" nt":""}${e.place==="featured"?" feat":""}"><div class="t">${withDate?`${d.wd} ${d.day} ${d.mon}<small>${fE(e,h.tz)} ${abE(e,h.tz)}</small>`:e.noTime?`<small style="padding-top:5px;color:var(--ink)">${st.hub==="all"||st.view==="home"?esc(h.code):esc(e.type)}</small>`:`${fE(e,h.tz)}<small>${abE(e,h.tz)}</small>`}</div>
-  <button class="main" type="button" data-ev="${e.id}"><span class="ttl">${esc(e.title)} ${badge(e.place)}${e.mine?'<span class="badge b-you">Yours</span>':""}${e.partner?'<span class="badge b-cp">▲ Yorkseed partner</span>':""}</span>
+  <button class="main" type="button" data-ev="${e.id}"><span class="ttl">${esc(e.title)} ${badge(e.place)}${e.mine?'<span class="badge b-you">Yours</span>':""}${hsBadge(e)}${e.partner?'<span class="badge b-cp">▲ Yorkseed partner</span>':""}</span>
   <span class="sub">${[st.hub==="all"||st.view==="home"?h.name:"",e.noTime&&!(st.hub==="all"||st.view==="home")?"":esc(e.type),host,wk?esc(wk.name):""].filter(Boolean).join(" · ")} ${at}</span>
   <span class="meta2">${e.price?`<span class="price">${esc(e.price)}</span>`:""}${(e.aud||[]).map(a=>`<span class="aud">${esc(a)}</span>`).join("")}${e.series?`<span class="ser">${esc(e.series)}</span>`:""}${y?`<span class="yours">${y}</span>`:""}</span></button>
   ${heartBtn(e,"iconbtn")}</div>`;}
@@ -1921,7 +1926,7 @@ function renderEvent(){
   const initials=e.host.split(/\s+/).map(w=>w[0]).join("").slice(0,2).toUpperCase();
   $("#evPage").innerHTML=`<div class="evimg">${evImgTag(e,e.hub==="nyc"&&e.place?IMG.detail:IMG[{ev5:"ev1",ev6:"ev4",ev7:"ev3",ev8:"ev2"}[e.img]||e.img])}<div class="dblk">${d.mon}<b>${d.day}</b>${d.wd}</div></div>
   <div class="evinfo">
-    <div style="display:flex;justify-content:space-between;gap:12px;align-items:start"><h1>${esc(e.title)}</h1>${badge(e.place)}</div>
+    <div style="display:flex;justify-content:space-between;gap:12px;align-items:start"><h1>${esc(e.title)}</h1><span>${badge(e.place)}${hsBadge(e)}</span></div>
     <div class="meta">${ico("clock")}${e.noTime?"Time on the event page":fE(e,h.tz)+(e.end?" – "+fEnd(e,h.tz):"")+" "+abE(e,h.tz)}</div>
     <div class="meta">${ico("pin")}<span>${esc(placeText(e,h))}${wk?" · "+esc(wk.name):""}</span></div>
     <div class="meta" style="gap:14px">${e.price?`<span class="badge" style="border:1px solid var(--line);color:var(--ink)">${esc(e.price)}</span>`:""}${(e.aud||[]).map(a=>`<span class="eyebrow" style="color:var(--accent);font-size:10.5px">${esc(a)}</span>`).join("")}${e.series?`<em>${esc(e.series)}</em>`:""}</div>

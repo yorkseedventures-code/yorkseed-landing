@@ -182,6 +182,7 @@ def rows(evs, camp, show_city=False):
         title = f'<a href="/e/{e["slug"]}/">{e_(e["title"])}</a>'
         reg = f' · <a class="rg" href="{e_(ref(e["link"], camp))}" target="_blank" rel="noopener">Register ↗</a>' if e["link"] else ""
         ys = '<span class="ys">★ Yorkseed</span>' if e["place"] == "spotlight" else ""
+        if re.search(r"yorkseed\s+house", e["title"], re.I) or e.get("house"): ys += '<span class="ys" style="color:#E0457B">■ Yorkseed House</span>'
         pic = f'<img class="pic" src="{e_(PHOTOS[e["link"]])}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">' if PHOTOS.get(e["link"]) else ""
         out.append(f'<article class="ev"><time datetime="{iso(e,"start")}">{t12(e["start"])}</time><div>{pic}<h4>{title}{ys}</h4><div class="s">{e_(" · ".join(bits))}{reg}</div>{f"<p>{e_(e[chr(100)+chr(101)+chr(115)+chr(99)])}</p>" if e["desc"] else ""}</div></article>')
     if cur is not None: out.append("</section>")
@@ -384,6 +385,7 @@ for e in events:
     same = [x for x in (w["events"] if w else by_hub.get(e["hub"], [])) if x["date"] == e["date"] and x is not e][:12]
     crumb2 = f'<a href="/{w["slug"]}/">{e_(w["name"])} side events</a>' if w else f'<a href="/{h["slug"]}/">{e_(h["name"])}</a>'
     ys = '<p class="meta">★ A Yorkseed event</p>' if e["place"] == "spotlight" else ""
+    if re.search(r"yorkseed\s+house", e["title"], re.I) or e.get("house"): ys += '<p class="meta" style="color:#E0457B">■ Yorkseed House</p>'
     dts = ("".join(f"<p style=\"margin:4px 0\"><b>{k}</b> {e_(v)}</p>" for k, v in [("When", when), ("Where", where + ("" if where == h["name"] else f", {h['name']}")), ("Host", e["host"]), ("Type", e["type"])] if v))
     body = f"""<div class="crumb"><a href="https://yorkseed.co/">Yorkseed</a> / <a href="/">The List</a> / {crumb2}</div>
 <div class="hero"><div>{ys}<h1>{e_(e['title'])}</h1>
