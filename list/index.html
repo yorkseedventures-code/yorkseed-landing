@@ -417,6 +417,13 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 .ecard{align-self:stretch;background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--accent);padding:18px;display:grid;gap:12px}
 .ecard h4{font-size:22px}
 .ecard .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cover{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center}
+.cover .cvbtn{display:inline-flex;align-items:center;justify-content:center;border:1px dashed var(--line);background:var(--bg);width:120px;aspect-ratio:16/10;cursor:pointer;font-family:var(--f-label);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);overflow:hidden;position:relative;padding:0}
+.cover .cvbtn:hover,.cover .cvbtn:focus-visible{border-color:var(--ink);color:var(--ink)}
+.cover .cvbtn img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cover .cvside{display:grid;gap:4px;font-family:var(--f-body);font-size:13px;letter-spacing:0;text-transform:none;color:var(--muted);line-height:1.4}
+.cover .cvside button{justify-self:start;background:none;border:0;padding:0;color:var(--ink);text-decoration:underline;cursor:pointer;font:inherit}
+.cover input[type=file]{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
 .ecard label{display:grid;gap:5px;font-family:var(--f-label);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
 .ecard input,.ecard select{border:1px solid var(--line);background:var(--bg);padding:10px 11px;font-family:var(--f-body);font-size:15.5px;letter-spacing:0;text-transform:none;color:var(--ink);border-radius:0;width:100%;min-width:0}
 .ecard .tzline{font-family:var(--f-body);font-size:14px;letter-spacing:0;text-transform:none;color:var(--muted)}
@@ -1509,6 +1516,7 @@ input::placeholder,textarea::placeholder{font-size:13.5px;color:var(--soft);opac
           <div class="field"><label for="sType">Event Type *</label><select id="sType"></select></div>
           <div class="field"><label for="sHost">Host *</label><input id="sHost" placeholder="Organization or person"><div class="err" id="eHost" hidden></div></div>
           <div class="field full"><label for="sLink">Registration link</label><input id="sLink" type="url" placeholder="https://"></div>
+          <div class="field full"><label for="sCover">Cover image (optional)</label><div class="cover" data-cover="s"></div></div>
           <div class="field"><label for="sName">Your name</label><input id="sName" autocomplete="name"></div>
           <div class="field"><label for="sEmail">Your email *</label><input id="sEmail" type="email" autocomplete="email" placeholder="So we can confirm it"><div class="err" id="eEmail" hidden></div></div>
           <input id="sWebsite" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
@@ -2035,8 +2043,27 @@ function watchAds(root){if(!root)return;root.querySelectorAll("[data-adid]").for
 function loadSelfAds(){return fetch(ADS_API+"/live").then(r=>r.ok?r.json():{ads:[]}).then(x=>{SELF_ADS=((x&&x.ads)||[]).map(a=>({adId:a.id,kind:a.kind||"side",hub:a.hub,brand:a.brand,headline:a.alt||"",url:a.url,img:a.img,start:a.start,end:a.end,live:true,self:true}));if(typeof rerenderAll==="function")rerenderAll();}).catch(()=>{});}
 async function sendSubmission(p){try{const ctl=new AbortController();const t=setTimeout(()=>ctl.abort(),12000);
   const r=await fetch(SUB_API+"/submit",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(p),signal:ctl.signal});clearTimeout(t);
-  const x=await r.json().catch(()=>({}));return r.ok?{ok:true,dup:!!x.duplicate}:{ok:false,msg:x.message||""};}catch(e){return{ok:false,msg:""};}}
+  const x=await r.json().catch(()=>({}));return r.ok?{ok:true,dup:!!x.duplicate,live:!!x.approved}:{ok:false,msg:x.message||""};}catch(e){return{ok:false,msg:""};}}
 const okEmail=v=>/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v||"");
+/* optional cover image on submissions: shrunk in the browser to at most 1600px and ~900 KB of JPEG, then sent with the event */
+const COVER={s:"",c:""};
+function shrinkCover(file){return new Promise((ok,no)=>{
+  if(!file||!/^image\/(jpeg|png|webp|gif|heic|heif|avif)$/i.test(file.type||""))return no("Pick a JPG, PNG or WebP image.");
+  if(file.size>25*1024*1024)return no("That image is over 25 MB. Please pick a smaller one.");
+  const u=URL.createObjectURL(file),im=new Image();
+  im.onload=()=>{URL.revokeObjectURL(u);const w0=im.naturalWidth,h0=im.naturalHeight;
+    if(w0<400||h0<200)return no(`That image is only ${w0} × ${h0}. Use one at least 1200 × 630 so it looks sharp.`);
+    let s=Math.min(1,1600/w0,1600/h0),out="";
+    for(let i=0;i<6;i++){const cv=document.createElement("canvas");cv.width=Math.round(w0*s);cv.height=Math.round(h0*s);const g=cv.getContext("2d");g.fillStyle="#fff";g.fillRect(0,0,cv.width,cv.height);g.drawImage(im,0,0,cv.width,cv.height);
+      out=cv.toDataURL("image/jpeg",i<3?0.86-i*0.1:0.7);if(out.length*0.75<900*1024)break;s*=0.8;}
+    out.length*0.75<1.1*1024*1024?ok(out):no("We couldn't shrink that image enough. Try a smaller one.");};
+  im.onerror=()=>{URL.revokeObjectURL(u);no("We couldn't read that image. Try a JPG or PNG.");};im.src=u;});}
+function mountCover(box,key,id){if(!box)return;
+  const draw=(msg)=>{const v=COVER[key];box.innerHTML=`<input type="file" id="${id}" accept="image/jpeg,image/png,image/webp,image/heic,image/heif"><label class="cvbtn" for="${id}" aria-label="${v?"Change cover image":"Upload a cover image"}">${v?`<img src="${v}" alt="">`:"+ Upload"}</label><span class="cvside">${msg?`<span style="color:var(--red,#b42318)">${esc(msg)}</span>`:v?"Looks good. This shows on your event card.":"Landscape works best, about 1200 × 630. JPG or PNG."}${v?`<button type="button" data-cvrm>Remove</button>`:""}</span>`;
+    box.querySelector("input").onchange=async ev=>{const f=ev.target.files&&ev.target.files[0];if(!f)return;box.querySelector(".cvside").textContent="Preparing…";try{COVER[key]=await shrinkCover(f);draw();}catch(m){COVER[key]="";draw(typeof m==="string"?m:"We couldn't read that image.");}};
+    const rm=box.querySelector("[data-cvrm]");if(rm)rm.onclick=()=>{COVER[key]="";draw();};};
+  draw();}
+mountCover(document.querySelector('[data-cover="s"]'),"s","sCover");
 function mailYS(subject,lines){return "mailto:"+YS_INBOX+"?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(lines.filter(x=>x!==null&&x!=="").join("\n"));}
 function refLink(u,camp){try{const x=new URL(u);x.searchParams.set("utm_source","yorkseed");x.searchParams.set("utm_medium","the_list");if(camp)x.searchParams.set("utm_campaign",camp);if(/(^|\.)lu\.?ma(\.com)?$/.test(x.hostname)||/luma\.com$/.test(x.hostname))x.searchParams.set("ref","yorkseed");return x.toString();}catch(e){return u;}}
 function placeText(e,h){let v=(e.venue||"").replace(/\s*•\s*/g," · ").replace(new RegExp("^"+h.name.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+"\\s*[,·]\\s*(Portugal|USA|United States)?\\s*[·,]?\\s*","i"),"").trim();return [h.name,v].filter(Boolean).join(" · ");}
@@ -2097,17 +2124,17 @@ $("#subForm").addEventListener("submit",async ev=>{
   ev.preventDefault();if(!validate())return;
   if(step<4){step=step===2?4:step+1;paneShow();return;}
   const place=document.querySelector("input[name=place]:checked").value;
-  const e=decorate({id:"u"+Date.now(),title:$("#sTitle").value.trim(),hub:$("#sHub").value,date:$("#sDate").value,start:$("#sStart").value||"18:00",end:$("#sEnd").value||"21:00",type:$("#sType").value,host:$("#sHost").value.trim(),tags:[$("#sType").value.replace(/s$/,"")],place:place==="free"?null:place,week:$("#sWeek").value||null,img:"ev"+(1+Math.floor(Math.random()*8)),venue:$("#sVenue").value.trim(),link:/^https?:\/\//.test($("#sLink").value)?$("#sLink").value:"",desc:$("#sDesc").value.trim(),mine:true});
+  const e=decorate({id:"u"+Date.now(),title:$("#sTitle").value.trim(),hub:$("#sHub").value,date:$("#sDate").value,start:$("#sStart").value||"18:00",end:$("#sEnd").value||"21:00",type:$("#sType").value,host:$("#sHost").value.trim(),tags:[$("#sType").value.replace(/s$/,"")],place:place==="free"?null:place,week:$("#sWeek").value||null,img:"ev"+(1+Math.floor(Math.random()*8)),venue:$("#sVenue").value.trim(),link:/^https?:\/\//.test($("#sLink").value)?$("#sLink").value:"",desc:$("#sDesc").value.trim(),cover:COVER.s||"",mine:true});
   EVENTS.push(e);
-  try{const s=JSON.parse(localStorage.getItem("yl-subs2")||"[]");const c={...e};delete c.utc;delete c.utcEnd;s.push(c);localStorage.setItem("yl-subs2",JSON.stringify(s));}catch(x){}
+  try{const s=JSON.parse(localStorage.getItem("yl-subs2")||"[]");const c={...e};delete c.utc;delete c.utcEnd;delete c.cover;s.push(c);localStorage.setItem("yl-subs2",JSON.stringify(s));}catch(x){}
   const paid=place!=="free";
   const nb=$("#nextBtn");nb.disabled=true;nb.textContent="Sending…";
-  const res=await sendSubmission({title:e.title,hub:e.hub,hubName:hubById(e.hub).name,date:e.date,start:e.start,end:e.end,tz:hubById(e.hub).tz,venue:e.venue,type:e.type,host:e.host,link:e.link,desc:e.desc,week:e.week||"",placement:place,name:$("#sName").value.trim(),email:$("#sEmail").value.trim(),website:$("#sWebsite").value,via:"form"});
+  const res=await sendSubmission({title:e.title,hub:e.hub,hubName:hubById(e.hub).name,date:e.date,start:e.start,end:e.end,tz:hubById(e.hub).tz,venue:e.venue,type:e.type,host:e.host,link:e.link,desc:e.desc,week:e.week||"",placement:place,name:$("#sName").value.trim(),email:$("#sEmail").value.trim(),website:$("#sWebsite").value,image:COVER.s||"",via:"form"});
   nb.disabled=false;nb.textContent="Continue";
   if(!res.ok){EVENTS.pop();toast(res.msg||`We couldn't send that just now. Please try again, or email ${YS_INBOX}.`);return;}
-  $("#subForm").reset();$("#sStart").value="18:30";$("#sEnd").value="21:00";syncWeeks();setPlace("free");step=1;paneShow();
+  $("#subForm").reset();COVER.s="";mountCover(document.querySelector('[data-cover="s"]'),"s","sCover");$("#sStart").value="18:30";$("#sEnd").value="21:00";syncWeeks();setPlace("free");step=1;paneShow();
   renderHome();st.hub=e.hub;st.type="all";st.topic=null;st.q="";st.week=null;st.date="any";goCity();
-  toast(res.dup?"We already have this event. We'll be in touch if anything is missing.":"Received. We review every event within a day, and it goes live on the List once approved. You can preview it here in the meantime.");
+  toast(res.dup?"We already have this event. We'll be in touch if anything is missing.":res.live?"Thanks. Your event is live on the List now.":"Received. We review every event within a day, and it goes live on the List once approved. You can preview it here in the meantime.");
 });
 $("#prevBtn").onclick=()=>{if(step>1){step=step===4?2:step-1;paneShow();}};
 
@@ -2222,11 +2249,12 @@ function showCard(){
   <label>Host or organizer<input id="eHost2" value="${esc(d.host||"")}" placeholder="Who's hosting"></label>
   <label>Description<textarea id="eDesc2" rows="3" maxlength="600" placeholder="What it is, who it's for, who's speaking">${esc(d.desc||"")}</textarea></label>
   <label>Event link<input id="eLink2" type="url" value="${esc(d.link)}" placeholder="https://"></label>
+  <div class="field"><span style="font-family:var(--f-label);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)">Cover image (optional)</span><div class="cover" data-cover="c"></div></div>
   <div class="row2"><label>Your name<input id="eName2" autocomplete="name" value="${esc(chat.who&&chat.who.name||"")}"></label><label>Your email *<input id="eEmail2" type="email" autocomplete="email" value="${esc(chat.who&&chat.who.email||"")}" placeholder="So we can confirm it"></label></div>
   <input id="eWeb2" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
   <span class="err" id="eErr2" hidden></span>
   <button class="btn btn-primary" type="button" id="eOk2">Looks right</button>`;
-  $("#dlog").append(c);scrollLog();
+  $("#dlog").append(c);COVER.c="";mountCover(c.querySelector('[data-cover="c"]'),"c","eCover2");scrollLog();
   const tz=()=>{const nw=$("#eHub2").value==="__new";$("#eNew2").hidden=!nw;const h=nw?{id:"x",name:$("#eNewName").value.trim()||"your city",tz:$("#eNewTz").value}:hubById($("#eHub2").value);$("#eTz2").textContent=`Times are in ${h.name} local time (${h.id==="virtual"?"ET":abbr(toUtc($("#eDate2").value||"2026-10-20","12:00",h.tz),h.tz)}).`;};
   {let touched=false;$("#eType2").onchange=()=>touched=true;$("#eTitle2").addEventListener("input",()=>{if(!touched)$("#eType2").value=inferType($("#eTitle2").value);});}
   tz();$("#eHub2").onchange=tz;$("#eNewTz").onchange=tz;$("#eNewName").oninput=tz;$("#eDate2").onchange=tz;$("#eTitle2").focus();
@@ -2245,17 +2273,18 @@ function confirmCard(){
   me("Looks right");chat.state="review";
   const st2=document.createElement("div");st2.className="status";st2.innerHTML=`<span class="spin"></span><span><b>${esc(d.title)}</b><small>Reviewing your event…</small></span>`;$("#dlog").append(st2);scrollLog();
   const hh=hubById(hubId);
-  const sent=sendSubmission({title:d.title,hub:newHub?"":hubId,hubName:hh?hh.name:"",newCity:newHub?[newHub.name,newHub.country].filter(Boolean).join(", "):"",date:d.date,start:d.start,end:d.end,tz:newHub?newHub.tz:(hh?hh.tz:""),venue:d.venue,type:d.type,host:d.host,link:d.link,desc:d.desc,placement:"free",name:chat.who.name,email:chat.who.email,website:chat.who.web,via:d.dup?"chat-update":"chat"});
+  const sent=sendSubmission({title:d.title,hub:newHub?"":hubId,hubName:hh?hh.name:"",newCity:newHub?[newHub.name,newHub.country].filter(Boolean).join(", "):"",date:d.date,start:d.start,end:d.end,tz:newHub?newHub.tz:(hh?hh.tz:""),venue:d.venue,type:d.type,host:d.host,link:d.link,desc:d.desc,placement:"free",name:chat.who.name,email:chat.who.email,website:chat.who.web,image:COVER.c||"",via:d.dup?"chat-update":"chat"});
+  const cv=COVER.c;COVER.c="";
   setTimeout(async()=>{
     const res=await sent;
     let e=d.dup?EVENTS.find(x=>x.id===d.dup):null;
-    if(e){Object.assign(e,{title:d.title,date:d.date,start:d.start||null,end:d.start?d.end:null,hub:d.hub,venue:d.venue,type:d.type,host:d.host||e.host,desc:d.desc||e.desc,link:d.link||e.link});decorate(e);}
-    else{e=decorate({id:"u"+Date.now(),title:d.title,hub:d.hub,date:d.date,start:d.start||null,end:d.start?d.end:null,type:d.type,host:d.host||"",tags:inferTags(d.title+" "+(d.desc||"")),aud:[],place:null,week:null,img:"ev"+(1+Math.floor(Math.random()*8)),venue:d.venue,link:d.link,desc:d.desc||"Submitted to the List.",mine:true});EVENTS.push(e);
-      try{const s=JSON.parse(localStorage.getItem("yl-subs2")||"[]");const c={...e};delete c.utc;delete c.utcEnd;s.push(c);localStorage.setItem("yl-subs2",JSON.stringify(s));}catch(x){}}
+    if(e){Object.assign(e,{title:d.title,date:d.date,start:d.start||null,end:d.start?d.end:null,hub:d.hub,venue:d.venue,type:d.type,host:d.host||e.host,desc:d.desc||e.desc,link:d.link||e.link});if(cv)e.cover=cv;decorate(e);}
+    else{e=decorate({id:"u"+Date.now(),title:d.title,hub:d.hub,date:d.date,start:d.start||null,end:d.start?d.end:null,type:d.type,host:d.host||"",tags:inferTags(d.title+" "+(d.desc||"")),aud:[],place:null,week:null,img:"ev"+(1+Math.floor(Math.random()*8)),venue:d.venue,link:d.link,desc:d.desc||"Submitted to the List.",cover:cv||"",mine:true});EVENTS.push(e);
+      try{const s=JSON.parse(localStorage.getItem("yl-subs2")||"[]");const c={...e};delete c.utc;delete c.utcEnd;delete c.cover;s.push(c);localStorage.setItem("yl-subs2",JSON.stringify(s));}catch(x){}}
     const h=hubById(e.hub);
-    st2.innerHTML=`<span class="done">✓</span><span><b>${esc(e.title)}</b><small>${res.ok?"Sent for review":"Not sent yet"} · ${h.name} · ${dParts(e.date).wd} ${dParts(e.date).day} ${dParts(e.date).mon}</small></span>`;
+    st2.innerHTML=`<span class="done">✓</span><span><b>${esc(e.title)}</b><small>${res.ok?(res.live?"Live on the List":"Sent for review"):"Not sent yet"} · ${h.name} · ${dParts(e.date).wd} ${dParts(e.date).day} ${dParts(e.date).mon}</small></span>`;
     chat.state="done";
-    bot(res.ok?`<b>Received.</b> ${res.dup?"We already have this event, so nothing more to do.":`We review every event within a day, and it goes live on the List once approved. If we need anything, we'll email ${esc(chat.who.email)}.`} Some events also get picked for the weekly email.<br><br><button class="btn btn-sm btn-line" type="button" data-ev="${e.id}" id="seeMine">Preview your event</button><small style="display:block;margin-top:10px;color:var(--muted)">Want Yorkseed as co-host? <a href="https://yorkseed.co/event-partner-request.html" target="_blank" rel="noopener" style="color:var(--accent)">Request an event partnership →</a></small>`:`${res.msg?esc(res.msg)+" ":"We couldn't reach our server just now. "}Send it to the Yorkseed team by email instead:<br><br><a class="btn btn-sm btn-primary" href="${esc(mailYS("New event for The List: "+e.title,["Event: "+e.title,"City: "+h.name+(chat.newHub?" (new city, "+(chat.newHub.country||"")+")":""),"Date: "+e.date+(e.start?" "+e.start+(e.end?"–"+e.end:""):"")+" ("+h.tz+")","Venue: "+(e.venue||""),"Type: "+e.type,"Host: "+(e.host||""),"Link: "+(e.link||""),"","Description:",(e.desc&&e.desc!=="Submitted to the List.")?e.desc:"",d.dup?"(Update to an event already on the List)":""]))}" target="_blank" rel="noopener">Send to Yorkseed</a> <button class="btn btn-sm btn-line" type="button" data-ev="${e.id}" id="seeMine">Preview your event</button><br><small style="display:block;margin-top:8px;color:var(--muted)">Opens your email with the details filled in. Or email ${YS_INBOX}.</small><small style="display:block;margin-top:10px;color:var(--muted)">Want Yorkseed as co-host? <a href="https://yorkseed.co/event-partner-request.html" target="_blank" rel="noopener" style="color:var(--accent)">Request an event partnership →</a></small>`,600).then(()=>{const b=$("#seeMine");if(b)b.addEventListener("click",closeChat);});
+    bot(res.ok?`<b>Received.</b> ${res.dup?"We already have this event, so nothing more to do.":res.live?"Your event is live on the List now.":`We review every event within a day, and it goes live on the List once approved. If we need anything, we'll email ${esc(chat.who.email)}.`} Some events also get picked for the weekly email.<br><br><button class="btn btn-sm btn-line" type="button" data-ev="${e.id}" id="seeMine">Preview your event</button><small style="display:block;margin-top:10px;color:var(--muted)">Want Yorkseed as co-host? <a href="https://yorkseed.co/event-partner-request.html" target="_blank" rel="noopener" style="color:var(--accent)">Request an event partnership →</a></small>`:`${res.msg?esc(res.msg)+" ":"We couldn't reach our server just now. "}Send it to the Yorkseed team by email instead:<br><br><a class="btn btn-sm btn-primary" href="${esc(mailYS("New event for The List: "+e.title,["Event: "+e.title,"City: "+h.name+(chat.newHub?" (new city, "+(chat.newHub.country||"")+")":""),"Date: "+e.date+(e.start?" "+e.start+(e.end?"–"+e.end:""):"")+" ("+h.tz+")","Venue: "+(e.venue||""),"Type: "+e.type,"Host: "+(e.host||""),"Link: "+(e.link||""),"","Description:",(e.desc&&e.desc!=="Submitted to the List.")?e.desc:"",d.dup?"(Update to an event already on the List)":""]))}" target="_blank" rel="noopener">Send to Yorkseed</a> <button class="btn btn-sm btn-line" type="button" data-ev="${e.id}" id="seeMine">Preview your event</button><br><small style="display:block;margin-top:8px;color:var(--muted)">Opens your email with the details filled in. Or email ${YS_INBOX}.</small><small style="display:block;margin-top:10px;color:var(--muted)">Want Yorkseed as co-host? <a href="https://yorkseed.co/event-partner-request.html" target="_blank" rel="noopener" style="color:var(--accent)">Request an event partnership →</a></small>`,600).then(()=>{const b=$("#seeMine");if(b)b.addEventListener("click",closeChat);});
     renderHome();if(st.view==="city")renderCity();
   },1500);
 }
@@ -2514,9 +2543,9 @@ function liveBookings(){const t=addDays(0);return LIVE_BANNERS.filter(b=>b.activ
 function allBookings(){return [...SELF_ADS.filter(b=>!b.end||b.end>=addDays(0)),...liveBookings(),...BOOKINGS];}
 function rerenderAll(){if(PENDING_EV&&openFromHash())return;try{renderHome();}catch(e){}try{if(st.view==="city")renderCity();if(st.view==="event")renderEvent();}catch(e){}try{renderBanners();}catch(e){}try{drawMZ();}catch(e){}}
 function dbEvent(id,d){const w=WEEKS.find(x=>x.hub===d.hub&&d.date>=x.start&&d.date<=x.end);
-  return decorate({id:"d_"+id,title:d.title||"Untitled",hub:d.hub,date:d.date,start:d.start||null,end:d.start?(d.end||null):null,type:d.type||inferType(d.title||""),host:d.host||"",tags:(()=>{const t=inferTags((d.title||"")+" "+(d.desc||""));return t.length?t.slice(0,3):["Founders"];})(),aud:[],place:d.featured?"featured":(d.yorkseed?"spotlight":null),week:w?w.id:null,img:"ev"+(1+(id.charCodeAt(0)%8)),venue:d.venue||"",link:d.link||"",desc:d.desc||"",live:true});}
+  return decorate({id:"d_"+id,title:d.title||"Untitled",hub:d.hub,date:d.date,start:d.start||null,end:d.start?(d.end||null):null,type:d.type||inferType(d.title||""),host:d.host||"",tags:(()=>{const t=inferTags((d.title||"")+" "+(d.desc||""));return t.length?t.slice(0,3):["Founders"];})(),aud:[],place:d.featured?"featured":(d.yorkseed?"spotlight":null),week:w?w.id:null,img:"ev"+(1+(id.charCodeAt(0)%8)),venue:d.venue||"",link:d.link||"",desc:d.desc||"",cover:/^https:\/\//.test(d.img||"")?d.img:"",live:true});}
 var PHOTOS={};
-function evImgTag(e,fb){const p=e&&e.link&&(PHOTOS||{})[e.link];return p?`<img src="${esc(p)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src=this.dataset.fb" data-fb="${fb}">`:`<img src="${fb}" alt="">`;}
+function evImgTag(e,fb){const p=(e&&e.cover)||(e&&e.link&&(PHOTOS||{})[e.link]);return p?`<img src="${esc(p)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src=this.dataset.fb" data-fb="${fb}">`:`<img src="${fb}" alt="">`;}
 if(window.YS_STATIC){fetch(String(window.YS_STATIC).replace(/^1$/,"")+"data/photos.json",{cache:"no-store"}).then(r=>r.ok?r.json():{}).then(m=>{let n=0;for(const k in m){if(m[k]&&m[k].img){PHOTOS[k]=m[k].img;n++;}}if(n&&typeof rerenderAll==="function")rerenderAll();}).catch(()=>{});}
 if(window.YS_STATIC){const J=f=>fetch(String(window.YS_STATIC).replace(/^1$/,"")+f,{cache:"no-store"}).then(r=>r.ok?r.json():[]).catch(()=>[]);
   J("events.json").then(a=>{a=Array.isArray(a)?a:(a&&a.events)||[];const seen=new Set(EVENTS.map(e=>(e.link||e.title)+"|"+e.date));let n=0;

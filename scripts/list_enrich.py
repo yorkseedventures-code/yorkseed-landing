@@ -276,17 +276,18 @@ def import_submissions():
     norm = lambda s: re.sub(r'[^a-z0-9]+', '', (s or '').lower())[:40]
     seen_l = {(e.get("link") or "").split("?")[0].rstrip("/") for e in events + master["events"] if e.get("link")}
     seen_t = {(norm(e.get("title")), e.get("date")) for e in events + master["events"]}
-    added = 0
+    added, covers = 0, {}
     for d in subs:
         if d.get("hub") not in hubs or not d.get("date") or d["date"] < TODAY: continue
+        if d.get("img") and d.get("link"): covers[d["link"]] = d["img"]      # the organizer's own upload beats a scraped photo
         k = (d.get("link") or "").split("?")[0].rstrip("/")
         if (k and k in seen_l) or (norm(d.get("title")), d["date"]) in seen_t: continue
         seen_l.add(k); seen_t.add((norm(d.get("title")), d["date"]))
         events.append({x: d.get(x) for x in ("title", "hub", "date", "start", "end", "venue", "host", "link", "desc", "type") if d.get(x)})
         added += 1
     if added: json.dump(events, open(f"{REPO}/list/events.json", "w"), ensure_ascii=False, indent=1)
-    print(f"submissions: {added} approved events copied into events.json")
-    return {}
+    print(f"submissions: {added} approved events copied into events.json, {len(covers)} with an uploaded cover")
+    return covers
 
 # ---------- 1c. daily sources: Luma discover categories (list/data/sources.json) ----------
 CITY_ALIAS = {"san francisco": "sf", "oakland": "sf", "berkeley": "sf", "palo alto": "sf", "mountain view": "sf", "san jose": "sf",
