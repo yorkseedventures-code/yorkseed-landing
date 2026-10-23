@@ -539,9 +539,9 @@
 "place": "spotlight"
 },
 {
-"title": "The Yorkseed Soirée - Web Summit Opening Night 2026",
+"title": "The Yorkseed Soirée – Web Summit Opening Night 2026",
 "hub": "lis",
-"date": "2026-11-08",
+"date": "2026-11-09",
 "start": "20:00",
 "end": "23:59",
 "host": "Yorkseed",
@@ -7055,12 +7055,68 @@
 "start": "10:00",
 "end": "22:00",
 "host": "Yorkseed",
-"venue": "Location after RSVP",
+"venue": "Lisbon · open all week, Nov 9–13 (address after RSVP)",
 "link": "https://luma.com/a2jp6jc9",
-"desc": "Yorkseed's pop-up home base in Lisbon during Web Summit week, part of the Yorkseed Passport Series. A place for founders, investors and partners to meet between sessions, hosted by Jessica Sophia Wong. The address is shared after registration.",
+"desc": "Yorkseed's pop-up home base in Lisbon, open all week Nov 9–13 during Web Summit: coworking, meeting rooms and a restaurant discount, plus curated events including an opening reception with Pitch Roulette, a Capital Table Lunch, founder and investor meetups, community breakfasts and VC office hours. Hosted by Jessica Sophia Wong. Founder, investor and general tiers; RSVP on Luma first, and the address is shared after registration.",
 "type": "Meetups",
 "week": "lisws",
 "place": "spotlight"
+},
+{
+"title": "Yorkseed House Pop Up",
+"hub": "lis",
+"date": "2026-11-10",
+"start": "10:00",
+"end": "22:00",
+"host": "Yorkseed",
+"venue": "Lisbon · open all week, Nov 9–13 (address after RSVP)",
+"link": "https://luma.com/a2jp6jc9",
+"desc": "Yorkseed's pop-up home base in Lisbon, open all week Nov 9–13 during Web Summit: coworking, meeting rooms and a restaurant discount, plus curated events including an opening reception with Pitch Roulette, a Capital Table Lunch, founder and investor meetups, community breakfasts and VC office hours. Hosted by Jessica Sophia Wong. Founder, investor and general tiers; RSVP on Luma first, and the address is shared after registration.",
+"type": "Meetups",
+"week": "lisws",
+"place": null
+},
+{
+"title": "Yorkseed House Pop Up",
+"hub": "lis",
+"date": "2026-11-11",
+"start": "10:00",
+"end": "22:00",
+"host": "Yorkseed",
+"venue": "Lisbon · open all week, Nov 9–13 (address after RSVP)",
+"link": "https://luma.com/a2jp6jc9",
+"desc": "Yorkseed's pop-up home base in Lisbon, open all week Nov 9–13 during Web Summit: coworking, meeting rooms and a restaurant discount, plus curated events including an opening reception with Pitch Roulette, a Capital Table Lunch, founder and investor meetups, community breakfasts and VC office hours. Hosted by Jessica Sophia Wong. Founder, investor and general tiers; RSVP on Luma first, and the address is shared after registration.",
+"type": "Meetups",
+"week": "lisws",
+"place": null
+},
+{
+"title": "Yorkseed House Pop Up",
+"hub": "lis",
+"date": "2026-11-12",
+"start": "10:00",
+"end": "22:00",
+"host": "Yorkseed",
+"venue": "Lisbon · open all week, Nov 9–13 (address after RSVP)",
+"link": "https://luma.com/a2jp6jc9",
+"desc": "Yorkseed's pop-up home base in Lisbon, open all week Nov 9–13 during Web Summit: coworking, meeting rooms and a restaurant discount, plus curated events including an opening reception with Pitch Roulette, a Capital Table Lunch, founder and investor meetups, community breakfasts and VC office hours. Hosted by Jessica Sophia Wong. Founder, investor and general tiers; RSVP on Luma first, and the address is shared after registration.",
+"type": "Meetups",
+"week": "lisws",
+"place": null
+},
+{
+"title": "Yorkseed House Pop Up",
+"hub": "lis",
+"date": "2026-11-13",
+"start": "10:00",
+"end": "22:00",
+"host": "Yorkseed",
+"venue": "Lisbon · open all week, Nov 9–13 (address after RSVP)",
+"link": "https://luma.com/a2jp6jc9",
+"desc": "Yorkseed's pop-up home base in Lisbon, open all week Nov 9–13 during Web Summit: coworking, meeting rooms and a restaurant discount, plus curated events including an opening reception with Pitch Roulette, a Capital Table Lunch, founder and investor meetups, community breakfasts and VC office hours. Hosted by Jessica Sophia Wong. Founder, investor and general tiers; RSVP on Luma first, and the address is shared after registration.",
+"type": "Meetups",
+"week": "lisws",
+"place": null
 }
 ]
 }
