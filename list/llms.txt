@@ -1,12 +1,12 @@
 # The Yorkseed List
 
-> The Yorkseed List (https://list.yorkseed.co/) is a free global calendar of startup, tech, founder and investor events in 50+ cities and around the major tech weeks and conferences, run by Yorkseed. 1629 upcoming events as of 2026-10-23. Updated continuously. Anyone can list an event for free.
+> The Yorkseed List (https://list.yorkseed.co/) is a free global calendar of startup, tech, founder and investor events in 50+ cities and around the major tech weeks and conferences, run by Yorkseed. 1644 upcoming events as of 2026-10-23. Updated continuously. Anyone can list an event for free.
 
 ## Startup and tech events by city
 
 - [Startup events in Bay Area](https://list.yorkseed.co/san-francisco-bay-area/): 602 upcoming
 - [Startup events in Lisbon](https://list.yorkseed.co/lisbon/): 243 upcoming
-- [Startup events in New York](https://list.yorkseed.co/new-york/): 99 upcoming
+- [Startup events in New York](https://list.yorkseed.co/new-york/): 114 upcoming
 - [Startup events in Berlin](https://list.yorkseed.co/berlin/): 40 upcoming
 - [Startup events in Singapore](https://list.yorkseed.co/singapore/): 38 upcoming
 - [Startup events in Mumbai](https://list.yorkseed.co/mumbai/): 34 upcoming
