@@ -66,6 +66,12 @@ textarea{min-height:130px;resize:vertical}
   <div class="hint">Events people submit on list.yorkseed.co. You get an email for each one. Approve puts it on the List right away; reject keeps it off.</div>
 </div>
 
+<div class="card" id="ads">
+  <h2>Sidebar ads on The List</h2>
+  <div id="adList"><div class="hint">Loading...</div></div>
+  <div class="hint">Sponsors upload their own 300 × 250 graphic and pay by card. Each ad goes live the moment it's paid and comes down by itself when the time is up. Take one down early if you need to (refunds are done in Stripe).</div>
+</div>
+
 <div class="card">
   <h2>1. Add from a link</h2>
   <input id="url" type="url" inputmode="url" placeholder="https://..."/>
@@ -214,7 +220,23 @@ document.addEventListener('click',function(ev){
   else if(id=t.dataset.subNo){t.disabled=true;subApi('/'+id,{method:'PUT',body:{status:'rejected'}}).then(loadSubs).catch(function(e){alert(e.message)})}
   else if(id=t.dataset.subDel){if(t.dataset.sure===id){subApi('/'+id,{method:'DELETE'}).then(loadSubs)}else{t.dataset.sure=id;t.textContent='Tap again';setTimeout(function(){t.textContent='Delete';delete t.dataset.sure},3000)}}
 });
-$('key').addEventListener('change',function(){try{localStorage.setItem('ys_events_key',key())}catch(e){}load();loadSubs()});
+var ADS='https://yorkseed-backend-production.up.railway.app/api/list-ads';
+function adsApi(path,opt){var keep=API;API=ADS;try{return api(path,opt)}finally{API=keep}}
+function d10(x){return x?new Date(x).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}):''}
+function loadAds(){
+  if(!key()){$('adList').innerHTML='<div class="hint">Enter your key to see ads.</div>';return}
+  adsApi('').then(function(j){var a=j.ads||[];var now=Date.now();
+    $('adList').innerHTML=a.length?a.map(function(x){var on=x.status==='live'&&new Date(x.endAt).getTime()>now;
+      return '<div class="sub-it" style="display:grid;grid-template-columns:120px 1fr;gap:12px"><img src="'+esc(x.img)+'" alt="" style="width:120px;height:100px;object-fit:cover;border:1px solid var(--line)"><div><b>'+esc(x.brand)+'</b>'
+        +'<div class="meta">'+esc(x.hubName||x.hub)+' · '+(on?'<span style="color:var(--green);font-weight:600">Live</span>':esc(x.status==='taken_down'?'Taken down':'Ended'))+' · '+d10(x.startAt)+' to '+d10(x.endAt)+' · $'+(x.amount/100).toLocaleString()+'</div>'
+        +'<div class="meta">'+esc(x.email)+' · <a href="'+esc(x.url)+'" target="_blank" rel="noopener">link</a></div>'
+        +'<div class="acts">'+(on?'<button data-ad-down="'+x.id+'">Take down</button>':(x.status==='taken_down'&&new Date(x.endAt).getTime()>now?'<button data-ad-up="'+x.id+'">Put back up</button>':''))+'</div></div></div>'}).join(''):'<div class="hint">No sidebar ads yet.</div>';
+  }).catch(function(err){$('adList').innerHTML='<div class="hint">'+esc(err.message)+'</div>'});
+}
+document.addEventListener('click',function(ev){var t=ev.target,id;if(!t.dataset)return;
+  if(id=t.dataset.adDown){if(t.dataset.sure!==id){t.dataset.sure=id;t.textContent='Tap again to take down';return}adsApi('/'+id,{method:'PUT',body:{status:'taken_down'}}).then(loadAds)}
+  else if(id=t.dataset.adUp){adsApi('/'+id,{method:'PUT',body:{status:'live'}}).then(loadAds)}});
+$('key').addEventListener('change',function(){try{localStorage.setItem('ys_events_key',key())}catch(e){}load();loadSubs();loadAds()});
 function load(){
   if(!key()){$('list').innerHTML='<div class="hint">Enter your key to see events.</div>';$('delStatus').textContent='Enter your key to use this switch.';return}
   api('').then(function(j){
@@ -231,8 +253,8 @@ document.addEventListener('click',function(ev){
   else if(id=t.dataset&&t.dataset.hide){var e2=cache.find(function(x){return x.id===id});e2.hidden=!e2.hidden;api('/'+id,{method:'PUT',body:e2}).then(load)}
   else if(id=t.dataset&&t.dataset.del){if(t.dataset.sure===id){api('/'+id,{method:'DELETE'}).then(load)}else{t.dataset.sure=id;t.textContent='Tap again';setTimeout(function(){t.textContent='Delete';delete t.dataset.sure},3000)}}
 });
-load();loadSubs();
-if(location.hash==='#submissions')setTimeout(function(){$('submissions').scrollIntoView()},300);
+load();loadSubs();loadAds();
+if(/^#(submissions|ads)$/.test(location.hash))setTimeout(function(){$(location.hash.slice(1)).scrollIntoView()},300);
 </script>
 <script src="/assets/url-prefill.js" defer></script>
 </body>
