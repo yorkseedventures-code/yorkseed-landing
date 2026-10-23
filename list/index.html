@@ -2247,8 +2247,8 @@ function renderCityBanners(){
 const SLOTPREV={"home": "/list/img/cc149d2e05.jpg", "map": "/list/img/905766a5f3.jpg", "city": "/list/img/e17a5fb818.jpg", "list": "/list/img/a834b6a8f1.jpg", "feat": "/list/img/bf001b87b4.jpg", "event": "/list/img/3d2377f237.jpg"};
 const BK={kind:"home",hub:"nyc",dur:"12m",img:"",goal:"",db:false,sheet:false,sheetName:"Web Summit Lisbon",hs:["",""]};
 const DB_PRICE=750;
-/* Conference spreadsheets we share. US$200 on its own or as an add-on to any placement */
-const SHEET_PRICE=200;
+/* Conference spreadsheets we share. US$200 on its own (SLOTS.sheet), US$150 as an add-on */
+const SHEET_PRICE=150;
 const SHEETS=["Web Summit Lisbon","Davos · World Economic Forum","SXSW Austin","New York Tech Week","VivaTech Paris","RAISE Summit","Slush","LA Tech Week","SF Tech Week","TOKEN2049","F1","J.P. Morgan Healthcare Conference"];
 const sheetSel=id=>`<select id="${id}">${SHEETS.map(n=>`<option${n===BK.sheetName?" selected":""}>${esc(n)}</option>`).join("")}</select>`;
 const sheetPrev=()=>`<div class="shprev" aria-hidden="true"><div class="shbar">${esc(BK.sheetName)} · Yorkseed sheet</div><table><tr><th>Date</th><th>Event</th><th>Host</th><th>Link</th></tr><tr><td>Mon</td><td>Founders breakfast</td><td>…</td><td>…</td></tr><tr class="hl"><td>Tue</td><td>★ Your event or company</td><td>You</td><td>your link</td></tr><tr><td>Tue</td><td>Investor dinner</td><td>…</td><td>…</td></tr><tr><td>Wed</td><td>Demo night</td><td>…</td><td>…</td></tr></table></div>`;
