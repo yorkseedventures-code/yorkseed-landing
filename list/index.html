@@ -2187,7 +2187,7 @@ $("#linkForm").addEventListener("submit",e=>{e.preventDefault();const v=$("#link
 
 // ---------- feature banners ----------
 const SLOTS={
- feat:{name:"Featured event",where:"Your event in green with a ★ Featured tag, at the top of its day and as a green star on the map, until it happens.",best:"promoting one event",cap:"Any event on the List",left:"Always open",durs:[["ev","Until your event",99,0.25]],scope:true,wire:'<i class="hd"></i><i></i><i class="hl"></i><i></i><i class="s"></i><i></i>'},
+ feat:{name:"Featured event",where:"Your event in green with a ★ Featured tag, at the top of its day and as a green star on the map, for the run-up you choose before it happens.",best:"promoting one event",cap:"Any event on the List",left:"Always open",durs:[["ev","2 weeks",99,0.25],["1m","1 month",179,0.26],["3m","3 months",399,0.27]],scope:true,wire:'<i class="hd"></i><i></i><i class="hl"></i><i></i><i class="s"></i><i></i>'},
  map:{name:"Map sponsor",where:"Your event or brand pinned on the map with a green ★ Featured event tag, in the city you choose.",best:"organizers, venues, spaces and local brands",cap:"1 pin per city",left:"Open in every city",durs:[["2w","2 weeks",125,0.5],["1m","1 month",200,1],["6m","6 months",900,6],["12m","1 year",1500,12]],scope:true,wire:'<i class="hd"></i><i class="map"></i><i class="map"></i><i class="hl"></i><i class="s"></i>'},
  list:{name:"In-list banner",where:"Inside a city's event list, between the rows people scroll.",best:"Tech Weeks, conferences and launches",cap:"2 slots per city",left:"Open in every city",durs:[["2w","2 weeks",150,0.5],["1m","1 month",250,1],["3m","3 months",600,3],["6m","6 months",1000,6],["12m","1 year",1800,12]],scope:true,wire:'<i class="hd"></i><i></i><i></i><i class="hl"></i><i></i><i></i>'},
  city:{name:"City banner",where:"Top of one city's events page, above the list.",best:"owning one city",cap:"1 slot per city",left:"Open in every city",durs:[["1m","1 month",300,1],["3m","3 months",750,3],["6m","6 months",1400,6],["12m","1 year",2500,12]],scope:true,wire:'<i class="hd"></i><i class="hl"></i><i></i><i></i><i class="s"></i><i></i>'},
@@ -2253,6 +2253,9 @@ function renderCityBanners(){
 const SLOTPREV={"home": "/list/img/cc149d2e05.jpg", "map": "/list/img/905766a5f3.jpg", "city": "/list/img/e17a5fb818.jpg", "list": "/list/img/a834b6a8f1.jpg", "feat": "/list/img/bf001b87b4.jpg", "event": "/list/img/3d2377f237.jpg"};
 const BK={kind:"home",hub:"nyc",dur:"12m",img:"",goal:"",db:false,hs:["",""]};
 const DB_PRICE=750;
+/* Featured event: how many days before the event the highlight starts */
+const FEAT_DAYS={ev:14,"1m":30,"3m":90};
+const FEAT_NOTE={ev:"The 14 days before your event, when most people decide.","1m":"The 30 days before your event.","3m":"The 90 days before your event. Best for conferences and big launches."};
 function dbText(){const v=SLOTS[BK.kind];const ed=v.scope?WEEKS.find(w=>w.hub===BK.hub&&(w.ys||[]).some(y=>y.kind==="Delegation")&&w.end>=addDays(0)):null;
   return ed?`A full page in the ${hubById(BK.hub).name} edition (${ed.name}), carried into the Annual Deal Book shared in December.`:`A full page in our next delegation edition, carried into the Annual Deal Book shared in December.`;}
 const GOALS=[["one","One event"],["week","A Tech Week, conference or launch"],["year","My brand, all year"]];
@@ -2267,7 +2270,7 @@ function drawBook(){
     <div class="field"><label>Placement</label><div class="opts">${Object.entries(SLOTS).map(([k,x])=>`<label><input type="radio" name="bkKind" value="${k}"${k===BK.kind?" checked":""}><b>${x.name}</b><span class="pr">${x.durs.length>1?"from ":""}${money(Math.min(...x.durs.map(d=>d[2])))}</span><small>Best for ${x.best}</small></label>`).join("")}</div>
       <figure class="slotprev"><img src="${SLOTPREV[BK.kind]}" alt="Where the ${v.name} appears on the List"><figcaption><b>Where it shows:</b> ${v.where}</figcaption></figure></div>
     ${v.scope?`<div class="field"><label for="bkHub">City</label><select id="bkHub">${HUBS.filter(h=>h.id!=="virtual").map(h=>`<option value="${h.id}"${h.id===BK.hub?" selected":""}>${h.name}</option>`).join("")}</select></div>`:""}
-    <div class="field"><label>How long</label><div class="opts">${v.durs.map(([k,l,p,mo],i)=>`<label><input type="radio" name="bkDur" value="${k}"${durOf(v,BK.dur)[0]===k?" checked":""}><b>${l}</b><span class="pr">${money(p)}</span>${i&&mo>=1?`<small>${money(Math.round(p/mo))} a month${mo>=6?", best value":""}</small>`:mo<1?`<small>${BK.kind==="feat"?"Featured from approval until your event date.":"Minimum. Good for a Tech Week or launch."}</small>`:""}</label>`).join("")}</div></div>
+    <div class="field"><label>How long</label><div class="opts">${v.durs.map(([k,l,p,mo],i)=>`<label><input type="radio" name="bkDur" value="${k}"${durOf(v,BK.dur)[0]===k?" checked":""}><b>${l}</b><span class="pr">${money(p)}</span>${i&&mo>=1?`<small>${money(Math.round(p/mo))} a month${mo>=6?", best value":""}</small>`:mo<1?`<small>${BK.kind==="feat"?FEAT_NOTE[k]:"Minimum. Good for a Tech Week or launch."}</small>`:""}</label>`).join("")}</div></div>
     <div class="field"><label>Add-on</label><div class="opts"><label><input type="checkbox" id="bkDB"${BK.db?" checked":""}><b>Yorkseed Deal Book page</b><span class="pr">+${money(DB_PRICE)}</span><small id="bkDBt">${dbText()}</small></label></div><small class="muted" style="font-size:12.5px;margin-top:6px;display:block">You send the page content after we confirm. Just a Deal Book page: US$1,000. Presenting a whole edition: <a href="mailto:info@yorkseed.co?subject=Deal%20Book%20presenting%20partner" style="color:inherit;text-decoration:underline">ask us</a>.</small>
     <details class="dbexw"><summary>See an example Deal Book page</summary>
       <div class="dbex"><span class="eyebrow">Partner · Lisbon edition</span>
@@ -2331,7 +2334,7 @@ function showBkErr(m){const e=$("#bkErr");e.textContent=m;e.hidden=!m;}
 function submitBook(ev){ev.preventDefault();const d=bkData();
   const miss=!d.brand?"Add your brand name.":d.kind==="feat"&&!d.headline?"Add the event name.":!d.name?"Add your name.":!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.email)?"Add a work email like you@company.com.":"";
   showBkErr(miss);if(miss)return;
-  const v=SLOTS[d.kind];const du=durOf(v,d.dur);const price=du[2]+(d.db?DB_PRICE:0);const isF=d.kind==="feat";const st0=new Date((isF?addDays(0):(d.start||addDays(7)))+"T12:00:00Z");const end=isF?new Date((d.start||addDays(7))+"T12:00:00Z"):du[3]<1?new Date(st0.getTime()+13*864e5):new Date(Date.UTC(st0.getUTCFullYear(),st0.getUTCMonth()+du[3],st0.getUTCDate()-1));
+  const v=SLOTS[d.kind];const du=durOf(v,d.dur);const price=du[2]+(d.db?DB_PRICE:0);const isF=d.kind==="feat";const evd=d.start||addDays(7);const fst=isF?(()=>{const x=new Date(evd+"T12:00:00Z");x.setUTCDate(x.getUTCDate()-(FEAT_DAYS[d.dur]||14));const k=x.toISOString().slice(0,10);return k>addDays(0)?k:addDays(0);})():null;const st0=new Date((isF?fst:(d.start||addDays(7)))+"T12:00:00Z");const end=isF?new Date((d.start||addDays(7))+"T12:00:00Z"):du[3]<1?new Date(st0.getTime()+13*864e5):new Date(Date.UTC(st0.getUTCFullYear(),st0.getUTCMonth()+du[3],st0.getUTCDate()-1));
   BOOKINGS=BOOKINGS.filter(b=>!(b.kind===d.kind&&b.hub===d.hub));BOOKINGS.push(d);
   try{localStorage.setItem("yl-banners",JSON.stringify(BOOKINGS));}catch(e){try{localStorage.setItem("yl-banners",JSON.stringify(BOOKINGS.map(b=>({...b,img:""}))));}catch(x){}}
   const fmt=dt=>new Intl.DateTimeFormat("en-US",du[3]<6?{month:"short",day:"numeric",year:"numeric",timeZone:"UTC"}:{month:"long",year:"numeric",timeZone:"UTC"}).format(dt);
@@ -2385,7 +2388,7 @@ NAV_SILENT=true;try{if(/^e\//.test(hash))openFromHash();else if(openListFromHash
 makePicker($("#homeSel"));makePicker($("#hHub"),true);makePicker($("#fCity"),true);
 
 // ---------- live data (db) + owner admin ----------
-const PAYLINKS={feat:{ev:"https://buy.stripe.com/dRm5kw2cfel01VCaYRbo40x"},
+const PAYLINKS={feat:{ev:"https://buy.stripe.com/dRm5kw2cfel01VCaYRbo40x","1m":"https://buy.stripe.com/5kQcMY9EHel09o47MFbo40Y","3m":"https://buy.stripe.com/28EaEQaIL5OugQw6IBbo40Z"},
  map:{"2w":"https://buy.stripe.com/3cIeV66sv1ye0Ryc2Vbo40y","1m":"https://buy.stripe.com/00w5kw047a4Kas85Exbo40z","6m":"https://buy.stripe.com/5kQ5kw5ordgW0Ry6IBbo40A","12m":"https://buy.stripe.com/fZuaEQ7wzb8O9o42slbo40B"},
  list:{"2w":"https://buy.stripe.com/5kQ00c4kn3Gm1VCgjbbo40C","1m":"https://buy.stripe.com/cNi8wI5orfp4dEkd6Zbo40D","3m":"https://buy.stripe.com/6oU7sE2cfgt81VC0kdbo40E","6m":"https://buy.stripe.com/bJe5kw9EH2Ci1VC8QJbo40F","12m":"https://buy.stripe.com/5kQaEQeZ11ye43K4Atbo40G"},
  city:{"1m":"https://buy.stripe.com/9B63co047fp457O8QJbo40H","3m":"https://buy.stripe.com/00wcMYeZ1fp40Ry0kdbo40I","6m":"https://buy.stripe.com/7sY14g6sv6SycAg9UNbo40J","12m":"https://buy.stripe.com/14AeV67wza4Kbwc0kdbo40K"},
