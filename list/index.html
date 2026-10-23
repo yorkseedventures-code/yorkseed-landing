@@ -1705,13 +1705,20 @@ function navKey(){return st.view+"|"+(st.view==="city"?st.hub+"|"+(st.week||"")+
 function navState(){return{ys:1,view:st.view,hub:st.hub,evId:st.evId,week:st.week||null,day:st.day||null};}
 function navUrl(){const e=st.view==="event"&&EVENTS.find(x=>x.id===st.evId);if(e)return "#e/"+evSlug(e);if(st.view==="city"&&!st.savedOnly)return listHash();return location.pathname+location.search;}
 /* shareable list links: #<city>, #events, #w/<week>, #w/<week>/<YYYY-MM-DD> */
-function listHash(){if(st.week&&weekById(st.week))return "#w/"+st.week+(st.day?"/"+st.day:"");return st.hub&&st.hub!=="all"?"#"+st.hub:"#events";}
+/* readable list links: #web-summit-lisbon, #web-summit-lisbon/2026-11-09, #lisbon, #events (old #w/<id> and #<hub id> still open) */
+function nslug(t){return String(t||"").toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g,"").replace(/&/g," and ").replace(/\b(19|20)\d\d\b/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"");}
+function hubSlug(h){const P=window.YS_PATHS;return (P&&P.h&&P.h[h.id])||nslug(h.name);}
+function weekSlug(w){return nslug(w.name);}
+function listHash(){const w=st.week&&weekById(st.week);if(w)return "#"+weekSlug(w)+(st.day?"/"+st.day:"");const h=st.hub&&st.hub!=="all"&&hubById(st.hub);return h?"#"+hubSlug(h):"#events";}
 let NAV_SHOWING=false;
 function syncListUrl(){if(NAV_SHOWING||st.view!=="city"||st.savedOnly)return;const u=listHash();if(location.hash!==u){try{history.replaceState(navState(),"",u);}catch(err){}}}
-function openListFromHash(h){h=(h||"").replace(/^#/,"");let m=h.match(/^w\/([a-z0-9]+)(?:\/(\d{4}-\d{2}-\d{2}))?$/i);
-  if(m&&weekById(m[1])){st.week=m[1];st.topic=null;st.q="";st.date="any";st.type="all";goCity(weekById(m[1]).hub);if(m[2]){st.day=m[2];st.mode="list";renderCity();}return true;}
+function openListFromHash(h){h=decodeURIComponent((h||"").replace(/^#/,"")).toLowerCase();
+  const goWeek=(w,day)=>{st.week=w.id;st.topic=null;st.q="";st.date="any";st.type="all";goCity(w.hub);if(day){st.day=day;st.mode="list";renderCity();}return true;};
+  let m=h.match(/^w\/([a-z0-9]+)(?:\/(\d{4}-\d{2}-\d{2}))?$/);if(m&&weekById(m[1]))return goWeek(weekById(m[1]),m[2]);
   if(h==="events"){st.week=null;goCity("all");return true;}
-  if(HUBS.some(x=>x.id===h)){st.week=null;goCity(h);return true;}return false;}
+  m=h.match(/^([a-z0-9-]+)(?:\/(\d{4}-\d{2}-\d{2}))?$/);if(!m)return false;
+  const w=WEEKS.find(x=>weekSlug(x)===m[1]);if(w)return goWeek(w,m[2]);
+  const hb=HUBS.find(x=>x.id===m[1]||hubSlug(x)===m[1]);if(hb&&!m[2]){st.week=null;goCity(hb.id);return true;}return false;}
 function listShareUrl(){const P=window.YS_PATHS||{h:{},w:{}},L="https://list.yorkseed.co/";const w=st.week&&weekById(st.week);
   if(w){const wp=P.w&&P.w[w.id];if(wp){if(st.day&&(wp.d||[]).includes(st.day))return L+wp.s+"/"+st.day+"/";return L+(wp.e||wp.s)+"/";}return L+listHash();}
   if(st.hub&&st.hub!=="all"){const hs=P.h&&P.h[st.hub];return hs?L+hs+"/":L+"#"+st.hub;}
