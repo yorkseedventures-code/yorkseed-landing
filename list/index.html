@@ -1471,6 +1471,9 @@ input::placeholder,textarea::placeholder{font-size:13.5px;color:var(--soft);opac
           <div class="field"><label for="sType">Event Type *</label><select id="sType"></select></div>
           <div class="field"><label for="sHost">Host *</label><input id="sHost" placeholder="Organization or person"><div class="err" id="eHost" hidden></div></div>
           <div class="field full"><label for="sLink">Registration link</label><input id="sLink" type="url" placeholder="https://"></div>
+          <div class="field"><label for="sName">Your name</label><input id="sName" autocomplete="name"></div>
+          <div class="field"><label for="sEmail">Your email *</label><input id="sEmail" type="email" autocomplete="email" placeholder="So we can confirm it"><div class="err" id="eEmail" hidden></div></div>
+          <input id="sWebsite" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         </div>
         <div data-pane="2" class="fgrid" hidden>
           <div class="field"><label for="sHub">City *</label><select id="sHub"></select></div>
@@ -1976,6 +1979,12 @@ function renderUpcoming(){
 // event
 // Every outbound registration link carries a Yorkseed referral
 const YS_INBOX="info@yorkseed.co";
+/* Submissions go to the Yorkseed backend as "pending". The team gets an email and approves them in the Event Manager. */
+const SUB_API="https://yorkseed-backend-production.up.railway.app/api/list-submissions";
+async function sendSubmission(p){try{const ctl=new AbortController();const t=setTimeout(()=>ctl.abort(),12000);
+  const r=await fetch(SUB_API+"/submit",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(p),signal:ctl.signal});clearTimeout(t);
+  const x=await r.json().catch(()=>({}));return r.ok?{ok:true,dup:!!x.duplicate}:{ok:false,msg:x.message||""};}catch(e){return{ok:false,msg:""};}}
+const okEmail=v=>/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v||"");
 function mailYS(subject,lines){return "mailto:"+YS_INBOX+"?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(lines.filter(x=>x!==null&&x!=="").join("\n"));}
 function refLink(u,camp){try{const x=new URL(u);x.searchParams.set("utm_source","yorkseed");x.searchParams.set("utm_medium","the_list");if(camp)x.searchParams.set("utm_campaign",camp);if(/(^|\.)lu\.?ma(\.com)?$/.test(x.hostname)||/luma\.com$/.test(x.hostname))x.searchParams.set("ref","yorkseed");return x.toString();}catch(e){return u;}}
 function placeText(e,h){let v=(e.venue||"").replace(/\s*•\s*/g," · ").replace(new RegExp("^"+h.name.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+"\\s*[,·]\\s*(Portugal|USA|United States)?\\s*[·,]?\\s*","i"),"").trim();return [h.name,v].filter(Boolean).join(" · ");}
@@ -2021,7 +2030,7 @@ function total(){const p=document.querySelector("input[name=place]:checked").val
 function updSum(){paneShow();}
 function err(id,m){const e=$(id);e.textContent=m;e.hidden=!m;return !m;}
 function validate(){
-  if(step===1){const a=err("#eTitle",$("#sTitle").value.trim()?"":"Add a title so people know what it is."),b=err("#eDesc",$("#sDesc").value.trim()?"":"Add a short description."),c=err("#eHost",$("#sHost").value.trim()?"":"Add who is hosting.");return a&&b&&c;}
+  if(step===1){const a=err("#eTitle",$("#sTitle").value.trim()?"":"Add a title so people know what it is."),b=err("#eDesc",$("#sDesc").value.trim()?"":"Add a short description."),c=err("#eHost",$("#sHost").value.trim()?"":"Add who is hosting."),d=err("#eEmail",okEmail($("#sEmail").value.trim())?"":"Add your email so we can confirm your event.");return a&&b&&c&&d;}
   if(step===2)return err("#eDate",$("#sDate").value?"":"Pick the date in the event's local time.");
   if(step===3){const p=document.querySelector("input[name=place]:checked").value;if(p==="week"&&!$("#sWeek").value){toast("A Conference Week Pin needs a week. Go back to Date & Location to pick one.");return false;}}
   return true;
@@ -2032,7 +2041,7 @@ function renderReview(){
 }
 function syncWeeks(){const ws=WEEKS.filter(w=>w.hub===$("#sHub").value);$("#sWeek").innerHTML='<option value="">No</option>'+ws.map(w=>`<option value="${w.id}">${esc(w.name)} (${range(w.start,w.end)})</option>`).join("");}
 function setPlace(id){const r=document.querySelector(`input[name=place][value="${id}"]`);if(r){r.checked=true;updSum();}}
-$("#subForm").addEventListener("submit",ev=>{
+$("#subForm").addEventListener("submit",async ev=>{
   ev.preventDefault();if(!validate())return;
   if(step<4){step=step===2?4:step+1;paneShow();return;}
   const place=document.querySelector("input[name=place]:checked").value;
@@ -2040,9 +2049,13 @@ $("#subForm").addEventListener("submit",ev=>{
   EVENTS.push(e);
   try{const s=JSON.parse(localStorage.getItem("yl-subs2")||"[]");const c={...e};delete c.utc;delete c.utcEnd;s.push(c);localStorage.setItem("yl-subs2",JSON.stringify(s));}catch(x){}
   const paid=place!=="free";
+  const nb=$("#nextBtn");nb.disabled=true;nb.textContent="Sending…";
+  const res=await sendSubmission({title:e.title,hub:e.hub,hubName:hubById(e.hub).name,date:e.date,start:e.start,end:e.end,tz:hubById(e.hub).tz,venue:e.venue,type:e.type,host:e.host,link:e.link,desc:e.desc,week:e.week||"",placement:place,name:$("#sName").value.trim(),email:$("#sEmail").value.trim(),website:$("#sWebsite").value,via:"form"});
+  nb.disabled=false;nb.textContent="Continue";
+  if(!res.ok){EVENTS.pop();toast(res.msg||`We couldn't send that just now. Please try again, or email ${YS_INBOX}.`);return;}
   $("#subForm").reset();$("#sStart").value="18:30";$("#sEnd").value="21:00";syncWeeks();setPlace("free");step=1;paneShow();
   renderHome();st.hub=e.hub;st.type="all";st.topic=null;st.q="";st.week=null;st.date="any";goCity();
-  toast(`Submitted. Your event is now listed in ${hubById(e.hub).name}.`);
+  toast(res.dup?"We already have this event. We'll be in touch if anything is missing.":"Received. We review every event within a day, and it goes live on the List once approved. You can preview it here in the meantime.");
 });
 $("#prevBtn").onclick=()=>{if(step>1){step=step===4?2:step-1;paneShow();}};
 
@@ -2157,6 +2170,8 @@ function showCard(){
   <label>Host or organizer<input id="eHost2" value="${esc(d.host||"")}" placeholder="Who's hosting"></label>
   <label>Description<textarea id="eDesc2" rows="3" maxlength="600" placeholder="What it is, who it's for, who's speaking">${esc(d.desc||"")}</textarea></label>
   <label>Event link<input id="eLink2" type="url" value="${esc(d.link)}" placeholder="https://"></label>
+  <div class="row2"><label>Your name<input id="eName2" autocomplete="name" value="${esc(chat.who&&chat.who.name||"")}"></label><label>Your email *<input id="eEmail2" type="email" autocomplete="email" value="${esc(chat.who&&chat.who.email||"")}" placeholder="So we can confirm it"></label></div>
+  <input id="eWeb2" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
   <span class="err" id="eErr2" hidden></span>
   <button class="btn btn-primary" type="button" id="eOk2">Looks right</button>`;
   $("#dlog").append(c);scrollLog();
@@ -2167,25 +2182,28 @@ function showCard(){
 }
 function confirmCard(){
   const v=id=>$(id).value.trim();const title=v("#eTitle2"),date=v("#eDate2");
-  const nw=v("#eHub2")==="__new";const msg=!title?"Add a title.":!date?"Pick the date, in the event's local time.":nw&&!v("#eNewName")?"Add the city name.":"";
+  const nw=v("#eHub2")==="__new";const msg=!title?"Add a title.":!date?"Pick the date, in the event's local time.":nw&&!v("#eNewName")?"Add the city name.":!okEmail(v("#eEmail2"))?"Add your email so we can confirm your event.":"";
   const er=$("#eErr2");er.textContent=msg;er.hidden=!msg;if(msg)return;
   let hubId=v("#eHub2"),newHub=null;
   if(nw){const nm=v("#eNewName");const ex=HUBS.find(h=>h.name.toLowerCase()===nm.toLowerCase());if(ex)hubId=ex.id;else{newHub=makeHub(nm,v("#eNewCountry"),v("#eNewTz"));HUBS.push(newHub);hubId=newHub.id;try{const nh=JSON.parse(localStorage.getItem("yl-newhubs")||"[]");nh.push(newHub);localStorage.setItem("yl-newhubs",JSON.stringify(nh));}catch(x){}}}
-  chat.newHub=newHub;
+  chat.newHub=newHub;chat.who={name:v("#eName2"),email:v("#eEmail2"),web:$("#eWeb2").value};
   const d=Object.assign(chat.draft,{title,date,start:v("#eStart2"),end:v("#eEnd2"),hub:hubId,venue:v("#eVenue2"),type:v("#eType2"),host:v("#eHost2"),desc:v("#eDesc2"),link:/^https?:\/\//.test(v("#eLink2"))?v("#eLink2"):""});
   if(d.start&&!d.end){const [hh,mm]=d.start.split(":").map(Number);d.end=String(Math.min(23,hh+2)).padStart(2,"0")+":"+String(mm).padStart(2,"0");}
   $("#ecard").outerHTML=`<div class="esum">${esc(d.title)}</div>`;
   me("Looks right");chat.state="review";
   const st2=document.createElement("div");st2.className="status";st2.innerHTML=`<span class="spin"></span><span><b>${esc(d.title)}</b><small>Reviewing your event…</small></span>`;$("#dlog").append(st2);scrollLog();
-  setTimeout(()=>{
+  const hh=hubById(hubId);
+  const sent=sendSubmission({title:d.title,hub:newHub?"":hubId,hubName:hh?hh.name:"",newCity:newHub?[newHub.name,newHub.country].filter(Boolean).join(", "):"",date:d.date,start:d.start,end:d.end,tz:newHub?newHub.tz:(hh?hh.tz:""),venue:d.venue,type:d.type,host:d.host,link:d.link,desc:d.desc,placement:"free",name:chat.who.name,email:chat.who.email,website:chat.who.web,via:d.dup?"chat-update":"chat"});
+  setTimeout(async()=>{
+    const res=await sent;
     let e=d.dup?EVENTS.find(x=>x.id===d.dup):null;
     if(e){Object.assign(e,{title:d.title,date:d.date,start:d.start||null,end:d.start?d.end:null,hub:d.hub,venue:d.venue,type:d.type,host:d.host||e.host,desc:d.desc||e.desc,link:d.link||e.link});decorate(e);}
     else{e=decorate({id:"u"+Date.now(),title:d.title,hub:d.hub,date:d.date,start:d.start||null,end:d.start?d.end:null,type:d.type,host:d.host||"",tags:inferTags(d.title+" "+(d.desc||"")),aud:[],place:null,week:null,img:"ev"+(1+Math.floor(Math.random()*8)),venue:d.venue,link:d.link,desc:d.desc||"Submitted to the List.",mine:true});EVENTS.push(e);
       try{const s=JSON.parse(localStorage.getItem("yl-subs2")||"[]");const c={...e};delete c.utc;delete c.utcEnd;s.push(c);localStorage.setItem("yl-subs2",JSON.stringify(s));}catch(x){}}
     const h=hubById(e.hub);
-    st2.innerHTML=`<span class="done">✓</span><span><b>${esc(e.title)}</b><small>${d.dup?"Updated":"Listed"} in ${h.name} · ${dParts(e.date).wd} ${dParts(e.date).day} ${dParts(e.date).mon}</small></span>`;
+    st2.innerHTML=`<span class="done">✓</span><span><b>${esc(e.title)}</b><small>${res.ok?"Sent for review":"Not sent yet"} · ${h.name} · ${dParts(e.date).wd} ${dParts(e.date).day} ${dParts(e.date).mon}</small></span>`;
     chat.state="done";
-    bot(`${chat.newHub?`<b>New city: ${esc(chat.newHub.name)}.</b> It now has its own page on the List. `:""}Last step: send it to the Yorkseed team. We review new organizers within a day and pick some events for the weekly email.<br><br><a class="btn btn-sm btn-primary" href="${esc(mailYS("New event for The List: "+e.title,["Event: "+e.title,"City: "+h.name+(chat.newHub?" (new city, "+(chat.newHub.country||"")+")":""),"Date: "+e.date+(e.start?" "+e.start+(e.end?"–"+e.end:""):"")+" ("+h.tz+")","Venue: "+(e.venue||""),"Type: "+e.type,"Host: "+(e.host||""),"Link: "+(e.link||""),"","Description:",(e.desc&&e.desc!=="Submitted to the List.")?e.desc:"",d.dup?"(Update to an event already on the List)":""]))}" target="_blank" rel="noopener">Send to Yorkseed</a> <button class="btn btn-sm btn-line" type="button" data-ev="${e.id}" id="seeMine">Preview your event</button><br><small style="display:block;margin-top:8px;color:var(--muted)">Opens your email with the details filled in. Or email ${YS_INBOX}.</small><small style="display:block;margin-top:10px;color:var(--muted)">Want Yorkseed as co-host? <a href="https://yorkseed.co/event-partner-request.html" target="_blank" rel="noopener" style="color:var(--accent)">Request an event partnership →</a></small>`,600).then(()=>{const b=$("#seeMine");if(b)b.addEventListener("click",closeChat);});
+    bot(res.ok?`<b>Received.</b> ${res.dup?"We already have this event, so nothing more to do.":`We review every event within a day, and it goes live on the List once approved. If we need anything, we'll email ${esc(chat.who.email)}.`} Some events also get picked for the weekly email.<br><br><button class="btn btn-sm btn-line" type="button" data-ev="${e.id}" id="seeMine">Preview your event</button><small style="display:block;margin-top:10px;color:var(--muted)">Want Yorkseed as co-host? <a href="https://yorkseed.co/event-partner-request.html" target="_blank" rel="noopener" style="color:var(--accent)">Request an event partnership →</a></small>`:`${res.msg?esc(res.msg)+" ":"We couldn't reach our server just now. "}Send it to the Yorkseed team by email instead:<br><br><a class="btn btn-sm btn-primary" href="${esc(mailYS("New event for The List: "+e.title,["Event: "+e.title,"City: "+h.name+(chat.newHub?" (new city, "+(chat.newHub.country||"")+")":""),"Date: "+e.date+(e.start?" "+e.start+(e.end?"–"+e.end:""):"")+" ("+h.tz+")","Venue: "+(e.venue||""),"Type: "+e.type,"Host: "+(e.host||""),"Link: "+(e.link||""),"","Description:",(e.desc&&e.desc!=="Submitted to the List.")?e.desc:"",d.dup?"(Update to an event already on the List)":""]))}" target="_blank" rel="noopener">Send to Yorkseed</a> <button class="btn btn-sm btn-line" type="button" data-ev="${e.id}" id="seeMine">Preview your event</button><br><small style="display:block;margin-top:8px;color:var(--muted)">Opens your email with the details filled in. Or email ${YS_INBOX}.</small><small style="display:block;margin-top:10px;color:var(--muted)">Want Yorkseed as co-host? <a href="https://yorkseed.co/event-partner-request.html" target="_blank" rel="noopener" style="color:var(--accent)">Request an event partnership →</a></small>`,600).then(()=>{const b=$("#seeMine");if(b)b.addEventListener("click",closeChat);});
     renderHome();if(st.view==="city")renderCity();
   },1500);
 }
@@ -2428,6 +2446,8 @@ if(window.YS_STATIC){const J=f=>fetch(String(window.YS_STATIC).replace(/^1$/,"")
   J("events.json").then(a=>{a=Array.isArray(a)?a:(a&&a.events)||[];const seen=new Set(EVENTS.map(e=>(e.link||e.title)+"|"+e.date));let n=0;
     a.forEach((d,i)=>{if(!d||!d.hub||!d.date||!HUBS.some(h=>h.id===d.hub))return;const k=(d.link||d.title)+"|"+d.date;if(seen.has(k))return;seen.add(k);EVENTS.push(dbEvent((d.title||"e").slice(0,1)+i,d));n++;});if(n)rerenderAll();});
   J("banners.json").then(a=>{a=Array.isArray(a)?a:(a&&a.banners)||[];if(a.length){LIVE_BANNERS=a.map(b=>({...b,live:true}));rerenderAll();}});}
+fetch(SUB_API+"/public").then(r=>r.ok?r.json():{events:[]}).then(x=>{const a=(x&&x.events)||[];const seen=new Set(EVENTS.map(e=>(e.link||e.title)+"|"+e.date));let n=0;
+  a.forEach(d=>{if(!d||!d.hub||!d.date||!HUBS.some(h=>h.id===d.hub))return;const k=(d.link||d.title)+"|"+d.date;if(seen.has(k))return;seen.add(k);EVENTS.push(dbEvent(d.id,d));n++;});if(n)rerenderAll();}).catch(()=>{});
 (async()=>{try{
   if(!window.claude||!claude.use)return;
   DB=await claude.use("db");USER=await claude.use("user");

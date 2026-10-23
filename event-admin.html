@@ -33,6 +33,18 @@ textarea{min-height:130px;resize:vertical}
 .hid{opacity:.5}
 .hint{font-size:13px;color:var(--ink4);margin-top:6px}
 #editor{display:none}
+.tabs{display:flex;gap:6px;margin-bottom:6px;flex-wrap:wrap}
+.tabs button{font:600 13px system-ui;padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+.tabs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.sub-it{padding:14px 0;border-top:1px solid var(--line)}
+.sub-it:first-child{border-top:0}
+.sub-it b{font-size:16px;display:block}
+.sub-it .meta{font-size:13px;color:var(--ink3);margin-top:3px}
+.sub-it .desc{font-size:14px;color:var(--ink3);margin-top:8px;white-space:pre-wrap}
+.sub-it .acts{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.sub-it .acts button,.sub-it .acts a{font:600 14px system-ui;padding:10px 14px;border-radius:10px;border:1px solid var(--line);background:#fff;color:var(--ink);text-decoration:none;cursor:pointer}
+.sub-it .acts .ok{background:var(--green);color:#fff;border-color:var(--green)}
+.pill{display:inline-block;font:700 11px system-ui;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:999px;background:rgba(204,30,43,.1);color:var(--red);margin-left:6px;vertical-align:2px}
 </style>
 <script src="/assets/ys-ref.js" defer></script>
 </head>
@@ -45,6 +57,13 @@ textarea{min-height:130px;resize:vertical}
   <h2>Your key</h2>
   <input id="key" type="password" placeholder="Event manager key" autocomplete="off"/>
   <div class="hint">Saved on this device only.</div>
+</div>
+
+<div class="card" id="submissions">
+  <h2>Submissions from The List <span id="subCount"></span></h2>
+  <div class="tabs" id="subTabs"><button data-st="pending" class="on">Pending</button><button data-st="approved">Approved</button><button data-st="rejected">Rejected</button></div>
+  <div id="subList"><div class="hint">Loading...</div></div>
+  <div class="hint">Events people submit on list.yorkseed.co. You get an email for each one. Approve puts it on the List right away; reject keeps it off.</div>
 </div>
 
 <div class="card">
@@ -166,6 +185,36 @@ $('delBtn').onclick=function(){
   api('/'+e.id,{method:'PUT',body:upd}).then(function(){say('delMsg',so?'Founding reopened. The site shows \u20ac495 again.':'Done. The site now shows Founding sold out.',true);load()})
     .catch(function(err){say('delMsg',err.message,false)}).then(function(){$('delBtn').disabled=false});
 };
+var SUB='https://yorkseed-backend-production.up.railway.app/api/list-submissions',subs=[],subTab='pending';
+function subApi(path,opt){var keep=API;API=SUB;try{return api(path,opt)}finally{API=keep}}
+function when(x){var t=x.date;if(x.start)t+=' · '+x.start+(x.end?'–'+x.end:'');return t}
+function loadSubs(){
+  if(!key()){$('subList').innerHTML='<div class="hint">Enter your key to see submissions.</div>';return}
+  subApi('').then(function(j){subs=j.submissions||[];var n=j.pending||0;$('subCount').innerHTML=n?'<span class="pill">'+n+' new</span>':'';renderSubs()})
+    .catch(function(err){$('subList').innerHTML='<div class="hint">'+esc(err.message)+'</div>'});
+}
+function renderSubs(){
+  var rows=subs.filter(function(x){return x.status===subTab});
+  $('subList').innerHTML=rows.length?rows.map(function(x){
+    var city=x.newCity?esc(x.newCity)+' (new city)':esc(x.hubName||x.hub);
+    var by=[x.name,x.email].filter(Boolean).map(esc).join(' · ');
+    var acts=x.status==='pending'?'<button class="ok" data-sub-ok="'+x.id+'">Approve</button><button data-sub-no="'+x.id+'">Reject</button>':x.status==='approved'?'<button data-sub-no="'+x.id+'">Take off the List</button>':'<button data-sub-ok="'+x.id+'">Approve</button>';
+    return '<div class="sub-it"><b>'+esc(x.title)+'</b><div class="meta">'+city+' · '+esc(when(x))+(x.venue?' · '+esc(x.venue):'')+'</div>'
+      +'<div class="meta">'+[x.type,x.host?'Host: '+x.host:'',x.placement&&x.placement!=='free'?'Wants: '+x.placement:''].filter(Boolean).map(esc).join(' · ')+'</div>'
+      +(by?'<div class="meta">From '+by+(x.email?' · <a href="mailto:'+esc(x.email)+'?subject='+encodeURIComponent('Your event on The Yorkseed List: '+x.title)+'">email them</a>':'')+'</div>':'')
+      +(x.desc?'<div class="desc">'+esc(x.desc)+'</div>':'')
+      +'<div class="acts">'+(x.link?'<a href="'+esc(x.link)+'" target="_blank" rel="noopener">Open event page</a>':'')+acts+'<button data-sub-del="'+x.id+'">Delete</button></div>'
+      +(x.newCity&&x.status==='pending'?'<div class="hint">New city: approving saves it, but it only shows on the List once that city is added. Ask Claude to add the city.</div>':'')+'</div>';
+  }).join(''):'<div class="hint">'+(subTab==='pending'?'No new submissions.':'Nothing here.')+'</div>';
+}
+document.addEventListener('click',function(ev){
+  var t=ev.target,id;if(!t.dataset)return;
+  if(t.dataset.st){subTab=t.dataset.st;[].forEach.call(document.querySelectorAll('#subTabs button'),function(b){b.className=b.dataset.st===subTab?'on':''});renderSubs()}
+  else if(id=t.dataset.subOk){t.disabled=true;subApi('/'+id,{method:'PUT',body:{status:'approved'}}).then(loadSubs).catch(function(e){alert(e.message)})}
+  else if(id=t.dataset.subNo){t.disabled=true;subApi('/'+id,{method:'PUT',body:{status:'rejected'}}).then(loadSubs).catch(function(e){alert(e.message)})}
+  else if(id=t.dataset.subDel){if(t.dataset.sure===id){subApi('/'+id,{method:'DELETE'}).then(loadSubs)}else{t.dataset.sure=id;t.textContent='Tap again';setTimeout(function(){t.textContent='Delete';delete t.dataset.sure},3000)}}
+});
+$('key').addEventListener('change',function(){try{localStorage.setItem('ys_events_key',key())}catch(e){}load();loadSubs()});
 function load(){
   if(!key()){$('list').innerHTML='<div class="hint">Enter your key to see events.</div>';$('delStatus').textContent='Enter your key to use this switch.';return}
   api('').then(function(j){
@@ -182,7 +231,8 @@ document.addEventListener('click',function(ev){
   else if(id=t.dataset&&t.dataset.hide){var e2=cache.find(function(x){return x.id===id});e2.hidden=!e2.hidden;api('/'+id,{method:'PUT',body:e2}).then(load)}
   else if(id=t.dataset&&t.dataset.del){if(t.dataset.sure===id){api('/'+id,{method:'DELETE'}).then(load)}else{t.dataset.sure=id;t.textContent='Tap again';setTimeout(function(){t.textContent='Delete';delete t.dataset.sure},3000)}}
 });
-load();
+load();loadSubs();
+if(location.hash==='#submissions')setTimeout(function(){$('submissions').scrollIntoView()},300);
 </script>
 <script src="/assets/url-prefill.js" defer></script>
 </body>
