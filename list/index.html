@@ -1682,6 +1682,12 @@ function heartBtn(e,cls){return`<button class="${cls}" type="button" data-save="
 // ---------- shareable event links (#e/<slug>) ----------
 function evSlug(e){return ((e.title||"event").toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,70)||"event")+"-"+e.date;}
 function evUrl(e){return "https://list.yorkseed.co/#e/"+evSlug(e);}
+const HUB_LL={nyc:[40.71,-74.01],sf:[37.77,-122.42],atx:[30.27,-97.74],bos:[42.36,-71.06],chi:[41.88,-87.63],la:[34.05,-118.24],mia:[25.76,-80.19],dc:[38.91,-77.04],mtl:[45.5,-73.57],tor:[43.65,-79.38],ams:[52.37,4.9],bcn:[41.39,2.17],ber:[52.52,13.4],can:[43.55,7.02],cph:[55.68,12.57],dub:[53.35,-6.26],hel:[60.17,24.94],lis:[38.72,-9.14],ldn:[51.51,-0.13],mil:[45.46,9.19],muc:[48.14,11.58],par:[48.86,2.35],sto:[59.33,18.07],zrh:[47.38,8.54],bue:[-34.6,-58.38],mex:[19.43,-99.13],sao:[-23.55,-46.63],tlv:[32.09,34.78],dxb:[25.2,55.27],hkg:[22.32,114.17],kul:[3.14,101.69],sgp:[1.35,103.82],syd:[-33.87,151.21],sea:[47.61,-122.33],tyo:[35.68,139.69],blr:[12.97,77.59],mad:[40.42,-3.7],yvr:[49.28,-123.12],den:[39.74,-104.99],tpe:[25.03,121.57],sel:[37.57,126.98],bkk:[13.76,100.5],jkt:[-6.21,106.85],nbo:[-1.29,36.82],los:[6.52,3.38],mel:[-37.81,144.96],phl:[39.95,-75.17],waw:[52.23,21.01],bom:[19.08,72.88]};
+/* Open the visitor's own city on landing: the geo-city edge function sets ys_geo (lat|lon|country) from Netlify's
+   location data. Only on a bare visit (no #link), only within ~500 km of a city; shared links and search engines are untouched. */
+function nearHub(){try{const m=document.cookie.match(/(?:^|; )ys_geo=([^;]+)/);if(!m)return null;const [la,lo]=decodeURIComponent(m[1]).split("|").map(Number);if(!isFinite(la)||!isFinite(lo))return null;
+  const R=Math.PI/180;let best=null,bd=1e9;for(const [id,[a,b]] of Object.entries(HUB_LL)){if(!hubById(id))continue;const d=6371*Math.acos(Math.min(1,Math.sin(la*R)*Math.sin(a*R)+Math.cos(la*R)*Math.cos(a*R)*Math.cos((lo-b)*R)));if(d<bd){bd=d;best=id;}}
+  return bd<=500?best:null;}catch(e){return null;}}
 function evBySlug(s){return EVENTS.find(x=>evSlug(x)===s);}
 let PENDING_EV=null;
 function openFromHash(){const m=(location.hash||"").match(/^#e\/(.+)$/);if(!m)return false;const s=decodeURIComponent(m[1]);const e=evBySlug(s);if(e){PENDING_EV=null;if(st.view!=="event"||st.evId!==e.id){const was=NAV_SILENT;NAV_SILENT=NAV_SILENT||!(history.state&&history.state.ys);try{goEvent(e.id);}finally{NAV_SILENT=was;}}return true;}PENDING_EV=s;return false;}
@@ -2396,7 +2402,7 @@ if($("#tiers"))$("#tiers").innerHTML=TIERS.map(t=>`<div class="tier${t.rec?" rec
 syncWeeks();renderHome();paneShow();
 setInterval(()=>{if(st.view==="home")renderCityRow();},30000);
 const hash=(location.hash||"").slice(1);
-NAV_SILENT=true;try{if(/^e\//.test(hash))openFromHash();else if(openListFromHash(hash)){}else if(["submit","pricing","partner","weeks"].includes(hash))scrollToId(hash);}finally{NAV_SILENT=false;}
+NAV_SILENT=true;try{if(/^e\//.test(hash))openFromHash();else if(openListFromHash(hash)){}else if(["submit","pricing","partner","weeks"].includes(hash))scrollToId(hash);else if(!hash&&!/[?&]home\b/.test(location.search)){const nh=nearHub();if(nh)goCity(nh);}}finally{NAV_SILENT=false;}
 
 makePicker($("#homeSel"));makePicker($("#hHub"),true);makePicker($("#fCity"),true);
 
