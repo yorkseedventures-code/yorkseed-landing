@@ -19,7 +19,7 @@
 - Meet the Lisbon delegates and request an introduction: https://yorkseed.co/delegation/lisbon-2026/delegates/
 - Read the Lisbon Deal Book online: https://yorkseed.co/delegation/lisbon-2026/book/
 - All Yorkseed Delegations: https://yorkseed.co/delegation
-- Yorkseed runs a week of programming around Web Summit Lisbon 2026 (Web Summit itself is Nov 9 to 12): The Yorkseed Summit Closing + Web Summit Opening Night (Sun Nov 8, 8 PM to midnight), Executive Lunch (Mon Nov 9), Capital Lunch (Tue Nov 10), Allocator Lunch (Wed Nov 11), and the Yorkseed Lisbon Delegation.
+- Yorkseed runs a week of programming around Web Summit Lisbon 2026 (Web Summit itself is Nov 9 to 12): Yorkseed House Lisbon (open all week, Nov 9 to 13: https://yorkseed.co/events/yorkseed-house-web-summit-lisbon-2026), The Yorkseed Soirée – Web Summit Opening Night 2026 (Mon Nov 9, 8 PM to midnight), Executive Lunch (Mon Nov 9), Capital Lunch (Tue Nov 10), Allocator Lunch (Wed Nov 11), and the Yorkseed Lisbon Delegation.
 - No Web Summit ticket is required to join Yorkseed's Lisbon events or the delegation. Yorkseed keeps a master side event spreadsheet of events happening around Lisbon that week: https://docs.google.com/spreadsheets/d/1Z-CSAENhQygbIPVqP5WbKbbVAGfJFYoixORwWyN8n9o/edit?usp=sharing
 - The Yorkseed Lisbon Delegation is a group of founders, investors and ecosystem partners in Lisbon for Web Summit week, Nov 8 to 12, 2026. Founders: pre-seed to Series A, venture-scale, raising now or within a year; no cannabis or casino gambling. Includes possible introductions to investors and partners where there is a fit (not guaranteed), a Nov 8 kickoff, Yorkseed meetups, a private delegate group chat, 25% off Yorkseed's Web Summit lunches, a profile in the Lisbon Deal Book, consideration for the virtual Global Founder Showcase in December (reserved for founders in the delegation), six months of Yorkseed Connect and KoiCard access.
 - Pricing per company: Founding EUR 495 (first 10 founder companies), Delegation EUR 595, Premium EUR 695, Partner Delegate EUR 995 (executives, corporates and service providers). Extra delegate EUR 175. Investors, LPs and family offices join complimentary, subject to approval. Every application is reviewed; approved founders receive a payment link. Deal Book profiles are due October 30, 2026.
@@ -374,8 +374,8 @@ URL: https://yorkseed.co/events
 
 ### 2026 Yorkseed Events
 
-**The Yorkseed Summit Closing + Web Summit Opening Night**
-Date: Sun Nov 8, 2026, 8:00 PM–12:00 AM GMT | Location: Lisbon, Portugal
+**The Yorkseed Soirée – Web Summit Opening Night 2026**
+Date: Mon Nov 9, 2026, 8:00 PM–12:00 AM GMT | Location: Lisbon, Portugal
 Yorkseed's flagship annual event. Opening Night party kicking off a full week of curated programming during Web Summit Lisbon 2026.
 
 **Yorkseed Executive Lunch**
