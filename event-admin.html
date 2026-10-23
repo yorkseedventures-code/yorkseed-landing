@@ -8,7 +8,26 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--ink:#0b0b0c;--ink3:#55524c;--ink4:#8a867d;--red:#cc1e2b;--green:#0a5a3e;--line:rgba(11,11,12,.12);--bg:#f5f4f1;--card:#fff}
-body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink);padding:16px 16px 80px;max-width:640px;margin:0 auto;font-size:16px;line-height:1.4}
+body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink);padding:0 16px 80px;max-width:760px;margin:0 auto;font-size:16px;line-height:1.4}
+.top{position:sticky;top:0;z-index:5;background:var(--bg);padding:14px 0 10px;margin-bottom:12px;border-bottom:1px solid var(--line)}
+.top .hd{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.top .hd a,.top .hd button{font:500 13px system-ui;color:var(--ink3);background:none;border:0;text-decoration:underline;cursor:pointer;padding:0}
+.nav{display:flex;gap:6px;overflow-x:auto;margin-top:10px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.nav::-webkit-scrollbar{display:none}
+.nav button{flex:none;font:600 14px system-ui;padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;display:inline-flex;gap:6px;align-items:center}
+.nav button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.nav .n{font:700 11px system-ui;min-width:20px;height:20px;padding:0 6px;border-radius:999px;background:var(--red);color:#fff;display:inline-flex;align-items:center;justify-content:center}
+.nav .n.soft{background:rgba(11,11,12,.08);color:var(--ink3)}
+.nav button.on .n.soft{background:rgba(255,255,255,.2);color:#fff}
+[data-sec][hidden],.nav .n[hidden]{display:none!important}
+.sbtn{font:600 13px system-ui;padding:8px 12px;border-radius:9px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+.tag{display:inline-flex;align-items:center;font:600 12px system-ui;padding:6px 10px;border-radius:999px;background:rgba(10,90,62,.1);color:var(--green)}
+.intro{color:var(--ink3);font-size:14px;margin:-4px 0 14px}
+.tool{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-top:1px solid var(--line);text-decoration:none;color:inherit}
+.tool:first-of-type{border-top:0}
+.tool b{display:block;font-size:15px}.tool small{color:var(--ink4);font-size:13px}
+.tool span.go{font:600 14px system-ui;padding:9px 14px;border-radius:10px;border:1px solid var(--line);background:#fff;flex:none}
+@media (min-width:700px){h1{font-size:28px}}
 h1{font-size:24px;margin:8px 0 4px}
 .sub{color:var(--ink3);font-size:15px;margin-bottom:18px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:16px}
@@ -49,9 +68,16 @@ textarea{min-height:130px;resize:vertical}
 <script src="/assets/ys-ref.js" defer></script>
 </head>
 <body>
-<h1>Event Manager</h1>
-<p class="sub"><a href="/invoice.html" style="color:inherit;text-decoration:underline">Open the invoice tool</a> to make a PDF invoice for a delegate.</p>
-<p class="sub">Paste an event link (Luma, Eventbrite, Partiful, Posh, Meetup and more), check the details, publish. The event and its page go live on the website right away.</p>
+<div class="top">
+  <div class="hd"><h1>Event Manager</h1><button type="button" id="keyChange">Change key</button></div>
+  <nav class="nav" id="nav" aria-label="Sections">
+    <button data-go="inbox">Inbox <span class="n" id="nInbox" hidden></span></button>
+    <button data-go="events">Yorkseed events</button>
+    <button data-go="ads">Sidebar ads <span class="n soft" id="nAds" hidden></span></button>
+    <button data-go="organizers">Pre-approved <span class="n soft" id="nTrust" hidden></span></button>
+    <button data-go="tools">Tools</button>
+  </nav>
+</div>
 
 <div class="card" id="keyCard">
   <h2>Your key</h2>
@@ -59,27 +85,42 @@ textarea{min-height:130px;resize:vertical}
   <div class="hint">Saved on this device only.</div>
 </div>
 
-<div class="card" id="submissions">
+<div class="card" id="submissions" data-sec="inbox">
   <h2>Submissions from The List <span id="subCount"></span></h2>
   <div class="tabs" id="subTabs"><button data-st="pending" class="on">Pending</button><button data-st="approved">Approved</button><button data-st="rejected">Rejected</button></div>
   <div id="subList"><div class="hint">Loading...</div></div>
   <div class="hint">Events people submit on list.yorkseed.co. You get an email for each one. Approve puts it on the List right away; reject keeps it off.</div>
 </div>
 
-<div class="card" id="ads">
+<div class="card" id="organizers" data-sec="organizers">
+  <h2>Pre-approved organizers</h2>
+  <p class="intro">Events submitted with one of these emails go live on the List right away. You still get the email for each one, so you can take it down if something is off. Adding someone also approves their events that are waiting.</p>
+  <div style="display:flex;gap:8px;flex-wrap:wrap"><input id="trustEmail" type="email" placeholder="organizer@email.com" style="flex:1;min-width:200px"><button class="btn" id="trustAdd" style="width:auto;margin:0;padding:0 18px;min-height:46px">Pre-approve</button></div>
+  <div id="trustList" style="margin-top:10px"><div class="hint">Loading...</div></div>
+  <div class="hint">You can also tap "Pre-approve organizer" on any submission in the Inbox.</div>
+</div>
+
+<div class="card" id="ads" data-sec="ads">
   <h2>Sidebar ads on The List</h2>
   <div id="adList"><div class="hint">Loading...</div></div>
   <div class="hint">Sponsors upload their own 300 × 250 graphic and pay by card. Each ad goes live the moment it's paid and comes down by itself when the time is up. Take one down early if you need to (refunds are done in Stripe).</div>
 </div>
 
-<div class="card">
-  <h2>1. Add from a link</h2>
+<div class="card" data-sec="events">
+  <h2>Add a Yorkseed event</h2>
+  <p class="intro">Paste an event link (Luma, Eventbrite, Partiful, Posh, Meetup and more), check the details, publish. The event and its page go live on yorkseed.co right away.</p>
   <input id="url" type="url" inputmode="url" placeholder="https://..."/>
   <button class="btn red" id="fetchBtn">Fetch event details</button>
   <div class="msg" id="fetchMsg"></div>
 </div>
 
-<div class="card" id="delCard">
+<div class="card" data-sec="tools">
+  <h2>Tools</h2>
+  <a class="tool" href="/invoice.html"><span><b>Invoice maker</b><small>Make a PDF invoice for a delegate or sponsor.</small></span><span class="go">Open</span></a>
+  <a class="tool" href="https://list.yorkseed.co" target="_blank" rel="noopener"><span><b>The Yorkseed List</b><small>See the public List.</small></span><span class="go">Open</span></a>
+</div>
+
+<div class="card" id="delCard" data-sec="tools">
   <h2>Lisbon Delegation</h2>
   <div class="hint" id="delStatus" style="font-size:15px;color:inherit">Loading...</div>
   <button class="btn red" id="delBtn" style="display:none"></button>
@@ -87,7 +128,7 @@ textarea{min-height:130px;resize:vertical}
   <div class="hint">When all 10 founding spots are paid, tap the button. The delegation page and homepage switch to "Founding sold out, from &euro;595" within a minute. Tap again to reopen.</div>
 </div>
 
-<div class="card" id="editor">
+<div class="card" id="editor" data-sec="events">
   <h2 id="edTitle">2. Check and publish</h2>
   <label>Title</label><input id="title"/>
   <div class="row2">
@@ -115,7 +156,7 @@ textarea{min-height:130px;resize:vertical}
   <div class="msg" id="saveMsg"></div>
 </div>
 
-<div class="card">
+<div class="card" data-sec="events">
   <h2>Events added here</h2>
   <div id="list"><div class="hint">Loading...</div></div>
   <div class="hint">Older events still come from the website file and are not listed here.</div>
@@ -139,7 +180,7 @@ function syncVirtual(){var v=$('location').value.trim();$('locType').value=/^(vi
 function fill(e){F.forEach(function(f){$(f).value=e[f]||(f==='type'?'passport':'')});$('hosts').value=(e.hosts||[]).join(', ');extra={country:e.country||'',venue:e.venue||''};syncVirtual()}
 document.addEventListener('change',function(ev){if(ev.target&&ev.target.id==='locType'){var l=$('location'),v=ev.target.value,auto=/^(virtual|online|location to be announced)/i.test(l.value.trim());if(v==='virtual')l.value='Virtual \u00b7 Online';else if(v==='tba')l.value='Location to be announced';else if(auto)l.value=''}});
 function read(){var o={};F.forEach(function(f){o[f]=$(f).value.trim()});o.hosts=$('hosts').value.split(',').map(function(x){return x.trim()}).filter(Boolean);o.country=extra.country;o.venue=extra.venue;return o}
-function openEditor(title){$('editor').style.display='block';$('edTitle').textContent=title;$('editor').scrollIntoView({behavior:'smooth'})}
+function openEditor(title){showSec('events');$('editor').style.display='block';$('edTitle').textContent=title;$('editor').scrollIntoView({behavior:'smooth'})}
 function guessType(e){var l=(e.location||'').toLowerCase();return /virtual|online|zoom/.test(l)?'expert':'passport'}
 
 $('fetchBtn').onclick=function(){
@@ -191,25 +232,37 @@ $('delBtn').onclick=function(){
   api('/'+e.id,{method:'PUT',body:upd}).then(function(){say('delMsg',so?'Founding reopened. The site shows \u20ac495 again.':'Done. The site now shows Founding sold out.',true);load()})
     .catch(function(err){say('delMsg',err.message,false)}).then(function(){$('delBtn').disabled=false});
 };
-var SUB='https://yorkseed-backend-production.up.railway.app/api/list-submissions',subs=[],subTab='pending';
+var SUB='https://yorkseed-backend-production.up.railway.app/api/list-submissions',subs=[],subTab='pending',trusted=[],trustSet={};
 function subApi(path,opt){var keep=API;API=SUB;try{return api(path,opt)}finally{API=keep}}
-function when(x){var t=x.date;if(x.start)t+=' · '+x.start+(x.end?'–'+x.end:'');return t}
+function when(x){var t=x.date;try{t=new Date(x.date+'T12:00:00').toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric',year:'numeric'})}catch(e){}
+  var hm=function(v){var p=v.split(':'),h=+p[0];return (h%12||12)+(p[1]!=='00'?':'+p[1]:'')+(h<12?'am':'pm')};
+  if(x.start)t+=' · '+hm(x.start)+(x.end?'–'+hm(x.end):'');return t}
 function loadSubs(){
   if(!key()){$('subList').innerHTML='<div class="hint">Enter your key to see submissions.</div>';return}
-  subApi('').then(function(j){subs=j.submissions||[];var n=j.pending||0;$('subCount').innerHTML=n?'<span class="pill">'+n+' new</span>':'';renderSubs()})
+  subApi('').then(function(j){subs=j.submissions||[];var n=j.pending||0;$('subCount').innerHTML=n?'<span class="pill">'+n+' new</span>':'';badge('nInbox',n);renderSubs()})
     .catch(function(err){$('subList').innerHTML='<div class="hint">'+esc(err.message)+'</div>'});
 }
+function loadTrust(){
+  if(!key()){$('trustList').innerHTML='';return}
+  subApi('/trusted').then(function(j){trusted=j.trusted||[];badge('nTrust',trusted.length);trustSet={};trusted.forEach(function(r){trustSet[r.email]=1});
+    $('trustList').innerHTML=trusted.length?trusted.map(function(r){return '<div class="sub-it" style="display:flex;justify-content:space-between;gap:10px;align-items:center;padding:8px 0"><span><b>'+esc(r.email)+'</b>'+(r.name||r.host?' <span class="meta" style="display:inline">'+esc([r.name,r.host].filter(Boolean).join(' · '))+'</span>':'')+'</span><button class="sbtn" data-trust-rm="'+r.id+'">Remove</button></div>'}).join(''):'<div class="hint">No one yet.</div>';
+    renderSubs()}).catch(function(err){$('trustList').innerHTML='<div class="hint">'+esc(err.message)+'</div>'});
+}
+function trust(email,name,host){return subApi('/trusted',{method:'POST',body:{email:email,name:name||'',host:host||''}}).then(function(j){loadTrust();loadSubs();return j})}
 function renderSubs(){
   var rows=subs.filter(function(x){return x.status===subTab});
   $('subList').innerHTML=rows.length?rows.map(function(x){
     var city=x.newCity?esc(x.newCity)+' (new city)':esc(x.hubName||x.hub);
-    var by=[x.name,x.email].filter(Boolean).map(esc).join(' · ');
+    var by=[x.name,x.email].filter(Boolean).map(esc).join(' · ')+(x.auto?' · <span class="tag" style="padding:2px 8px">Auto-approved</span>':'');
     var acts=x.status==='pending'?'<button class="ok" data-sub-ok="'+x.id+'">Approve</button><button data-sub-no="'+x.id+'">Reject</button>':x.status==='approved'?'<button data-sub-no="'+x.id+'">Take off the List</button>':'<button data-sub-ok="'+x.id+'">Approve</button>';
     return '<div class="sub-it"><b>'+esc(x.title)+'</b><div class="meta">'+city+' · '+esc(when(x))+(x.venue?' · '+esc(x.venue):'')+'</div>'
       +'<div class="meta">'+[x.type,x.host?'Host: '+x.host:'',x.placement&&x.placement!=='free'?'Wants: '+x.placement:''].filter(Boolean).map(esc).join(' · ')+'</div>'
       +(by?'<div class="meta">From '+by+(x.email?' · <a href="mailto:'+esc(x.email)+'?subject='+encodeURIComponent('Your event on The Yorkseed List: '+x.title)+'">email them</a>':'')+'</div>':'')
       +(x.desc?'<div class="desc">'+esc(x.desc)+'</div>':'')
-      +'<div class="acts">'+(x.link?'<a href="'+esc(x.link)+'" target="_blank" rel="noopener">Open event page</a>':'')+acts+'<button data-sub-del="'+x.id+'">Delete</button></div>'
+      +(x.img?'<div style="margin-top:8px;display:flex;gap:10px;align-items:center"><a href="'+esc(x.img)+'" target="_blank" rel="noopener"><img src="'+esc(x.img)+'" alt="Cover" style="width:160px;aspect-ratio:16/10;object-fit:cover;border:1px solid var(--line)"></a><button class="sbtn" data-sub-noimg="'+x.id+'">Remove cover</button></div>':'')
+      +'<div class="acts">'+(x.link?'<a href="'+esc(x.link)+'" target="_blank" rel="noopener">Open event page</a>':'')+acts
+      +(x.email?(trustSet[x.email.toLowerCase()]?'<span class="tag">✓ Pre-approved organizer</span>':'<button data-sub-trust="'+x.id+'">Pre-approve organizer</button>'):'')
+      +'<button data-sub-del="'+x.id+'">Delete</button></div>'
       +(x.newCity&&x.status==='pending'?'<div class="hint">New city: approving saves it, but it only shows on the List once that city is added. Ask Claude to add the city.</div>':'')+'</div>';
   }).join(''):'<div class="hint">'+(subTab==='pending'?'No new submissions.':'Nothing here.')+'</div>';
 }
@@ -218,6 +271,10 @@ document.addEventListener('click',function(ev){
   if(t.dataset.st){subTab=t.dataset.st;[].forEach.call(document.querySelectorAll('#subTabs button'),function(b){b.className=b.dataset.st===subTab?'on':''});renderSubs()}
   else if(id=t.dataset.subOk){t.disabled=true;subApi('/'+id,{method:'PUT',body:{status:'approved'}}).then(loadSubs).catch(function(e){alert(e.message)})}
   else if(id=t.dataset.subNo){t.disabled=true;subApi('/'+id,{method:'PUT',body:{status:'rejected'}}).then(loadSubs).catch(function(e){alert(e.message)})}
+  else if(id=t.dataset.subTrust){var x=subs.find(function(s){return s.id===id});if(!x)return;t.disabled=true;trust(x.email,x.name,x.host).then(function(j){if(j.approved)alert('Pre-approved. '+j.approved+' waiting event'+(j.approved>1?'s':'')+' from them '+(j.approved>1?'are':'is')+' now live.')}).catch(function(e){alert(e.message);t.disabled=false})}
+  else if(id=t.dataset.trustRm){if(t.dataset.sure!==id){t.dataset.sure=id;t.textContent='Tap again';return}subApi('/trusted/'+id,{method:'DELETE'}).then(loadTrust)}
+  else if(id=t.dataset.subNoimg){t.disabled=true;subApi('/'+id,{method:'PUT',body:{removeImage:true}}).then(loadSubs).catch(function(e){alert(e.message)})}
+  else if(t.id==='trustAdd'){var em=$('trustEmail').value.trim();if(!em)return;t.disabled=true;trust(em).then(function(){$('trustEmail').value=''}).catch(function(e){alert(e.message)}).then(function(){t.disabled=false})}
   else if(id=t.dataset.subDel){if(t.dataset.sure===id){subApi('/'+id,{method:'DELETE'}).then(loadSubs)}else{t.dataset.sure=id;t.textContent='Tap again';setTimeout(function(){t.textContent='Delete';delete t.dataset.sure},3000)}}
 });
 var ADS='https://yorkseed-backend-production.up.railway.app/api/list-ads';
@@ -225,7 +282,7 @@ function adsApi(path,opt){var keep=API;API=ADS;try{return api(path,opt)}finally{
 function d10(x){return x?new Date(x).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}):''}
 function loadAds(){
   if(!key()){$('adList').innerHTML='<div class="hint">Enter your key to see ads.</div>';return}
-  adsApi('').then(function(j){var a=j.ads||[];var now=Date.now();
+  adsApi('').then(function(j){var a=j.ads||[];var now=Date.now();badge('nAds',a.filter(function(x){return x.status==='live'&&new Date(x.endAt).getTime()>now}).length);
     $('adList').innerHTML=a.length?a.map(function(x){var on=x.status==='live'&&new Date(x.endAt).getTime()>now;
       return '<div class="sub-it" style="display:grid;grid-template-columns:120px 1fr;gap:12px"><img src="'+esc(x.img)+'" alt="" style="width:120px;height:100px;object-fit:cover;border:1px solid var(--line)"><div><b>'+esc(x.brand)+'</b>'
         +'<div class="meta">'+esc(x.hubName||x.hub)+' · '+(on?'<span style="color:var(--green);font-weight:600">Live</span>':esc(x.status==='taken_down'?'Taken down':'Ended'))+' · '+d10(x.startAt)+' to '+d10(x.endAt)+' · $'+(x.amount/100).toLocaleString()+'</div>'
@@ -237,7 +294,7 @@ function loadAds(){
 document.addEventListener('click',function(ev){var t=ev.target,id;if(!t.dataset)return;
   if(id=t.dataset.adDown){if(t.dataset.sure!==id){t.dataset.sure=id;t.textContent='Tap again to take down';return}adsApi('/'+id,{method:'PUT',body:{status:'taken_down'}}).then(loadAds)}
   else if(id=t.dataset.adUp){adsApi('/'+id,{method:'PUT',body:{status:'live'}}).then(loadAds)}});
-$('key').addEventListener('change',function(){try{localStorage.setItem('ys_events_key',key())}catch(e){}load();loadSubs();loadAds()});
+$('key').addEventListener('change',function(){try{localStorage.setItem('ys_events_key',key())}catch(e){}load();loadSubs();loadAds();loadTrust()});
 function load(){
   if(!key()){$('list').innerHTML='<div class="hint">Enter your key to see events.</div>';$('delStatus').textContent='Enter your key to use this switch.';return}
   api('').then(function(j){
@@ -254,8 +311,15 @@ document.addEventListener('click',function(ev){
   else if(id=t.dataset&&t.dataset.hide){var e2=cache.find(function(x){return x.id===id});e2.hidden=!e2.hidden;api('/'+id,{method:'PUT',body:e2}).then(load)}
   else if(id=t.dataset&&t.dataset.del){if(t.dataset.sure===id){api('/'+id,{method:'DELETE'}).then(load)}else{t.dataset.sure=id;t.textContent='Tap again';setTimeout(function(){t.textContent='Delete';delete t.dataset.sure},3000)}}
 });
-load();loadSubs();loadAds();
-if(/^#(submissions|ads)$/.test(location.hash))setTimeout(function(){$(location.hash.slice(1)).scrollIntoView()},300);
+load();loadSubs();loadAds();loadTrust();
+var SECS={inbox:1,events:1,ads:1,organizers:1,tools:1,submissions:'inbox'};
+function showSec(s){s=SECS[s]===1?s:(SECS[s]||'inbox');[].forEach.call(document.querySelectorAll('[data-sec]'),function(c){c.hidden=c.dataset.sec!==s});
+  [].forEach.call(document.querySelectorAll('#nav button'),function(b){b.className=b.dataset.go===s?'on':''});
+  try{history.replaceState(null,'','#'+s)}catch(e){}window.scrollTo(0,0)}
+document.getElementById('nav').addEventListener('click',function(ev){var b=ev.target.closest('button');if(b)showSec(b.dataset.go)});
+$('keyChange').onclick=function(){var c=$('keyCard');c.style.display='';$('key').value='';$('key').focus();c.scrollIntoView()};
+function badge(id,n){var e=$(id);e.hidden=!n;e.textContent=n||''}
+showSec((location.hash||'#inbox').slice(1));
 </script>
 <script src="/assets/url-prefill.js" defer></script>
 </body>
