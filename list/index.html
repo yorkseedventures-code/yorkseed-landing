@@ -659,6 +659,29 @@ section.block{padding-block:88px 0}
 .regions{margin-bottom:10px}
 .ctabs,.ttabs,.side,#spot{display:none!important}
 .citylayout{grid-template-columns:minmax(0,1fr);max-width:880px}
+.srail{display:none}
+@media (min-width:1200px){
+.citylayout{grid-template-columns:minmax(0,880px) 300px;max-width:none;justify-content:space-between;gap:48px}
+.srail{display:grid;gap:16px;align-content:start;position:sticky;top:96px;margin-top:24px}
+}
+.srail .sad{border:1px solid var(--ink);background:var(--surface,#fff);display:block;color:inherit;text-decoration:none}
+.srail .sad .lab{display:block;font-family:var(--f-label);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);padding:8px 12px;border-bottom:1px solid var(--line)}
+.srail .sad img{display:block;width:100%;aspect-ratio:1/2;max-height:600px;object-fit:cover}
+.srail .sad .sb{padding:12px 14px 14px}
+.srail .sad .sb small{display:block;font-family:var(--f-label);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.srail .sad .sb h3{font-family:var(--f-display);font-weight:500;font-size:21px;line-height:1.15;margin:0 0 6px}
+.srail .sad .sb p{font-size:14px;color:var(--muted);margin:0 0 12px;line-height:1.4}
+.srail .sad.empty{border-style:dashed;text-align:left;padding:26px 20px 22px;min-height:420px;display:flex;flex-direction:column;justify-content:space-between;background:repeating-linear-gradient(135deg,transparent 0 14px,rgba(0,0,0,.025) 14px 28px)}
+.srail .sad.empty h3{font-family:var(--f-display);font-weight:500;font-size:26px;line-height:1.1;margin:10px 0 10px}
+.srail .sad.empty p{font-size:14px;color:var(--muted);line-height:1.45;margin:0}
+.srail .sad.empty .dim{font-family:var(--f-label);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:14px}
+.srail .rprom{border:1px solid var(--line);padding:16px 18px}
+.srail .rprom h3{font-family:var(--f-display);font-weight:500;font-size:20px;margin:6px 0}
+.srail .rprom p{font-size:13.5px;color:var(--muted);margin:0 0 12px}
+.sideprev{display:grid;grid-template-columns:1fr 34%;gap:8px;padding:8px;background:#f6f3ee}
+.sideprev .lst{display:grid;gap:6px}.sideprev .lst i{display:block;height:16px;background:#e2dcd2}
+.sideprev .ad{border:2px solid #B3261E;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:600;color:#B3261E;min-height:130px;font-size:13px}
+.sideprev .ad small{font-weight:400;color:#8a8278;font-size:11px}
 .cityhero .wrap{padding-block:56px 40px}
 .fbar{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr)) auto;gap:8px;padding-block:24px 0}
 .fbar input,.fbar select{width:100%;max-width:none;border:1px solid var(--line);background:var(--surface);padding:10px 12px;font-size:15px;border-radius:0;min-width:0}
@@ -1409,6 +1432,7 @@ input::placeholder,textarea::placeholder{font-size:13.5px;color:var(--soft);opac
         <div id="rows"></div>
         <div class="listmore" id="moreWrap"></div>
       </div>
+      <aside class="srail" id="rail" aria-label="Sponsored"></aside>
       <aside class="side"><div class="sidebox"><h4>Cities</h4><ul id="sideCities"></ul></div><div class="sidebox"><h4>Top organizers</h4><ul id="sideHosts"></ul></div><div class="promo">
         <span class="eyebrow" style="color:var(--accent)">For organizers</span>
         <h3>Hosting an <em>event?</em></h3>
@@ -1887,8 +1911,12 @@ function filtered(){
     .sort((a,b)=>a.date.localeCompare(b.date)||((RANK[a.place]??9)-(RANK[b.place]??9))||a.utc-b.utc);
 }
 const DATES=[["any","Any time"],["today","Today"],["week","This week"],["weekend","Weekend"],["30","Next 30 days"]];
+function renderRail(){const el=$("#rail");if(!el)return;const hub=st.hub==="all"?null:st.hub;const bk=hub?bookingFor("side",hub):null;const h=hub?hubById(hub):null;
+  const ad=bk?`<${bk.url?`a href="${esc(refLink(bk.url,"sponsor"))}" target="_blank" rel="noopener sponsored"`:"div"} class="sad"><span class="lab">${bk.live?"Sponsored":"Sponsored · preview"}</span>${bk.img?`<img src="${esc(bk.img)}" alt="">`:""}<div class="sb"><small>${esc(bk.brand)}</small><h3>${esc(bk.headline||"")}</h3>${bk.blurb?`<p>${esc(bk.blurb)}</p>`:""}${bk.url?`<span class="btn btn-primary btn-sm">${esc(bk.cta||"Learn more")}</span>`:""}</div></${bk.url?"a":"div"}>`
+    :`<div class="sad empty"><div><span class="eyebrow" style="color:var(--accent)">Sidebar ad</span><h3>Your brand <em>here</em></h3><p>Stay in view while founders and investors scroll ${h?esc(h.name)+"'s":"the"} events. One sponsor per city.</p></div><div><div class="dim">300 × 600 · from ${money(SLOTS.side.durs[0][2])}</div><button class="btn btn-line btn-sm" type="button" data-book="side"${hub?` data-bcity="${hub}"`:""} style="margin-top:12px">Book this spot</button></div></div>`;
+  el.innerHTML=ad+`<div class="rprom"><span class="eyebrow" style="color:var(--accent)">For organizers</span><h3>Hosting an <em>event?</em></h3><p>List it free so founders and investors${h?" in "+esc(h.name):""} can find it.</p><button class="btn btn-primary btn-sm" type="button" data-chat="1">List an Event</button></div>`;}
 function renderCity(){
-  setTimeout(syncListUrl,0);
+  setTimeout(syncListUrl,0);try{renderRail();}catch(e){}
   const sig=JSON.stringify([st.hub,st.type,st.topic,st.q,st.date,st.week,st.day,st.savedOnly]);if(sig!==st.sig){st.sig=sig;st.limit=PAGE;}
   const h=st.hub==="all"?null:hubById(st.hub),w=st.week?weekById(st.week):null;
   {const himg=!h?IMG.cityhero:h.img?IMG[h.img]:"";$("#cityImg").hidden=!himg;if(himg){$("#cityImg").src=himg;$("#cityImg").style.objectPosition=(h&&IMGPOS[h.img])||"50% 50%";}document.querySelector(".cityhero").classList.toggle("plain",!himg);}
@@ -2220,6 +2248,7 @@ const SLOTS={
  map:{name:"Map sponsor",where:"Your event or brand pinned on the map with a green ★ Featured event tag, in the city you choose.",best:"organizers, venues, spaces and local brands",cap:"1 pin per city",left:"Open in every city",durs:[["2w","2 weeks",125,0.5],["1m","1 month",200,1],["6m","6 months",900,6],["12m","1 year",1500,12]],scope:true,wire:'<i class="hd"></i><i class="map"></i><i class="map"></i><i class="hl"></i><i class="s"></i>'},
  list:{name:"In-list banner",where:"Inside a city's event list, between the rows people scroll.",best:"Tech Weeks, conferences and launches",cap:"2 slots per city",left:"Open in every city",durs:[["2w","2 weeks",150,0.5],["1m","1 month",250,1],["3m","3 months",600,3],["6m","6 months",1000,6],["12m","1 year",1800,12]],scope:true,wire:'<i class="hd"></i><i></i><i></i><i class="hl"></i><i></i><i></i>'},
  city:{name:"City banner",where:"Top of one city's events page, above the list.",best:"owning one city",cap:"1 slot per city",left:"Open in every city",durs:[["1m","1 month",300,1],["3m","3 months",750,3],["6m","6 months",1400,6],["12m","1 year",2500,12]],scope:true,wire:'<i class="hd"></i><i class="hl"></i><i></i><i></i><i class="s"></i><i></i>'},
+ side:{name:"Sidebar ad",where:"A tall ad in the right column of one city's events page, next to the list. It stays in view while people scroll (on desktop).",best:"brands that want to stay in view for the whole visit",cap:"1 slot per city",left:"Open in every city",durs:[["2w","2 weeks",125,0.5],["1m","1 month",200,1],["3m","3 months",500,3],["6m","6 months",900,6],["12m","1 year",1500,12]],scope:true,wire:'<i class="hd"></i><i class="hl" style="grid-row:span 3"></i><i></i><i></i>'},
  event:{name:"Event page banners",where:"On every event page, right where people decide to go.",best:"reaching people as they decide to go",cap:"3 slots, on every event",left:"3 of 3 open",durs:[["1m","1 month",350,1],["3m","3 months",900,3],["6m","6 months",1600,6],["12m","1 year",2800,12]],scope:false,wire:'<i class="hd"></i><i class="map"></i><i class="s"></i><i></i><i class="hl"></i>'},
  sheet:{name:"Conference spreadsheet",where:"Your event or company as a highlighted row in the Yorkseed spreadsheet we pass around for that conference or Tech Week.",best:"getting in front of everyone going to one conference",cap:"12 conference sheets",left:"Open for every sheet",durs:[["conf","For the conference",200,0.2]],scope:false,wire:''},
  home:{name:"Homepage feature",where:"A full-width banner on the homepage, seen by visitors from every city.",best:"brands that want every city and events people fly in for",cap:"3 rotating slots",left:"2 of 3 open",durs:[["1m","1 month",500,1],["3m","3 months",1250,3],["6m","6 months",2250,6],["12m","1 year",4000,12]],scope:false,wire:'<i class="hd"></i><i class="hl"></i><i></i><i class="s"></i><i class="map"></i>'}};
@@ -2303,7 +2332,7 @@ function drawBook(){
   $("#bkBody").innerHTML=`<form class="bookgrid" id="bkForm" novalidate>
     <div class="field"><label>What are you promoting?</label><div class="goals">${GOALS.map(([g,l])=>`<button type="button" data-goal="${g}"${BK.goal===g?' class="on"':""}>${l}</button>`).join("")}</div></div>
     <div class="field"><label>Placement</label><div class="opts">${Object.entries(SLOTS).map(([k,x])=>`<label><input type="radio" name="bkKind" value="${k}"${k===BK.kind?" checked":""}><b>${x.name}</b><span class="pr">${x.durs.length>1?"from ":""}${money(Math.min(...x.durs.map(d=>d[2])))}</span><small>Best for ${x.best}</small></label>`).join("")}</div>
-      <figure class="slotprev">${BK.kind==="sheet"?sheetPrev():`<img src="${SLOTPREV[BK.kind]}" alt="Where the ${v.name} appears on the List">`}<figcaption><b>Where it shows:</b> ${v.where}</figcaption></figure></div>
+      <figure class="slotprev">${BK.kind==="sheet"?sheetPrev():BK.kind==="side"?`<div class="sideprev" aria-hidden="true"><div class="lst"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="ad">Your ad<small>300 × 600</small></div></div>`:`<img src="${SLOTPREV[BK.kind]}" alt="Where the ${v.name} appears on the List">`}<figcaption><b>Where it shows:</b> ${v.where}</figcaption></figure></div>
     ${v.scope?`<div class="field"><label for="bkHub">City</label><select id="bkHub">${HUBS.filter(h=>h.id!=="virtual").map(h=>`<option value="${h.id}"${h.id===BK.hub?" selected":""}>${h.name}</option>`).join("")}</select></div>`:""}
     ${BK.kind==="sheet"?`<div class="field"><label for="bkSheet">Which spreadsheet</label>${sheetSel("bkSheet")}</div>`:""}
     <div class="field"><label>How long</label><div class="opts">${v.durs.map(([k,l,p,mo],i)=>`<label><input type="radio" name="bkDur" value="${k}"${durOf(v,BK.dur)[0]===k?" checked":""}><b>${l}</b><span class="pr">${money(p)}</span>${i&&mo>=1?`<small>${money(Math.round(p/mo))} a month${mo>=6?", best value":""}</small>`:mo<1?`<small>${BK.kind==="feat"?FEAT_NOTE[k]:BK.kind==="sheet"?"One highlighted row, from when the sheet goes out until the conference ends.":"Minimum. Good for a Tech Week or launch."}</small>`:""}</label>`).join("")}</div></div>
@@ -2426,7 +2455,7 @@ NAV_SILENT=true;try{if(/^e\//.test(hash))openFromHash();else if(openListFromHash
 makePicker($("#homeSel"));makePicker($("#hHub"),true);makePicker($("#fCity"),true);
 
 // ---------- live data (db) + owner admin ----------
-const PAYLINKS={sheet:{conf:"https://buy.stripe.com/fZubIU6sva4Kas8aYRbo410"},feat:{ev:"https://buy.stripe.com/dRm5kw2cfel01VCaYRbo40x","1m":"https://buy.stripe.com/5kQcMY9EHel09o47MFbo40Y","3m":"https://buy.stripe.com/28EaEQaIL5OugQw6IBbo40Z"},
+const PAYLINKS={side:{"2w":"https://buy.stripe.com/bJedR218b5OugQw2slbo411","1m":"https://buy.stripe.com/8x25kwcQTb8O8k08QJbo412","3m":"https://buy.stripe.com/14A9AMbMP2CigQwaYRbo413","6m":"https://buy.stripe.com/bJe00c7wz1yebwc3wpbo414","12m":"https://buy.stripe.com/cNieV618bb8O7fWaYRbo415"},sheet:{conf:"https://buy.stripe.com/fZubIU6sva4Kas8aYRbo410"},feat:{ev:"https://buy.stripe.com/dRm5kw2cfel01VCaYRbo40x","1m":"https://buy.stripe.com/5kQcMY9EHel09o47MFbo40Y","3m":"https://buy.stripe.com/28EaEQaIL5OugQw6IBbo40Z"},
  map:{"2w":"https://buy.stripe.com/3cIeV66sv1ye0Ryc2Vbo40y","1m":"https://buy.stripe.com/00w5kw047a4Kas85Exbo40z","6m":"https://buy.stripe.com/5kQ5kw5ordgW0Ry6IBbo40A","12m":"https://buy.stripe.com/fZuaEQ7wzb8O9o42slbo40B"},
  list:{"2w":"https://buy.stripe.com/5kQ00c4kn3Gm1VCgjbbo40C","1m":"https://buy.stripe.com/cNi8wI5orfp4dEkd6Zbo40D","3m":"https://buy.stripe.com/6oU7sE2cfgt81VC0kdbo40E","6m":"https://buy.stripe.com/bJe5kw9EH2Ci1VC8QJbo40F","12m":"https://buy.stripe.com/5kQaEQeZ11ye43K4Atbo40G"},
  city:{"1m":"https://buy.stripe.com/9B63co047fp457O8QJbo40H","3m":"https://buy.stripe.com/00wcMYeZ1fp40Ry0kdbo40I","6m":"https://buy.stripe.com/7sY14g6sv6SycAg9UNbo40J","12m":"https://buy.stripe.com/14AeV67wza4Kbwc0kdbo40K"},
