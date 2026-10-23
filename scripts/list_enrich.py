@@ -263,6 +263,31 @@ def import_links():
     REPORT.append({"links_import": out, "added": added})
     return photos
 
+# ---------- 1e. approved List submissions (Yorkseed backend) ----------
+# Events people submit on list.yorkseed.co and the team approves in the Event Manager. The List page already
+# shows them live; copying them here gives each one its static city/event page and a cover photo.
+def import_submissions():
+    try:
+        r = urlopen(Request("https://yorkseed-backend-production.up.railway.app/api/list-submissions/public", headers={**UA, "Accept": "application/json"}), timeout=20)
+        subs = json.loads(r.read().decode("utf-8", "ignore")).get("events") or []
+    except Exception as ex: print(f"submissions: skipped ({ex})"); return {}
+    events = load(f"{REPO}/list/events.json", []); master = load(f"{REPO}/list/data/master.json", {"events": [], "hubs": []})
+    hubs = {h["id"] for h in master.get("hubs", [])}
+    norm = lambda s: re.sub(r'[^a-z0-9]+', '', (s or '').lower())[:40]
+    seen_l = {(e.get("link") or "").split("?")[0].rstrip("/") for e in events + master["events"] if e.get("link")}
+    seen_t = {(norm(e.get("title")), e.get("date")) for e in events + master["events"]}
+    added = 0
+    for d in subs:
+        if d.get("hub") not in hubs or not d.get("date") or d["date"] < TODAY: continue
+        k = (d.get("link") or "").split("?")[0].rstrip("/")
+        if (k and k in seen_l) or (norm(d.get("title")), d["date"]) in seen_t: continue
+        seen_l.add(k); seen_t.add((norm(d.get("title")), d["date"]))
+        events.append({x: d.get(x) for x in ("title", "hub", "date", "start", "end", "venue", "host", "link", "desc", "type") if d.get(x)})
+        added += 1
+    if added: json.dump(events, open(f"{REPO}/list/events.json", "w"), ensure_ascii=False, indent=1)
+    print(f"submissions: {added} approved events copied into events.json")
+    return {}
+
 # ---------- 1c. daily sources: Luma discover categories (list/data/sources.json) ----------
 CITY_ALIAS = {"san francisco": "sf", "oakland": "sf", "berkeley": "sf", "palo alto": "sf", "mountain view": "sf", "san jose": "sf",
     "menlo park": "sf", "sunnyvale": "sf", "santa clara": "sf", "redwood city": "sf", "san mateo": "sf", "cupertino": "sf", "south san francisco": "sf",
@@ -388,7 +413,7 @@ def refresh_photos(seed):
 
 if __name__ == "__main__":
     seed = {}
-    for step in (import_pending, import_cities, import_links, import_sources):
+    for step in (import_pending, import_cities, import_links, import_submissions, import_sources):
         try: seed.update(step() or {})
         except Exception as ex: print(f"{step.__name__} failed: {ex}")
     try: fill_luma_descriptions()
