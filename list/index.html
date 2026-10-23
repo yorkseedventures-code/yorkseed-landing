@@ -679,16 +679,16 @@ section.block{padding-block:88px 0}
 .srail .sad.empty .dim{font-family:var(--f-label);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
 .srail .sad.empty .foot{display:flex;align-items:center;justify-content:space-between;gap:10px}
 .srail .sad.empty .foot .btn{padding:9px 12px}
-.sidein{padding:14px 0;border-bottom:1px solid var(--line);display:flex;justify-content:center}
-.sicard{display:block;width:100%;max-width:340px;border:1px solid var(--ink);background:var(--surface,#fff);color:inherit;text-decoration:none}
-.sicard .lab{display:block;font-family:var(--f-label);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);padding:6px 10px}
+.sidein{padding:14px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-items:start;text-align:left}
+.sicard{display:flex;flex-direction:column;min-width:0;border:1px solid var(--ink);background:var(--surface,#fff);color:inherit;text-decoration:none}
+.sicard .lab{display:block;font-family:var(--f-label);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding:5px 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .sicard img{display:block;width:100%;aspect-ratio:6/5;object-fit:cover}
-.sicard>b{display:block;padding:14px;font-family:var(--f-display);font-weight:500;font-size:20px}
-.sicard.empty{border-style:dashed;display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:center;padding:14px 16px;max-width:none}
-.sicard.empty .eyebrow{grid-column:1/-1}
-.sicard.empty b{padding:0;font-size:19px;grid-column:1}
-.sicard.empty .dim{grid-column:1;font-family:var(--f-label);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.sicard.empty .btn{grid-column:2;grid-row:2/4}
+.sicard>b{display:block;padding:12px;font-family:var(--f-display);font-weight:500;font-size:17px;aspect-ratio:6/5}
+.sicard.siempty{border-style:dashed}
+.sicard.siempty .ei{width:100%;aspect-ratio:6/5;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;padding:8px 10px 10px;background:repeating-linear-gradient(135deg,transparent 0 12px,rgba(0,0,0,.025) 12px 24px)}
+.sicard.siempty b{font-family:var(--f-display);font-weight:500;font-size:18px;line-height:1.1}
+.sicard.siempty .dim{font-family:var(--f-label);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);line-height:1.5}
+.sicard.siempty .btn{padding:7px 12px}
 .srail .rprom{border:1px solid var(--line);padding:16px 18px}
 .srail .rprom h3{font-family:var(--f-display);font-weight:500;font-size:20px;margin:6px 0}
 .srail .rprom p{font-size:13.5px;color:var(--muted);margin:0 0 12px}
@@ -2324,9 +2324,11 @@ function renderCityBanners(){
   $("#rows").querySelectorAll(".sidein").forEach(x=>x.remove());
   if(st.mode==="list"&&hub!=="all"&&!matchMedia("(min-width:1200px)").matches){/* phones and tablets: the sidebar ads sit inside the list instead */
     const rows=$("#rows").querySelectorAll(".crow");const bks=allBookings().filter(b=>b.kind==="side"&&b.hub===hub).slice(0,3);
-    const cards=bks.map(bk=>`<div class="sidein"><${bk.url?`a href="${esc(refLink(bk.url,"sponsor"))}" target="_blank" rel="noopener sponsored"`:"div"} class="sicard"><span class="lab">${bk.live?"Sponsored":"Sponsored · preview"} · ${esc(bk.brand)}</span>${bk.img?`<img src="${esc(bk.img)}" alt="${esc(bk.brand)}">`:`<b>${esc(bk.headline||bk.brand)}</b>`}</${bk.url?"a":"div"}></div>`);
-    if(bks.length<3)cards.push(`<div class="sidein"><div class="sicard empty"><span class="eyebrow" style="color:var(--accent)">Advertise here</span><b>Your brand <em>here</em></b><span class="dim">300 × 250 · from ${money(SLOTS.side.durs[0][2])}</span><button class="btn btn-line btn-sm" type="button" data-book="side" data-bcity="${hub}">Book</button></div></div>`);
-    [2,13,30].forEach((at,k)=>{if(cards[k]&&rows.length>at)rows[at].insertAdjacentHTML("afterend",cards[k]);});}
+    const tiles=bks.map(bk=>`<${bk.url?`a href="${esc(refLink(bk.url,"sponsor"))}" target="_blank" rel="noopener sponsored"`:"div"} class="sicard"><span class="lab">${bk.live?"Sponsored":"Preview"} · ${esc(bk.brand)}</span>${bk.img?`<img src="${esc(bk.img)}" alt="${esc(bk.brand)}">`:`<b>${esc(bk.headline||bk.brand)}</b>`}</${bk.url?"a":"div"}>`);
+    if(bks.length<3)tiles.push(`<div class="sicard siempty"><span class="lab">Advertise here</span><div class="ei"><b>Your brand <em>here</em></b><span class="dim">300 × 250<br>from ${money(SLOTS.side.durs[0][2])}</span><button class="btn btn-line btn-sm" type="button" data-book="side" data-bcity="${hub}">Book</button></div></div>`);
+    if(tiles.length%2)tiles.push(`<div class="sicard siempty"><span class="lab">From Yorkseed</span><div class="ei"><b>Hosting an <em>event?</em></b><span class="dim">List it free</span><button class="btn btn-line btn-sm" type="button" data-chat="1">List it</button></div></div>`);
+    const pairs=[];for(let i=0;i<tiles.length;i+=2)pairs.push(`<div class="sidein">${tiles.slice(i,i+2).join("")}</div>`);
+    [2,24].forEach((at,k)=>{if(pairs[k]&&rows.length>at)rows[at].insertAdjacentHTML("afterend",pairs[k]);});}
   if(st.mode==="list"){$("#rows").querySelectorAll(".fbanner").forEach(x=>x.remove());const rows=$("#rows").querySelectorAll(".crow");const lh=hub==="all"?"nyc":hub;if(rows.length>6)rows[5].insertAdjacentHTML("afterend",bannerHtml("list",lh,null,true));if(rows.length>22)rows[21].insertAdjacentHTML("afterend",bannerHtml("list",lh,null,true,hub==="all"?"hostys":"cohost"));
     /* Lisbon / Web Summit: flagship Soirée box scattered through the list until Nov 9; Yorkseed House box at the top of each day Nov 9-13 */
     const live=id=>PROMOS.find(p=>p.id===id&&(!p.until||p.until>=addDays(0)));
