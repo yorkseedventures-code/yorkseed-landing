@@ -679,6 +679,16 @@ section.block{padding-block:88px 0}
 .srail .sad.empty .dim{font-family:var(--f-label);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
 .srail .sad.empty .foot{display:flex;align-items:center;justify-content:space-between;gap:10px}
 .srail .sad.empty .foot .btn{padding:9px 12px}
+.sidein{padding:14px 0;border-bottom:1px solid var(--line);display:flex;justify-content:center}
+.sicard{display:block;width:100%;max-width:340px;border:1px solid var(--ink);background:var(--surface,#fff);color:inherit;text-decoration:none}
+.sicard .lab{display:block;font-family:var(--f-label);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);padding:6px 10px}
+.sicard img{display:block;width:100%;aspect-ratio:6/5;object-fit:cover}
+.sicard>b{display:block;padding:14px;font-family:var(--f-display);font-weight:500;font-size:20px}
+.sicard.empty{border-style:dashed;display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:center;padding:14px 16px;max-width:none}
+.sicard.empty .eyebrow{grid-column:1/-1}
+.sicard.empty b{padding:0;font-size:19px;grid-column:1}
+.sicard.empty .dim{grid-column:1;font-family:var(--f-label);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.sicard.empty .btn{grid-column:2;grid-row:2/4}
 .srail .rprom{border:1px solid var(--line);padding:16px 18px}
 .srail .rprom h3{font-family:var(--f-display);font-weight:500;font-size:20px;margin:6px 0}
 .srail .rprom p{font-size:13.5px;color:var(--muted);margin:0 0 12px}
@@ -2258,7 +2268,7 @@ const SLOTS={
  map:{name:"Map sponsor",where:"Your event or brand pinned on the map with a green ★ Featured event tag, in the city you choose.",best:"organizers, venues, spaces and local brands",cap:"1 pin per city",left:"Open in every city",durs:[["2w","2 weeks",125,0.5],["1m","1 month",200,1],["6m","6 months",900,6],["12m","1 year",1500,12]],scope:true,wire:'<i class="hd"></i><i class="map"></i><i class="map"></i><i class="hl"></i><i class="s"></i>'},
  list:{name:"In-list banner",where:"Inside a city's event list, between the rows people scroll.",best:"Tech Weeks, conferences and launches",cap:"2 slots per city",left:"Open in every city",durs:[["2w","2 weeks",150,0.5],["1m","1 month",250,1],["3m","3 months",600,3],["6m","6 months",1000,6],["12m","1 year",1800,12]],scope:true,wire:'<i class="hd"></i><i></i><i></i><i class="hl"></i><i></i><i></i>'},
  city:{name:"City banner",where:"Top of one city's events page, above the list.",best:"owning one city",cap:"1 slot per city",left:"Open in every city",durs:[["1m","1 month",300,1],["3m","3 months",750,3],["6m","6 months",1400,6],["12m","1 year",2500,12]],scope:true,wire:'<i class="hd"></i><i class="hl"></i><i></i><i></i><i class="s"></i><i></i>'},
- side:{name:"Sidebar ad",where:"A 300 × 250 ad in the right column of one city's events page, next to the list. It stays in view while people scroll (on desktop).",best:"brands that want to stay in view for the whole visit",cap:"3 slots per city",left:"Open in every city",durs:[["2w","2 weeks",400,0.5],["1m","1 month",650,1],["3m","3 months",1650,3],["6m","6 months",2950,6],["12m","1 year",5000,12]],scope:true,wire:'<i class="hd"></i><i class="hl" style="grid-row:span 3"></i><i></i><i></i>'},
+ side:{name:"Sidebar ad",where:"A 300 × 250 ad on one city's events page: in the right column on computers, where it stays in view while people scroll, and between the events on phones.",best:"brands that want to stay in view for the whole visit",cap:"3 slots per city",left:"Open in every city",durs:[["2w","2 weeks",400,0.5],["1m","1 month",650,1],["3m","3 months",1650,3],["6m","6 months",2950,6],["12m","1 year",5000,12]],scope:true,wire:'<i class="hd"></i><i class="hl" style="grid-row:span 3"></i><i></i><i></i>'},
  event:{name:"Event page banners",where:"On every event page, right where people decide to go.",best:"reaching people as they decide to go",cap:"3 slots, on every event",left:"3 of 3 open",durs:[["1m","1 month",350,1],["3m","3 months",900,3],["6m","6 months",1600,6],["12m","1 year",2800,12]],scope:false,wire:'<i class="hd"></i><i class="map"></i><i class="s"></i><i></i><i class="hl"></i>'},
  sheet:{name:"Conference spreadsheet",where:"Your event or company as a highlighted row in the Yorkseed spreadsheet we pass around for that conference or Tech Week.",best:"getting in front of everyone going to one conference",cap:"12 conference sheets",left:"Open for every sheet",durs:[["conf","For the conference",200,0.2]],scope:false,wire:''},
  home:{name:"Homepage feature",where:"A full-width banner on the homepage, seen by visitors from every city.",best:"brands that want every city and events people fly in for",cap:"3 rotating slots",left:"2 of 3 open",durs:[["1m","1 month",500,1],["3m","3 months",1250,3],["6m","6 months",2250,6],["12m","1 year",4000,12]],scope:false,wire:'<i class="hd"></i><i class="hl"></i><i></i><i class="s"></i><i class="map"></i>'}};
@@ -2307,9 +2317,16 @@ function renderBanners(){
   if($("#bMap"))$("#bMap").innerHTML=m?`<span class="eyebrow">Map presented by</span>${m.img?`<img src="${m.img}" alt="">`:""}<b>${esc(m.brand)}</b><span>${esc(m.headline)}</span><span class="badge b-you">Preview</span>`:``;
   if($("#slotGrid"))$("#slotGrid").innerHTML=Object.entries(SLOTS).map(([k,v])=>`<div class="slot">${SLOTPREV[k]?`<img class="slotimg" src="${SLOTPREV[k]}" alt="Where the ${v.name} appears" loading="lazy">`:`<div class="wire" aria-hidden="true">${v.wire}</div>`}<h3>${v.name}</h3><p>${v.where}<br><span style="color:var(--soft)">Best for ${v.best} · ${durText(v)}</span></p><div style="display:grid;gap:10px;align-content:end"><span class="avail">${v.left}</span><button class="btn btn-line" type="button" data-book="${k}">Book this slot</button></div></div>`).join("");
 }
+try{matchMedia("(min-width:1200px)").addEventListener("change",()=>{if(st.view==="city")renderCity();});}catch(e){}
 function renderCityBanners(){
   const hub=st.hub;
   $("#bCity").innerHTML=hub==="all"?bannerHtml("home"):bannerHtml("city",hub);
+  $("#rows").querySelectorAll(".sidein").forEach(x=>x.remove());
+  if(st.mode==="list"&&hub!=="all"&&!matchMedia("(min-width:1200px)").matches){/* phones and tablets: the sidebar ads sit inside the list instead */
+    const rows=$("#rows").querySelectorAll(".crow");const bks=allBookings().filter(b=>b.kind==="side"&&b.hub===hub).slice(0,3);
+    const cards=bks.map(bk=>`<div class="sidein"><${bk.url?`a href="${esc(refLink(bk.url,"sponsor"))}" target="_blank" rel="noopener sponsored"`:"div"} class="sicard"><span class="lab">${bk.live?"Sponsored":"Sponsored · preview"} · ${esc(bk.brand)}</span>${bk.img?`<img src="${esc(bk.img)}" alt="${esc(bk.brand)}">`:`<b>${esc(bk.headline||bk.brand)}</b>`}</${bk.url?"a":"div"}></div>`);
+    if(bks.length<3)cards.push(`<div class="sidein"><div class="sicard empty"><span class="eyebrow" style="color:var(--accent)">Advertise here</span><b>Your brand <em>here</em></b><span class="dim">300 × 250 · from ${money(SLOTS.side.durs[0][2])}</span><button class="btn btn-line btn-sm" type="button" data-book="side" data-bcity="${hub}">Book</button></div></div>`);
+    [2,13,30].forEach((at,k)=>{if(cards[k]&&rows.length>at)rows[at].insertAdjacentHTML("afterend",cards[k]);});}
   if(st.mode==="list"){$("#rows").querySelectorAll(".fbanner").forEach(x=>x.remove());const rows=$("#rows").querySelectorAll(".crow");const lh=hub==="all"?"nyc":hub;if(rows.length>6)rows[5].insertAdjacentHTML("afterend",bannerHtml("list",lh,null,true));if(rows.length>22)rows[21].insertAdjacentHTML("afterend",bannerHtml("list",lh,null,true,hub==="all"?"hostys":"cohost"));
     /* Lisbon / Web Summit: flagship Soirée box scattered through the list until Nov 9; Yorkseed House box at the top of each day Nov 9-13 */
     const live=id=>PROMOS.find(p=>p.id===id&&(!p.until||p.until>=addDays(0)));
