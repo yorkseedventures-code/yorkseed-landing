@@ -659,6 +659,43 @@ section.block{padding-block:88px 0}
 .regions{margin-bottom:10px}
 .ctabs,.ttabs,.side,#spot{display:none!important}
 .citylayout{grid-template-columns:minmax(0,1fr);max-width:880px}
+.srail{display:none}
+@media (min-width:1200px){
+.citylayout{grid-template-columns:minmax(0,880px) 300px;max-width:none;justify-content:space-between;gap:48px}
+.srail{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;align-content:start;position:sticky;top:96px;margin-top:24px;min-width:0;width:300px}
+}
+.srail .sad{border:1px solid var(--ink);background:var(--surface,#fff);display:block;color:inherit;text-decoration:none}
+.srail.nostick{position:static}
+.srail .sad.creative .lab{border-bottom:0}
+.srail .sad .lab{display:block;font-family:var(--f-label);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);padding:6px 10px;border-bottom:1px solid var(--line)}
+.srail .sad img{display:block;width:100%;aspect-ratio:6/5;object-fit:cover}
+.srail .sad .sb{padding:12px 14px 14px}
+.srail .sad .sb small{display:block;font-family:var(--f-label);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.srail .sad .sb h3{font-family:var(--f-display);font-weight:500;font-size:21px;line-height:1.15;margin:0 0 6px}
+.srail .sad .sb p{font-size:14px;color:var(--muted);margin:0 0 12px;line-height:1.4}
+.srail .sad.empty{border-style:dashed;text-align:left;padding:18px 18px 16px;aspect-ratio:6/5;display:flex;flex-direction:column;justify-content:space-between;background:repeating-linear-gradient(135deg,transparent 0 14px,rgba(0,0,0,.025) 14px 28px)}
+.srail .sad.empty h3{font-family:var(--f-display);font-weight:500;font-size:22px;line-height:1.1;margin:6px 0 6px}
+.srail .sad.empty p{font-size:14px;color:var(--muted);line-height:1.45;margin:0}
+.srail .sad.empty .dim{font-family:var(--f-label);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.srail .sad.empty .foot{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.srail .sad.empty .foot .btn{padding:9px 12px}
+.sidein{padding:14px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-items:start;text-align:left}
+.sicard{display:flex;flex-direction:column;min-width:0;border:1px solid var(--ink);background:var(--surface,#fff);color:inherit;text-decoration:none}
+.sicard .lab{display:block;font-family:var(--f-label);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding:5px 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sicard img{display:block;width:100%;aspect-ratio:6/5;object-fit:cover}
+.sicard>b{display:block;padding:12px;font-family:var(--f-display);font-weight:500;font-size:17px;aspect-ratio:6/5}
+.sicard.siempty{border-style:dashed}
+.sicard.siempty .ei{width:100%;aspect-ratio:6/5;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;padding:8px 10px 10px;background:repeating-linear-gradient(135deg,transparent 0 12px,rgba(0,0,0,.025) 12px 24px)}
+.sicard.siempty b{font-family:var(--f-display);font-weight:500;font-size:18px;line-height:1.1}
+.sicard.siempty .dim{font-family:var(--f-label);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);line-height:1.5}
+.sicard.siempty .btn{padding:7px 12px}
+.srail .rprom{border:1px solid var(--line);padding:16px 18px}
+.srail .rprom h3{font-family:var(--f-display);font-weight:500;font-size:20px;margin:6px 0}
+.srail .rprom p{font-size:13.5px;color:var(--muted);margin:0 0 12px}
+.sideprev{display:grid;grid-template-columns:1fr 34%;gap:8px;padding:8px;background:#f6f3ee}
+.sideprev .lst{display:grid;gap:6px}.sideprev .lst i{display:block;height:16px;background:#e2dcd2}
+.sideprev .ad{border:2px solid #B3261E;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:600;color:#B3261E;aspect-ratio:6/5;align-self:start;font-size:13px}
+.sideprev .ad small{font-weight:400;color:#8a8278;font-size:11px}
 .cityhero .wrap{padding-block:56px 40px}
 .fbar{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr)) auto;gap:8px;padding-block:24px 0}
 .fbar input,.fbar select{width:100%;max-width:none;border:1px solid var(--line);background:var(--surface);padding:10px 12px;font-size:15px;border-radius:0;min-width:0}
@@ -1409,6 +1446,7 @@ input::placeholder,textarea::placeholder{font-size:13.5px;color:var(--soft);opac
         <div id="rows"></div>
         <div class="listmore" id="moreWrap"></div>
       </div>
+      <aside class="srail" id="rail" aria-label="Sponsored"></aside>
       <aside class="side"><div class="sidebox"><h4>Cities</h4><ul id="sideCities"></ul></div><div class="sidebox"><h4>Top organizers</h4><ul id="sideHosts"></ul></div><div class="promo">
         <span class="eyebrow" style="color:var(--accent)">For organizers</span>
         <h3>Hosting an <em>event?</em></h3>
@@ -1887,8 +1925,14 @@ function filtered(){
     .sort((a,b)=>a.date.localeCompare(b.date)||((RANK[a.place]??9)-(RANK[b.place]??9))||a.utc-b.utc);
 }
 const DATES=[["any","Any time"],["today","Today"],["week","This week"],["weekend","Weekend"],["30","Next 30 days"]];
+function renderRail(){const el=$("#rail");if(!el)return;const hub=st.hub==="all"?null:st.hub;const h=hub?hubById(hub):null;
+  const bks=hub?allBookings().filter(b=>b.kind==="side"&&b.hub===hub).slice(0,3):[];
+  const card=bk=>`<${bk.url?`a href="${esc(refLink(bk.url,"sponsor"))}" target="_blank" rel="noopener sponsored"`:"div"} class="sad${bk.img?" creative":""}"${bk.adId?` data-adid="${bk.adId}"`:""}><span class="lab">${bk.live?"Sponsored":"Sponsored · preview"} · ${esc(bk.brand)}</span>${bk.img?`<img src="${esc(bk.img)}" alt="${esc(bk.brand+(bk.headline?": "+bk.headline:""))}">`:`<div class="sb"><small>${esc(bk.brand)}</small><h3>${esc(bk.headline||"")}</h3>${bk.blurb?`<p>${esc(bk.blurb)}</p>`:""}${bk.url?`<span class="btn btn-primary btn-sm">${esc(bk.cta||"Learn more")}</span>`:""}</div>`}</${bk.url?"a":"div"}>`;
+  const empty=()=>`<div class="sad empty"><div><span class="eyebrow" style="color:var(--accent)">Sidebar ad</span><h3>Your brand <em>here</em></h3><p>In view while people scroll ${h?esc(h.name)+"'s":"the"} events.</p></div><div class="foot"><span class="dim">300 × 250 · from ${money(SLOTS.side.durs[0][2])}</span><button class="btn btn-line btn-sm" type="button" data-book="side"${hub?` data-bcity="${hub}"`:""}>Book</button></div></div>`;
+  el.innerHTML=bks.map(card).join("")+(bks.length<3?empty():"")+(bks.length<2?`<div class="rprom"><span class="eyebrow" style="color:var(--accent)">For organizers</span><h3>Hosting an <em>event?</em></h3><p>List it free so founders and investors${h?" in "+esc(h.name):""} can find it.</p><button class="btn btn-primary btn-sm" type="button" data-chat="1">List an Event</button></div>`:"");
+  requestAnimationFrame(()=>{el.classList.toggle("nostick",el.offsetHeight>innerHeight-110);watchAds(el);});}
 function renderCity(){
-  setTimeout(syncListUrl,0);
+  setTimeout(syncListUrl,0);try{renderRail();}catch(e){}
   const sig=JSON.stringify([st.hub,st.type,st.topic,st.q,st.date,st.week,st.day,st.savedOnly]);if(sig!==st.sig){st.sig=sig;st.limit=PAGE;}
   const h=st.hub==="all"?null:hubById(st.hub),w=st.week?weekById(st.week):null;
   {const himg=!h?IMG.cityhero:h.img?IMG[h.img]:"";$("#cityImg").hidden=!himg;if(himg){$("#cityImg").src=himg;$("#cityImg").style.objectPosition=(h&&IMGPOS[h.img])||"50% 50%";}document.querySelector(".cityhero").classList.toggle("plain",!himg);}
@@ -1981,6 +2025,14 @@ function renderUpcoming(){
 const YS_INBOX="info@yorkseed.co";
 /* Submissions go to the Yorkseed backend as "pending". The team gets an email and approves them in the Event Manager. */
 const SUB_API="https://yorkseed-backend-production.up.railway.app/api/list-submissions";
+/* Self-serve sidebar ads: upload + pay by Stripe Checkout, live as soon as paid, gone when the run ends. */
+const ADS_API="https://yorkseed-backend-production.up.railway.app/api/list-ads";
+let SELF_ADS=[];
+/* count each ad's views (once per page load, when at least half of it is on screen) and clicks */
+const AD_SEEN=new Set();const adHit=(id,t)=>{try{navigator.sendBeacon(ADS_API+"/hit/"+id+"/"+t);}catch(e){}};
+const AD_IO="IntersectionObserver" in window?new IntersectionObserver(es=>es.forEach(en=>{const id=en.target.dataset.adid;if(en.isIntersecting&&id&&!AD_SEEN.has(id)){AD_SEEN.add(id);adHit(id,"v");}}),{threshold:.5}):null;
+function watchAds(root){if(!root)return;root.querySelectorAll("[data-adid]").forEach(el=>{if(AD_IO&&!el._w){el._w=1;AD_IO.observe(el);}if(!el._c){el._c=1;el.addEventListener("click",()=>adHit(el.dataset.adid,"c"));}});}
+function loadSelfAds(){return fetch(ADS_API+"/live").then(r=>r.ok?r.json():{ads:[]}).then(x=>{SELF_ADS=((x&&x.ads)||[]).map(a=>({adId:a.id,kind:a.kind||"side",hub:a.hub,brand:a.brand,headline:a.alt||"",url:a.url,img:a.img,start:a.start,end:a.end,live:true,self:true}));if(typeof rerenderAll==="function")rerenderAll();}).catch(()=>{});}
 async function sendSubmission(p){try{const ctl=new AbortController();const t=setTimeout(()=>ctl.abort(),12000);
   const r=await fetch(SUB_API+"/submit",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(p),signal:ctl.signal});clearTimeout(t);
   const x=await r.json().catch(()=>({}));return r.ok?{ok:true,dup:!!x.duplicate}:{ok:false,msg:x.message||""};}catch(e){return{ok:false,msg:""};}}
@@ -2218,8 +2270,9 @@ $("#linkForm").addEventListener("submit",e=>{e.preventDefault();const v=$("#link
 const SLOTS={
  feat:{name:"Featured event",where:"Your event in green with a ★ Featured tag, at the top of its day and as a green star on the map, for the run-up you choose before it happens.",best:"promoting one event",cap:"Any event on the List",left:"Always open",durs:[["ev","2 weeks",99,0.25],["1m","1 month",179,0.26],["3m","3 months",399,0.27]],scope:true,wire:'<i class="hd"></i><i></i><i class="hl"></i><i></i><i class="s"></i><i></i>'},
  map:{name:"Map sponsor",where:"Your event or brand pinned on the map with a green ★ Featured event tag, in the city you choose.",best:"organizers, venues, spaces and local brands",cap:"1 pin per city",left:"Open in every city",durs:[["2w","2 weeks",125,0.5],["1m","1 month",200,1],["6m","6 months",900,6],["12m","1 year",1500,12]],scope:true,wire:'<i class="hd"></i><i class="map"></i><i class="map"></i><i class="hl"></i><i class="s"></i>'},
- list:{name:"In-list banner",where:"Inside a city's event list, between the rows people scroll.",best:"Tech Weeks, conferences and launches",cap:"2 slots per city",left:"Open in every city",durs:[["2w","2 weeks",150,0.5],["1m","1 month",250,1],["3m","3 months",600,3],["6m","6 months",1000,6],["12m","1 year",1800,12]],scope:true,wire:'<i class="hd"></i><i></i><i></i><i class="hl"></i><i></i><i></i>'},
+ list:{retired:true,name:"In-list banner",where:"Inside a city's event list, between the rows people scroll.",best:"Tech Weeks, conferences and launches",cap:"2 slots per city",left:"Open in every city",durs:[["2w","2 weeks",150,0.5],["1m","1 month",250,1],["3m","3 months",600,3],["6m","6 months",1000,6],["12m","1 year",1800,12]],scope:true,wire:'<i class="hd"></i><i></i><i></i><i class="hl"></i><i></i><i></i>'},
  city:{name:"City banner",where:"Top of one city's events page, above the list.",best:"owning one city",cap:"1 slot per city",left:"Open in every city",durs:[["1m","1 month",300,1],["3m","3 months",750,3],["6m","6 months",1400,6],["12m","1 year",2500,12]],scope:true,wire:'<i class="hd"></i><i class="hl"></i><i></i><i></i><i class="s"></i><i></i>'},
+ side:{name:"Sidebar ad",where:"A 300 × 250 ad on one city's events page: in the right column on computers, where it stays in view while people scroll, and between the events on phones.",best:"brands that want to stay in view for the whole visit",cap:"3 slots per city",left:"Open in every city",durs:[["2w","2 weeks",200,0.5],["1m","1 month",350,1],["3m","3 months",925,3],["6m","6 months",1650,6],["12m","1 year",2750,12]],scope:true,wire:'<i class="hd"></i><i class="hl" style="grid-row:span 3"></i><i></i><i></i>'},
  event:{name:"Event page banners",where:"On every event page, right where people decide to go.",best:"reaching people as they decide to go",cap:"3 slots, on every event",left:"3 of 3 open",durs:[["1m","1 month",350,1],["3m","3 months",900,3],["6m","6 months",1600,6],["12m","1 year",2800,12]],scope:false,wire:'<i class="hd"></i><i class="map"></i><i class="s"></i><i></i><i class="hl"></i>'},
  sheet:{name:"Conference spreadsheet",where:"Your event or company as a highlighted row in the Yorkseed spreadsheet we pass around for that conference or Tech Week.",best:"getting in front of everyone going to one conference",cap:"12 conference sheets",left:"Open for every sheet",durs:[["conf","For the conference",200,0.2]],scope:false,wire:''},
  home:{name:"Homepage feature",where:"A full-width banner on the homepage, seen by visitors from every city.",best:"brands that want every city and events people fly in for",cap:"3 rotating slots",left:"2 of 3 open",durs:[["1m","1 month",500,1],["3m","3 months",1250,3],["6m","6 months",2250,6],["12m","1 year",4000,12]],scope:false,wire:'<i class="hd"></i><i class="hl"></i><i></i><i class="s"></i><i class="map"></i>'}};
@@ -2248,7 +2301,7 @@ function bannerHtml(kind,hub,b,slim,pref){
   const h=hub&&hub!=="all"?hubById(hub):null;
   const where=kind==="home"?"on the Yorkseed homepage":kind==="city"?`at the top of ${h?h.name:"a city page"}`:`in the ${h?h.name:"city"} event list`;
   const hid=hub&&hub.id||hub;const pr=promoFor(pref||(kind==="home"?["deal","aff"]:kind==="city"?(hid==="hkg"?"aff":hid==="lis"?["house","deal","pulse"]:"pulse"):(hid==="hkg"?["aff","list"]:hid==="lis"?["deal","list"]:"list")),kind.length);
-  return`<div class="fbanner${slim?" slim":""} ysp${pr.cls?" "+pr.cls:""}"><span class="lab">${pr.lab||"From Yorkseed"}</span><img class="art" src="${IMG[pr.img]}" alt=""><div class="bt"><h3>${pr.title}</h3>${slim?"":`<p>${pr.text}</p>`}</div>${promoBtn(pr,"btn ycta "+(slim?"btn-line btn-sm":"btn-primary"))}<button class="adv" type="button" data-book="${kind}" data-bcity="${hub||""}" aria-label="Sponsor this spot ${where}">Sponsor this spot →</button></div>`;
+  return`<div class="fbanner${slim?" slim":""} ysp${pr.cls?" "+pr.cls:""}"><span class="lab">${pr.lab||"From Yorkseed"}</span><img class="art" src="${IMG[pr.img]}" alt=""><div class="bt"><h3>${pr.title}</h3>${slim?"":`<p>${pr.text}</p>`}</div>${promoBtn(pr,"btn ycta "+(slim?"btn-line btn-sm":"btn-primary"))}<button class="adv" type="button" data-book="${kind==="list"?"side":kind}" data-bcity="${hub||""}" aria-label="Sponsor this spot ${where}">Sponsor this spot →</button></div>`;
 }
 function sponsorsHtml(){
   const bk=allBookings().filter(b=>b.kind==="event").slice(0,3);
@@ -2266,11 +2319,20 @@ function renderBanners(){
   if($("#bHome"))$("#bHome").innerHTML=bannerHtml("home");
   const m=bookingFor("map");
   if($("#bMap"))$("#bMap").innerHTML=m?`<span class="eyebrow">Map presented by</span>${m.img?`<img src="${m.img}" alt="">`:""}<b>${esc(m.brand)}</b><span>${esc(m.headline)}</span><span class="badge b-you">Preview</span>`:``;
-  if($("#slotGrid"))$("#slotGrid").innerHTML=Object.entries(SLOTS).map(([k,v])=>`<div class="slot">${SLOTPREV[k]?`<img class="slotimg" src="${SLOTPREV[k]}" alt="Where the ${v.name} appears" loading="lazy">`:`<div class="wire" aria-hidden="true">${v.wire}</div>`}<h3>${v.name}</h3><p>${v.where}<br><span style="color:var(--soft)">Best for ${v.best} · ${durText(v)}</span></p><div style="display:grid;gap:10px;align-content:end"><span class="avail">${v.left}</span><button class="btn btn-line" type="button" data-book="${k}">Book this slot</button></div></div>`).join("");
+  if($("#slotGrid"))$("#slotGrid").innerHTML=Object.entries(SLOTS).filter(([k,v])=>!v.retired).map(([k,v])=>`<div class="slot">${SLOTPREV[k]?`<img class="slotimg" src="${SLOTPREV[k]}" alt="Where the ${v.name} appears" loading="lazy">`:`<div class="wire" aria-hidden="true">${v.wire}</div>`}<h3>${v.name}</h3><p>${v.where}<br><span style="color:var(--soft)">Best for ${v.best} · ${durText(v)}</span></p><div style="display:grid;gap:10px;align-content:end"><span class="avail">${v.left}</span><button class="btn btn-line" type="button" data-book="${k}">Book this slot</button></div></div>`).join("");
 }
+try{matchMedia("(min-width:1200px)").addEventListener("change",()=>{if(st.view==="city")renderCity();});}catch(e){}
 function renderCityBanners(){
   const hub=st.hub;
   $("#bCity").innerHTML=hub==="all"?bannerHtml("home"):bannerHtml("city",hub);
+  $("#rows").querySelectorAll(".sidein").forEach(x=>x.remove());
+  if(st.mode==="list"&&hub!=="all"&&!matchMedia("(min-width:1200px)").matches){/* phones and tablets: the sidebar ads sit inside the list instead */
+    const rows=$("#rows").querySelectorAll(".crow");const bks=allBookings().filter(b=>b.kind==="side"&&b.hub===hub).slice(0,3);
+    const tiles=bks.map(bk=>`<${bk.url?`a href="${esc(refLink(bk.url,"sponsor"))}" target="_blank" rel="noopener sponsored"`:"div"} class="sicard"${bk.adId?` data-adid="${bk.adId}"`:""}><span class="lab">${bk.live?"Sponsored":"Preview"} · ${esc(bk.brand)}</span>${bk.img?`<img src="${esc(bk.img)}" alt="${esc(bk.brand)}">`:`<b>${esc(bk.headline||bk.brand)}</b>`}</${bk.url?"a":"div"}>`);
+    if(bks.length<3)tiles.push(`<div class="sicard siempty"><span class="lab">Advertise here</span><div class="ei"><b>Your brand <em>here</em></b><span class="dim">300 × 250<br>from ${money(SLOTS.side.durs[0][2])}</span><button class="btn btn-line btn-sm" type="button" data-book="side" data-bcity="${hub}">Book</button></div></div>`);
+    if(tiles.length%2)tiles.push(`<div class="sicard siempty"><span class="lab">From Yorkseed</span><div class="ei"><b>Hosting an <em>event?</em></b><span class="dim">List it free</span><button class="btn btn-line btn-sm" type="button" data-chat="1">List it</button></div></div>`);
+    const pairs=[];for(let i=0;i<tiles.length;i+=2)pairs.push(`<div class="sidein">${tiles.slice(i,i+2).join("")}</div>`);
+    [2,24].forEach((at,k)=>{if(pairs[k]&&rows.length>at)rows[at].insertAdjacentHTML("afterend",pairs[k]);});watchAds($("#rows"));}
   if(st.mode==="list"){$("#rows").querySelectorAll(".fbanner").forEach(x=>x.remove());const rows=$("#rows").querySelectorAll(".crow");const lh=hub==="all"?"nyc":hub;if(rows.length>6)rows[5].insertAdjacentHTML("afterend",bannerHtml("list",lh,null,true));if(rows.length>22)rows[21].insertAdjacentHTML("afterend",bannerHtml("list",lh,null,true,hub==="all"?"hostys":"cohost"));
     /* Lisbon / Web Summit: flagship Soirée box scattered through the list until Nov 9; Yorkseed House box at the top of each day Nov 9-13 */
     const live=id=>PROMOS.find(p=>p.id===id&&(!p.until||p.until>=addDays(0)));
@@ -2294,20 +2356,20 @@ const FEAT_NOTE={ev:"The 14 days before your event, when most people decide.","1
 function dbText(){const v=SLOTS[BK.kind];const ed=v.scope?WEEKS.find(w=>w.hub===BK.hub&&(w.ys||[]).some(y=>y.kind==="Delegation")&&w.end>=addDays(0)):null;
   return ed?`A full page in the ${hubById(BK.hub).name} edition (${ed.name}), carried into the Annual Deal Book shared in December.`:`A full page in our next delegation edition, carried into the Annual Deal Book shared in December.`;}
 const GOALS=[["one","One event"],["week","A Tech Week, conference or launch"],["year","My brand, all year"]];
-const GOALMAP={one:["feat","ev"],week:["list","2w"],year:["home","12m"]};
-function openBook(kind,hub){BK.kind=kind||"home";BK.goal="";BK.db=false;BK.sheet=false;BK.hs=["",""];BK.hub=hub&&hub!=="all"?hub:(st.hub!=="all"?st.hub:"nyc");BK.img="";drawBook();$("#book").hidden=false;}
+const GOALMAP={one:["feat","ev"],week:["side","1m"],year:["home","12m"]};
+function openBook(kind,hub){BK.kind=kind&&SLOTS[kind]&&!SLOTS[kind].retired?kind:kind==="list"?"side":"home";BK.goal="";BK.db=false;BK.sheet=false;BK.hs=["",""];BK.hub=hub&&hub!=="all"?hub:(st.hub!=="all"?st.hub:"nyc");BK.img="";drawBook();$("#book").hidden=false;}
 function closeBook(){$("#book").hidden=true;}
 function monthOpts(){const out=[];for(let i=1;i<=6;i++){const d=new Date(Date.UTC(2026,9+i,1));out.push([d.toISOString().slice(0,7),new Intl.DateTimeFormat("en-US",{month:"long",year:"numeric",timeZone:"UTC"}).format(d)]);}return out;}
 function drawBook(){
-  const v=SLOTS[BK.kind];
+  const v=SLOTS[BK.kind];if(BK.kind==="side"){BK.db=false;BK.sheet=false;}
   $("#bkBody").innerHTML=`<form class="bookgrid" id="bkForm" novalidate>
     <div class="field"><label>What are you promoting?</label><div class="goals">${GOALS.map(([g,l])=>`<button type="button" data-goal="${g}"${BK.goal===g?' class="on"':""}>${l}</button>`).join("")}</div></div>
-    <div class="field"><label>Placement</label><div class="opts">${Object.entries(SLOTS).map(([k,x])=>`<label><input type="radio" name="bkKind" value="${k}"${k===BK.kind?" checked":""}><b>${x.name}</b><span class="pr">${x.durs.length>1?"from ":""}${money(Math.min(...x.durs.map(d=>d[2])))}</span><small>Best for ${x.best}</small></label>`).join("")}</div>
-      <figure class="slotprev">${BK.kind==="sheet"?sheetPrev():`<img src="${SLOTPREV[BK.kind]}" alt="Where the ${v.name} appears on the List">`}<figcaption><b>Where it shows:</b> ${v.where}</figcaption></figure></div>
+    <div class="field"><label>Placement</label><div class="opts">${Object.entries(SLOTS).filter(([k,x])=>!x.retired).map(([k,x])=>`<label><input type="radio" name="bkKind" value="${k}"${k===BK.kind?" checked":""}><b>${x.name}</b><span class="pr">${x.durs.length>1?"from ":""}${money(Math.min(...x.durs.map(d=>d[2])))}</span><small>Best for ${x.best}</small></label>`).join("")}</div>
+      <figure class="slotprev">${BK.kind==="sheet"?sheetPrev():BK.kind==="side"?`<div class="sideprev" aria-hidden="true"><div class="lst"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="ad">Your ad<small>300 × 250</small></div></div>`:`<img src="${SLOTPREV[BK.kind]}" alt="Where the ${v.name} appears on the List">`}<figcaption><b>Where it shows:</b> ${v.where}</figcaption></figure></div>
     ${v.scope?`<div class="field"><label for="bkHub">City</label><select id="bkHub">${HUBS.filter(h=>h.id!=="virtual").map(h=>`<option value="${h.id}"${h.id===BK.hub?" selected":""}>${h.name}</option>`).join("")}</select></div>`:""}
     ${BK.kind==="sheet"?`<div class="field"><label for="bkSheet">Which spreadsheet</label>${sheetSel("bkSheet")}</div>`:""}
     <div class="field"><label>How long</label><div class="opts">${v.durs.map(([k,l,p,mo],i)=>`<label><input type="radio" name="bkDur" value="${k}"${durOf(v,BK.dur)[0]===k?" checked":""}><b>${l}</b><span class="pr">${money(p)}</span>${i&&mo>=1?`<small>${money(Math.round(p/mo))} a month${mo>=6?", best value":""}</small>`:mo<1?`<small>${BK.kind==="feat"?FEAT_NOTE[k]:BK.kind==="sheet"?"One highlighted row, from when the sheet goes out until the conference ends.":"Minimum. Good for a Tech Week or launch."}</small>`:""}</label>`).join("")}</div></div>
-    <div class="field"><label>Add-on</label><div class="opts">${BK.kind==="sheet"?"":`<label><input type="checkbox" id="bkSH"${BK.sheet?" checked":""}><b>Conference spreadsheet feature</b><span class="pr">+${money(SHEET_PRICE)}</span><small>A highlighted row in the Yorkseed sheet we pass around for one conference or Tech Week.</small></label><div class="field" id="bkSHw"${BK.sheet?"":" hidden"} style="margin:2px 0 8px"><label for="bkSheetA">Which spreadsheet</label>${sheetSel("bkSheetA")}</div>`}<label><input type="checkbox" id="bkDB"${BK.db?" checked":""}><b>Yorkseed Deal Book page</b><span class="pr">+${money(DB_PRICE)}</span><small id="bkDBt">${dbText()}</small></label></div><small class="muted" style="font-size:12.5px;margin-top:6px;display:block">You send the page content after we confirm. Just a Deal Book page: US$1,000. Presenting a whole edition: <a href="mailto:info@yorkseed.co?subject=Deal%20Book%20presenting%20partner" style="color:inherit;text-decoration:underline">ask us</a>.</small>
+    <div class="field"${BK.kind==="side"?" hidden":""}><label>Add-on</label><div class="opts">${BK.kind==="sheet"?"":`<label><input type="checkbox" id="bkSH"${BK.sheet?" checked":""}><b>Conference spreadsheet feature</b><span class="pr">+${money(SHEET_PRICE)}</span><small>A highlighted row in the Yorkseed sheet we pass around for one conference or Tech Week.</small></label><div class="field" id="bkSHw"${BK.sheet?"":" hidden"} style="margin:2px 0 8px"><label for="bkSheetA">Which spreadsheet</label>${sheetSel("bkSheetA")}</div>`}<label><input type="checkbox" id="bkDB"${BK.db?" checked":""}><b>Yorkseed Deal Book page</b><span class="pr">+${money(DB_PRICE)}</span><small id="bkDBt">${dbText()}</small></label></div><small class="muted" style="font-size:12.5px;margin-top:6px;display:block">You send the page content after we confirm. Just a Deal Book page: US$1,000. Presenting a whole edition: <a href="mailto:info@yorkseed.co?subject=Deal%20Book%20presenting%20partner" style="color:inherit;text-decoration:underline">ask us</a>.</small>
     <details class="dbexw"><summary>See an example Deal Book page</summary>
       <div class="dbex"><span class="eyebrow">Partner · Lisbon edition</span>
         <h4>Harbor &amp; Pine <em>Legal</em></h4>
@@ -2319,13 +2381,14 @@ function drawBook(){
       <a href="https://yorkseed.co/delegation/lisbon-2026/book/" target="_blank" rel="noopener" class="dbreal">See the Lisbon Deal Book →</a>
     </details><small style="display:none"></small></div>
     <div class="fgrid">
-      <div class="field"><label for="bkStart">${BK.kind==="feat"?"Event date":BK.kind==="sheet"?"Your event date":"Start"}</label>${v.durs.some(d=>d[3]<1)?`<input id="bkStart" type="date" min="${addDays(1)}" value="${addDays(7)}">`:`<select id="bkStart">${monthOpts().map(([v2,l])=>`<option value="${v2}-01">${l}</option>`).join("")}</select>`}</div>
+      <div class="field"${BK.kind==="side"?" hidden":""}><label for="bkStart">${BK.kind==="feat"?"Event date":BK.kind==="sheet"?"Your event date":"Start"}</label>${v.durs.some(d=>d[3]<1)?`<input id="bkStart" type="date" min="${addDays(1)}" value="${addDays(7)}">`:`<select id="bkStart">${monthOpts().map(([v2,l])=>`<option value="${v2}-01">${l}</option>`).join("")}</select>`}</div>
       <div class="field"><label for="bkBrand">${BK.kind==="feat"?"Organizer *":"Brand name *"}</label><input id="bkBrand" maxlength="40" placeholder="${BK.kind==="feat"?"Who's hosting":"Your company"}"></div>
       <div class="field full"${BK.kind==="feat"||BK.kind==="sheet"?"":" hidden"}><label for="bkHead">${BK.kind==="feat"?"Event name *":BK.kind==="sheet"?"Event or company name *":"Headline *"}</label><input id="bkHead" maxlength="70" placeholder="${BK.kind==="feat"?"As it appears on the List":BK.kind==="sheet"?"As it appears in the sheet":"One line, up to 70 characters"}"></div>
       ${true?"":`<div class="field full"><label for="bkBlurb">Short description</label><input id="bkBlurb" maxlength="120" placeholder="Optional, up to 120 characters"></div>`}
-      <div class="field full"${BK.kind==="feat"||BK.kind==="sheet"?"":" hidden"}><label for="bkUrl">${BK.kind==="feat"?"Event link":BK.kind==="sheet"?"Link":"Link"}</label><input id="bkUrl" type="url" placeholder="${BK.kind==="feat"?"Luma, Eventbrite or your site":"https://"}"></div>
+      <div class="field full"${BK.kind==="feat"||BK.kind==="sheet"||BK.kind==="side"?"":" hidden"}><label for="bkUrl">${BK.kind==="feat"?"Event link":BK.kind==="side"?"Where your ad links to *":"Link"}</label><input id="bkUrl" type="url" placeholder="${BK.kind==="feat"?"Luma, Eventbrite or your site":"https://"}"></div>
       ${true?"":`<div class="field"><label for="bkCta">Button text</label><input id="bkCta" maxlength="20" placeholder="Learn more"></div>`}
-      <div class="field full" hidden><label for="bkImg">${BK.kind==="map"?"Logo":"Banner image"} <span style="text-transform:none;letter-spacing:0">(16:9, JPG or PNG)</span></label><input id="bkImg" type="file" accept="image/*"></div>
+      <div class="field full"${BK.kind==="side"?"":" hidden"}><label for="bkImg">${BK.kind==="side"?"Your ad graphic *":BK.kind==="map"?"Logo":"Banner image"} <span style="text-transform:none;letter-spacing:0">${BK.kind==="side"?"":"(16:9, JPG or PNG)"}</span></label>${BK.kind==="side"?`<small class="muted" style="display:block;font-size:12.5px;margin:0 0 6px">Send a finished design: <b>300 × 250 px</b> (or 600 × 500 for sharp screens), JPG, PNG or GIF, under 1 MB. It shows exactly as you upload it, so put your logo and message in the graphic. Keep text big: your logo and one short line. On phones it shows at about half that size.</small>`:""}<input id="bkImg" type="file" accept="${BK.kind==="side"?"image/png,image/jpeg,image/gif":"image/*"}"><div id="bkImgOk" class="muted" style="font-size:12.5px;margin-top:6px"></div></div>
+      ${BK.kind==="side"?`<div class="field full"><label style="display:flex;gap:8px;align-items:flex-start;text-transform:none;letter-spacing:0;font-size:14px;cursor:pointer"><input type="checkbox" id="bkAgree" style="margin-top:3px"> <span>I agree to the <a href="#" id="bkRules" style="color:inherit;text-decoration:underline">ad guidelines</a>. *</span></label><div id="bkRulesT" hidden class="muted" style="font-size:13px;line-height:1.5;margin-top:6px">Ads must be for a real business, event or product and link to it. No adult content, gambling, cannabis, weapons, political campaigns, crypto giveaways, misleading claims, or other event-listing sites. Yorkseed can take down an ad that breaks these and will refund the unused days.</div></div>`:""}
       <div class="field"><label for="bkName">Your name *</label><input id="bkName" autocomplete="name"></div>
       <div class="field"><label for="bkEmail">Work email *</label><input id="bkEmail" type="email" autocomplete="email"></div>
     </div>
@@ -2345,8 +2408,8 @@ function drawBook(){
     </div>
     <details class="bkprev"><summary class="eyebrow" style="color:var(--muted);cursor:pointer">See how it looks</summary><div id="bkPrev" style="margin-top:10px"></div></details>
     <span class="err" id="bkErr" hidden></span>
-    <div class="bksum"><div><small id="bkSumLbl"></small><div class="sum" id="bkSum"></div></div><button class="btn btn-gold" type="submit">Request this slot</button></div>
-    <p class="note" style="margin:0">No payment now. We confirm the slot and email you an invoice plus a link to send your ${BK.kind==="feat"?"event details":BK.kind==="sheet"?"listing details":"artwork, headline and link"}. ${BK.kind==="sheet"?"You're in the sheet before it goes out.":"It goes live on the start date."}</p>
+    <div class="bksum"><div><small id="bkSumLbl"></small><div class="sum" id="bkSum"></div></div><button class="btn btn-gold" type="submit" id="bkGo">${BK.kind==="side"?"Pay and go live":"Request this slot"}</button></div>
+    ${BK.kind==="side"?`<p class="note" style="margin:0">Pay by card on the next screen. Your ad goes live on the ${v.scope?esc(hubById(BK.hub).name)+" ":""}events page the moment payment clears, and comes down by itself when your time is up. Up to 3 sidebar ads per city.</p>`:`<p class="note" style="margin:0">No payment now. We confirm the slot and email you an invoice plus a link to send your ${BK.kind==="feat"?"event details":BK.kind==="sheet"?"listing details":"artwork, headline and link"}. ${BK.kind==="sheet"?"You're in the sheet before it goes out.":"It goes live on the start date."}</p>`}
   </form>`;
   const f=$("#bkForm");
   f.querySelectorAll("input[name=bkKind]").forEach(r=>r.onchange=()=>{keep();BK.kind=r.value;BK.goal="";drawBook();restore();});
@@ -2358,7 +2421,12 @@ function drawBook(){
   ["bkSheet","bkSheetA"].forEach(id=>{if($("#"+id))$("#"+id).onchange=e=>{BK.sheetName=e.target.value;if(id==="bkSheet"){const f=$(".slotprev .shbar");if(f)f.textContent=BK.sheetName+" · Yorkseed sheet";}sumBook();};});
   [1,2].forEach(n=>{$("#dbImg"+n).onchange=e=>{const file=e.target.files[0];if(!file)return;if(file.size>3e6){showBkErr("That headshot is over 3 MB. Use a smaller JPG or PNG.");return;}const rd=new FileReader();rd.onload=()=>{BK.hs[n-1]=rd.result;};rd.readAsDataURL(file);};});
   ["bkBrand","bkHead","bkBlurb","bkCta","bkUrl"].forEach(id=>{const el=$("#"+id);if(el)el.oninput=prevBook;});
-  $("#bkImg").onchange=e=>{const file=e.target.files[0];if(!file)return;if(file.size>3e6){showBkErr("That image is over 3 MB. Use a smaller JPG or PNG.");return;}const rd=new FileReader();rd.onload=()=>{BK.img=rd.result;prevBook();};rd.readAsDataURL(file);};
+  $("#bkImg").onchange=e=>{const file=e.target.files[0];if(!file)return;const side=BK.kind==="side";BK.img="";BK.imgOk=false;$("#bkImgOk").textContent="";
+    if(file.size>(side?1048576:3e6)){showBkErr(side?"That graphic is over 1 MB. Please export a smaller file.":"That image is over 3 MB. Use a smaller JPG or PNG.");return;}
+    const rd=new FileReader();rd.onload=()=>{const im=new Image();im.onload=()=>{const w=im.naturalWidth,h=im.naturalHeight;
+      if(side&&(w<300||Math.abs(w/h-1.2)>0.03)){showBkErr(`Your graphic is ${w} × ${h}. It needs to be 300 × 250 (or 600 × 500).`);return;}
+      showBkErr("");BK.img=rd.result;BK.imgOk=true;if(side)$("#bkImgOk").innerHTML=`✓ ${w} × ${h}, looks good.`;prevBook();};im.src=rd.result;};rd.readAsDataURL(file);};
+  if($("#bkRules"))$("#bkRules").onclick=e=>{e.preventDefault();$("#bkRulesT").hidden=!$("#bkRulesT").hidden;};
   f.onsubmit=submitBook;sumBook();prevBook();
 }
 let BKKEEP={};
@@ -2369,7 +2437,15 @@ function sumBook(){const v=SLOTS[BK.kind];const d=durOf(v,BK.dur);BK.dur=d[0];co
 function prevBook(){const d=bkData();const b={...d,brand:d.brand||"Your brand",headline:d.headline||"Your headline goes here"};
   $("#bkPrev").innerHTML=BK.kind==="sheet"?sheetPrev().replace("★ Your event or company","★ "+esc(d.headline||"Your event or company")).replace(">You<",">"+esc(d.brand||"You")+"<"):BK.kind==="feat"?`<div class="crow feat" style="pointer-events:none"><div class="t">${d.start?(()=>{const p=dParts(d.start);return p.wd+" "+p.day+" "+p.mon;})():"Your date"}</div><button class="main" type="button" tabindex="-1"><span class="ttl">${esc(d.headline||"Your event name")} ${badge("featured")}</span><span class="sub">${esc(hubById(BK.hub).name)}${d.brand?" · "+esc(d.brand):""}</span></button></div><small class="muted">Also a green star on the ${esc(hubById(BK.hub).name)} map until the day.</small>`:BK.kind==="map"?`<div class="mapprev"><svg viewBox="0 0 360 150" aria-hidden="true"><rect width="360" height="150" class="sea"/><path class="land" d="M0 70 Q60 40 120 60 T240 50 T360 70 V150 H0Z"/><g class="hubdot" transform="translate(150 60)"><circle r="18"/><text class="cnt" dy="6" text-anchor="middle" style="font-size:15px">${hubCount(BK.hub)}</text></g><g class="spin-pin" transform="translate(132 90)"><path class="sp-tail" d="M18 -30 L10 0 L26 0 Z"/><rect class="sp-box" x="-60" y="0" width="${Math.max(120,b.brand.length*12+60)}" height="40"/><path class="fstar" transform="translate(-40 20)" d="${starPath(10)}"/><text class="sp-lab" x="-24" y="16" style="font-size:9px">FEATURED EVENT</text><text class="sp-name" x="-24" y="32" style="font-size:15px">${esc(b.headline||b.brand)}</text></g></svg><small>${esc(hubById(BK.hub).name)} on the Yorkseed map</small></div>`:bannerHtml(BK.kind,BK.hub,b,BK.kind==="list");}
 function showBkErr(m){const e=$("#bkErr");e.textContent=m;e.hidden=!m;}
-function submitBook(ev){ev.preventDefault();const d=bkData();
+async function payForAd(d){
+  const miss=!d.brand?"Add your brand name.":!BK.img||!BK.imgOk?"Upload your 300 × 250 ad graphic.":!d.url?"Add the link your ad goes to (https://...).":!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.email)?"Add your email for the receipt.":!($("#bkAgree")||{}).checked?"Please agree to the ad guidelines.":"";
+  showBkErr(miss);if(miss)return;
+  const go=$("#bkGo");go.disabled=true;go.textContent="Opening checkout…";
+  try{const r=await fetch(ADS_API+"/checkout",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({hub:BK.hub,hubName:hubById(BK.hub).name,dur:d.dur,brand:d.brand,url:d.url,alt:d.headline||"",name:d.name,email:d.email,image:BK.img,agree:true,back:"#"+hubSlug(hubById(BK.hub))})});
+    const x=await r.json().catch(()=>({}));if(r.ok&&x.url){location.href=x.url;return;}showBkErr(x.message||"Checkout couldn't start. Please try again.");}
+  catch(e){showBkErr(`We couldn't reach checkout. Please try again or email ${YS_INBOX}.`);}
+  go.disabled=false;go.textContent="Pay and go live";}
+function submitBook(ev){ev.preventDefault();const d=bkData();if(d.kind==="side")return payForAd(d);
   const miss=!d.brand?"Add your brand name.":d.kind==="feat"&&!d.headline?"Add the event name.":d.kind==="sheet"&&!d.headline?"Add the event or company name.":!d.name?"Add your name.":!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.email)?"Add a work email like you@company.com.":"";
   showBkErr(miss);if(miss)return;
   const v=SLOTS[d.kind];const du=durOf(v,d.dur);const price=du[2]+(d.db?DB_PRICE:0)+(d.shAdd?SHEET_PRICE:0);const isS=d.kind==="sheet";const isF=d.kind==="feat";const evd=d.start||addDays(7);const fst=isF?(()=>{const x=new Date(evd+"T12:00:00Z");x.setUTCDate(x.getUTCDate()-(FEAT_DAYS[d.dur]||14));const k=x.toISOString().slice(0,10);return k>addDays(0)?k:addDays(0);})():null;const st0=new Date((isF?fst:(d.start||addDays(7)))+"T12:00:00Z");const end=isF?new Date((d.start||addDays(7))+"T12:00:00Z"):du[3]<1?new Date(st0.getTime()+13*864e5):new Date(Date.UTC(st0.getUTCFullYear(),st0.getUTCMonth()+du[3],st0.getUTCDate()-1));
@@ -2426,7 +2502,7 @@ NAV_SILENT=true;try{if(/^e\//.test(hash))openFromHash();else if(openListFromHash
 makePicker($("#homeSel"));makePicker($("#hHub"),true);makePicker($("#fCity"),true);
 
 // ---------- live data (db) + owner admin ----------
-const PAYLINKS={sheet:{conf:"https://buy.stripe.com/fZubIU6sva4Kas8aYRbo410"},feat:{ev:"https://buy.stripe.com/dRm5kw2cfel01VCaYRbo40x","1m":"https://buy.stripe.com/5kQcMY9EHel09o47MFbo40Y","3m":"https://buy.stripe.com/28EaEQaIL5OugQw6IBbo40Z"},
+const PAYLINKS={side:{"2w":"https://buy.stripe.com/14A6oA3gj90G9o42slbo41g","1m":"https://buy.stripe.com/cNi6oAg356SyeIo6IBbo41h","3m":"https://buy.stripe.com/eVqeV618b3GmdEkc2Vbo41i","6m":"https://buy.stripe.com/bJe4gsdUX4Kq9o48QJbo41j","12m":"https://buy.stripe.com/bJe00ccQTb8O1VC9UNbo41k"},sheet:{conf:"https://buy.stripe.com/fZubIU6sva4Kas8aYRbo410"},feat:{ev:"https://buy.stripe.com/dRm5kw2cfel01VCaYRbo40x","1m":"https://buy.stripe.com/5kQcMY9EHel09o47MFbo40Y","3m":"https://buy.stripe.com/28EaEQaIL5OugQw6IBbo40Z"},
  map:{"2w":"https://buy.stripe.com/3cIeV66sv1ye0Ryc2Vbo40y","1m":"https://buy.stripe.com/00w5kw047a4Kas85Exbo40z","6m":"https://buy.stripe.com/5kQ5kw5ordgW0Ry6IBbo40A","12m":"https://buy.stripe.com/fZuaEQ7wzb8O9o42slbo40B"},
  list:{"2w":"https://buy.stripe.com/5kQ00c4kn3Gm1VCgjbbo40C","1m":"https://buy.stripe.com/cNi8wI5orfp4dEkd6Zbo40D","3m":"https://buy.stripe.com/6oU7sE2cfgt81VC0kdbo40E","6m":"https://buy.stripe.com/bJe5kw9EH2Ci1VC8QJbo40F","12m":"https://buy.stripe.com/5kQaEQeZ11ye43K4Atbo40G"},
  city:{"1m":"https://buy.stripe.com/9B63co047fp457O8QJbo40H","3m":"https://buy.stripe.com/00wcMYeZ1fp40Ry0kdbo40I","6m":"https://buy.stripe.com/7sY14g6sv6SycAg9UNbo40J","12m":"https://buy.stripe.com/14AeV67wza4Kbwc0kdbo40K"},
@@ -2435,7 +2511,7 @@ const PAYLINKS={sheet:{conf:"https://buy.stripe.com/fZubIU6sva4Kas8aYRbo410"},fe
 const STRIPE_ACCT="acct_1R626g2cSomcPXKP";
 
 function liveBookings(){const t=addDays(0);return LIVE_BANNERS.filter(b=>b.active!==false&&(!b.start||b.start<=t)&&(!b.end||b.end>=t));}
-function allBookings(){return [...liveBookings(),...BOOKINGS];}
+function allBookings(){return [...SELF_ADS.filter(b=>!b.end||b.end>=addDays(0)),...liveBookings(),...BOOKINGS];}
 function rerenderAll(){if(PENDING_EV&&openFromHash())return;try{renderHome();}catch(e){}try{if(st.view==="city")renderCity();if(st.view==="event")renderEvent();}catch(e){}try{renderBanners();}catch(e){}try{drawMZ();}catch(e){}}
 function dbEvent(id,d){const w=WEEKS.find(x=>x.hub===d.hub&&d.date>=x.start&&d.date<=x.end);
   return decorate({id:"d_"+id,title:d.title||"Untitled",hub:d.hub,date:d.date,start:d.start||null,end:d.start?(d.end||null):null,type:d.type||inferType(d.title||""),host:d.host||"",tags:(()=>{const t=inferTags((d.title||"")+" "+(d.desc||""));return t.length?t.slice(0,3):["Founders"];})(),aud:[],place:d.featured?"featured":(d.yorkseed?"spotlight":null),week:w?w.id:null,img:"ev"+(1+(id.charCodeAt(0)%8)),venue:d.venue||"",link:d.link||"",desc:d.desc||"",live:true});}
@@ -2446,6 +2522,13 @@ if(window.YS_STATIC){const J=f=>fetch(String(window.YS_STATIC).replace(/^1$/,"")
   J("events.json").then(a=>{a=Array.isArray(a)?a:(a&&a.events)||[];const seen=new Set(EVENTS.map(e=>(e.link||e.title)+"|"+e.date));let n=0;
     a.forEach((d,i)=>{if(!d||!d.hub||!d.date||!HUBS.some(h=>h.id===d.hub))return;const k=(d.link||d.title)+"|"+d.date;if(seen.has(k))return;seen.add(k);EVENTS.push(dbEvent((d.title||"e").slice(0,1)+i,d));n++;});if(n)rerenderAll();});
   J("banners.json").then(a=>{a=Array.isArray(a)?a:(a&&a.banners)||[];if(a.length){LIVE_BANNERS=a.map(b=>({...b,live:true}));rerenderAll();}});}
+loadSelfAds();
+(function adReturn(){const m=location.search.match(/[?&]ad=([a-f0-9]{24})/);if(!m)return;
+  try{history.replaceState(history.state,"",location.pathname+location.hash);}catch(e){}
+  let n=0;const poll=()=>fetch(ADS_API+"/status/"+m[1]).then(r=>r.json()).then(x=>{
+    if(x.status==="live"){const end=x.endAt?new Intl.DateTimeFormat("en-US",{month:"long",day:"numeric",year:"numeric"}).format(new Date(x.endAt)):"";toast(`Payment received. Your ad is live${x.hubName?" in "+x.hubName:""}${end?" until "+end:""}. A confirmation email is on its way.`);loadSelfAds();return;}
+    if(++n<10)setTimeout(poll,2000);else toast(`Payment received. Your ad will appear in a minute. Questions: ${YS_INBOX}`);}).catch(()=>{if(++n<10)setTimeout(poll,2000);});
+  poll();})();
 fetch(SUB_API+"/public").then(r=>r.ok?r.json():{events:[]}).then(x=>{const a=(x&&x.events)||[];const seen=new Set(EVENTS.map(e=>(e.link||e.title)+"|"+e.date));let n=0;
   a.forEach(d=>{if(!d||!d.hub||!d.date||!HUBS.some(h=>h.id===d.hub))return;const k=(d.link||d.title)+"|"+d.date;if(seen.has(k))return;seen.add(k);EVENTS.push(dbEvent(d.id,d));n++;});if(n)rerenderAll();}).catch(()=>{});
 (async()=>{try{
