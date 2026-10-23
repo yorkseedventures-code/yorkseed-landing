@@ -180,7 +180,7 @@ def finish(info, reg, hub):
         end = to_local(info["end"], tz) if info.get("end") else (None, None)
         return {"title": re.sub(r'\s*[|·-]\s*(Luma|Eventbrite|Meetup|Partiful)\s*$', '', info["title"]).strip(), "hub": hub, "date": date,
                 "start": start, "end": end[1] if end[0] == date else None, "venue": info.get("venue", ""), "host": info.get("host", ""),
-                "link": reg, "desc": info.get("desc", ""), "_photo": info.get("photo", "")}
+                "link": reg, "desc": info.get("desc", ""), "_photo": info.get("photo", ""), "_city": info.get("city", "")}
     except Exception: return None
 
 REPORT = []
@@ -213,13 +213,54 @@ def import_cities():
         if k in seen_l or (norm(r["title"]), r["date"]) in seen_t: continue
         seen_l.add(k); seen_t.add((norm(r["title"]), r["date"]))
         if r.get("_photo"): photos[r["link"]] = r["_photo"]
-        r.pop("_photo", None)
+        r.pop("_photo", None); r.pop("_city", None)
         if not r.get("desc"): r["desc"] = "Details and registration on the event page."
         events.append(r); added += 1
     json.dump(events, open(f"{REPO}/list/events.json", "w"), ensure_ascii=False, indent=1)
     json.dump([], open(pc_p, "w"))
     print(f"cities import: {added} new events from {len(jobs)} pages")
     REPORT.append({"cities_import_new_events": added, "jobs": len(jobs), "resolved": len(res), "by_hub": dict(__import__("collections").Counter(r["hub"] for r in res))})
+    return photos
+
+# ---------- 1d. queued candidate links (list/data/pending-links.json) ----------
+# Each item: {"url": organizer page (Luma, Eventbrite, Meetup...), "hub", "title", "date"} where title/date come from a
+# listing we saw elsewhere. The organizer's own data decides: an item is added only when the page's real date matches
+# "date", its title matches, and it is in the hub's city. Otherwise it is skipped and reported, never guessed.
+def _toks(t): return {w for w in re.findall(r'[a-z0-9]+', (t or "").lower()) if len(w) > 2 and w not in {"the", "and", "for", "with", "nyc", "new", "york"}}
+def import_links():
+    pl_p = f"{REPO}/list/data/pending-links.json"; items = load(pl_p, [])
+    if not items: return {}
+    hubs = load(f"{REPO}/list/data/master.json", {"hubs": []})["hubs"]
+    with ThreadPoolExecutor(3) as ex: res = list(ex.map(lambda it: (time.sleep(0.3), city_event((it["url"], it["hub"])))[1], items))
+    events = load(f"{REPO}/list/events.json", []); master = load(f"{REPO}/list/data/master.json", {"events": []})
+    norm = lambda s: re.sub(r'[^a-z0-9]+', '', (s or '').lower())[:40]
+    seen_l = {(e.get("link") or "").split("?")[0].rstrip("/") for e in events + master["events"]}
+    seen_t = {(norm(e.get("title")), e.get("date")) for e in events + master["events"]}
+    photos, added, keep, out = {}, 0, [], []
+    for it, r in zip(items, res):
+        why = ""
+        if not r: why = "could not read the page"
+        elif r["date"] != it["date"]: why = f"page date {r['date']} is not {it['date']}"
+        elif r["date"] < TODAY: why = "already happened"
+        else:
+            a, b = _toks(it.get("title")), _toks(r["title"])
+            if a and b and len(a & b) / min(len(a), len(b)) < 0.5: why = f"title differs: {r['title']}"
+            elif r.get("_city") and city_hub(r["_city"], "", hubs) not in (None, it["hub"]): why = f"city is {r['_city']}"
+        if why:
+            out.append({"url": it["url"], "title": it.get("title"), "skipped": why})
+            if not r and it["date"] >= TODAY: keep.append(it)          # page didn't load: try again next run
+            continue
+        k = r["link"].split("?")[0].rstrip("/")
+        if k in seen_l or (norm(r["title"]), r["date"]) in seen_t: out.append({"url": it["url"], "skipped": "already on the List"}); continue
+        seen_l.add(k); seen_t.add((norm(r["title"]), r["date"]))
+        if r.get("_photo"): photos[r["link"]] = r["_photo"]
+        r.pop("_photo", None); r.pop("_city", None)
+        if not r.get("desc"): r["desc"] = "Details and registration on the event page."
+        events.append(r); added += 1; out.append({"url": it["url"], "added": r["title"], "date": r["date"]})
+    json.dump(events, open(f"{REPO}/list/events.json", "w"), ensure_ascii=False, indent=1)
+    json.dump(keep, open(pl_p, "w"), ensure_ascii=False, indent=1)
+    print(f"links import: {added} added of {len(items)} queued, {len(keep)} kept for retry")
+    REPORT.append({"links_import": out, "added": added})
     return photos
 
 # ---------- 1c. daily sources: Luma discover categories (list/data/sources.json) ----------
@@ -347,7 +388,7 @@ def refresh_photos(seed):
 
 if __name__ == "__main__":
     seed = {}
-    for step in (import_pending, import_cities, import_sources):
+    for step in (import_pending, import_cities, import_links, import_sources):
         try: seed.update(step() or {})
         except Exception as ex: print(f"{step.__name__} failed: {ex}")
     try: fill_luma_descriptions()
