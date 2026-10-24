@@ -27,4 +27,5 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
           git add list/events.json list/data
           git commit -m "List preview import $(date -u +%Y-%m-%dT%H:%MZ)" || exit 0
-          git push
+          for i in 1 2 3; do git pull --rebase -q origin list-seo-nyc && git push && exit 0; git rebase --abort 2>/dev/null; sleep 5; done
+          echo "push failed"; exit 1
