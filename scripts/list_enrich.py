@@ -363,6 +363,70 @@ def import_luma_calendars():
     REPORT.append({"source": "luma calendars", "known": len(known), "added": added})
     return photos
 
+# ---------- 1f. foundercal public API (free, no key; their terms ask for a credit link, shown on city pages) ----------
+FC_HUB = {"sf": "sf", "nyc": "nyc", "la": "la", "dc": "dc", "bangalore": "blr", "delhi": "del", "dubai": "dxb", "sao-paulo": "sao", "hong-kong": "hkg",
+          "mexico-city": "mex", "tel-aviv": "tlv", "kuala-lumpur": "kul", "ho-chi-minh-city": "sgn", "denver": "den", "las-vegas": "lvs", "portland": "pdx",
+          "pune": "pnq", "chennai": "maa", "budapest": "bud", "kyiv": "iev", "belgrade": "beg", "san-diego": "sdg"}
+FC_TYPE = {"conference": "Conferences", "demo_day": "Demo Days", "hackathon": "Hackathons", "pitch": "Pitch", "workshop": "Workshops", "dinner": "Communal Dining", "meetup": "Meetups"}
+class _NoRedirect(__import__("urllib.request").request.HTTPRedirectHandler):
+    def redirect_request(self, *a, **k): return None
+def import_foundercal():
+    import urllib.request as ur
+    get = lambda u: json.loads(urlopen(Request(u, headers={**UA, "Accept": "application/json"}), timeout=30).read().decode("utf-8", "ignore"))
+    try: slugs = [c if isinstance(c, str) else (c.get("slug") or c.get("id")) for c in get("https://foundercal.com/api/events.json").get("valid_cities") or []]
+    except Exception as ex: print(f"foundercal: discovery failed ({ex})"); return {}
+    master = load(f"{REPO}/list/data/master.json", {"events": [], "hubs": []}); hubs = master["hubs"]; hub_ids = {h["id"] for h in hubs}
+    events = load(f"{REPO}/list/events.json", [])
+    norm = lambda s: re.sub(r'[^a-z0-9]+', '', (s or '').lower())[:40]
+    canon = lambda u: re.sub(r'^https?://(www\.)?lu\.ma/', 'https://luma.com/', (u or '').split("?")[0].rstrip("/"))
+    seen_l = {canon(e.get("link")) for e in events + master["events"] if e.get("link")}
+    seen_t = {(norm(e.get("title")), e.get("date")) for e in events + master["events"]}
+    rp = f"{REPO}/list/data/foundercal-links.json"; resolved = load(rp, {})        # foundercal /out/ id -> organizer URL (resolved once)
+    opener = ur.build_opener(_NoRedirect)
+    def real(u):
+        if not u or "foundercal.com/out/" not in u: return u
+        k = u.split("/out/")[1].split("?")[0]
+        if k in resolved: return resolved[k]
+        loc = ""
+        try: opener.open(Request(u, headers=UA, method="HEAD"), timeout=15)
+        except Exception as ex: loc = (getattr(ex, "headers", None) or {}).get("Location") or ""
+        resolved[k] = loc if loc.startswith("http") and "foundercal.com" not in loc else ""; time.sleep(0.25)
+        return resolved[k]
+    horizon = (dt.date.today() + dt.timedelta(days=120)).isoformat(); added, seen_n = 0, 0
+    for slug in [s for s in slugs if s]:
+        hub = FC_HUB.get(slug) or city_hub(slug.replace("-", " "), "", hubs)
+        if hub not in hub_ids: continue
+        rows = []
+        try:
+            d = get(f"https://foundercal.com/api/events.json?city={slug}&limit=200"); rows = d.get("events") or []
+            if len(rows) >= 200:                                     # busy city: also ask per type to get past the 200 cap
+                for ty in FC_TYPE:
+                    try: rows += get(f"https://foundercal.com/api/events.json?city={slug}&type={ty}&limit=200").get("events") or []
+                    except Exception: pass
+                    time.sleep(0.5)
+        except Exception as ex: print(f"foundercal {slug}: {ex}"); continue
+        kept = 0; tz = hub_tz(hub)
+        for e in rows:
+            if not e.get("title") or not e.get("start_at"): continue
+            seen_n += 1
+            date, st = to_local(e["start_at"], tz); ed, et = to_local(e["end_at"], tz) if e.get("end_at") else (None, None)
+            if not date or date < TODAY or date > horizon: continue
+            title = re.sub(r"\s+", " ", e["title"]).strip()
+            if (norm(title), date) in seen_t: continue
+            link = canon(real(e.get("register_url")))
+            if not link: continue                                   # no organizer page we can link to directly
+            if link in seen_l: continue
+            events.append({"title": title[:200], "hub": hub, "date": date, "start": st, "end": et if ed == date else None,
+                           "venue": (e.get("venue") or "")[:200], "host": (e.get("organizer") or "")[:120], "link": link,
+                           **({"type": FC_TYPE[e["type"]]} if e.get("type") in FC_TYPE else {}),
+                           "desc": "Details and registration on the event page.", "src": "foundercal"})
+            seen_l.add(link); seen_t.add((norm(title), date)); kept += 1
+        added += kept; print(f"foundercal {slug}: {len(rows)} listed, {kept} new"); time.sleep(0.5)
+    json.dump(resolved, open(rp, "w"), indent=0)
+    json.dump(events, open(f"{REPO}/list/events.json", "w"), ensure_ascii=False, indent=1)
+    print(f"foundercal: {seen_n} events read, {added} new"); REPORT.append({"source": "foundercal", "read": seen_n, "added": added})
+    return {}
+
 # ---------- 1d. TechMeetups.io public API (free, no key, 60 requests/min): tech meetups by city ----------
 # We keep only facts (title, date, venue, organizer) and link to the organizer's own registration page.
 def import_techmeetups():
@@ -573,7 +637,7 @@ def refresh_photos(seed):
 
 if __name__ == "__main__":
     seed = {}
-    for step in (import_pending, import_cities, import_links, import_submissions, import_sources, import_luma_calendars, import_techmeetups):
+    for step in (import_pending, import_cities, import_links, import_submissions, import_sources, import_luma_calendars, import_foundercal, import_techmeetups):
         try: seed.update(step() or {})
         except Exception as ex: print(f"{step.__name__} failed: {ex}")
     try: fill_luma_descriptions()

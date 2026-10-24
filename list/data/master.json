@@ -649,6 +649,62 @@
    "country": "India",
    "region": "",
    "img": ""
+  },
+  {
+   "id": "lvs",
+   "name": "Las Vegas",
+   "tz": "America/Los_Angeles",
+   "country": "United States",
+   "region": "",
+   "img": ""
+  },
+  {
+   "id": "pdx",
+   "name": "Portland",
+   "tz": "America/Los_Angeles",
+   "country": "United States",
+   "region": "",
+   "img": ""
+  },
+  {
+   "id": "pnq",
+   "name": "Pune",
+   "tz": "Asia/Kolkata",
+   "country": "India",
+   "region": "",
+   "img": ""
+  },
+  {
+   "id": "maa",
+   "name": "Chennai",
+   "tz": "Asia/Kolkata",
+   "country": "India",
+   "region": "",
+   "img": ""
+  },
+  {
+   "id": "bud",
+   "name": "Budapest",
+   "tz": "Europe/Budapest",
+   "country": "Hungary",
+   "region": "",
+   "img": ""
+  },
+  {
+   "id": "iev",
+   "name": "Kyiv",
+   "tz": "Europe/Kiev",
+   "country": "Ukraine",
+   "region": "",
+   "img": ""
+  },
+  {
+   "id": "beg",
+   "name": "Belgrade",
+   "tz": "Europe/Belgrade",
+   "country": "Serbia",
+   "region": "",
+   "img": ""
   }
  ],
  "weeks": [

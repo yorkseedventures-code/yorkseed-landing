@@ -265,6 +265,7 @@ for h in hubs.values():
 {local_block(h["id"], n)}
 <h2>Questions</h2>
 {fh}
+<p style="margin-top:22px;font-size:13px;color:var(--ink4)">Events come from organizers who list with us, Luma community calendars and <a href="https://foundercal.com" rel="noopener" style="color:inherit">foundercal</a>.</p>
 {f'<p style="margin-top:28px">Looking for the people behind these events? See the <a href="{SITE}{h["community"]}" style="color:var(--red)">best startup communities in {e_(city)}</a>.</p>' if h["community"] else ''}
 <h2>Startup events in other cities</h2>
 {city_grid(h['id'])}
