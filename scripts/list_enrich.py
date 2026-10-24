@@ -8,7 +8,7 @@
 """
 import json, os, re, html, datetime as dt
 from urllib.request import Request, urlopen
-from urllib.parse import urlsplit, urlunsplit, parse_qsl, urlencode, urljoin
+from urllib.parse import parse_qs, urlsplit, urlunsplit, parse_qsl, urlencode, urljoin
 from concurrent.futures import ThreadPoolExecutor
 
 REPO = os.environ.get("YS_REPO", ".")
@@ -289,6 +289,64 @@ def import_submissions():
     print(f"submissions: {added} approved events copied into events.json, {len(covers)} with an uploaded cover")
     return covers
 
+# a Luma city feed ("luma_place") mixes everything (run clubs, screenings...), so keep only events whose title reads startup/tech
+TECH = re.compile(r"\b(start-?ups?|founders?|co-?founders?|vcs?|venture|investors?|investing|angels?|pitch(es|ing)?|demo ?day|accelerator|incubator|"
+    r"ai|genai|llms?|agents?|agentic|machine learning|ml|data|tech|technology|developers?|devs?|engineers?|engineering|hack(athon|night)s?|buildathon|"
+    r"builders?|product|pms?|saas|fintech|crypto|web3|blockchain|defi|climate ?tech|healthtech|biotech|deep ?tech|robotics|quantum|cyber(security)?|cloud|"
+    r"open[- ]source|coding|code|software|b2b|gtm|go-to-market|growth|operators?|entrepreneurs?|entrepreneurship|scale-?ups?|innovation|fundrais\w*|"
+    r"api|devrel|ux|ui|design ?systems?|python|javascript|rust|kubernetes|openai|anthropic|nvidia|google|microsoft|aws)\b", re.I)
+NOT = re.compile(r"\b(dating|singles|speed ?dating|yoga|meditation|rave|comedy|stand-?up|karaoke|wine tasting|sound bath)\b", re.I)
+CALS = {}   # Luma calendars seen hosting tech events this run: api_id -> name
+
+# ---------- 1e. Luma community calendars (AI Tinkerers, GenAI Collective...) found hosting tech events ----------
+# Each run adds the calendars it saw to list/data/luma-calendars.json, then pulls every upcoming event from all of them.
+def import_luma_calendars():
+    p = f"{REPO}/list/data/luma-calendars.json"; known = load(p, {})
+    for k, v in CALS.items(): known.setdefault(k, {"name": v, "first": TODAY}); known[k]["last"] = TODAY
+    master = load(f"{REPO}/list/data/master.json", {"events": [], "hubs": []}); hubs = master["hubs"]
+    events = load(f"{REPO}/list/events.json", [])
+    norm = lambda s: re.sub(r'[^a-z0-9]+', '', (s or '').lower())[:40]
+    seen_l = {(e.get("link") or "").split("?")[0].rstrip("/") for e in events + master["events"]}
+    seen_t = {(norm(e.get("title")), e.get("date")) for e in events + master["events"]}
+    horizon = (dt.date.today() + dt.timedelta(days=120)).isoformat()
+    photos, added, ok, failed = {}, 0, 0, 0
+    order = sorted(known, key=lambda k: known[k].get("last", ""), reverse=True)[:600]
+    for cid in order:
+        cursor, pages, kept = None, 0, 0
+        while pages < 6:
+            q = f"https://api.lu.ma/calendar/get-items?calendar_api_id={cid}&period=future&pagination_limit=25" + (f"&pagination_cursor={cursor}" if cursor else "")
+            try:
+                r = urlopen(Request(q, headers={**UA, "Accept": "application/json"}), timeout=20); d = json.loads(r.read().decode("utf-8", "ignore"))
+            except Exception as ex:
+                if getattr(ex, "code", 0) in (429, 403): time.sleep(30); failed += 1
+                break
+            pages += 1
+            for en in d.get("entries") or []:
+                e = en.get("event") or {}; g = e.get("geo_address_info") or {}
+                if not e.get("name") or not e.get("start_at") or not e.get("url"): continue
+                if e.get("location_type") == "online" or not TECH.search(e["name"]) or NOT.search(e["name"]): continue
+                hub = city_hub(g.get("city"), g.get("country"), hubs)
+                if not hub: continue
+                date, start = to_local(e["start_at"], hub_tz(hub))
+                if not date or date < TODAY or date > horizon: continue
+                link = "https://luma.com/" + e["url"]
+                if link in seen_l or (norm(e["name"]), date) in seen_t: continue
+                ed, et = to_local(e["end_at"], hub_tz(hub)) if e.get("end_at") else (None, None)
+                venue = (g.get("sublocality") if g.get("mode") == "obfuscated" else (g.get("address") or "")) or ""
+                host = known[cid].get("name") or " & ".join([h.get("name") for h in (en.get("hosts") or []) if h.get("name")][:2])
+                events.append({"title": e["name"].strip(), "hub": hub, "date": date, "start": start, "end": et if ed == date else None,
+                               "venue": venue, "host": host, "link": link, "desc": "Details and registration on the event page.", "src": "luma-cal"})
+                if e.get("cover_url"): photos[link] = e["cover_url"]
+                seen_l.add(link); seen_t.add((norm(e["name"]), date)); kept += 1
+            if not d.get("has_more") or not d.get("next_cursor"): break
+            cursor = d["next_cursor"]; time.sleep(0.6)
+        ok += 1; added += kept; time.sleep(0.6)
+    json.dump(known, open(p, "w"), ensure_ascii=False, indent=0)
+    json.dump(events, open(f"{REPO}/list/events.json", "w"), ensure_ascii=False, indent=1)
+    print(f"luma calendars: {len(known)} known ({len(CALS)} seen this run), {ok} checked, {failed} rate-limited, {added} new events")
+    REPORT.append({"source": "luma calendars", "known": len(known), "added": added})
+    return photos
+
 # ---------- 1d. TechMeetups.io public API (free, no key, 60 requests/min): tech meetups by city ----------
 # We keep only facts (title, date, venue, organizer) and link to the organizer's own registration page.
 def import_techmeetups():
@@ -376,23 +434,23 @@ def import_sources():
     seen_t = {(norm(e.get("title")), e.get("date")) for e in events + master["events"]}
     horizon = (dt.date.today() + dt.timedelta(days=120)).isoformat()
     photos, added = {}, 0
-    # a Luma city feed ("luma_place") mixes everything (run clubs, screenings...), so keep only events whose title reads startup/tech
-    TECH = re.compile(r"\b(start-?ups?|founders?|co-?founders?|vcs?|venture|investors?|investing|angels?|pitch(es|ing)?|demo ?day|accelerator|incubator|"
-        r"ai|genai|llms?|agents?|agentic|machine learning|ml|data|tech|technology|developers?|devs?|engineers?|engineering|hack(athon|night)s?|buildathon|"
-        r"builders?|product|pms?|saas|fintech|crypto|web3|blockchain|defi|climate ?tech|healthtech|biotech|deep ?tech|robotics|quantum|cyber(security)?|cloud|"
-        r"open[- ]source|coding|code|software|b2b|gtm|go-to-market|growth|operators?|entrepreneurs?|entrepreneurship|scale-?ups?|innovation|fundrais\w*|"
-        r"api|devrel|ux|ui|design ?systems?|python|javascript|rust|kubernetes|openai|anthropic|nvidia|google|microsoft|aws)\b", re.I)
-    NOT = re.compile(r"\b(dating|singles|speed ?dating|yoga|meditation|rave|comedy|stand-?up|karaoke|wine tasting|sound bath)\b", re.I)
     feeds = []
     for src in srcs:
         if src.get("type") == "luma_category":
             feeds.append((src["id"], f"category_api_id={src['id']}", None, int(src.get("max_pages", 60))))
         elif src.get("type") == "luma_place":
             for slug, hub_id in src.get("places", {}).items():
-                try:
-                    r = urlopen(Request(f"https://api.lu.ma/url?url={slug}", headers={**UA, "Accept": "application/json"}), timeout=20)
-                    pid = ((json.loads(r.read().decode("utf-8", "ignore")).get("data") or {}).get("place") or {}).get("api_id")
-                except Exception as ex: pid = None; print(f"place {slug}: lookup failed ({ex})")
+                pid, s2 = None, slug
+                for _ in range(3):                                  # Luma answers 301 when a city's address moved; follow it
+                    try:
+                        r = urlopen(Request(f"https://api.lu.ma/url?url={s2}", headers={**UA, "Accept": "application/json"}), timeout=20)
+                        pid = ((json.loads(r.read().decode("utf-8", "ignore")).get("data") or {}).get("place") or {}).get("api_id"); break
+                    except Exception as ex:
+                        loc = getattr(ex, "headers", {}) and ex.headers.get("Location")
+                        if getattr(ex, "code", 0) in (301, 302, 307, 308) and loc:
+                            q2 = parse_qs(urlsplit(loc).query).get("url")
+                            s2 = q2[0] if q2 else urlsplit(loc).path.strip("/").split("/")[-1]; continue
+                        print(f"place {slug}: lookup failed ({ex})"); break
                 if pid: feeds.append((f"place:{slug}", f"discover_place_api_id={pid}", hub_id, int(src.get("max_pages", 20))))
                 else: REPORT.append({"source": f"luma place {slug}", "hub": hub_id, "error": "place not found"})
                 time.sleep(0.3)
@@ -417,6 +475,9 @@ def import_sources():
                 if place_hub and (not TECH.search(e["name"]) or NOT.search(e["name"])): continue
                 hub = city_hub(g.get("city"), g.get("country"), hubs) or place_hub
                 if not hub: continue
+                cal = en.get("calendar") or {}
+                if cal.get("api_id") and (cal.get("name") or "").strip().lower() != "personal" and TECH.search(e["name"]):
+                    CALS[cal["api_id"]] = cal.get("name") or ""
                 tz = hub_tz(hub) if hub != "virtual" else "America/New_York"
                 date, start = to_local(e["start_at"], tz)
                 if not date or date < TODAY or date > horizon: continue
@@ -496,7 +557,7 @@ def refresh_photos(seed):
 
 if __name__ == "__main__":
     seed = {}
-    for step in (import_pending, import_cities, import_links, import_submissions, import_sources, import_techmeetups):
+    for step in (import_pending, import_cities, import_links, import_submissions, import_sources, import_luma_calendars, import_techmeetups):
         try: seed.update(step() or {})
         except Exception as ex: print(f"{step.__name__} failed: {ex}")
     try: fill_luma_descriptions()
