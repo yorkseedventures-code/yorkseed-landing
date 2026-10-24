@@ -1,0 +1,57 @@
+links import: 1 added of 5 queued, 4 kept for retry
+submissions: 0 approved events copied into events.json, 0 with an uploaded cover
+place sao-paulo: lookup failed (HTTP Error 404: Not Found)
+place hong-kong: lookup failed (HTTP Error 404: Not Found)
+source cat-tech: 1 pages, 0 in-person events seen, 0 new added
+source place:nyc: 2 pages, 81 in-person events seen, 16 new added
+source place:sf: 2 pages, 62 in-person events seen, 10 new added
+source place:london: 2 pages, 52 in-person events seen, 17 new added
+source place:paris: 1 pages, 21 in-person events seen, 6 new added
+source place:berlin: 1 pages, 44 in-person events seen, 17 new added
+source place:munich: 1 pages, 11 in-person events seen, 1 new added
+source place:amsterdam: 1 pages, 29 in-person events seen, 4 new added
+source place:barcelona: 1 pages, 29 in-person events seen, 2 new added
+source place:madrid: 1 pages, 17 in-person events seen, 2 new added
+source place:lisbon: 1 pages, 32 in-person events seen, 2 new added
+source place:milan: 1 pages, 13 in-person events seen, 0 new added
+source place:zurich: 1 pages, 19 in-person events seen, 3 new added
+source place:stockholm: 1 pages, 21 in-person events seen, 8 new added
+source place:copenhagen: 1 pages, 16 in-person events seen, 3 new added
+source place:helsinki: 1 pages, 21 in-person events seen, 6 new added
+source place:dublin: 1 pages, 9 in-person events seen, 3 new added
+source place:warsaw: 1 pages, 23 in-person events seen, 13 new added
+source place:toronto: 1 pages, 35 in-person events seen, 5 new added
+source place:montreal: 1 pages, 18 in-person events seen, 4 new added
+source place:vancouver: 1 pages, 26 in-person events seen, 1 new added
+source place:la: 1 pages, 40 in-person events seen, 5 new added
+source place:boston: 1 pages, 43 in-person events seen, 24 new added
+source place:chicago: 1 pages, 17 in-person events seen, 2 new added
+source place:miami: 1 pages, 12 in-person events seen, 2 new added
+source place:austin: 1 pages, 18 in-person events seen, 4 new added
+source place:seattle: 1 pages, 26 in-person events seen, 11 new added
+source place:dc: 1 pages, 19 in-person events seen, 5 new added
+source place:denver: 1 pages, 10 in-person events seen, 0 new added
+source place:philadelphia: 1 pages, 21 in-person events seen, 2 new added
+source place:mexico-city: 2 pages, 51 in-person events seen, 30 new added
+source place:buenos-aires: 1 pages, 12 in-person events seen, 2 new added
+source place:tel-aviv: 1 pages, 24 in-person events seen, 15 new added
+source place:dubai: 1 pages, 12 in-person events seen, 3 new added
+source place:singapore: 1 pages, 28 in-person events seen, 6 new added
+source place:tokyo: 1 pages, 36 in-person events seen, 6 new added
+source place:seoul: 1 pages, 12 in-person events seen, 3 new added
+source place:taipei: 1 pages, 11 in-person events seen, 2 new added
+source place:bangkok: 1 pages, 12 in-person events seen, 0 new added
+source place:jakarta: 1 pages, 4 in-person events seen, 0 new added
+source place:kuala-lumpur: 1 pages, 11 in-person events seen, 3 new added
+source place:bengaluru: 1 pages, 22 in-person events seen, 11 new added
+source place:mumbai: 1 pages, 19 in-person events seen, 3 new added
+source place:sydney: 1 pages, 12 in-person events seen, 2 new added
+source place:melbourne: 1 pages, 15 in-person events seen, 3 new added
+source place:nairobi: stopped (HTTP Error 403: Forbidden)
+source place:nairobi: 0 pages, 0 in-person events seen, 0 new added
+source place:lagos: stopped (HTTP Error 403: Forbidden)
+source place:lagos: 0 pages, 0 in-person events seen, 0 new added
+techmeetups den: 67 found, 62 new
+techmeetups: 62 new events, 52 API calls
+descriptions: filled 22 of 250
+photos: 1881 of 1953 events have a real photo (198 checked)
