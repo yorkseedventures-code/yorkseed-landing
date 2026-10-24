@@ -289,6 +289,61 @@ def import_submissions():
     print(f"submissions: {added} approved events copied into events.json, {len(covers)} with an uploaded cover")
     return covers
 
+# ---------- 1d. TechMeetups.io public API (free, no key, 60 requests/min): tech meetups by city ----------
+# We keep only facts (title, date, venue, organizer) and link to the organizer's own registration page.
+def import_techmeetups():
+    try: ll = re.search(r"HUB_LL=\{(.*?)\}", open(f"{REPO}/list/index.html", encoding="utf-8").read(), re.S).group(1)
+    except Exception: print("techmeetups: no hub coordinates"); return {}
+    coords = {k: (float(a), float(b)) for k, a, b in re.findall(r"(\w+):\[(-?[\d.]+),(-?[\d.]+)\]", ll)}
+    master = load(f"{REPO}/list/data/master.json", {"events": [], "hubs": []}); hubs = {h["id"] for h in master["hubs"]}
+    events = load(f"{REPO}/list/events.json", [])
+    norm = lambda s: re.sub(r'[^a-z0-9]+', '', (s or '').lower())[:40]
+    canon = lambda u: re.sub(r'^https?://(www\.)?lu\.ma/', 'https://luma.com/', (u or '').split("?")[0].rstrip("/"))
+    seen_l = {canon(e.get("link")) for e in events + master["events"] if e.get("link")}
+    seen_t = {(norm(e.get("title")), e.get("date")) for e in events + master["events"]}
+    calls = [0]
+    def search(lat, lng, d0, d1):
+        if calls[0] and calls[0] % 55 == 0: time.sleep(62)                 # stay under 60 requests a minute
+        calls[0] += 1
+        q = f"https://techmeetups.io/api/v1/events/search?lat={lat}&lng={lng}&radius_km=45&limit=50&date_from={d0}&date_to={d1}"
+        for _ in range(3):
+            try:
+                r = urlopen(Request(q, headers={**UA, "Accept": "application/json"}), timeout=25); return json.loads(r.read().decode("utf-8", "ignore"))
+            except Exception as ex:
+                if getattr(ex, "code", 0) == 429: time.sleep(65); continue
+                print(f"techmeetups: {ex}"); return None
+        return None
+    def window(lat, lng, d0, d1, out):                                     # the API returns at most 50, so split busy ranges in half
+        d = search(lat, lng, d0.isoformat(), d1.isoformat())
+        if not d: return
+        if d.get("total_matches", 0) > 50 and d1 > d0:
+            mid = d0 + (d1 - d0) // 2; window(lat, lng, d0, mid, out); window(lat, lng, mid + dt.timedelta(days=1), d1, out)
+        else: out.extend(d.get("results") or [])
+    start, end = dt.date.today(), dt.date.today() + dt.timedelta(days=90)
+    added = 0
+    for hub, (lat, lng) in coords.items():
+        if hub not in hubs or hub == "virtual": continue
+        found = []; window(lat, lng, start, end, found)
+        kept = 0; tz = hub_tz(hub)
+        for e in found:
+            link = canon(e.get("registration_url"))
+            if not e.get("title") or not e.get("start_time") or not re.match(r"https?://", link): continue
+            if e.get("status") not in (None, "upcoming", "sold_out") or e.get("attendance_mode") == "online": continue
+            date, st = to_local(e["start_time"], tz); ed, et = to_local(e["end_time"], tz) if e.get("end_time") else (None, None)
+            if not date or date < TODAY: continue
+            title = re.sub(r"\s+", " ", e["title"]).strip()
+            if link in seen_l or (norm(title), date) in seen_t: continue
+            v = e.get("venue") or {}; org = e.get("organizer") or {}
+            venue = ", ".join(x for x in [v.get("name"), v.get("address")] if x and x.lower() not in ("online", "tba"))[:200]
+            events.append({"title": title[:200], "hub": hub, "date": date, "start": st, "end": et if ed == date else None, "venue": venue,
+                           "host": (org.get("name") or "")[:120], "link": link, "desc": "Details and registration on the event page.", "src": "techmeetups"})
+            seen_l.add(link); seen_t.add((norm(title), date)); kept += 1
+        if found: print(f"techmeetups {hub}: {len(found)} found, {kept} new"); REPORT.append({"source": "techmeetups.io", "hub": hub, "found": len(found), "added": kept})
+        added += kept
+    json.dump(events, open(f"{REPO}/list/events.json", "w"), ensure_ascii=False, indent=1)
+    print(f"techmeetups: {added} new events, {calls[0]} API calls")
+    return {}
+
 # ---------- 1c. daily sources: Luma discover categories (list/data/sources.json) ----------
 CITY_ALIAS = {"san francisco": "sf", "oakland": "sf", "berkeley": "sf", "palo alto": "sf", "mountain view": "sf", "san jose": "sf",
     "menlo park": "sf", "sunnyvale": "sf", "santa clara": "sf", "redwood city": "sf", "san mateo": "sf", "cupertino": "sf", "south san francisco": "sf",
@@ -436,7 +491,7 @@ def refresh_photos(seed):
 
 if __name__ == "__main__":
     seed = {}
-    for step in (import_pending, import_cities, import_links, import_submissions, import_sources):
+    for step in (import_pending, import_cities, import_links, import_submissions, import_sources, import_techmeetups):
         try: seed.update(step() or {})
         except Exception as ex: print(f"{step.__name__} failed: {ex}")
     try: fill_luma_descriptions()
