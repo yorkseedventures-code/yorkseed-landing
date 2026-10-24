@@ -35,7 +35,7 @@
    "source": "place:nyc",
    "hub": "nyc",
    "pages": 5,
-   "seen": 81,
+   "seen": 80,
    "added": 0
   },
   {
@@ -481,8 +481,13 @@
   },
   {
    "source": "luma calendars",
-   "known": 421,
-   "added": 275
+   "known": 432,
+   "added": 55
+  },
+  {
+   "source": "foundercal",
+   "read": 3513,
+   "added": 1783
   },
   {
    "source": "techmeetups.io",

@@ -1,20 +1,20 @@
 links import: 0 added of 4 queued, 4 kept for retry
 submissions: 0 approved events copied into events.json, 0 with an uploaded cover
   cat-tech page 1: 25 entries, has_more=True, cursor=yes
-  cat-tech page 2: 25 entries, has_more=True, cursor=yes
-source cat-tech: 34 pages, 790 in-person events seen, 126 new added
+  cat-tech page 2: 21 entries, has_more=True, cursor=yes
+source cat-tech: 5 pages, 91 in-person events seen, 0 new added
   cat-climate page 1: 25 entries, has_more=True, cursor=yes
-  cat-climate page 2: 25 entries, has_more=True, cursor=yes
-source cat-climate: 34 pages, 790 in-person events seen, 0 new added
+  cat-climate page 2: 21 entries, has_more=True, cursor=yes
+source cat-climate: 5 pages, 91 in-person events seen, 0 new added
   cat-crypto page 1: 25 entries, has_more=True, cursor=yes
-  cat-crypto page 2: 25 entries, has_more=True, cursor=yes
-source cat-crypto: 34 pages, 790 in-person events seen, 0 new added
+  cat-crypto page 2: 21 entries, has_more=True, cursor=yes
+source cat-crypto: 5 pages, 91 in-person events seen, 0 new added
   cat-ai page 1: 25 entries, has_more=True, cursor=yes
-  cat-ai page 2: 25 entries, has_more=True, cursor=yes
-source cat-ai: 34 pages, 790 in-person events seen, 0 new added
+  cat-ai page 2: 21 entries, has_more=True, cursor=yes
+source cat-ai: 5 pages, 91 in-person events seen, 0 new added
   place:nyc page 1: 25 entries, has_more=True, cursor=yes
   place:nyc page 2: 25 entries, has_more=True, cursor=yes
-source place:nyc: 5 pages, 81 in-person events seen, 0 new added
+source place:nyc: 5 pages, 80 in-person events seen, 0 new added
   place:sf page 1: 25 entries, has_more=True, cursor=yes
   place:sf page 2: 25 entries, has_more=True, cursor=yes
 source place:sf: 4 pages, 62 in-person events seen, 0 new added
@@ -204,8 +204,72 @@ source place:hongkong: 2 pages, 12 in-person events seen, 0 new added
   place:saopaulo page 1: 10 entries, has_more=False, cursor=yes
   place:saopaulo page 2: 0 entries, has_more=False, cursor=no
 source place:saopaulo: 2 pages, 10 in-person events seen, 0 new added
-luma calendars: 421 known (360 seen this run), 421 checked, 0 rate-limited, 275 new events
+luma calendars: 432 known (204 seen this run), 432 checked, 0 rate-limited, 55 new events
+foundercal berlin: 420 listed, 143 new
+foundercal sf: 179 listed, 64 new
+foundercal london: 157 listed, 97 new
+foundercal nyc: 151 listed, 37 new
+foundercal seattle: 111 listed, 23 new
+foundercal zurich: 111 listed, 82 new
+foundercal singapore: 107 listed, 45 new
+foundercal atlanta: 105 listed, 92 new
+foundercal lisbon: 97 listed, 36 new
+foundercal munich: 85 listed, 58 new
+foundercal austin: 81 listed, 24 new
+foundercal amsterdam: 77 listed, 36 new
+foundercal boston: 75 listed, 31 new
+foundercal denver: 75 listed, 18 new
+foundercal houston: 71 listed, 32 new
+foundercal vienna: 68 listed, 57 new
+foundercal barcelona: 67 listed, 23 new
+foundercal toronto: 65 listed, 41 new
+foundercal mexico-city: 65 listed, 30 new
+foundercal sydney: 63 listed, 49 new
+foundercal bangalore: 62 listed, 29 new
+foundercal tokyo: 62 listed, 36 new
+foundercal vancouver: 60 listed, 40 new
+foundercal paris: 59 listed, 32 new
+foundercal mumbai: 59 listed, 27 new
+foundercal chicago: 54 listed, 35 new
+foundercal tel-aviv: 53 listed, 21 new
+foundercal helsinki: 51 listed, 29 new
+foundercal miami: 49 listed, 22 new
+foundercal madrid: 44 listed, 29 new
+foundercal san-diego: 42 listed, 27 new
+foundercal la: 41 listed, 19 new
+foundercal brussels: 38 listed, 32 new
+foundercal warsaw: 37 listed, 24 new
+foundercal copenhagen: 36 listed, 22 new
+foundercal stockholm: 35 listed, 14 new
+foundercal nairobi: 35 listed, 27 new
+foundercal dubai: 34 listed, 16 new
+foundercal kuala-lumpur: 29 listed, 23 new
+foundercal prague: 29 listed, 18 new
+foundercal istanbul: 28 listed, 19 new
+foundercal dc: 25 listed, 15 new
+foundercal taipei: 25 listed, 19 new
+foundercal las-vegas: 25 listed, 21 new
+foundercal hong-kong: 23 listed, 11 new
+foundercal milan: 23 listed, 10 new
+foundercal sao-paulo: 19 listed, 9 new
+foundercal dublin: 19 listed, 12 new
+foundercal seoul: 19 listed, 8 new
+foundercal delhi: 18 listed, 11 new
+foundercal hyderabad: 16 listed, 16 new
+foundercal buenos-aires: 16 listed, 7 new
+foundercal portland: 16 listed, 14 new
+foundercal oslo: 16 listed, 4 new
+foundercal pune: 13 listed, 11 new
+foundercal manila: 12 listed, 9 new
+foundercal budapest: 12 listed, 9 new
+foundercal kyiv: 12 listed, 10 new
+foundercal bangkok: 9 listed, 7 new
+foundercal belgrade: 8 listed, 8 new
+foundercal jakarta: 8 listed, 5 new
+foundercal ho-chi-minh-city: 6 listed, 4 new
+foundercal chennai: 6 listed, 4 new
+foundercal: 3513 events read, 1783 new
 techmeetups den: 67 found, 0 new
-techmeetups: 0 new events, 82 API calls
-descriptions: filled 75 of 250
-photos: 2684 of 2770 events have a real photo (1 checked)
+techmeetups: 0 new events, 89 API calls
+descriptions: filled 74 of 250
+photos: 3150 of 3424 events have a real photo (600 checked)
