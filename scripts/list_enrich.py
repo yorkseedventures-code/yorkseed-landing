@@ -352,7 +352,10 @@ CITY_ALIAS = {"san francisco": "sf", "oakland": "sf", "berkeley": "sf", "palo al
     "boulder": "den", "cambridge|united states": "bos", "somerville": "bos", "santa monica": "la", "culver city": "la", "pasadena": "la",
     "venice": "la", "bangalore": "blr", "bengaluru": "blr", "mumbai": "bom", "navi mumbai": "bom", "tel aviv yafo": "tlv", "tel aviv": "tlv",
     "kowloon": "hkg", "shibuya": "tyo", "minato city": "tyo", "chiyoda city": "tyo", "shinjuku city": "tyo", "bellevue": "sea", "redmond": "sea",
-    "kirkland": "sea", "vancouver|canada": "yvr", "burnaby": "yvr", "espoo": "hel", "london|united kingdom": "ldn", "ciudad de mexico": "mex", "mexico city": "mex"}
+    "kirkland": "sea", "vancouver|canada": "yvr", "burnaby": "yvr", "espoo": "hel", "london|united kingdom": "ldn", "ciudad de mexico": "mex", "mexico city": "mex",
+    "delhi": "del", "gurugram": "del", "gurgaon": "del", "noida": "del", "raleigh": "rdu", "durham": "rdu", "chapel hill": "rdu", "cary": "rdu",
+    "fort worth": "dal", "plano": "dal", "irving": "dal", "frisco": "dal", "sandton": "jnb", "makati": "mnl", "taguig": "mnl", "quezon city": "mnl",
+    "thu duc": "sgn", "ho chi minh": "sgn", "lehi": "slc", "provo": "slc", "la jolla": "sdg", "cambridge|united kingdom": None}
 def _n(s): return re.sub(r'\s+', ' ', re.sub(r'[^a-z ]', ' ', __import__("unicodedata").normalize("NFKD", s or "").encode("ascii", "ignore").decode().lower())).strip()
 def city_hub(city, country, hubs):
     c, k = _n(city), _n(country)
@@ -394,16 +397,18 @@ def import_sources():
                 else: REPORT.append({"source": f"luma place {slug}", "hub": hub_id, "error": "place not found"})
                 time.sleep(0.3)
     for name, qs, place_hub, max_pages in feeds:
-        cursor, pages, kept, seen_n = None, 0, 0, 0
+        time.sleep(1.5)
+        cursor, pages, kept, seen_n, retries, seen_cur = None, 0, 0, 0, 0, set()
         while pages < max_pages:
-            q = f"https://api.lu.ma/discover/get-paginated-events?{qs}&pagination_limit=50" + (f"&pagination_cursor={cursor}" if cursor else "")
+            q = f"https://api.lu.ma/discover/get-paginated-events?{qs}&pagination_limit=25" + (f"&pagination_cursor={cursor}" if cursor else "")
             try:
                 r = urlopen(Request(q, headers={**UA, "Accept": "application/json"}), timeout=20); d = json.loads(r.read().decode("utf-8", "ignore"))
             except Exception as ex:
                 code = getattr(ex, "code", 0)
-                if code == 429: time.sleep(5); continue
+                if code in (429, 403) and retries < 3: retries += 1; time.sleep(20 * retries); continue
                 print(f"source {name}: stopped ({ex})"); break
             pages += 1
+            if pages <= 2: print(f"  {name} page {pages}: {len(d.get('entries') or [])} entries, has_more={d.get('has_more')}, cursor={'yes' if d.get('next_cursor') else 'no'}")
             for en in d.get("entries") or []:
                 e = en.get("event") or {}; g = e.get("geo_address_info") or {}
                 if not e.get("name") or not e.get("start_at") or not e.get("url"): continue
@@ -424,8 +429,8 @@ def import_sources():
                                "venue": venue, "host": host, "link": link, "desc": "Details and registration on the event page.", "src": "luma"})
                 if e.get("cover_url"): photos[link] = e["cover_url"]
                 seen_l.add(link); seen_t.add((norm(e["name"]), date)); added += 1; kept += 1
-            if not d.get("has_more") or not d.get("next_cursor"): break
-            cursor = d["next_cursor"]; time.sleep(0.4)
+            if not d.get("entries") or not d.get("next_cursor") or d["next_cursor"] in seen_cur: break
+            cursor = d["next_cursor"]; seen_cur.add(cursor); time.sleep(0.8)
         print(f"source {name}: {pages} pages, {seen_n} in-person events seen, {kept} new added")
         if place_hub: REPORT.append({"source": name, "hub": place_hub, "pages": pages, "seen": seen_n, "added": kept})
     json.dump(events, open(f"{REPO}/list/events.json", "w"), ensure_ascii=False, indent=1)

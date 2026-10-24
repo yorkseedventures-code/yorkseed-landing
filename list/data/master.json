@@ -409,6 +409,246 @@
    "country": "India",
    "region": "",
    "img": "bom"
+  },
+  {
+   "id": "riy",
+   "name": "Riyadh",
+   "tz": "Asia/Riyadh",
+   "country": "Saudi Arabia",
+   "region": "",
+   "img": ""
+  },
+  {
+   "id": "doh",
+   "name": "Doha",
+   "tz": "Asia/Qatar",
+   "country": "Qatar",
+   "region": "",
+   "img": ""
+  },
+  {
+   "id": "hou",
+   "name": "Houston",
+   "tz": "America/Chicago",
+   "country": "United States",
+   "region": "",
+   "img": ""
+  },
+  {
+   "id": "dal",
+   "name": "Dallas",
+   "tz": "America/Chicago",
+   "country": "United States",
+   "region": "",
+   "img": ""
+  },
+  {
+   "id": "atl",
+   "name": "Atlanta",
+   "tz": "America/New_York",
+   "country": "United States",
+   "region": "",
+   "img": ""
+  },
+  {
+   "id": "sdg",
+   "name": "San Diego",
+   "tz": "America/Los_Angeles",
+   "country": "United States",
+   "region": "",
+   "img": ""
+  },
+  {
+   "id": "slc",
+   "name": "Salt Lake City",
+   "tz": "America/Denver",
+   "country": "United States",
+   "region": "",
+   "img": ""
+  },
+  {
+   "id": "rdu",
+   "name": "Raleigh-Durham",
+   "tz": "America/New_York",
+   "country": "United States",
+   "region": "",
+   "img": ""
+  },
+  {
+   "id": "nsh",
+   "name": "Nashville",
+   "tz": "America/Chicago",
+   "country": "United States",
+   "region": "",
+   "img": ""
+  },
+  {
+   "id": "man",
+   "name": "Manchester",
+   "tz": "Europe/London",
+   "country": "United Kingdom",
+   "region": "",
+   "img": ""
+  },
+  {
+   "id": "edi",
+   "name": "Edinburgh",
+   "tz": "Europe/London",
+   "country": "United Kingdom",
+   "region": "",
+   "img": ""
+  },
+  {
+   "id": "osl",
+   "name": "Oslo",
+   "tz": "Europe/Oslo",
+   "country": "Norway",
+   "region": "",
+   "img": ""
+  },
+  {
+   "id": "vie",
+   "name": "Vienna",
+   "tz": "Europe/Vienna",
+   "country": "Austria",
+   "region": "",
+   "img": ""
+  },
+  {
+   "id": "prg",
+   "name": "Prague",
+   "tz": "Europe/Prague",
+   "country": "Czech Republic",
+   "region": "",
+   "img": ""
+  },
+  {
+   "id": "bru",
+   "name": "Brussels",
+   "tz": "Europe/Brussels",
+   "country": "Belgium",
+   "region": "",
+   "img": ""
+  },
+  {
+   "id": "ist",
+   "name": "Istanbul",
+   "tz": "Europe/Istanbul",
+   "country": "Turkey",
+   "region": "",
+   "img": ""
+  },
+  {
+   "id": "cpt",
+   "name": "Cape Town",
+   "tz": "Africa/Johannesburg",
+   "country": "South Africa",
+   "region": "",
+   "img": ""
+  },
+  {
+   "id": "jnb",
+   "name": "Johannesburg",
+   "tz": "Africa/Johannesburg",
+   "country": "South Africa",
+   "region": "",
+   "img": ""
+  },
+  {
+   "id": "cai",
+   "name": "Cairo",
+   "tz": "Africa/Cairo",
+   "country": "Egypt",
+   "region": "",
+   "img": ""
+  },
+  {
+   "id": "sha",
+   "name": "Shanghai",
+   "tz": "Asia/Shanghai",
+   "country": "China",
+   "region": "",
+   "img": ""
+  },
+  {
+   "id": "szx",
+   "name": "Shenzhen",
+   "tz": "Asia/Shanghai",
+   "country": "China",
+   "region": "",
+   "img": ""
+  },
+  {
+   "id": "mnl",
+   "name": "Manila",
+   "tz": "Asia/Manila",
+   "country": "Philippines",
+   "region": "",
+   "img": ""
+  },
+  {
+   "id": "sgn",
+   "name": "Ho Chi Minh City",
+   "tz": "Asia/Ho_Chi_Minh",
+   "country": "Vietnam",
+   "region": "",
+   "img": ""
+  },
+  {
+   "id": "akl",
+   "name": "Auckland",
+   "tz": "Pacific/Auckland",
+   "country": "New Zealand",
+   "region": "",
+   "img": ""
+  },
+  {
+   "id": "bog",
+   "name": "Bogotá",
+   "tz": "America/Bogota",
+   "country": "Colombia",
+   "region": "",
+   "img": ""
+  },
+  {
+   "id": "mde",
+   "name": "Medellín",
+   "tz": "America/Bogota",
+   "country": "Colombia",
+   "region": "",
+   "img": ""
+  },
+  {
+   "id": "scl",
+   "name": "Santiago",
+   "tz": "America/Santiago",
+   "country": "Chile",
+   "region": "",
+   "img": ""
+  },
+  {
+   "id": "lim",
+   "name": "Lima",
+   "tz": "America/Lima",
+   "country": "Peru",
+   "region": "",
+   "img": ""
+  },
+  {
+   "id": "del",
+   "name": "New Delhi",
+   "tz": "Asia/Kolkata",
+   "country": "India",
+   "region": "",
+   "img": ""
+  },
+  {
+   "id": "hyd",
+   "name": "Hyderabad",
+   "tz": "Asia/Kolkata",
+   "country": "India",
+   "region": "",
+   "img": ""
   }
  ],
  "weeks": [

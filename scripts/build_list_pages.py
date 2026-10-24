@@ -236,7 +236,7 @@ LOCAL = {
 }
 LOCAL_CITY = {"par": ("fr", "Paris"), "can": ("fr", "Cannes"), "mtl": ("fr", "Montréal"), "ber": ("de", "Berlin"), "muc": ("de", "München"), "zrh": ("de", "Zürich"),
  "bcn": ("es", "Barcelona"), "mad": ("es", "Madrid"), "mex": ("es", "Ciudad de México"), "bue": ("es", "Buenos Aires"), "lis": ("pt", "Lisboa"),
- "sao": ("pt", "São Paulo e Rio"), "dav": ("de", "Davos"), "mil": ("it", "Milano"), "ams": ("nl", "Amsterdam"), "tyo": ("ja", "東京"), "sel": ("ko", "서울")}
+ "sao": ("pt", "São Paulo e Rio"), "dav": ("de", "Davos"), "vie": ("de", "Wien"), "bog": ("es", "Bogotá"), "mde": ("es", "Medellín"), "scl": ("es", "Santiago"), "lim": ("es", "Lima"), "mil": ("it", "Milano"), "ams": ("nl", "Amsterdam"), "tyo": ("ja", "東京"), "sel": ("ko", "서울")}
 for h in hubs.values():
     evs = by_hub.get(h["id"], []); n = len(evs); camp = "list_" + h["slug"]
     city = h["name"]; online = h["id"] == "virtual"; short = SHORT.get(h["id"])
