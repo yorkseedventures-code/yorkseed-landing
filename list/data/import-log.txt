@@ -1,57 +1,220 @@
-links import: 1 added of 5 queued, 4 kept for retry
+links import: 0 added of 4 queued, 4 kept for retry
 submissions: 0 approved events copied into events.json, 0 with an uploaded cover
-place sao-paulo: lookup failed (HTTP Error 404: Not Found)
-place hong-kong: lookup failed (HTTP Error 404: Not Found)
-source cat-tech: 1 pages, 0 in-person events seen, 0 new added
-source place:nyc: 2 pages, 81 in-person events seen, 16 new added
-source place:sf: 2 pages, 62 in-person events seen, 10 new added
-source place:london: 2 pages, 52 in-person events seen, 17 new added
-source place:paris: 1 pages, 21 in-person events seen, 6 new added
-source place:berlin: 1 pages, 44 in-person events seen, 17 new added
-source place:munich: 1 pages, 11 in-person events seen, 1 new added
-source place:amsterdam: 1 pages, 29 in-person events seen, 4 new added
-source place:barcelona: 1 pages, 29 in-person events seen, 2 new added
-source place:madrid: 1 pages, 17 in-person events seen, 2 new added
-source place:lisbon: 1 pages, 32 in-person events seen, 2 new added
-source place:milan: 1 pages, 13 in-person events seen, 0 new added
-source place:zurich: 1 pages, 19 in-person events seen, 3 new added
-source place:stockholm: 1 pages, 21 in-person events seen, 8 new added
-source place:copenhagen: 1 pages, 16 in-person events seen, 3 new added
-source place:helsinki: 1 pages, 21 in-person events seen, 6 new added
-source place:dublin: 1 pages, 9 in-person events seen, 3 new added
-source place:warsaw: 1 pages, 23 in-person events seen, 13 new added
-source place:toronto: 1 pages, 35 in-person events seen, 5 new added
-source place:montreal: 1 pages, 18 in-person events seen, 4 new added
-source place:vancouver: 1 pages, 26 in-person events seen, 1 new added
-source place:la: 1 pages, 40 in-person events seen, 5 new added
-source place:boston: 1 pages, 43 in-person events seen, 24 new added
-source place:chicago: 1 pages, 17 in-person events seen, 2 new added
-source place:miami: 1 pages, 12 in-person events seen, 2 new added
-source place:austin: 1 pages, 18 in-person events seen, 4 new added
-source place:seattle: 1 pages, 26 in-person events seen, 11 new added
-source place:dc: 1 pages, 19 in-person events seen, 5 new added
-source place:denver: 1 pages, 10 in-person events seen, 0 new added
-source place:philadelphia: 1 pages, 21 in-person events seen, 2 new added
-source place:mexico-city: 2 pages, 51 in-person events seen, 30 new added
-source place:buenos-aires: 1 pages, 12 in-person events seen, 2 new added
-source place:tel-aviv: 1 pages, 24 in-person events seen, 15 new added
-source place:dubai: 1 pages, 12 in-person events seen, 3 new added
-source place:singapore: 1 pages, 28 in-person events seen, 6 new added
-source place:tokyo: 1 pages, 36 in-person events seen, 6 new added
-source place:seoul: 1 pages, 12 in-person events seen, 3 new added
-source place:taipei: 1 pages, 11 in-person events seen, 2 new added
-source place:bangkok: 1 pages, 12 in-person events seen, 0 new added
-source place:jakarta: 1 pages, 4 in-person events seen, 0 new added
-source place:kuala-lumpur: 1 pages, 11 in-person events seen, 3 new added
-source place:bengaluru: 1 pages, 22 in-person events seen, 11 new added
-source place:mumbai: 1 pages, 19 in-person events seen, 3 new added
-source place:sydney: 1 pages, 12 in-person events seen, 2 new added
-source place:melbourne: 1 pages, 15 in-person events seen, 3 new added
-source place:nairobi: stopped (HTTP Error 403: Forbidden)
-source place:nairobi: 0 pages, 0 in-person events seen, 0 new added
-source place:lagos: stopped (HTTP Error 403: Forbidden)
-source place:lagos: 0 pages, 0 in-person events seen, 0 new added
-techmeetups den: 67 found, 62 new
-techmeetups: 62 new events, 52 API calls
-descriptions: filled 22 of 250
-photos: 1881 of 1953 events have a real photo (198 checked)
+place riyadh: lookup failed (HTTP Error 301: Moved Permanently)
+place san-diego: lookup failed (HTTP Error 301: Moved Permanently)
+place manchester: lookup failed (HTTP Error 301: Moved Permanently)
+place cape-town: lookup failed (HTTP Error 404: Not Found)
+place johannesburg: lookup failed (HTTP Error 301: Moved Permanently)
+place cairo: lookup failed (HTTP Error 301: Moved Permanently)
+place santiago: lookup failed (HTTP Error 301: Moved Permanently)
+place lima: lookup failed (HTTP Error 301: Moved Permanently)
+place hyderabad: lookup failed (HTTP Error 301: Moved Permanently)
+place sao-paulo-sp: lookup failed (HTTP Error 404: Not Found)
+  cat-tech page 1: 7 entries, has_more=False, cursor=yes
+  cat-tech page 2: 0 entries, has_more=False, cursor=no
+source cat-tech: 2 pages, 7 in-person events seen, 0 new added
+  cat-climate page 1: 7 entries, has_more=False, cursor=yes
+  cat-climate page 2: 0 entries, has_more=False, cursor=no
+source cat-climate: 2 pages, 7 in-person events seen, 0 new added
+  cat-crypto page 1: 7 entries, has_more=False, cursor=yes
+  cat-crypto page 2: 0 entries, has_more=False, cursor=no
+source cat-crypto: 2 pages, 7 in-person events seen, 0 new added
+  cat-ai page 1: 7 entries, has_more=False, cursor=yes
+  cat-ai page 2: 0 entries, has_more=False, cursor=no
+source cat-ai: 2 pages, 7 in-person events seen, 0 new added
+  place:nyc page 1: 25 entries, has_more=True, cursor=yes
+  place:nyc page 2: 25 entries, has_more=True, cursor=yes
+source place:nyc: 5 pages, 81 in-person events seen, 0 new added
+  place:sf page 1: 25 entries, has_more=True, cursor=yes
+  place:sf page 2: 25 entries, has_more=True, cursor=yes
+source place:sf: 4 pages, 62 in-person events seen, 0 new added
+  place:london page 1: 25 entries, has_more=True, cursor=yes
+  place:london page 2: 25 entries, has_more=True, cursor=yes
+source place:london: 4 pages, 52 in-person events seen, 0 new added
+  place:paris page 1: 21 entries, has_more=False, cursor=yes
+  place:paris page 2: 0 entries, has_more=False, cursor=no
+source place:paris: 2 pages, 21 in-person events seen, 0 new added
+  place:berlin page 1: 25 entries, has_more=True, cursor=yes
+  place:berlin page 2: 19 entries, has_more=False, cursor=yes
+source place:berlin: 3 pages, 44 in-person events seen, 0 new added
+  place:munich page 1: 11 entries, has_more=False, cursor=yes
+  place:munich page 2: 0 entries, has_more=False, cursor=no
+source place:munich: 2 pages, 11 in-person events seen, 0 new added
+  place:amsterdam page 1: 25 entries, has_more=True, cursor=yes
+  place:amsterdam page 2: 4 entries, has_more=False, cursor=yes
+source place:amsterdam: 3 pages, 29 in-person events seen, 0 new added
+  place:barcelona page 1: 25 entries, has_more=True, cursor=yes
+  place:barcelona page 2: 4 entries, has_more=False, cursor=yes
+source place:barcelona: 3 pages, 29 in-person events seen, 0 new added
+  place:madrid page 1: 17 entries, has_more=False, cursor=yes
+  place:madrid page 2: 0 entries, has_more=False, cursor=no
+source place:madrid: 2 pages, 17 in-person events seen, 0 new added
+  place:lisbon page 1: 25 entries, has_more=True, cursor=yes
+  place:lisbon page 2: 7 entries, has_more=False, cursor=yes
+source place:lisbon: 3 pages, 32 in-person events seen, 0 new added
+  place:milan page 1: 13 entries, has_more=False, cursor=yes
+  place:milan page 2: 0 entries, has_more=False, cursor=no
+source place:milan: 2 pages, 13 in-person events seen, 0 new added
+  place:zurich page 1: 19 entries, has_more=False, cursor=yes
+  place:zurich page 2: 0 entries, has_more=False, cursor=no
+source place:zurich: 2 pages, 19 in-person events seen, 0 new added
+  place:stockholm page 1: 21 entries, has_more=False, cursor=yes
+  place:stockholm page 2: 0 entries, has_more=False, cursor=no
+source place:stockholm: 2 pages, 21 in-person events seen, 0 new added
+  place:copenhagen page 1: 16 entries, has_more=False, cursor=yes
+  place:copenhagen page 2: 0 entries, has_more=False, cursor=no
+source place:copenhagen: 2 pages, 16 in-person events seen, 0 new added
+  place:helsinki page 1: 21 entries, has_more=False, cursor=yes
+  place:helsinki page 2: 0 entries, has_more=False, cursor=no
+source place:helsinki: 2 pages, 21 in-person events seen, 0 new added
+  place:dublin page 1: 9 entries, has_more=False, cursor=yes
+  place:dublin page 2: 0 entries, has_more=False, cursor=no
+source place:dublin: 2 pages, 9 in-person events seen, 0 new added
+  place:warsaw page 1: 23 entries, has_more=False, cursor=yes
+  place:warsaw page 2: 0 entries, has_more=False, cursor=no
+source place:warsaw: 2 pages, 23 in-person events seen, 0 new added
+  place:toronto page 1: 25 entries, has_more=True, cursor=yes
+  place:toronto page 2: 10 entries, has_more=False, cursor=yes
+source place:toronto: 3 pages, 35 in-person events seen, 0 new added
+  place:montreal page 1: 18 entries, has_more=False, cursor=yes
+  place:montreal page 2: 0 entries, has_more=False, cursor=no
+source place:montreal: 2 pages, 18 in-person events seen, 0 new added
+  place:vancouver page 1: 25 entries, has_more=True, cursor=yes
+  place:vancouver page 2: 1 entries, has_more=False, cursor=yes
+source place:vancouver: 3 pages, 26 in-person events seen, 0 new added
+  place:la page 1: 25 entries, has_more=True, cursor=yes
+  place:la page 2: 15 entries, has_more=False, cursor=yes
+source place:la: 3 pages, 40 in-person events seen, 0 new added
+  place:boston page 1: 25 entries, has_more=True, cursor=yes
+  place:boston page 2: 18 entries, has_more=False, cursor=yes
+source place:boston: 3 pages, 43 in-person events seen, 0 new added
+  place:chicago page 1: 17 entries, has_more=False, cursor=yes
+  place:chicago page 2: 0 entries, has_more=False, cursor=no
+source place:chicago: 2 pages, 17 in-person events seen, 0 new added
+  place:miami page 1: 12 entries, has_more=False, cursor=yes
+  place:miami page 2: 0 entries, has_more=False, cursor=no
+source place:miami: 2 pages, 12 in-person events seen, 0 new added
+  place:austin page 1: 18 entries, has_more=False, cursor=yes
+  place:austin page 2: 0 entries, has_more=False, cursor=no
+source place:austin: 2 pages, 18 in-person events seen, 0 new added
+  place:seattle page 1: 25 entries, has_more=True, cursor=yes
+  place:seattle page 2: 1 entries, has_more=False, cursor=yes
+source place:seattle: 3 pages, 26 in-person events seen, 0 new added
+  place:dc page 1: 19 entries, has_more=False, cursor=yes
+  place:dc page 2: 0 entries, has_more=False, cursor=no
+source place:dc: 2 pages, 19 in-person events seen, 0 new added
+  place:denver page 1: 10 entries, has_more=False, cursor=yes
+  place:denver page 2: 0 entries, has_more=False, cursor=no
+source place:denver: 2 pages, 10 in-person events seen, 0 new added
+  place:philadelphia page 1: 21 entries, has_more=False, cursor=yes
+  place:philadelphia page 2: 0 entries, has_more=False, cursor=no
+source place:philadelphia: 2 pages, 21 in-person events seen, 0 new added
+  place:mexico-city page 1: 25 entries, has_more=True, cursor=yes
+  place:mexico-city page 2: 25 entries, has_more=True, cursor=yes
+source place:mexico-city: 4 pages, 51 in-person events seen, 0 new added
+  place:buenos-aires page 1: 12 entries, has_more=False, cursor=yes
+  place:buenos-aires page 2: 0 entries, has_more=False, cursor=no
+source place:buenos-aires: 2 pages, 12 in-person events seen, 0 new added
+  place:tel-aviv page 1: 24 entries, has_more=False, cursor=yes
+  place:tel-aviv page 2: 0 entries, has_more=False, cursor=no
+source place:tel-aviv: 2 pages, 24 in-person events seen, 0 new added
+  place:dubai page 1: 12 entries, has_more=False, cursor=yes
+  place:dubai page 2: 0 entries, has_more=False, cursor=no
+source place:dubai: 2 pages, 12 in-person events seen, 0 new added
+  place:singapore page 1: 25 entries, has_more=True, cursor=yes
+  place:singapore page 2: 3 entries, has_more=False, cursor=yes
+source place:singapore: 3 pages, 28 in-person events seen, 0 new added
+  place:tokyo page 1: 25 entries, has_more=True, cursor=yes
+  place:tokyo page 2: 11 entries, has_more=False, cursor=yes
+source place:tokyo: 3 pages, 36 in-person events seen, 0 new added
+  place:seoul page 1: 12 entries, has_more=False, cursor=yes
+  place:seoul page 2: 0 entries, has_more=False, cursor=no
+source place:seoul: 2 pages, 12 in-person events seen, 0 new added
+  place:taipei page 1: 11 entries, has_more=False, cursor=yes
+  place:taipei page 2: 0 entries, has_more=False, cursor=no
+source place:taipei: 2 pages, 11 in-person events seen, 0 new added
+  place:bangkok page 1: 12 entries, has_more=False, cursor=yes
+  place:bangkok page 2: 0 entries, has_more=False, cursor=no
+source place:bangkok: 2 pages, 12 in-person events seen, 0 new added
+  place:jakarta page 1: 4 entries, has_more=False, cursor=yes
+  place:jakarta page 2: 0 entries, has_more=False, cursor=no
+source place:jakarta: 2 pages, 4 in-person events seen, 0 new added
+  place:kuala-lumpur page 1: 11 entries, has_more=False, cursor=yes
+  place:kuala-lumpur page 2: 0 entries, has_more=False, cursor=no
+source place:kuala-lumpur: 2 pages, 11 in-person events seen, 0 new added
+  place:bengaluru page 1: 22 entries, has_more=False, cursor=yes
+  place:bengaluru page 2: 0 entries, has_more=False, cursor=no
+source place:bengaluru: 2 pages, 22 in-person events seen, 0 new added
+  place:mumbai page 1: 19 entries, has_more=False, cursor=yes
+  place:mumbai page 2: 0 entries, has_more=False, cursor=no
+source place:mumbai: 2 pages, 19 in-person events seen, 0 new added
+  place:sydney page 1: 12 entries, has_more=False, cursor=yes
+  place:sydney page 2: 0 entries, has_more=False, cursor=no
+source place:sydney: 2 pages, 12 in-person events seen, 0 new added
+  place:melbourne page 1: 15 entries, has_more=False, cursor=yes
+  place:melbourne page 2: 0 entries, has_more=False, cursor=no
+source place:melbourne: 2 pages, 15 in-person events seen, 0 new added
+  place:nairobi page 1: 6 entries, has_more=False, cursor=yes
+  place:nairobi page 2: 0 entries, has_more=False, cursor=no
+source place:nairobi: 2 pages, 6 in-person events seen, 1 new added
+  place:lagos page 1: 11 entries, has_more=False, cursor=yes
+  place:lagos page 2: 0 entries, has_more=False, cursor=no
+source place:lagos: 2 pages, 11 in-person events seen, 1 new added
+  place:houston page 1: 12 entries, has_more=False, cursor=yes
+  place:houston page 2: 0 entries, has_more=False, cursor=no
+source place:houston: 2 pages, 12 in-person events seen, 0 new added
+  place:dallas page 1: 11 entries, has_more=False, cursor=yes
+  place:dallas page 2: 0 entries, has_more=False, cursor=no
+source place:dallas: 2 pages, 11 in-person events seen, 2 new added
+  place:atlanta page 1: 16 entries, has_more=False, cursor=yes
+  place:atlanta page 2: 0 entries, has_more=False, cursor=no
+source place:atlanta: 2 pages, 16 in-person events seen, 1 new added
+  place:salt-lake-city page 1: 14 entries, has_more=False, cursor=yes
+  place:salt-lake-city page 2: 0 entries, has_more=False, cursor=no
+source place:salt-lake-city: 2 pages, 14 in-person events seen, 9 new added
+  place:raleigh page 1: 7 entries, has_more=False, cursor=yes
+  place:raleigh page 2: 0 entries, has_more=False, cursor=no
+source place:raleigh: 2 pages, 7 in-person events seen, 5 new added
+  place:oslo page 1: 8 entries, has_more=False, cursor=yes
+  place:oslo page 2: 0 entries, has_more=False, cursor=no
+source place:oslo: 2 pages, 8 in-person events seen, 2 new added
+  place:vienna page 1: 11 entries, has_more=False, cursor=yes
+  place:vienna page 2: 0 entries, has_more=False, cursor=no
+source place:vienna: 2 pages, 11 in-person events seen, 1 new added
+  place:prague page 1: 15 entries, has_more=False, cursor=yes
+  place:prague page 2: 0 entries, has_more=False, cursor=no
+source place:prague: 2 pages, 15 in-person events seen, 4 new added
+  place:brussels page 1: 16 entries, has_more=False, cursor=yes
+  place:brussels page 2: 0 entries, has_more=False, cursor=no
+source place:brussels: 2 pages, 16 in-person events seen, 5 new added
+  place:istanbul page 1: 13 entries, has_more=False, cursor=yes
+  place:istanbul page 2: 0 entries, has_more=False, cursor=no
+source place:istanbul: 2 pages, 13 in-person events seen, 5 new added
+  place:manila page 1: 6 entries, has_more=False, cursor=yes
+  place:manila page 2: 0 entries, has_more=False, cursor=no
+source place:manila: 2 pages, 6 in-person events seen, 3 new added
+  place:ho-chi-minh-city page 1: 7 entries, has_more=False, cursor=yes
+  place:ho-chi-minh-city page 2: 0 entries, has_more=False, cursor=no
+source place:ho-chi-minh-city: 2 pages, 7 in-person events seen, 1 new added
+  place:auckland page 1: 7 entries, has_more=False, cursor=yes
+  place:auckland page 2: 0 entries, has_more=False, cursor=no
+source place:auckland: 2 pages, 7 in-person events seen, 2 new added
+  place:bogota page 1: 8 entries, has_more=False, cursor=yes
+  place:bogota page 2: 0 entries, has_more=False, cursor=no
+source place:bogota: 2 pages, 8 in-person events seen, 1 new added
+  place:medellin page 1: 3 entries, has_more=False, cursor=yes
+  place:medellin page 2: 0 entries, has_more=False, cursor=no
+source place:medellin: 2 pages, 3 in-person events seen, 0 new added
+  place:new-delhi page 1: 12 entries, has_more=False, cursor=yes
+  place:new-delhi page 2: 0 entries, has_more=False, cursor=no
+source place:new-delhi: 2 pages, 12 in-person events seen, 2 new added
+  place:hongkong page 1: 12 entries, has_more=False, cursor=yes
+  place:hongkong page 2: 0 entries, has_more=False, cursor=no
+source place:hongkong: 2 pages, 12 in-person events seen, 3 new added
+  place:saopaulo page 1: 10 entries, has_more=False, cursor=yes
+  place:saopaulo page 2: 0 entries, has_more=False, cursor=no
+source place:saopaulo: 2 pages, 10 in-person events seen, 2 new added
+techmeetups den: 67 found, 0 new
+techmeetups: 0 new events, 82 API calls
+descriptions: filled 75 of 250
+photos: 1931 of 2003 events have a real photo (0 checked)

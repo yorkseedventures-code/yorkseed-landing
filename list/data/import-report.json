@@ -22,352 +22,548 @@
      "url": "https://luma.com/6mvjcoys",
      "title": "Building A $100M+ Company - Leveraging Relationships As Growth Capital",
      "skipped": "could not read the page"
-    },
-    {
-     "url": "https://luma.com/revelo-premium-austin-102526",
-     "added": "Tech Leader Premium Series - Austin (F1 - Circuit of The Americas)",
-     "date": "2026-10-25"
     }
    ],
-   "added": 1
+   "added": 0
   },
   {
-   "source": "luma place sao-paulo",
+   "source": "luma place riyadh",
+   "hub": "riy",
+   "error": "place not found"
+  },
+  {
+   "source": "luma place doha",
+   "hub": "doh",
+   "error": "place not found"
+  },
+  {
+   "source": "luma place san-diego",
+   "hub": "sdg",
+   "error": "place not found"
+  },
+  {
+   "source": "luma place nashville",
+   "hub": "nsh",
+   "error": "place not found"
+  },
+  {
+   "source": "luma place manchester",
+   "hub": "man",
+   "error": "place not found"
+  },
+  {
+   "source": "luma place edinburgh",
+   "hub": "edi",
+   "error": "place not found"
+  },
+  {
+   "source": "luma place cape-town",
+   "hub": "cpt",
+   "error": "place not found"
+  },
+  {
+   "source": "luma place johannesburg",
+   "hub": "jnb",
+   "error": "place not found"
+  },
+  {
+   "source": "luma place cairo",
+   "hub": "cai",
+   "error": "place not found"
+  },
+  {
+   "source": "luma place shanghai",
+   "hub": "sha",
+   "error": "place not found"
+  },
+  {
+   "source": "luma place shenzhen",
+   "hub": "szx",
+   "error": "place not found"
+  },
+  {
+   "source": "luma place santiago",
+   "hub": "scl",
+   "error": "place not found"
+  },
+  {
+   "source": "luma place lima",
+   "hub": "lim",
+   "error": "place not found"
+  },
+  {
+   "source": "luma place hyderabad",
+   "hub": "hyd",
+   "error": "place not found"
+  },
+  {
+   "source": "luma place davos",
+   "hub": "dav",
+   "error": "place not found"
+  },
+  {
+   "source": "luma place sao-paulo-sp",
    "hub": "sao",
    "error": "place not found"
   },
   {
-   "source": "luma place hong-kong",
+   "source": "luma place hk",
    "hub": "hkg",
    "error": "place not found"
   },
   {
    "source": "place:nyc",
    "hub": "nyc",
-   "pages": 2,
+   "pages": 5,
    "seen": 81,
-   "added": 16
+   "added": 0
   },
   {
    "source": "place:sf",
    "hub": "sf",
-   "pages": 2,
+   "pages": 4,
    "seen": 62,
-   "added": 10
+   "added": 0
   },
   {
    "source": "place:london",
    "hub": "ldn",
-   "pages": 2,
+   "pages": 4,
    "seen": 52,
-   "added": 17
+   "added": 0
   },
   {
    "source": "place:paris",
    "hub": "par",
-   "pages": 1,
+   "pages": 2,
    "seen": 21,
-   "added": 6
+   "added": 0
   },
   {
    "source": "place:berlin",
    "hub": "ber",
-   "pages": 1,
+   "pages": 3,
    "seen": 44,
-   "added": 17
+   "added": 0
   },
   {
    "source": "place:munich",
    "hub": "muc",
-   "pages": 1,
+   "pages": 2,
    "seen": 11,
-   "added": 1
+   "added": 0
   },
   {
    "source": "place:amsterdam",
    "hub": "ams",
-   "pages": 1,
+   "pages": 3,
    "seen": 29,
-   "added": 4
+   "added": 0
   },
   {
    "source": "place:barcelona",
    "hub": "bcn",
-   "pages": 1,
+   "pages": 3,
    "seen": 29,
-   "added": 2
+   "added": 0
   },
   {
    "source": "place:madrid",
    "hub": "mad",
-   "pages": 1,
+   "pages": 2,
    "seen": 17,
-   "added": 2
+   "added": 0
   },
   {
    "source": "place:lisbon",
    "hub": "lis",
-   "pages": 1,
+   "pages": 3,
    "seen": 32,
-   "added": 2
+   "added": 0
   },
   {
    "source": "place:milan",
    "hub": "mil",
-   "pages": 1,
+   "pages": 2,
    "seen": 13,
    "added": 0
   },
   {
    "source": "place:zurich",
    "hub": "zrh",
-   "pages": 1,
+   "pages": 2,
    "seen": 19,
-   "added": 3
+   "added": 0
   },
   {
    "source": "place:stockholm",
    "hub": "sto",
-   "pages": 1,
+   "pages": 2,
    "seen": 21,
-   "added": 8
+   "added": 0
   },
   {
    "source": "place:copenhagen",
    "hub": "cph",
-   "pages": 1,
+   "pages": 2,
    "seen": 16,
-   "added": 3
+   "added": 0
   },
   {
    "source": "place:helsinki",
    "hub": "hel",
-   "pages": 1,
+   "pages": 2,
    "seen": 21,
-   "added": 6
+   "added": 0
   },
   {
    "source": "place:dublin",
    "hub": "dub",
-   "pages": 1,
+   "pages": 2,
    "seen": 9,
-   "added": 3
+   "added": 0
   },
   {
    "source": "place:warsaw",
    "hub": "waw",
-   "pages": 1,
+   "pages": 2,
    "seen": 23,
-   "added": 13
+   "added": 0
   },
   {
    "source": "place:toronto",
    "hub": "tor",
-   "pages": 1,
+   "pages": 3,
    "seen": 35,
-   "added": 5
+   "added": 0
   },
   {
    "source": "place:montreal",
    "hub": "mtl",
-   "pages": 1,
+   "pages": 2,
    "seen": 18,
-   "added": 4
+   "added": 0
   },
   {
    "source": "place:vancouver",
    "hub": "yvr",
-   "pages": 1,
+   "pages": 3,
    "seen": 26,
-   "added": 1
+   "added": 0
   },
   {
    "source": "place:la",
    "hub": "la",
-   "pages": 1,
+   "pages": 3,
    "seen": 40,
-   "added": 5
+   "added": 0
   },
   {
    "source": "place:boston",
    "hub": "bos",
-   "pages": 1,
+   "pages": 3,
    "seen": 43,
-   "added": 24
+   "added": 0
   },
   {
    "source": "place:chicago",
    "hub": "chi",
-   "pages": 1,
+   "pages": 2,
    "seen": 17,
-   "added": 2
+   "added": 0
   },
   {
    "source": "place:miami",
    "hub": "mia",
-   "pages": 1,
+   "pages": 2,
    "seen": 12,
-   "added": 2
+   "added": 0
   },
   {
    "source": "place:austin",
    "hub": "atx",
-   "pages": 1,
+   "pages": 2,
    "seen": 18,
-   "added": 4
+   "added": 0
   },
   {
    "source": "place:seattle",
    "hub": "sea",
-   "pages": 1,
+   "pages": 3,
    "seen": 26,
-   "added": 11
+   "added": 0
   },
   {
    "source": "place:dc",
    "hub": "dc",
-   "pages": 1,
+   "pages": 2,
    "seen": 19,
-   "added": 5
+   "added": 0
   },
   {
    "source": "place:denver",
    "hub": "den",
-   "pages": 1,
+   "pages": 2,
    "seen": 10,
    "added": 0
   },
   {
    "source": "place:philadelphia",
    "hub": "phl",
-   "pages": 1,
+   "pages": 2,
    "seen": 21,
-   "added": 2
+   "added": 0
   },
   {
    "source": "place:mexico-city",
    "hub": "mex",
-   "pages": 2,
+   "pages": 4,
    "seen": 51,
-   "added": 30
+   "added": 0
   },
   {
    "source": "place:buenos-aires",
    "hub": "bue",
-   "pages": 1,
+   "pages": 2,
    "seen": 12,
-   "added": 2
+   "added": 0
   },
   {
    "source": "place:tel-aviv",
    "hub": "tlv",
-   "pages": 1,
+   "pages": 2,
    "seen": 24,
-   "added": 15
+   "added": 0
   },
   {
    "source": "place:dubai",
    "hub": "dxb",
-   "pages": 1,
+   "pages": 2,
    "seen": 12,
-   "added": 3
+   "added": 0
   },
   {
    "source": "place:singapore",
    "hub": "sgp",
-   "pages": 1,
+   "pages": 3,
    "seen": 28,
-   "added": 6
+   "added": 0
   },
   {
    "source": "place:tokyo",
    "hub": "tyo",
-   "pages": 1,
+   "pages": 3,
    "seen": 36,
-   "added": 6
+   "added": 0
   },
   {
    "source": "place:seoul",
    "hub": "sel",
-   "pages": 1,
+   "pages": 2,
    "seen": 12,
-   "added": 3
+   "added": 0
   },
   {
    "source": "place:taipei",
    "hub": "tpe",
-   "pages": 1,
+   "pages": 2,
    "seen": 11,
-   "added": 2
+   "added": 0
   },
   {
    "source": "place:bangkok",
    "hub": "bkk",
-   "pages": 1,
+   "pages": 2,
    "seen": 12,
    "added": 0
   },
   {
    "source": "place:jakarta",
    "hub": "jkt",
-   "pages": 1,
+   "pages": 2,
    "seen": 4,
    "added": 0
   },
   {
    "source": "place:kuala-lumpur",
    "hub": "kul",
-   "pages": 1,
+   "pages": 2,
    "seen": 11,
-   "added": 3
+   "added": 0
   },
   {
    "source": "place:bengaluru",
    "hub": "blr",
-   "pages": 1,
+   "pages": 2,
    "seen": 22,
-   "added": 11
+   "added": 0
   },
   {
    "source": "place:mumbai",
    "hub": "bom",
-   "pages": 1,
+   "pages": 2,
    "seen": 19,
-   "added": 3
+   "added": 0
   },
   {
    "source": "place:sydney",
    "hub": "syd",
-   "pages": 1,
+   "pages": 2,
    "seen": 12,
-   "added": 2
+   "added": 0
   },
   {
    "source": "place:melbourne",
    "hub": "mel",
-   "pages": 1,
+   "pages": 2,
    "seen": 15,
-   "added": 3
+   "added": 0
   },
   {
    "source": "place:nairobi",
    "hub": "nbo",
-   "pages": 0,
-   "seen": 0,
-   "added": 0
+   "pages": 2,
+   "seen": 6,
+   "added": 1
   },
   {
    "source": "place:lagos",
    "hub": "los",
-   "pages": 0,
-   "seen": 0,
+   "pages": 2,
+   "seen": 11,
+   "added": 1
+  },
+  {
+   "source": "place:houston",
+   "hub": "hou",
+   "pages": 2,
+   "seen": 12,
    "added": 0
+  },
+  {
+   "source": "place:dallas",
+   "hub": "dal",
+   "pages": 2,
+   "seen": 11,
+   "added": 2
+  },
+  {
+   "source": "place:atlanta",
+   "hub": "atl",
+   "pages": 2,
+   "seen": 16,
+   "added": 1
+  },
+  {
+   "source": "place:salt-lake-city",
+   "hub": "slc",
+   "pages": 2,
+   "seen": 14,
+   "added": 9
+  },
+  {
+   "source": "place:raleigh",
+   "hub": "rdu",
+   "pages": 2,
+   "seen": 7,
+   "added": 5
+  },
+  {
+   "source": "place:oslo",
+   "hub": "osl",
+   "pages": 2,
+   "seen": 8,
+   "added": 2
+  },
+  {
+   "source": "place:vienna",
+   "hub": "vie",
+   "pages": 2,
+   "seen": 11,
+   "added": 1
+  },
+  {
+   "source": "place:prague",
+   "hub": "prg",
+   "pages": 2,
+   "seen": 15,
+   "added": 4
+  },
+  {
+   "source": "place:brussels",
+   "hub": "bru",
+   "pages": 2,
+   "seen": 16,
+   "added": 5
+  },
+  {
+   "source": "place:istanbul",
+   "hub": "ist",
+   "pages": 2,
+   "seen": 13,
+   "added": 5
+  },
+  {
+   "source": "place:manila",
+   "hub": "mnl",
+   "pages": 2,
+   "seen": 6,
+   "added": 3
+  },
+  {
+   "source": "place:ho-chi-minh-city",
+   "hub": "sgn",
+   "pages": 2,
+   "seen": 7,
+   "added": 1
+  },
+  {
+   "source": "place:auckland",
+   "hub": "akl",
+   "pages": 2,
+   "seen": 7,
+   "added": 2
+  },
+  {
+   "source": "place:bogota",
+   "hub": "bog",
+   "pages": 2,
+   "seen": 8,
+   "added": 1
+  },
+  {
+   "source": "place:medellin",
+   "hub": "mde",
+   "pages": 2,
+   "seen": 3,
+   "added": 0
+  },
+  {
+   "source": "place:new-delhi",
+   "hub": "del",
+   "pages": 2,
+   "seen": 12,
+   "added": 2
+  },
+  {
+   "source": "place:hongkong",
+   "hub": "hkg",
+   "pages": 2,
+   "seen": 12,
+   "added": 3
+  },
+  {
+   "source": "place:saopaulo",
+   "hub": "sao",
+   "pages": 2,
+   "seen": 10,
+   "added": 2
   },
   {
    "source": "techmeetups.io",
    "hub": "den",
    "found": 67,
-   "added": 62
+   "added": 0
   }
  ]
 }
