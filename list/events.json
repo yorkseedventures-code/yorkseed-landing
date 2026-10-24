@@ -17883,5 +17883,174 @@
   "host": "Jeffrey Hang & Aamer Khan",
   "link": "https://luma.com/97skc5ko",
   "desc": "Curious about coding with AI? This is the perfect place to start. If you are a: Non-technical founder/operator SME who wants to incorporate AI Someone who feel left behind by AI Aspiring builders/students Working professionals looking to 10x productivity…"
+ },
+ {
+  "title": "Formula 1 United States Grand Prix: Race Day",
+  "hub": "atx",
+  "date": "2026-10-25",
+  "venue": "Circuit of The Americas, 9201 Circuit of the Americas Blvd",
+  "host": "Circuit of The Americas",
+  "link": "https://circuitoftheamericas.com/event/f1/tickets/",
+  "type": "Conferences",
+  "desc": "The Grand Prix weekend at COTA runs Friday to Sunday, October 23 to 25, with practice, qualifying, the sprint and Sunday's race. The anchor for everything else happening across Austin this weekend."
+ },
+ {
+  "title": "Red Bull Austin Race Nights",
+  "hub": "atx",
+  "date": "2026-10-24",
+  "start": "16:00",
+  "end": "22:00",
+  "venue": "Riviere, Austin",
+  "host": "Red Bull",
+  "link": "https://www.redbull.com/us-en/events/red-bull-austin-race-nights",
+  "desc": "Free race-weekend evenings from Red Bull, 4 to 10 PM daily through Sunday, October 25."
+ },
+ {
+  "title": "F1 Paddock Bar at Sagebrush: Saturday",
+  "hub": "atx",
+  "date": "2026-10-24",
+  "venue": "Sagebrush, Austin",
+  "host": "Sagebrush",
+  "link": "https://dice.fm/partner/tickets/event/av8myx-f1-saturday-1024-24th-oct-sagebrush-austin-tickets?dice_id=10721968",
+  "desc": "Free, 21+ race-weekend bar night with an F1 Paddock Club theme."
+ },
+ {
+  "title": "SI Circuit Series F1 Afterparty",
+  "hub": "atx",
+  "date": "2026-10-24",
+  "start": "20:30",
+  "venue": "304 E 3rd St, Austin",
+  "host": "Sports Illustrated",
+  "link": "https://www.sicircuitseries.com/",
+  "desc": "Sports Illustrated's Saturday-night race-weekend party downtown. Doors at 8:30 PM, tickets from $43."
+ },
+ {
+  "title": "Mercedes-AMG F1 Fan Hub",
+  "hub": "atx",
+  "date": "2026-10-24",
+  "venue": "400 Congress Ave, Austin",
+  "host": "Mercedes-AMG Petronas F1 Team",
+  "link": "https://www.mercedesamgf1.com/promo/austin-fan-hub-everything-you-need-to-know",
+  "desc": "The team's downtown fan hub, open daily through Sunday, October 25."
+ },
+ {
+  "title": "Atlassian Williams F1 Fan Zone: Final Day",
+  "hub": "atx",
+  "date": "2026-10-24",
+  "venue": "800 Congress Ave, Austin",
+  "host": "Atlassian Williams Racing",
+  "link": "https://www.williamsf1.com/fan-zone",
+  "desc": "Williams' downtown fan zone, open October 19 to 24."
+ },
+ {
+  "title": "Enchanté x Ford Racing",
+  "hub": "atx",
+  "date": "2026-10-24",
+  "venue": "Distribution Hall, 1500 E 4th St, Austin",
+  "host": "Enchanté & Ford Racing",
+  "link": "https://enchante.co/pages/enchante-austin-2026",
+  "desc": "Race-weekend pop-up in East Austin, open daily through Sunday, October 25."
+ },
+ {
+  "title": "Courts Club x Padel39 Padel Grand Prix",
+  "hub": "atx",
+  "date": "2026-10-24",
+  "venue": "4716 E 5th St, Austin",
+  "host": "Courts Club & Padel39",
+  "link": "https://therumor.com/p/courtsclub",
+  "desc": "A padel tournament and social for race weekend, October 23 and 24."
+ },
+ {
+  "title": "Wynn Nightlife F1 Weekend at Mayfair",
+  "hub": "atx",
+  "date": "2026-10-24",
+  "venue": "Mayfair, 501 W 6th St, Austin",
+  "host": "Wynn Nightlife",
+  "link": "https://www.mayfairaustin.com/formula-1-2026",
+  "desc": "Wynn Nightlife's race-weekend residency at Mayfair, nightly through Sunday, October 25."
+ },
+ {
+  "title": "F1 Hub on South Congress",
+  "hub": "atx",
+  "date": "2026-10-24",
+  "venue": "1504 S Congress Ave, Austin",
+  "host": "Formula 1",
+  "link": "https://brochures.formula1.com/event/f1hubaustinoct/",
+  "desc": "Formula 1's official hub on South Congress, open October 17 to 25."
+ },
+ {
+  "title": "World Economic Forum Annual Meeting 2027",
+  "hub": "dav",
+  "date": "2027-01-18",
+  "venue": "Congress Centre, Davos",
+  "host": "World Economic Forum",
+  "link": "https://www.weforum.org/",
+  "type": "Conferences",
+  "desc": "The WEF Annual Meeting runs January 18 to 22, 2027. Most of the week's founder and investor activity happens in the houses and side events along the Promenade."
+ },
+ {
+  "title": "Economist Enterprise Davos Hub",
+  "hub": "dav",
+  "date": "2027-01-18",
+  "venue": "Davos",
+  "host": "Economist Enterprise",
+  "link": "https://events.economistenterprise.com/davos-hub/",
+  "type": "Conferences",
+  "desc": "Invitation-only sessions from The Economist Group's events arm, January 18 to 22. Register interest on the page."
+ },
+ {
+  "title": "House of Switzerland at WEF 2027",
+  "hub": "dav",
+  "date": "2027-01-19",
+  "venue": "Davos",
+  "host": "House of Switzerland",
+  "link": "https://houseofswitzerland.org/events/house-switzerland-world-economic-forum-2027",
+  "desc": "Switzerland's official meeting space during the Annual Meeting, January 19 to 21, with talks and receptions for the Swiss delegation and guests."
+ },
+ {
+  "title": "Imagination in Action: Davos AI Summit",
+  "hub": "dav",
+  "date": "2027-01-20",
+  "start": "08:30",
+  "end": "17:30",
+  "venue": "The Dome, Davos",
+  "host": "Imagination in Action",
+  "link": "https://luma.com/zgtg3oxg",
+  "type": "Conferences",
+  "desc": "The tenth Davos AI Summit from Imagination in Action, with MIT CSAIL and Stanford HAI, on frontier AI and science. RSVP on Luma."
+ },
+ {
+  "title": "Asia Private Equity Forum 2027",
+  "hub": "hkg",
+  "date": "2027-01-28",
+  "venue": "Hong Kong Convention and Exhibition Centre",
+  "host": "HKVCA",
+  "link": "https://www.hkvca.com.hk/event/asia-private-equity-forum-2027/",
+  "type": "Conferences",
+  "desc": "The Hong Kong Venture Capital and Private Equity Association's annual forum for GPs, LPs and dealmakers, the day after Asian Financial Forum."
+ },
+ {
+  "title": "AI Product Summit",
+  "hub": "nyc",
+  "date": "2026-12-10",
+  "start": "15:00",
+  "end": "19:00",
+  "venue": "BrainStation New York, 136 Crosby St",
+  "host": "BrainStation",
+  "link": "https://brainstation.io/product-summit/new-york",
+  "type": "Conferences",
+  "desc": "An afternoon summit for product managers and builders on shipping AI products."
+ },
+ {
+  "title": "AI Marketing Summit",
+  "hub": "nyc",
+  "date": "2027-02-04",
+  "start": "15:00",
+  "end": "19:00",
+  "venue": "BrainStation New York, 136 Crosby St",
+  "host": "BrainStation",
+  "link": "https://brainstation.io/marketing-summit/new-york",
+  "type": "Conferences",
+  "desc": "An afternoon summit on how AI is changing marketing, for marketers and growth teams."
  }
 ]

@@ -19,7 +19,8 @@ for x in extra:
         seen.add((x.get("link") or x.get("title"), x["date"]))
         data["events"].append({"title": x.get("title") or "Untitled", "hub": x["hub"], "date": x["date"], "start": x.get("start"), "end": x.get("end"),
             "host": x.get("host", ""), "venue": x.get("venue", ""), "link": x.get("link", ""), "desc": x.get("desc", ""), "type": x.get("type", ""),
-            "week": next((w["id"] for w in data["weeks"] if w["hub"] == x["hub"] and w["start"] <= x["date"] <= w["end"]), None),
+            "week": next((w["id"] for w in data["weeks"] if w["hub"] == x["hub"] and w["start"] <= x["date"] <= w["end"]
+                          and (not w.get("re") or re.search(w["re"], (x.get("title") or "") + " " + (x.get("link") or ""), re.I))), None),
             "place": "featured" if x.get("featured") else ("spotlight" if x.get("yorkseed") else None)})
 SITE = "https://yorkseed.co"; LISTHOST = "https://list.yorkseed.co"; LIST = LISTHOST + "/"
 TODAY = dt.datetime.now(ZoneInfo("America/New_York")).date(); HORIZON = TODAY + dt.timedelta(days=120)
@@ -61,7 +62,8 @@ for e in events: e.setdefault("week", None); e.setdefault("place", None)
 # imported events join a conference week by city and date, same rule as the List app
 for e in events:
     if not e["week"]:
-        w = next((w for w in data["weeks"] if w["hub"] == e["hub"] and w["start"] <= e["date"] <= w["end"]), None)
+        w = next((w for w in data["weeks"] if w["hub"] == e["hub"] and w["start"] <= e["date"] <= w["end"]
+                  and (not w.get("re") or re.search(w["re"], (e.get("title") or "") + " " + (e.get("link") or ""), re.I))), None)
         if w: e["week"] = w["id"]
 import unicodedata
 def ev_slug(e):
@@ -101,7 +103,7 @@ def event_ld(e, camp):
     if e["link"]: ld["offers"] = {"@type": "Offer", "url": ref(e["link"], camp), "availability": "https://schema.org/InStock", "validFrom": TODAY.isoformat()}
     if e["desc"]: ld["description"] = e["desc"]
     if online: ld["location"] = {"@type":"VirtualLocation","url":ld["url"]}
-    else: ld["location"] = {"@type":"Place","name": place(e) or h["name"],"address":{"@type":"PostalAddress","addressLocality":h["name"],**({"addressCountry":h["country"]} if h["country"] else {})}}
+    else: ld["location"] = {"@type":"Place","name": place(e) or h["name"],"address":{"@type":"PostalAddress",**({"streetAddress":place(e)} if place(e) else {}),"addressLocality":h["name"],**({"addressCountry":h["country"]} if h["country"] else {})}}
     if e["host"]: ld["organizer"] = {"@type":"Organization","name":e["host"]}
     if PHOTOS.get(e["link"]): ld["image"] = [PHOTOS[e["link"]]]
     elif IMGPATH.get(h["img"] or h["id"]): _p = IMGPATH[h["img"] or h["id"]]; ld["image"] = [_p if _p.startswith("http") else LISTHOST + _p]
@@ -234,7 +236,7 @@ LOCAL = {
 }
 LOCAL_CITY = {"par": ("fr", "Paris"), "can": ("fr", "Cannes"), "mtl": ("fr", "Montréal"), "ber": ("de", "Berlin"), "muc": ("de", "München"), "zrh": ("de", "Zürich"),
  "bcn": ("es", "Barcelona"), "mad": ("es", "Madrid"), "mex": ("es", "Ciudad de México"), "bue": ("es", "Buenos Aires"), "lis": ("pt", "Lisboa"),
- "sao": ("pt", "São Paulo e Rio"), "mil": ("it", "Milano"), "ams": ("nl", "Amsterdam"), "tyo": ("ja", "東京"), "sel": ("ko", "서울")}
+ "sao": ("pt", "São Paulo e Rio"), "dav": ("de", "Davos"), "mil": ("it", "Milano"), "ams": ("nl", "Amsterdam"), "tyo": ("ja", "東京"), "sel": ("ko", "서울")}
 for h in hubs.values():
     evs = by_hub.get(h["id"], []); n = len(evs); camp = "list_" + h["slug"]
     city = h["name"]; online = h["id"] == "virtual"; short = SHORT.get(h["id"])
