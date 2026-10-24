@@ -318,23 +318,44 @@ def import_sources():
     seen_t = {(norm(e.get("title")), e.get("date")) for e in events + master["events"]}
     horizon = (dt.date.today() + dt.timedelta(days=120)).isoformat()
     photos, added = {}, 0
+    # a Luma city feed ("luma_place") mixes everything (run clubs, screenings...), so keep only events whose title reads startup/tech
+    TECH = re.compile(r"\b(start-?ups?|founders?|co-?founders?|vcs?|venture|investors?|investing|angels?|pitch(es|ing)?|demo ?day|accelerator|incubator|"
+        r"ai|genai|llms?|agents?|agentic|machine learning|ml|data|tech|technology|developers?|devs?|engineers?|engineering|hack(athon|night)s?|buildathon|"
+        r"builders?|product|pms?|saas|fintech|crypto|web3|blockchain|defi|climate ?tech|healthtech|biotech|deep ?tech|robotics|quantum|cyber(security)?|cloud|"
+        r"open[- ]source|coding|code|software|b2b|gtm|go-to-market|growth|operators?|entrepreneurs?|entrepreneurship|scale-?ups?|innovation|fundrais\w*|"
+        r"api|devrel|ux|ui|design ?systems?|python|javascript|rust|kubernetes|openai|anthropic|nvidia|google|microsoft|aws)\b", re.I)
+    NOT = re.compile(r"\b(dating|singles|speed ?dating|yoga|meditation|rave|comedy|stand-?up|karaoke|wine tasting|sound bath)\b", re.I)
+    feeds = []
     for src in srcs:
-        if src.get("type") != "luma_category": continue
-        cursor, pages, kept = None, 0, 0
-        while pages < int(src.get("max_pages", 60)):
-            q = f"https://api.lu.ma/discover/get-paginated-events?category_api_id={src['id']}&pagination_limit=50" + (f"&pagination_cursor={cursor}" if cursor else "")
+        if src.get("type") == "luma_category":
+            feeds.append((src["id"], f"category_api_id={src['id']}", None, int(src.get("max_pages", 60))))
+        elif src.get("type") == "luma_place":
+            for slug, hub_id in src.get("places", {}).items():
+                try:
+                    r = urlopen(Request(f"https://api.lu.ma/url?url={slug}", headers={**UA, "Accept": "application/json"}), timeout=20)
+                    pid = ((json.loads(r.read().decode("utf-8", "ignore")).get("data") or {}).get("place") or {}).get("api_id")
+                except Exception as ex: pid = None; print(f"place {slug}: lookup failed ({ex})")
+                if pid: feeds.append((f"place:{slug}", f"discover_place_api_id={pid}", hub_id, int(src.get("max_pages", 20))))
+                else: REPORT.append({"source": f"luma place {slug}", "hub": hub_id, "error": "place not found"})
+                time.sleep(0.3)
+    for name, qs, place_hub, max_pages in feeds:
+        cursor, pages, kept, seen_n = None, 0, 0, 0
+        while pages < max_pages:
+            q = f"https://api.lu.ma/discover/get-paginated-events?{qs}&pagination_limit=50" + (f"&pagination_cursor={cursor}" if cursor else "")
             try:
                 r = urlopen(Request(q, headers={**UA, "Accept": "application/json"}), timeout=20); d = json.loads(r.read().decode("utf-8", "ignore"))
             except Exception as ex:
                 code = getattr(ex, "code", 0)
                 if code == 429: time.sleep(5); continue
-                print(f"source {src['id']}: stopped ({ex})"); break
+                print(f"source {name}: stopped ({ex})"); break
             pages += 1
             for en in d.get("entries") or []:
                 e = en.get("event") or {}; g = e.get("geo_address_info") or {}
                 if not e.get("name") or not e.get("start_at") or not e.get("url"): continue
                 if e.get("location_type") == "online": continue          # in-person events only
-                hub = city_hub(g.get("city"), g.get("country"), hubs)
+                seen_n += 1
+                if place_hub and (not TECH.search(e["name"]) or NOT.search(e["name"])): continue
+                hub = city_hub(g.get("city"), g.get("country"), hubs) or place_hub
                 if not hub: continue
                 tz = hub_tz(hub) if hub != "virtual" else "America/New_York"
                 date, start = to_local(e["start_at"], tz)
@@ -350,7 +371,8 @@ def import_sources():
                 seen_l.add(link); seen_t.add((norm(e["name"]), date)); added += 1; kept += 1
             if not d.get("has_more") or not d.get("next_cursor"): break
             cursor = d["next_cursor"]; time.sleep(0.4)
-        print(f"source {src['id']}: {pages} pages, {kept} new events in List cities")
+        print(f"source {name}: {pages} pages, {seen_n} in-person events seen, {kept} new added")
+        if place_hub: REPORT.append({"source": name, "hub": place_hub, "pages": pages, "seen": seen_n, "added": kept})
     json.dump(events, open(f"{REPO}/list/events.json", "w"), ensure_ascii=False, indent=1)
     return photos
 

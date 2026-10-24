@@ -1,14 +1,14 @@
-# Rebuilds and publishes The Yorkseed List once a week (Monday 3:00 AM New York):
+# Rebuilds and publishes The Yorkseed List every day at 3:00 AM New York:
 # 1. imports queued events and finds each event's real cover photo (scripts/list_enrich.py)
 # 2. rebuilds the city and conference pages (scripts/build_list_pages.py)
 # then commits, which makes Netlify publish the fresh pages automatically.
 name: Rebuild The Yorkseed List pages
 on:
   schedule:
-    # once a week, Monday 3:00 AM New York. GitHub runs on UTC, so both slots are listed
+    # every day, 3:00 AM New York. GitHub runs on UTC, so both slots are listed
     # (07:00 UTC in summer time, 08:00 UTC in winter) and the gate step below keeps only the 3 AM one.
-    - cron: "0 7 * * 1"
-    - cron: "0 8 * * 1"
+    - cron: "0 7 * * *"
+    - cron: "0 8 * * *"
   workflow_dispatch: {}
 permissions:
   contents: write
@@ -43,7 +43,7 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
           git add -A list sitemap.xml *-startup-communities.html
           # always commit: this weekly commit is what tells Netlify to publish (see netlify.toml "ignore")
-          git commit --allow-empty -m "The List: weekly rebuild $(date -u +%Y-%m-%d) [deploy]"
+          git commit --allow-empty -m "The List: daily rebuild $(date -u +%Y-%m-%d) [deploy]"
           # if someone pushed while this ran, keep their changes and this run's imported data
           for i in 1 2 3; do
             git pull --rebase -X theirs -q origin main || { git rebase --abort; git pull --no-rebase -X ours -q origin main; }
