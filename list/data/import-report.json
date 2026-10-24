@@ -164,7 +164,7 @@
    "source": "place:barcelona",
    "hub": "bcn",
    "pages": 3,
-   "seen": 29,
+   "seen": 27,
    "added": 0
   },
   {
@@ -311,7 +311,7 @@
    "source": "place:philadelphia",
    "hub": "phl",
    "pages": 2,
-   "seen": 21,
+   "seen": 20,
    "added": 0
   },
   {
@@ -424,20 +424,20 @@
    "hub": "nbo",
    "pages": 2,
    "seen": 6,
-   "added": 1
+   "added": 0
   },
   {
    "source": "place:lagos",
    "hub": "los",
    "pages": 2,
    "seen": 11,
-   "added": 1
+   "added": 0
   },
   {
    "source": "place:houston",
    "hub": "hou",
    "pages": 2,
-   "seen": 12,
+   "seen": 11,
    "added": 0
   },
   {
@@ -445,91 +445,91 @@
    "hub": "dal",
    "pages": 2,
    "seen": 11,
-   "added": 2
+   "added": 0
   },
   {
    "source": "place:atlanta",
    "hub": "atl",
    "pages": 2,
-   "seen": 16,
-   "added": 1
+   "seen": 15,
+   "added": 0
   },
   {
    "source": "place:salt-lake-city",
    "hub": "slc",
    "pages": 2,
    "seen": 14,
-   "added": 9
+   "added": 0
   },
   {
    "source": "place:raleigh",
    "hub": "rdu",
    "pages": 2,
    "seen": 7,
-   "added": 5
+   "added": 0
   },
   {
    "source": "place:oslo",
    "hub": "osl",
    "pages": 2,
    "seen": 8,
-   "added": 2
+   "added": 0
   },
   {
    "source": "place:vienna",
    "hub": "vie",
    "pages": 2,
    "seen": 11,
-   "added": 1
+   "added": 0
   },
   {
    "source": "place:prague",
    "hub": "prg",
    "pages": 2,
    "seen": 15,
-   "added": 4
+   "added": 0
   },
   {
    "source": "place:brussels",
    "hub": "bru",
    "pages": 2,
    "seen": 16,
-   "added": 5
+   "added": 0
   },
   {
    "source": "place:istanbul",
    "hub": "ist",
    "pages": 2,
    "seen": 13,
-   "added": 5
+   "added": 0
   },
   {
    "source": "place:manila",
    "hub": "mnl",
    "pages": 2,
    "seen": 6,
-   "added": 3
+   "added": 0
   },
   {
    "source": "place:ho-chi-minh-city",
    "hub": "sgn",
    "pages": 2,
    "seen": 7,
-   "added": 1
+   "added": 0
   },
   {
    "source": "place:auckland",
    "hub": "akl",
    "pages": 2,
    "seen": 7,
-   "added": 2
+   "added": 0
   },
   {
    "source": "place:bogota",
    "hub": "bog",
    "pages": 2,
    "seen": 8,
-   "added": 1
+   "added": 0
   },
   {
    "source": "place:medellin",
@@ -543,21 +543,26 @@
    "hub": "del",
    "pages": 2,
    "seen": 12,
-   "added": 2
+   "added": 0
   },
   {
    "source": "place:hongkong",
    "hub": "hkg",
    "pages": 2,
    "seen": 12,
-   "added": 3
+   "added": 0
   },
   {
    "source": "place:saopaulo",
    "hub": "sao",
    "pages": 2,
    "seen": 10,
-   "added": 2
+   "added": 0
+  },
+  {
+   "source": "luma calendars",
+   "known": 204,
+   "added": 366
   },
   {
    "source": "techmeetups.io",

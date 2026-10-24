@@ -44,8 +44,8 @@ source place:munich: 2 pages, 11 in-person events seen, 0 new added
   place:amsterdam page 2: 4 entries, has_more=False, cursor=yes
 source place:amsterdam: 3 pages, 29 in-person events seen, 0 new added
   place:barcelona page 1: 25 entries, has_more=True, cursor=yes
-  place:barcelona page 2: 4 entries, has_more=False, cursor=yes
-source place:barcelona: 3 pages, 29 in-person events seen, 0 new added
+  place:barcelona page 2: 2 entries, has_more=False, cursor=yes
+source place:barcelona: 3 pages, 27 in-person events seen, 0 new added
   place:madrid page 1: 17 entries, has_more=False, cursor=yes
   place:madrid page 2: 0 entries, has_more=False, cursor=no
 source place:madrid: 2 pages, 17 in-person events seen, 0 new added
@@ -106,9 +106,9 @@ source place:dc: 2 pages, 19 in-person events seen, 0 new added
   place:denver page 1: 10 entries, has_more=False, cursor=yes
   place:denver page 2: 0 entries, has_more=False, cursor=no
 source place:denver: 2 pages, 10 in-person events seen, 0 new added
-  place:philadelphia page 1: 21 entries, has_more=False, cursor=yes
+  place:philadelphia page 1: 20 entries, has_more=False, cursor=yes
   place:philadelphia page 2: 0 entries, has_more=False, cursor=no
-source place:philadelphia: 2 pages, 21 in-person events seen, 0 new added
+source place:philadelphia: 2 pages, 20 in-person events seen, 0 new added
   place:mexico-city page 1: 25 entries, has_more=True, cursor=yes
   place:mexico-city page 2: 25 entries, has_more=True, cursor=yes
 source place:mexico-city: 4 pages, 51 in-person events seen, 0 new added
@@ -156,65 +156,66 @@ source place:sydney: 2 pages, 12 in-person events seen, 0 new added
 source place:melbourne: 2 pages, 15 in-person events seen, 0 new added
   place:nairobi page 1: 6 entries, has_more=False, cursor=yes
   place:nairobi page 2: 0 entries, has_more=False, cursor=no
-source place:nairobi: 2 pages, 6 in-person events seen, 1 new added
+source place:nairobi: 2 pages, 6 in-person events seen, 0 new added
   place:lagos page 1: 11 entries, has_more=False, cursor=yes
   place:lagos page 2: 0 entries, has_more=False, cursor=no
-source place:lagos: 2 pages, 11 in-person events seen, 1 new added
-  place:houston page 1: 12 entries, has_more=False, cursor=yes
+source place:lagos: 2 pages, 11 in-person events seen, 0 new added
+  place:houston page 1: 11 entries, has_more=False, cursor=yes
   place:houston page 2: 0 entries, has_more=False, cursor=no
-source place:houston: 2 pages, 12 in-person events seen, 0 new added
+source place:houston: 2 pages, 11 in-person events seen, 0 new added
   place:dallas page 1: 11 entries, has_more=False, cursor=yes
   place:dallas page 2: 0 entries, has_more=False, cursor=no
-source place:dallas: 2 pages, 11 in-person events seen, 2 new added
-  place:atlanta page 1: 16 entries, has_more=False, cursor=yes
+source place:dallas: 2 pages, 11 in-person events seen, 0 new added
+  place:atlanta page 1: 15 entries, has_more=False, cursor=yes
   place:atlanta page 2: 0 entries, has_more=False, cursor=no
-source place:atlanta: 2 pages, 16 in-person events seen, 1 new added
+source place:atlanta: 2 pages, 15 in-person events seen, 0 new added
   place:salt-lake-city page 1: 14 entries, has_more=False, cursor=yes
   place:salt-lake-city page 2: 0 entries, has_more=False, cursor=no
-source place:salt-lake-city: 2 pages, 14 in-person events seen, 9 new added
+source place:salt-lake-city: 2 pages, 14 in-person events seen, 0 new added
   place:raleigh page 1: 7 entries, has_more=False, cursor=yes
   place:raleigh page 2: 0 entries, has_more=False, cursor=no
-source place:raleigh: 2 pages, 7 in-person events seen, 5 new added
+source place:raleigh: 2 pages, 7 in-person events seen, 0 new added
   place:oslo page 1: 8 entries, has_more=False, cursor=yes
   place:oslo page 2: 0 entries, has_more=False, cursor=no
-source place:oslo: 2 pages, 8 in-person events seen, 2 new added
+source place:oslo: 2 pages, 8 in-person events seen, 0 new added
   place:vienna page 1: 11 entries, has_more=False, cursor=yes
   place:vienna page 2: 0 entries, has_more=False, cursor=no
-source place:vienna: 2 pages, 11 in-person events seen, 1 new added
+source place:vienna: 2 pages, 11 in-person events seen, 0 new added
   place:prague page 1: 15 entries, has_more=False, cursor=yes
   place:prague page 2: 0 entries, has_more=False, cursor=no
-source place:prague: 2 pages, 15 in-person events seen, 4 new added
+source place:prague: 2 pages, 15 in-person events seen, 0 new added
   place:brussels page 1: 16 entries, has_more=False, cursor=yes
   place:brussels page 2: 0 entries, has_more=False, cursor=no
-source place:brussels: 2 pages, 16 in-person events seen, 5 new added
+source place:brussels: 2 pages, 16 in-person events seen, 0 new added
   place:istanbul page 1: 13 entries, has_more=False, cursor=yes
   place:istanbul page 2: 0 entries, has_more=False, cursor=no
-source place:istanbul: 2 pages, 13 in-person events seen, 5 new added
+source place:istanbul: 2 pages, 13 in-person events seen, 0 new added
   place:manila page 1: 6 entries, has_more=False, cursor=yes
   place:manila page 2: 0 entries, has_more=False, cursor=no
-source place:manila: 2 pages, 6 in-person events seen, 3 new added
+source place:manila: 2 pages, 6 in-person events seen, 0 new added
   place:ho-chi-minh-city page 1: 7 entries, has_more=False, cursor=yes
   place:ho-chi-minh-city page 2: 0 entries, has_more=False, cursor=no
-source place:ho-chi-minh-city: 2 pages, 7 in-person events seen, 1 new added
+source place:ho-chi-minh-city: 2 pages, 7 in-person events seen, 0 new added
   place:auckland page 1: 7 entries, has_more=False, cursor=yes
   place:auckland page 2: 0 entries, has_more=False, cursor=no
-source place:auckland: 2 pages, 7 in-person events seen, 2 new added
+source place:auckland: 2 pages, 7 in-person events seen, 0 new added
   place:bogota page 1: 8 entries, has_more=False, cursor=yes
   place:bogota page 2: 0 entries, has_more=False, cursor=no
-source place:bogota: 2 pages, 8 in-person events seen, 1 new added
+source place:bogota: 2 pages, 8 in-person events seen, 0 new added
   place:medellin page 1: 3 entries, has_more=False, cursor=yes
   place:medellin page 2: 0 entries, has_more=False, cursor=no
 source place:medellin: 2 pages, 3 in-person events seen, 0 new added
   place:new-delhi page 1: 12 entries, has_more=False, cursor=yes
   place:new-delhi page 2: 0 entries, has_more=False, cursor=no
-source place:new-delhi: 2 pages, 12 in-person events seen, 2 new added
+source place:new-delhi: 2 pages, 12 in-person events seen, 0 new added
   place:hongkong page 1: 12 entries, has_more=False, cursor=yes
   place:hongkong page 2: 0 entries, has_more=False, cursor=no
-source place:hongkong: 2 pages, 12 in-person events seen, 3 new added
+source place:hongkong: 2 pages, 12 in-person events seen, 0 new added
   place:saopaulo page 1: 10 entries, has_more=False, cursor=yes
   place:saopaulo page 2: 0 entries, has_more=False, cursor=no
-source place:saopaulo: 2 pages, 10 in-person events seen, 2 new added
+source place:saopaulo: 2 pages, 10 in-person events seen, 0 new added
+luma calendars: 204 known (204 seen this run), 204 checked, 0 rate-limited, 366 new events
 techmeetups den: 67 found, 0 new
 techmeetups: 0 new events, 82 API calls
 descriptions: filled 75 of 250
-photos: 1931 of 2003 events have a real photo (0 checked)
+photos: 2284 of 2369 events have a real photo (13 checked)
