@@ -18052,5 +18052,115 @@
   "link": "https://brainstation.io/marketing-summit/new-york",
   "type": "Conferences",
   "desc": "An afternoon summit on how AI is changing marketing, for marketers and growth teams."
+ },
+ {
+  "title": "Hong Kong FinTech Week 2026",
+  "hub": "hkg",
+  "date": "2026-11-02",
+  "venue": "Hong Kong Convention and Exhibition Centre & venues across the city",
+  "host": "InvestHK",
+  "link": "https://www.fintechweek.hk/",
+  "type": "Conferences",
+  "desc": "Asia's flagship fintech week, November 2 to 6, with regulators, banks, investors and fintech founders across HKCEC and venues around Hong Kong."
+ },
+ {
+  "title": "Devcon 8",
+  "hub": "bom",
+  "date": "2026-11-03",
+  "venue": "Jio World Centre, Bandra Kurla Complex",
+  "host": "Ethereum Foundation",
+  "link": "https://devcon.org/",
+  "type": "Conferences",
+  "desc": "The Ethereum Foundation's developer conference, November 3 to 6, for builders, researchers and founders across the Ethereum ecosystem."
+ },
+ {
+  "title": "Digital Asset Summit London 2026",
+  "hub": "ldn",
+  "date": "2026-11-10",
+  "venue": "Hilton Park Lane",
+  "host": "Blockworks",
+  "link": "https://luma.com/daslondon2026",
+  "type": "Conferences",
+  "desc": "Blockworks' institutional digital-assets conference, November 10 and 11, for funds, banks, allocators and crypto founders."
+ },
+ {
+  "title": "Moonshot by TechCabal 2026",
+  "hub": "los",
+  "date": "2026-10-28",
+  "venue": "Lagos",
+  "host": "TechCabal",
+  "link": "https://techcabal.com/2026/05/04/moonshot-by-techcabal-returns-for-fourth-edition/",
+  "type": "Conferences",
+  "desc": "Africa's tech-ecosystem conference from TechCabal, October 28 and 29, with founders, investors and operators from across the continent."
+ },
+ {
+  "title": "Bitcoin Amsterdam 2026",
+  "hub": "ams",
+  "date": "2026-11-05",
+  "venue": "Amsterdam",
+  "host": "BTC Inc",
+  "link": "https://amsterdam.b.tc/",
+  "type": "Conferences",
+  "desc": "Europe's Bitcoin conference, November 5 and 6, for builders, investors and companies working on Bitcoin."
+ },
+ {
+  "title": "0100 International 2026",
+  "hub": "mil",
+  "date": "2026-10-27",
+  "venue": "Milan",
+  "host": "0100 Conferences",
+  "link": "https://dealroom.co/events/0100-international-2026",
+  "type": "Conferences",
+  "desc": "A private-markets gathering for VC and private equity GPs and LPs, October 27 to 29, focused on deal flow and fundraising."
+ },
+ {
+  "title": "Adobe MAX 2026",
+  "hub": "mia",
+  "date": "2026-11-10",
+  "venue": "Miami Beach",
+  "host": "Adobe",
+  "link": "https://max.adobe.com/",
+  "type": "Conferences",
+  "desc": "Adobe's creativity conference, November 10 to 12, with product launches and sessions on AI for design and content teams."
+ },
+ {
+  "title": "Barcelona Cybersecurity Congress & IOT Solutions World Congress",
+  "hub": "bcn",
+  "date": "2026-11-03",
+  "venue": "Fira Barcelona Gran Via",
+  "host": "Fira Barcelona",
+  "link": "https://www.barcelonacybersecuritycongress.com/",
+  "type": "Conferences",
+  "desc": "Twin congresses on cybersecurity and industrial IoT, November 3 to 5, with an exhibition floor of vendors, startups and enterprise buyers."
+ },
+ {
+  "title": "Tomorrow.Mobility World Congress",
+  "hub": "bcn",
+  "date": "2026-11-03",
+  "venue": "Fira Barcelona Gran Via",
+  "host": "Fira Barcelona",
+  "link": "https://www.tomorrowmobility.com/",
+  "type": "Conferences",
+  "desc": "The urban mobility congress, November 3 to 5, for cities, transport operators and mobility startups."
+ },
+ {
+  "title": "Deep Tech CEE Summit & Challenge",
+  "hub": "waw",
+  "date": "2026-10-26",
+  "venue": "Warsaw",
+  "host": "Deep Tech Summit",
+  "link": "https://deeptechsummit.eu/cee-challenge-2026/",
+  "type": "Conferences",
+  "desc": "Two days, October 26 and 27, connecting Central and Eastern European deep-tech founders with investors, plus a startup challenge."
+ },
+ {
+  "title": "Poland Tech Week",
+  "hub": "waw",
+  "date": "2026-10-26",
+  "venue": "Warsaw",
+  "host": "Poland Tech Week",
+  "link": "https://polandtechweek.com/",
+  "type": "Conferences",
+  "desc": "A week of startup and tech events across Warsaw, October 26 to 30."
  }
 ]
