@@ -27,88 +27,8 @@
    "added": 0
   },
   {
-   "source": "luma place riyadh",
-   "hub": "riy",
-   "error": "place not found"
-  },
-  {
-   "source": "luma place doha",
-   "hub": "doh",
-   "error": "place not found"
-  },
-  {
-   "source": "luma place san-diego",
-   "hub": "sdg",
-   "error": "place not found"
-  },
-  {
    "source": "luma place nashville",
    "hub": "nsh",
-   "error": "place not found"
-  },
-  {
-   "source": "luma place manchester",
-   "hub": "man",
-   "error": "place not found"
-  },
-  {
-   "source": "luma place edinburgh",
-   "hub": "edi",
-   "error": "place not found"
-  },
-  {
-   "source": "luma place cape-town",
-   "hub": "cpt",
-   "error": "place not found"
-  },
-  {
-   "source": "luma place johannesburg",
-   "hub": "jnb",
-   "error": "place not found"
-  },
-  {
-   "source": "luma place cairo",
-   "hub": "cai",
-   "error": "place not found"
-  },
-  {
-   "source": "luma place shanghai",
-   "hub": "sha",
-   "error": "place not found"
-  },
-  {
-   "source": "luma place shenzhen",
-   "hub": "szx",
-   "error": "place not found"
-  },
-  {
-   "source": "luma place santiago",
-   "hub": "scl",
-   "error": "place not found"
-  },
-  {
-   "source": "luma place lima",
-   "hub": "lim",
-   "error": "place not found"
-  },
-  {
-   "source": "luma place hyderabad",
-   "hub": "hyd",
-   "error": "place not found"
-  },
-  {
-   "source": "luma place davos",
-   "hub": "dav",
-   "error": "place not found"
-  },
-  {
-   "source": "luma place sao-paulo-sp",
-   "hub": "sao",
-   "error": "place not found"
-  },
-  {
-   "source": "luma place hk",
-   "hub": "hkg",
    "error": "place not found"
   },
   {
@@ -561,8 +481,8 @@
   },
   {
    "source": "luma calendars",
-   "known": 204,
-   "added": 366
+   "known": 421,
+   "added": 275
   },
   {
    "source": "techmeetups.io",

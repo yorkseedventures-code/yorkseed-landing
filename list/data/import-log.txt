@@ -1,27 +1,17 @@
 links import: 0 added of 4 queued, 4 kept for retry
 submissions: 0 approved events copied into events.json, 0 with an uploaded cover
-place riyadh: lookup failed (HTTP Error 301: Moved Permanently)
-place san-diego: lookup failed (HTTP Error 301: Moved Permanently)
-place manchester: lookup failed (HTTP Error 301: Moved Permanently)
-place cape-town: lookup failed (HTTP Error 404: Not Found)
-place johannesburg: lookup failed (HTTP Error 301: Moved Permanently)
-place cairo: lookup failed (HTTP Error 301: Moved Permanently)
-place santiago: lookup failed (HTTP Error 301: Moved Permanently)
-place lima: lookup failed (HTTP Error 301: Moved Permanently)
-place hyderabad: lookup failed (HTTP Error 301: Moved Permanently)
-place sao-paulo-sp: lookup failed (HTTP Error 404: Not Found)
-  cat-tech page 1: 7 entries, has_more=False, cursor=yes
-  cat-tech page 2: 0 entries, has_more=False, cursor=no
-source cat-tech: 2 pages, 7 in-person events seen, 0 new added
-  cat-climate page 1: 7 entries, has_more=False, cursor=yes
-  cat-climate page 2: 0 entries, has_more=False, cursor=no
-source cat-climate: 2 pages, 7 in-person events seen, 0 new added
-  cat-crypto page 1: 7 entries, has_more=False, cursor=yes
-  cat-crypto page 2: 0 entries, has_more=False, cursor=no
-source cat-crypto: 2 pages, 7 in-person events seen, 0 new added
-  cat-ai page 1: 7 entries, has_more=False, cursor=yes
-  cat-ai page 2: 0 entries, has_more=False, cursor=no
-source cat-ai: 2 pages, 7 in-person events seen, 0 new added
+  cat-tech page 1: 25 entries, has_more=True, cursor=yes
+  cat-tech page 2: 25 entries, has_more=True, cursor=yes
+source cat-tech: 34 pages, 790 in-person events seen, 126 new added
+  cat-climate page 1: 25 entries, has_more=True, cursor=yes
+  cat-climate page 2: 25 entries, has_more=True, cursor=yes
+source cat-climate: 34 pages, 790 in-person events seen, 0 new added
+  cat-crypto page 1: 25 entries, has_more=True, cursor=yes
+  cat-crypto page 2: 25 entries, has_more=True, cursor=yes
+source cat-crypto: 34 pages, 790 in-person events seen, 0 new added
+  cat-ai page 1: 25 entries, has_more=True, cursor=yes
+  cat-ai page 2: 25 entries, has_more=True, cursor=yes
+source cat-ai: 34 pages, 790 in-person events seen, 0 new added
   place:nyc page 1: 25 entries, has_more=True, cursor=yes
   place:nyc page 2: 25 entries, has_more=True, cursor=yes
 source place:nyc: 5 pages, 81 in-person events seen, 0 new added
@@ -214,8 +204,8 @@ source place:hongkong: 2 pages, 12 in-person events seen, 0 new added
   place:saopaulo page 1: 10 entries, has_more=False, cursor=yes
   place:saopaulo page 2: 0 entries, has_more=False, cursor=no
 source place:saopaulo: 2 pages, 10 in-person events seen, 0 new added
-luma calendars: 204 known (204 seen this run), 204 checked, 0 rate-limited, 366 new events
+luma calendars: 421 known (360 seen this run), 421 checked, 0 rate-limited, 275 new events
 techmeetups den: 67 found, 0 new
 techmeetups: 0 new events, 82 API calls
 descriptions: filled 75 of 250
-photos: 2284 of 2369 events have a real photo (13 checked)
+photos: 2684 of 2770 events have a real photo (1 checked)
