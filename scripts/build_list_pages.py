@@ -214,21 +214,27 @@ def faq(city, n, hid):
     return html_, ld
 
 # ---- city pages ----
+# the short name people actually type into Google ("NYC tech events"), used up front in the title, H1 and FAQ
+SHORT = {"nyc": "NYC", "sf": "SF", "la": "LA", "dc": "DC"}
 for h in hubs.values():
     evs = by_hub.get(h["id"], []); n = len(evs); camp = "list_" + h["slug"]
-    city = h["name"]; online = h["id"] == "virtual"
+    city = h["name"]; online = h["id"] == "virtual"; short = SHORT.get(h["id"])
     hw = [w for w in weeks if w["hub"] == h["id"]]
     title = (f"Online Startup & Tech Events, {TODAY.strftime('%b %Y')} | The Yorkseed List" if online else
-             f"Startup & Tech Events in {city}, {TODAY.strftime('%b %Y')} | The Yorkseed List")
+             (f"{short} Tech Events & Startup Events, {TODAY.strftime('%b %Y')} | The Yorkseed List" if short else
+              f"Startup & Tech Events in {city}, {TODAY.strftime('%b %Y')} | The Yorkseed List"))
     if len(title) > 70: title = title.replace(" | The Yorkseed List", " | Yorkseed")
-    desc = (f"{n} upcoming startup, tech, founder and investor events {'online' if online else 'in '+city}: networking, pitch nights, VC and founder meetups"
+    where_ = 'online' if online else 'in ' + city
+    desc = ((f"{n} upcoming {short} tech events: startup, founder and investor events {where_}, including" if short else
+             f"{n} upcoming startup, tech, founder and investor events {where_}:")
+            + " networking, pitch nights, VC and founder meetups"
             + (f", plus {', '.join(w['name'] for w in hw)} side events" if hw else "") + ". Updated continuously. Free to list your event.")
     canon = f"{LIST}{h['slug']}/"; img = IMGPATH.get(h["img"] or h["id"])
-    fh, fld = faq(city, n, h["id"])
+    fh, fld = faq(short or city, n, h["id"])
     weeks_html = ('<h2>Conference and tech weeks</h2><div class="weeks">' + "".join(f'<a href="/{w["slug"]}/">{e_(w["name"])} · {len(w["events"])} side events</a>' for w in hw) + "</div>") if hw else ""
     body = f"""<div class="crumb"><a href="https://yorkseed.co/">Yorkseed</a> / <a href="/">The List</a> / <a href="/cities/">Cities</a> / {e_(city if not online else 'Online')}</div>
-<div class="hero"><div><h1>{'Online startup events' if online else f'Startup and tech events in <em>{e_(city)}</em>'}</h1>
-<p class="lede">Every startup, founder, investor and tech event worth going to {'online' if online else 'in '+e_(city)}, in one calendar. Picked by Yorkseed, updated continuously.</p>
+<div class="hero"><div><h1>{'Online startup events' if online else (f'{short} tech and startup events' if short else f'Startup and tech events in <em>{e_(city)}</em>')}</h1>
+<p class="lede">Every startup, founder, investor and tech event worth going to {'online' if online else 'in '+e_(city)+(' ('+short+')' if short else '')}, in one calendar. Picked by Yorkseed, updated continuously.</p>
 <p class="meta">{n} upcoming event{'s' if n!=1 else ''} · Updated {TODAY.strftime('%B')} {TODAY.day}, {TODAY.year}</p>
 <div class="cta"><a class="btn r" href="/#{h['id']}">Open the interactive List</a><a class="btn" href="/#submit">List your event free</a></div></div>
 {f'<img src="{img}" alt="{e_(city)} skyline" width="800" height="600" loading="eager">' if img else ''}</div>
