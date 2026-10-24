@@ -1,0 +1,30 @@
+# TEMPORARY: runs the List importers on the held branch so new events can be reviewed before deploy.
+# Commits results back to this branch only (no [deploy], no IndexNow). Delete before merging to main.
+name: List import preview (branch only)
+on:
+  push:
+    branches: [list-seo-nyc]
+    paths: [".github/workflows/list-preview.yml", "scripts/list_enrich.py", "list/data/sources.json", "list/data/run-preview.txt"]
+permissions:
+  contents: write
+concurrency:
+  group: list-preview
+  cancel-in-progress: true
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Import events from every source
+        run: python3 scripts/list_enrich.py 2>&1 | tee list/data/import-log.txt || true
+      - name: Commit results to this branch
+        run: |
+          git config user.name "yorkseed-list-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add list/events.json list/data
+          git commit -m "List preview import $(date -u +%Y-%m-%dT%H:%MZ)" || exit 0
+          git push
