@@ -305,6 +305,22 @@ def import_luma_calendars():
     for k, v in CALS.items(): known.setdefault(k, {"name": v, "first": TODAY}); known[k]["last"] = TODAY
     master = load(f"{REPO}/list/data/master.json", {"events": [], "hubs": []}); hubs = master["hubs"]
     events = load(f"{REPO}/list/events.json", [])
+    # grow the calendar list from Luma events already on the List: each event names the calendar that hosts it (up to 500 lookups a run)
+    sp = f"{REPO}/list/data/luma-event-cals.json"; done = load(sp, {})
+    slugs = [m.group(1) for e in events + master["events"] for m in [re.match(r"https?://(?:www\.)?(?:lu\.ma|luma\.com)/([A-Za-z0-9_-]+)/?$", e.get("link") or "")] if m]
+    for slug in [s for s in dict.fromkeys(slugs) if s not in done][:500]:
+        try:
+            r = urlopen(Request(f"https://api.lu.ma/url?url={slug}", headers={**UA, "Accept": "application/json"}), timeout=20)
+            d = (json.loads(r.read().decode("utf-8", "ignore")).get("data") or {}); cal = d.get("calendar") or {}
+            ev = d.get("event") or {}
+            done[slug] = cal.get("api_id") or ""
+            if cal.get("api_id") and (cal.get("name") or "").strip().lower() != "personal" and TECH.search(ev.get("name") or ""):
+                known.setdefault(cal["api_id"], {"name": cal.get("name") or "", "first": TODAY}); known[cal["api_id"]]["last"] = TODAY
+        except Exception as ex:
+            if getattr(ex, "code", 0) in (429, 403): time.sleep(30)
+            else: done[slug] = ""
+        time.sleep(0.35)
+    json.dump(done, open(sp, "w"), indent=0)
     norm = lambda s: re.sub(r'[^a-z0-9]+', '', (s or '').lower())[:40]
     seen_l = {(e.get("link") or "").split("?")[0].rstrip("/") for e in events + master["events"]}
     seen_t = {(norm(e.get("title")), e.get("date")) for e in events + master["events"]}
