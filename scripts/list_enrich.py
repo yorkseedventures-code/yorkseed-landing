@@ -295,7 +295,8 @@ TECH = re.compile(r"\b(start-?ups?|founders?|co-?founders?|vcs?|venture|investor
     r"builders?|product|pms?|saas|fintech|crypto|web3|blockchain|defi|climate ?tech|healthtech|biotech|deep ?tech|robotics|quantum|cyber(security)?|cloud|"
     r"open[- ]source|coding|code|software|b2b|gtm|go-to-market|growth|operators?|entrepreneurs?|entrepreneurship|scale-?ups?|innovation|fundrais\w*|"
     r"api|devrel|ux|ui|design ?systems?|python|javascript|rust|kubernetes|openai|anthropic|nvidia|google|microsoft|aws)\b", re.I)
-NOT = re.compile(r"\b(dating|singles|speed ?dating|yoga|meditation|rave|comedy|stand-?up|karaoke|wine tasting|sound bath)\b", re.I)
+NOT = re.compile(r"\b(dating|singles|speed ?dating|yoga|meditation|rave|comedy|stand-?up|karaoke|wine tasting|sound bath|language exchange|spanish practice|"
+                 r"english practice|perimenopause|menopause|women'?s circle|breathwork|astrology|tarot|bible|prayer)\b", re.I)
 CALS = {}   # Luma calendars seen hosting tech events this run: api_id -> name
 
 # ---------- 1e. Luma community calendars (AI Tinkerers, GenAI Collective...) found hosting tech events ----------
@@ -530,11 +531,12 @@ def import_meetup_groups():
             last[g] = TODAY
             continue
         last[g] = TODAY
-        ok += 1; tz = hub_tz(hub)
-        for f in _ics_events(text):
+        ok += 1; tz = hub_tz(hub); per_group = 0
+        for f in sorted(_ics_events(text), key=lambda f: (f.get("DTSTART") or ("", ""))[0]):
+            if per_group >= 3: break                                     # next 3 events per group, so weekly runs don't flood a city
             title = (f.get("SUMMARY") or ("", ""))[0]; url = (f.get("URL") or ("", ""))[0].split("?")[0].rstrip("/")
             loc = (f.get("LOCATION") or ("", ""))[0]; ds, params = f.get("DTSTART") or ("", "")
-            if not title or not url or not ds or NOT.search(title) or re.search(r"\bonline\b|virtual|zoom", loc + " " + title, re.I): continue
+            if not title or not url or not ds or not TECH.search(title) or NOT.search(title) or re.search(r"\bonline\b|virtual|zoom", loc + " " + title, re.I): continue
             try:
                 src_tz = re.search(r"TZID=([^;:]+)", params).group(1) if "TZID=" in params else "UTC"
                 d = dt.datetime.strptime(ds.rstrip("Z")[:15], "%Y%m%dT%H%M%S").replace(tzinfo=ZoneInfo(src_tz)).astimezone(ZoneInfo(tz))
@@ -542,8 +544,8 @@ def import_meetup_groups():
             date = d.date().isoformat()
             if date < TODAY or date > horizon or url in seen_l or (norm(title), date) in seen_t: continue
             events.append({"title": title[:200], "hub": hub, "date": date, "start": d.strftime("%H:%M"), "venue": loc[:200],
-                           "host": g.replace("-", " "), "link": url + "/", "desc": "Details and registration on the event page.", "src": "meetup"})
-            seen_l.add(url); seen_t.add((norm(title), date)); added += 1
+                           "host": g.replace("-", " ").replace("_", " ").title(), "link": url + "/", "desc": "Details and registration on the event page.", "src": "meetup"})
+            seen_l.add(url); seen_t.add((norm(title), date)); added += 1; per_group += 1
         time.sleep(0.6)
     json.dump(groups, open(gp, "w"), indent=0); json.dump(last, open(lp, "w"), indent=0)
     json.dump(events, open(f"{REPO}/list/events.json", "w"), ensure_ascii=False, indent=1)

@@ -800,6 +800,34 @@
    "hub": "mex",
    "start": "2026-10-26",
    "end": "2026-11-01"
+  },
+  {
+   "id": "seaai",
+   "name": "Seattle AI Week",
+   "hub": "sea",
+   "start": "2026-10-26",
+   "end": "2026-10-30"
+  },
+  {
+   "id": "hardtech",
+   "name": "Hard Tech Week",
+   "hub": "slc",
+   "start": "2026-10-26",
+   "end": "2026-10-28"
+  },
+  {
+   "id": "dtw",
+   "name": "DeepTech Week TLV",
+   "hub": "tlv",
+   "start": "2026-11-15",
+   "end": "2026-11-19"
+  },
+  {
+   "id": "hkfw",
+   "name": "Hong Kong FinTech Week",
+   "hub": "hkg",
+   "start": "2026-11-02",
+   "end": "2026-11-06"
   }
  ],
  "img": {
