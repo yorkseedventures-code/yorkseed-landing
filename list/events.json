@@ -83875,6 +83875,7 @@
   "link": "https://luma.com/websummitlisbonpregame",
   "desc": "An evening for everyone in town to meet before Web Summit. Presented by Yorkseed, hosted by Jessica Sophia Wong. Apply to attend.",
   "yorkseed": true,
-  "src": "manual"
+  "src": "manual",
+  "type": "Meetups"
  }
 ]
