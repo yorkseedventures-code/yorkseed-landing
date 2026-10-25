@@ -1,12 +1,11 @@
 HTTP/2 404 
-date: Sun, 25 Oct 2026 02:56:18 GMT
+date: Sun, 25 Oct 2026 02:57:01 GMT
 content-type: text/html
-x-guploader-customer: cloud-storage
-x-guploader-uploadid: AP6rU80IHr6UTCpRS17V-glBVXLVF93Zacl-n5Z3HEcFZWb39zb1ojT4FjLZ5Bs9pAj_HiweuUP_XvA
+x-guploader-uploadid: AP6rU83ia2LvR_Et-wE30aSOTZhWtowX4l8YZsmopK9KKd0Vpn5t0FjfjLfIrGlJnvPBnaAAI9-WeoA
 cache-control: no-cache, no-store, must-revalidate
-expires: Mon, 25 Oct 2027 02:56:18 GMT
+expires: Mon, 25 Oct 2027 02:57:01 GMT
 last-modified: Fri, 23 Oct 2026 20:32:45 GMT
-report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=ZJv1TP7%2B%2FKckwVGxkylnVIva1yHDNkdyK48DqIwDt0pUaIMQ6KODGGGOPpQUCGu%2B4uMhC6Y0BizRl9OW3X9AsbuJ6h8%2BPl2wN3ZKqAPLbKUNXFGvIrPHvGmPu6AdDGWjOaiTR%2B0%3D"}]}
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=myYvbsMi6XWPyxqHtLNIx15X0n4t3Gso8ek3Se8B1LNKE17Lm%2FgfIrLQ0%2FzEe4yTLulfp5JbFQTUQezQicVXU9IA5VSjKzUrFP17BXjDvVK1AKFx%2FGKsDciWmtpDHtktiacEbwc%3D"}]}
 x-goog-generation: 1792787565420870
 x-goog-metageneration: 1
 x-goog-stored-content-encoding: identity
@@ -16,9 +15,6 @@ x-goog-hash: crc32c=kKU3Fw==
 x-goog-hash: md5=6e5S9GhuVwrsSLrHG79Khw==
 x-goog-storage-class: STANDARD
 accept-ranges: bytes
-x-guploader-request-result: agent_rejected
-x-guploader-upload-result: agent_rejected
-x-guploader-request-class: LATENCY_SENSITIVE
 server: cloudflare
 via: 1.1 google
 x-frame-options: SAMEORIGIN
@@ -26,5 +22,5 @@ content-security-policy: frame-ancestors 'self'
 alt-svc: h3=":443"; ma=86400
 cf-cache-status: DYNAMIC
 nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
-cf-ray: a4fdf27e3bdd2ec7-LAX
+cf-ray: a4fdf38ba9fdacea-MSP
 
