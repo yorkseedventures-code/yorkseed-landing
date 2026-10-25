@@ -57246,19 +57246,6 @@
   "src": "confstech"
  },
  {
-  "title": "NVIDIA GTC Washington, D.C.",
-  "hub": "nyc",
-  "date": "2026-11-30",
-  "start": "00:00",
-  "end": null,
-  "venue": "",
-  "host": "NYC Tech Week",
-  "link": "https://pytorch.org/event/nvidia-gtc-washington-dc",
-  "type": "Conferences",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
   "title": "ILS2026パワーマッチング",
   "hub": "tyo",
   "date": "2026-11-30",
@@ -68470,5 +68457,185 @@
   "link": "https://slush.org/",
   "type": "Conferences",
   "desc": "The founder and investor gathering in Helsinki, November 18 and 19, with Day 0 on November 17 and hundreds of community side events across the city all week."
+ },
+ {
+  "title": "Microsoft Ignite 2026",
+  "hub": "sf",
+  "date": "2026-11-17",
+  "venue": "Moscone Center, San Francisco",
+  "host": "Microsoft",
+  "link": "https://ignite.microsoft.com/",
+  "desc": "Microsoft's conference for IT pros, developers and partners, November 17 to 20, with product launches across Azure, Copilot and AI.",
+  "type": "Conferences"
+ },
+ {
+  "title": "HLTH 2026",
+  "hub": "lvs",
+  "date": "2026-11-15",
+  "venue": "Las Vegas",
+  "host": "HLTH",
+  "link": "https://hlth.com/",
+  "desc": "The big health-innovation gathering, November 15 to 18, bringing together startups, investors, payers, providers and pharma.",
+  "type": "Conferences"
+ },
+ {
+  "title": "ElevenLabs Summit",
+  "hub": "nyc",
+  "date": "2026-11-11",
+  "venue": "New York",
+  "host": "ElevenLabs",
+  "link": "https://elevenlabs.io/events/elevenlabs-summit",
+  "desc": "ElevenLabs' one-day summit on voice AI, with product news and talks from teams building with it.",
+  "type": "Conferences"
+ },
+ {
+  "title": "TomorrowX Summit",
+  "hub": "atx",
+  "date": "2026-11-17",
+  "venue": "Austin",
+  "host": "TomorrowX",
+  "link": "https://tomorrowxsummit.com/",
+  "desc": "A two-day summit in Austin, November 17 and 18, on emerging technology and the companies building it.",
+  "type": "Conferences"
+ },
+ {
+  "title": "Baseten All-Gather",
+  "hub": "sf",
+  "date": "2026-11-18",
+  "venue": "San Francisco",
+  "host": "Baseten",
+  "link": "https://www.baseten.co/all-gather/",
+  "desc": "Baseten's one-day gathering for engineers and founders running AI models in production.",
+  "type": "Conferences"
+ },
+ {
+  "title": "JSNation US 2026",
+  "hub": "nyc",
+  "date": "2026-11-16",
+  "venue": "Jersey City / New York",
+  "host": "GitNation",
+  "link": "https://gitnation.com/events/jsnation-us-2026",
+  "desc": "The JavaScript conference for the US, November 16 to 19, with talks and workshops on the JS ecosystem and AI tooling.",
+  "type": "Conferences"
+ },
+ {
+  "title": "AI-Matched Dinners by Rauk AI at AfroTech",
+  "hub": "hou",
+  "date": "2026-11-02",
+  "venue": "River Oaks / Montrose, Houston",
+  "host": "Rauk AI",
+  "link": "https://posh.vip/e/aimatched-dinners-at-afrotech",
+  "desc": "Small dinners where Rauk AI matches attendees by goals, during AfroTech. Restaurant shared 24 hours before.",
+  "start": "19:00"
+ },
+ {
+  "title": "FRNDS Only: AfroTech 10 Year Anniversary Kickoff",
+  "hub": "hou",
+  "date": "2026-11-03",
+  "venue": "Warehouse Live, 2600 Travis St",
+  "host": "FRNDS",
+  "link": "https://posh.vip/e/frnds-only-official-afrotech-10-year-anniversary-kickoff-113",
+  "desc": "The official kickoff party for AfroTech's tenth year. 21+.",
+  "start": "18:00"
+ },
+ {
+  "title": "AfroTech Out of Office Lounge",
+  "hub": "hou",
+  "date": "2026-11-04",
+  "venue": "The Grove Houston, 1611 Lamar St",
+  "host": "AfroTech",
+  "link": "https://posh.vip/e/afrotech-conference-out-of-office-lounge",
+  "desc": "An all-afternoon lounge to meet and work between AfroTech sessions, noon to 9 PM.",
+  "start": "12:00"
+ },
+ {
+  "title": "RITE Vibe Houston: Vibe Coding for Builders",
+  "hub": "hou",
+  "date": "2026-11-04",
+  "venue": "The Mood Room, 711 Milby St",
+  "host": "RITE",
+  "link": "https://posh.vip/e/vibe-coder-builders-coding-the-rite-way",
+  "desc": "An evening for builders using AI to code, during AfroTech week.",
+  "start": "16:00"
+ },
+ {
+  "title": "Activated by Ajani",
+  "hub": "hou",
+  "date": "2026-11-04",
+  "venue": "Seremoni Brick House, 1125 Providence St",
+  "host": "Ajani",
+  "link": "https://posh.vip/e/activated-by-ajani-official-afrotech-partner-event",
+  "desc": "An official AfroTech partner event with networking and talks.",
+  "start": "16:30"
+ },
+ {
+  "title": "The Tee & Tech Golf Clinic & Social",
+  "hub": "hou",
+  "date": "2026-11-04",
+  "venue": "Hermann Park Golf Course",
+  "host": "Tee & Tech",
+  "link": "https://posh.vip/e/the-tee-tech-golf-clinic-social",
+  "desc": "A golf clinic and social for people in tech during AfroTech.",
+  "start": "17:00"
+ },
+ {
+  "title": "AI-Matched Dinners by Rauk AI: Healthcare Edition",
+  "hub": "hou",
+  "date": "2026-11-04",
+  "venue": "River Oaks / Montrose, Houston",
+  "host": "Rauk AI",
+  "link": "https://posh.vip/e/aimatched-dinners-healthcare-edition-1",
+  "desc": "AI-matched small dinners for people working in healthcare and health tech, during AfroTech.",
+  "start": "19:00"
+ },
+ {
+  "title": "Blavity In Black at AfroTech",
+  "hub": "hou",
+  "date": "2026-11-04",
+  "venue": "Vic3, 3315 Milam St",
+  "host": "Blavity",
+  "link": "https://posh.vip/e/afrotech-conference-blavity-in-black",
+  "desc": "Blavity's evening party during AfroTech.",
+  "start": "21:00"
+ },
+ {
+  "title": "The Blavity House Party Block Party",
+  "hub": "hou",
+  "date": "2026-11-05",
+  "venue": "Discovery Green, 1500 McKinney St",
+  "host": "Blavity",
+  "link": "https://posh.vip/e/afrotech-conference-the-blavity-house-party-block-party",
+  "desc": "Blavity's afternoon block party at Discovery Green during AfroTech. 18+.",
+  "start": "14:30"
+ },
+ {
+  "title": "Sapphic Hour: AfroTech Speed Networking for WLW",
+  "hub": "hou",
+  "date": "2026-11-05",
+  "venue": "AVANTGARDEN, 411 Westheimer Rd",
+  "host": "AfroTech",
+  "link": "https://posh.vip/e/an-official-afrotech-speed-networking-mix-mingle-for-wlw",
+  "desc": "An official AfroTech speed-networking mixer for women who love women in tech.",
+  "start": "20:00"
+ },
+ {
+  "title": "The Changemakers Table: AfroTech Edition",
+  "hub": "hou",
+  "date": "2026-11-06",
+  "venue": "Houston (shared on request)",
+  "host": "Changemakers Table",
+  "link": "https://posh.vip/e/the-changemakers-table-afrotech-edition",
+  "desc": "A private brunch for founders and leaders during AfroTech.",
+  "start": "09:30"
+ },
+ {
+  "title": "Black Women in Tech, Film & Creative Industries Brunch",
+  "hub": "hou",
+  "date": "2026-11-06",
+  "venue": "Sanman Studios, 1109 Providence St",
+  "host": "Sanman Studios",
+  "link": "https://posh.vip/e/black-women-in-tech-film-creative-industries-brunch",
+  "desc": "A brunch for Black women working across tech, film and the creative industries, closing out AfroTech week.",
+  "start": "12:00"
  }
 ]
