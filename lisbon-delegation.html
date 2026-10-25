@@ -598,6 +598,7 @@ html:not(.fso) [data-so]{display:none!important}
 
         <div class="f"><label for="goals" id="goalsLabel">Who do you want to meet in Lisbon?</label><p class="hint" id="goalsHint">The more specific, the better the introductions.</p><textarea id="goals"></textarea></div>
         <div class="two">
+          <div class="f"><label for="accessCode">Access code (optional)</label><p class="hint">If Yorkseed gave you a private access code, enter it here. Founders: it makes your delegation place free. You still complete this application.</p><input type="text" id="accessCode" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="LIS-XXXXXXXX"/></div>
           <div class="f"><label for="referral">Where did you hear about the delegation?</label>
             <select id="referral"><option value="">Choose</option><option>LinkedIn</option><option>Instagram</option><option>WhatsApp group</option><option>Luma</option><option>Yorkseed newsletter</option><option>Yorkseed event</option><option>Yorkseed Connect</option><option>Friend or colleague</option><option>Web Summit</option><option>Google search</option><option>Other</option></select>
           </div>
@@ -640,6 +641,7 @@ html:not(.fso) [data-so]{display:none!important}
       <div class="done" id="done">
         <h3>See you in <em>Lisbon</em>.</h3>
         <p id="doneText">Application received. We'll get back to you within two days.</p>
+        <p id="doneCode" hidden><a class="btn" id="doneCodeLink" href="#" target="_blank" rel="noopener">Claim your free place</a></p>
       </div>
     </div>
   </div>
@@ -779,12 +781,12 @@ html:not(.fso) [data-so]{display:none!important}
       ['Package',tier],['Rate to send if approved',rate],['Teammates',i?'':v('extraCount')],['Teammate details',i?'':matesData().map(function(m,k){return (k+1)+'. '+m[0]+(m[1]?' ('+m[1]+')':'')+' · '+m[2]+' · '+m[3]+(m[4]?' · photo: '+m[4]:'')}).join(' | ')],
       ['Partner field',p?v('pField'):''],['Partner services',p?v('pOffer'):''],['Partner perk for delegates',p?v('pPerk'):''],
       ['Investor stage focus',i?v('iStage'):''],['Investor sectors',i?v('iSectors'):''],['Investor check size',i?v('iCheck'):''],['Portfolio permission',i?(portfolio()==='Yes'?'Yes, choose up to 5 from website':portfolio()):''],['Portfolio companies',i&&portfolio()==='Custom'?v('pfList').split(/\n/).filter(function(x){return x.trim()}).join(' | '):''],
-      [f?'Who they want to meet':(p?'Who they want to meet':'What they want to see'),v('goals')],['Heard via',v('referral')],['Heard via details',v('referralDetail')],
+      [f?'Who they want to meet':(p?'Who they want to meet':'What they want to see'),v('goals')],['Access code',v('accessCode')],['Heard via',v('referral')],['Heard via details',v('referralDetail')],
       ['Deal Book section',f?'Companies':(p?'Partners':'Investors')],
       ['Deal Book profile',form.querySelector('[name=dealbook]:checked').value],['Deal Book tagline',dealbookYes()?v('dbTagline'):''],['Deal Book about',dealbookYes()?v('dbAbout'):''],['Deal Book keywords',dealbookYes()?[v('dbTag1'),v('dbTag2'),v('dbTag3')].join(' | '):''],['Deal Book QR link',dealbookYes()?(v('dbQR')||v('website')):''],
       ['OK to feature in press and social',form.querySelector('[name=feature]:checked').value],['Headshot link',mediaNeeded()?v('headshot'):''],['Logo link',mediaNeeded()?v('logo'):'']
     ];
-    var subj='Lisbon Delegation: '+r+' | '+v('company')+(f?' | '+tier:(p?' | '+v('pField'):''));
+    var subj=(v('accessCode')?'[ACCESS CODE '+v('accessCode').toUpperCase()+'] ':'')+'Lisbon Delegation: '+r+' | '+v('company')+(f?' | '+tier:(p?' | '+v('pField'):''));
     var data={access_key:'5c1c96c6-7a4f-4cc7-85d3-4dd79f67e20a',subject:subj,from_name:'Yorkseed Lisbon Delegation',replyto:v('email')};
     row.forEach(function(q){data[q[0]]=q[1]||'-';});
     fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
@@ -792,6 +794,8 @@ html:not(.fso) [data-so]{display:none!important}
       .then(function(res){
         if(!res.success)throw new Error();
         $('doneText').textContent=COPY[r].done;
+        var ac=(v('accessCode')||'').trim().toUpperCase();
+        if(r==='Founder'&&/^LIS-[A-Z0-9]{8}$/.test(ac)){$('doneText').textContent='Application received. Your access code is applied, so your delegation place is free. Tap the button below to claim it, then we will review your application and send your welcome within two days.';$('doneCodeLink').href='https://buy.stripe.com/fZu4gs4kndgWfMs5Exbo41J?prefilled_promo_code='+encodeURIComponent(ac)+'&prefilled_email='+encodeURIComponent(v('email'));$('doneCode').hidden=false;}
         form.style.display='none';$('done').style.display='block';
       })
       .catch(function(){btn.disabled=false;btn.textContent='Send application';alert('Something went wrong. Please try again.');});
@@ -799,6 +803,7 @@ html:not(.fso) [data-so]{display:none!important}
 
   try{var q=(new URLSearchParams(location.search).get('role')||'').toLowerCase();if(q==='investor')form.querySelector('[name=role][value=Investor]').checked=true;if(q==='partner')form.querySelector('[name=role][value=Partner]').checked=true;}catch(e){}
   applyRole();
+  try{var cq=(new URLSearchParams(location.search).get('code')||'').trim();if(cq&&$('accessCode'))$('accessCode').value=cq.toUpperCase();}catch(e){}
 })();
 </script>
 <script>
