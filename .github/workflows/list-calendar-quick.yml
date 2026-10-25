@@ -3,7 +3,7 @@ name: List quick calendar import (branch only)
 on:
   push:
     branches: [list-seo-nyc]
-    paths: ["scripts/import_calendar.py", "scripts/import_geo.py", "scripts/harvest_calendars.py", "scripts/import_meetup_quick.py", "scripts/import_ical_quick.py", "scripts/import_calendars_quick.py", ".github/workflows/list-calendar-quick.yml"]
+    paths: ["list/data/run-calendars.txt", "scripts/import_calendar.py", "scripts/import_geo.py", "scripts/harvest_calendars.py", "scripts/import_meetup_quick.py", "scripts/import_ical_quick.py", "scripts/import_calendars_quick.py", ".github/workflows/list-calendar-quick.yml"]
 permissions:
   contents: write
 jobs:
