@@ -83863,5 +83863,18 @@
   "desc": "Details and registration on the event page.",
   "src": "manual",
   "noTime": true
+ },
+ {
+  "title": "Yorkseed Web Summit Pre-Game",
+  "hub": "lis",
+  "date": "2026-11-08",
+  "start": "20:00",
+  "end": null,
+  "venue": "Lisbon",
+  "host": "Yorkseed",
+  "link": "https://luma.com/websummitlisbonpregame",
+  "desc": "An evening for everyone in town to meet before Web Summit. Presented by Yorkseed, hosted by Jessica Sophia Wong. Some tickets by approval.",
+  "yorkseed": true,
+  "src": "manual"
  }
 ]
