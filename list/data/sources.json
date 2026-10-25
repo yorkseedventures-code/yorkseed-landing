@@ -1,3 +1,170 @@
 [
-{"type":"luma_category","id":"cat-tech","name":"Luma: Tech","max_pages":90}
+ {
+  "type": "luma_category",
+  "id": "cat-tech",
+  "name": "Luma: Tech",
+  "max_pages": 90
+ },
+ {
+  "type": "luma_category",
+  "id": "cat-ai",
+  "name": "Luma: AI",
+  "max_pages": 60
+ },
+ {
+  "type": "luma_place",
+  "name": "Luma city feeds, tech events only",
+  "max_pages": 40,
+  "places": {
+   "nyc": "nyc",
+   "sf": "sf",
+   "london": "ldn",
+   "paris": "par",
+   "berlin": "ber",
+   "munich": "muc",
+   "amsterdam": "ams",
+   "barcelona": "bcn",
+   "madrid": "mad",
+   "lisbon": "lis",
+   "milan": "mil",
+   "zurich": "zrh",
+   "stockholm": "sto",
+   "copenhagen": "cph",
+   "helsinki": "hel",
+   "dublin": "dub",
+   "warsaw": "waw",
+   "toronto": "tor",
+   "montreal": "mtl",
+   "vancouver": "yvr",
+   "la": "la",
+   "boston": "bos",
+   "chicago": "chi",
+   "miami": "mia",
+   "austin": "atx",
+   "seattle": "sea",
+   "dc": "dc",
+   "denver": "den",
+   "philadelphia": "phl",
+   "mexico-city": "mex",
+   "buenos-aires": "bue",
+   "tel-aviv": "tlv",
+   "dubai": "dxb",
+   "singapore": "sgp",
+   "tokyo": "tyo",
+   "seoul": "sel",
+   "taipei": "tpe",
+   "bangkok": "bkk",
+   "jakarta": "jkt",
+   "kuala-lumpur": "kul",
+   "bengaluru": "blr",
+   "mumbai": "bom",
+   "sydney": "syd",
+   "melbourne": "mel",
+   "nairobi": "nbo",
+   "lagos": "los",
+   "houston": "hou",
+   "dallas": "dal",
+   "atlanta": "atl",
+   "salt-lake-city": "slc",
+   "raleigh": "rdu",
+   "nashville": "nsh",
+   "oslo": "osl",
+   "vienna": "vie",
+   "prague": "prg",
+   "brussels": "bru",
+   "istanbul": "ist",
+   "manila": "mnl",
+   "ho-chi-minh-city": "sgn",
+   "auckland": "akl",
+   "bogota": "bog",
+   "medellin": "mde",
+   "new-delhi": "del",
+   "hongkong": "hkg",
+   "saopaulo": "sao"
+  }
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-jWh40NRx2vB56Tu",
+  "name": "Mexico Tech Week 2026",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-0VMgRPJpqUzLxOa",
+  "name": "#SeattleAIWeek 2026",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-wXeomljuhPkyUOu",
+  "name": "Tough Tech Week",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-1OAH3ghDizZKd9h",
+  "name": "DeepTech Week TLV 2026",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-t5G6qFg361W5X7g",
+  "name": "Startup Week Malaysia",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-JNTb2teBCjZozqg",
+  "name": "Hong Kong FinTech Week x StartmeupHK 2026",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-Ewfl6zNchcUhoZM",
+  "name": "Hard Tech Week",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-uKHgmFwHhKWFLgw",
+  "name": "SF HealthTech Week",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-3EmudBg6WohhT6B",
+  "name": "Women in Tech Week - Bay Area/ SF",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "ical",
+  "name": "Refresh Miami",
+  "url": "https://refreshmiami.com/events/list/?ical=1",
+  "hub": "mia",
+  "where": "miami|fort lauderdale|coral gables|doral|wynwood|brickell|boca raton|hialeah|aventura|key biscayne|hollywood, fl|coconut grove|little havana|north miami|sunny isles|homestead|plantation|davie|pompano|weston|delray|west palm"
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-7gz3T0CJVUV1bsi",
+  "name": "JPM Healthcare Week",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-HXtc5Zou7cHo2Vy",
+  "name": "J.P. Morgan Healthcare Conference",
+  "all": true,
+  "max_pages": 20
+ }
 ]

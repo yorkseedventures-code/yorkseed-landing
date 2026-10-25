@@ -8,7 +8,7 @@
 """
 import json, os, re, html, datetime as dt
 from urllib.request import Request, urlopen
-from urllib.parse import urlsplit, urlunsplit, parse_qsl, urlencode, urljoin
+from urllib.parse import parse_qs, urlsplit, urlunsplit, parse_qsl, urlencode, urljoin
 from concurrent.futures import ThreadPoolExecutor
 
 REPO = os.environ.get("YS_REPO", ".")
@@ -289,6 +289,357 @@ def import_submissions():
     print(f"submissions: {added} approved events copied into events.json, {len(covers)} with an uploaded cover")
     return covers
 
+# a Luma city feed ("luma_place") mixes everything (run clubs, screenings...), so keep only events whose title reads startup/tech
+TECH = re.compile(r"\b(start-?ups?|founders?|co-?founders?|vcs?|venture|investors?|investing|angels?|pitch(es|ing)?|demo ?day|accelerator|incubator|"
+    r"ai|genai|llms?|agents?|agentic|machine learning|ml|data|tech|technology|developers?|devs?|engineers?|engineering|hack(athon|night)s?|buildathon|"
+    r"builders?|product|pms?|saas|fintech|crypto|web3|blockchain|defi|climate ?tech|healthtech|biotech|deep ?tech|robotics|quantum|cyber(security)?|cloud|"
+    r"open[- ]source|coding|code|software|b2b|gtm|go-to-market|growth|operators?|entrepreneurs?|entrepreneurship|scale-?ups?|innovation|fundrais\w*|"
+    r"api|devrel|ux|ui|design ?systems?|python|javascript|rust|kubernetes|openai|anthropic|nvidia|google|microsoft|aws)\b", re.I)
+NOT = re.compile(r"\b(dating|singles|speed ?dating|yoga|meditation|rave|comedy|stand-?up|karaoke|wine tasting|sound bath|language exchange|spanish practice|"
+                 r"english practice|perimenopause|menopause|women'?s circle|breathwork|astrology|tarot|bible|prayer)\b", re.I)
+CALS = {}   # Luma calendars seen hosting tech events this run: api_id -> name
+
+# ---------- 1e. Luma community calendars (AI Tinkerers, GenAI Collective...) found hosting tech events ----------
+# Each run adds the calendars it saw to list/data/luma-calendars.json, then pulls every upcoming event from all of them.
+def import_luma_calendars():
+    p = f"{REPO}/list/data/luma-calendars.json"; known = load(p, {})
+    for k, v in CALS.items(): known.setdefault(k, {"name": v, "first": TODAY}); known[k]["last"] = TODAY
+    master = load(f"{REPO}/list/data/master.json", {"events": [], "hubs": []}); hubs = master["hubs"]
+    events = load(f"{REPO}/list/events.json", [])
+    # grow the calendar list from Luma events already on the List: each event names the calendar that hosts it (up to 500 lookups a run)
+    sp = f"{REPO}/list/data/luma-event-cals.json"; done = load(sp, {})
+    slugs = [m.group(1) for e in events + master["events"] for m in [re.match(r"https?://(?:www\.)?(?:lu\.ma|luma\.com)/([A-Za-z0-9_-]+)/?$", e.get("link") or "")] if m]
+    for slug in [s for s in dict.fromkeys(slugs) if s not in done][:500]:
+        try:
+            r = urlopen(Request(f"https://api.lu.ma/url?url={slug}", headers={**UA, "Accept": "application/json"}), timeout=20)
+            d = (json.loads(r.read().decode("utf-8", "ignore")).get("data") or {}); cal = d.get("calendar") or {}
+            ev = d.get("event") or {}
+            done[slug] = cal.get("api_id") or ""
+            if cal.get("api_id") and (cal.get("name") or "").strip().lower() != "personal" and TECH.search(ev.get("name") or ""):
+                known.setdefault(cal["api_id"], {"name": cal.get("name") or "", "first": TODAY}); known[cal["api_id"]]["last"] = TODAY
+        except Exception as ex:
+            if getattr(ex, "code", 0) in (429, 403): time.sleep(30)
+            else: done[slug] = ""
+        time.sleep(0.35)
+    json.dump(done, open(sp, "w"), indent=0)
+    norm = lambda s: re.sub(r'[^a-z0-9]+', '', (s or '').lower())[:40]
+    seen_l = {(e.get("link") or "").split("?")[0].rstrip("/") for e in events + master["events"]}
+    seen_t = {(norm(e.get("title")), e.get("date")) for e in events + master["events"]}
+    horizon = (dt.date.today() + dt.timedelta(days=120)).isoformat()
+    photos, added, ok, failed = {}, 0, 0, 0
+    # official conference calendars (sources.json "luma_calendar"): every event, no title filter, more pages
+    trusted = {x["id"]: x for x in load(f"{REPO}/list/data/sources.json", []) if x.get("type") == "luma_calendar" and x.get("id")}
+    for k, x in trusted.items(): known.setdefault(k, {"name": x.get("name", ""), "first": TODAY}); known[k]["last"] = TODAY
+    order = list(trusted) + [k for k in sorted(known, key=lambda k: known[k].get("last", ""), reverse=True) if k not in trusted][:600]
+    for cid in order:
+        cursor, pages, kept = None, 0, 0
+        allin = bool(trusted.get(cid, {}).get("all"))
+        while pages < int(trusted.get(cid, {}).get("max_pages", 6)):
+            q = f"https://api.lu.ma/calendar/get-items?calendar_api_id={cid}&period=future&pagination_limit=25" + (f"&pagination_cursor={cursor}" if cursor else "")
+            try:
+                r = urlopen(Request(q, headers={**UA, "Accept": "application/json"}), timeout=20); d = json.loads(r.read().decode("utf-8", "ignore"))
+            except Exception as ex:
+                if getattr(ex, "code", 0) in (429, 403): time.sleep(30); failed += 1
+                break
+            pages += 1
+            for en in d.get("entries") or []:
+                e = en.get("event") or {}; g = e.get("geo_address_info") or {}
+                if not e.get("name") or not e.get("start_at") or not e.get("url"): continue
+                if e.get("location_type") == "online" or (not allin and (not TECH.search(e["name"]) or NOT.search(e["name"]))): continue
+                hub = city_hub(g.get("city"), g.get("country"), hubs)
+                if not hub: continue
+                date, start = to_local(e["start_at"], hub_tz(hub))
+                if not date or date < TODAY or date > horizon: continue
+                link = "https://luma.com/" + e["url"]
+                if link in seen_l or (norm(e["name"]), date) in seen_t: continue
+                ed, et = to_local(e["end_at"], hub_tz(hub)) if e.get("end_at") else (None, None)
+                venue = (g.get("sublocality") if g.get("mode") == "obfuscated" else (g.get("address") or "")) or ""
+                host = known[cid].get("name") or " & ".join([h.get("name") for h in (en.get("hosts") or []) if h.get("name")][:2])
+                events.append({"title": e["name"].strip(), "hub": hub, "date": date, "start": start, "end": et if ed == date else None,
+                               "venue": venue, "host": host, "link": link, "desc": "Details and registration on the event page.", "src": "luma-cal"})
+                if e.get("cover_url"): photos[link] = e["cover_url"]
+                seen_l.add(link); seen_t.add((norm(e["name"]), date)); kept += 1
+            if not d.get("has_more") or not d.get("next_cursor"): break
+            cursor = d["next_cursor"]; time.sleep(0.6)
+        ok += 1; added += kept; time.sleep(0.6)
+    json.dump(known, open(p, "w"), ensure_ascii=False, indent=0)
+    json.dump(events, open(f"{REPO}/list/events.json", "w"), ensure_ascii=False, indent=1)
+    print(f"luma calendars: {len(known)} known ({len(CALS)} seen this run), {ok} checked, {failed} rate-limited, {added} new events")
+    REPORT.append({"source": "luma calendars", "known": len(known), "added": added})
+    return photos
+
+# ---------- 1f. foundercal public API (free, no key; their terms ask for a credit link, shown on city pages) ----------
+FC_HUB = {"sf": "sf", "nyc": "nyc", "la": "la", "dc": "dc", "bangalore": "blr", "delhi": "del", "dubai": "dxb", "sao-paulo": "sao", "hong-kong": "hkg",
+          "mexico-city": "mex", "tel-aviv": "tlv", "kuala-lumpur": "kul", "ho-chi-minh-city": "sgn", "denver": "den", "las-vegas": "lvs", "portland": "pdx",
+          "pune": "pnq", "chennai": "maa", "budapest": "bud", "kyiv": "iev", "belgrade": "beg", "san-diego": "sdg"}
+FC_TYPE = {"conference": "Conferences", "demo_day": "Demo Days", "hackathon": "Hackathons", "pitch": "Pitch", "workshop": "Workshops", "dinner": "Communal Dining", "meetup": "Meetups"}
+class _NoRedirect(__import__("urllib.request").request.HTTPRedirectHandler):
+    def redirect_request(self, *a, **k): return None
+def import_foundercal():
+    import urllib.request as ur
+    get = lambda u: json.loads(urlopen(Request(u, headers={**UA, "Accept": "application/json"}), timeout=30).read().decode("utf-8", "ignore"))
+    try: slugs = [c if isinstance(c, str) else (c.get("slug") or c.get("id")) for c in get("https://foundercal.com/api/events.json").get("valid_cities") or []]
+    except Exception as ex: print(f"foundercal: discovery failed ({ex})"); return {}
+    master = load(f"{REPO}/list/data/master.json", {"events": [], "hubs": []}); hubs = master["hubs"]; hub_ids = {h["id"] for h in hubs}
+    events = load(f"{REPO}/list/events.json", [])
+    norm = lambda s: re.sub(r'[^a-z0-9]+', '', (s or '').lower())[:40]
+    canon = lambda u: re.sub(r'^https?://(www\.)?lu\.ma/', 'https://luma.com/', (u or '').split("?")[0].rstrip("/"))
+    seen_l = {canon(e.get("link")) for e in events + master["events"] if e.get("link")}
+    seen_t = {(norm(e.get("title")), e.get("date")) for e in events + master["events"]}
+    rp = f"{REPO}/list/data/foundercal-links.json"; resolved = load(rp, {})        # foundercal /out/ id -> organizer URL (resolved once)
+    opener = ur.build_opener(_NoRedirect)
+    def real(u):
+        if not u or "foundercal.com/out/" not in u: return u
+        k = u.split("/out/")[1].split("?")[0]
+        if k in resolved: return resolved[k]
+        loc = ""
+        try: opener.open(Request(u, headers=UA, method="HEAD"), timeout=15)
+        except Exception as ex: loc = (getattr(ex, "headers", None) or {}).get("Location") or ""
+        resolved[k] = loc if loc.startswith("http") and "foundercal.com" not in loc else ""; time.sleep(0.25)
+        return resolved[k]
+    horizon = (dt.date.today() + dt.timedelta(days=120)).isoformat(); added, seen_n = 0, 0
+    for slug in [s for s in slugs if s]:
+        hub = FC_HUB.get(slug) or city_hub(slug.replace("-", " "), "", hubs)
+        if hub not in hub_ids: continue
+        rows = []
+        try:
+            d = get(f"https://foundercal.com/api/events.json?city={slug}&limit=200"); rows = d.get("events") or []
+            if len(rows) >= 200:                                     # busy city: also ask per type to get past the 200 cap
+                for ty in FC_TYPE:
+                    try: rows += get(f"https://foundercal.com/api/events.json?city={slug}&type={ty}&limit=200").get("events") or []
+                    except Exception: pass
+                    time.sleep(0.5)
+        except Exception as ex: print(f"foundercal {slug}: {ex}"); continue
+        kept = 0; tz = hub_tz(hub)
+        for e in rows:
+            if not e.get("title") or not e.get("start_at"): continue
+            seen_n += 1
+            date, st = to_local(e["start_at"], tz); ed, et = to_local(e["end_at"], tz) if e.get("end_at") else (None, None)
+            if not date or date < TODAY or date > horizon: continue
+            title = re.sub(r"\s+", " ", e["title"]).strip()
+            if (norm(title), date) in seen_t: continue
+            link = canon(real(e.get("register_url")))
+            if not link: continue                                   # no organizer page we can link to directly
+            if link in seen_l: continue
+            events.append({"title": title[:200], "hub": hub, "date": date, "start": st, "end": et if ed == date else None,
+                           "venue": (e.get("venue") or "")[:200], "host": (e.get("organizer") or "")[:120], "link": link,
+                           **({"type": FC_TYPE[e["type"]]} if e.get("type") in FC_TYPE else {}),
+                           "desc": "Details and registration on the event page.", "src": "foundercal"})
+            seen_l.add(link); seen_t.add((norm(title), date)); kept += 1
+        added += kept; print(f"foundercal {slug}: {len(rows)} listed, {kept} new"); time.sleep(0.5)
+    json.dump(resolved, open(rp, "w"), indent=0)
+    json.dump(events, open(f"{REPO}/list/events.json", "w"), ensure_ascii=False, indent=1)
+    print(f"foundercal: {seen_n} events read, {added} new"); REPORT.append({"source": "foundercal", "read": seen_n, "added": added})
+    return {}
+
+# ---------- 1g. imported events filed under the wrong city: move them to the city their venue names ----------
+CITY_WORDS = {"sf": ["San Francisco", "Palo Alto", "Oakland", "Mountain View", "Berkeley", "San Jose"], "nyc": ["New York", "Brooklyn", "Manhattan", "NYC"],
+    "la": ["Los Angeles", "Santa Monica"], "dc": ["Washington"], "dxb": ["Dubai", "Abu Dhabi"], "blr": ["Bangalore", "Bengaluru"], "muc": ["München", "Munich"],
+    "mil": ["Milano", "Milan"], "lis": ["Lisboa", "Lisbon"], "del": ["Delhi", "Gurugram", "Gurgaon", "Noida"], "sao": ["São Paulo", "Sao Paulo", "Rio de Janeiro"],
+    "den": ["Denver", "Boulder"], "zrh": ["Zürich", "Zurich"], "vie": ["Wien", "Vienna"], "prg": ["Praha", "Prague"], "cph": ["København", "Copenhagen"],
+    "rdu": ["Raleigh", "Durham"], "iev": ["Kyiv", "Kiev"], "ldn": ["London"], "ber": ["Berlin"], "par": ["Paris"]}
+def fix_cities():
+    master = load(f"{REPO}/list/data/master.json", {"hubs": []}); hubs = {h["id"]: h for h in master["hubs"] if h["id"] != "virtual"}
+    pats = {k: re.compile(r"\b(" + "|".join(re.escape(x) for x in [h["name"]] + CITY_WORDS.get(k, [])) + r")\b", re.I) for k, h in hubs.items()}
+    events = load(f"{REPO}/list/events.json", []); moved = 0
+    for e in events:
+        if e.get("src") != "foundercal" or e.get("hub") not in pats: continue   # foundercal's city feeds sometimes mix cities
+        txt = (e.get("venue") or "") + " " + (e.get("link") or "")
+        if pats[e["hub"]].search(txt): continue
+        # an address part that is just a city name, maybe with a postcode: "London EC3M 3AY", "80797 Munich", "London"
+        parts = [x.strip() for x in (e.get("venue") or "").split(",")]
+        hits = [(i, k) for i, part in enumerate(parts) for k, p in pats.items() if k != e["hub"]
+                for m in [re.fullmatch(r"(?:[0-9][\w-]*\s+)?(.+?)(?:\s+[A-Z0-9]{2,4}\s?[0-9][A-Z0-9]{0,3})?", part)] if m and p.fullmatch(m.group(1))
+                and not (hubs[k].get("country") != "United States" and i + 1 < len(parts) and re.fullmatch(r"[A-Z]{2}(\s+\d{5})?", parts[i + 1]))]
+        if not hits: continue
+        new = max(hits)[1]                                          # the city named last in the address wins
+        if e.get("start") == "00:00": e["start"] = None; e["end"] = None   # midnight here means "no time given"
+        if e.get("start"):
+            try:
+                d = dt.datetime.fromisoformat(f'{e["date"]}T{e["start"]}').replace(tzinfo=ZoneInfo(hub_tz(e["hub"]))).astimezone(ZoneInfo(hub_tz(new)))
+                shift = d - dt.datetime.fromisoformat(f'{e["date"]}T{e["start"]}').replace(tzinfo=ZoneInfo(hub_tz(new)))
+                e["date"], e["start"] = d.date().isoformat(), d.strftime("%H:%M")
+                if e.get("end"): e["end"] = (dt.datetime.fromisoformat(f'2000-01-01T{e["end"]}') + shift).strftime("%H:%M")
+            except Exception: pass
+        e["hub"] = new; moved += 1
+    json.dump(events, open(f"{REPO}/list/events.json", "w"), ensure_ascii=False, indent=1)
+    print(f"fix cities: moved {moved} imported events to the city in their address")
+    return {}
+
+# ---------- 1h. confs.tech open conference dataset (github.com/tech-conferences/conference-data, MIT licence) ----------
+CONFS_TOPICS = ["general", "data", "devops", "security", "ux", "product", "javascript", "python", "iot", "leadership", "opensource", "api", "sre",
+                "testing", "ios", "android", "java", "rust", "dotnet", "php", "typescript", "css", "networking", "accessibility", "kotlin", "golang", "ruby"]
+def import_confstech():
+    master = load(f"{REPO}/list/data/master.json", {"events": [], "hubs": []}); hubs = master["hubs"]
+    events = load(f"{REPO}/list/events.json", [])
+    norm = lambda s: re.sub(r'[^a-z0-9]+', '', (s or '').lower())[:40]
+    seen_l = {(e.get("link") or "").split("?")[0].rstrip("/") for e in events + master["events"]}
+    seen_t = {(norm(e.get("title")), e.get("date")) for e in events + master["events"]}
+    horizon = (dt.date.today() + dt.timedelta(days=120)).isoformat(); added = 0
+    for year in sorted({TODAY[:4], horizon[:4]}):
+        for topic in CONFS_TOPICS:
+            try:
+                rows = json.loads(urlopen(Request(f"https://raw.githubusercontent.com/tech-conferences/conference-data/main/conferences/{year}/{topic}.json", headers=UA), timeout=20).read())
+            except Exception: continue
+            for c in rows:
+                if c.get("online") or not c.get("city") or not c.get("url") or not c.get("startDate"): continue
+                if c["startDate"] < TODAY or c["startDate"] > horizon: continue
+                hub = city_hub(c["city"], c.get("country") or "", hubs)
+                if not hub: continue
+                link = c["url"].split("?")[0].rstrip("/"); title = c["name"].strip()
+                if link in seen_l or (norm(title), c["startDate"]) in seen_t: continue
+                d0 = dt.date.fromisoformat(c["startDate"]); d1 = dt.date.fromisoformat(c.get("endDate") or c["startDate"])
+                span = "" if d1 == d0 else (f", {d0:%B} {d0.day} to {d1.day}" if d1.month == d0.month else f", {d0:%B} {d0.day} to {d1:%B} {d1.day}")
+                events.append({"title": title[:200], "hub": hub, "date": c["startDate"], "venue": c["city"], "link": c["url"], "type": "Conferences",
+                               "desc": f"A {topic if topic != 'general' else 'tech'} conference in {c['city']}{span}. Details and tickets on the event page.", "src": "confstech"})
+                seen_l.add(link); seen_t.add((norm(title), c["startDate"])); added += 1
+    json.dump(events, open(f"{REPO}/list/events.json", "w"), ensure_ascii=False, indent=1)
+    print(f"confs.tech: {added} new conferences"); REPORT.append({"source": "confs.tech", "added": added})
+    return {}
+
+# ---------- 1i. Meetup groups already on the List: every upcoming in-person event from each group's public iCal feed ----------
+def _ics_events(text):
+    text = re.sub(r"\r?\n[ \t]", "", text)                           # unfold continuation lines
+    out = []
+    for block in re.findall(r"BEGIN:VEVENT(.*?)END:VEVENT", text, re.S):
+        f = {}
+        for line in block.strip().splitlines():
+            if ":" not in line: continue
+            k, v = line.split(":", 1); name, _, params = k.partition(";")
+            f[name] = (v.replace("\\,", ",").replace("\\n", " ").replace("\\;", ";").strip(), params)
+        out.append(f)
+    return out
+def import_meetup_groups():
+    master = load(f"{REPO}/list/data/master.json", {"events": [], "hubs": []}); hub_ids = {h["id"] for h in master["hubs"]}
+    events = load(f"{REPO}/list/events.json", [])
+    gp = f"{REPO}/list/data/meetup-groups.json"; groups = load(gp, {})        # group urlname -> List city
+    for e in events + master["events"]:
+        m = re.match(r"https?://(?:www\.)?meetup\.com/([A-Za-z0-9_-]+)/events/", e.get("link") or "")
+        if m and e.get("hub") in hub_ids and e["hub"] != "virtual": groups.setdefault(m.group(1), e["hub"])
+    norm = lambda s: re.sub(r'[^a-z0-9]+', '', (s or '').lower())[:40]
+    seen_l = {(e.get("link") or "").split("?")[0].rstrip("/") for e in events + master["events"]}
+    seen_t = {(norm(e.get("title")), e.get("date")) for e in events + master["events"]}
+    horizon = (dt.date.today() + dt.timedelta(days=120)).isoformat(); added, ok, refused = 0, 0, 0
+    # rotate: groups not read recently go first, so a run cut short by rate limits continues tomorrow where it stopped
+    lp = f"{REPO}/list/data/meetup-read.json"; last = load(lp, {})
+    t_end = time.time() + 20 * 60                                        # at most 20 minutes a run
+    for g, hub in sorted(groups.items(), key=lambda kv: last.get(kv[0], ""))[:800]:
+        if time.time() > t_end or refused >= 3: break
+        try: text = urlopen(Request(f"https://www.meetup.com/{g}/events/ical/", headers=UA), timeout=20).read().decode("utf-8", "ignore"); refused = 0
+        except Exception as ex:
+            if getattr(ex, "code", 0) in (429, 403): refused += 1; time.sleep(10)
+            last[g] = TODAY
+            continue
+        last[g] = TODAY
+        ok += 1; tz = hub_tz(hub); per_group = 0
+        for f in sorted(_ics_events(text), key=lambda f: (f.get("DTSTART") or ("", ""))[0]):
+            if per_group >= 3: break                                     # next 3 events per group, so weekly runs don't flood a city
+            title = (f.get("SUMMARY") or ("", ""))[0]; url = (f.get("URL") or ("", ""))[0].split("?")[0].rstrip("/")
+            loc = (f.get("LOCATION") or ("", ""))[0]; ds, params = f.get("DTSTART") or ("", "")
+            if not title or not url or not ds or not TECH.search(title) or NOT.search(title) or re.search(r"\bonline\b|virtual|zoom", loc + " " + title, re.I): continue
+            try:
+                src_tz = re.search(r"TZID=([^;:]+)", params).group(1) if "TZID=" in params else "UTC"
+                d = dt.datetime.strptime(ds.rstrip("Z")[:15], "%Y%m%dT%H%M%S").replace(tzinfo=ZoneInfo(src_tz)).astimezone(ZoneInfo(tz))
+            except Exception: continue
+            date = d.date().isoformat()
+            if date < TODAY or date > horizon or url in seen_l or (norm(title), date) in seen_t: continue
+            events.append({"title": title[:200], "hub": hub, "date": date, "start": d.strftime("%H:%M"), "venue": loc[:200],
+                           "host": g.replace("-", " ").replace("_", " ").title(), "link": url + "/", "desc": "Details and registration on the event page.", "src": "meetup"})
+            seen_l.add(url); seen_t.add((norm(title), date)); added += 1; per_group += 1
+        time.sleep(0.6)
+    json.dump(groups, open(gp, "w"), indent=0); json.dump(last, open(lp, "w"), indent=0)
+    json.dump(events, open(f"{REPO}/list/events.json", "w"), ensure_ascii=False, indent=1)
+    print(f"meetup groups: {len(groups)} known, {ok} read, {added} new events"); REPORT.append({"source": "meetup groups", "groups": len(groups), "added": added})
+    return {}
+
+# ---------- 1j. community iCal feeds (sources.json type "ical": {url, hub, where?}) e.g. Refresh Miami ----------
+def import_ical_feeds():
+    feeds = [x for x in load(f"{REPO}/list/data/sources.json", []) if x.get("type") == "ical" and x.get("url") and x.get("hub")]
+    if not feeds: return {}
+    master = load(f"{REPO}/list/data/master.json", {"events": []}); events = load(f"{REPO}/list/events.json", [])
+    norm = lambda s: re.sub(r'[^a-z0-9]+', '', (s or '').lower())[:40]
+    seen_l = {(e.get("link") or "").split("?")[0].rstrip("/") for e in events + master["events"]}
+    seen_t = {(norm(e.get("title")), e.get("date")) for e in events + master["events"]}
+    horizon = (dt.date.today() + dt.timedelta(days=120)).isoformat(); added = 0
+    for fd in feeds:
+        try: text = urlopen(Request(fd["url"], headers=UA), timeout=30).read().decode("utf-8", "ignore")
+        except Exception as ex: print(f"ical {fd['url']}: {ex}"); continue
+        hub = fd["hub"]; tz = hub_tz(hub); where = re.compile(fd["where"], re.I) if fd.get("where") else None; kept = 0
+        for f in _ics_events(text):
+            title = re.sub(r"\s+", " ", (f.get("SUMMARY") or ("", ""))[0]).strip(); url = (f.get("URL") or ("", ""))[0].split("?")[0].rstrip("/")
+            loc = (f.get("LOCATION") or ("", ""))[0]; ds, params = f.get("DTSTART") or ("", "")
+            if not title or not url or not ds or NOT.search(title) or re.search(r"\bonline\b|virtual|zoom|webinar", loc + " " + title, re.I): continue
+            if where and loc and not where.search(loc): continue
+            try:
+                if len(ds) == 8: d = dt.datetime.strptime(ds, "%Y%m%d"); st = None
+                else:
+                    src_tz = re.search(r"TZID=([^;:]+)", params).group(1) if "TZID=" in params else "UTC"
+                    d = dt.datetime.strptime(ds.rstrip("Z")[:15], "%Y%m%dT%H%M%S").replace(tzinfo=ZoneInfo(src_tz)).astimezone(ZoneInfo(tz)); st = d.strftime("%H:%M")
+            except Exception: continue
+            date = d.date().isoformat()
+            if date < TODAY or date > horizon or url in seen_l or (norm(title), date) in seen_t: continue
+            events.append({"title": title[:200], "hub": hub, "date": date, **({"start": st} if st else {}), "venue": loc[:200],
+                           "host": fd.get("name", ""), "link": url + "/", "desc": "Details and registration on the event page.", "src": "ical"})
+            seen_l.add(url); seen_t.add((norm(title), date)); kept += 1
+        added += kept; print(f"ical {fd.get('name') or fd['url']}: {kept} new")
+    json.dump(events, open(f"{REPO}/list/events.json", "w"), ensure_ascii=False, indent=1)
+    REPORT.append({"source": "ical feeds", "added": added}); return {}
+
+# ---------- 1d. TechMeetups.io public API (free, no key, 60 requests/min): tech meetups by city ----------
+# We keep only facts (title, date, venue, organizer) and link to the organizer's own registration page.
+def import_techmeetups():
+    try: ll = re.search(r"HUB_LL=\{(.*?)\}", open(f"{REPO}/list/index.html", encoding="utf-8").read(), re.S).group(1)
+    except Exception: print("techmeetups: no hub coordinates"); return {}
+    coords = {k: (float(a), float(b)) for k, a, b in re.findall(r"(\w+):\[(-?[\d.]+),(-?[\d.]+)\]", ll)}
+    master = load(f"{REPO}/list/data/master.json", {"events": [], "hubs": []}); hubs = {h["id"] for h in master["hubs"]}
+    events = load(f"{REPO}/list/events.json", [])
+    norm = lambda s: re.sub(r'[^a-z0-9]+', '', (s or '').lower())[:40]
+    canon = lambda u: re.sub(r'^https?://(www\.)?lu\.ma/', 'https://luma.com/', (u or '').split("?")[0].rstrip("/"))
+    seen_l = {canon(e.get("link")) for e in events + master["events"] if e.get("link")}
+    seen_t = {(norm(e.get("title")), e.get("date")) for e in events + master["events"]}
+    calls = [0]
+    def search(lat, lng, d0, d1):
+        if calls[0] and calls[0] % 55 == 0: time.sleep(62)                 # stay under 60 requests a minute
+        calls[0] += 1
+        q = f"https://techmeetups.io/api/v1/events/search?lat={lat}&lng={lng}&radius_km=45&limit=50&date_from={d0}&date_to={d1}"
+        for _ in range(3):
+            try:
+                r = urlopen(Request(q, headers={**UA, "Accept": "application/json"}), timeout=25); return json.loads(r.read().decode("utf-8", "ignore"))
+            except Exception as ex:
+                if getattr(ex, "code", 0) == 429: time.sleep(65); continue
+                print(f"techmeetups: {ex}"); return None
+        return None
+    def window(lat, lng, d0, d1, out):                                     # the API returns at most 50, so split busy ranges in half
+        d = search(lat, lng, d0.isoformat(), d1.isoformat())
+        if not d: return
+        if d.get("total_matches", 0) > 50 and d1 > d0:
+            mid = d0 + (d1 - d0) // 2; window(lat, lng, d0, mid, out); window(lat, lng, mid + dt.timedelta(days=1), d1, out)
+        else: out.extend(d.get("results") or [])
+    start, end = dt.date.today(), dt.date.today() + dt.timedelta(days=90)
+    added = 0
+    for hub, (lat, lng) in coords.items():
+        if hub not in hubs or hub == "virtual": continue
+        found = []; window(lat, lng, start, end, found)
+        kept = 0; tz = hub_tz(hub)
+        for e in found:
+            link = canon(e.get("registration_url"))
+            if not e.get("title") or not e.get("start_time") or not re.match(r"https?://", link): continue
+            if e.get("status") not in (None, "upcoming", "sold_out") or e.get("attendance_mode") == "online": continue
+            date, st = to_local(e["start_time"], tz); ed, et = to_local(e["end_time"], tz) if e.get("end_time") else (None, None)
+            if not date or date < TODAY: continue
+            title = re.sub(r"\s+", " ", e["title"]).strip()
+            if link in seen_l or (norm(title), date) in seen_t: continue
+            v = e.get("venue") or {}; org = e.get("organizer") or {}
+            venue = ", ".join(x for x in [v.get("name"), v.get("address")] if x and x.lower() not in ("online", "tba"))[:200]
+            events.append({"title": title[:200], "hub": hub, "date": date, "start": st, "end": et if ed == date else None, "venue": venue,
+                           "host": (org.get("name") or "")[:120], "link": link, "desc": "Details and registration on the event page.", "src": "techmeetups"})
+            seen_l.add(link); seen_t.add((norm(title), date)); kept += 1
+        if found: print(f"techmeetups {hub}: {len(found)} found, {kept} new"); REPORT.append({"source": "techmeetups.io", "hub": hub, "found": len(found), "added": kept})
+        added += kept
+    json.dump(events, open(f"{REPO}/list/events.json", "w"), ensure_ascii=False, indent=1)
+    print(f"techmeetups: {added} new events, {calls[0]} API calls")
+    return {}
+
 # ---------- 1c. daily sources: Luma discover categories (list/data/sources.json) ----------
 CITY_ALIAS = {"san francisco": "sf", "oakland": "sf", "berkeley": "sf", "palo alto": "sf", "mountain view": "sf", "san jose": "sf",
     "menlo park": "sf", "sunnyvale": "sf", "santa clara": "sf", "redwood city": "sf", "san mateo": "sf", "cupertino": "sf", "south san francisco": "sf",
@@ -297,7 +648,10 @@ CITY_ALIAS = {"san francisco": "sf", "oakland": "sf", "berkeley": "sf", "palo al
     "boulder": "den", "cambridge|united states": "bos", "somerville": "bos", "santa monica": "la", "culver city": "la", "pasadena": "la",
     "venice": "la", "bangalore": "blr", "bengaluru": "blr", "mumbai": "bom", "navi mumbai": "bom", "tel aviv yafo": "tlv", "tel aviv": "tlv",
     "kowloon": "hkg", "shibuya": "tyo", "minato city": "tyo", "chiyoda city": "tyo", "shinjuku city": "tyo", "bellevue": "sea", "redmond": "sea",
-    "kirkland": "sea", "vancouver|canada": "yvr", "burnaby": "yvr", "espoo": "hel", "london|united kingdom": "ldn", "ciudad de mexico": "mex", "mexico city": "mex"}
+    "kirkland": "sea", "vancouver|canada": "yvr", "burnaby": "yvr", "espoo": "hel", "london|united kingdom": "ldn", "ciudad de mexico": "mex", "mexico city": "mex",
+    "delhi": "del", "gurugram": "del", "gurgaon": "del", "noida": "del", "raleigh": "rdu", "durham": "rdu", "chapel hill": "rdu", "cary": "rdu",
+    "fort worth": "dal", "plano": "dal", "irving": "dal", "frisco": "dal", "sandton": "jnb", "makati": "mnl", "taguig": "mnl", "quezon city": "mnl",
+    "thu duc": "sgn", "ho chi minh": "sgn", "lehi": "slc", "provo": "slc", "la jolla": "sdg", "cambridge|united kingdom": None, "victoria|canada": "yyj", "gandhinagar": "gift", "gift city": "gift", "ahmedabad": "gift"}
 def _n(s): return re.sub(r'\s+', ' ', re.sub(r'[^a-z ]', ' ', __import__("unicodedata").normalize("NFKD", s or "").encode("ascii", "ignore").decode().lower())).strip()
 def city_hub(city, country, hubs):
     c, k = _n(city), _n(country)
@@ -318,24 +672,59 @@ def import_sources():
     seen_t = {(norm(e.get("title")), e.get("date")) for e in events + master["events"]}
     horizon = (dt.date.today() + dt.timedelta(days=120)).isoformat()
     photos, added = {}, 0
+    feeds = []
     for src in srcs:
-        if src.get("type") != "luma_category": continue
-        cursor, pages, kept = None, 0, 0
-        while pages < int(src.get("max_pages", 60)):
-            q = f"https://api.lu.ma/discover/get-paginated-events?category_api_id={src['id']}&pagination_limit=50" + (f"&pagination_cursor={cursor}" if cursor else "")
+        if src.get("type") == "luma_category":
+            feeds.append((src["id"], f"category_api_id={src['id']}", None, int(src.get("max_pages", 60))))
+        elif src.get("type") == "luma_place":
+            for slug, hub_id in src.get("places", {}).items():
+                pid, s2 = None, slug
+                for _ in range(3):                                  # Luma answers 301 when a city's address moved; follow it
+                    try:
+                        r = urlopen(Request(f"https://api.lu.ma/url?url={s2}", headers={**UA, "Accept": "application/json"}), timeout=20)
+                        pid = ((json.loads(r.read().decode("utf-8", "ignore")).get("data") or {}).get("place") or {}).get("api_id"); break
+                    except Exception as ex:
+                        loc = getattr(ex, "headers", {}) and ex.headers.get("Location")
+                        if getattr(ex, "code", 0) in (301, 302, 307, 308) and loc:
+                            q2 = parse_qs(urlsplit(loc).query).get("url")
+                            s2 = q2[0] if q2 else urlsplit(loc).path.strip("/").split("/")[-1]; continue
+                        print(f"place {slug}: lookup failed ({ex})"); break
+                if pid: feeds.append((f"place:{slug}", f"discover_place_api_id={pid}", hub_id, int(src.get("max_pages", 20))))
+                else: REPORT.append({"source": f"luma place {slug}", "hub": hub_id, "error": "place not found"})
+                time.sleep(0.3)
+    # cities Luma has no named page for: ask by coordinates instead (same tech filter, events credited to that city)
+    try:
+        ll = re.search(r"HUB_LL=\{(.*?)\}", open(f"{REPO}/list/index.html", encoding="utf-8").read(), re.S).group(1)
+        coords = {k: (a, b) for k, a, b in re.findall(r"(\w+):\[(-?[\d.]+),(-?[\d.]+)\]", ll)}
+    except Exception: coords = {}
+    placed = {f[2] for f in feeds if f[2]}
+    for hid, (la, lo) in coords.items():
+        if hid != "virtual" and any(h["id"] == hid for h in hubs):   # every city: the coordinate feed finds far more than the named city page
+            feeds.append((f"geo:{hid}", f"latitude={la}&longitude={lo}", hid, 12))
+    for name, qs, place_hub, max_pages in feeds:
+        time.sleep(1.5)
+        cursor, pages, kept, seen_n, retries, seen_cur = None, 0, 0, 0, 0, set()
+        while pages < max_pages:
+            q = f"https://api.lu.ma/discover/get-paginated-events?{qs}&pagination_limit=25" + (f"&pagination_cursor={cursor}" if cursor else "")
             try:
                 r = urlopen(Request(q, headers={**UA, "Accept": "application/json"}), timeout=20); d = json.loads(r.read().decode("utf-8", "ignore"))
             except Exception as ex:
                 code = getattr(ex, "code", 0)
-                if code == 429: time.sleep(5); continue
-                print(f"source {src['id']}: stopped ({ex})"); break
+                if code in (429, 403) and retries < 3: retries += 1; time.sleep(20 * retries); continue
+                print(f"source {name}: stopped ({ex})"); break
             pages += 1
+            if pages <= 2: print(f"  {name} page {pages}: {len(d.get('entries') or [])} entries, has_more={d.get('has_more')}, cursor={'yes' if d.get('next_cursor') else 'no'}")
             for en in d.get("entries") or []:
                 e = en.get("event") or {}; g = e.get("geo_address_info") or {}
                 if not e.get("name") or not e.get("start_at") or not e.get("url"): continue
                 if e.get("location_type") == "online": continue          # in-person events only
-                hub = city_hub(g.get("city"), g.get("country"), hubs)
+                seen_n += 1
+                if place_hub and (not TECH.search(e["name"]) or NOT.search(e["name"])): continue
+                hub = city_hub(g.get("city"), g.get("country"), hubs) or place_hub
                 if not hub: continue
+                cal = en.get("calendar") or {}
+                if cal.get("api_id") and (cal.get("name") or "").strip().lower() != "personal" and TECH.search(e["name"]):
+                    CALS[cal["api_id"]] = cal.get("name") or ""
                 tz = hub_tz(hub) if hub != "virtual" else "America/New_York"
                 date, start = to_local(e["start_at"], tz)
                 if not date or date < TODAY or date > horizon: continue
@@ -348,9 +737,10 @@ def import_sources():
                                "venue": venue, "host": host, "link": link, "desc": "Details and registration on the event page.", "src": "luma"})
                 if e.get("cover_url"): photos[link] = e["cover_url"]
                 seen_l.add(link); seen_t.add((norm(e["name"]), date)); added += 1; kept += 1
-            if not d.get("has_more") or not d.get("next_cursor"): break
-            cursor = d["next_cursor"]; time.sleep(0.4)
-        print(f"source {src['id']}: {pages} pages, {kept} new events in List cities")
+            if not d.get("entries") or not d.get("next_cursor") or d["next_cursor"] in seen_cur: break
+            cursor = d["next_cursor"]; seen_cur.add(cursor); time.sleep(0.8)
+        print(f"source {name}: {pages} pages, {seen_n} in-person events seen, {kept} new added")
+        if place_hub: REPORT.append({"source": name, "hub": place_hub, "pages": pages, "seen": seen_n, "added": kept})
     json.dump(events, open(f"{REPO}/list/events.json", "w"), ensure_ascii=False, indent=1)
     return photos
 
@@ -414,10 +804,17 @@ def refresh_photos(seed):
 
 if __name__ == "__main__":
     seed = {}
-    for step in (import_pending, import_cities, import_links, import_submissions, import_sources):
+    for step in (import_pending, import_cities, import_links, import_submissions, import_sources, import_luma_calendars, import_foundercal, import_confstech, import_techmeetups, import_meetup_groups, import_ical_feeds, fix_cities):
         try: seed.update(step() or {})
         except Exception as ex: print(f"{step.__name__} failed: {ex}")
     try: fill_luma_descriptions()
     except Exception as ex: print(f"descriptions failed: {ex}")
     refresh_photos(seed)
+    # keep the data file lean: drop events that ended more than a week ago (pages only ever show upcoming events)
+    try:
+        cut = (dt.date.today() - dt.timedelta(days=7)).isoformat(); ev = load(f"{REPO}/list/events.json", [])
+        kept = [e for e in ev if (e.get("date") or "9999") >= cut]
+        if len(kept) < len(ev): json.dump(kept, open(f"{REPO}/list/events.json", "w"), ensure_ascii=False, indent=1)
+        print(f"pruned {len(ev) - len(kept)} past events")
+    except Exception as ex: print(f"prune failed: {ex}")
     if REPORT: json.dump({"date": dt.date.today().isoformat(), "report": REPORT}, open(f"{REPO}/list/data/import-report.json", "w"), indent=1)

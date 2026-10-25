@@ -19,7 +19,8 @@ for x in extra:
         seen.add((x.get("link") or x.get("title"), x["date"]))
         data["events"].append({"title": x.get("title") or "Untitled", "hub": x["hub"], "date": x["date"], "start": x.get("start"), "end": x.get("end"),
             "host": x.get("host", ""), "venue": x.get("venue", ""), "link": x.get("link", ""), "desc": x.get("desc", ""), "type": x.get("type", ""),
-            "week": next((w["id"] for w in data["weeks"] if w["hub"] == x["hub"] and w["start"] <= x["date"] <= w["end"]), None),
+            "week": next((w["id"] for w in data["weeks"] if w["hub"] == x["hub"] and w["start"] <= x["date"] <= w["end"]
+                          and (not w.get("re") or re.search(w["re"], (x.get("title") or "") + " " + (x.get("link") or ""), re.I))), None),
             "place": "featured" if x.get("featured") else ("spotlight" if x.get("yorkseed") else None)})
 SITE = "https://yorkseed.co"; LISTHOST = "https://list.yorkseed.co"; LIST = LISTHOST + "/"
 TODAY = dt.datetime.now(ZoneInfo("America/New_York")).date(); HORIZON = TODAY + dt.timedelta(days=120)
@@ -33,7 +34,7 @@ try:
 except Exception:
     PHOTOS = {}
 
-SLUG = {"nyc":"new-york","sf":"san-francisco-bay-area","la":"los-angeles","dc":"washington-dc","sao":"sao-paulo-rio","den":"denver-boulder",
+SLUG = {"yyj":"victoria-bc","gift":"gift-city","sat":"san-antonio","nyc":"new-york","sf":"san-francisco-bay-area","la":"los-angeles","dc":"washington-dc","sao":"sao-paulo-rio","den":"denver-boulder",
         "dxb":"dubai-uae","virtual":"online","hkg":"hong-kong","tlv":"tel-aviv","bue":"buenos-aires","kul":"kuala-lumpur","mex":"mexico-city"}
 COMMUNITY = {"nyc":"nyc","sf":"bay-area","la":"los-angeles","dc":"dc","sao":"sao-paulo-rio","hkg":"hong-kong","tlv":"tel-aviv","bue":"buenos-aires",
              "kul":"kuala-lumpur","mex":"mexico-city","dxb":"dubai"}
@@ -61,7 +62,8 @@ for e in events: e.setdefault("week", None); e.setdefault("place", None)
 # imported events join a conference week by city and date, same rule as the List app
 for e in events:
     if not e["week"]:
-        w = next((w for w in data["weeks"] if w["hub"] == e["hub"] and w["start"] <= e["date"] <= w["end"]), None)
+        w = next((w for w in data["weeks"] if w["hub"] == e["hub"] and w["start"] <= e["date"] <= w["end"]
+                  and (not w.get("re") or re.search(w["re"], (e.get("title") or "") + " " + (e.get("link") or ""), re.I))), None)
         if w: e["week"] = w["id"]
 import unicodedata
 def ev_slug(e):
@@ -101,7 +103,7 @@ def event_ld(e, camp):
     if e["link"]: ld["offers"] = {"@type": "Offer", "url": ref(e["link"], camp), "availability": "https://schema.org/InStock", "validFrom": TODAY.isoformat()}
     if e["desc"]: ld["description"] = e["desc"]
     if online: ld["location"] = {"@type":"VirtualLocation","url":ld["url"]}
-    else: ld["location"] = {"@type":"Place","name": place(e) or h["name"],"address":{"@type":"PostalAddress","addressLocality":h["name"],**({"addressCountry":h["country"]} if h["country"] else {})}}
+    else: ld["location"] = {"@type":"Place","name": place(e) or h["name"],"address":{"@type":"PostalAddress",**({"streetAddress":place(e)} if place(e) else {}),"addressLocality":h["name"],**({"addressCountry":h["country"]} if h["country"] else {})}}
     if e["host"]: ld["organizer"] = {"@type":"Organization","name":e["host"]}
     if PHOTOS.get(e["link"]): ld["image"] = [PHOTOS[e["link"]]]
     elif IMGPATH.get(h["img"] or h["id"]): _p = IMGPATH[h["img"] or h["id"]]; ld["image"] = [_p if _p.startswith("http") else LISTHOST + _p]
@@ -213,30 +215,57 @@ def faq(city, n, hid):
     ld = {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q, a in qs]}
     return html_, ld
 
+def local_block(hid, n):
+    if hid not in LOCAL_CITY: return ""
+    lang, c = LOCAL_CITY[hid]; hd, tx = LOCAL[lang]
+    return f'<section lang="{lang}" class="local"><h2>{e_(hd.format(c=c))}</h2><p>{e_(tx.format(c=c, n=n))}</p></section>'
+
 # ---- city pages ----
+# the short name people actually type into Google ("NYC tech events"), used up front in the title, H1 and FAQ
+SHORT = {"nyc": "NYC", "sf": "SF", "la": "LA", "dc": "DC", "dxb": "Dubai"}
+# a short block in the local language, so the page also answers searches like "événements tech Paris" or "Startup Events Berlin"
+LOCAL = {
+ "fr": ("Événements tech et startup à {c}", "Tous les événements startup, tech, fondateurs et investisseurs à {c} : networking, soirées pitch, rencontres VC et meetups de fondateurs. {n} événements à venir, mis à jour en continu. Publier votre événement est gratuit."),
+ "de": ("Tech- und Startup-Events in {c}", "Alle Startup-, Tech-, Gründer- und Investoren-Events in {c}: Networking, Pitch-Abende, VC- und Gründer-Meetups. {n} kommende Events, laufend aktualisiert. Ihr Event kostenlos eintragen."),
+ "es": ("Eventos de tecnología y startups en {c}", "Todos los eventos de startups, tecnología, fundadores e inversores en {c}: networking, noches de pitch, encuentros con VCs y meetups de fundadores. {n} próximos eventos, actualizados continuamente. Publicar tu evento es gratis."),
+ "pt": ("Eventos de tecnologia e startups em {c}", "Todos os eventos de startups, tecnologia, fundadores e investidores em {c}: networking, noites de pitch, encontros com VCs e meetups de fundadores. {n} próximos eventos, atualizados continuamente. Divulgar o seu evento é grátis."),
+ "it": ("Eventi tech e startup a {c}", "Tutti gli eventi startup, tech, founder e investitori a {c}: networking, serate di pitch, incontri con VC e meetup di founder. {n} prossimi eventi, aggiornati di continuo. Pubblicare il tuo evento è gratis."),
+ "nl": ("Tech- en startup-evenementen in {c}", "Alle startup-, tech-, founder- en investeerdersevenementen in {c}: netwerken, pitchavonden, VC- en founder-meetups. {n} aankomende evenementen, continu bijgewerkt. Je evenement aanmelden is gratis."),
+ "ja": ("{c}のテック・スタートアップイベント", "{c}で開催されるスタートアップ、テック、起業家、投資家向けのイベントをまとめて掲載。ネットワーキング、ピッチイベント、VCや起業家のミートアップなど、今後のイベント{n}件を随時更新しています。イベントの掲載は無料です。"),
+ "ko": ("{c} 테크·스타트업 이벤트", "{c}에서 열리는 스타트업, 테크, 창업자, 투자자 이벤트를 한곳에 모았습니다. 네트워킹, 피치 나이트, VC·창업자 밋업 등 예정된 이벤트 {n}개를 계속 업데이트합니다. 이벤트 등록은 무료입니다."),
+}
+LOCAL_CITY = {"par": ("fr", "Paris"), "can": ("fr", "Cannes"), "mtl": ("fr", "Montréal"), "ber": ("de", "Berlin"), "muc": ("de", "München"), "zrh": ("de", "Zürich"),
+ "bcn": ("es", "Barcelona"), "mad": ("es", "Madrid"), "mex": ("es", "Ciudad de México"), "bue": ("es", "Buenos Aires"), "lis": ("pt", "Lisboa"),
+ "sao": ("pt", "São Paulo e Rio"), "dav": ("de", "Davos"), "vie": ("de", "Wien"), "bog": ("es", "Bogotá"), "mde": ("es", "Medellín"), "scl": ("es", "Santiago"), "lim": ("es", "Lima"), "mil": ("it", "Milano"), "ams": ("nl", "Amsterdam"), "tyo": ("ja", "東京"), "sel": ("ko", "서울")}
 for h in hubs.values():
     evs = by_hub.get(h["id"], []); n = len(evs); camp = "list_" + h["slug"]
-    city = h["name"]; online = h["id"] == "virtual"
+    city = h["name"]; online = h["id"] == "virtual"; short = SHORT.get(h["id"])
     hw = [w for w in weeks if w["hub"] == h["id"]]
     title = (f"Online Startup & Tech Events, {TODAY.strftime('%b %Y')} | The Yorkseed List" if online else
-             f"Startup & Tech Events in {city}, {TODAY.strftime('%b %Y')} | The Yorkseed List")
+             (f"{short} Tech Events & Startup Events, {TODAY.strftime('%b %Y')} | The Yorkseed List" if short else
+              f"{city} Tech Events & Startup Events, {TODAY.strftime('%b %Y')} | The Yorkseed List"))
     if len(title) > 70: title = title.replace(" | The Yorkseed List", " | Yorkseed")
-    desc = (f"{n} upcoming startup, tech, founder and investor events {'online' if online else 'in '+city}: networking, pitch nights, VC and founder meetups"
+    where_ = 'online' if online else 'in ' + city
+    desc = ((f"{n} upcoming {short or city} tech events: startup, founder and investor events {where_}, including" if not online else
+             f"{n} upcoming startup, tech, founder and investor events {where_}:")
+            + " networking, pitch nights, VC and founder meetups"
             + (f", plus {', '.join(w['name'] for w in hw)} side events" if hw else "") + ". Updated continuously. Free to list your event.")
     canon = f"{LIST}{h['slug']}/"; img = IMGPATH.get(h["img"] or h["id"])
-    fh, fld = faq(city, n, h["id"])
+    fh, fld = faq(short or city, n, h["id"])
     weeks_html = ('<h2>Conference and tech weeks</h2><div class="weeks">' + "".join(f'<a href="/{w["slug"]}/">{e_(w["name"])} · {len(w["events"])} side events</a>' for w in hw) + "</div>") if hw else ""
     body = f"""<div class="crumb"><a href="https://yorkseed.co/">Yorkseed</a> / <a href="/">The List</a> / <a href="/cities/">Cities</a> / {e_(city if not online else 'Online')}</div>
-<div class="hero"><div><h1>{'Online startup events' if online else f'Startup and tech events in <em>{e_(city)}</em>'}</h1>
-<p class="lede">Every startup, founder, investor and tech event worth going to {'online' if online else 'in '+e_(city)}, in one calendar. Picked by Yorkseed, updated continuously.</p>
+<div class="hero"><div><h1>{'Online startup events' if online else f'{e_(short or city)} tech and <em>startup events</em>'}</h1>
+<p class="lede">Every startup, founder, investor and tech event worth going to {'online' if online else 'in '+e_(city)+(' ('+short+')' if short else '')}, in one calendar. Picked by Yorkseed, updated continuously.</p>
 <p class="meta">{n} upcoming event{'s' if n!=1 else ''} · Updated {TODAY.strftime('%B')} {TODAY.day}, {TODAY.year}</p>
 <div class="cta"><a class="btn r" href="/#{h['id']}">Open the interactive List</a><a class="btn" href="/#submit">List your event free</a></div></div>
 {f'<img src="{img}" alt="{e_(city)} skyline" width="800" height="600" loading="eager">' if img else ''}</div>
 {weeks_html}
 <h2>Upcoming events {'online' if online else 'in <em>'+e_(city)+'</em>'}</h2>
 {rows(evs, camp) if evs else f'<div class="empty">No events are listed {"online" if online else "in "+e_(city)} yet. Hosting one? <a href="/#submit" style="color:var(--red)">List it free</a> and it will appear here within a day.</div>'}
+{local_block(h["id"], n)}
 <h2>Questions</h2>
 {fh}
+<p style="margin-top:22px;font-size:13px;color:var(--ink4)">Events come from organizers who list with us, Luma community calendars and <a href="https://foundercal.com" rel="noopener" style="color:inherit">foundercal</a>.</p>
 {f'<p style="margin-top:28px">Looking for the people behind these events? See the <a href="{SITE}{h["community"]}" style="color:var(--red)">best startup communities in {e_(city)}</a>.</p>' if h["community"] else ''}
 <h2>Startup events in other cities</h2>
 {city_grid(h['id'])}

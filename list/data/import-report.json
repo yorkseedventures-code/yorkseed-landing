@@ -1,182 +1,12 @@
 {
- "date": "2026-10-23",
+ "date": "2026-10-24",
  "report": [
   {
    "links_import": [
     {
-     "url": "https://luma.com/lxpcykxv",
-     "title": "Startup Pitch Mixer",
-     "skipped": "page date 2026-11-18 is not 2026-10-28"
-    },
-    {
-     "url": "https://luma.com/aaue6osv",
-     "title": "Startup Pitch Mixer",
-     "skipped": "page date 2026-12-16 is not 2026-10-28"
-    },
-    {
-     "url": "https://luma.com/lxpcykxv",
-     "title": "Startup Pitch & Networking",
-     "skipped": "page date 2026-11-18 is not 2026-11-04"
-    },
-    {
-     "url": "https://luma.com/aaue6osv",
-     "title": "Startup Pitch & Networking",
-     "skipped": "page date 2026-12-16 is not 2026-11-04"
-    },
-    {
-     "url": "https://luma.com/zw8uqjrs",
-     "title": "Brits In Tech Coffee Meet",
-     "skipped": "page date 2025-10-31 is not 2026-10-30"
-    },
-    {
-     "url": "https://luma.com/91v9o76h",
-     "title": "Brits In Tech Coffee Meet",
-     "skipped": "page date 2026-09-25 is not 2026-10-30"
-    },
-    {
-     "url": "https://luma.com/h8fkk8rh",
-     "title": "Brits In Tech Coffee Meet",
-     "skipped": "page date 2025-12-12 is not 2026-10-30"
-    },
-    {
-     "url": "https://luma.com/16mtw7jo",
-     "title": "Skyline Coworking",
-     "skipped": "page date 2026-08-28 is not 2026-10-30"
-    },
-    {
-     "url": "https://luma.com/501dhxdf",
-     "title": "Skyline Coworking",
-     "skipped": "page date 2026-05-01 is not 2026-10-30"
-    },
-    {
-     "url": "https://luma.com/hf3ozf9l",
-     "title": "Skyline Coworking",
-     "skipped": "page date 2026-07-10 is not 2026-10-30"
-    },
-    {
-     "url": "https://luma.com/brvoqh4g",
-     "title": "Skyline Coworking",
-     "skipped": "page date 2025-12-19 is not 2026-10-30"
-    },
-    {
-     "url": "https://luma.com/16mtw7jo",
-     "title": "Skyline Coworking",
-     "skipped": "page date 2026-08-28 is not 2026-11-06"
-    },
-    {
-     "url": "https://luma.com/501dhxdf",
-     "title": "Skyline Coworking",
-     "skipped": "page date 2026-05-01 is not 2026-11-06"
-    },
-    {
-     "url": "https://luma.com/hf3ozf9l",
-     "title": "Skyline Coworking",
-     "skipped": "page date 2026-07-10 is not 2026-11-06"
-    },
-    {
-     "url": "https://luma.com/brvoqh4g",
-     "title": "Skyline Coworking",
-     "skipped": "page date 2025-12-19 is not 2026-11-06"
-    },
-    {
      "url": "https://luma.com/94pg9889",
      "title": "Deployment Room Penthouse Edition - Seed-Series B Founder & Investor Mixer",
      "skipped": "could not read the page"
-    },
-    {
-     "url": "https://luma.com/ai-tpnz",
-     "title": "AI Engineer Tech Talk",
-     "skipped": "page date 2026-11-04 is not 2026-10-28"
-    },
-    {
-     "url": "https://luma.com/4j04fzi5",
-     "title": "TechWalk",
-     "skipped": "page date 2023-06-14 is not 2026-10-24"
-    },
-    {
-     "url": "https://luma.com/4j04fzi5",
-     "title": "TechWalk (NYC)",
-     "skipped": "page date 2023-06-14 is not 2026-11-13"
-    },
-    {
-     "url": "https://luma.com/propeldemoday",
-     "added": "Propel Demo Day \u00b7 Innovation in Public Cohort Showcase",
-     "date": "2026-11-04"
-    },
-    {
-     "url": "https://luma.com/k1hmgv1r",
-     "title": "Matcha Mornings - Founder & Investor Meetup",
-     "skipped": "page date 2026-07-30 is not 2026-11-05"
-    },
-    {
-     "url": "https://luma.com/u0gki98h",
-     "title": "Startup & Professional Networking",
-     "skipped": "page date 2026-08-06 is not 2026-11-05"
-    },
-    {
-     "url": "https://luma.com/hj9dgulf",
-     "added": "The Borderless Office: Identity and Access in the World of Remote-First Growth",
-     "date": "2026-11-05"
-    },
-    {
-     "url": "https://luma.com/juntodinnernov9",
-     "added": "Junto Founder Dinner (Hosted by Andrew & Friends)",
-     "date": "2026-11-09"
-    },
-    {
-     "url": "https://luma.com/4p9a8zu6",
-     "title": "NY Tech Meetup - Climate Tech Edition",
-     "skipped": "page date 2025-09-22 is not 2026-11-09"
-    },
-    {
-     "url": "https://luma.com/tbo854x6",
-     "title": "NY Tech Meetup - Climate Tech Edition",
-     "skipped": "page date 2026-09-21 is not 2026-11-09"
-    },
-    {
-     "url": "https://civichall.org/event/ny-tech-meetup---climate-tech-edition",
-     "title": "NY Tech Meetup - Climate Tech Edition",
-     "skipped": "page date 2025-09-22 is not 2026-11-09"
-    },
-    {
-     "url": "https://luma.com/13kn6whf",
-     "title": "AI & The Culture IRL",
-     "skipped": "page date 2026-01-20 is not 2026-11-10"
-    },
-    {
-     "url": "https://luma.com/GILDNY1",
-     "added": "New York GILD AI Forum: AI and Engineering Leaders Dinner",
-     "date": "2026-11-10"
-    },
-    {
-     "url": "https://www.eventbrite.com/e/1999712030514",
-     "title": "Startup Networking Founders, Investors & Talent Mixer",
-     "skipped": "page date 2026-10-14 is not 2026-11-11"
-    },
-    {
-     "url": "https://www.eventbrite.com/e/1987708214778",
-     "title": "Startup Networking Founders, Investors & Talent Mixer",
-     "skipped": "page date 2026-04-29 is not 2026-11-11"
-    },
-    {
-     "url": "https://luma.com/s36gyjao",
-     "title": "Consumer Founders Sushi Happy Hour (Consumer Club x Superwall)",
-     "skipped": "page date 2026-09-09 is not 2026-11-11"
-    },
-    {
-     "url": "https://luma.com/w198qzlg",
-     "added": "(N)YC Alumni + Founder Friends Monthly #23 by NYC Founders Club",
-     "date": "2026-11-11"
-    },
-    {
-     "url": "https://luma.com/bvbn3ddb",
-     "added": "PMAI: Sell Me This AI - A No BS Sales Workshop",
-     "date": "2026-11-12"
-    },
-    {
-     "url": "https://luma.com/8jsz8249",
-     "added": "An UNMUTED Debate: Primary Party Crashers",
-     "date": "2026-11-17"
     },
     {
      "url": "https://luma.com/founders-v1ld",
@@ -184,19 +14,9 @@
      "skipped": "could not read the page"
     },
     {
-     "url": "https://luma.com/97skc5ko",
-     "added": "PMAI: Vibe Coding Workshop",
-     "date": "2026-11-14"
-    },
-    {
      "url": "https://luma.com/kzfhv7fe",
      "title": "PMAI: Vibe Coding Workshop",
      "skipped": "could not read the page"
-    },
-    {
-     "url": "https://luma.com/dpkujzpu",
-     "title": "Ground Truth: The Live Agents Hackathon",
-     "skipped": "page date 2025-07-26 is not 2026-11-14"
     },
     {
      "url": "https://luma.com/6mvjcoys",
@@ -204,7 +24,476 @@
      "skipped": "could not read the page"
     }
    ],
-   "added": 8
+   "added": 0
+  },
+  {
+   "source": "luma place nashville",
+   "hub": "nsh",
+   "error": "place not found"
+  },
+  {
+   "source": "place:nyc",
+   "hub": "nyc",
+   "pages": 5,
+   "seen": 80,
+   "added": 0
+  },
+  {
+   "source": "place:sf",
+   "hub": "sf",
+   "pages": 4,
+   "seen": 62,
+   "added": 0
+  },
+  {
+   "source": "place:london",
+   "hub": "ldn",
+   "pages": 4,
+   "seen": 52,
+   "added": 0
+  },
+  {
+   "source": "place:paris",
+   "hub": "par",
+   "pages": 2,
+   "seen": 21,
+   "added": 0
+  },
+  {
+   "source": "place:berlin",
+   "hub": "ber",
+   "pages": 3,
+   "seen": 44,
+   "added": 0
+  },
+  {
+   "source": "place:munich",
+   "hub": "muc",
+   "pages": 2,
+   "seen": 11,
+   "added": 0
+  },
+  {
+   "source": "place:amsterdam",
+   "hub": "ams",
+   "pages": 3,
+   "seen": 29,
+   "added": 0
+  },
+  {
+   "source": "place:barcelona",
+   "hub": "bcn",
+   "pages": 3,
+   "seen": 27,
+   "added": 0
+  },
+  {
+   "source": "place:madrid",
+   "hub": "mad",
+   "pages": 2,
+   "seen": 17,
+   "added": 0
+  },
+  {
+   "source": "place:lisbon",
+   "hub": "lis",
+   "pages": 3,
+   "seen": 32,
+   "added": 0
+  },
+  {
+   "source": "place:milan",
+   "hub": "mil",
+   "pages": 2,
+   "seen": 13,
+   "added": 0
+  },
+  {
+   "source": "place:zurich",
+   "hub": "zrh",
+   "pages": 2,
+   "seen": 19,
+   "added": 0
+  },
+  {
+   "source": "place:stockholm",
+   "hub": "sto",
+   "pages": 2,
+   "seen": 21,
+   "added": 0
+  },
+  {
+   "source": "place:copenhagen",
+   "hub": "cph",
+   "pages": 2,
+   "seen": 16,
+   "added": 0
+  },
+  {
+   "source": "place:helsinki",
+   "hub": "hel",
+   "pages": 2,
+   "seen": 21,
+   "added": 0
+  },
+  {
+   "source": "place:dublin",
+   "hub": "dub",
+   "pages": 2,
+   "seen": 9,
+   "added": 0
+  },
+  {
+   "source": "place:warsaw",
+   "hub": "waw",
+   "pages": 2,
+   "seen": 23,
+   "added": 0
+  },
+  {
+   "source": "place:toronto",
+   "hub": "tor",
+   "pages": 3,
+   "seen": 35,
+   "added": 0
+  },
+  {
+   "source": "place:montreal",
+   "hub": "mtl",
+   "pages": 2,
+   "seen": 18,
+   "added": 0
+  },
+  {
+   "source": "place:vancouver",
+   "hub": "yvr",
+   "pages": 3,
+   "seen": 26,
+   "added": 0
+  },
+  {
+   "source": "place:la",
+   "hub": "la",
+   "pages": 3,
+   "seen": 40,
+   "added": 0
+  },
+  {
+   "source": "place:boston",
+   "hub": "bos",
+   "pages": 3,
+   "seen": 43,
+   "added": 0
+  },
+  {
+   "source": "place:chicago",
+   "hub": "chi",
+   "pages": 2,
+   "seen": 17,
+   "added": 0
+  },
+  {
+   "source": "place:miami",
+   "hub": "mia",
+   "pages": 2,
+   "seen": 12,
+   "added": 0
+  },
+  {
+   "source": "place:austin",
+   "hub": "atx",
+   "pages": 2,
+   "seen": 18,
+   "added": 0
+  },
+  {
+   "source": "place:seattle",
+   "hub": "sea",
+   "pages": 3,
+   "seen": 26,
+   "added": 0
+  },
+  {
+   "source": "place:dc",
+   "hub": "dc",
+   "pages": 2,
+   "seen": 19,
+   "added": 0
+  },
+  {
+   "source": "place:denver",
+   "hub": "den",
+   "pages": 2,
+   "seen": 10,
+   "added": 0
+  },
+  {
+   "source": "place:philadelphia",
+   "hub": "phl",
+   "pages": 2,
+   "seen": 20,
+   "added": 0
+  },
+  {
+   "source": "place:mexico-city",
+   "hub": "mex",
+   "pages": 4,
+   "seen": 51,
+   "added": 0
+  },
+  {
+   "source": "place:buenos-aires",
+   "hub": "bue",
+   "pages": 2,
+   "seen": 12,
+   "added": 0
+  },
+  {
+   "source": "place:tel-aviv",
+   "hub": "tlv",
+   "pages": 2,
+   "seen": 24,
+   "added": 0
+  },
+  {
+   "source": "place:dubai",
+   "hub": "dxb",
+   "pages": 2,
+   "seen": 12,
+   "added": 0
+  },
+  {
+   "source": "place:singapore",
+   "hub": "sgp",
+   "pages": 3,
+   "seen": 28,
+   "added": 0
+  },
+  {
+   "source": "place:tokyo",
+   "hub": "tyo",
+   "pages": 3,
+   "seen": 36,
+   "added": 0
+  },
+  {
+   "source": "place:seoul",
+   "hub": "sel",
+   "pages": 2,
+   "seen": 12,
+   "added": 0
+  },
+  {
+   "source": "place:taipei",
+   "hub": "tpe",
+   "pages": 2,
+   "seen": 11,
+   "added": 0
+  },
+  {
+   "source": "place:bangkok",
+   "hub": "bkk",
+   "pages": 2,
+   "seen": 12,
+   "added": 0
+  },
+  {
+   "source": "place:jakarta",
+   "hub": "jkt",
+   "pages": 2,
+   "seen": 4,
+   "added": 0
+  },
+  {
+   "source": "place:kuala-lumpur",
+   "hub": "kul",
+   "pages": 2,
+   "seen": 11,
+   "added": 0
+  },
+  {
+   "source": "place:bengaluru",
+   "hub": "blr",
+   "pages": 2,
+   "seen": 22,
+   "added": 0
+  },
+  {
+   "source": "place:mumbai",
+   "hub": "bom",
+   "pages": 2,
+   "seen": 19,
+   "added": 0
+  },
+  {
+   "source": "place:sydney",
+   "hub": "syd",
+   "pages": 2,
+   "seen": 12,
+   "added": 0
+  },
+  {
+   "source": "place:melbourne",
+   "hub": "mel",
+   "pages": 2,
+   "seen": 15,
+   "added": 0
+  },
+  {
+   "source": "place:nairobi",
+   "hub": "nbo",
+   "pages": 2,
+   "seen": 6,
+   "added": 0
+  },
+  {
+   "source": "place:lagos",
+   "hub": "los",
+   "pages": 2,
+   "seen": 11,
+   "added": 0
+  },
+  {
+   "source": "place:houston",
+   "hub": "hou",
+   "pages": 2,
+   "seen": 11,
+   "added": 0
+  },
+  {
+   "source": "place:dallas",
+   "hub": "dal",
+   "pages": 2,
+   "seen": 11,
+   "added": 0
+  },
+  {
+   "source": "place:atlanta",
+   "hub": "atl",
+   "pages": 2,
+   "seen": 15,
+   "added": 0
+  },
+  {
+   "source": "place:salt-lake-city",
+   "hub": "slc",
+   "pages": 2,
+   "seen": 14,
+   "added": 0
+  },
+  {
+   "source": "place:raleigh",
+   "hub": "rdu",
+   "pages": 2,
+   "seen": 7,
+   "added": 0
+  },
+  {
+   "source": "place:oslo",
+   "hub": "osl",
+   "pages": 2,
+   "seen": 8,
+   "added": 0
+  },
+  {
+   "source": "place:vienna",
+   "hub": "vie",
+   "pages": 2,
+   "seen": 11,
+   "added": 0
+  },
+  {
+   "source": "place:prague",
+   "hub": "prg",
+   "pages": 2,
+   "seen": 15,
+   "added": 0
+  },
+  {
+   "source": "place:brussels",
+   "hub": "bru",
+   "pages": 2,
+   "seen": 16,
+   "added": 0
+  },
+  {
+   "source": "place:istanbul",
+   "hub": "ist",
+   "pages": 2,
+   "seen": 13,
+   "added": 0
+  },
+  {
+   "source": "place:manila",
+   "hub": "mnl",
+   "pages": 2,
+   "seen": 6,
+   "added": 0
+  },
+  {
+   "source": "place:ho-chi-minh-city",
+   "hub": "sgn",
+   "pages": 2,
+   "seen": 7,
+   "added": 0
+  },
+  {
+   "source": "place:auckland",
+   "hub": "akl",
+   "pages": 2,
+   "seen": 7,
+   "added": 0
+  },
+  {
+   "source": "place:bogota",
+   "hub": "bog",
+   "pages": 2,
+   "seen": 8,
+   "added": 0
+  },
+  {
+   "source": "place:medellin",
+   "hub": "mde",
+   "pages": 2,
+   "seen": 3,
+   "added": 0
+  },
+  {
+   "source": "place:new-delhi",
+   "hub": "del",
+   "pages": 2,
+   "seen": 12,
+   "added": 0
+  },
+  {
+   "source": "place:hongkong",
+   "hub": "hkg",
+   "pages": 2,
+   "seen": 12,
+   "added": 0
+  },
+  {
+   "source": "place:saopaulo",
+   "hub": "sao",
+   "pages": 2,
+   "seen": 10,
+   "added": 0
+  },
+  {
+   "source": "luma calendars",
+   "known": 432,
+   "added": 55
+  },
+  {
+   "source": "foundercal",
+   "read": 3513,
+   "added": 1783
+  },
+  {
+   "source": "techmeetups.io",
+   "hub": "den",
+   "found": 67,
+   "added": 0
   }
  ]
 }
