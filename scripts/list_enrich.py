@@ -427,6 +427,40 @@ def import_foundercal():
     print(f"foundercal: {seen_n} events read, {added} new"); REPORT.append({"source": "foundercal", "read": seen_n, "added": added})
     return {}
 
+# ---------- 1g. imported events filed under the wrong city: move them to the city their venue names ----------
+CITY_WORDS = {"sf": ["San Francisco", "Palo Alto", "Oakland", "Mountain View", "Berkeley", "San Jose"], "nyc": ["New York", "Brooklyn", "Manhattan", "NYC"],
+    "la": ["Los Angeles", "Santa Monica"], "dc": ["Washington"], "dxb": ["Dubai", "Abu Dhabi"], "blr": ["Bangalore", "Bengaluru"], "muc": ["München", "Munich"],
+    "mil": ["Milano", "Milan"], "lis": ["Lisboa", "Lisbon"], "del": ["Delhi", "Gurugram", "Gurgaon", "Noida"], "sao": ["São Paulo", "Sao Paulo", "Rio de Janeiro"],
+    "den": ["Denver", "Boulder"], "zrh": ["Zürich", "Zurich"], "vie": ["Wien", "Vienna"], "prg": ["Praha", "Prague"], "cph": ["København", "Copenhagen"],
+    "rdu": ["Raleigh", "Durham"], "iev": ["Kyiv", "Kiev"], "ldn": ["London"], "ber": ["Berlin"], "par": ["Paris"]}
+def fix_cities():
+    master = load(f"{REPO}/list/data/master.json", {"hubs": []}); hubs = {h["id"]: h for h in master["hubs"] if h["id"] != "virtual"}
+    pats = {k: re.compile(r"\b(" + "|".join(re.escape(x) for x in [h["name"]] + CITY_WORDS.get(k, [])) + r")\b", re.I) for k, h in hubs.items()}
+    events = load(f"{REPO}/list/events.json", []); moved = 0
+    for e in events:
+        if e.get("src") != "foundercal" or e.get("hub") not in pats: continue   # foundercal's city feeds sometimes mix cities
+        txt = (e.get("venue") or "") + " " + (e.get("link") or "")
+        if pats[e["hub"]].search(txt): continue
+        # an address part that is just a city name, maybe with a postcode: "London EC3M 3AY", "80797 Munich", "London"
+        parts = [x.strip() for x in (e.get("venue") or "").split(",")]
+        hits = [(i, k) for i, part in enumerate(parts) for k, p in pats.items() if k != e["hub"]
+                for m in [re.fullmatch(r"(?:[0-9][\w-]*\s+)?(.+?)(?:\s+[A-Z0-9]{2,4}\s?[0-9][A-Z0-9]{0,3})?", part)] if m and p.fullmatch(m.group(1))
+                and not (hubs[k].get("country") != "United States" and i + 1 < len(parts) and re.fullmatch(r"[A-Z]{2}(\s+\d{5})?", parts[i + 1]))]
+        if not hits: continue
+        new = max(hits)[1]                                          # the city named last in the address wins
+        if e.get("start") == "00:00": e["start"] = None; e["end"] = None   # midnight here means "no time given"
+        if e.get("start"):
+            try:
+                d = dt.datetime.fromisoformat(f'{e["date"]}T{e["start"]}').replace(tzinfo=ZoneInfo(hub_tz(e["hub"]))).astimezone(ZoneInfo(hub_tz(new)))
+                shift = d - dt.datetime.fromisoformat(f'{e["date"]}T{e["start"]}').replace(tzinfo=ZoneInfo(hub_tz(new)))
+                e["date"], e["start"] = d.date().isoformat(), d.strftime("%H:%M")
+                if e.get("end"): e["end"] = (dt.datetime.fromisoformat(f'2000-01-01T{e["end"]}') + shift).strftime("%H:%M")
+            except Exception: pass
+        e["hub"] = new; moved += 1
+    json.dump(events, open(f"{REPO}/list/events.json", "w"), ensure_ascii=False, indent=1)
+    print(f"fix cities: moved {moved} imported events to the city in their address")
+    return {}
+
 # ---------- 1d. TechMeetups.io public API (free, no key, 60 requests/min): tech meetups by city ----------
 # We keep only facts (title, date, venue, organizer) and link to the organizer's own registration page.
 def import_techmeetups():
@@ -637,7 +671,7 @@ def refresh_photos(seed):
 
 if __name__ == "__main__":
     seed = {}
-    for step in (import_pending, import_cities, import_links, import_submissions, import_sources, import_luma_calendars, import_foundercal, import_techmeetups):
+    for step in (import_pending, import_cities, import_links, import_submissions, import_sources, import_luma_calendars, import_foundercal, import_techmeetups, fix_cities):
         try: seed.update(step() or {})
         except Exception as ex: print(f"{step.__name__} failed: {ex}")
     try: fill_luma_descriptions()
