@@ -264,5 +264,96 @@
   "name": "The New York Tech Scene",
   "all": true,
   "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-fSQ4i0wPXvHO1CJ",
+  "name": "The Bay Area Tech Scene",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-T1AyqOHMfl8s0if",
+  "name": "The Los Angeles Tech Scene",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-iKVd56O8VuNxQh7",
+  "name": "The Sydney Tech Scene",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-7xHmIOBADQRaEZ1",
+  "name": "The Madrid Tech Scene",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-FCFKYqnuSSlBgY4",
+  "name": "The Barcelona Tech Scene",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-kWixLwx4POuTQG8",
+  "name": "The Munich Tech Scene",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-70Tsr0mRHWlCIxz",
+  "name": "The Vancouver Tech Scene",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-uCCb22xSxeDq8MH",
+  "name": "The Atlanta Tech Scene",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-5bzrgh1Wj8Sus9I",
+  "name": "The Milan Tech Scene",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-QqcyTTEbCoHJsBt",
+  "name": "The Copenhagen Tech Scene",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-o8SGCte980GirUn",
+  "name": "The Hong Kong Tech Scene",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-rNQLFZXCArkNJlM",
+  "name": "The Tokyo Tech Scene",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-6AZtU97e5lyq3RN",
+  "name": "The Dallas Tech Scene",
+  "all": true,
+  "max_pages": 20
  }
 ]
