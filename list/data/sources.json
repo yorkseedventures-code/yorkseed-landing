@@ -89,5 +89,61 @@
   "name": "Mexico Tech Week 2026",
   "all": true,
   "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-0VMgRPJpqUzLxOa",
+  "name": "#SeattleAIWeek 2026",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-wXeomljuhPkyUOu",
+  "name": "Tough Tech Week",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-1OAH3ghDizZKd9h",
+  "name": "DeepTech Week TLV 2026",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-t5G6qFg361W5X7g",
+  "name": "Startup Week Malaysia",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-JNTb2teBCjZozqg",
+  "name": "Hong Kong FinTech Week x StartmeupHK 2026",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-Ewfl6zNchcUhoZM",
+  "name": "Hard Tech Week",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-uKHgmFwHhKWFLgw",
+  "name": "SF HealthTech Week",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-3EmudBg6WohhT6B",
+  "name": "Women in Tech Week - Bay Area/ SF",
+  "all": true,
+  "max_pages": 20
  }
 ]
