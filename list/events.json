@@ -77731,5 +77731,145 @@
   "link": "https://redbull.com/fr-fr/events/red-bull-wings-cup-france/red-bull-wings-cup-france-university-league",
   "desc": "Red Bull's student startup competition comes to Station F.",
   "start": "11:00"
+ },
+ {
+  "title": "Red Hat Summit: Connect Paris 2026",
+  "hub": "par",
+  "date": "2026-11-05",
+  "venue": "Maison de la Mutualité",
+  "host": "Red Hat",
+  "link": "https://www.redhat.com/en/summit/connect/emea/paris-2026",
+  "type": "Conferences",
+  "desc": "Red Hat's one-day Paris event on open source, hybrid cloud and AI platforms."
+ },
+ {
+  "title": "Agentforce World Tour Paris 2026",
+  "hub": "par",
+  "date": "2026-11-05",
+  "venue": "Paris",
+  "host": "Salesforce",
+  "link": "https://www.salesforce.com/fr/events/paris/",
+  "type": "Conferences",
+  "desc": "Salesforce's free one-day event in Paris on AI agents, CRM and data."
+ },
+ {
+  "title": "Dell Technologies Forum Paris 2026",
+  "hub": "par",
+  "date": "2026-11-17",
+  "venue": "Le Carrousel du Louvre",
+  "host": "Dell Technologies",
+  "link": "https://events.dell.com/event/forum-fr-2026/summary",
+  "type": "Conferences",
+  "desc": "Dell's one-day forum on AI, data centres and infrastructure for IT leaders."
+ },
+ {
+  "title": "DevFest Paris 2026",
+  "hub": "par",
+  "date": "2026-11-27",
+  "venue": "La Fabrique de la Connaissance, Nanterre",
+  "host": "GDG Paris",
+  "link": "https://devfest.gdgparis.com",
+  "type": "Conferences",
+  "desc": "GDG Paris's developer conference on web, mobile, cloud and AI."
+ },
+ {
+  "title": "Tech for Retail 2026",
+  "hub": "par",
+  "date": "2026-11-30",
+  "venue": "Paris Expo Porte de Versailles, Hall 7.2",
+  "host": "Tech for Retail",
+  "link": "https://www.techforretail.com/",
+  "type": "Conferences",
+  "desc": "Two days, November 30 and December 1, on retail tech, e-commerce and AI, with startups and retailers."
+ },
+ {
+  "title": "Swift Connection X",
+  "hub": "par",
+  "date": "2026-11-02",
+  "venue": "Théâtre de Paris, 15 Rue Blanche",
+  "host": "Swift Connection",
+  "link": "https://swiftconnection.io/",
+  "type": "Conferences",
+  "desc": "The 10th edition of the iOS and Swift developer conference, November 2 and 3."
+ },
+ {
+  "title": "Argus Factory 2026",
+  "hub": "par",
+  "date": "2026-11-17",
+  "venue": "Paris",
+  "host": "Infopro Digital",
+  "link": "https://www.argusfactory.com/",
+  "type": "Conferences",
+  "desc": "A conference on how AI is changing insurance: CRM, fraud detection and claims."
+ },
+ {
+  "title": "GenerationAI Conference Paris",
+  "hub": "par",
+  "date": "2026-12-01",
+  "venue": "CNIT Forest, Paris La Défense",
+  "host": "GenerationAI",
+  "link": "https://www.generationaiconf.com/events/paris",
+  "type": "Conferences",
+  "desc": "An AI conference for builders and product teams, co-located with APIDays, December 1 to 3."
+ },
+ {
+  "title": "Open Source Experience 2026",
+  "hub": "par",
+  "date": "2026-12-09",
+  "venue": "Paris",
+  "host": "Open Source Experience",
+  "link": "https://www.opensource-experience.com/en/",
+  "type": "Conferences",
+  "desc": "Europe's open-source gathering, December 9 and 10, for developers, companies and the public sector."
+ },
+ {
+  "title": "Data + AI World Tour Paris 2026",
+  "hub": "par",
+  "date": "2026-12-08",
+  "venue": "Paris La Défense Arena",
+  "host": "Databricks",
+  "link": "https://www.databricks.com/dataaisummit/worldtour",
+  "type": "Conferences",
+  "desc": "Databricks' one-day Paris event on data, analytics and AI."
+ },
+ {
+  "title": "TRUSTECH 2026",
+  "hub": "par",
+  "date": "2026-12-01",
+  "venue": "Paris Expo Porte de Versailles",
+  "host": "TRUSTECH",
+  "link": "https://www.trustech-event.com/en",
+  "type": "Conferences",
+  "desc": "Three days, December 1 to 3, on payments, digital identity and security."
+ },
+ {
+  "title": "ServiceNow World Forum Paris 2026",
+  "hub": "par",
+  "date": "2026-12-02",
+  "venue": "Paris Expo Porte de Versailles",
+  "host": "ServiceNow",
+  "link": "https://www.servicenow.com/events/world-forum/paris.html",
+  "type": "Conferences",
+  "desc": "ServiceNow's one-day Paris forum on AI and enterprise workflows."
+ },
+ {
+  "title": "DevOps REX 2026",
+  "hub": "par",
+  "date": "2026-12-09",
+  "venue": "Paris Expo Porte de Versailles, Hall 5.2",
+  "host": "DevOps REX",
+  "link": "https://www.devopsrex.fr",
+  "type": "Conferences",
+  "desc": "Two days, December 9 and 10, of real-world DevOps and platform-engineering talks."
+ },
+ {
+  "title": "Cloud & AI Infrastructure Paris 2026",
+  "hub": "par",
+  "date": "2026-11-18",
+  "venue": "Paris Expo Porte de Versailles",
+  "host": "CloserStill Media",
+  "link": "https://www.techshowparis.fr/cloud-ai-infrastructure",
+  "type": "Conferences",
+  "desc": "Part of Tech Show Paris, November 18 and 19, on cloud and AI infrastructure."
  }
 ]
