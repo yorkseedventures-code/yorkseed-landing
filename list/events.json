@@ -79117,5 +79117,35 @@
   "link": "https://refreshmiami.com/event/west-palm-beach-tech-happy-hour-2-2/2026-11-17/",
   "desc": "Listed on Refresh Miami, South Florida's tech community calendar. Details and registration on the event page.",
   "start": "17:30"
+ },
+ {
+  "title": "TecWeek Buenos Aires 2026",
+  "hub": "bue",
+  "date": "2026-10-25",
+  "venue": "BA Ferial, Av. Costanera Rafael Obligado 1221",
+  "host": "Ciudad de Buenos Aires",
+  "link": "https://www.tecweek.com.ar/",
+  "type": "Conferences",
+  "desc": "Buenos Aires' city-wide tech week, October 20 to 31, with free and paid events across BA Ferial, Konex, Usina del Arte and the Parque de Innovación: AI, deep tech, fintech, gaming and creators."
+ },
+ {
+  "title": "LABITCONF 2026",
+  "hub": "bue",
+  "date": "2026-10-30",
+  "venue": "Buenos Aires",
+  "host": "LABITCONF",
+  "link": "https://labitconf.com/",
+  "type": "Conferences",
+  "desc": "Latin America's Bitcoin and blockchain conference, October 30 and 31, part of TecWeek Buenos Aires."
+ },
+ {
+  "title": "Fisweek & Rio Health Forum 2026",
+  "hub": "sao",
+  "date": "2026-11-11",
+  "venue": "Marina da Glória & Museu de Arte Moderna, Rio de Janeiro",
+  "host": "FIS",
+  "link": "https://fis.org.br/fisweek",
+  "type": "Conferences",
+  "desc": "Three days, November 11 to 13, on health innovation and health tech in Rio, with startups, investors and providers."
  }
 ]

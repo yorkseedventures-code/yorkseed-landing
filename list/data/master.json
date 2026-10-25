@@ -873,6 +873,13 @@
    "hub": "mad",
    "start": "2026-10-28",
    "end": "2026-11-05"
+  },
+  {
+   "id": "batw",
+   "name": "TecWeek Buenos Aires",
+   "hub": "bue",
+   "start": "2026-10-20",
+   "end": "2026-10-31"
   }
  ],
  "img": {
