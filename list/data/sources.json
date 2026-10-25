@@ -397,5 +397,26 @@
   "name": "Founderpath",
   "all": true,
   "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-JlOALijZDpFzzAn",
+  "name": "TWIF",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-kiKh3eJNLvQQRk6",
+  "name": "Bay AI Circle",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-Cm2aVhTqkbzyy3H",
+  "name": "fractl",
+  "all": true,
+  "max_pages": 20
  }
 ]
