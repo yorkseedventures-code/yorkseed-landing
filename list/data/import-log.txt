@@ -1,2 +1,50 @@
 links import: 0 added of 4 queued, 4 kept for retry
 submissions: 0 approved events copied into events.json, 0 with an uploaded cover
+  cat-tech page 1: 5 entries, has_more=False, cursor=yes
+  cat-tech page 2: 0 entries, has_more=False, cursor=no
+source cat-tech: 2 pages, 5 in-person events seen, 0 new added
+  cat-ai page 1: 5 entries, has_more=False, cursor=yes
+  cat-ai page 2: 0 entries, has_more=False, cursor=no
+source cat-ai: 2 pages, 5 in-person events seen, 0 new added
+  place:nyc page 1: 25 entries, has_more=True, cursor=yes
+  place:nyc page 2: 25 entries, has_more=True, cursor=yes
+source place:nyc: 5 pages, 79 in-person events seen, 0 new added
+  place:sf page 1: 25 entries, has_more=True, cursor=yes
+  place:sf page 2: 25 entries, has_more=True, cursor=yes
+source place:sf: 4 pages, 66 in-person events seen, 0 new added
+  place:london page 1: 25 entries, has_more=True, cursor=yes
+  place:london page 2: 25 entries, has_more=True, cursor=yes
+source place:london: 4 pages, 58 in-person events seen, 0 new added
+  place:paris page 1: 24 entries, has_more=False, cursor=yes
+  place:paris page 2: 0 entries, has_more=False, cursor=no
+source place:paris: 2 pages, 24 in-person events seen, 0 new added
+  place:berlin page 1: 25 entries, has_more=True, cursor=yes
+  place:berlin page 2: 25 entries, has_more=False, cursor=yes
+source place:berlin: 3 pages, 50 in-person events seen, 0 new added
+  place:munich page 1: 14 entries, has_more=False, cursor=yes
+  place:munich page 2: 0 entries, has_more=False, cursor=no
+source place:munich: 2 pages, 14 in-person events seen, 0 new added
+  place:amsterdam page 1: 25 entries, has_more=True, cursor=yes
+  place:amsterdam page 2: 4 entries, has_more=False, cursor=yes
+source place:amsterdam: 3 pages, 29 in-person events seen, 0 new added
+  place:barcelona page 1: 25 entries, has_more=True, cursor=yes
+  place:barcelona page 2: 5 entries, has_more=False, cursor=yes
+source place:barcelona: 3 pages, 30 in-person events seen, 0 new added
+  place:madrid page 1: 19 entries, has_more=False, cursor=yes
+  place:madrid page 2: 0 entries, has_more=False, cursor=no
+source place:madrid: 2 pages, 19 in-person events seen, 0 new added
+  place:lisbon page 1: 25 entries, has_more=True, cursor=yes
+  place:lisbon page 2: 9 entries, has_more=False, cursor=yes
+source place:lisbon: 3 pages, 34 in-person events seen, 0 new added
+  place:milan page 1: 13 entries, has_more=False, cursor=yes
+  place:milan page 2: 0 entries, has_more=False, cursor=no
+source place:milan: 2 pages, 13 in-person events seen, 0 new added
+  place:zurich page 1: 19 entries, has_more=False, cursor=yes
+  place:zurich page 2: 0 entries, has_more=False, cursor=no
+source place:zurich: 2 pages, 19 in-person events seen, 0 new added
+  place:stockholm page 1: 23 entries, has_more=False, cursor=yes
+  place:stockholm page 2: 0 entries, has_more=False, cursor=no
+source place:stockholm: 2 pages, 23 in-person events seen, 0 new added
+  place:copenhagen page 1: 17 entries, has_more=False, cursor=yes
+  place:copenhagen page 2: 0 entries, has_more=False, cursor=no
+source place:copenhagen: 2 pages, 17 in-person events seen, 0 new added
