@@ -514,12 +514,18 @@ def import_meetup_groups():
     norm = lambda s: re.sub(r'[^a-z0-9]+', '', (s or '').lower())[:40]
     seen_l = {(e.get("link") or "").split("?")[0].rstrip("/") for e in events + master["events"]}
     seen_t = {(norm(e.get("title")), e.get("date")) for e in events + master["events"]}
-    horizon = (dt.date.today() + dt.timedelta(days=120)).isoformat(); added, ok = 0, 0
-    for g, hub in list(groups.items())[:800]:
-        try: text = urlopen(Request(f"https://www.meetup.com/{g}/events/ical/", headers=UA), timeout=20).read().decode("utf-8", "ignore")
+    horizon = (dt.date.today() + dt.timedelta(days=120)).isoformat(); added, ok, refused = 0, 0, 0
+    # rotate: groups not read recently go first, so a run cut short by rate limits continues tomorrow where it stopped
+    lp = f"{REPO}/list/data/meetup-read.json"; last = load(lp, {})
+    t_end = time.time() + 20 * 60                                        # at most 20 minutes a run
+    for g, hub in sorted(groups.items(), key=lambda kv: last.get(kv[0], ""))[:800]:
+        if time.time() > t_end or refused >= 3: break
+        try: text = urlopen(Request(f"https://www.meetup.com/{g}/events/ical/", headers=UA), timeout=20).read().decode("utf-8", "ignore"); refused = 0
         except Exception as ex:
-            if getattr(ex, "code", 0) == 429: time.sleep(30)
+            if getattr(ex, "code", 0) in (429, 403): refused += 1; time.sleep(10)
+            last[g] = TODAY
             continue
+        last[g] = TODAY
         ok += 1; tz = hub_tz(hub)
         for f in _ics_events(text):
             title = (f.get("SUMMARY") or ("", ""))[0]; url = (f.get("URL") or ("", ""))[0].split("?")[0].rstrip("/")
@@ -535,7 +541,7 @@ def import_meetup_groups():
                            "host": g.replace("-", " "), "link": url + "/", "desc": "Details and registration on the event page.", "src": "meetup"})
             seen_l.add(url); seen_t.add((norm(title), date)); added += 1
         time.sleep(0.6)
-    json.dump(groups, open(gp, "w"), indent=0)
+    json.dump(groups, open(gp, "w"), indent=0); json.dump(last, open(lp, "w"), indent=0)
     json.dump(events, open(f"{REPO}/list/events.json", "w"), ensure_ascii=False, indent=1)
     print(f"meetup groups: {len(groups)} known, {ok} read, {added} new events"); REPORT.append({"source": "meetup groups", "groups": len(groups), "added": added})
     return {}

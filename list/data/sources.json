@@ -7,18 +7,6 @@
  },
  {
   "type": "luma_category",
-  "id": "cat-climate",
-  "name": "Luma: Climate",
-  "max_pages": 60
- },
- {
-  "type": "luma_category",
-  "id": "cat-crypto",
-  "name": "Luma: Crypto",
-  "max_pages": 60
- },
- {
-  "type": "luma_category",
   "id": "cat-ai",
   "name": "Luma: AI",
   "max_pages": 60
