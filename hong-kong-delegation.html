@@ -457,6 +457,18 @@ details summary::after,details summary span{color:var(--gold)}
 </style>
 <script src="/assets/site-chrome.js" defer></script>
 <style>yk-header:not(:defined){display:block;min-height:73px}</style>
+<style id="hk-virtual">
+.vband{display:grid;grid-template-columns:1fr 1.5fr auto;gap:28px;align-items:center;background:#F4EFE6;border:1px solid var(--line,#DDD4C7);border-top:0;padding:26px 24px}
+.vband .t{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#9A6B1F;margin-bottom:10px}
+.vband h3{font-family:var(--serif);font-weight:400;font-size:24px;margin-bottom:4px}
+.vband .p{font-family:var(--serif);font-size:38px;font-weight:400;line-height:1;margin-top:8px}
+.vband ul{list-style:none;display:flex;flex-direction:column;gap:7px;margin:0;padding:0}
+.vband li{font-size:14px;line-height:1.5;padding-left:18px;position:relative}
+.vband li::before{content:'✦';position:absolute;left:0;font-size:9px;top:4px;color:#9A6B1F}
+.vband li.no{color:#7A7065}.vband li.no::before{content:'–'}
+.vband .btn{white-space:nowrap;border:1px solid var(--ink,#1E1B18);padding:14px 22px;text-align:center}
+@media(max-width:900px){.vband{grid-template-columns:1fr;gap:18px}}
+</style>
 </head>
 <body>
 <yk-header><a href="/">Yorkseed</a> <a href="/hubs.html">Hubs</a> <a href="/events.html">Events</a> <a href="/investors">Investor list</a> <a href="/contact.html">Contact</a></yk-header>
@@ -741,6 +753,15 @@ details summary::after,details summary span{color:var(--gold)}
         <ul><li>Everything in the Editorial Feature</li><li>A four-day coworking pass in Hong Kong</li><li>A place to work, take calls and hold meetings, with Wi-Fi and power</li></ul>
         <a href="https://buy.stripe.com/14AbIU047el0as88QJbo40U" class="btn" target="_blank" rel="noopener">Buy now, $449</a>
       </div>
+    </div>
+    <div class="vband" id="virtual">
+      <div>
+        <div class="t">Can't make Hong Kong?</div>
+        <h3>Virtual Delegate</h3>
+        <div class="p">$149</div>
+      </div>
+      <ul><li>Your own page in the Yorkseed Hong Kong Delegation Deal Book, with a link to share</li><li>Shared across the Yorkseed network during AFF week, and online after</li><li>Can add the Editorial Feature ($295)</li><li>Limited to 20 places, each reviewed. Profiles due January 15</li><li class="no">Not included: AFF pass, onsite access or the delegate group chat</li></ul>
+      <a href="https://buy.stripe.com/eVq8wIeZ12Ci8k00kdbo40X" class="btn" target="_blank" rel="noopener">Join virtually, $149</a>
     </div>
     <div class="fine">
       <span>Full Bundle: Editorial + Coworking + 3 hotel nights, January 25 to 28, in a Wan Chai hotel (one room, one delegate, limited rooms): <b>$899</b>. <a href="mailto:partnership@yorkseed.co?subject=Full%20Bundle">Email us to reserve</a></span>
