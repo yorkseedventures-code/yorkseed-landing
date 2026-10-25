@@ -705,6 +705,30 @@
    "country": "Serbia",
    "region": "",
    "img": ""
+  },
+  {
+   "id": "sat",
+   "name": "San Antonio",
+   "tz": "America/Chicago",
+   "country": "United States",
+   "region": "",
+   "img": ""
+  },
+  {
+   "id": "yyj",
+   "name": "Victoria, BC",
+   "tz": "America/Vancouver",
+   "country": "Canada",
+   "region": "",
+   "img": ""
+  },
+  {
+   "id": "gift",
+   "name": "GIFT City",
+   "tz": "Asia/Kolkata",
+   "country": "India",
+   "region": "",
+   "img": ""
   }
  ],
  "weeks": [

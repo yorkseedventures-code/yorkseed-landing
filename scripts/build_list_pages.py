@@ -34,7 +34,7 @@ try:
 except Exception:
     PHOTOS = {}
 
-SLUG = {"nyc":"new-york","sf":"san-francisco-bay-area","la":"los-angeles","dc":"washington-dc","sao":"sao-paulo-rio","den":"denver-boulder",
+SLUG = {"yyj":"victoria-bc","gift":"gift-city","sat":"san-antonio","nyc":"new-york","sf":"san-francisco-bay-area","la":"los-angeles","dc":"washington-dc","sao":"sao-paulo-rio","den":"denver-boulder",
         "dxb":"dubai-uae","virtual":"online","hkg":"hong-kong","tlv":"tel-aviv","bue":"buenos-aires","kul":"kuala-lumpur","mex":"mexico-city"}
 COMMUNITY = {"nyc":"nyc","sf":"bay-area","la":"los-angeles","dc":"dc","sao":"sao-paulo-rio","hkg":"hong-kong","tlv":"tel-aviv","bue":"buenos-aires",
              "kul":"kuala-lumpur","mex":"mexico-city","dxb":"dubai"}

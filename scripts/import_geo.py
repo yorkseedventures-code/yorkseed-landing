@@ -8,7 +8,9 @@ ll = re.search(r"HUB_LL=\{(.*?)\}", open(f"{le.REPO}/list/index.html", encoding=
 coords = {k: (a, b) for k, a, b in re.findall(r"(\w+):\[(-?[\d.]+),(-?[\d.]+)\]", ll)}
 out = []
 for hid, (la, lo) in coords.items():
-    if (hid in placed and "--all" not in sys.argv) or hid not in hub_ids or hid == "virtual": continue
+    only = next((a.split("=", 1)[1].split(",") for a in sys.argv if a.startswith("--only=")), None)
+    if only and hid not in only: continue
+    if not only and ((hid in placed and "--all" not in sys.argv) or hid not in hub_ids or hid == "virtual"): continue
     cursor, pages, n = None, 0, 0
     while pages < 12:
         q = f"https://api.lu.ma/discover/get-paginated-events?latitude={la}&longitude={lo}&pagination_limit=25" + (f"&pagination_cursor={cursor}" if cursor else "")
