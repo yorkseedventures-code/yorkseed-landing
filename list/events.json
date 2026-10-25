@@ -83850,5 +83850,18 @@
   "link": "https://innovationscene.pt/lisbon/events/5z1vm/",
   "desc": "Details and registration on the event page.",
   "src": "manual"
+ },
+ {
+  "title": "World Family Office Forum Middle East",
+  "hub": "dxb",
+  "date": "2027-01-27",
+  "start": null,
+  "end": null,
+  "venue": "Dubai",
+  "host": "World Family Office Forum",
+  "link": "https://middleeast.worldfamilyofficeforum.com/",
+  "desc": "Details and registration on the event page.",
+  "src": "manual",
+  "noTime": true
  }
 ]
