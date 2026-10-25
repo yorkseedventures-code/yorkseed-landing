@@ -1,0 +1,30 @@
+# TEMPORARY: fetch a page from GitHub's network to see how it loads its events. Delete before merging.
+name: List probe (branch only)
+on:
+  push:
+    branches: [list-seo-nyc]
+    paths: [".github/workflows/list-probe.yml"]
+permissions:
+  contents: write
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          mkdir -p list/data/probe; cd list/data/probe
+          UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
+          curl -sSL -A "$UA" -D slush-headers.txt "https://platform.slush.org/public/slush26/activities/browse" -o slush.html || true
+          wc -c slush.html > slush-size.txt || true
+          grep -oE '(https?:)?//[a-zA-Z0-9./_-]*(api|graphql)[a-zA-Z0-9./_?=&-]*|/_next/static/[a-zA-Z0-9./_-]+\.js|"/api/[^"]+"' slush.html | sort -u > slush-urls.txt || true
+          for js in $(grep -oE '/_next/static/[a-zA-Z0-9./_-]+\.js|/assets/[a-zA-Z0-9./_-]+\.js|src="[^"]+\.js"' slush.html | sed 's/src="//;s/"$//' | sort -u | head -15); do
+            u=$js; case $u in http*) ;; *) u="https://platform.slush.org$js";; esac
+            curl -sSL -A "$UA" "$u" | grep -oE '"/?(api|public)/[a-zA-Z0-9/_{}$.-]*activit[a-zA-Z0-9/_{}$.?=&-]*"|https?://[a-zA-Z0-9.-]+/[a-zA-Z0-9/_{}.-]*(api|graphql)[a-zA-Z0-9/_{}.-]*' >> slush-js-urls.txt || true
+          done
+          sort -u -o slush-js-urls.txt slush-js-urls.txt 2>/dev/null || true
+          head -c 300000 slush.html > slush.html.tmp && mv slush.html.tmp slush.html
+      - run: |
+          git config user.name "yorkseed-list-bot"; git config user.email "actions@users.noreply.github.com"
+          git add list/data/probe; git commit -m "Probe: Slush activities page" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -q origin list-seo-nyc && git push && exit 0; git rebase --abort 2>/dev/null; sleep 5; done
