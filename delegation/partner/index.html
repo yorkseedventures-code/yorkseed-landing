@@ -60,18 +60,18 @@ legend{font-family:Jost,sans-serif;font-size:12px;font-weight:500;letter-spacing
 <section class="pt-hero">
   <div class="eyebrow" style="color:#B3261E">Partner with Yorkseed</div>
   <h1>Your page in the <em>Deal Book</em> and the <em>Annual</em></h1>
-  <p>Each Yorkseed delegation has a Deal Book read by founders, investors and partners, and it stays online after the week. At year end, The Yorkseed Annual collects every delegation in one edition. A limited number of partner pages are available in both.</p>
+  <p>Each Yorkseed delegation has a Deal Book read by founders, investors and partners, and it stays online after the week. At year end, The Yorkseed Annual collects every delegation in one edition. A limited number of partner pages are available in each.</p>
 </section>
 
 <section class="pt-sec">
   <div class="pt-label"><h2>Packages</h2><span class="eyebrow" style="color:var(--muted)">USD</span></div>
   <table class="pt-prices">
-    <tr><th>Package</th><th>Lisbon Deal Book 2026</th><th>The Yorkseed Annual 2026</th><th>Both</th></tr>
-    <tr><td class="n">Partner page</td><td><s>$1,200</s><b>$800</b></td><td><s>$1,500</s><b>$1,000</b></td><td><s>$2,200</s><b>$1,500</b></td></tr>
-    <tr><td class="n">Feature spread</td><td>On request</td><td><s>$3,000</s><b>$2,000</b></td><td><s>$4,500</s><b>$3,000</b></td></tr>
-    <tr><td class="n">Presenting partner</td><td></td><td><s>$7,500</s><b>$5,000</b> · one only</td><td></td></tr>
+    <tr><th>Package</th><th>Lisbon Deal Book 2026</th><th>Hong Kong Deal Book 2027</th><th>The Yorkseed Annual 2026</th><th>Lisbon + Annual</th></tr>
+    <tr><td class="n">Partner page</td><td><s>$1,200</s><b>$800</b></td><td><s>$1,200</s><b>$800</b></td><td><s>$1,500</s><b>$1,000</b></td><td><s>$2,200</s><b>$1,500</b></td></tr>
+    <tr><td class="n">Feature spread</td><td>On request</td><td>On request</td><td><s>$3,000</s><b>$2,000</b></td><td><s>$4,500</s><b>$3,000</b></td></tr>
+    <tr><td class="n">Presenting partner</td><td></td><td></td><td><s>$7,500</s><b>$5,000</b> · one only</td><td></td></tr>
   </table>
-  <p class="pt-note">Founding rates apply to the first five partners. Your page appears only in the edition(s) you choose: a Deal Book page does not carry into the Annual unless you select the Annual or Both. Every partner page is labelled Partner.</p>
+  <p class="pt-note">Founding rates apply to the first five partners. Your page appears only in the edition(s) you choose: a Deal Book page does not carry into the Annual unless you also select the Annual. Every partner page is labelled Partner.</p>
 </section>
 
 <section class="pt-sec">
@@ -102,8 +102,9 @@ legend{font-family:Jost,sans-serif;font-size:12px;font-weight:500;letter-spacing
         <legend>Where should it appear?</legend>
         <div class="opts">
           <label class="opt"><input type="radio" name="Edition" value="Lisbon Deal Book 2026" required><span>Lisbon Delegation Deal Book 2026<small>Online during and after Web Summit week</small></span></label>
+          <label class="opt"><input type="radio" name="Edition" value="Hong Kong Deal Book 2027"><span>Hong Kong Delegation Deal Book 2027<small>Online during and after the Asian Financial Forum, January 2027</small></span></label>
           <label class="opt"><input type="radio" name="Edition" value="The Yorkseed Annual 2026"><span>The Yorkseed Annual 2026<small>Year-end edition collecting every delegation</small></span></label>
-          <label class="opt"><input type="radio" name="Edition" value="Both"><span>Both<small>Lower combined price</small></span></label>
+          <label class="opt"><input type="radio" name="Edition" value="Both"><span>Lisbon + Annual<small>Lower combined price</small></span></label>
         </div>
       </fieldset>
 
@@ -139,7 +140,7 @@ legend{font-family:Jost,sans-serif;font-size:12px;font-weight:500;letter-spacing
   (function () {
     var f = document.getElementById("partner-form");
     var prices = {
-      "Partner page": { "Lisbon Deal Book 2026": 800, "The Yorkseed Annual 2026": 1000, "Both": 1500 },
+      "Partner page": { "Lisbon Deal Book 2026": 800, "Hong Kong Deal Book 2027": 800, "The Yorkseed Annual 2026": 1000, "Both": 1500 },
       "Feature spread": { "The Yorkseed Annual 2026": 2000, "Both": 3000 },
       "Presenting partner": { "The Yorkseed Annual 2026": 5000 }
     };
