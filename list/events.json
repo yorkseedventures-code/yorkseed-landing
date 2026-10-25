@@ -77871,5 +77871,203 @@
   "link": "https://www.techshowparis.fr/cloud-ai-infrastructure",
   "type": "Conferences",
   "desc": "Part of Tech Show Paris, November 18 and 19, on cloud and AI infrastructure."
+ },
+ {
+  "title": "DevSunday",
+  "hub": "par",
+  "date": "2026-10-25",
+  "start": "14:30",
+  "venue": "",
+  "host": "Devsunday",
+  "link": "https://www.meetup.com/devsunday/events/316853090/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "L'IA au quotidien chez Pennylane : Engineering, Data & Product",
+  "hub": "par",
+  "date": "2026-10-27",
+  "start": "18:30",
+  "venue": "",
+  "host": "Le Wagon Paris Coding Bootcamp",
+  "link": "https://www.meetup.com/le-wagon-paris-coding-bootcamp/events/316593553/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "Token Optimisation : Maîtriser son budget IA",
+  "hub": "par",
+  "date": "2026-10-27",
+  "start": "12:00",
+  "venue": "",
+  "host": "Theproductcrew",
+  "link": "https://www.meetup.com/theproductcrew/events/316957689/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "Scaler & Protéger — Conférence & networking entrepreneurs à Paris",
+  "hub": "par",
+  "date": "2026-10-28",
+  "start": "17:00",
+  "venue": "",
+  "host": "Entrepreneurs Paris Scaler Proteger",
+  "link": "https://www.meetup.com/entrepreneurs-paris-scaler-proteger/events/317019990/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "Startups-évents pour réseauter et entreprendre",
+  "hub": "par",
+  "date": "2026-10-29",
+  "start": "19:30",
+  "venue": "",
+  "host": "Startups Events",
+  "link": "https://www.meetup.com/startups-events/events/316913981/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "Transfo IA @Taster  : Construire au lieu d’acheter ?",
+  "hub": "par",
+  "date": "2026-10-29",
+  "start": "12:00",
+  "venue": "",
+  "host": "Theproductcrew",
+  "link": "https://www.meetup.com/theproductcrew/events/316992166/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "Journée coworking",
+  "hub": "par",
+  "date": "2026-10-29",
+  "start": "09:30",
+  "venue": "",
+  "host": "Le Meetup Du Laptop Ux Creation",
+  "link": "https://www.meetup.com/le-meetup-du-laptop-ux-creation/events/316778831/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "DevSunday",
+  "hub": "par",
+  "date": "2026-11-01",
+  "start": "14:30",
+  "venue": "",
+  "host": "Devsunday",
+  "link": "https://www.meetup.com/devsunday/events/316946605/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "From Founder to Funded: Interactive Q&A with Brian Bell",
+  "hub": "par",
+  "date": "2026-11-03",
+  "start": "18:00",
+  "venue": "",
+  "host": "Paris Startup Founder 101",
+  "link": "https://www.meetup.com/paris-startup-founder-101/events/317101655/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "Diviser par 2 la facture IA en 2 mois",
+  "hub": "par",
+  "date": "2026-11-03",
+  "start": "12:00",
+  "venue": "",
+  "host": "Theproductcrew",
+  "link": "https://www.meetup.com/theproductcrew/events/317057348/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "Startups-évents pour réseauter et entreprendre",
+  "hub": "par",
+  "date": "2026-11-05",
+  "start": "19:30",
+  "venue": "",
+  "host": "Startups Events",
+  "link": "https://www.meetup.com/startups-events/events/317014536/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "Transfo IA @Stoik :  Réinventer le métier tech",
+  "hub": "par",
+  "date": "2026-11-05",
+  "start": "12:00",
+  "venue": "",
+  "host": "Theproductcrew",
+  "link": "https://www.meetup.com/theproductcrew/events/317070291/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "Design & Leadership : Trouver sa posture de leader",
+  "hub": "par",
+  "date": "2026-11-09",
+  "start": "19:30",
+  "venue": "",
+  "host": "Le Meetup Du Laptop Ux Creation",
+  "link": "https://www.meetup.com/le-meetup-du-laptop-ux-creation/events/316779379/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "Nov 11 - AI, ML and Computer Vision Meetup",
+  "hub": "par",
+  "date": "2026-11-11",
+  "start": "18:00",
+  "venue": "",
+  "host": "Paris Ai Machine Learning And Computer Vision Meetup",
+  "link": "https://www.meetup.com/paris-ai-machine-learning-and-computer-vision-meetup/events/316572606/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "Journée coworking",
+  "hub": "par",
+  "date": "2026-11-12",
+  "start": "09:30",
+  "venue": "",
+  "host": "Le Meetup Du Laptop Ux Creation",
+  "link": "https://www.meetup.com/le-meetup-du-laptop-ux-creation/events/316779866/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "Free Startup Fundraising Office Hours Expert AMA with Angel Investor Scott Fox!",
+  "hub": "par",
+  "date": "2026-11-17",
+  "start": "19:00",
+  "venue": "",
+  "host": "Paris Startup Founders Investors Networking Masterminds",
+  "link": "https://www.meetup.com/paris-startup-founders-investors-networking-masterminds/events/jzxrbvyjcpbwb/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "Free Startup Fundraising Office Hours Expert AMA with Angel Investor Scott Fox!",
+  "hub": "par",
+  "date": "2026-11-24",
+  "start": "19:00",
+  "venue": "",
+  "host": "Paris Startup Founders Investors Networking Masterminds",
+  "link": "https://www.meetup.com/paris-startup-founders-investors-networking-masterminds/events/jzxrbvyjcpbgc/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "[LAB IA] Créer son système d’agents pour faciliter les Sprints",
+  "hub": "par",
+  "date": "2026-11-24",
+  "start": "13:00",
+  "venue": "",
+  "host": "Le Meetup Du Laptop Ux Creation",
+  "link": "https://www.meetup.com/le-meetup-du-laptop-ux-creation/events/316960112/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
  }
 ]
