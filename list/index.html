@@ -1919,11 +1919,14 @@ function ysProgramsHtml(w,compact){
 const weekOk=w=>!!w.ys||upcoming().filter(e=>e.week===w.id).length>=5;
 function renderWeeks(){
   const today=dKey(Date.now(),myTz);
-  const ws=[...WEEKS].filter(w=>w.end>=today&&weekOk(w)).sort((a,b)=>a.start.localeCompare(b.start));
-  const show=st.allWeeks?ws:[...ws.slice(0,5),...ws.slice(5).filter(w=>w.ys)];
+  const cnt={};upcoming().forEach(e=>{if(e.week)cnt[e.week]=(cnt[e.week]||0)+1;});
+  // weeks on now or starting within 10 days come first, biggest first; then the rest by date
+  const soonCut=addDays(10),soon=w=>w.start<=soonCut;
+  const ws=[...WEEKS].filter(w=>w.end>=today&&weekOk(w)&&(cnt[w.id]||0)>0).sort((a,b)=>(soon(b)-soon(a))||(soon(a)?(cnt[b.id]||0)-(cnt[a.id]||0):a.start.localeCompare(b.start)));
+  const show=st.allWeeks?ws:[...ws.slice(0,6),...ws.slice(6).filter(w=>w.ys)];
   $("#weekGrid").innerHTML=show.map(w=>{const n=upcoming().filter(e=>e.week===w.id).length;const live=today>=w.start&&today<=w.end;
     return`<button class="wrow" type="button" data-weekgo="${w.id}"><span class="wd">${range(w.start,w.end)}${live?'<span class="badge b-now live">This week</span>':""}</span><span class="wn">${esc(w.name)}<small>${hubById(w.hub).name} · Yorkseed Master Side Event List${w.ys?" "+ysProgramsHtml(w,true):""}</small></span><span class="wc">${n} event${n===1?"":"s"}</span><span class="ar">→</span></button>`}).join("");
-  const mb=$("#moreWeeks");mb.parentElement.hidden=ws.length<=5;mb.textContent=st.allWeeks?"Show fewer":`All ${ws.length} conference weeks`;
+  const mb=$("#moreWeeks");mb.parentElement.hidden=ws.length<=6;mb.textContent=st.allWeeks?"Show fewer":`All ${ws.length} conference weeks`;
 }
 
 // list rendering, built to stay calm at hundreds of events
