@@ -842,6 +842,13 @@
    "hub": "scl",
    "start": "2026-11-16",
    "end": "2026-11-22"
+  },
+  {
+   "id": "mdtw",
+   "name": "Madrid Tech Week",
+   "hub": "mad",
+   "start": "2026-10-28",
+   "end": "2026-11-05"
   }
  ],
  "img": {

@@ -78883,5 +78883,65 @@
   "link": "https://www.meetup.com/manlyentrepreneurs/events/316866851/",
   "desc": "Details and registration on the event page.",
   "src": "meetup"
+ },
+ {
+  "title": "MERGE Madrid '26: Institutional Summit",
+  "hub": "mad",
+  "date": "2026-10-27",
+  "venue": "Bolsa de Madrid",
+  "host": "MERGE",
+  "link": "https://www.mmerge.io/es/merge-madrid-26",
+  "desc": "The institutional day of MERGE Madrid at the Madrid stock exchange.",
+  "type": "Conferences"
+ },
+ {
+  "title": "MERGE Madrid '26",
+  "hub": "mad",
+  "date": "2026-10-28",
+  "venue": "Palacio de Cibeles",
+  "host": "MERGE",
+  "link": "https://www.mmerge.io/es/merge-madrid-26",
+  "desc": "The tech and innovation congress at Palacio de Cibeles, October 28 and 29, during Madrid Tech Week.",
+  "type": "Conferences"
+ },
+ {
+  "title": "Bold Talks '26 Commerce Summit",
+  "hub": "mad",
+  "date": "2026-11-03",
+  "venue": "Jungle HQ, Madrid",
+  "host": "rock.et",
+  "link": "https://rock.et/pages/bold-talks",
+  "desc": "A one-day summit on e-commerce and digital commerce growth.",
+  "type": "Conferences"
+ },
+ {
+  "title": "Tech Show Madrid 2026",
+  "hub": "mad",
+  "date": "2026-11-04",
+  "venue": "IFEMA Madrid, Pavilions 3 and 5",
+  "host": "CloserStill Media",
+  "link": "https://www.techshowmadrid.es/",
+  "desc": "Spain's big B2B tech show, November 4 and 5: cloud, cyber, data, AI, data centres and e-commerce.",
+  "type": "Conferences"
+ },
+ {
+  "title": "Advanced Manufacturing Madrid 2026",
+  "hub": "mad",
+  "date": "2026-11-04",
+  "venue": "IFEMA Madrid",
+  "host": "Advanced Manufacturing",
+  "link": "https://www.advancedmanufacturingmadrid.com/es/",
+  "desc": "Industrial tech and smart manufacturing fair, November 4 and 5.",
+  "type": "Conferences"
+ },
+ {
+  "title": "Singularity Summit Spain 2026",
+  "hub": "mad",
+  "date": "2026-11-04",
+  "venue": "Espacio Acciona, Gran Vía de Hortaleza 46",
+  "host": "Singularity Spain",
+  "link": "https://spain.su.org/",
+  "desc": "Two days, November 4 and 5, on exponential technologies, AI and the future of business.",
+  "type": "Conferences"
  }
 ]

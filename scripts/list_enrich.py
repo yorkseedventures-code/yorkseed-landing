@@ -777,4 +777,11 @@ if __name__ == "__main__":
     try: fill_luma_descriptions()
     except Exception as ex: print(f"descriptions failed: {ex}")
     refresh_photos(seed)
+    # keep the data file lean: drop events that ended more than a week ago (pages only ever show upcoming events)
+    try:
+        cut = (dt.date.today() - dt.timedelta(days=7)).isoformat(); ev = load(f"{REPO}/list/events.json", [])
+        kept = [e for e in ev if (e.get("date") or "9999") >= cut]
+        if len(kept) < len(ev): json.dump(kept, open(f"{REPO}/list/events.json", "w"), ensure_ascii=False, indent=1)
+        print(f"pruned {len(ev) - len(kept)} past events")
+    except Exception as ex: print(f"prune failed: {ex}")
     if REPORT: json.dump({"date": dt.date.today().isoformat(), "report": REPORT}, open(f"{REPO}/list/data/import-report.json", "w"), indent=1)
