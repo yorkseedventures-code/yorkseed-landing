@@ -702,7 +702,7 @@ html:not(.fso) [data-so]{display:none!important}
 
   function renderMates(){
     var n=investor()?0:parseInt(v('extraCount')||'0',10),box=$('mates'),keep={};
-    box.querySelectorAll('input').forEach(function(i){keep[i.id]=i.value});
+    var dbs={};box.querySelectorAll('input,textarea').forEach(function(i){if(i.id)keep[i.id]=i.value});box.querySelectorAll('input[type=radio]:checked').forEach(function(r){dbs[r.name]=r.value});
     var h='';
     for(var k=1;k<=n;k++){
       h+='<div class="mate"><div class="mate-h">Teammate '+k+'</div>'+
@@ -710,15 +710,26 @@ html:not(.fso) [data-so]{display:none!important}
         '<div class="f"><label for="m'+k+'role">Role</label><input type="text" id="m'+k+'role" placeholder="e.g. CTO"/></div></div>'+
         '<div class="two"><div class="f"><label for="m'+k+'email">Email</label><input type="email" id="m'+k+'email" autocomplete="off"/></div>'+
         '<div class="f"><label for="m'+k+'phone">WhatsApp</label><input type="tel" id="m'+k+'phone" placeholder="+351 …" autocomplete="off"/></div></div>'+
-        (dealbookYes()?'<div class="f"><label for="m'+k+'photo">Headshot link (optional)</label><p class="hint">For your teammate\'s spot on your Deal Book page.</p><input type="url" id="m'+k+'photo" placeholder="https://"/></div>':'')+'</div>';
+        '<div class="f"><span class="lab">Add '+'this teammate to the Deal Book?</span><div class="who" style="margin-bottom:0"><label><input type="radio" name="m'+k+'db" value="Yes"/>Yes, add them</label><label><input type="radio" name="m'+k+'db" value="No" checked/>No, thanks</label></div></div>'+
+        '<div id="m'+k+'dbf" hidden>'+
+          '<div class="f"><label for="m'+k+'tag">Their tagline</label><p class="hint">One short line under their name. Up to 70 characters.</p><input type="text" id="m'+k+'tag" maxlength="70"/></div>'+
+          '<div class="f"><label for="m'+k+'about">About them</label><p class="hint">Two or three sentences for their page. What they do and why it matters. Up to 400 characters.</p><textarea id="m'+k+'about" maxlength="400"></textarea></div>'+
+          '<div class="f"><span class="lab">Three keywords</span><div class="three"><input type="text" id="m'+k+'t1" maxlength="30" placeholder="Keyword 1" aria-label="Keyword 1"/><input type="text" id="m'+k+'t2" maxlength="30" placeholder="Keyword 2" aria-label="Keyword 2"/><input type="text" id="m'+k+'t3" maxlength="30" placeholder="Keyword 3" aria-label="Keyword 3"/></div></div>'+
+          '<div class="f"><label for="m'+k+'qr">Link for their QR code (optional)</label><p class="hint">A booking page, LinkedIn or deck. We use the company website if blank.</p><input type="url" id="m'+k+'qr" placeholder="https://"/></div>'+
+          '<div class="f"><label for="m'+k+'photo">Link to their headshot</label><p class="hint">A photo link (Google Drive, Dropbox, website) that anyone with the link can open.</p><input type="url" id="m'+k+'photo" placeholder="https://"/></div>'+
+        '</div></div>';
     }
     box.innerHTML=h;
     Object.keys(keep).forEach(function(id){var el=$(id);if(el)el.value=keep[id]});
+    Object.keys(dbs).forEach(function(nm){var r=form.querySelector('[name='+nm+'][value='+dbs[nm]+']');if(r)r.checked=true;});
+    for(var q=1;q<=n;q++){var f=$('m'+q+'dbf');if(f)f.hidden=!mateDb(q);}
   }
+  function mateDb(k){var c=form.querySelector('[name=m'+k+'db]:checked');return !!c&&c.value==='Yes';}
+  $('mates').addEventListener('change',function(e){var t=e.target;if(t&&t.type==='radio'){var m=/^m(\d+)db$/.exec(t.name);if(m){var f=$('m'+m[1]+'dbf');if(f)f.hidden=!mateDb(m[1]);}}});
   $('extraCount').addEventListener('change',renderMates);
   function matesData(){
     var n=investor()?0:parseInt(v('extraCount')||'0',10),out=[];
-    for(var k=1;k<=n;k++)out.push([v('m'+k+'name'),v('m'+k+'role'),v('m'+k+'email'),v('m'+k+'phone'),$('m'+k+'photo')?v('m'+k+'photo'):'']);
+    for(var k=1;k<=n;k++)out.push([v('m'+k+'name'),v('m'+k+'role'),v('m'+k+'email'),v('m'+k+'phone'),$('m'+k+'photo')?v('m'+k+'photo'):'',mateDb(k)?'Yes':'No',v('m'+k+'tag'),v('m'+k+'about'),[v('m'+k+'t1'),v('m'+k+'t2'),v('m'+k+'t3')].join(' | '),v('m'+k+'qr')]);
     return out;
   }
   function validate(){
@@ -743,6 +754,13 @@ html:not(.fso) [data-so]{display:none!important}
       if(!m[2]){mark($('m'+k+'email'),'Please fill this in.');ok=false;}
       else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(m[2])){mark($('m'+k+'email'),'That email doesn\'t look right.');ok=false;}
       if(!m[3]){mark($('m'+k+'phone'),'Please fill this in.');ok=false;}
+      if(m[5]==='Yes'){
+        if(!m[6]){mark($('m'+k+'tag'),'Please fill this in.');ok=false;}
+        if(!m[7]){mark($('m'+k+'about'),'Please fill this in.');ok=false;}else if(m[7].length<40){mark($('m'+k+'about'),'A little more detail, please.');ok=false;}
+        ['t1','t2','t3'].forEach(function(t){if(!v('m'+k+t)){mark($('m'+k+t),'Please fill this in.');ok=false;}});
+        if(m[4]&&!/^https?:\/\/\S+\.\S+/i.test(m[4])){mark($('m'+k+'photo'),'Please paste a full link starting with https://');ok=false;}
+        if(m[9]&&!/^https?:\/\/\S+\.\S+/i.test(m[9])){mark($('m'+k+'qr'),'Please paste a full link starting with https://');ok=false;}
+      }
     });
     if(!form.querySelector('[name=dealbook]:checked')){mark($('dealbookGroup').querySelector('.who'),'Please choose Yes or No.');ok=false;}
     if(dealbookYes()){
@@ -750,7 +768,6 @@ html:not(.fso) [data-so]{display:none!important}
       if(v('dbAbout')&&v('dbAbout').length<40){mark($('dbAbout'),'A little more detail, please.');ok=false;}
       if(!v('website')){mark($('website'),'Please add your website for the Deal Book.');ok=false;}
       if(v('dbQR')&&!/^https?:\/\/\S+\.\S+/i.test(v('dbQR'))){mark($('dbQR'),'Please paste a full link starting with https://');ok=false;}
-      matesData().forEach(function(m,i){if(m[4]&&!/^https?:\/\/\S+\.\S+/i.test(m[4])){mark($('m'+(i+1)+'photo'),'Please paste a full link starting with https://');ok=false;}});
     }
     if(!form.querySelector('[name=feature]:checked')){mark($('featureGroup').querySelector('.who'),'Please choose Yes or No.');ok=false;}
     if(mediaNeeded()){['headshot','logo'].forEach(function(id){
@@ -779,7 +796,7 @@ html:not(.fso) [data-so]{display:none!important}
       ['First name',v('firstName')],['Last name',v('lastName')],['Role',v('jobTitle')],['Email',v('email')],['WhatsApp',v('phone')],['LinkedIn',v('linkedin')],
       ['Company',v('company')],['Website',v('website')],
       ['One-liner',f?v('oneLiner'):''],['Sector',f?v('sector'):''],['Stage',f?v('stage'):''],['Fundraising',f?v('raising'):''],['Web Summit ticket',f?v('ticket'):''],
-      ['Package',tier],['Rate to send if approved',rate],['Teammates',i?'':v('extraCount')],['Teammate details',i?'':matesData().map(function(m,k){return (k+1)+'. '+m[0]+(m[1]?' ('+m[1]+')':'')+' · '+m[2]+' · '+m[3]+(m[4]?' · photo: '+m[4]:'')}).join(' | ')],
+      ['Package',tier],['Rate to send if approved',rate],['Teammates',i?'':v('extraCount')],['Teammate details',i?'':matesData().map(function(m,k){return (k+1)+'. '+m[0]+(m[1]?' ('+m[1]+')':'')+' · '+m[2]+' · '+m[3]+(m[5]==='Yes'?' · DEAL BOOK: tagline: '+m[6]+' / about: '+m[7]+' / keywords: '+m[8]+(m[9]?' / QR: '+m[9]:'')+(m[4]?' / headshot: '+m[4]:''):' · Deal Book: No')}).join(' | ')],
       ['Partner field',p?v('pField'):''],['Partner services',p?v('pOffer'):''],['Partner perk for delegates',p?v('pPerk'):''],
       ['Investor stage focus',i?v('iStage'):''],['Investor sectors',i?v('iSectors'):''],['Investor check size',i?v('iCheck'):''],['Portfolio permission',i?(portfolio()==='Yes'?'Yes, choose up to 5 from website':portfolio()):''],['Portfolio companies',i&&portfolio()==='Custom'?v('pfList').split(/\n/).filter(function(x){return x.trim()}).join(' | '):''],
       [f?'Who they want to meet':(p?'Who they want to meet':'What they want to see'),v('goals')],['Access code',v('accessCode')],['Heard via',v('referral')],['Heard via details',v('referralDetail')],
