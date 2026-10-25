@@ -469,6 +469,47 @@ details summary::after,details summary span{color:var(--gold)}
 .vband .btn{white-space:nowrap;border:1px solid var(--ink,#1E1B18);padding:14px 22px;text-align:center}
 @media(max-width:900px){.vband{grid-template-columns:1fr;gap:18px}}
 </style>
+<style id="hk-clear-css">
+.hk-strip{background:var(--paper,#FAF8F4);border-bottom:1px solid var(--line,#DDD4C7)}
+.hk-strip .hk-clear{border-top:0;margin-top:0;padding-bottom:16px}
+.hk-clear{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--line,#DDD4C7);margin-top:18px;padding-top:0!important}
+.hk-clear>div{padding:16px 20px 4px 0;margin-right:20px;border-right:1px solid var(--line,#DDD4C7)}
+.hk-clear>div:last-child{border-right:0;margin-right:0}
+.hk-clear b{display:block;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--oxblood,#7A1020);margin-bottom:6px}
+.hk-clear span{font-size:14px;line-height:1.55;color:var(--ink2,#3D3731)}
+.hk-clear a{color:inherit;text-decoration:underline}
+@media(max-width:800px){.hk-clear{grid-template-columns:1fr}.hk-clear>div{border-right:0;margin-right:0;border-bottom:1px solid var(--line,#DDD4C7);padding:12px 0}}
+</style>
+<style id="hk-tight">
+.hero{padding-top:130px}
+.hero h1{font-size:clamp(48px,7.6vw,100px)}
+.intro,.dark,.week,.pricing,.apply{padding:72px 0}
+.forwho,.faq,.sample{padding:64px 0}
+.big{font-size:clamp(34px,4vw,50px)}
+.photo-band figure{height:min(36vw,380px)}
+.track{padding:20px 20px 24px 0}
+.day{padding:18px 0}
+.tier{padding:26px 24px 28px}
+.partner{padding:26px 24px;gap:28px}
+.partner .p{font-size:38px}
+.list li{padding:13px 0}
+details{padding:15px 0}
+.steps li{padding:11px 0}
+form,.done{padding:28px}
+@media(max-width:700px){.hero{padding-top:110px}.intro,.dark,.week,.pricing,.apply,.forwho,.faq,.sample{padding:52px 0}}
+
+.hero h1{font-size:clamp(42px,6vw,76px);line-height:.96}
+.big{font-size:clamp(28px,3.1vw,40px);line-height:1.08}
+.dateline h2{font-size:clamp(24px,3vw,36px)}
+.track h3{font-size:21px}
+.day h3{font-size:22px}
+.tier h3,.partner h3{font-size:24px}
+.tier .p{font-size:40px}
+.partner .p{font-size:34px}
+.done h3{font-size:30px}
+.luma-card h3{font-size:26px}
+@media(max-width:700px){.hero h1{font-size:40px}.big{font-size:28px}}
+</style>
 </head>
 <body>
 <yk-header><a href="/">Yorkseed</a> <a href="/hubs.html">Hubs</a> <a href="/events.html">Events</a> <a href="/investors">Investor list</a> <a href="/contact.html">Contact</a></yk-header>
@@ -483,15 +524,15 @@ details summary::after,details summary span{color:var(--gold)}
   <div class="in">
     <div class="eyebrow label">Asian Financial Forum · Hong Kong · January 25 to 28, 2027</div>
     <h1>The Yorkseed<br><em>Hong Kong</em> Delegation</h1>
-    <p class="sub">Yorkseed returns to the Asian Financial Forum as official community partner of HKTDC. Join the delegation free, with a complimentary AFF delegate pass, a group to walk into the week with, and the AFF Deal-Making platform.</p>
+    <p class="sub">Yorkseed returns to the Asian Financial Forum as official community partner of HKTDC. The delegation is free: apply, and if you're approved your full AFF pass is complimentary, with a group to walk into the week with and the AFF Deal-Making platform.</p>
     <div class="meta">
       <div><span>Delegation</span><b>January 25 to 28, 2027</b></div>
       <div><span>To join</span><b>Free</b></div>
-      <div><span>AFF pass</span><b>Complimentary</b></div>
+      <div><span>Full AFF pass</span><b>Free with the delegation</b></div>
       <div><span>AFF</span><b>January 26 to 27</b></div>
     </div>
     <div class="btns">
-      <a href="https://tally.so/r/nrzzko" class="btn btn-gold" target="_blank" rel="noopener">Register free</a>
+      <a href="https://tally.so/r/nrzzko" class="btn btn-gold" target="_blank" rel="noopener">Apply free</a>
       <a href="#week" class="btn btn-line">See the trip</a>
     </div>
   </div>
@@ -501,6 +542,15 @@ details summary::after,details summary span{color:var(--gold)}
   <div class="in">
     <h2>Hong Kong<i>•</i>January 25 to 28, 2027</h2>
     <p>Joining the delegation is free and you don't buy an AFF ticket. Flights are yours to book, and hotel is optional in the full bundle.</p>
+
+  </div>
+</div>
+
+<div class="hk-strip">
+  <div class="in hk-clear">
+    <div><b>Free</b><span>Your delegation place and a full Asian Financial Forum pass, usually over $1,000.</span></div>
+    <div><b>Apply</b><span>Tell us who you are. We review every application and confirm your pass.</span></div>
+    <div><b>Optional extras</b><span>Editorial page, coworking, hotel, shared booth and Founder Deal Book Virtual are paid and entirely optional. <a href="#extras">See extras</a></span></div>
   </div>
 </div>
 
@@ -735,7 +785,7 @@ details summary::after,details summary span{color:var(--gold)}
 <section class="pricing quiet" id="extras">
   <div class="in">
     <div class="head">
-      <div><div class="label">Optional</div><h2 class="big">Add-ons, <em>if you want them</em></h2></div>
+      <div><div class="label">Optional extras</div><h2 class="big">Add-ons, <em>if you want them</em></h2></div>
       <p>Your place and complimentary AFF pass are free. These add-ons are optional, can be bought now or later, and have no effect on your place, your pass or your standard Deal Book page.</p>
     </div>
     <div class="tiers two-up">
