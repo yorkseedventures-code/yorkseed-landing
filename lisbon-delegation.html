@@ -635,7 +635,7 @@ html:not(.fso) [data-so]{display:none!important}
 
         <label class="agree"><input type="checkbox" id="agree"/><span>My company isn't in cannabis or casino gambling, and Yorkseed can keep my details to run the delegation.</span></label>
 
-        <button type="submit" id="submitBtn">Send application</button>
+        <button type="submit" id="submitBtn">Send application and continue to payment</button>
         <p class="small" id="submitNote">After you send this, you can pay and secure your place right away. Investors are complimentary and reviewed within two days.</p>
       </form>
       <div class="done" id="done">
@@ -669,8 +669,8 @@ html:not(.fso) [data-so]{display:none!important}
   function clearAll(){form.querySelectorAll('.err').forEach(function(e){e.classList.remove('err');});form.querySelectorAll('.errmsg').forEach(function(e){e.remove();});}
 
   var COPY={
-    Founder:{org:'Company',about:'About your company',tagline:'One short line under your name, like "Brain health for a brighter tomorrow". Up to 70 characters.',tags:'Short tags shown with your page, like "AI diagnostics", "Neurological health", "Global impact".',goals:'Who do you want to meet in Lisbon?',goalsHint:'The more specific, the better the introductions.',note:'We review every application within two days. If you\'re approved, we email your payment link.',done:'Application received. We review every application within two days. If you\'re approved, we\'ll email your payment link.'},
-    Partner:{org:'Company',about:'About your company',tagline:'One short line under your company name, like "Legal for startups going global". Up to 70 characters.',tags:'Short tags shown with your page, like "Startup legal", "EU expansion", "Fundraising".',goals:'Who do you want to meet?',goalsHint:'Founder stage, sectors, markets. We connect you where there is a real fit.',note:'Partner Delegate is €995. We review every application within two days. If you\'re approved, we email your payment link.',done:'Application received. We review every application within two days. If you\'re approved, we\'ll email your payment link.'},
+    Founder:{org:'Company',about:'About your company',tagline:'One short line under your name, like "Brain health for a brighter tomorrow". Up to 70 characters.',tags:'Short tags shown with your page, like "AI diagnostics", "Neurological health", "Global impact".',goals:'Who do you want to meet in Lisbon?',goalsHint:'The more specific, the better the introductions.',note:'After you send this, you can pay and secure your place right away. If you are bringing a teammate, add them at checkout for €175.',done:'Application received. We review every application within two days. If you\'re approved, we\'ll email your payment link.'},
+    Partner:{org:'Company',about:'About your company',tagline:'One short line under your company name, like "Legal for startups going global". Up to 70 characters.',tags:'Short tags shown with your page, like "Startup legal", "EU expansion", "Fundraising".',goals:'Who do you want to meet?',goalsHint:'Founder stage, sectors, markets. We connect you where there is a real fit.',note:'Partner Delegate is €995. After you send this, you can pay and secure your place right away.',done:'Application received. We review every application within two days. If you\'re approved, we\'ll email your payment link.'},
     Investor:{org:'Firm',about:'About your firm',tagline:'One short line under your firm name, like "Investing in a more inclusive tomorrow". Up to 70 characters.',tags:'Short tags shown with your page, like "Early and growth stage", "Climate and technology", "Global and inclusive".',goals:'What do you want to see?',goalsHint:'The founders and companies you want to meet. Let us know if you can only make the December showcase.',note:'Complimentary for investors, subject to approval. We reply within two days.',done:'Thank you. We review every application within two days and will confirm your complimentary place.'}
   };
 
@@ -683,7 +683,7 @@ html:not(.fso) [data-so]{display:none!important}
     $('teamHint').hidden=r!=='Partner';
     $('companyLabel').textContent=c.org;$('logoLabel').textContent='Link to your '+c.org.toLowerCase()+' logo';$('dbAboutLabel').textContent=c.about;
     $('dbTaglineHint').textContent=c.tagline;$('dbTagsHint').textContent=c.tags;
-    $('goalsLabel').textContent=c.goals;$('goalsHint').textContent=c.goalsHint;$('submitNote').textContent=c.note;
+    $('goalsLabel').textContent=c.goals;$('goalsHint').textContent=c.goalsHint;$('submitNote').textContent=c.note;$('submitBtn').textContent=(role()==='Investor')?'Send application':'Send application and continue to payment';
     updateTicket();
     renderMates();
   }
@@ -808,7 +808,7 @@ html:not(.fso) [data-so]{display:none!important}
         }
         form.style.display='none';$('done').style.display='block';
       })
-      .catch(function(){btn.disabled=false;btn.textContent='Send application';alert('Something went wrong. Please try again.');});
+      .catch(function(){btn.disabled=false;btn.textContent=(role()==='Investor')?'Send application':'Send application and continue to payment';alert('Something went wrong. Please try again.');});
   });
 
   try{var q=(new URLSearchParams(location.search).get('role')||'').toLowerCase();if(q==='investor')form.querySelector('[name=role][value=Investor]').checked=true;if(q==='partner')form.querySelector('[name=role][value=Partner]').checked=true;}catch(e){}
