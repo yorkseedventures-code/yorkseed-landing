@@ -659,6 +659,15 @@ def import_sources():
                 if pid: feeds.append((f"place:{slug}", f"discover_place_api_id={pid}", hub_id, int(src.get("max_pages", 20))))
                 else: REPORT.append({"source": f"luma place {slug}", "hub": hub_id, "error": "place not found"})
                 time.sleep(0.3)
+    # cities Luma has no named page for: ask by coordinates instead (same tech filter, events credited to that city)
+    try:
+        ll = re.search(r"HUB_LL=\{(.*?)\}", open(f"{REPO}/list/index.html", encoding="utf-8").read(), re.S).group(1)
+        coords = {k: (a, b) for k, a, b in re.findall(r"(\w+):\[(-?[\d.]+),(-?[\d.]+)\]", ll)}
+    except Exception: coords = {}
+    placed = {f[2] for f in feeds if f[2]}
+    for hid, (la, lo) in coords.items():
+        if hid not in placed and hid != "virtual" and any(h["id"] == hid for h in hubs):
+            feeds.append((f"geo:{hid}", f"latitude={la}&longitude={lo}", hid, 12))
     for name, qs, place_hub, max_pages in feeds:
         time.sleep(1.5)
         cursor, pages, kept, seen_n, retries, seen_cur = None, 0, 0, 0, 0, set()
