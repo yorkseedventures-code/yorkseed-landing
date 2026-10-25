@@ -796,14 +796,14 @@ html:not(.fso) [data-so]{display:none!important}
         if(!res.success)throw new Error();
         $('doneText').textContent=COPY[r].done;
         var ac=(v('accessCode')||'').trim().toUpperCase();
-        if(r==='Founder'&&/^LIS-[A-Z0-9]{8}$/.test(ac)){$('doneText').textContent='Application received. Your access code is applied, so your delegation place is free. Tap the button below to claim it, then we will review your application and send your welcome within two days.';$('doneCodeLink').href='https://buy.stripe.com/fZu4gs4kndgWfMs5Exbo41J?prefilled_promo_code='+encodeURIComponent(ac)+'&prefilled_email='+encodeURIComponent(v('email'));$('doneCode').hidden=false;}
+        if(r==='Founder'&&/^LIS-[A-Z0-9]{8}$/.test(ac)){$('doneText').textContent='Application received. Your access code is applied, so your delegation place is free. Tap the button below to claim it. If you are bringing a teammate, you can add them at checkout for €175. We will send your welcome within two days.';$('doneCodeLink').href='https://buy.stripe.com/fZu4gs4kndgWfMs5Exbo41J?prefilled_promo_code='+encodeURIComponent(ac)+'&prefilled_email='+encodeURIComponent(v('email'));$('doneCode').hidden=false;}
         if(!(r==='Founder'&&/^LIS-[A-Z0-9]{8}$/.test(ac))&&(r==='Founder'||r==='Partner')){
           var PAY={fo:'https://buy.stripe.com/eVqaEQ5or2CicAg9UNbo41L',st:'https://buy.stripe.com/bJe00c2cfdgWfMseb3bo41M',pr:'https://buy.stripe.com/4gMfZa2cf4KqeIoaYRbo41N',pa:'https://buy.stripe.com/6oU28k4knb8Oas8eb3bo41O'};
           var base=r==='Partner'?PAY.pa:(tier==='Premium'?PAY.pr:(soldOut?PAY.st:PAY.fo));
           $('doneText').textContent='Application received. Tap the button below to pay and secure your place. If you are bringing teammates, you can add them at checkout. We will email your welcome within two days.';
           var pc=(r==='Partner'&&/^PAR-[A-Z0-9]{8}$/.test(ac));
           $('donePayLink').href=base+'?prefilled_email='+encodeURIComponent(v('email'))+(pc?'&prefilled_promo_code='+encodeURIComponent(ac):'');
-          if(pc){$('doneText').textContent='Application received. Your access code is applied, so your Partner Delegate place is free. Tap the button below to claim it. We will email your welcome within two days.';$('donePayLink').textContent='Claim your free place';}
+          if(pc){$('doneText').textContent='Application received. Your access code is applied, so your Partner Delegate place is free. Tap the button below to claim it. If you are bringing a teammate, you can add them at checkout for €175. We will email your welcome within two days.';$('donePayLink').textContent='Claim your free place';}
           $('donePay').hidden=false;
         }
         form.style.display='none';$('done').style.display='block';
