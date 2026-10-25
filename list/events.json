@@ -79046,5 +79046,76 @@
   "link": "https://central.sginnovate.com/hub/events/ead1cfd6-7727-4aa8-9c80-b5137af941ec",
   "desc": "Details and registration on the event page.",
   "type": "Conferences"
+ },
+ {
+  "title": "Notion x Mana Tech: The 305 Social",
+  "hub": "mia",
+  "date": "2026-10-27",
+  "venue": "Mana Tech Loft, 21 SE 1st Ave",
+  "host": "Refresh Miami",
+  "link": "https://refreshmiami.com/event/notion-x-mana-tech-the-305-social/",
+  "desc": "Listed on Refresh Miami, South Florida's tech community calendar. Details and registration on the event page.",
+  "start": "18:00"
+ },
+ {
+  "title": "Miami Made Thrive Together Tuesday",
+  "hub": "mia",
+  "date": "2026-11-03",
+  "venue": "Glassbox Ironside, 7520 NE 4th Ct",
+  "host": "Refresh Miami",
+  "link": "https://refreshmiami.com/event/miami-made-thrive-together-tuesday-24/",
+  "desc": "Listed on Refresh Miami, South Florida's tech community calendar. Details and registration on the event page.",
+  "start": "07:30"
+ },
+ {
+  "title": "South Miami Tech Tuesdays by Purple Horizons",
+  "hub": "mia",
+  "date": "2026-11-03",
+  "venue": "Bougainvillea's Old Florida Tavern, South Miami",
+  "host": "Refresh Miami",
+  "link": "https://refreshmiami.com/event/south-miami-tech-tuesdays-presented-by-purple-horizons/2026-11-03/",
+  "desc": "Listed on Refresh Miami, South Florida's tech community calendar. Details and registration on the event page.",
+  "start": "18:00"
+ },
+ {
+  "title": "WIRED World Fair: A Festival of the Future",
+  "hub": "mia",
+  "date": "2026-11-10",
+  "venue": "The Sacred Space, 105 NE 24th St",
+  "host": "Refresh Miami",
+  "link": "https://refreshmiami.com/event/wired-world-fair-a-festival-of-the-future/",
+  "desc": "Listed on Refresh Miami, South Florida's tech community calendar. Details and registration on the event page.",
+  "start": "08:00",
+  "type": "Conferences"
+ },
+ {
+  "title": "CloudFest Americas and NamesCon Global",
+  "hub": "mia",
+  "date": "2026-11-11",
+  "venue": "Ice Palace Studios, 1400 N Miami Ave",
+  "host": "Refresh Miami",
+  "link": "https://refreshmiami.com/event/cloudfest-americas/",
+  "desc": "Listed on Refresh Miami, South Florida's tech community calendar. Details and registration on the event page.",
+  "type": "Conferences"
+ },
+ {
+  "title": "Blockchain Futurist Conference Florida 2026",
+  "hub": "mia",
+  "date": "2026-11-17",
+  "venue": "Seminole Hard Rock, Hollywood FL",
+  "host": "Refresh Miami",
+  "link": "https://refreshmiami.com/event/blockchain-futurist-conference-florida-2026/",
+  "desc": "Listed on Refresh Miami, South Florida's tech community calendar. Details and registration on the event page.",
+  "type": "Conferences"
+ },
+ {
+  "title": "West Palm Beach Tech Happy Hour",
+  "hub": "mia",
+  "date": "2026-11-17",
+  "venue": "Banko Cantina, 114 S Olive Ave, West Palm Beach",
+  "host": "Refresh Miami",
+  "link": "https://refreshmiami.com/event/west-palm-beach-tech-happy-hour-2-2/2026-11-17/",
+  "desc": "Listed on Refresh Miami, South Florida's tech community calendar. Details and registration on the event page.",
+  "start": "17:30"
  }
 ]
