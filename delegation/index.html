@@ -124,6 +124,18 @@
 .hb-foot{margin-top:52px}
 .hb-foot .connect{padding:30px 32px}
 @media (max-width:820px){.hb-list{grid-template-columns:1fr}}
+.hb-hero{min-height:min(48vh,460px)}
+.hb-sec{padding-top:44px}
+.hb-sec-list{padding-top:20px}
+.hb-listband{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;background:#1E1B18;color:#F3EEE6;padding:24px 30px;text-decoration:none}
+.hb-listband .eyebrow{color:#E9B4AD}
+.hb-listband h3{font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:clamp(24px,2.6vw,30px);margin:8px 0 0;color:#F3EEE6}
+.hb-listband h3 em{font-weight:400}
+.hb-listband p{margin:8px 0 0;font-size:15px;line-height:1.55;color:#D9CFC1;max-width:620px}
+.hb-lb-go{font-family:Jost,sans-serif;font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;background:#F3EEE6;color:#1E1B18;padding:14px 20px;white-space:nowrap}
+.hb-listband:hover .hb-lb-go{background:#fff}
+.hb-steps p{font-size:14.5px}
+@media (max-width:820px){.hb-listband{grid-template-columns:1fr;padding:22px}}
 </style>
 </head>
 <body>
@@ -132,7 +144,7 @@
   <img src="/delegation/img/hub-hero.jpg" alt="Praça do Comércio in Lisbon, lit up at dusk">
   <div class="hb-top"><div class="in">
     <a class="eyebrow" href="https://yorkseed.co">Yorkseed</a>
-    <a class="eyebrow" href="https://app.yorkseed.co">Yorkseed Connect</a>
+    <span style="display:flex;gap:22px"><a class="eyebrow" href="https://list.yorkseed.co" target="_blank" rel="noopener">The List</a><a class="eyebrow" href="https://app.yorkseed.co">Yorkseed Connect</a></span>
   </div></div>
   <div class="hb-in">
     <div class="eyebrow">Yorkseed Delegations</div>
@@ -144,6 +156,12 @@
 <section class="hb-sec" id="sec-upcoming">
   <div class="hb-label"><h2>Upcoming</h2><span class="eyebrow" style="color:var(--muted)" id="up-count"></span></div>
   <div class="hb-list" id="list-upcoming"></div>
+</section>
+<section class="hb-sec hb-sec-list">
+  <a class="hb-listband" href="https://list.yorkseed.co/#web-summit-lisbon" target="_blank" rel="noopener">
+    <div><span class="eyebrow">The Yorkseed List</span><h3>Every side event. <em>One list.</em></h3><p>300+ side events around Web Summit Lisbon, November 2 to 16, updated daily. The List covers the key tech weeks and conferences in 90+ cities.</p></div>
+    <span class="hb-lb-go">Open the List &rarr;</span>
+  </a>
 </section>
 
 <section class="hb-sec" id="sec-next">
