@@ -326,10 +326,14 @@ def import_luma_calendars():
     seen_t = {(norm(e.get("title")), e.get("date")) for e in events + master["events"]}
     horizon = (dt.date.today() + dt.timedelta(days=120)).isoformat()
     photos, added, ok, failed = {}, 0, 0, 0
-    order = sorted(known, key=lambda k: known[k].get("last", ""), reverse=True)[:600]
+    # official conference calendars (sources.json "luma_calendar"): every event, no title filter, more pages
+    trusted = {x["id"]: x for x in load(f"{REPO}/list/data/sources.json", []) if x.get("type") == "luma_calendar" and x.get("id")}
+    for k, x in trusted.items(): known.setdefault(k, {"name": x.get("name", ""), "first": TODAY}); known[k]["last"] = TODAY
+    order = list(trusted) + [k for k in sorted(known, key=lambda k: known[k].get("last", ""), reverse=True) if k not in trusted][:600]
     for cid in order:
         cursor, pages, kept = None, 0, 0
-        while pages < 6:
+        allin = bool(trusted.get(cid, {}).get("all"))
+        while pages < int(trusted.get(cid, {}).get("max_pages", 6)):
             q = f"https://api.lu.ma/calendar/get-items?calendar_api_id={cid}&period=future&pagination_limit=25" + (f"&pagination_cursor={cursor}" if cursor else "")
             try:
                 r = urlopen(Request(q, headers={**UA, "Accept": "application/json"}), timeout=20); d = json.loads(r.read().decode("utf-8", "ignore"))
@@ -340,7 +344,7 @@ def import_luma_calendars():
             for en in d.get("entries") or []:
                 e = en.get("event") or {}; g = e.get("geo_address_info") or {}
                 if not e.get("name") or not e.get("start_at") or not e.get("url"): continue
-                if e.get("location_type") == "online" or not TECH.search(e["name"]) or NOT.search(e["name"]): continue
+                if e.get("location_type") == "online" or (not allin and (not TECH.search(e["name"]) or NOT.search(e["name"]))): continue
                 hub = city_hub(g.get("city"), g.get("country"), hubs)
                 if not hub: continue
                 date, start = to_local(e["start_at"], hub_tz(hub))

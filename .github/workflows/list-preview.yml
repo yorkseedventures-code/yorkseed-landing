@@ -9,7 +9,7 @@ permissions:
   contents: write
 concurrency:
   group: list-preview
-  cancel-in-progress: true
+  cancel-in-progress: false   # queue behind a running import instead of throwing its work away
 jobs:
   preview:
     runs-on: ubuntu-latest

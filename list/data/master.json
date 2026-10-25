@@ -793,6 +793,13 @@
    "start": "2027-01-25",
    "end": "2027-01-28",
    "re": "asian financial forum|\\baff\\b|private equity|fintech|financ|wealth|family office|capital|invest|bank|asset"
+  },
+  {
+   "id": "mxtw",
+   "name": "Mexico Tech Week",
+   "hub": "mex",
+   "start": "2026-10-26",
+   "end": "2026-11-01"
   }
  ],
  "img": {

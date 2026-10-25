@@ -82,5 +82,12 @@
    "hongkong": "hkg",
    "saopaulo": "sao"
   }
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-jWh40NRx2vB56Tu",
+  "name": "Mexico Tech Week 2026",
+  "all": true,
+  "max_pages": 20
  }
 ]
