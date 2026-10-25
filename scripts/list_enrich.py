@@ -666,7 +666,7 @@ def import_sources():
     except Exception: coords = {}
     placed = {f[2] for f in feeds if f[2]}
     for hid, (la, lo) in coords.items():
-        if hid not in placed and hid != "virtual" and any(h["id"] == hid for h in hubs):
+        if hid != "virtual" and any(h["id"] == hid for h in hubs):   # every city: the coordinate feed finds far more than the named city page
             feeds.append((f"geo:{hid}", f"latitude={la}&longitude={lo}", hid, 12))
     for name, qs, place_hub, max_pages in feeds:
         time.sleep(1.5)
