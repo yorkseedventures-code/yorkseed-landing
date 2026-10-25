@@ -418,5 +418,82 @@
   "name": "fractl",
   "all": true,
   "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-lhnQnhr9Ae9FQW9",
+  "name": "NYC Tech Events",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-jolqmoLgiVwsrhF",
+  "name": "New York App Week",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-jq0A94rKesR2mLy",
+  "name": "LaFamilia",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-4TEeXLXVUtUqg91",
+  "name": "Berkeley Gateway Accelerator",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-zwOmjavlPOCH4mp",
+  "name": "Y Combinator",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-1MWNHhvYT2B3Sf4",
+  "name": "FiBAN events",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-3n76GGYjpWhohHU",
+  "name": "Deep Tech Week",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-Vj6l1DqBFmSh80c",
+  "name": "Zurich Climate 4WARD",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-EWMF9vkIgvpVxx8",
+  "name": "Pitch and Run",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-SbCHaOYXyeQHVgB",
+  "name": "Forum Ventures events",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-YcDhGAF57tfzJ0e",
+  "name": "1001 VC",
+  "all": true,
+  "max_pages": 20
  }
 ]
