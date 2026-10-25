@@ -7,18 +7,17 @@ on:
 permissions:
   contents: write
 jobs:
-  meetup:
-    if: false
+  geo:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
-      - run: python3 -u scripts/import_ical_quick.py
+      - run: python3 -u scripts/import_geo.py --only=sat,yyj,gift,mtl,bue,sao,mil,dub,cph,hkg,sto,dc
         continue-on-error: true
       - if: always()
         run: |
           git config user.name "yorkseed-list-bot"; git config user.email "actions@users.noreply.github.com"
-          git checkout -- list/events.json; git add list/data/ical-import.json; git commit -m "Quick import: iCal feeds" || exit 0
+          git add list/data/geo-import.json; git commit -m "Quick import: Luma by coordinates (hubs)" || exit 0
           for i in 1 2 3 4 5 6; do git pull --rebase -q origin list-seo-nyc && git push && exit 0; git rebase --abort 2>/dev/null; sleep 7; done; exit 1
