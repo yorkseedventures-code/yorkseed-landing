@@ -3,35 +3,21 @@ name: List quick calendar import (branch only)
 on:
   push:
     branches: [list-seo-nyc]
-    paths: ["scripts/import_calendar.py", "scripts/import_geo.py", "scripts/harvest_calendars.py", ".github/workflows/list-calendar-quick.yml"]
+    paths: ["scripts/import_calendar.py", "scripts/import_geo.py", "scripts/harvest_calendars.py", "scripts/import_meetup_quick.py", ".github/workflows/list-calendar-quick.yml"]
 permissions:
   contents: write
 jobs:
-  geo:
+  meetup:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
-      - run: python3 -u scripts/import_geo.py --all
+      - run: python3 -u scripts/import_meetup_quick.py --hub par
         continue-on-error: true
       - if: always()
         run: |
           git config user.name "yorkseed-list-bot"; git config user.email "actions@users.noreply.github.com"
-          git add list/data/geo-import.json; git commit -m "Quick import: Luma by coordinates, all cities" || exit 0
-          for i in 1 2 3 4 5 6; do git pull --rebase -q origin list-seo-nyc && git push && exit 0; git rebase --abort 2>/dev/null; sleep 7; done; exit 1
-  harvest:
-    runs-on: ubuntu-latest
-    timeout-minutes: 40
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with: { python-version: "3.12" }
-      - run: python3 -u scripts/harvest_calendars.py
-        continue-on-error: true
-      - if: always()
-        run: |
-          git config user.name "yorkseed-list-bot"; git config user.email "actions@users.noreply.github.com"
-          git add list/data/harvest-import.json list/data/luma-calendars.json; git commit -m "Quick import: organizer calendars harvest" || exit 0
+          git add list/data/meetup-import.json; git commit -m "Quick import: Paris Meetup groups" || exit 0
           for i in 1 2 3 4 5 6; do git pull --rebase -q origin list-seo-nyc && git push && exit 0; git rebase --abort 2>/dev/null; sleep 7; done; exit 1
