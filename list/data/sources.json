@@ -166,5 +166,12 @@
   "name": "J.P. Morgan Healthcare Conference",
   "all": true,
   "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-fXSzDEU0afESx9j",
+  "name": "The Austin Tech Scene",
+  "all": true,
+  "max_pages": 20
  }
 ]
