@@ -355,5 +355,47 @@
   "name": "The Dallas Tech Scene",
   "all": true,
   "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-p9GjgLfJr316alJ",
+  "name": "Bond AI - Paris",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-E74MDlDKBaeAwXK",
+  "name": "The AI Collective",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-zUWmkxeBGlQQenp",
+  "name": "Air Street events",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-6RHFj6tIqVcyN35",
+  "name": "Entrepreneurs First",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-qyEpCltsspbMoJR",
+  "name": "{Tech: Europe}",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-IIGoBXf5GaSww4F",
+  "name": "Founderpath",
+  "all": true,
+  "max_pages": 20
  }
 ]
