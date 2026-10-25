@@ -1,14 +1,14 @@
 """Quick one-off: Luma events by coordinates for List cities with no Luma place feed -> list/data/geo-import.json (merged afterwards)."""
 import sys, json, time, re, importlib.util
 spec = importlib.util.spec_from_file_location("le", __file__.replace("import_geo.py", "list_enrich.py"))
-le = importlib.util.module_from_spec(spec); sys.argv = sys.argv[:1]; spec.loader.exec_module(le)
+le = importlib.util.module_from_spec(spec); ARGS = sys.argv[1:]; sys.argv = sys.argv[:1]; spec.loader.exec_module(le); sys.argv += ARGS
 master = le.load(f"{le.REPO}/list/data/master.json", {"hubs": []}); hubs = master["hubs"]; hub_ids = {h["id"] for h in hubs}
 placed = set(next(x for x in le.load(f"{le.REPO}/list/data/sources.json", []) if x.get("type") == "luma_place")["places"].values())
 ll = re.search(r"HUB_LL=\{(.*?)\}", open(f"{le.REPO}/list/index.html", encoding="utf-8").read(), re.S).group(1)
 coords = {k: (a, b) for k, a, b in re.findall(r"(\w+):\[(-?[\d.]+),(-?[\d.]+)\]", ll)}
 out = []
 for hid, (la, lo) in coords.items():
-    if hid in placed or hid not in hub_ids or hid == "virtual": continue
+    if (hid in placed and "--all" not in sys.argv) or hid not in hub_ids or hid == "virtual": continue
     cursor, pages, n = None, 0, 0
     while pages < 12:
         q = f"https://api.lu.ma/discover/get-paginated-events?latitude={la}&longitude={lo}&pagination_limit=25" + (f"&pagination_cursor={cursor}" if cursor else "")
