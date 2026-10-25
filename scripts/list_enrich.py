@@ -461,6 +461,85 @@ def fix_cities():
     print(f"fix cities: moved {moved} imported events to the city in their address")
     return {}
 
+# ---------- 1h. confs.tech open conference dataset (github.com/tech-conferences/conference-data, MIT licence) ----------
+CONFS_TOPICS = ["general", "data", "devops", "security", "ux", "product", "javascript", "python", "iot", "leadership", "opensource", "api", "sre",
+                "testing", "ios", "android", "java", "rust", "dotnet", "php", "typescript", "css", "networking", "accessibility", "kotlin", "golang", "ruby"]
+def import_confstech():
+    master = load(f"{REPO}/list/data/master.json", {"events": [], "hubs": []}); hubs = master["hubs"]
+    events = load(f"{REPO}/list/events.json", [])
+    norm = lambda s: re.sub(r'[^a-z0-9]+', '', (s or '').lower())[:40]
+    seen_l = {(e.get("link") or "").split("?")[0].rstrip("/") for e in events + master["events"]}
+    seen_t = {(norm(e.get("title")), e.get("date")) for e in events + master["events"]}
+    horizon = (dt.date.today() + dt.timedelta(days=120)).isoformat(); added = 0
+    for year in sorted({TODAY[:4], horizon[:4]}):
+        for topic in CONFS_TOPICS:
+            try:
+                rows = json.loads(urlopen(Request(f"https://raw.githubusercontent.com/tech-conferences/conference-data/main/conferences/{year}/{topic}.json", headers=UA), timeout=20).read())
+            except Exception: continue
+            for c in rows:
+                if c.get("online") or not c.get("city") or not c.get("url") or not c.get("startDate"): continue
+                if c["startDate"] < TODAY or c["startDate"] > horizon: continue
+                hub = city_hub(c["city"], c.get("country") or "", hubs)
+                if not hub: continue
+                link = c["url"].split("?")[0].rstrip("/"); title = c["name"].strip()
+                if link in seen_l or (norm(title), c["startDate"]) in seen_t: continue
+                d0 = dt.date.fromisoformat(c["startDate"]); d1 = dt.date.fromisoformat(c.get("endDate") or c["startDate"])
+                span = "" if d1 == d0 else (f", {d0:%B} {d0.day} to {d1.day}" if d1.month == d0.month else f", {d0:%B} {d0.day} to {d1:%B} {d1.day}")
+                events.append({"title": title[:200], "hub": hub, "date": c["startDate"], "venue": c["city"], "link": c["url"], "type": "Conferences",
+                               "desc": f"A {topic if topic != 'general' else 'tech'} conference in {c['city']}{span}. Details and tickets on the event page.", "src": "confstech"})
+                seen_l.add(link); seen_t.add((norm(title), c["startDate"])); added += 1
+    json.dump(events, open(f"{REPO}/list/events.json", "w"), ensure_ascii=False, indent=1)
+    print(f"confs.tech: {added} new conferences"); REPORT.append({"source": "confs.tech", "added": added})
+    return {}
+
+# ---------- 1i. Meetup groups already on the List: every upcoming in-person event from each group's public iCal feed ----------
+def _ics_events(text):
+    text = re.sub(r"\r?\n[ \t]", "", text)                           # unfold continuation lines
+    out = []
+    for block in re.findall(r"BEGIN:VEVENT(.*?)END:VEVENT", text, re.S):
+        f = {}
+        for line in block.strip().splitlines():
+            if ":" not in line: continue
+            k, v = line.split(":", 1); name, _, params = k.partition(";")
+            f[name] = (v.replace("\\,", ",").replace("\\n", " ").replace("\\;", ";").strip(), params)
+        out.append(f)
+    return out
+def import_meetup_groups():
+    master = load(f"{REPO}/list/data/master.json", {"events": [], "hubs": []}); hub_ids = {h["id"] for h in master["hubs"]}
+    events = load(f"{REPO}/list/events.json", [])
+    gp = f"{REPO}/list/data/meetup-groups.json"; groups = load(gp, {})        # group urlname -> List city
+    for e in events + master["events"]:
+        m = re.match(r"https?://(?:www\.)?meetup\.com/([A-Za-z0-9_-]+)/events/", e.get("link") or "")
+        if m and e.get("hub") in hub_ids and e["hub"] != "virtual": groups.setdefault(m.group(1), e["hub"])
+    norm = lambda s: re.sub(r'[^a-z0-9]+', '', (s or '').lower())[:40]
+    seen_l = {(e.get("link") or "").split("?")[0].rstrip("/") for e in events + master["events"]}
+    seen_t = {(norm(e.get("title")), e.get("date")) for e in events + master["events"]}
+    horizon = (dt.date.today() + dt.timedelta(days=120)).isoformat(); added, ok = 0, 0
+    for g, hub in list(groups.items())[:800]:
+        try: text = urlopen(Request(f"https://www.meetup.com/{g}/events/ical/", headers=UA), timeout=20).read().decode("utf-8", "ignore")
+        except Exception as ex:
+            if getattr(ex, "code", 0) == 429: time.sleep(30)
+            continue
+        ok += 1; tz = hub_tz(hub)
+        for f in _ics_events(text):
+            title = (f.get("SUMMARY") or ("", ""))[0]; url = (f.get("URL") or ("", ""))[0].split("?")[0].rstrip("/")
+            loc = (f.get("LOCATION") or ("", ""))[0]; ds, params = f.get("DTSTART") or ("", "")
+            if not title or not url or not ds or NOT.search(title) or re.search(r"\bonline\b|virtual|zoom", loc + " " + title, re.I): continue
+            try:
+                src_tz = re.search(r"TZID=([^;:]+)", params).group(1) if "TZID=" in params else "UTC"
+                d = dt.datetime.strptime(ds.rstrip("Z")[:15], "%Y%m%dT%H%M%S").replace(tzinfo=ZoneInfo(src_tz)).astimezone(ZoneInfo(tz))
+            except Exception: continue
+            date = d.date().isoformat()
+            if date < TODAY or date > horizon or url in seen_l or (norm(title), date) in seen_t: continue
+            events.append({"title": title[:200], "hub": hub, "date": date, "start": d.strftime("%H:%M"), "venue": loc[:200],
+                           "host": g.replace("-", " "), "link": url + "/", "desc": "Details and registration on the event page.", "src": "meetup"})
+            seen_l.add(url); seen_t.add((norm(title), date)); added += 1
+        time.sleep(0.6)
+    json.dump(groups, open(gp, "w"), indent=0)
+    json.dump(events, open(f"{REPO}/list/events.json", "w"), ensure_ascii=False, indent=1)
+    print(f"meetup groups: {len(groups)} known, {ok} read, {added} new events"); REPORT.append({"source": "meetup groups", "groups": len(groups), "added": added})
+    return {}
+
 # ---------- 1d. TechMeetups.io public API (free, no key, 60 requests/min): tech meetups by city ----------
 # We keep only facts (title, date, venue, organizer) and link to the organizer's own registration page.
 def import_techmeetups():
@@ -671,7 +750,7 @@ def refresh_photos(seed):
 
 if __name__ == "__main__":
     seed = {}
-    for step in (import_pending, import_cities, import_links, import_submissions, import_sources, import_luma_calendars, import_foundercal, import_techmeetups, fix_cities):
+    for step in (import_pending, import_cities, import_links, import_submissions, import_sources, import_luma_calendars, import_foundercal, import_confstech, import_techmeetups, import_meetup_groups, fix_cities):
         try: seed.update(step() or {})
         except Exception as ex: print(f"{step.__name__} failed: {ex}")
     try: fill_luma_descriptions()
