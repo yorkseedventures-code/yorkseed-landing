@@ -68637,5 +68637,405 @@
   "link": "https://posh.vip/e/black-women-in-tech-film-creative-industries-brunch",
   "desc": "A brunch for Black women working across tech, film and the creative industries, closing out AfroTech week.",
   "start": "12:00"
+ },
+ {
+  "title": "Startup Fest",
+  "hub": "scl",
+  "date": "2026-11-16",
+  "start": "09:30",
+  "venue": "Providencia, Santiago",
+  "host": "Startups Latam + Somos Zeta",
+  "link": "https://techweek.cl/en/startup-fest-santiago",
+  "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
+ },
+ {
+  "title": "Innova Challenge",
+  "hub": "scl",
+  "date": "2026-11-16",
+  "start": "10:00",
+  "venue": "Santiago, Santiago",
+  "host": "TakeOff Club",
+  "link": "https://techweek.cl/en/innova-challenge",
+  "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
+ },
+ {
+  "title": "SUP Meet & Connect",
+  "hub": "scl",
+  "date": "2026-11-16",
+  "start": "17:00",
+  "venue": "Las Condes, Santiago",
+  "host": "Start-Up Chile",
+  "link": "https://techweek.cl/en/sup-meet-connect-3",
+  "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
+ },
+ {
+  "title": "Imagine & Friends",
+  "hub": "scl",
+  "date": "2026-11-16",
+  "start": "18:30",
+  "venue": "Las Condes, Santiago",
+  "host": "Imagine",
+  "link": "https://techweek.cl/en/imagine-friends",
+  "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
+ },
+ {
+  "title": "Fintech Session | Mix&Match by Converge",
+  "hub": "scl",
+  "date": "2026-11-16",
+  "start": "19:00",
+  "venue": "Las Condes, Santiago",
+  "host": "Startups Latam",
+  "link": "https://techweek.cl/en/mix-match-fintech-session",
+  "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
+ },
+ {
+  "title": "Tech & Coffee: Hackeando la brecha de género con Technovation Girls Chile & WOM",
+  "hub": "scl",
+  "date": "2026-11-17",
+  "start": "09:00",
+  "venue": "Santiago, Santiago",
+  "host": "Technovation Girls Chile + WOM",
+  "link": "https://techweek.cl/en/tech-coffee-hackeando-la-brecha-de-genero-junto-a-wom",
+  "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
+ },
+ {
+  "title": "Enexpro TechPro",
+  "hub": "scl",
+  "date": "2026-11-17",
+  "start": "09:00",
+  "venue": "Las Condes, Santiago",
+  "host": "ProChile",
+  "link": "https://techweek.cl/en/enexpro-tech",
+  "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
+ },
+ {
+  "title": "Emprelatam Connect Day",
+  "hub": "scl",
+  "date": "2026-11-17",
+  "start": "14:00",
+  "venue": "Providencia, Santiago",
+  "host": "Emprelatam",
+  "link": "https://techweek.cl/en/emprelatam-connect-day",
+  "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
+ },
+ {
+  "title": "Cheers and Chats: Conexiones que generan valor",
+  "hub": "scl",
+  "date": "2026-11-17",
+  "start": "18:00",
+  "venue": "Las Condes, Santiago",
+  "host": "BLUEBOX + Startup LATAM",
+  "link": "https://techweek.cl/en/cheers-and-chats-conexiones-que-generan-valor",
+  "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
+ },
+ {
+  "title": "Scale Up gathering by Endeavor",
+  "hub": "scl",
+  "date": "2026-11-17",
+  "start": "18:00",
+  "venue": "Vitacura, Santiago",
+  "host": "Endeavor",
+  "link": "https://techweek.cl/en/scale-up-gathering-by-endeavor-2",
+  "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
+ },
+ {
+  "title": "Mix&Match: Marketing, IA & Pizzas",
+  "hub": "scl",
+  "date": "2026-11-17",
+  "start": "18:30",
+  "venue": "Vitacura, Santiago",
+  "host": "StExperience",
+  "link": "https://techweek.cl/en/mix-match-marketing-ia-pizzas",
+  "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
+ },
+ {
+  "title": "Swiss Innovation Week, II edición",
+  "hub": "scl",
+  "date": "2026-11-18",
+  "start": "08:00",
+  "venue": "Vitacura, Santiago",
+  "host": "Cámara Chileno Suiza de Comercio",
+  "link": "https://techweek.cl/en/swiss-innovation-week-ii-edicion",
+  "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
+ },
+ {
+  "title": "Cumbre ACVC 2026",
+  "hub": "scl",
+  "date": "2026-11-18",
+  "start": "08:30",
+  "venue": "Vitacura, Santiago",
+  "host": "ACVC",
+  "link": "https://techweek.cl/en/cumbre-acvc-2026-2",
+  "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
+ },
+ {
+  "title": "She Leads | Momentum by Converge",
+  "hub": "scl",
+  "date": "2026-11-18",
+  "start": "09:30",
+  "venue": "Las Condes, Santiago",
+  "host": "Startups Latam",
+  "link": "https://techweek.cl/en/mix-match-she-leads",
+  "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
+ },
+ {
+  "title": "LAPsyConf",
+  "hub": "scl",
+  "date": "2026-11-18",
+  "start": "09:30",
+  "venue": "Peñalolén, Santiago",
+  "host": "Panambi Studio + Panambi Ventures",
+  "link": "https://techweek.cl/en/lapsyconf",
+  "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
+ },
+ {
+  "title": "Panambi Ventures Demo Day",
+  "hub": "scl",
+  "date": "2026-11-18",
+  "start": "10:00",
+  "venue": "Peñalolén, Santiago",
+  "host": "Panambi Ventures + Panambi Studio",
+  "link": "https://techweek.cl/en/panambi-ventures-demo-day",
+  "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
+ },
+ {
+  "title": "Cumbre ACVC 2026: Tarde de Conexiones",
+  "hub": "scl",
+  "date": "2026-11-18",
+  "start": "14:00",
+  "venue": "Vitacura, Santiago",
+  "host": "ACVC",
+  "link": "https://techweek.cl/en/cumbre-acvc-2026-tarde-de-conexiones",
+  "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
+ },
+ {
+  "title": "Encuentro de Ecosistemas Corfo 2026",
+  "hub": "scl",
+  "date": "2026-11-18",
+  "start": "18:00",
+  "venue": "Las Condes, Santiago",
+  "host": "CORFO",
+  "link": "https://techweek.cl/en/encuentro-de-ecosistemas-corfo",
+  "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
+ },
+ {
+  "title": "Teleportation Day",
+  "hub": "scl",
+  "date": "2026-11-18",
+  "start": "18:00",
+  "venue": "Las Condes, Santiago",
+  "host": "Osiris Experience",
+  "link": "https://techweek.cl/en/teleportation-day",
+  "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
+ },
+ {
+  "title": "The After | Startup Fest by Converge",
+  "hub": "scl",
+  "date": "2026-11-18",
+  "start": "19:00",
+  "venue": "Las Condes, Santiago",
+  "host": "Startups Latam",
+  "link": "https://techweek.cl/en/after-startups-fest-community-cheers",
+  "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
+ },
+ {
+  "title": "Cheese & Wine: Magallanes Meets Santiago",
+  "hub": "scl",
+  "date": "2026-11-18",
+  "start": "19:30",
+  "venue": "Las Condes, Santiago",
+  "host": "Up Lab Magallanes + Socialab",
+  "link": "https://techweek.cl/en/cheese-wine-magallanes-meets-santiago",
+  "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
+ },
+ {
+  "title": "Desayuno MadeInnConce 2027",
+  "hub": "scl",
+  "date": "2026-11-19",
+  "start": "08:30",
+  "venue": "Las Condes, Santiago",
+  "host": "MadeInnLatam",
+  "link": "https://techweek.cl/en/desayuno-madeinnconce-2027",
+  "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
+ },
+ {
+  "title": "Networking Brunch | Founders, Investors & Leaders",
+  "hub": "scl",
+  "date": "2026-11-19",
+  "start": "09:00",
+  "venue": "Vitacura, Santiago",
+  "host": "Casa Mo",
+  "link": "https://techweek.cl/en/networking-brunch-founders-investors-leaders",
+  "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
+ },
+ {
+  "title": "Cluster Inmobiliario 2026 | EtM",
+  "hub": "scl",
+  "date": "2026-11-19",
+  "start": "09:30",
+  "venue": "Vitacura, Santiago",
+  "host": "Cluster Inmobiliario Chile",
+  "link": "https://techweek.cl/en/cluster-inmobiliario-2026-etm",
+  "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
+ },
+ {
+  "title": "Impactaland: Día 1",
+  "hub": "scl",
+  "date": "2026-11-19",
+  "start": "10:00",
+  "venue": "Vitacura, Santiago",
+  "host": "Impacta VC",
+  "link": "https://techweek.cl/en/impactaland-dia-1",
+  "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
+ },
+ {
+  "title": "Founders Cowork & Coffee",
+  "hub": "scl",
+  "date": "2026-11-19",
+  "start": "10:30",
+  "venue": "Vitacura, Santiago",
+  "host": "Deel",
+  "link": "https://techweek.cl/en/founders-cowork-coffee",
+  "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
+ },
+ {
+  "title": "Rueda de Contactos EtMday",
+  "hub": "scl",
+  "date": "2026-11-19",
+  "start": "10:30",
+  "venue": "Vitacura, Santiago",
+  "host": "Emprende tu Mente",
+  "link": "https://techweek.cl/en/rueda-de-contactos-etmday",
+  "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
+ },
+ {
+  "title": "Cabify Pitch EtMday",
+  "hub": "scl",
+  "date": "2026-11-19",
+  "start": "11:00",
+  "venue": "Vitacura, Santiago",
+  "host": "Emprende tu Mente",
+  "link": "https://techweek.cl/en/cabify-pitch-etmday",
+  "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
+ },
+ {
+  "title": "Impactaland Demo Day: Future Mining Challenge by Quintil Lab",
+  "hub": "scl",
+  "date": "2026-11-19",
+  "start": "12:00",
+  "venue": "Vitacura, Santiago",
+  "host": "Impacta VC",
+  "link": "https://techweek.cl/en/impactaland-demo-day-future-mining-challenge-by-quintil-lab-accelerator",
+  "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
+ },
+ {
+  "title": "Impactaland: LAN Demo Day, The Batch 5",
+  "hub": "scl",
+  "date": "2026-11-19",
+  "start": "15:00",
+  "venue": "Vitacura, Santiago",
+  "host": "Impacta VC",
+  "link": "https://techweek.cl/en/impactaland-lan-demo-day-the-batch-5",
+  "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
+ },
+ {
+  "title": "De 0 a 100 en LinkedIn: marca personal para generar leads",
+  "hub": "scl",
+  "date": "2026-11-19",
+  "start": "18:00",
+  "venue": "Ñuñoa, Santiago",
+  "host": "We Are Doers",
+  "link": "https://techweek.cl/en/de-0-a-100-en-linkedin-por-que-tu-marca-personal-ya-no-es-opcional-para-generar-leads-por-we-are-doe",
+  "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
+ },
+ {
+  "title": "Impactaland: Investor Mingle Night",
+  "hub": "scl",
+  "date": "2026-11-19",
+  "start": "19:30",
+  "venue": "Vitacura, Santiago",
+  "host": "Impacta VC",
+  "link": "https://techweek.cl/en/impactaland-mingle-night",
+  "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
+ },
+ {
+  "title": "Driven Summit Cocktail",
+  "hub": "scl",
+  "date": "2026-11-19",
+  "start": "19:30",
+  "venue": "Las Condes, Santiago",
+  "host": "Driven VC",
+  "link": "https://techweek.cl/en/driven-summit-cocktail",
+  "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
+ },
+ {
+  "title": "The After by Alianza Emprende",
+  "hub": "scl",
+  "date": "2026-11-19",
+  "start": "20:00",
+  "venue": "Vitacura, Santiago",
+  "host": "Alianza Emprende",
+  "link": "https://techweek.cl/en/the-after-by-ae",
+  "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
+ },
+ {
+  "title": "Impactaland: Día 2",
+  "hub": "scl",
+  "date": "2026-11-20",
+  "start": "10:00",
+  "venue": "Vitacura, Santiago",
+  "host": "Impacta VC",
+  "link": "https://techweek.cl/en/impactaland-dia-2",
+  "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
+ },
+ {
+  "title": "Impactaland | The New Leadership: Playbook for the AI Era",
+  "hub": "scl",
+  "date": "2026-11-20",
+  "start": "15:30",
+  "venue": "Vitacura, Santiago",
+  "host": "Impacta VC",
+  "link": "https://techweek.cl/en/impactaland-the-new-leadership-playbook-for-the-ai-era",
+  "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
+ },
+ {
+  "title": "Impactaland: Día 3",
+  "hub": "scl",
+  "date": "2026-11-21",
+  "start": "10:00",
+  "venue": "Vitacura, Santiago",
+  "host": "Impacta VC",
+  "link": "https://techweek.cl/en/impactaland-dia-3",
+  "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
+ },
+ {
+  "title": "Summit Hub Universitario · EtMday 2026",
+  "hub": "scl",
+  "date": "2026-11-21",
+  "start": "13:30",
+  "venue": "Vitacura, Santiago",
+  "host": "Emprende tu Mente",
+  "link": "https://techweek.cl/en/summit-hub-universitario-etmday-2026-3",
+  "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
+ },
+ {
+  "title": "Africa Tech Festival 2026",
+  "hub": "cpt",
+  "date": "2026-11-17",
+  "venue": "Cape Town International Convention Centre",
+  "host": "Informa",
+  "link": "https://africatechfestival.com/",
+  "type": "Conferences",
+  "desc": "Africa's largest tech and telecoms gathering (AfricaCom and AfricaTech), November 17 to 19, covering AI, connectivity, fintech and startups."
+ },
+ {
+  "title": "AI Expo Africa 2026",
+  "hub": "jnb",
+  "date": "2026-10-28",
+  "venue": "Johannesburg",
+  "host": "AI Media Group",
+  "link": "https://aiexpoafrica.com/",
+  "type": "Conferences",
+  "desc": "Africa's AI trade show and conference, October 28 and 29, with enterprise buyers, startups and investors."
  }
 ]

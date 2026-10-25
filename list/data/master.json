@@ -835,6 +835,13 @@
    "hub": "hou",
    "start": "2026-11-02",
    "end": "2026-11-06"
+  },
+  {
+   "id": "cltw",
+   "name": "Chile Tech Week",
+   "hub": "scl",
+   "start": "2026-11-16",
+   "end": "2026-11-22"
   }
  ],
  "img": {
