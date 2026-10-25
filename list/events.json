@@ -78943,5 +78943,108 @@
   "link": "https://spain.su.org/",
   "desc": "Two days, November 4 and 5, on exponential technologies, AI and the future of business.",
   "type": "Conferences"
+ },
+ {
+  "title": "Road to DevFest Cloud KL 2026 #1: Security & Harness",
+  "hub": "kul",
+  "date": "2026-10-28",
+  "venue": "Google Kuala Lumpur",
+  "host": "GDG Cloud KL",
+  "link": "https://gdg.community.dev/e/m4v2bv/",
+  "desc": "Details and registration on the event page."
+ },
+ {
+  "title": "Cloud Native Kuala Lumpur Meetup: November 2026",
+  "hub": "kul",
+  "date": "2026-11-03",
+  "venue": "Kuala Lumpur",
+  "host": "Cloud Native Kuala Lumpur",
+  "link": "https://www.meetup.com/cloud-native-kuala-lumpur/events/316646427/",
+  "desc": "Details and registration on the event page.",
+  "start": "18:00"
+ },
+ {
+  "title": "International Battle of Hackers 2026",
+  "hub": "kul",
+  "date": "2026-11-14",
+  "venue": "Kuala Lumpur",
+  "host": "Battle of Hackers",
+  "link": "https://battleofhackers.com/",
+  "desc": "An international cybersecurity competition and hacker meetup in Kuala Lumpur.",
+  "type": "Hackathons"
+ },
+ {
+  "title": "Google Developer Group Kuala Lumpur Meetup",
+  "hub": "kul",
+  "date": "2026-11-14",
+  "venue": "Sunway University",
+  "host": "GDG KL",
+  "link": "https://peatix.com/event/5194944",
+  "desc": "Details and registration on the event page."
+ },
+ {
+  "title": "Data Center Asia Malaysia 2026",
+  "hub": "kul",
+  "date": "2026-11-17",
+  "venue": "Malaysia International Trade and Exhibition Centre (MITEC)",
+  "host": "Data Center Asia",
+  "link": "https://www.datacenter-asia.com/kualalumpur/",
+  "desc": "Three days, November 17 to 19, on data-centre infrastructure, power and AI compute in Southeast Asia.",
+  "type": "Conferences"
+ },
+ {
+  "title": "Practical IP Advice for Your Business at SWITCH 2026",
+  "hub": "sgp",
+  "date": "2026-10-27",
+  "venue": "Singapore",
+  "host": "SGInnovate",
+  "link": "https://central.sginnovate.com/hub/events/4849ccd5-d653-48ad-9f4f-76b3d9514634",
+  "desc": "Details and registration on the event page."
+ },
+ {
+  "title": "A Common Language for Innovation: KTH IRL x SGInnovate ERL",
+  "hub": "sgp",
+  "date": "2026-10-28",
+  "venue": "Singapore",
+  "host": "SGInnovate",
+  "link": "https://central.sginnovate.com/hub/events/810d4e7f-e83a-41d2-9205-18835671e5fb",
+  "desc": "Details and registration on the event page."
+ },
+ {
+  "title": "After SWITCH: B71 Networking Mixer",
+  "hub": "sgp",
+  "date": "2026-10-29",
+  "venue": "Block 71, Singapore",
+  "host": "SGInnovate",
+  "link": "https://central.sginnovate.com/hub/events/2af1d7d0-0265-4069-8862-1f454f7b19ca",
+  "desc": "A networking mixer at Block 71 to close out SWITCH."
+ },
+ {
+  "title": "APAC Summit 2026",
+  "hub": "sgp",
+  "date": "2026-10-30",
+  "venue": "Singapore",
+  "host": "",
+  "link": "https://central.sginnovate.com/hub/events/3abaa14e-aa7b-4f7e-b050-8b22a004cedb",
+  "desc": "Details and registration on the event page."
+ },
+ {
+  "title": "Founder Park: AGI Playground Founder Show",
+  "hub": "sgp",
+  "date": "2026-10-30",
+  "venue": "Singapore",
+  "host": "Founder Park",
+  "link": "https://central.sginnovate.com/hub/events/9463192a-25d4-4b11-ae8d-2fc509d900ab",
+  "desc": "Details and registration on the event page."
+ },
+ {
+  "title": "Stack Conference 2026",
+  "hub": "sgp",
+  "date": "2026-11-04",
+  "venue": "Singapore",
+  "host": "",
+  "link": "https://central.sginnovate.com/hub/events/ead1cfd6-7727-4aa8-9c80-b5137af941ec",
+  "desc": "Details and registration on the event page.",
+  "type": "Conferences"
  }
 ]
