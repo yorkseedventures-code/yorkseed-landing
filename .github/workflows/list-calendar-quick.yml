@@ -3,21 +3,21 @@ name: List quick calendar import (branch only)
 on:
   push:
     branches: [list-seo-nyc]
-    paths: ["scripts/import_calendar.py", "scripts/import_geo.py", "scripts/harvest_calendars.py", "scripts/import_meetup_quick.py", "scripts/import_ical_quick.py", ".github/workflows/list-calendar-quick.yml"]
+    paths: ["scripts/import_calendar.py", "scripts/import_geo.py", "scripts/harvest_calendars.py", "scripts/import_meetup_quick.py", "scripts/import_ical_quick.py", "scripts/import_calendars_quick.py", ".github/workflows/list-calendar-quick.yml"]
 permissions:
   contents: write
 jobs:
   geo:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
-      - run: python3 -u scripts/import_geo.py --only=sat,yyj,gift,mtl,bue,sao,mil,dub,cph,hkg,sto,dc
+      - run: python3 -u scripts/import_calendars_quick.py
         continue-on-error: true
       - if: always()
         run: |
           git config user.name "yorkseed-list-bot"; git config user.email "actions@users.noreply.github.com"
-          git add list/data/geo-import.json; git commit -m "Quick import: Luma by coordinates (hubs)" || exit 0
+          git checkout -- list/events.json; git add list/data/calcal-import.json list/data/luma-calendars.json list/data/luma-event-cals.json; git commit -m "Quick import: organizer calendars from List events" || exit 0
           for i in 1 2 3 4 5 6; do git pull --rebase -q origin list-seo-nyc && git push && exit 0; git rebase --abort 2>/dev/null; sleep 7; done; exit 1

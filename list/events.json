@@ -81251,5 +81251,45 @@
   "link": "https://luma.com/tx3im80a",
   "desc": "Details and registration on the event page.",
   "src": "luma"
+ },
+ {
+  "title": "Hong Kong International Computer Conference 2026",
+  "hub": "hkg",
+  "date": "2026-11-09",
+  "venue": "Hong Kong",
+  "host": "Hong Kong Computer Society",
+  "link": "https://hkicc.hkcs.org.hk/",
+  "type": "Conferences",
+  "desc": "HKCS's annual conference, November 9 and 10, on AI, cybersecurity and digital transformation."
+ },
+ {
+  "title": "ICT Conference 2026: Next Generation AI Innovation",
+  "hub": "hkg",
+  "date": "2026-11-20",
+  "venue": "Hong Kong",
+  "host": "ICT Conference",
+  "link": "http://www.ictconference.hk/",
+  "type": "Conferences",
+  "desc": "A one-day conference on next-generation AI and ICT innovation in Hong Kong."
+ },
+ {
+  "title": "Business of IP Asia Forum 2026",
+  "hub": "hkg",
+  "date": "2026-11-19",
+  "venue": "Hong Kong Convention and Exhibition Centre",
+  "host": "HKTDC",
+  "link": "https://bipasia.hktdc.com/conference/bip/en",
+  "type": "Conferences",
+  "desc": "Asia's forum on intellectual property and innovation commercialisation, November 19 and 20."
+ },
+ {
+  "title": "Asia Pacific Smart Driving Technology and Market Development Seminar",
+  "hub": "hkg",
+  "date": "2026-10-30",
+  "venue": "Hong Kong",
+  "host": "HKPC",
+  "link": "https://campaigns.hkpc.org/zh-hk/event_registration_smart-driving-technology-and-market-development-seminar",
+  "type": "Conferences",
+  "desc": "A seminar on autonomous and smart-driving technology and its market in Asia Pacific."
  }
 ]
