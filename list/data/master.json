@@ -880,6 +880,46 @@
    "hub": "bue",
    "start": "2026-10-20",
    "end": "2026-10-31"
+  },
+  {
+   "id": "reinvent",
+   "name": "AWS re:Invent",
+   "hub": "lvs",
+   "start": "2026-11-29",
+   "end": "2026-12-04",
+   "re": "re:?invent|\\baws\\b|amazon|cloud"
+  },
+  {
+   "id": "gitex",
+   "name": "GITEX & Expand North Star",
+   "hub": "dxb",
+   "start": "2026-12-06",
+   "end": "2026-12-11",
+   "re": "gitex|north star|expand|\\bai\\b|startup|founder|investor|tech"
+  },
+  {
+   "id": "ces",
+   "name": "CES",
+   "hub": "lvs",
+   "start": "2027-01-04",
+   "end": "2027-01-09",
+   "re": "\\bces\\b|eureka|consumer tech|hardware|unveiled"
+  },
+  {
+   "id": "jpm",
+   "name": "JPM Healthcare Week",
+   "hub": "sf",
+   "start": "2027-01-10",
+   "end": "2027-01-15",
+   "re": "jpm|j\\.p\\. morgan|healthcare|health|biotech|pharma|life ?science|medtech|therapeutic"
+  },
+  {
+   "id": "wsq",
+   "name": "Web Summit Qatar",
+   "hub": "doh",
+   "start": "2027-01-30",
+   "end": "2027-02-04",
+   "re": "."
   }
  ],
  "img": {
