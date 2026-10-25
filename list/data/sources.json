@@ -173,5 +173,96 @@
   "name": "The Austin Tech Scene",
   "all": true,
   "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-TGqTwSQuGZ0WY07",
+  "name": "The Lisbon Tech Scene",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-PTerRpwUKw5v8ds",
+  "name": "351 Startups' Events",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-977mQtJ3dJoD2W1",
+  "name": "The London Tech Scene",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-tJGKnyqjeBRwRC1",
+  "name": "The Miami Tech Scene",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-3TnMihOOCdFJsTG",
+  "name": "The Berlin Tech Scene",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-rliNsmQLS4npFNj",
+  "name": "The Paris Tech Scene",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-nXfiYP0UTQ7V0pV",
+  "name": "The Toronto Tech Scene",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-PO7r0EBDb8sT7Pg",
+  "name": "The Boston Tech Scene",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-KAbwYRT8PSHNYlO",
+  "name": "The Chicago Tech Scene",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-MQ4WIIEm8rjWg8G",
+  "name": "The Singapore Tech Scene",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-gxLMVDEGiUWAfcf",
+  "name": "The Denver Tech Scene",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-ztENHDqUD5go8Dl",
+  "name": "The Seattle Tech Scene",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-6Ad7fIEG0GSBhIS",
+  "name": "The New York Tech Scene",
+  "all": true,
+  "max_pages": 20
  }
 ]
