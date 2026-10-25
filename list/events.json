@@ -60052,19 +60052,6 @@
   "src": "foundercal"
  },
  {
-  "title": "GITEX Global Summit 2026",
-  "hub": "vie",
-  "date": "2026-12-07",
-  "start": "00:00",
-  "end": "23:59",
-  "venue": "",
-  "host": "ViennaUP 2026",
-  "link": "https://myconnectivity.lu/en/event/gitex-global-summit-2026",
-  "type": "Conferences",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
   "title": "Open Source Summit Japan",
   "hub": "tyo",
   "date": "2026-12-07",
@@ -81586,5 +81573,125 @@
   "link": "https://www.meetup.com/dubai-ai/events/316764107/",
   "desc": "Details and registration on the event page.",
   "src": "meetup"
+ },
+ {
+  "title": "Web Summit Qatar 2027",
+  "hub": "doh",
+  "date": "2027-01-31",
+  "venue": "Doha Exhibition and Convention Center",
+  "host": "Web Summit",
+  "link": "https://qatar.websummit.com/",
+  "type": "Conferences",
+  "desc": "Web Summit's Middle East edition, January 31 to February 3, with startups, investors and tech leaders."
+ },
+ {
+  "title": "Abu Dhabi Finance Week 2026",
+  "hub": "dxb",
+  "date": "2026-12-07",
+  "venue": "Abu Dhabi Global Market",
+  "host": "ADGM",
+  "link": "https://www.adfw.com/",
+  "type": "Conferences",
+  "desc": "Abu Dhabi's finance week, December 7 to 10, for asset managers, sovereign funds, banks and fintechs."
+ },
+ {
+  "title": "Black Hat MEA 2026",
+  "hub": "riy",
+  "date": "2026-12-01",
+  "venue": "Riyadh Exhibition and Convention Center, Malham",
+  "host": "Black Hat MEA",
+  "link": "https://blackhatmea.com/",
+  "type": "Conferences",
+  "desc": "The Middle East's big cybersecurity event, December 1 to 3."
+ },
+ {
+  "title": "Step Conference 2027",
+  "hub": "dxb",
+  "date": "2027-02-03",
+  "venue": "Dubai",
+  "host": "Step",
+  "link": "https://stepconference.com/",
+  "type": "Conferences",
+  "desc": "The MENA tech and startup festival, February 3 and 4, with founders, investors and creators."
+ },
+ {
+  "title": "SIGGRAPH Asia 2026",
+  "hub": "kul",
+  "date": "2026-12-01",
+  "venue": "Kuala Lumpur Convention Centre",
+  "host": "ACM SIGGRAPH",
+  "link": "https://asia.siggraph.org/2026/",
+  "type": "Conferences",
+  "desc": "The computer graphics and interactive tech conference, December 1 to 4."
+ },
+ {
+  "title": "AI & Big Data Expo Global 2027",
+  "hub": "ldn",
+  "date": "2027-02-03",
+  "venue": "Olympia London",
+  "host": "TechEx",
+  "link": "https://www.ai-expo.net/global/",
+  "type": "Conferences",
+  "desc": "Two days, February 3 and 4, on enterprise AI, data and analytics."
+ },
+ {
+  "title": "World AI Cannes Festival 2027",
+  "hub": "can",
+  "date": "2027-02-10",
+  "venue": "Palais des Festivals, Cannes",
+  "host": "WAICF",
+  "link": "https://www.worldaicannes.com/",
+  "type": "Conferences",
+  "desc": "Europe's AI business festival, February 10 and 11."
+ },
+ {
+  "title": "Festival of Genomics London 2027",
+  "hub": "ldn",
+  "date": "2027-01-27",
+  "venue": "ExCeL London",
+  "host": "Front Line Genomics",
+  "link": "https://festivalofgenomics.com/london/",
+  "type": "Conferences",
+  "desc": "Two days, January 27 and 28, on genomics, biotech and health data."
+ },
+ {
+  "title": "AAAI-27",
+  "hub": "mtl",
+  "date": "2027-02-16",
+  "venue": "Montréal",
+  "host": "AAAI",
+  "link": "https://aaai.org/conference/aaai/aaai-27/",
+  "type": "Conferences",
+  "desc": "The Association for the Advancement of AI's annual research conference, February 16 to 23."
+ },
+ {
+  "title": "CES 2027",
+  "hub": "lvs",
+  "date": "2027-01-06",
+  "venue": "Las Vegas Convention Center",
+  "host": "Consumer Technology Association",
+  "link": "https://www.ces.tech/",
+  "type": "Conferences",
+  "desc": "The world's biggest consumer-tech show, January 6 to 9, with thousands of startups at Eureka Park."
+ },
+ {
+  "title": "GITEX Global 2026",
+  "hub": "dxb",
+  "date": "2026-12-07",
+  "venue": "Dubai World Trade Centre",
+  "host": "GITEX",
+  "link": "https://www.gitex.com/",
+  "type": "Conferences",
+  "desc": "One of the world's largest tech shows, December 7 to 11, spanning AI, cloud, cyber and telecom."
+ },
+ {
+  "title": "J.P. Morgan Healthcare Conference 2027",
+  "hub": "sf",
+  "date": "2027-01-11",
+  "venue": "Westin St. Francis, San Francisco",
+  "host": "J.P. Morgan",
+  "link": "https://www.jpmorgan.com/about-us/events-conferences/health-care-conference",
+  "type": "Conferences",
+  "desc": "The year's biggest healthcare investing week, January 11 to 14, with hundreds of side events across San Francisco."
  }
 ]
