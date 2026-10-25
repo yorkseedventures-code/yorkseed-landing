@@ -598,7 +598,7 @@ html:not(.fso) [data-so]{display:none!important}
 
         <div class="f"><label for="goals" id="goalsLabel">Who do you want to meet in Lisbon?</label><p class="hint" id="goalsHint">The more specific, the better the introductions.</p><textarea id="goals"></textarea></div>
         <div class="two">
-          <div class="f"><label for="accessCode">Access code (optional)</label><p class="hint">If Yorkseed gave you a private access code, enter it here. Founders: it makes your delegation place free. You still complete this application.</p><input type="text" id="accessCode" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="LIS-XXXXXXXX"/></div>
+          <div class="f"><label for="accessCode">Access code (optional)</label><p class="hint">If Yorkseed gave you a private access code, enter it here. Founders and partners: it makes your delegation place free. You still complete this application.</p><input type="text" id="accessCode" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="LIS-XXXXXXXX"/></div>
           <div class="f"><label for="referral">Where did you hear about the delegation?</label>
             <select id="referral"><option value="">Choose</option><option>LinkedIn</option><option>Instagram</option><option>WhatsApp group</option><option>Luma</option><option>Yorkseed newsletter</option><option>Yorkseed event</option><option>Yorkseed Connect</option><option>Friend or colleague</option><option>Web Summit</option><option>Google search</option><option>Other</option></select>
           </div>
@@ -801,7 +801,10 @@ html:not(.fso) [data-so]{display:none!important}
           var PAY={fo:'https://buy.stripe.com/eVqaEQ5or2CicAg9UNbo41L',st:'https://buy.stripe.com/bJe00c2cfdgWfMseb3bo41M',pr:'https://buy.stripe.com/4gMfZa2cf4KqeIoaYRbo41N',pa:'https://buy.stripe.com/6oU28k4knb8Oas8eb3bo41O'};
           var base=r==='Partner'?PAY.pa:(tier==='Premium'?PAY.pr:(soldOut?PAY.st:PAY.fo));
           $('doneText').textContent='Application received. Tap the button below to pay and secure your place. If you are bringing teammates, you can add them at checkout. We will email your welcome within two days.';
-          $('donePayLink').href=base+'?prefilled_email='+encodeURIComponent(v('email'));$('donePay').hidden=false;
+          var pc=(r==='Partner'&&/^PAR-[A-Z0-9]{8}$/.test(ac));
+          $('donePayLink').href=base+'?prefilled_email='+encodeURIComponent(v('email'))+(pc?'&prefilled_promo_code='+encodeURIComponent(ac):'');
+          if(pc){$('doneText').textContent='Application received. Your access code is applied, so your Partner Delegate place is free. Tap the button below to claim it. We will email your welcome within two days.';$('donePayLink').textContent='Claim your free place';}
+          $('donePay').hidden=false;
         }
         form.style.display='none';$('done').style.display='block';
       })
