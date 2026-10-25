@@ -77618,5 +77618,118 @@
   "link": "https://luma.com/wmd03994",
   "desc": "Details and registration on the event page.",
   "src": "luma-cal"
+ },
+ {
+  "title": "Forward Data Conference 2026",
+  "hub": "par",
+  "date": "2026-11-16",
+  "venue": "Cité Internationale Universitaire de Paris",
+  "host": "Forward Data",
+  "link": "https://www.forward-data-conference.com/",
+  "desc": "A one-day conference for data engineers and data leaders on the modern data stack and AI.",
+  "start": "08:30",
+  "type": "Conferences"
+ },
+ {
+  "title": "Tech Show Paris 2026",
+  "hub": "par",
+  "date": "2026-11-18",
+  "venue": "Paris Expo Porte de Versailles, Hall 5",
+  "host": "CloserStill Media",
+  "link": "https://www.techshowparis.fr/",
+  "desc": "Five IT shows under one roof, November 18 and 19: cloud, cyber, DevOps, data centres and AI, with a startup zone.",
+  "type": "Conferences"
+ },
+ {
+  "title": "Data & AI Leaders Summit Paris",
+  "hub": "par",
+  "date": "2026-11-18",
+  "venue": "Paris Expo Porte de Versailles",
+  "host": "CloserStill Media",
+  "link": "https://www.techshowparis.fr/data-ai-leaders-summit",
+  "desc": "A summit for data and AI leaders inside Tech Show Paris, November 18 and 19.",
+  "type": "Conferences"
+ },
+ {
+  "title": "APIDays Paris 2026",
+  "hub": "par",
+  "date": "2026-12-01",
+  "venue": "CNIT La Défense",
+  "host": "APIDays",
+  "link": "https://www.apidays.global/events/paris",
+  "desc": "The API and AI-agents conference, December 1 to 3, for platform teams, developers and API product leaders.",
+  "type": "Conferences"
+ },
+ {
+  "title": "Future of Finance 2026",
+  "hub": "par",
+  "date": "2026-11-04",
+  "venue": "Carrousel du Louvre",
+  "host": "Future of Finance",
+  "link": "https://www.futureoffinance.fr/",
+  "desc": "Two days, November 4 and 5, on fintech, banking and finance transformation, with founders, banks and investors.",
+  "type": "Conferences"
+ },
+ {
+  "title": "School of Product 2026",
+  "hub": "par",
+  "date": "2026-11-17",
+  "venue": "Pavillon Chesnaie du Roy",
+  "host": "School of Product",
+  "link": "https://schoolofpo.com/",
+  "desc": "A one-day conference for product managers and product leaders.",
+  "start": "09:00",
+  "type": "Conferences"
+ },
+ {
+  "title": "OVHcloud Summit 2026",
+  "hub": "par",
+  "date": "2026-11-19",
+  "venue": "Paris",
+  "host": "OVHcloud",
+  "link": "https://summit.ovhcloud.com/fr/",
+  "desc": "OVHcloud's annual summit on European cloud, sovereignty and AI infrastructure. Check the exact day on the site.",
+  "type": "Conferences"
+ },
+ {
+  "title": "GreenTech Forum 2026",
+  "hub": "par",
+  "date": "2026-11-05",
+  "venue": "STATION F",
+  "host": "Formule Magique",
+  "link": "https://www.greentech-forum.com/",
+  "desc": "Two days at Station F, November 5 and 6, on sustainable digital technology and green IT.",
+  "start": "09:00",
+  "type": "Conferences"
+ },
+ {
+  "title": "BE SOVEREIGN 2026",
+  "hub": "par",
+  "date": "2026-11-26",
+  "venue": "Paris",
+  "host": "BE SOVEREIGN",
+  "link": "https://www.be-sovereign.fr/",
+  "desc": "A conference on digital sovereignty for European tech, cloud and AI.",
+  "type": "Conferences"
+ },
+ {
+  "title": "The New Food Paradigm",
+  "hub": "par",
+  "date": "2026-12-03",
+  "venue": "STATION F",
+  "host": "STATION F",
+  "link": "https://hal.stationf.co/event-registration/69a83a64f26ad01d5d3ba7ba",
+  "desc": "An afternoon at Station F on food tech and the future of food, with founders and investors.",
+  "start": "13:30"
+ },
+ {
+  "title": "Red Bull Wings Cup at STATION F",
+  "hub": "par",
+  "date": "2026-11-17",
+  "venue": "STATION F",
+  "host": "Red Bull",
+  "link": "https://redbull.com/fr-fr/events/red-bull-wings-cup-france/red-bull-wings-cup-france-university-league",
+  "desc": "Red Bull's student startup competition comes to Station F.",
+  "start": "11:00"
  }
 ]
