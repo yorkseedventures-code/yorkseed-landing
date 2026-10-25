@@ -41,7 +41,7 @@ jobs:
         run: |
           git config user.name "yorkseed-list-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add -A list sitemap.xml *-startup-communities.html
+          git add -A list sitemap.xml _redirects *-startup-communities.html
           # always commit: this weekly commit is what tells Netlify to publish (see netlify.toml "ignore")
           git commit --allow-empty -m "The List: daily rebuild $(date -u +%Y-%m-%d) [deploy]"
           # if someone pushed while this ran, keep their changes and this run's imported data
