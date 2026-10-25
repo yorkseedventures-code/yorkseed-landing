@@ -81693,5 +81693,745 @@
   "link": "https://www.jpmorgan.com/about-us/events-conferences/health-care-conference",
   "type": "Conferences",
   "desc": "The year's biggest healthcare investing week, January 11 to 14, with hundreds of side events across San Francisco."
+ },
+ {
+  "title": "KubeAuto Day (Kubernetes Automation Day)",
+  "hub": "lvs",
+  "date": "2026-11-29",
+  "start": "14:30",
+  "venue": "Rockhouse, Grand Canal Shoppes, The Venetian",
+  "host": "KubeAuto Day",
+  "link": "https://kubeauto.day/las-vegas",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "2026 FinOps Leaders Dinner",
+  "hub": "lvs",
+  "date": "2026-11-29",
+  "start": "17:30",
+  "venue": "Delmonico Steakhouse, The Venetian",
+  "host": "ProsperOps & Flexera",
+  "link": "https://www.prosperops.com/event/aws-reinvent-finops-leaders-dinner/",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Pier Racing 2026",
+  "hub": "lvs",
+  "date": "2026-11-29",
+  "start": "18:00",
+  "venue": "SpeedVegas, 14200 S Las Vegas Blvd",
+  "host": "Pier Cloud",
+  "link": "https://marketing.piercloud.com/pier-racing",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "AWS re:Invent Kickoff Night with HabileLabs",
+  "hub": "lvs",
+  "date": "2026-11-29",
+  "start": "19:00",
+  "venue": "Las Vegas",
+  "host": "HabileLabs",
+  "link": "https://luma.com/y4zpryyh",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "UndrGrnd.Social Vegas Edition",
+  "hub": "lvs",
+  "date": "2026-11-29",
+  "start": "21:00",
+  "venue": "The Cosmopolitan",
+  "host": "UndrGrnd.Social",
+  "link": "https://luma.com/bbmjig1j",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Stripe Day Party: Breakfast, Lunch, Build & Pay with Machines",
+  "hub": "lvs",
+  "date": "2026-11-30",
+  "start": "08:00",
+  "venue": "Mon Ami Gabi, Paris Hotel",
+  "host": "Stripe",
+  "link": "https://stripe.events/stripe-at-reinvent2026",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Stripe Developer Breakfast",
+  "hub": "lvs",
+  "date": "2026-11-30",
+  "start": "08:00",
+  "venue": "Mon Ami Gabi, Paris Hotel",
+  "host": "Stripe",
+  "link": "https://www.meetup.com/stripe-at-re-invent/events/317090451",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "TrendAI Monday Breakfast",
+  "hub": "lvs",
+  "date": "2026-11-30",
+  "start": "08:30",
+  "venue": "Fogo de Chão, The Venetian",
+  "host": "TrendAI",
+  "link": "https://resources.trendaisecurity.com/aws-reinvent-26-events.html",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Intuitive.ai Executive Breakfast & Roundtables at re:Invent",
+  "hub": "lvs",
+  "date": "2026-11-30",
+  "start": "08:00",
+  "venue": "Las Vegas (address on RSVP)",
+  "host": "Intuitive.ai",
+  "link": "https://intuitive.ai/events/aws-reinvent-2026/",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Take the Wheel: Supercar Experience",
+  "hub": "lvs",
+  "date": "2026-11-30",
+  "start": "10:00",
+  "venue": "SpeedVegas, 14200 S Las Vegas Blvd",
+  "host": "Basis",
+  "link": "https://app.basisworldwide.com/supercar-experience",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Engineering pre:Invent Party",
+  "hub": "lvs",
+  "date": "2026-11-30",
+  "start": "13:00",
+  "venue": "SushiSAMBA, The Venetian",
+  "host": "ResolveAI",
+  "link": "https://luma.com/sqqi6khx",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "AWS re:Invent Kickoff Networking Happy Hour",
+  "hub": "lvs",
+  "date": "2026-11-30",
+  "start": "15:30",
+  "venue": "Downtown Las Vegas",
+  "host": "PCAN.cloud",
+  "link": "https://pcan.cloud/events/aws-reinvent-kickoff",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Catalyst Pre-Party at AWS re:Invent",
+  "hub": "lvs",
+  "date": "2026-11-30",
+  "start": "16:00",
+  "venue": "Las Vegas (address on RSVP)",
+  "host": "Partnership Leaders",
+  "link": "https://www.joincatalyst.com/catalyst-pre-party-at-aws-reinvent",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "re:Invent Kickoff Reception with The New Stack & Hydrolix",
+  "hub": "lvs",
+  "date": "2026-11-30",
+  "start": "18:00",
+  "venue": "Delmonico Steakhouse, The Venetian",
+  "host": "The New Stack & Hydrolix",
+  "link": "https://www.eventbrite.com/e/reinvent-reception-with-the-new-stack-hydrolix-tickets-2003796176304",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Executive Mastermind Dinner (Commvault)",
+  "hub": "lvs",
+  "date": "2026-11-30",
+  "start": "18:00",
+  "venue": "Upscale Restaurant, Cosmopolitan",
+  "host": "Aphinia & Commvault",
+  "link": "https://luma.com/dgbkfdrf",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Caylent Welcome Party at Delilah",
+  "hub": "lvs",
+  "date": "2026-11-30",
+  "start": "19:00",
+  "venue": "Delilah, Wynn",
+  "host": "Caylent",
+  "link": "https://get.caylent.com/11/30/2026-aws-reinvent-welcome-party-at-delilah",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Dinner at The Palm with Cloudelligent",
+  "hub": "lvs",
+  "date": "2026-11-30",
+  "start": "19:00",
+  "venue": "The Palm, Las Vegas",
+  "host": "Cloudelligent",
+  "link": "https://luma.com/j4w2s5zd",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Access Granted: From Ice to Incognito",
+  "hub": "lvs",
+  "date": "2026-11-30",
+  "start": "19:00",
+  "venue": "Minus5 Ice Bar, Venetian Shoppes",
+  "host": "Trellix",
+  "link": "https://events.Trellix.com/AccessGrantedreInvent2026/ConferenceParties",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Ferris Wheel Bar at re:Invent 2026",
+  "hub": "lvs",
+  "date": "2026-11-30",
+  "start": "19:30",
+  "venue": "High Roller, The LINQ Promenade",
+  "host": "Maze",
+  "link": "https://mazehq.com/event/ferris-wheel-bar-at-reinvent-2026/",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Harness After-Hours Party",
+  "hub": "lvs",
+  "date": "2026-11-30",
+  "start": "20:00",
+  "venue": "Flight Club, The Venetian",
+  "host": "Harness",
+  "link": "https://www.harness.io/event/aws-re-invent-2026",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Executive Dinner: The AI Enterprise",
+  "hub": "lvs",
+  "date": "2026-11-30",
+  "start": "20:00",
+  "venue": "Delmonico Steakhouse, The Venetian",
+  "host": "Skyflow & Descope",
+  "link": "https://www.skyflow.com/dinners/the-ai-enterprise-securing-data-identity-at-runtime",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Redis Welcome Party at AWS re:Invent 2026",
+  "hub": "lvs",
+  "date": "2026-11-30",
+  "start": "20:00",
+  "venue": "Cañonita, The Venetian Shoppes",
+  "host": "Redis",
+  "link": "https://redis.io/events/redis-welcome-party-at-aws-reinvent-2026/",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Shift Gears at re:Invent: Racing Event with Plerion",
+  "hub": "lvs",
+  "date": "2026-12-01",
+  "start": "10:30",
+  "venue": "Las Vegas",
+  "host": "Plerion & friends",
+  "link": "https://luma.com/83ji8ar9",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Races & Traces: A Supercar Experience",
+  "hub": "lvs",
+  "date": "2026-12-01",
+  "start": "14:00",
+  "venue": "Las Vegas",
+  "host": "Arize AI",
+  "link": "https://luma.com/arize-speedway",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "CTO Lunch at re:Invent (Tuesday)",
+  "hub": "lvs",
+  "date": "2026-12-01",
+  "start": "13:00",
+  "venue": "Caesars Palace",
+  "host": "CTO Lunches",
+  "link": "https://luma.com/nfv9qtqp",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Apexon Happy Hour",
+  "hub": "lvs",
+  "date": "2026-12-01",
+  "start": "17:00",
+  "venue": "Bar Luca, The Venetian",
+  "host": "Apexon",
+  "link": "https://www.apexon.com/aws-reinvent-2026/",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Air Over Vegas: Take AI to New Heights",
+  "hub": "lvs",
+  "date": "2026-12-01",
+  "start": "17:00",
+  "venue": "Maverick Helicopters, 6075 S Las Vegas Blvd",
+  "host": "Wiv Air & CloudTeam",
+  "link": "https://wiv.ai/events/air-over-vegas-take-ai-to-new-heights",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Beyond re:Invent: Dinner & VIP Helicopter Tour",
+  "hub": "lvs",
+  "date": "2026-12-01",
+  "start": "17:30",
+  "venue": "Caesars Palace",
+  "host": "OpenObserve",
+  "link": "https://na2.hubs.ly/H08cw-K0",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "AMD Networking Reception",
+  "hub": "lvs",
+  "date": "2026-12-01",
+  "start": "18:00",
+  "venue": "Flight Club, Palazzo",
+  "host": "AMD",
+  "link": "https://web.cvent.com/event/47c6819a-ca55-4e8b-a04a-33fa0224ccce/summary",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Dinner with Formal @ Hell's Kitchen",
+  "hub": "lvs",
+  "date": "2026-12-01",
+  "start": "18:00",
+  "venue": "Gordon Ramsay Hell's Kitchen",
+  "host": "Formal.ai",
+  "link": "https://luma.com/formal-w3p6",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "New Relic Customer & Partner Appreciation Party",
+  "hub": "lvs",
+  "date": "2026-12-01",
+  "start": "18:00",
+  "venue": "Vista Cocktail Lounge, Caesars Palace",
+  "host": "New Relic",
+  "link": "https://newrelic.com/events/2026-12-01/happy-hour",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Arctic Wolf CISO Happy Hour",
+  "hub": "lvs",
+  "date": "2026-12-01",
+  "start": "18:00",
+  "venue": "Ramsay's Kitchen, Harrah's",
+  "host": "Arctic Wolf, AWS, Databricks & Anthropic",
+  "link": "https://cybersecurity.arcticwolf.com/261201_RamsaysKitchenreInventCISOHappyHour.html",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Cloud & Cocktails at PLAY",
+  "hub": "lvs",
+  "date": "2026-12-01",
+  "start": "18:00",
+  "venue": "Play Playground, Luxor",
+  "host": "Lucid, Cortex, incident.io, Tailscale & friends",
+  "link": "https://www.eventbrite.com/e/cloud-cocktails-at-play-tickets-1997894868333",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Shift into Happy Hour",
+  "hub": "lvs",
+  "date": "2026-12-01",
+  "start": "18:00",
+  "venue": "Opium Room, TAO Asian Bistro, The Venetian",
+  "host": "Thoughtworks",
+  "link": "https://events.thoughtworks.com/twshiftintohappyhour/ConferenceParties",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "FinOps After Dark @re:Invent",
+  "hub": "lvs",
+  "date": "2026-12-01",
+  "start": "18:00",
+  "venue": "Rockhouse, The Venetian",
+  "host": "Finout",
+  "link": "https://luma.com/fad-rdl4",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "re:Mix at Spritz",
+  "hub": "lvs",
+  "date": "2026-12-01",
+  "start": "18:00",
+  "venue": "Spritz, The Venetian",
+  "host": "1Password",
+  "link": "https://events.1password.io/remixatspritz",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Secure the Sizzle with Trellix",
+  "hub": "lvs",
+  "date": "2026-12-01",
+  "start": "18:00",
+  "venue": "Braseria by EDO, 3900 Paradise Rd",
+  "host": "Trellix",
+  "link": "https://events.Trellix.com/SecuretheSizzle2026/ConferenceParties",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "AWS re:Invent Pit Stop",
+  "hub": "lvs",
+  "date": "2026-12-01",
+  "start": "18:00",
+  "venue": "F1 Arcade, Caesars Palace",
+  "host": "Render & Mastra",
+  "link": "https://luma.com/ul0tgyw9",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Executive Mastermind Dinner (Copperhelm)",
+  "hub": "lvs",
+  "date": "2026-12-01",
+  "start": "18:00",
+  "venue": "Upscale Restaurant, Cosmopolitan",
+  "host": "Aphinia & Copperhelm",
+  "link": "https://luma.com/5g7wzhbr",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "SushiSAMBA: Coder After Dark",
+  "hub": "lvs",
+  "date": "2026-12-01",
+  "start": "18:30",
+  "venue": "SUSHISAMBA, The Venetian",
+  "host": "Coder",
+  "link": "https://luma.com/goslojhx",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Somewhere Over the PR: An AI SDLC Evening at Sphere",
+  "hub": "lvs",
+  "date": "2026-12-01",
+  "start": "18:30",
+  "venue": "Sphere, 255 Sands Ave",
+  "host": "Hud",
+  "link": "https://luma.com/z7viu4b8",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Cybersecurity Leader Networking Dinner",
+  "hub": "lvs",
+  "date": "2026-12-01",
+  "start": "18:30",
+  "venue": "Four Seasons Hotel",
+  "host": "CISO Ventures & Friends",
+  "link": "https://luma.com/434tayyl",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "SaaSNova Networking Dinner",
+  "hub": "lvs",
+  "date": "2026-12-01",
+  "start": "19:00",
+  "venue": "Las Vegas",
+  "host": "SaaSNova",
+  "link": "https://luma.com/ezge7r14",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Steakhouse Social with Presidio",
+  "hub": "lvs",
+  "date": "2026-12-01",
+  "start": "19:00",
+  "venue": "Fogo de Chão, The Venetian",
+  "host": "Presidio",
+  "link": "https://invite.presidio.com/steakhousesocialpresidioreinvent2026",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Topgolf Happy Hour with Cloudelligent, Honeycomb & Archera",
+  "hub": "lvs",
+  "date": "2026-12-01",
+  "start": "19:00",
+  "venue": "Topgolf Las Vegas",
+  "host": "Cloudelligent",
+  "link": "https://luma.com/iep58i08",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Flight Club with PlanetScale, Laravel & Sentry",
+  "hub": "lvs",
+  "date": "2026-12-01",
+  "start": "20:45",
+  "venue": "Flight Club, Palazzo",
+  "host": "PlanetScale",
+  "link": "https://luma.com/planet-1sbk",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "ClickHouse House Party featuring The Chainsmokers",
+  "hub": "lvs",
+  "date": "2026-12-01",
+  "start": "21:00",
+  "venue": "Intrigue Nightclub, Wynn",
+  "host": "ClickHouse",
+  "link": "https://clickhouse.com/houseparty/reinvent",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "InnovatHERs Networking Breakfast",
+  "hub": "lvs",
+  "date": "2026-12-02",
+  "start": "08:00",
+  "venue": "CUT by Wolfgang Puck, The Venetian",
+  "host": "Elastic & AWS",
+  "link": "https://events.elastic.co/innovathersataws",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "SHE:can re:Invent Networking Coffee",
+  "hub": "lvs",
+  "date": "2026-12-02",
+  "start": "08:00",
+  "venue": "Near The Venetian",
+  "host": "PCAN.cloud & Orion Innovation",
+  "link": "https://luma.com/1xw154pn",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "18 Holes with Basis",
+  "hub": "lvs",
+  "date": "2026-12-02",
+  "start": "10:00",
+  "venue": "Bali Hai Golf Club",
+  "host": "Basis",
+  "link": "https://app.basisworldwide.com/18-holes",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "CTO Lunch at re:Invent (Wednesday)",
+  "hub": "lvs",
+  "date": "2026-12-02",
+  "start": "13:00",
+  "venue": "Caesars Palace",
+  "host": "CTO Lunches",
+  "link": "https://luma.com/94nhxjot",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Fast Gear Shifting on Security: Driving Experience",
+  "hub": "lvs",
+  "date": "2026-12-02",
+  "start": "16:00",
+  "venue": "SpeedVegas, 14200 S Las Vegas Blvd",
+  "host": "GlobalDots",
+  "link": "https://www.globaldots.com/events/fast-gear-shifting-on-security-las-vegas-edition/",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Commit & Wiz Wine & Dine Executive Reception",
+  "hub": "lvs",
+  "date": "2026-12-02",
+  "start": "17:30",
+  "venue": "Terrace Pointe Café, Wynn",
+  "host": "Commit & Wiz",
+  "link": "https://luma.com/kmqfz9et",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Beyond re:Invent: A VIP Evening in Las Vegas",
+  "hub": "lvs",
+  "date": "2026-12-02",
+  "start": "17:30",
+  "venue": "Caesars Palace",
+  "host": "OpenObserve",
+  "link": "https://na2.hubs.ly/H08n5tV0",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Seed to Speed: Cybersecurity Startup Showcase",
+  "hub": "lvs",
+  "date": "2026-12-02",
+  "start": "17:30",
+  "venue": "The Venetian",
+  "host": "CISO Ventures & Friends",
+  "link": "https://luma.com/uum4472x",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "AWS re:Invent 2026 Social Hour",
+  "hub": "lvs",
+  "date": "2026-12-02",
+  "start": "18:00",
+  "venue": "the INDUSTRIAL, 2330 S Industrial Rd",
+  "host": "Rootly",
+  "link": "https://luma.com/i99nfjls",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "A Cut Above The Rest Reception",
+  "hub": "lvs",
+  "date": "2026-12-02",
+  "start": "18:00",
+  "venue": "CUT by Wolfgang Puck, The Venetian",
+  "host": "Elastic & AWS",
+  "link": "https://events.elastic.co/awsacutabovetherest",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Executive Mastermind Dinner (Kai Security)",
+  "hub": "lvs",
+  "date": "2026-12-02",
+  "start": "18:00",
+  "venue": "Upscale Restaurant, Cosmopolitan",
+  "host": "Aphinia & Kai Security",
+  "link": "https://luma.com/czcx4j10",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "The Modern Software Factory: An Executive Dinner",
+  "hub": "lvs",
+  "date": "2026-12-02",
+  "start": "18:30",
+  "venue": "Gordon Ramsay Hell's Kitchen, Caesars Palace",
+  "host": "Hud & ClickHouse",
+  "link": "https://luma.com/jbj2va14",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Robots Pour, Agents Ship: re:Invent Happy Hour",
+  "hub": "lvs",
+  "date": "2026-12-02",
+  "start": "19:00",
+  "venue": "The Tipsy Robot, The Venetian",
+  "host": "Hud & GitKraken",
+  "link": "https://luma.com/xec7trx4",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Agents After Dark Masquerade",
+  "hub": "lvs",
+  "date": "2026-12-02",
+  "start": "19:00",
+  "venue": "Grand Lux Café, The Venetian",
+  "host": "1Password",
+  "link": "https://events.1password.io/agentsafterdarkmasquerade",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "1923 Prohibition Party",
+  "hub": "lvs",
+  "date": "2026-12-02",
+  "start": "19:00",
+  "venue": "1923 Prohibition Bar, The Venetian",
+  "host": "Honeycomb.io & friends",
+  "link": "https://www.honeycomb.io/events/the-1923-secret-social",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "AWS re:Invent After Hours with NeuBird",
+  "hub": "lvs",
+  "date": "2026-12-02",
+  "start": "19:30",
+  "venue": "TAO Nightclub, The Venetian",
+  "host": "NeuBird",
+  "link": "https://na2.hubs.ly/H08wjYm0",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "AI in Motion: After Hours",
+  "hub": "lvs",
+  "date": "2026-12-02",
+  "start": "19:30",
+  "venue": "Ole Red, 3627 S Las Vegas Blvd",
+  "host": "Slalom",
+  "link": "https://go.slalom.com/ai-afterhours",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Below Deck at re:Invent",
+  "hub": "lvs",
+  "date": "2026-12-02",
+  "start": "20:30",
+  "venue": "Juliet Cocktail Room, The Venetian",
+  "host": "Eon",
+  "link": "https://luma.com/below-deck",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Mission Cloud Ignite'26 featuring Nelly",
+  "hub": "lvs",
+  "date": "2026-12-02",
+  "start": "21:00",
+  "venue": "OMNIA Nightclub, Caesars Palace",
+  "host": "Mission Cloud, AMD, Nutanix & Wiz",
+  "link": "https://www.missioncloud.com/events/ignite-2026",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Arize & Shine: Demos and Donuts",
+  "hub": "lvs",
+  "date": "2026-12-03",
+  "start": "08:00",
+  "venue": "Black Tap, The Venetian",
+  "host": "Arize",
+  "link": "https://luma.com/reinvent-demos-and-donuts",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "re:Invent Wrap-Up Brunch",
+  "hub": "lvs",
+  "date": "2026-12-03",
+  "start": "09:00",
+  "venue": "Near The Venetian",
+  "host": "PCAN.cloud",
+  "link": "https://pcan.cloud/events/reinvent-wrap-up-brunch",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Gruntwork VIP Racing Experience",
+  "hub": "lvs",
+  "date": "2026-12-03",
+  "start": "10:00",
+  "venue": "Las Vegas Speedway",
+  "host": "Gruntwork",
+  "link": "https://www.gruntwork.io/lp/gruntwork-racing",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Commit & Datafy AI Economics & FinOps Lunch & Learn",
+  "hub": "lvs",
+  "date": "2026-12-03",
+  "start": "13:15",
+  "venue": "SUSHISAMBA, The Venetian",
+  "host": "Commit",
+  "link": "https://luma.com/yhlj58e0",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "pre:Play Happy Hour with Elastic",
+  "hub": "lvs",
+  "date": "2026-12-03",
+  "start": "16:00",
+  "venue": "CUT by Wolfgang Puck, The Venetian",
+  "host": "Elastic & AWS",
+  "link": "https://preplayhappyhourwithelasticata.splashthat.com/",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "Recovery Cocktail: Private Happy Hour at Flight Club",
+  "hub": "lvs",
+  "date": "2026-12-03",
+  "start": "17:30",
+  "venue": "Flight Club, The Venetian",
+  "host": "ControlMonkey",
+  "link": "https://luma.com/3jy18etl",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "New Math Data in Vegas: Atomic Golf & Party Bus",
+  "hub": "lvs",
+  "date": "2026-12-03",
+  "start": "18:00",
+  "venue": "Atomic Golf, 1850 S Main St",
+  "host": "New Math Data",
+  "link": "https://luma.com/g3swndmx",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
+ },
+ {
+  "title": "North.cloud Private Suite: Golden Knights vs. Utah Mammoth",
+  "hub": "lvs",
+  "date": "2026-12-03",
+  "start": "19:00",
+  "venue": "T-Mobile Arena",
+  "host": "North.cloud",
+  "link": "https://luma.com/north-hbdj",
+  "desc": "An AWS re:Invent 2026 side event. Details and registration on the host's page."
  }
 ]
