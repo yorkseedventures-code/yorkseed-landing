@@ -145,5 +145,12 @@
   "name": "Women in Tech Week - Bay Area/ SF",
   "all": true,
   "max_pages": 20
+ },
+ {
+  "type": "ical",
+  "name": "Refresh Miami",
+  "url": "https://refreshmiami.com/events/list/?ical=1",
+  "hub": "mia",
+  "where": "miami|fort lauderdale|coral gables|doral|wynwood|brickell|boca raton|hialeah|aventura|key biscayne|hollywood, fl|coconut grove|little havana|north miami|sunny isles|homestead|plantation|davie|pompano|weston|delray|west palm"
  }
 ]

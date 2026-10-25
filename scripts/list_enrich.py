@@ -552,6 +552,39 @@ def import_meetup_groups():
     print(f"meetup groups: {len(groups)} known, {ok} read, {added} new events"); REPORT.append({"source": "meetup groups", "groups": len(groups), "added": added})
     return {}
 
+# ---------- 1j. community iCal feeds (sources.json type "ical": {url, hub, where?}) e.g. Refresh Miami ----------
+def import_ical_feeds():
+    feeds = [x for x in load(f"{REPO}/list/data/sources.json", []) if x.get("type") == "ical" and x.get("url") and x.get("hub")]
+    if not feeds: return {}
+    master = load(f"{REPO}/list/data/master.json", {"events": []}); events = load(f"{REPO}/list/events.json", [])
+    norm = lambda s: re.sub(r'[^a-z0-9]+', '', (s or '').lower())[:40]
+    seen_l = {(e.get("link") or "").split("?")[0].rstrip("/") for e in events + master["events"]}
+    seen_t = {(norm(e.get("title")), e.get("date")) for e in events + master["events"]}
+    horizon = (dt.date.today() + dt.timedelta(days=120)).isoformat(); added = 0
+    for fd in feeds:
+        try: text = urlopen(Request(fd["url"], headers=UA), timeout=30).read().decode("utf-8", "ignore")
+        except Exception as ex: print(f"ical {fd['url']}: {ex}"); continue
+        hub = fd["hub"]; tz = hub_tz(hub); where = re.compile(fd["where"], re.I) if fd.get("where") else None; kept = 0
+        for f in _ics_events(text):
+            title = re.sub(r"\s+", " ", (f.get("SUMMARY") or ("", ""))[0]).strip(); url = (f.get("URL") or ("", ""))[0].split("?")[0].rstrip("/")
+            loc = (f.get("LOCATION") or ("", ""))[0]; ds, params = f.get("DTSTART") or ("", "")
+            if not title or not url or not ds or NOT.search(title) or re.search(r"\bonline\b|virtual|zoom|webinar", loc + " " + title, re.I): continue
+            if where and loc and not where.search(loc): continue
+            try:
+                if len(ds) == 8: d = dt.datetime.strptime(ds, "%Y%m%d"); st = None
+                else:
+                    src_tz = re.search(r"TZID=([^;:]+)", params).group(1) if "TZID=" in params else "UTC"
+                    d = dt.datetime.strptime(ds.rstrip("Z")[:15], "%Y%m%dT%H%M%S").replace(tzinfo=ZoneInfo(src_tz)).astimezone(ZoneInfo(tz)); st = d.strftime("%H:%M")
+            except Exception: continue
+            date = d.date().isoformat()
+            if date < TODAY or date > horizon or url in seen_l or (norm(title), date) in seen_t: continue
+            events.append({"title": title[:200], "hub": hub, "date": date, **({"start": st} if st else {}), "venue": loc[:200],
+                           "host": fd.get("name", ""), "link": url + "/", "desc": "Details and registration on the event page.", "src": "ical"})
+            seen_l.add(url); seen_t.add((norm(title), date)); kept += 1
+        added += kept; print(f"ical {fd.get('name') or fd['url']}: {kept} new")
+    json.dump(events, open(f"{REPO}/list/events.json", "w"), ensure_ascii=False, indent=1)
+    REPORT.append({"source": "ical feeds", "added": added}); return {}
+
 # ---------- 1d. TechMeetups.io public API (free, no key, 60 requests/min): tech meetups by city ----------
 # We keep only facts (title, date, venue, organizer) and link to the organizer's own registration page.
 def import_techmeetups():
@@ -771,7 +804,7 @@ def refresh_photos(seed):
 
 if __name__ == "__main__":
     seed = {}
-    for step in (import_pending, import_cities, import_links, import_submissions, import_sources, import_luma_calendars, import_foundercal, import_confstech, import_techmeetups, import_meetup_groups, fix_cities):
+    for step in (import_pending, import_cities, import_links, import_submissions, import_sources, import_luma_calendars, import_foundercal, import_confstech, import_techmeetups, import_meetup_groups, import_ical_feeds, fix_cities):
         try: seed.update(step() or {})
         except Exception as ex: print(f"{step.__name__} failed: {ex}")
     try: fill_luma_descriptions()
