@@ -327,6 +327,7 @@ form,.done{padding:28px}
 @media(max-width:700px){.hero h1{font-size:40px}.big{font-size:28px}}
 .btns .dl{flex-basis:100%;font-size:13px;color:rgba(255,255,255,.75);margin-top:2px;letter-spacing:.02em}details.more{margin-top:18px}details.more summary{cursor:pointer;list-style:none;border:1px solid rgba(12,12,12,.2);padding:16px 18px;font-weight:600;font-size:14px;background:#fff}details.more summary::-webkit-details-marker{display:none}details.more summary small{display:block;font-weight:400;color:#6b645c;margin-top:4px;font-size:13px}details.more summary::after{content:"+";float:right;font-size:18px;line-height:1}details.more[open] summary::after{content:"\2212"}details.more[open] summary{margin-bottom:14px}@media(max-width:1100px){.meta{grid-template-columns:repeat(3,auto)}}
 .ladder{background:#faf6ef}.lrows{margin:10px 0 14px}.lrow{padding:12px 14px;border:1px solid rgba(12,12,12,.14);margin-bottom:8px;background:#fff;opacity:.62}.lrow b{display:block;font-size:13px;margin-bottom:2px}.lrow span{font-size:13px;color:#5d564e}.lrow.now{opacity:1;border-color:var(--red,#d0202e);box-shadow:inset 0 0 0 1px var(--red,#d0202e)}.lrow.past{opacity:.35;text-decoration:line-through}.lnote{font-size:12.5px;color:#6b645c;margin:0}.pnow{font-size:12.5px;opacity:.8;margin:6px 0 0}
+.optl{font-weight:400;letter-spacing:0;text-transform:none;color:#8a8379;font-size:11px}
 </style>
 </head>
 <body>
@@ -341,8 +342,8 @@ form,.done{padding:28px}
     <div class="meta">
       <div><span>Dates</span><b>November 8 to 12</b></div>
       <div><span>Apply by</span><b>November 6</b></div>
-      <div><span>Price now</span><b><span data-yk="price">€395</span> per company</b></div>
-      <div><span>Next price</span><b data-yk="rises">€495 from October 30</b></div>
+      <div><span>Price now</span><b><span data-yk="price">€595</span> per company</b></div>
+      <div><span>Next price</span><b data-yk="rises">Applications close November 6</b></div>
       <div><span>Investors</span><b>Complimentary</b></div>
     </div>
     <div class="btns">
@@ -435,9 +436,9 @@ form,.done{padding:28px}
     </div>
     <div class="tiers">
       <div class="tier feat">
-        <div class="t" data-yk="badge">Early price</div>
+        <div class="t" data-yk="badge">Standard rate, until November 6</div>
         <h3>Delegation</h3>
-        <div class="p"><span data-yk="price">€395</span> <small>/ company</small></div>
+        <div class="p"><span data-yk="price">€595</span> <small>/ company</small></div>
         <ul><li>One delegate</li><li>Possible introductions where there's a fit</li><li>Kickoff, meetups and delegate group</li><li>Yorkseed House access all week</li><li>Option to host a small event or office hour at Yorkseed House</li><li>Deal Book profile</li><li>Showcase consideration</li><li>Six months of Yorkseed Connect</li><li>KoiCard access, 2 weeks</li></ul>
         <a href="#apply" class="btn btn-gold" data-tier="Delegation">Apply</a>
       </div>
@@ -459,13 +460,13 @@ form,.done{padding:28px}
         <a href="#apply" class="btn" data-tier="Premium">Apply</a>
       </div>
     </div>
-    <details class="more" id="moreWays"><summary>More ways to join <small>Partner Delegate from <span data-yk="ppartner">€795</span> · Virtual listing €195 · extra teammates · investors</small></summary>
+    <details class="more" id="moreWays"><summary>More ways to join <small>Partner Delegate from <span data-yk="ppartner">€995</span> · Virtual listing €195 · extra teammates · investors</small></summary>
     <div class="partner" id="partner">
       <div>
         <div class="t">Executives, corporates and service providers</div>
         <h3>Partner Delegate</h3>
-        <div class="p"><span data-yk="ppartner">€795</span> <small>/ company</small></div>
-        <p class="pnow" data-yk="pnote">Early price until October 29</p>
+        <div class="p"><span data-yk="ppartner">€995</span> <small>/ company</small></div>
+        <p class="pnow" data-yk="pnote">Standard Partner rate</p>
       </div>
       <ul><li>One delegate, with the delegate group and selected gatherings</li><li>Yorkseed House access all week</li><li>Option to host a small event or office hour at Yorkseed House</li><li>A seat at the Executive Lunch, Monday, November 9</li><li>A labeled Partner profile in the Deal Book</li><li>Three months of Yorkseed Connect</li><li>Extra teammates €175 each, Executive Lunch seat included</li><li>Relevant connection opportunities</li><li>Your perk for delegates, like a free consultation, discount or credit, listed in the Vault on Yorkseed Connect</li></ul>
       <a href="#apply" class="btn" data-role="Partner">Apply as a partner</a>
@@ -494,7 +495,7 @@ form,.done{padding:28px}
     <div class="side">
       <div class="label">Apply</div>
       <h2 class="big">Join us <em>in Lisbon</em></h2>
-      <p>One application for founders, partners and investors. We review every one and send the right next step.</p><p data-yk="applyline">Founders: €395 until October 29, €495 until November 2, then €595. Partners: €795, €895, then €995.</p>
+      <p>One application for founders, partners and investors. We review every one and send the right next step.</p><p data-yk="applyline">Founders: €595. Partners: €995. Applications close November 6.</p>
       <ol class="steps">
         <li>Fill in the form, five minutes</li>
         <li>Founders and partners pay right after applying, which locks the price. Investors get a confirmation</li><li>We review it and confirm your place within two days</li>
@@ -547,7 +548,7 @@ form,.done{padding:28px}
           <p class="warn" id="noTicket" hidden>The in-person delegation is for founders who'll be in Lisbon that week. You can still be in the Deal Book: choose <b>Deal Book Virtual</b> below (€195). Coming to Lisbon another time? Write to <a href="mailto:partnership@yorkseed.co">partnership@yorkseed.co</a>.</p>
           <div class="f"><span class="lab">Package</span>
             <div class="pkg" id="tierGroup">
-              <label><input type="radio" name="tier" value="Delegation"/><b>Delegation</b><span data-yk="pricewhen">€395 until October 29</span></label>
+              <label><input type="radio" name="tier" value="Delegation"/><b>Delegation</b><span data-yk="pricewhen">€595</span></label>
               <label><input type="radio" name="tier" value="Premium"/><b>Premium</b><span>€695</span></label>
               <label><input type="radio" name="tier" value="Virtual"/><b>Deal Book Virtual</b><span>€195, not travelling to Lisbon</span></label>
             </div>
@@ -592,7 +593,7 @@ form,.done{padding:28px}
           <div class="f"><label for="referral">Where did you hear about the delegation?</label>
             <select id="referral"><option value="">Choose</option><option>LinkedIn</option><option>Instagram</option><option>WhatsApp group</option><option>Luma</option><option>Yorkseed newsletter</option><option>Yorkseed event</option><option>Yorkseed Connect</option><option>Friend or colleague</option><option>Web Summit</option><option>Google search</option><option>Other</option></select>
           </div>
-          <div class="f"><label for="referralDetail">Who or where exactly?</label><input type="text" id="referralDetail" placeholder="Optional, e.g. a name or group"/></div>
+          <div class="f" id="referralDetailBox" hidden><label for="referralDetail">Who or where exactly?</label><input type="text" id="referralDetail" placeholder="Optional, e.g. a name or group"/></div>
         </div>
 
         <div class="f" id="dealbookGroup"><span class="lab">Your Deal Book profile</span>
@@ -702,6 +703,9 @@ form,.done{padding:28px}
     Investor:{org:'Firm',about:'About your firm',tagline:'One short line under your firm name, like "Investing in a more inclusive tomorrow". Up to 70 characters.',tags:'Short tags shown with your page, like "Early and growth stage", "Climate and technology", "Global and inclusive".',goals:'What do you want to see?',goalsHint:'The founders and companies you want to meet. Let us know if you can only make the December showcase.',note:'Complimentary for investors, subject to approval. We reply within two days.',done:'Thank you. We review every application within two days and will confirm your complimentary place.'}
   };
 
+  var OPTIDS=['jobTitle','oneLiner','sector','stage','raising','ticket','goals','referral','pField','pOffer','pPerk'];
+  function addOpt(){OPTIDS.forEach(function(id){var l=document.querySelector('label[for="'+id+'"]');if(!l)return;l.querySelectorAll('.optl').forEach(function(x){x.remove();});l.insertAdjacentHTML('beforeend',' <span class="optl">(optional)</span>');});}
+  (function(){var r=document.getElementById('referral');if(r)r.addEventListener('change',function(){document.getElementById('referralDetailBox').hidden=['Friend or colleague','Yorkseed event','WhatsApp group','Web Summit','Other'].indexOf(r.value)<0;});})();
   function applyRole(){
     var r=role(),c=COPY[r];
     form.querySelector('.founder-only').hidden=r!=='Founder';
@@ -714,6 +718,7 @@ form,.done{padding:28px}
     $('goalsLabel').textContent=c.goals;$('goalsHint').textContent=c.goalsHint;$('submitNote').textContent=c.note;$('submitBtn').textContent=(role()==='Investor')?'Send application':'Send application and continue to payment';
     updateTicket();
     renderMates();
+    addOpt();
   }
   function isVirtual(){var t=form.querySelector('[name=tier]:checked');return !!(t&&t.value==='Virtual');}
   function updateTicket(){var going=founder()&&ticket.value==='Not going';$('noTicket').hidden=!going;btn.disabled=going&&!isVirtual();var mp=isVirtual()?95:175;Array.prototype.forEach.call($('extraCount').options,function(o){var n=+o.value;if(n)o.textContent='+'+n+' teammate'+(n>1?'s':'')+' (€'+(mp*n)+')';});}
@@ -753,9 +758,7 @@ form,.done{padding:28px}
   }
   function validate(){
     clearAll();var ok=true;
-    var req=['firstName','lastName','jobTitle','email','phone','linkedin','company','goals','referral']
-      .concat(founder()?['oneLiner','sector','stage','raising','ticket']:[])
-      .concat(partner()?['pField','pOffer','pPerk']:[])
+    var req=['firstName','lastName','email','phone','linkedin','company']
       .concat(investor()?['iStage','iCheck','iSectors']:[]);
     req.forEach(function(id){if(!v(id)){mark($(id),'Please fill this in.');ok=false;}});
     if(v('email')&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v('email'))){mark($('email'),'That email doesn\'t look right.');ok=false;}
@@ -774,7 +777,6 @@ form,.done{padding:28px}
       else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(m[2])){mark($('m'+k+'email'),'That email doesn\'t look right.');ok=false;}
       if(!m[3]){mark($('m'+k+'phone'),'Please fill this in.');ok=false;}
     });
-    if(!form.querySelector('[name=dealbook]:checked')){mark($('dealbookGroup').querySelector('.who'),'Please choose Yes or No.');ok=false;}
     if(dealbookYes()){
       ['dbTagline','dbAbout','dbTag1','dbTag2','dbTag3'].forEach(function(id){if(!v(id)){mark($(id),'Please fill this in.');ok=false;}});
       if(v('dbAbout')&&v('dbAbout').length<40){mark($('dbAbout'),'A little more detail, please.');ok=false;}
@@ -782,7 +784,6 @@ form,.done{padding:28px}
       if(v('dbQR')&&!/^https?:\/\/\S+\.\S+/i.test(v('dbQR'))){mark($('dbQR'),'Please paste a full link starting with https://');ok=false;}
       matesData().forEach(function(m,i){if(m[4]&&!/^https?:\/\/\S+\.\S+/i.test(m[4])){mark($('m'+(i+1)+'photo'),'Please paste a full link starting with https://');ok=false;}});
     }
-    if(!form.querySelector('[name=feature]:checked')){mark($('featureGroup').querySelector('.who'),'Please choose Yes or No.');ok=false;}
     if(mediaNeeded()){['headshot','logo'].forEach(function(id){
       var x=v(id);
       if(!x){mark($(id),'Please add the link.');ok=false;}
@@ -814,8 +815,8 @@ form,.done{padding:28px}
       ['Investor stage focus',i?v('iStage'):''],['Investor sectors',i?v('iSectors'):''],['Investor check size',i?v('iCheck'):''],['Portfolio permission',i?(portfolio()==='Yes'?'Yes, choose up to 5 from website':portfolio()):''],['Portfolio companies',i&&portfolio()==='Custom'?v('pfList').split(/\n/).filter(function(x){return x.trim()}).join(' | '):''],
       [f?'Who they want to meet':(p?'Who they want to meet':'What they want to see'),v('goals')],['Access code',v('accessCode')],['Heard via',v('referral')],['Heard via details',v('referralDetail')],
       ['Deal Book section',f?'Companies':(p?'Partners':'Investors')],
-      ['Deal Book profile',form.querySelector('[name=dealbook]:checked').value],['Deal Book tagline',dealbookYes()?v('dbTagline'):''],['Deal Book about',dealbookYes()?v('dbAbout'):''],['Deal Book keywords',dealbookYes()?[v('dbTag1'),v('dbTag2'),v('dbTag3')].join(' | '):''],['Deal Book QR link',dealbookYes()?(v('dbQR')||v('website')):''],
-      ['OK to feature in press and social',form.querySelector('[name=feature]:checked').value],['Headshot link',mediaNeeded()?v('headshot'):''],['Logo link',mediaNeeded()?v('logo'):'']
+      ['Deal Book profile',((form.querySelector('[name=dealbook]:checked')||{}).value||'Not answered')],['Deal Book tagline',dealbookYes()?v('dbTagline'):''],['Deal Book about',dealbookYes()?v('dbAbout'):''],['Deal Book keywords',dealbookYes()?[v('dbTag1'),v('dbTag2'),v('dbTag3')].join(' | '):''],['Deal Book QR link',dealbookYes()?(v('dbQR')||v('website')):''],
+      ['OK to feature in press and social',((form.querySelector('[name=feature]:checked')||{}).value||'Not answered')],['Headshot link',mediaNeeded()?v('headshot'):''],['Logo link',mediaNeeded()?v('logo'):'']
     ];
     var subj=(v('accessCode')?'[ACCESS CODE '+v('accessCode').toUpperCase()+'] ':'')+'Lisbon Delegation: '+r+' | '+v('company')+(f?' | '+tier:(p?' | '+v('pField'):''));
     var data={access_key:'5c1c96c6-7a4f-4cc7-85d3-4dd79f67e20a',subject:subj,from_name:'Yorkseed Lisbon Delegation',replyto:v('email')};
