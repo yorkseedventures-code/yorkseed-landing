@@ -2422,8 +2422,8 @@ const DB_PRICE=750;
 /* Conference spreadsheets we share. US$200 on its own (SLOTS.sheet), US$150 as an add-on */
 const SHEET_PRICE=150;
 /* Pulse newsletter add-on: a sponsor spot in a city's block of the weekly Pulse. Max 2 sponsors per city per week. Keep in step with PULSE_PRICE in yorkseed-backend listAds.routes.js. */
-const PULSE_PRICE={usd:{top:[99,299],major:[69,199],std:[49,149]},gbp:{top:[85,249],major:[59,169],std:[42,129]},eur:{top:[95,289],major:[69,195],std:[49,145]}};
-const PULSE_SYM={usd:"US$",gbp:"£",eur:"€"},PULSE_OFF=0.8;
+const PULSE_PRICE={usd:{top:[99,299],major:[69,199],std:[49,149]},gbp:{top:[89,269],major:[89,269],std:[49,149]},eur:{top:[89,269],major:[89,269],std:[69,209]}};
+const PULSE_SYM={usd:"US$",gbp:"£",eur:"€"},PULSE_OFF=1;
 const PULSE_TOP={nyc:1,sf:1,ldn:1},PULSE_MAJOR={atx:1,bos:1,la:1,mia:1,sgp:1,dxb:1,ber:1,par:1,ams:1,lis:1,mad:1,bcn:1};
 const PULSE_GBP=["ldn","man","edi"],PULSE_EUR=["ams","bcn","ber","can","cph","dub","hel","lis","mil","muc","par","sto","zrh","dav","mad","osl","vie","prg","bru","waw","bud","iev","beg","ist"];
 function pulseCalc(hub,n){const cur=PULSE_GBP.includes(hub)?"gbp":PULSE_EUR.includes(hub)?"eur":"usd",tier=PULSE_TOP[hub]?"top":PULSE_MAJOR[hub]?"major":"std",p=PULSE_PRICE[cur][tier];return{cur,tier,amt:Math.round((Math.floor(n/4)*p[1]+(n%4)*p[0])*PULSE_OFF)};}
@@ -2446,7 +2446,7 @@ function pulseField(){
   if(!BK.pulseHub)BK.pulseHub=BK.hub;const mons=pulseMondays(8);if(!mons.includes(BK.pulseStart))BK.pulseStart=mons[0];
   const pc=pulseCalc(BK.pulseHub,BK.pulseWeeks),usd=pc.cur==="usd";
   const mfmt=d=>new Intl.DateTimeFormat("en-US",{month:"short",day:"numeric",timeZone:"UTC"}).format(new Date(d+"T12:00:00Z"));
-  return `<div class="field"><label>Add-on</label><div class="opts"><label><input type="checkbox" id="bkPU"${BK.pulse?" checked":""}><b>Pulse newsletter spot</b><span class="pr" id="bkPUp">+${pulseMoney(pc.cur,pc.amt)}</span><small>Your link pinned first in a city's block of Pulse, our weekly email to 13,000+ founders and investors. Only 2 sponsors per city per week. 20% off when you add it to a booking.</small></label></div>
+  return `<div class="field"><label>Add-on</label><div class="opts"><label><input type="checkbox" id="bkPU"${BK.pulse?" checked":""}><b>Pulse newsletter spot</b><span class="pr" id="bkPUp">+${pulseMoney(pc.cur,pc.amt)}</span><small>Your link pinned first in a city's block of Pulse, our weekly email to 13,000+ founders and investors. Only 2 sponsors per city per week.</small></label></div>
     <div id="bkPUw"${BK.pulse?"":" hidden"} class="fgrid" style="margin-top:8px">
       <div class="field"><label for="bkPUh">Newsletter city</label><select id="bkPUh">${HUBS.filter(h=>h.id!=="virtual").map(h=>`<option value="${h.id}"${h.id===BK.pulseHub?" selected":""}>${h.name}</option>`).join("")}</select></div>
       <div class="field"><label for="bkPUn">How many weeks</label><select id="bkPUn">${[1,2,4,8].map(n=>`<option value="${n}"${n===BK.pulseWeeks?" selected":""}>${n} week${n>1?"s":""} · ${pulseMoney(pc.cur,pulseCalc(BK.pulseHub,n).amt)}</option>`).join("")}</select></div>
