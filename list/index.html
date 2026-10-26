@@ -2087,6 +2087,18 @@ function shrinkCover(file){return new Promise((ok,no)=>{
       out=cv.toDataURL("image/jpeg",i<3?0.86-i*0.1:0.7);if(out.length*0.75<900*1024)break;s*=0.8;}
     out.length*0.75<1.1*1024*1024?ok(out):no("We couldn't shrink that image enough. Try a smaller one.");};
   im.onerror=()=>{URL.revokeObjectURL(u);no("We couldn't read that image. Try a JPG or PNG.");};im.src=u;});}
+/* shrink any image in the browser: longest side <= maxPx, JPEG under maxBytes; rejects images narrower than minW */
+function shrinkTo(file,maxPx,maxBytes,minW){return new Promise((ok,no)=>{
+  if(!file||!/^image\/(jpeg|png|webp|gif)$/i.test(file.type||""))return no("Pick a JPG or PNG image.");
+  if(file.size>25*1024*1024)return no("That image is over 25 MB. Please pick a smaller one.");
+  const u=URL.createObjectURL(file),im=new Image();
+  im.onload=()=>{URL.revokeObjectURL(u);const w0=im.naturalWidth,h0=im.naturalHeight;
+    if(w0<minW)return no(`That image is only ${w0} px wide. Please use one at least ${minW} px wide.`);
+    let sc=Math.min(1,maxPx/w0,maxPx/h0),out="",w=w0,h=h0;
+    for(let i=0;i<7;i++){w=Math.round(w0*sc);h=Math.round(h0*sc);const cv=document.createElement("canvas");cv.width=w;cv.height=h;const g=cv.getContext("2d");g.fillStyle="#fff";g.fillRect(0,0,w,h);g.drawImage(im,0,0,w,h);
+      out=cv.toDataURL("image/jpeg",i<3?0.86-i*0.1:0.6);if(out.length*0.75<maxBytes)break;sc*=0.8;}
+    out.length*0.75<maxBytes*1.2?ok({url:out,w,h}):no("We couldn't shrink that image enough. Try a smaller one.");};
+  im.onerror=()=>{URL.revokeObjectURL(u);no("We couldn't read that image. Try a JPG or PNG.");};im.src=u;});}
 function mountCover(box,key,id){if(!box)return;
   const draw=(msg)=>{const v=COVER[key];box.innerHTML=`<input type="file" id="${id}" accept="image/jpeg,image/png,image/webp,image/heic,image/heif"><label class="cvbtn" for="${id}" aria-label="${v?"Change cover image":"Upload a cover image"}">${v?`<img src="${v}" alt="">`:"+ Upload"}</label><span class="cvside">${msg?`<span style="color:var(--red,#b42318)">${esc(msg)}</span>`:v?"Looks good. This shows on your event card.":"Landscape works best, about 1200 × 630. JPG or PNG."}${v?`<button type="button" data-cvrm>Remove</button>`:""}</span>`;
     box.querySelector("input").onchange=async ev=>{const f=ev.target.files&&ev.target.files[0];if(!f)return;box.querySelector(".cvside").textContent="Preparing…";try{COVER[key]=await shrinkCover(f);draw();}catch(m){COVER[key]="";draw(typeof m==="string"?m:"We couldn't read that image.");}};
@@ -2428,7 +2440,7 @@ function drawBook(){
     ${v.scope?`<div class="field"><label for="bkHub">City</label><select id="bkHub">${HUBS.filter(h=>h.id!=="virtual").map(h=>`<option value="${h.id}"${h.id===BK.hub?" selected":""}>${h.name}</option>`).join("")}</select></div>`:""}
     ${BK.kind==="sheet"?`<div class="field"><label for="bkSheet">Which spreadsheet</label>${sheetSel("bkSheet")}</div>`:""}
     <div class="field"><label>How long</label><div class="opts">${v.durs.map(([k,l,p,mo],i)=>`<label><input type="radio" name="bkDur" value="${k}"${durOf(v,BK.dur)[0]===k?" checked":""}><b>${l}</b><span class="pr">${money(p)}</span>${i&&mo>=1?`<small>${money(Math.round(p/mo))} a month${mo>=6?", best value":""}</small>`:mo<1?`<small>${BK.kind==="feat"?FEAT_NOTE[k]:BK.kind==="sheet"?"One highlighted row, from when the sheet goes out until the conference ends.":"Minimum. Good for a Tech Week or launch."}</small>`:""}</label>`).join("")}</div></div>
-    <div class="field"${BK.kind==="side"?" hidden":""}><label>Add-on</label><div class="opts">${BK.kind==="sheet"?"":`<label><input type="checkbox" id="bkSH"${BK.sheet?" checked":""}><b>Conference spreadsheet feature</b><span class="pr">+${money(SHEET_PRICE)}</span><small>A highlighted row in the Yorkseed sheet we pass around for one conference or Tech Week.</small></label><div class="field" id="bkSHw"${BK.sheet?"":" hidden"} style="margin:2px 0 8px"><label for="bkSheetA">Which spreadsheet</label>${sheetSel("bkSheetA")}</div>`}<label><input type="checkbox" id="bkDB"${BK.db?" checked":""}><b>Yorkseed Deal Book page</b><span class="pr">+${money(DB_PRICE)}</span><small id="bkDBt">${dbText()}</small></label></div><small class="muted" style="font-size:12.5px;margin-top:6px;display:block">You send the page content after we confirm. Just a Deal Book page: US$1,000. Presenting a whole edition: <a href="mailto:info@yorkseed.co?subject=Deal%20Book%20presenting%20partner" style="color:inherit;text-decoration:underline">ask us</a>.</small>
+    <div class="field"${BK.kind==="side"?" hidden":""}><label>Add-on</label><div class="opts">${BK.kind==="sheet"?"":`<label><input type="checkbox" id="bkSH"${BK.sheet?" checked":""}><b>Conference spreadsheet feature</b><span class="pr">+${money(SHEET_PRICE)}</span><small>A highlighted row in the Yorkseed sheet we pass around for one conference or Tech Week.</small></label><div class="field" id="bkSHw"${BK.sheet?"":" hidden"} style="margin:2px 0 8px"><label for="bkSheetA">Which spreadsheet</label>${sheetSel("bkSheetA")}</div>`}<label><input type="checkbox" id="bkDB"${BK.db?" checked":""}><b>Yorkseed Deal Book page</b><span class="pr">+${money(DB_PRICE)}</span><small id="bkDBt">${dbText()}</small></label></div><small class="muted" style="font-size:12.5px;margin-top:6px;display:block">Fill in your page below and we build it for you. Just a Deal Book page: US$1,000. Presenting a whole edition: <a href="mailto:info@yorkseed.co?subject=Deal%20Book%20presenting%20partner" style="color:inherit;text-decoration:underline">ask us</a>.</small>
     <details class="dbexw"><summary>See an example Deal Book page</summary>
       <div class="dbex"><span class="eyebrow">Partner · Lisbon edition</span>
         <h4>Harbor &amp; Pine <em>Legal</em></h4>
@@ -2442,16 +2454,16 @@ function drawBook(){
     <div class="fgrid">
       <div class="field"${BK.kind==="side"?" hidden":""}><label for="bkStart">${BK.kind==="feat"?"Event date":BK.kind==="sheet"?"Your event date":"Start"}</label>${v.durs.some(d=>d[3]<1)?`<input id="bkStart" type="date" min="${addDays(1)}" value="${addDays(7)}">`:`<select id="bkStart">${monthOpts().map(([v2,l])=>`<option value="${v2}-01">${l}</option>`).join("")}</select>`}</div>
       <div class="field"><label for="bkBrand">${BK.kind==="feat"?"Organizer *":"Brand name *"}</label><input id="bkBrand" maxlength="40" placeholder="${BK.kind==="feat"?"Who's hosting":"Your company"}"></div>
-      <div class="field full"${BK.kind==="feat"||BK.kind==="sheet"?"":" hidden"}><label for="bkHead">${BK.kind==="feat"?"Event name *":BK.kind==="sheet"?"Event or company name *":"Headline *"}</label><input id="bkHead" maxlength="70" placeholder="${BK.kind==="feat"?"As it appears on the List":BK.kind==="sheet"?"As it appears in the sheet":"One line, up to 70 characters"}"></div>
+      <div class="field full"${BK.kind==="side"?" hidden":""}><label for="bkHead">${BK.kind==="feat"?"Event name *":BK.kind==="sheet"?"Event or company name *":"Headline *"}</label><input id="bkHead" maxlength="70" placeholder="${BK.kind==="feat"?"As it appears on the List":BK.kind==="sheet"?"As it appears in the sheet":"One line, up to 70 characters"}"></div>
       ${true?"":`<div class="field full"><label for="bkBlurb">Short description</label><input id="bkBlurb" maxlength="120" placeholder="Optional, up to 120 characters"></div>`}
-      <div class="field full"${BK.kind==="feat"||BK.kind==="sheet"||BK.kind==="side"?"":" hidden"}><label for="bkUrl">${BK.kind==="feat"?"Event link":BK.kind==="side"?"Where your ad links to *":"Link"}</label><input id="bkUrl" type="url" placeholder="${BK.kind==="feat"?"Luma, Eventbrite or your site":"https://"}"></div>
+      <div class="field full"><label for="bkUrl">${BK.kind==="feat"?"Event link *":BK.kind==="side"?"Where your ad links to *":BK.kind==="sheet"?"Link (optional)":"Where your banner links to *"}</label><input id="bkUrl" type="url" placeholder="${BK.kind==="feat"?"Luma, Eventbrite or your site":"https://"}"></div>
       ${true?"":`<div class="field"><label for="bkCta">Button text</label><input id="bkCta" maxlength="20" placeholder="Learn more"></div>`}
-      <div class="field full"${BK.kind==="side"?"":" hidden"}><label for="bkImg">${BK.kind==="side"?"Your ad graphic *":BK.kind==="map"?"Logo":"Banner image"} <span style="text-transform:none;letter-spacing:0">${BK.kind==="side"?"":"(16:9, JPG or PNG)"}</span></label>${BK.kind==="side"?`<small class="muted" style="display:block;font-size:12.5px;margin:0 0 6px">Send a finished design: <b>300 × 250 px</b> (or 600 × 500 for sharp screens), JPG, PNG or GIF, under 1 MB. It shows exactly as you upload it, so put your logo and message in the graphic. Keep text big: your logo and one short line. On phones it shows at about half that size.</small>`:""}<input id="bkImg" type="file" accept="${BK.kind==="side"?"image/png,image/jpeg,image/gif":"image/*"}"><div id="bkImgOk" class="muted" style="font-size:12.5px;margin-top:6px"></div></div>
-      ${BK.kind==="side"?`<div class="field full"><label style="display:flex;gap:8px;align-items:flex-start;text-transform:none;letter-spacing:0;font-size:14px;cursor:pointer"><input type="checkbox" id="bkAgree" style="margin-top:3px"> <span>I agree to the <a href="#" id="bkRules" style="color:inherit;text-decoration:underline">ad guidelines</a>. *</span></label><div id="bkRulesT" hidden class="muted" style="font-size:13px;line-height:1.5;margin-top:6px">Ads must be for a real business, event or product and link to it. No adult content, gambling, cannabis, weapons, political campaigns, crypto giveaways, misleading claims, or other event-listing sites. Yorkseed can take down an ad that breaks these and will refund the unused days.</div></div>`:""}
+      <div class="field full"${BK.kind==="feat"||BK.kind==="sheet"?" hidden":""}><label for="bkImg">${BK.kind==="side"?"Your ad graphic *":BK.kind==="map"?"Logo (optional)":"Banner image *"} <span style="text-transform:none;letter-spacing:0">${BK.kind==="side"?"":BK.kind==="map"?"(square or wide, JPG or PNG)":"(wide, about 16:9, JPG or PNG)"}</span></label>${BK.kind==="side"?`<small class="muted" style="display:block;font-size:12.5px;margin:0 0 6px">Send a finished design: <b>300 × 250 px</b> (or 600 × 500 for sharp screens), JPG, PNG or GIF, under 1 MB. It shows exactly as you upload it, so put your logo and message in the graphic. Keep text big: your logo and one short line. On phones it shows at about half that size.</small>`:""}<input id="bkImg" type="file" accept="${BK.kind==="side"?"image/png,image/jpeg,image/gif":"image/png,image/jpeg,image/gif,image/webp"}"><div id="bkImgOk" class="muted" style="font-size:12.5px;margin-top:6px"></div></div>
+      ${true?`<div class="field full"><label style="display:flex;gap:8px;align-items:flex-start;text-transform:none;letter-spacing:0;font-size:14px;cursor:pointer"><input type="checkbox" id="bkAgree" style="margin-top:3px;width:auto;flex:none"> <span>I agree to the <a href="#" id="bkRules" style="color:inherit;text-decoration:underline">ad guidelines</a>. *</span></label><div id="bkRulesT" hidden class="muted" style="font-size:13px;line-height:1.5;margin-top:6px">Ads and banners must be for a real business, event or product and link to it. No adult content, gambling, cannabis, weapons, political campaigns, crypto giveaways, misleading claims, or other event-listing sites. Yorkseed can take down a banner that breaks these and will refund the unused days.</div></div>`:""}
       <div class="field"><label for="bkName">Your name *</label><input id="bkName" autocomplete="name"></div>
       <div class="field"><label for="bkEmail">Work email *</label><input id="bkEmail" type="email" autocomplete="email"></div>
     </div>
-    <div class="dbsec" hidden id="bkDBsec"><span class="eyebrow">Your Deal Book page</span>
+    <div class="dbsec"${BK.db&&BK.kind!=="side"?"":" hidden"} id="bkDBsec"><span class="eyebrow">Your Deal Book page</span>
       <div class="fgrid">
         <div class="field full"><label for="dbAbout">Paragraph 1 · Who you are *</label><textarea id="dbAbout" maxlength="550" rows="3" placeholder="What you do, who you work with and why founders or investors should know you. Up to 550 characters."></textarea></div>
         <div class="field full"><label for="dbOfferT">Your offer *</label><input id="dbOfferT" maxlength="50" placeholder="e.g. 6 months free, US$5,000 in credits, free 30-min consult"></div>
@@ -2467,24 +2479,29 @@ function drawBook(){
     </div>
     <details class="bkprev"><summary class="eyebrow" style="color:var(--muted);cursor:pointer">See how it looks</summary><div id="bkPrev" style="margin-top:10px"></div></details>
     <span class="err" id="bkErr" hidden></span>
-    <div class="bksum"><div><small id="bkSumLbl"></small><div class="sum" id="bkSum"></div></div><button class="btn btn-gold" type="submit" id="bkGo">${BK.kind==="side"?"Pay and go live":"Request this slot"}</button></div>
-    ${BK.kind==="side"?`<p class="note" style="margin:0">Pay by card on the next screen. Your ad goes live on the ${v.scope?esc(hubById(BK.hub).name)+" ":""}events page the moment payment clears, and comes down by itself when your time is up. Up to 3 sidebar ads per city.</p>`:`<p class="note" style="margin:0">No payment now. We confirm the slot and email you an invoice plus a link to send your ${BK.kind==="feat"?"event details":BK.kind==="sheet"?"listing details":"artwork, headline and link"}. ${BK.kind==="sheet"?"You're in the sheet before it goes out.":"It goes live on the start date."}</p>`}
+    <div class="bksum"><div><small id="bkSumLbl"></small><div class="sum" id="bkSum"></div></div><button class="btn btn-gold" type="submit" id="bkGo">${BK.kind==="side"?"Pay and go live":BK.kind==="feat"||BK.kind==="sheet"?"Pay and book":"Pay and book"}</button></div>
+    <p class="note" style="margin:0">${BK.kind==="feat"||BK.kind==="sheet"?`Pay by card on the next screen. We add ${BK.kind==="feat"?"your event as a featured event":"your row to the sheet"} for you and email you when it is in place. No back and forth.`:`Pay by card on the next screen. Your ${BK.kind==="side"?"ad":"banner"} goes live ${v.scope?"on the "+esc(hubById(BK.hub).name)+" page ":""}the moment payment clears, or on your start date if that is later, and comes down by itself when your time is up. ${v.cap}.`}${BK.db||BK.sheet?" Add-ons are set up by our team from the details you send, and we email you when they are ready.":""}</p>
   </form>`;
   const f=$("#bkForm");
   f.querySelectorAll("input[name=bkKind]").forEach(r=>r.onchange=()=>{keep();BK.kind=r.value;BK.goal="";drawBook();restore();});
   f.querySelectorAll("[data-goal]").forEach(bt=>bt.onclick=()=>{const g=GOALMAP[bt.dataset.goal];keep();BK.goal=bt.dataset.goal;BK.kind=g[0];BK.dur=g[1];drawBook();restore();});
   f.querySelectorAll("input[name=bkDur]").forEach(r=>r.onchange=()=>{BK.dur=r.value;sumBook();});
   if($("#bkHub"))$("#bkHub").onchange=e=>{BK.hub=e.target.value;sumBook();};
-  $("#bkDB").onchange=e=>{BK.db=e.target.checked;sumBook();};
+  $("#bkDB").onchange=e=>{BK.db=e.target.checked;$("#bkDBsec").hidden=!BK.db;sumBook();};
   if($("#bkSH"))$("#bkSH").onchange=e=>{BK.sheet=e.target.checked;$("#bkSHw").hidden=!BK.sheet;sumBook();};
   ["bkSheet","bkSheetA"].forEach(id=>{if($("#"+id))$("#"+id).onchange=e=>{BK.sheetName=e.target.value;if(id==="bkSheet"){const f=$(".slotprev .shbar");if(f)f.textContent=BK.sheetName+" · Yorkseed sheet";}sumBook();};});
-  [1,2].forEach(n=>{$("#dbImg"+n).onchange=e=>{const file=e.target.files[0];if(!file)return;if(file.size>3e6){showBkErr("That headshot is over 3 MB. Use a smaller JPG or PNG.");return;}const rd=new FileReader();rd.onload=()=>{BK.hs[n-1]=rd.result;};rd.readAsDataURL(file);};});
+  [1,2].forEach(n=>{$("#dbImg"+n).onchange=async e=>{const file=e.target.files[0];if(!file)return;try{BK.hs[n-1]=(await shrinkTo(file,500,180*1024,100)).url;showBkErr("");}catch(m){BK.hs[n-1]="";showBkErr(typeof m==="string"?m:"We couldn't read that headshot. Use a JPG or PNG.");}};});
   ["bkBrand","bkHead","bkBlurb","bkCta","bkUrl"].forEach(id=>{const el=$("#"+id);if(el)el.oninput=prevBook;});
-  $("#bkImg").onchange=e=>{const file=e.target.files[0];if(!file)return;const side=BK.kind==="side";BK.img="";BK.imgOk=false;$("#bkImgOk").textContent="";
-    if(file.size>(side?1048576:3e6)){showBkErr(side?"That graphic is over 1 MB. Please export a smaller file.":"That image is over 3 MB. Use a smaller JPG or PNG.");return;}
-    const rd=new FileReader();rd.onload=()=>{const im=new Image();im.onload=()=>{const w=im.naturalWidth,h=im.naturalHeight;
-      if(side&&(w<300||Math.abs(w/h-1.2)>0.03)){showBkErr(`Your graphic is ${w} × ${h}. It needs to be 300 × 250 (or 600 × 500).`);return;}
-      showBkErr("");BK.img=rd.result;BK.imgOk=true;if(side)$("#bkImgOk").innerHTML=`✓ ${w} × ${h}, looks good.`;prevBook();};im.src=rd.result;};rd.readAsDataURL(file);};
+  $("#bkImg").onchange=async e=>{const file=e.target.files[0];if(!file)return;const side=BK.kind==="side";BK.img="";BK.imgOk=false;$("#bkImgOk").textContent="";
+    try{
+      if(side){if(file.size>1048576){showBkErr("That graphic is over 1 MB. Please export a smaller file.");return;}
+        const rd=await new Promise((ok,no)=>{const r=new FileReader();r.onload=()=>ok(r.result);r.onerror=no;r.readAsDataURL(file);});
+        const im=await new Promise((ok,no)=>{const i=new Image();i.onload=()=>ok(i);i.onerror=no;i.src=rd;});
+        const w=im.naturalWidth,h=im.naturalHeight;
+        if(w<300||Math.abs(w/h-1.2)>0.03){showBkErr(`Your graphic is ${w} × ${h}. It needs to be 300 × 250 (or 600 × 500).`);return;}
+        showBkErr("");BK.img=rd;BK.imgOk=true;$("#bkImgOk").innerHTML=`✓ ${w} × ${h}, looks good.`;prevBook();return;}
+      const out=await shrinkTo(file,1600,900*1024,300);showBkErr("");BK.img=out.url;BK.imgOk=true;$("#bkImgOk").innerHTML=`✓ ${out.w} × ${out.h}, looks good.`;prevBook();
+    }catch(m){showBkErr(typeof m==="string"?m:"We couldn't read that image. Try a JPG or PNG.");}};
   if($("#bkRules"))$("#bkRules").onclick=e=>{e.preventDefault();$("#bkRulesT").hidden=!$("#bkRulesT").hidden;};
   f.onsubmit=submitBook;sumBook();prevBook();
 }
@@ -2497,26 +2514,26 @@ function prevBook(){const d=bkData();const b={...d,brand:d.brand||"Your brand",h
   $("#bkPrev").innerHTML=BK.kind==="sheet"?sheetPrev().replace("★ Your event or company","★ "+esc(d.headline||"Your event or company")).replace(">You<",">"+esc(d.brand||"You")+"<"):BK.kind==="feat"?`<div class="crow feat" style="pointer-events:none"><div class="t">${d.start?(()=>{const p=dParts(d.start);return p.wd+" "+p.day+" "+p.mon;})():"Your date"}</div><button class="main" type="button" tabindex="-1"><span class="ttl">${esc(d.headline||"Your event name")} ${badge("featured")}</span><span class="sub">${esc(hubById(BK.hub).name)}${d.brand?" · "+esc(d.brand):""}</span></button></div><small class="muted">Also a green star on the ${esc(hubById(BK.hub).name)} map until the day.</small>`:BK.kind==="map"?`<div class="mapprev"><svg viewBox="0 0 360 150" aria-hidden="true"><rect width="360" height="150" class="sea"/><path class="land" d="M0 70 Q60 40 120 60 T240 50 T360 70 V150 H0Z"/><g class="hubdot" transform="translate(150 60)"><circle r="18"/><text class="cnt" dy="6" text-anchor="middle" style="font-size:15px">${hubCount(BK.hub)}</text></g><g class="spin-pin" transform="translate(132 90)"><path class="sp-tail" d="M18 -30 L10 0 L26 0 Z"/><rect class="sp-box" x="-60" y="0" width="${Math.max(120,b.brand.length*12+60)}" height="40"/><path class="fstar" transform="translate(-40 20)" d="${starPath(10)}"/><text class="sp-lab" x="-24" y="16" style="font-size:9px">FEATURED EVENT</text><text class="sp-name" x="-24" y="32" style="font-size:15px">${esc(b.headline||b.brand)}</text></g></svg><small>${esc(hubById(BK.hub).name)} on the Yorkseed map</small></div>`:bannerHtml(BK.kind,BK.hub,b,BK.kind==="list");}
 function showBkErr(m){const e=$("#bkErr");e.textContent=m;e.hidden=!m;}
 async function payForAd(d){
-  const miss=!d.brand?"Add your brand name.":!BK.img||!BK.imgOk?"Upload your 300 × 250 ad graphic.":!d.url?"Add the link your ad goes to (https://...).":!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.email)?"Add your email for the receipt.":!($("#bkAgree")||{}).checked?"Please agree to the ad guidelines.":"";
+  const k=d.kind,sc=SLOTS[k].scope;
+  const miss=!d.brand?(k==="feat"?"Add the organizer.":"Add your brand name."):
+    k==="side"&&(!BK.img||!BK.imgOk)?"Upload your 300 × 250 ad graphic.":
+    ["city","event","home"].includes(k)&&!BK.img?"Upload your banner image.":
+    k!=="side"&&!d.headline?(k==="feat"?"Add the event name.":k==="sheet"?"Add the event or company name.":"Add a headline."):
+    k!=="sheet"&&!/^https?:\/\/[^\s]+\.[^\s]+/.test(d.url)?(k==="feat"?"Add your event link (https://...).":"Add the link it goes to (https://...)."):
+    k==="feat"&&!/^\d{4}-\d{2}-\d{2}$/.test(d.start||"")?"Pick the date of your event.":
+    !d.name?"Add your name.":
+    !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.email)?"Add a work email like you@company.com.":
+    d.db&&(!d.dbPage.about||!d.dbPage.offerTitle||!d.dbPage.people.length)?"Finish your Deal Book page: who you are, your offer and one contact.":
+    !($("#bkAgree")||{}).checked?"Please agree to the ad guidelines.":"";
   showBkErr(miss);if(miss)return;
   const go=$("#bkGo");go.disabled=true;go.textContent="Opening checkout…";
-  try{const r=await fetch(ADS_API+"/checkout",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({hub:BK.hub,hubName:hubById(BK.hub).name,dur:d.dur,brand:d.brand,url:d.url,alt:d.headline||"",name:d.name,email:d.email,image:BK.img,agree:true,back:"#"+hubSlug(hubById(BK.hub))})});
+  const back=sc?"#"+hubSlug(hubById(BK.hub)):"";
+  try{const r=await fetch(ADS_API+"/checkout",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({kind:k,hub:sc?BK.hub:"all",hubName:sc?hubById(BK.hub).name:"",dur:d.dur,start:d.start,brand:d.brand,url:d.url,headline:d.headline,alt:d.headline,name:d.name,email:d.email,image:BK.img||"",agree:true,back,
+      dealBook:!!d.db,dbPage:d.db?d.dbPage:null,shAdd:!!d.shAdd,sheetName:(k==="sheet"||d.shAdd)?BK.sheetName:""})});
     const x=await r.json().catch(()=>({}));if(r.ok&&x.url){location.href=x.url;return;}showBkErr(x.message||"Checkout couldn't start. Please try again.");}
   catch(e){showBkErr(`We couldn't reach checkout. Please try again or email ${YS_INBOX}.`);}
-  go.disabled=false;go.textContent="Pay and go live";}
-function submitBook(ev){ev.preventDefault();const d=bkData();if(d.kind==="side")return payForAd(d);
-  const miss=!d.brand?"Add your brand name.":d.kind==="feat"&&!d.headline?"Add the event name.":d.kind==="sheet"&&!d.headline?"Add the event or company name.":!d.name?"Add your name.":!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.email)?"Add a work email like you@company.com.":"";
-  showBkErr(miss);if(miss)return;
-  const v=SLOTS[d.kind];const du=durOf(v,d.dur);const price=du[2]+(d.db?DB_PRICE:0)+(d.shAdd?SHEET_PRICE:0);const isS=d.kind==="sheet";const isF=d.kind==="feat";const evd=d.start||addDays(7);const fst=isF?(()=>{const x=new Date(evd+"T12:00:00Z");x.setUTCDate(x.getUTCDate()-(FEAT_DAYS[d.dur]||14));const k=x.toISOString().slice(0,10);return k>addDays(0)?k:addDays(0);})():null;const st0=new Date((isF?fst:(d.start||addDays(7)))+"T12:00:00Z");const end=isF?new Date((d.start||addDays(7))+"T12:00:00Z"):du[3]<1?new Date(st0.getTime()+13*864e5):new Date(Date.UTC(st0.getUTCFullYear(),st0.getUTCMonth()+du[3],st0.getUTCDate()-1));
-  BOOKINGS=BOOKINGS.filter(b=>!(b.kind===d.kind&&b.hub===d.hub));BOOKINGS.push(d);
-  try{localStorage.setItem("yl-banners",JSON.stringify(BOOKINGS));}catch(e){try{localStorage.setItem("yl-banners",JSON.stringify(BOOKINGS.map(b=>({...b,img:""}))));}catch(x){}}
-  const fmt=dt=>new Intl.DateTimeFormat("en-US",du[3]<6?{month:"short",day:"numeric",year:"numeric",timeZone:"UTC"}:{month:"long",year:"numeric",timeZone:"UTC"}).format(dt);
-  $("#bkBody").innerHTML=`<div class="bkdone"><span class="done">✓</span><h3>Almost <em>done</em></h3><p class="muted" style="margin:0">Send it to us below. Then we confirm the slot with ${esc(d.email)} and send an invoice with a link to upload your ${d.kind==="feat"?"event details":d.kind==="sheet"?"listing details":"artwork, headline and link"}${d.db?", plus your Deal Book page (2 paragraphs, your offer, up to 2 headshots and contacts)":""}. A sample is showing on this preview so you can see where it goes.</p>
-  <dl><dt>Slot</dt><dd>${v.name}${d.hub?" · "+hubById(d.hub).name:""}</dd>${isS?`<dt>Spreadsheet</dt><dd>${esc(d.sheet)}</dd>`:`<dt>Runs</dt><dd>${fmt(st0)} – ${fmt(end)} (${du[1]})</dd>`}${d.shAdd?`<dt>Add-on</dt><dd>${esc(d.sheet)} spreadsheet feature</dd>`:""}${d.db?`<dt>Add-on</dt><dd>Yorkseed Deal Book page</dd>`:""}<dt>Brand</dt><dd>${esc(d.brand)}</dd><dt>Total</dt><dd>${money(price)}</dd></dl>
-  <div style="display:flex;flex-wrap:wrap;gap:10px"><a class="btn btn-primary" href="${esc(mailYS("Banner booking: "+v.name+(d.hub?" · "+hubById(d.hub).name:"")+" · "+du[1],["Placement: "+v.name+(d.hub?" · "+hubById(d.hub).name:""),"Length: "+du[1],isS?"Spreadsheet: "+d.sheet:"Runs: "+fmt(st0)+" – "+fmt(end),d.kind==="feat"||isS?(isS?"Listing: ":"Event: ")+d.headline+" · "+(d.url||""):"","Add-on: "+([d.shAdd?d.sheet+" spreadsheet feature (+"+money(SHEET_PRICE)+")":"",d.db?"Yorkseed Deal Book page (+"+money(DB_PRICE)+")":""].filter(Boolean).join(", ")||"none"),"Total: "+money(price),"","Brand / organizer: "+d.brand,"Name: "+d.name,"Email: "+d.email]))}" target="_blank" rel="noopener">Send request to Yorkseed</a><button class="btn btn-line" type="button" id="bkSee">Preview it on the site</button></div><small style="display:block;margin-top:8px;color:var(--muted)">Opens your email with the booking filled in. Or email ${YS_INBOX}.</small></div>`;
-  $("#bkSee").onclick=()=>{closeBook();if(d.kind==="home"){show("home");setTimeout(()=>$("#bHome").scrollIntoView({behavior:"smooth"}),50);}else if(d.kind==="map"){show("home");setTimeout(()=>$("#mapsec").scrollIntoView({behavior:"smooth"}),50);}else if(d.kind==="event"){const e1=upcoming().sort((a,b)=>a.utc-b.utc)[0];goEvent(e1.id);setTimeout(()=>document.querySelector(".evspons").scrollIntoView({behavior:"smooth"}),80);}else{st.mode="list";goCity(d.hub);}};
-  renderBanners();if(typeof drawMZ==="function")drawMZ();if(st.view==="city")renderCity();
-}
+  go.disabled=false;go.textContent=k==="side"?"Pay and go live":"Pay and book";}
+function submitBook(ev){ev.preventDefault();return payForAd(bkData());}
 $("#bkClose").onclick=closeBook;
 $("#book").addEventListener("click",e=>{if(e.target.id==="book")closeBook();});
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!$("#book").hidden)closeBook();});
@@ -2585,7 +2602,9 @@ loadSelfAds();
 (function adReturn(){const m=location.search.match(/[?&]ad=([a-f0-9]{24})/);if(!m)return;
   try{history.replaceState(history.state,"",location.pathname+location.hash);}catch(e){}
   let n=0;const poll=()=>fetch(ADS_API+"/status/"+m[1]).then(r=>r.json()).then(x=>{
-    if(x.status==="live"){const end=x.endAt?new Intl.DateTimeFormat("en-US",{month:"long",day:"numeric",year:"numeric"}).format(new Date(x.endAt)):"";toast(`Payment received. Your ad is live${x.hubName?" in "+x.hubName:""}${end?" until "+end:""}. A confirmation email is on its way.`);loadSelfAds();return;}
+    const dt=v=>v?new Intl.DateTimeFormat("en-US",{month:"long",day:"numeric",year:"numeric"}).format(new Date(v)):"";
+    if(x.status==="paid"){toast("Payment received. We are setting up your booking now and will email you when it is in place.");return;}
+    if(x.status==="live"){const end=dt(x.endAt);if(x.startAt&&new Date(x.startAt)>new Date(Date.now()+36e5)){toast(`Payment received. Your banner is booked and starts on ${dt(x.startAt)}. A confirmation email is on its way.`);return;}toast(`Payment received. Your banner is live${x.hubName?" in "+x.hubName:""}${end?" until "+end:""}. A confirmation email is on its way.`);loadSelfAds();return;}
     if(++n<10)setTimeout(poll,2000);else toast(`Payment received. Your ad will appear in a minute. Questions: ${YS_INBOX}`);}).catch(()=>{if(++n<10)setTimeout(poll,2000);});
   poll();})();
 fetch(SUB_API+"/public").then(r=>r.ok?r.json():{events:[]}).then(x=>{const a=(x&&x.events)||[];const seen=new Set(EVENTS.map(e=>(e.link||e.title)+"|"+e.date));let n=0;
