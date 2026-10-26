@@ -895,7 +895,7 @@ details.opt{border:1px solid rgba(12,12,12,.15);background:#fff;padding:0 16px;m
       </div>
     </div>
     <div class="fine">
-      <span>Full Bundle: Editorial + Coworking + 3 hotel nights, January 25 to 28, in a Wan Chai hotel (one room per delegate, limited rooms): <b>$899 per delegate</b>. <a href="mailto:partnership@yorkseed.co?subject=Full%20Bundle">Email us to reserve</a></span>
+      <span>Full Bundle: Editorial + Coworking + 3 hotel nights, January 25 to 28, in a Wan Chai hotel (one room per delegate, limited rooms): <b>$899 per delegate</b>. <a href="mailto:info@yorkseed.co?subject=Full%20Bundle">Email us to reserve</a></span>
       <span>Shared booth at AFF, January 26 and 27: <b>$799 per person</b>. Optional, and you pay nothing now: just tell us you're interested. We charge only once at least 7 delegates have committed, and if we don't reach 7 there's no shared booth. Own booth also possible, tell us on the interest form.</span>
       <span>Brands: advertise or sponsor the Deal Book. <a href="mailto:partnership@yorkseed.co">partnership@yorkseed.co</a></span>
     </div>
@@ -1094,7 +1094,7 @@ document.addEventListener('visibilitychange',function(){if(!document.hidden){var
         $('doneText').textContent='Application received. We\'ll get back to you within two days.';
         var LINK={'Editorial Feature':'https://buy.stripe.com/28E4gs9EHb8O43K4Atbo40T','Editorial + Coworking':'https://buy.stripe.com/14AbIU047el0as88QJbo40U'},pb=[],em='?prefilled_email='+encodeURIComponent(v('email'));
         if(LINK[ex])pb.push([LINK[ex]+em,'Pay now: '+ex+(ex==='Editorial Feature'?' $295':' $449'),0]);
-        if(ex==='Full Bundle')pb.push(['mailto:partnership@yorkseed.co?subject=Full%20Bundle%20'+encodeURIComponent(v('company')),'Email us to reserve your Full Bundle, $899',1]);
+        if(ex==='Full Bundle')pb.push(['mailto:info@yorkseed.co?subject=Full%20Bundle%20'+encodeURIComponent(v('company')),'Email us to reserve your Full Bundle, $899',1]);
         if(mt>0)pb.push(['https://buy.stripe.com/7sY5kw4kna4K9o4eb3bo41S'+em,'Pay now: teammate Deal Book page, $99 each',0]);
         if(pb.length){$('payBtns').innerHTML=pb.map(function(x){return '<a'+(x[2]?' class="alt"':'')+' href="'+x[0]+'" target="_blank" rel="noopener">'+x[1]+'</a>';}).join('');$('payBlock').hidden=false;}
         form.style.display='none';$('done').style.display='block';
