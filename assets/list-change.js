@@ -9,7 +9,7 @@
     ".ysc label{display:block;font:500 11px 'DM Mono',ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;color:#555;margin:12px 0 5px}" +
     ".ysc input,.ysc select,.ysc textarea{width:100%;font:inherit;font-size:16px;padding:11px 12px;border:1px solid rgba(0,0,0,.18);background:#fff;color:#111;border-radius:0}" +
     ".ysc textarea{min-height:110px;resize:vertical}.ysc .go{margin-top:16px;width:100%;padding:13px;background:#c8102e;color:#fff;border:0;font:500 12px 'DM Mono',ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}" +
-    ".ysc .go[disabled]{opacity:.6;cursor:default}.ysc .err{color:#b42318;font-size:13px;margin-top:8px}.ysc .ev{background:#fff;border:1px solid rgba(0,0,0,.1);padding:9px 12px;font-size:14px;margin:0 0 4px}" +
+    ".ysc .go[disabled]{opacity:.6;cursor:default}.ysc .err{color:#b42318;font-size:13px;margin-top:8px}.ysc .ysc-ev{background:#fff;border:1px solid rgba(0,0,0,.1);padding:9px 12px;font-size:14px;margin:0 0 4px}" +
     ".ysc .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}";
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
   function open(info) {
@@ -19,7 +19,7 @@
     var prev = document.activeElement;
     bg.innerHTML = '<form class="ysc" novalidate><button type="button" class="x" aria-label="Close">×</button>' +
       '<h2>Change or remove your event</h2><p>Tell us what to fix and we will update the List within a day. Only the host or organizer should send this.</p>' +
-      '<div class="ev"><b>' + esc(info.title || "Your event") + '</b>' + (info.date ? ' · ' + esc(info.date) : '') + '</div>' +
+      '<div class="ysc-ev"><b>' + esc(info.title || "Your event") + '</b>' + (info.date ? ' · ' + esc(info.date) : '') + '</div>' +
       '<label for="ysc-t">What do you need?</label><select id="ysc-t"><option>Fix details (title, description, venue, link)</option><option>Change the date or time</option><option>Event is cancelled or removed</option><option>Something else</option></select>' +
       '<label for="ysc-d">What should it say? *</label><textarea id="ysc-d" placeholder="e.g. New start time is 7pm. Venue is now ..."></textarea>' +
       '<label for="ysc-e">Your email *</label><input id="ysc-e" type="email" autocomplete="email" placeholder="So we can confirm the change">' +
