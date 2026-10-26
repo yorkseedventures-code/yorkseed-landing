@@ -2417,10 +2417,18 @@ function renderCityBanners(){
   }
 }
 const SLOTPREV={"home": "/list/img/cc149d2e05.jpg", "map": "/list/img/905766a5f3.jpg", "city": "/list/img/e17a5fb818.jpg", "list": "/list/img/a834b6a8f1.jpg", "feat": "/list/img/bf001b87b4.jpg", "event": "/list/img/3d2377f237.jpg"};
-const BK={kind:"home",hub:"nyc",dur:"12m",img:"",goal:"",db:false,sheet:false,sheetName:"Web Summit Lisbon",hs:["",""]};
+const BK={kind:"home",hub:"nyc",dur:"12m",img:"",goal:"",db:false,sheet:false,pulse:false,pulseWeeks:1,pulseHub:"",pulseStart:"",sheetName:"Web Summit Lisbon",hs:["",""]};
 const DB_PRICE=750;
 /* Conference spreadsheets we share. US$200 on its own (SLOTS.sheet), US$150 as an add-on */
 const SHEET_PRICE=150;
+/* Pulse newsletter add-on: a sponsor spot in a city's block of the weekly Pulse. Max 2 sponsors per city per week. Keep in step with PULSE_PRICE in yorkseed-backend listAds.routes.js. */
+const PULSE_PRICE={usd:{top:[99,299],major:[69,199],std:[49,149]},gbp:{top:[85,249],major:[59,169],std:[42,129]},eur:{top:[95,289],major:[69,195],std:[49,145]}};
+const PULSE_SYM={usd:"US$",gbp:"£",eur:"€"},PULSE_OFF=0.8;
+const PULSE_TOP={nyc:1,sf:1,ldn:1},PULSE_MAJOR={atx:1,bos:1,la:1,mia:1,sgp:1,dxb:1,ber:1,par:1,ams:1,lis:1,mad:1,bcn:1};
+const PULSE_GBP=["ldn","man","edi"],PULSE_EUR=["ams","bcn","ber","can","cph","dub","hel","lis","mil","muc","par","sto","zrh","dav","mad","osl","vie","prg","bru","waw","bud","iev","beg","ist"];
+function pulseCalc(hub,n){const cur=PULSE_GBP.includes(hub)?"gbp":PULSE_EUR.includes(hub)?"eur":"usd",tier=PULSE_TOP[hub]?"top":PULSE_MAJOR[hub]?"major":"std",p=PULSE_PRICE[cur][tier];return{cur,tier,amt:Math.round((Math.floor(n/4)*p[1]+(n%4)*p[0])*PULSE_OFF)};}
+const pulseMoney=(c,a)=>PULSE_SYM[c]+a.toLocaleString("en-US");
+function pulseMondays(k){const d=new Date();d.setUTCHours(12,0,0,0);d.setUTCDate(d.getUTCDate()+((8-d.getUTCDay())%7||7));return Array.from({length:k},(_,i)=>new Date(d.getTime()+i*7*864e5).toISOString().slice(0,10));}
 const SHEETS=["Web Summit Lisbon","Davos · World Economic Forum","SXSW Austin","New York Tech Week","VivaTech Paris","RAISE Summit","Slush","LA Tech Week","SF Tech Week","TOKEN2049","F1","J.P. Morgan Healthcare Conference"];
 const sheetSel=id=>`<select id="${id}">${SHEETS.map(n=>`<option${n===BK.sheetName?" selected":""}>${esc(n)}</option>`).join("")}</select>`;
 const sheetPrev=()=>`<div class="shprev" aria-hidden="true"><div class="shbar">${esc(BK.sheetName)} · Yorkseed sheet</div><table><tr><th>Date</th><th>Event</th><th>Host</th><th>Link</th></tr><tr><td>Mon</td><td>Founders breakfast</td><td>…</td><td>…</td></tr><tr class="hl"><td>Tue</td><td>★ Your event or company</td><td>You</td><td>your link</td></tr><tr><td>Tue</td><td>Investor dinner</td><td>…</td><td>…</td></tr><tr><td>Wed</td><td>Demo night</td><td>…</td><td>…</td></tr></table></div>`;
@@ -2431,9 +2439,20 @@ function dbText(){const v=SLOTS[BK.kind];const ed=v.scope?WEEKS.find(w=>w.hub===
   return ed?`A full page in the ${hubById(BK.hub).name} edition (${ed.name}), carried into the Annual Deal Book shared in December.`:`A full page in our next delegation edition, carried into the Annual Deal Book shared in December.`;}
 const GOALS=[["one","One event"],["week","A Tech Week, conference or launch"],["year","My brand, all year"]];
 const GOALMAP={one:["feat","ev"],week:["side","1m"],year:["home","12m"]};
-function openBook(kind,hub){BK.kind=kind&&SLOTS[kind]&&!SLOTS[kind].retired?kind:kind==="list"?"side":"home";BK.goal="";BK.db=false;BK.sheet=false;BK.hs=["",""];BK.hub=hub&&hub!=="all"?hub:(st.hub!=="all"?st.hub:"nyc");BK.img="";drawBook();$("#book").hidden=false;}
+function openBook(kind,hub){BK.kind=kind&&SLOTS[kind]&&!SLOTS[kind].retired?kind:kind==="list"?"side":"home";BK.goal="";BK.db=false;BK.sheet=false;BK.pulse=false;BK.pulseWeeks=1;BK.pulseStart="";BK.hs=["",""];BK.hub=hub&&hub!=="all"?hub:(st.hub!=="all"?st.hub:"nyc");BK.pulseHub=BK.hub;BK.img="";drawBook();$("#book").hidden=false;}
 function closeBook(){$("#book").hidden=true;}
 function monthOpts(){const out=[];for(let i=1;i<=6;i++){const d=new Date(Date.UTC(2026,9+i,1));out.push([d.toISOString().slice(0,7),new Intl.DateTimeFormat("en-US",{month:"long",year:"numeric",timeZone:"UTC"}).format(d)]);}return out;}
+function pulseField(){
+  if(!BK.pulseHub)BK.pulseHub=BK.hub;const mons=pulseMondays(8);if(!mons.includes(BK.pulseStart))BK.pulseStart=mons[0];
+  const pc=pulseCalc(BK.pulseHub,BK.pulseWeeks),usd=pc.cur==="usd";
+  const mfmt=d=>new Intl.DateTimeFormat("en-US",{month:"short",day:"numeric",timeZone:"UTC"}).format(new Date(d+"T12:00:00Z"));
+  return `<div class="field"><label>Add-on</label><div class="opts"><label><input type="checkbox" id="bkPU"${BK.pulse?" checked":""}><b>Pulse newsletter spot</b><span class="pr" id="bkPUp">+${pulseMoney(pc.cur,pc.amt)}</span><small>Your link pinned first in a city's block of Pulse, our weekly email to 13,000+ founders and investors. Only 2 sponsors per city per week. 20% off when you add it to a booking.</small></label></div>
+    <div id="bkPUw"${BK.pulse?"":" hidden"} class="fgrid" style="margin-top:8px">
+      <div class="field"><label for="bkPUh">Newsletter city</label><select id="bkPUh">${HUBS.filter(h=>h.id!=="virtual").map(h=>`<option value="${h.id}"${h.id===BK.pulseHub?" selected":""}>${h.name}</option>`).join("")}</select></div>
+      <div class="field"><label for="bkPUn">How many weeks</label><select id="bkPUn">${[1,2,4,8].map(n=>`<option value="${n}"${n===BK.pulseWeeks?" selected":""}>${n} week${n>1?"s":""} · ${pulseMoney(pc.cur,pulseCalc(BK.pulseHub,n).amt)}</option>`).join("")}</select></div>
+      <div class="field"><label for="bkPUs">Starting Monday</label><select id="bkPUs">${mons.map(m=>`<option value="${m}"${m===BK.pulseStart?" selected":""}>${mfmt(m)}</option>`).join("")}</select></div>
+      <small class="muted full" id="bkPUnote" style="grid-column:1/-1">${usd?"Charged together with your booking.":`Charged in ${pc.cur==="gbp"?"pounds":"euros"} (${PULSE_SYM[pc.cur]}) in a second, short checkout right after your booking payment.`} It uses the headline and link above.</small>
+    </div></div>`;}
 function drawBook(){
   const v=SLOTS[BK.kind];if(BK.kind==="side"){BK.db=false;BK.sheet=false;}
   $("#bkBody").innerHTML=`<form class="bookgrid" id="bkForm" novalidate>
@@ -2454,6 +2473,7 @@ function drawBook(){
       </div>
       <a href="https://yorkseed.co/delegation/lisbon-2026/book/" target="_blank" rel="noopener" class="dbreal">See the Lisbon Deal Book →</a>
     </details><small style="display:none"></small></div>
+    ${BK.kind==="feat"||BK.kind==="sheet"?"":pulseField()}
     <div class="fgrid">
       <div class="field"${BK.kind==="side"?" hidden":""}><label for="bkStart">${BK.kind==="feat"?"Event date":BK.kind==="sheet"?"Your event date":"Start"}</label>${v.durs.some(d=>d[3]<1)?`<input id="bkStart" type="date" min="${addDays(1)}" value="${addDays(7)}">`:`<select id="bkStart">${monthOpts().map(([v2,l])=>`<option value="${v2}-01">${l}</option>`).join("")}</select>`}</div>
       <div class="field"><label for="bkBrand">${BK.kind==="feat"?"Organizer *":"Brand name *"}</label><input id="bkBrand" maxlength="40" placeholder="${BK.kind==="feat"?"Who's hosting":"Your company"}"></div>
@@ -2491,6 +2511,10 @@ function drawBook(){
   f.querySelectorAll("input[name=bkDur]").forEach(r=>r.onchange=()=>{BK.dur=r.value;sumBook();});
   if($("#bkHub"))$("#bkHub").onchange=e=>{BK.hub=e.target.value;sumBook();};
   $("#bkDB").onchange=e=>{BK.db=e.target.checked;$("#bkDBsec").hidden=!BK.db;sumBook();};
+  if($("#bkPU")){$("#bkPU").onchange=e=>{BK.pulse=e.target.checked;$("#bkPUw").hidden=!BK.pulse;sumBook();};
+    $("#bkPUh").onchange=e=>{BK.pulseHub=e.target.value;keep();drawBook();restore();};
+    $("#bkPUn").onchange=e=>{BK.pulseWeeks=+e.target.value;sumBook();};
+    $("#bkPUs").onchange=e=>{BK.pulseStart=e.target.value;};}
   if($("#bkSH"))$("#bkSH").onchange=e=>{BK.sheet=e.target.checked;$("#bkSHw").hidden=!BK.sheet;sumBook();};
   ["bkSheet","bkSheetA"].forEach(id=>{if($("#"+id))$("#"+id).onchange=e=>{BK.sheetName=e.target.value;if(id==="bkSheet"){const f=$(".slotprev .shbar");if(f)f.textContent=BK.sheetName+" · Yorkseed sheet";}sumBook();};});
   [1,2].forEach(n=>{$("#dbImg"+n).onchange=async e=>{const file=e.target.files[0];if(!file)return;try{BK.hs[n-1]=(await shrinkTo(file,500,180*1024,100)).url;showBkErr("");}catch(m){BK.hs[n-1]="";showBkErr(typeof m==="string"?m:"We couldn't read that headshot. Use a JPG or PNG.");}};});
@@ -2511,8 +2535,8 @@ function drawBook(){
 let BKKEEP={};
 function keep(){BKKEEP={};["bkStart","bkBrand","bkHead","bkBlurb","bkUrl","bkCta","bkName","bkEmail","dbAbout","dbOfferT","dbOffer","dbName1","dbTitle1","dbMail1","dbLi1","dbName2","dbTitle2","dbMail2","dbLi2"].forEach(id=>{const el=$("#"+id);if(el)BKKEEP[id]=el.value;});}
 function restore(){Object.entries(BKKEEP).forEach(([id,v])=>{const el=$("#"+id);if(!el)return;if(el.tagName==="SELECT"&&![...el.options].some(o=>o.value===v))return;if(el.type==="date"&&!/^\d{4}-\d{2}-\d{2}$/.test(v))return;el.value=v;});prevBook();}
-function bkData(){const g=id=>($("#"+id)?$("#"+id).value.trim():"");return{kind:BK.kind,hub:SLOTS[BK.kind].scope?BK.hub:null,dur:BK.dur,start:g("bkStart"),brand:g("bkBrand"),headline:g("bkHead"),blurb:g("bkBlurb"),url:/^https?:\/\//.test(g("bkUrl"))?g("bkUrl"):"",cta:g("bkCta"),img:BK.img,db:BK.db,sheet:BK.kind==="sheet"||BK.sheet?BK.sheetName:null,shAdd:BK.kind!=="sheet"&&BK.sheet,dbPage:BK.db?{about:g("dbAbout"),offerTitle:g("dbOfferT"),offer:g("dbOffer"),people:[1,2].map(n=>({img:BK.hs[n-1],name:g("dbName"+n),title:g("dbTitle"+n),email:g("dbMail"+n),contact:g("dbLi"+n)})).filter(x=>x.name)}:null,name:g("bkName"),email:g("bkEmail")};}
-function sumBook(){const v=SLOTS[BK.kind];const d=durOf(v,BK.dur);BK.dur=d[0];const sh=BK.kind!=="sheet"&&BK.sheet;$("#bkSum").textContent=money(d[2]+(BK.db?DB_PRICE:0)+(sh?SHEET_PRICE:0));$("#bkSumLbl").textContent=`${v.name}${v.scope?" · "+hubById(BK.hub).name:BK.kind==="sheet"?" · "+BK.sheetName:""} · ${d[1]}${sh?" + "+BK.sheetName+" sheet":""}${BK.db?" + Deal Book page":""}`;if($("#bkDBt"))$("#bkDBt").textContent=dbText();}
+function bkData(){const g=id=>($("#"+id)?$("#"+id).value.trim():"");return{kind:BK.kind,hub:SLOTS[BK.kind].scope?BK.hub:null,dur:BK.dur,start:g("bkStart"),brand:g("bkBrand"),headline:g("bkHead"),blurb:g("bkBlurb"),url:/^https?:\/\//.test(g("bkUrl"))?g("bkUrl"):"",cta:g("bkCta"),img:BK.img,db:BK.db,sheet:BK.kind==="sheet"||BK.sheet?BK.sheetName:null,shAdd:BK.kind!=="sheet"&&BK.sheet,dbPage:BK.db?{about:g("dbAbout"),offerTitle:g("dbOfferT"),offer:g("dbOffer"),people:[1,2].map(n=>({img:BK.hs[n-1],name:g("dbName"+n),title:g("dbTitle"+n),email:g("dbMail"+n),contact:g("dbLi"+n)})).filter(x=>x.name)}:null,name:g("bkName"),email:g("bkEmail"),pulse:BK.pulse&&BK.kind!=="feat"&&BK.kind!=="sheet"?{on:true,hub:BK.pulseHub||BK.hub,hubName:hubById(BK.pulseHub||BK.hub).name,weeks:BK.pulseWeeks,start:BK.pulseStart}:null};}
+function sumBook(){const v=SLOTS[BK.kind];const d=durOf(v,BK.dur);BK.dur=d[0];const sh=BK.kind!=="sheet"&&BK.sheet;const pu=BK.pulse&&BK.kind!=="feat"&&BK.kind!=="sheet"?pulseCalc(BK.pulseHub||BK.hub,BK.pulseWeeks):null,puUsd=pu&&pu.cur==="usd";$("#bkSum").textContent=money(d[2]+(BK.db?DB_PRICE:0)+(sh?SHEET_PRICE:0)+(puUsd?pu.amt:0))+(pu&&!puUsd?" + "+pulseMoney(pu.cur,pu.amt):"");if($("#bkPUp")){const q=pulseCalc(BK.pulseHub||BK.hub,BK.pulseWeeks);$("#bkPUp").textContent="+"+pulseMoney(q.cur,q.amt);}$("#bkSumLbl").textContent=`${v.name}${v.scope?" · "+hubById(BK.hub).name:BK.kind==="sheet"?" · "+BK.sheetName:""} · ${d[1]}${sh?" + "+BK.sheetName+" sheet":""}${BK.db?" + Deal Book page":""}${pu?" + Pulse newsletter ("+BK.pulseWeeks+" wk)":""}`;if($("#bkDBt"))$("#bkDBt").textContent=dbText();}
 function prevBook(){const d=bkData();const b={...d,brand:d.brand||"Your brand",headline:d.headline||"Your headline goes here"};
   $("#bkPrev").innerHTML=BK.kind==="sheet"?sheetPrev().replace("★ Your event or company","★ "+esc(d.headline||"Your event or company")).replace(">You<",">"+esc(d.brand||"You")+"<"):BK.kind==="feat"?`<div class="crow feat" style="pointer-events:none"><div class="t">${d.start?(()=>{const p=dParts(d.start);return p.wd+" "+p.day+" "+p.mon;})():"Your date"}</div><button class="main" type="button" tabindex="-1"><span class="ttl">${esc(d.headline||"Your event name")} ${badge("featured")}</span><span class="sub">${esc(hubById(BK.hub).name)}${d.brand?" · "+esc(d.brand):""}</span></button></div><small class="muted">Also a green star on the ${esc(hubById(BK.hub).name)} map until the day.</small>`:BK.kind==="map"?`<div class="mapprev"><svg viewBox="0 0 360 150" aria-hidden="true"><rect width="360" height="150" class="sea"/><path class="land" d="M0 70 Q60 40 120 60 T240 50 T360 70 V150 H0Z"/><g class="hubdot" transform="translate(150 60)"><circle r="18"/><text class="cnt" dy="6" text-anchor="middle" style="font-size:15px">${hubCount(BK.hub)}</text></g><g class="spin-pin" transform="translate(132 90)"><path class="sp-tail" d="M18 -30 L10 0 L26 0 Z"/><rect class="sp-box" x="-60" y="0" width="${Math.max(120,b.brand.length*12+60)}" height="40"/><path class="fstar" transform="translate(-40 20)" d="${starPath(10)}"/><text class="sp-lab" x="-24" y="16" style="font-size:9px">FEATURED EVENT</text><text class="sp-name" x="-24" y="32" style="font-size:15px">${esc(b.headline||b.brand)}</text></g></svg><small>${esc(hubById(BK.hub).name)} on the Yorkseed map</small></div>`:bannerHtml(BK.kind,BK.hub,b,BK.kind==="list");}
 function showBkErr(m){const e=$("#bkErr");e.textContent=m;e.hidden=!m;}
@@ -2532,7 +2556,7 @@ async function payForAd(d){
   const go=$("#bkGo");go.disabled=true;go.textContent="Opening checkout…";
   const back=sc?"#"+hubSlug(hubById(BK.hub)):"";
   try{const r=await fetch(ADS_API+"/checkout",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({kind:k,hub:sc?BK.hub:"all",hubName:sc?hubById(BK.hub).name:"",dur:d.dur,start:d.start,brand:d.brand,url:d.url,headline:d.headline,alt:d.headline,name:d.name,email:d.email,image:BK.img||"",agree:true,back,
-      dealBook:!!d.db,dbPage:d.db?d.dbPage:null,shAdd:!!d.shAdd,sheetName:(k==="sheet"||d.shAdd)?BK.sheetName:""})});
+      dealBook:!!d.db,dbPage:d.db?d.dbPage:null,shAdd:!!d.shAdd,pulse:d.pulse,sheetName:(k==="sheet"||d.shAdd)?BK.sheetName:""})});
     const x=await r.json().catch(()=>({}));if(r.ok&&x.url){location.href=x.url;return;}showBkErr(x.message||"Checkout couldn't start. Please try again.");}
   catch(e){showBkErr(`We couldn't reach checkout. Please try again or email ${YS_INBOX}.`);}
   go.disabled=false;go.textContent=k==="side"?"Pay and go live":"Pay and book";}
