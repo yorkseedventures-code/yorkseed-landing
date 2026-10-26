@@ -522,6 +522,7 @@ form,.done{padding:28px}
 .vform .paybtn{display:inline-block;margin-top:14px;background:var(--ink,#1E1B18);color:#fff;padding:14px 24px;text-decoration:none;font-size:14px}
 .vform select{width:100%}
 details.opt{border:1px solid rgba(12,12,12,.15);background:#fff;padding:0 16px;margin:6px 0 18px}details.opt summary{cursor:pointer;padding:14px 0;font-weight:600;font-size:14px}details.opt summary small{font-weight:400;color:var(--ink3)}details.opt[open] summary{border-bottom:1px solid rgba(12,12,12,.1);margin-bottom:14px}.paynow{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}.paynow a{background:var(--ink,#1E1B18);color:#fff;padding:12px 20px;text-decoration:none;font-size:14px}.paynow a.alt{background:#fff;color:var(--ink,#1E1B18);border:1px solid var(--ink,#1E1B18)}
+.mate{border:1px solid rgba(12,12,12,.12);padding:14px 14px 2px;margin:0 0 14px;background:#fff}.mate-h{font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--oxblood);margin-bottom:8px}
 </style>
 </head>
 <body>
@@ -728,8 +729,9 @@ details.opt{border:1px solid rgba(12,12,12,.15);background:#fff;padding:0 16px;m
         </div>
 
         <div class="f"><label for="mates">Teammates not going to AFF who also want a Deal Book page</label>
-          <p class="hint">Optional. $99 per teammate, flat. They get their own profile page in the Deal Book but no AFF pass or onsite access. We'll email you a payment link and collect their details after your place is confirmed.</p>
+          <p class="hint">$99 per teammate, flat. Each one gets their own profile page in the Deal Book, but no AFF pass or onsite access. Add their details below so we can build their page.</p>
           <select id="mates"><option value="0">None</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+        <div id="mateFields"></div>
 
         <div class="f" id="dealbookGroup"><span class="lab">Your Deal Book profile</span>
           <p class="hint">Every delegate can have their own page in the Yorkseed Hong Kong Delegation Deal Book, like a profile card with what you do, a few keywords, your photo and logo, and a QR code to connect. Want a page? If yes, we'll ask for a few details to build it.</p>
@@ -887,13 +889,14 @@ details.opt{border:1px solid rgba(12,12,12,.15);background:#fff;padding:0 16px;m
         <div class="f"><label for="vQR">Link for your page's QR code (optional)</label><p class="hint">We use your website if you leave this blank.</p><input type="url" id="vQR" placeholder="https://"/></div>
         <div class="two"><div class="f"><label for="vHead">Link to your headshot</label><input type="url" id="vHead" placeholder="https://"/></div><div class="f"><label for="vLogo">Link to your company logo</label><input type="url" id="vLogo" placeholder="https://"/></div></div>
         <p class="hint" style="margin-top:-4px">Make sure anyone with the link can open it.</p>
-        <div class="f"><label for="vMates">Teammates who also want a Deal Book page (optional)</label><p class="hint">$99 each, flat, for teammates not attending AFF. Add the quantity at checkout. List their names, roles and emails here and we will collect their details.</p><textarea id="vMateList" style="min-height:70px"></textarea></div>
+        <div class="f"><label for="vMates">Teammates who also want a Deal Book page</label><p class="hint">$99 each, flat, for teammates not attending AFF. Add their details below, then choose the same quantity at checkout.</p><select id="vMates"><option value="0">None</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+        <div id="vMateFields"></div>
         <label class="agree"><input type="checkbox" id="vAgree"/><span>My company isn't in cannabis or casino gambling, and Yorkseed can keep my details and contact me about my listing.</span></label>
         <button type="submit" id="vBtn">Continue to payment</button>
       </form>
       <div id="vDone" hidden>
         <h3>Details received.</h3>
-        <p class="small">One last step: pay for your listing. Use the same email you entered.</p>
+        <p class="small">One last step: pay for your listing. Use the same email you entered.<span id="vMateNote"></span></p>
         <a class="paybtn" id="vPay" href="https://buy.stripe.com/8x28wI3gjel0fMs4Atbo41R" target="_blank" rel="noopener">Pay $149</a>
       </div>
     </div>
@@ -997,6 +1000,45 @@ document.addEventListener('visibilitychange',function(){if(!document.hidden){var
 
 <script>
 (function(){
+  window.YKMates={
+    html:function(pre,k){
+      var i=function(f){return pre+k+f;};
+      return '<div class="mate"><div class="mate-h">Teammate '+k+'</div>'+
+      '<div class="two"><div class="f"><label for="'+i('name')+'">Full name</label><input type="text" id="'+i('name')+'" autocomplete="off"/></div><div class="f"><label for="'+i('role')+'">Role</label><input type="text" id="'+i('role')+'" placeholder="e.g. CTO"/></div></div>'+
+      '<div class="two"><div class="f"><label for="'+i('email')+'">Email</label><input type="email" id="'+i('email')+'" autocomplete="off"/></div><div class="f"><label for="'+i('phone')+'">WhatsApp (optional)</label><input type="tel" id="'+i('phone')+'" placeholder="+852 …" autocomplete="off"/></div></div>'+
+      '<div class="two"><div class="f"><label for="'+i('linkedin')+'">LinkedIn (optional)</label><input type="url" id="'+i('linkedin')+'" placeholder="https://linkedin.com/in/…"/></div><div class="f"><label for="'+i('photo')+'">Headshot link (optional)</label><input type="url" id="'+i('photo')+'" placeholder="https://"/></div></div>'+
+      '<div class="f"><label for="'+i('bio')+'">About them (optional)</label><p class="hint">One or two sentences for their Deal Book page. Up to 250 characters.</p><textarea id="'+i('bio')+'" maxlength="250" style="min-height:64px"></textarea></div></div>';
+    },
+    render:function(pre,selId,boxId){
+      var n=parseInt(document.getElementById(selId).value||'0',10),box=document.getElementById(boxId),keep={};
+      box.querySelectorAll('input,textarea').forEach(function(e){keep[e.id]=e.value;});
+      var h='';for(var k=1;k<=n;k++)h+=YKMates.html(pre,k);
+      box.innerHTML=h;
+      Object.keys(keep).forEach(function(id){var el=document.getElementById(id);if(el)el.value=keep[id];});
+    },
+    data:function(pre,selId){
+      var n=parseInt(document.getElementById(selId).value||'0',10),out=[];
+      function g(id){var e=document.getElementById(id);return e?(e.value||'').trim():'';}
+      for(var k=1;k<=n;k++)out.push({k:k,name:g(pre+k+'name'),role:g(pre+k+'role'),email:g(pre+k+'email'),phone:g(pre+k+'phone'),linkedin:g(pre+k+'linkedin'),photo:g(pre+k+'photo'),bio:g(pre+k+'bio')});
+      return out;
+    },
+    text:function(list){return list.map(function(m){return m.k+'. '+m.name+(m.role?' ('+m.role+')':'')+' | '+m.email+(m.phone?' | WhatsApp '+m.phone:'')+(m.linkedin?' | '+m.linkedin:'')+(m.photo?' | headshot: '+m.photo:'')+(m.bio?' | '+m.bio:'');}).join('  ||  ');},
+    check:function(pre,list,mark){
+      var ok=true,URL=/^https?:\/\/\S+\.\S+/i;
+      list.forEach(function(m){var k=m.k,el=function(f){return document.getElementById(pre+k+f);};
+        if(!m.name){mark(el('name'),'Please fill this in.');ok=false;}
+        if(!m.role){mark(el('role'),'Please fill this in.');ok=false;}
+        if(!m.email){mark(el('email'),'Please fill this in.');ok=false;}
+        else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(m.email)){mark(el('email'),'That email doesn\'t look right.');ok=false;}
+        ['linkedin','photo'].forEach(function(f){if(m[f]&&!URL.test(m[f])){mark(el(f),'Please paste a full link starting with https://');ok=false;}});
+      });
+      return ok;
+    }
+  };
+})();
+</script>
+<script>
+(function(){
   var form=document.getElementById('delegationForm'),btn=document.getElementById('submitBtn');
   function $(id){return document.getElementById(id);}
   function v(id){return ($(id).value||'').trim();}
@@ -1040,6 +1082,7 @@ document.addEventListener('visibilitychange',function(){if(!document.hidden){var
     'Shared booth':'<b>Shared booth, $799 per person</b>A place at the Yorkseed Delegation booth at AFF on January 26 and 27. Nothing is charged now. We charge only once at least 7 delegates have committed; if we do not reach 7 there is no shared booth, and you pay nothing.',
     'Own booth':'<b>Your own booth</b>Choose a package and product categories below. We send pricing and options before anything is confirmed, and you pay nothing now.'
   };
+  document.getElementById('mates').addEventListener('change',function(){YKMates.render('m','mates','mateFields');});
   function syncDesc(){
     var e=extra(),b=boothVal();
     $('extraDesc').hidden=!DESC[e];$('extraDesc').innerHTML=DESC[e]||'';
@@ -1055,6 +1098,7 @@ document.addEventListener('visibilitychange',function(){if(!document.hidden){var
     if(v('email')&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v('email'))){mark($('email'),'That email doesn\'t look right.');ok=false;}
     ['linkedin','website'].forEach(function(id){var x=v(id);if(x&&SHORT.test(x)){mark($(id),'Please use the full link.');ok=false;}});
     
+    if(!YKMates.check('m',YKMates.data('m','mates'),mark))ok=false;
     if(extra()!=='None'&&!v('website')){mark($('website'),'Please add your website.');ok=false;}
     if(dealbookYes()){
       ['dbTagline','dbAbout','dbTag1','dbTag2','dbTag3'].forEach(function(id){if(!v(id)){mark($(id),'Please fill this in.');ok=false;}});
@@ -1086,7 +1130,7 @@ document.addEventListener('visibilitychange',function(){if(!document.hidden){var
       ['First name',v('firstName')],['Last name',v('lastName')],['Role',v('jobTitle')],['Email',v('email')],['WhatsApp',v('phone')],['LinkedIn',v('linkedin')],
       ['Company',v('company')],['Website',v('website')],
       ['One-liner',f?v('oneLiner'):''],['Stage',f?v('stage'):''],['Investment focus / organization',f?'':v('focus')],
-      ['Booth interest',boothVal()],['Booth product categories',boothVal()==='Delegate only'?'':Array.prototype.map.call(form.querySelectorAll('[name=cat]:checked'),function(c){return c.value;}).join(', ')],['Booth package',boothVal()==='Own booth'?((form.querySelector('[name=pkg]:checked')||{}).value||''):''],['Shared booth note',boothVal()==='Shared booth'?'$799 per person, charged only if 7 delegates commit':''],['Optional extra',ex==='None'?'None':ex+(ex==='Editorial Feature'?' ($295)':(ex==='Full Bundle'?' ($899)':' ($449)'))],['Extra teammate Deal Book pages ($99 each)',$('mates').value],['Acknowledged flights and hotel not included','Yes'],['Agreed to follow-up when detailed application is released','Yes'],
+      ['Booth interest',boothVal()],['Booth product categories',boothVal()==='Delegate only'?'':Array.prototype.map.call(form.querySelectorAll('[name=cat]:checked'),function(c){return c.value;}).join(', ')],['Booth package',boothVal()==='Own booth'?((form.querySelector('[name=pkg]:checked')||{}).value||''):''],['Shared booth note',boothVal()==='Shared booth'?'$799 per person, charged only if 7 delegates commit':''],['Optional extra',ex==='None'?'None':ex+(ex==='Editorial Feature'?' ($295)':(ex==='Full Bundle'?' ($899)':' ($449)'))],['Extra teammate Deal Book pages ($99 each)',$('mates').value],['Teammate details',YKMates.text(YKMates.data('m','mates'))],['Acknowledged flights and hotel not included','Yes'],['Agreed to follow-up when detailed application is released','Yes'],
       ['Who they want to meet',v('goals')],['Heard via',v('referral')],
       ['Deal Book profile',((form.querySelector('[name=dealbook]:checked')||{}).value||'Not answered')],['Deal Book tagline',dealbookYes()?v('dbTagline'):''],['Deal Book about',dealbookYes()?v('dbAbout'):''],['Deal Book keywords',dealbookYes()?[v('dbTag1'),v('dbTag2'),v('dbTag3')].join(' | '):''],['Deal Book QR link',dealbookYes()?(v('dbQR')||v('website')):''],
       ['OK to feature in press and social',((form.querySelector('[name=feature]:checked')||{}).value||'Not answered')],['Headshot link',mediaNeeded()?v('headshot'):''],['Logo link',mediaNeeded()?v('logo'):'']
@@ -1101,7 +1145,7 @@ document.addEventListener('visibilitychange',function(){if(!document.hidden){var
         var LINK={'Editorial Feature':'https://buy.stripe.com/28E4gs9EHb8O43K4Atbo40T','Editorial + Coworking':'https://buy.stripe.com/14AbIU047el0as88QJbo40U'},pb=[],em='?prefilled_email='+encodeURIComponent(v('email'));
         if(LINK[ex])pb.push([LINK[ex]+em,'Pay now: '+ex+(ex==='Editorial Feature'?' $295':' $449'),0]);
         if(ex==='Full Bundle')pb.push(['mailto:info@yorkseed.co?subject=Full%20Bundle%20'+encodeURIComponent(v('company')),'Email us to reserve your Full Bundle, $899',1]);
-        if(mt>0)pb.push(['https://buy.stripe.com/7sY5kw4kna4K9o4eb3bo41S'+em,'Pay now: teammate Deal Book page, $99 each',0]);
+        if(mt>0)pb.push(['https://buy.stripe.com/7sY5kw4kna4K9o4eb3bo41S'+em,'Pay now: '+mt+' teammate Deal Book page'+(mt>1?'s':'')+', $'+(99*mt)+' (set quantity to '+mt+' at checkout)',0]);
         if(pb.length){$('payBtns').innerHTML=pb.map(function(x){return '<a'+(x[2]?' class="alt"':'')+' href="'+x[0]+'" target="_blank" rel="noopener">'+x[1]+'</a>';}).join('');$('payBlock').hidden=false;}
         form.style.display='none';$('done').style.display='block';
         $('done').scrollIntoView({behavior:'smooth',block:'center'});
@@ -1117,6 +1161,7 @@ document.addEventListener('visibilitychange',function(){if(!document.hidden){var
 (function(){
   var f=document.getElementById('vf');if(!f)return;
   var box=document.getElementById('vform');
+  document.getElementById('vMates').addEventListener('change',function(){YKMates.render('vm','vMates','vMateFields');});
   function g(id){return (document.getElementById(id).value||'').trim();}
   function open(){box.hidden=false;setTimeout(function(){box.scrollIntoView({behavior:'smooth',block:'start'});},30);}
   document.querySelectorAll('a[href="#vform"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();open();});});
@@ -1131,16 +1176,17 @@ document.addEventListener('visibilitychange',function(){if(!document.hidden){var
     if(g('vEmail')&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(g('vEmail'))){mark(document.getElementById('vEmail'),'That email doesn\'t look right.');ok=false;}
     if(g('vAbout')&&g('vAbout').length<40){mark(document.getElementById('vAbout'),'A little more detail, please.');ok=false;}
     ['vWebsite','vLinkedin','vHead','vLogo','vQR'].forEach(function(id){var x=g(id);if(!x)return;if(!URLRE.test(x)){mark(document.getElementById(id),'Please paste a full link starting with https://');ok=false;}else if(SHORT.test(x)){mark(document.getElementById(id),'Please use the full link.');ok=false;}});
+    if(!YKMates.check('vm',YKMates.data('vm','vMates'),mark))ok=false;
     if(!document.getElementById('vAgree').checked){mark(document.getElementById('vAgree').parentNode,'Please tick this to continue.');ok=false;}
     if(!ok){var er=f.querySelector('.err');if(er)er.scrollIntoView({behavior:'smooth',block:'center'});return;}
     var b=document.getElementById('vBtn');b.disabled=true;b.textContent='Sending…';
-    var rows=[['Form','Founder Deal Book Virtual ($149)'],['Submitted at',new Date().toISOString()],['First name',g('vFirst')],['Last name',g('vLast')],['Email',g('vEmail')],['Role',g('vRole')],['LinkedIn',g('vLinkedin')],['Company',g('vCompany')],['Website',g('vWebsite')],['Deal Book tagline',g('vTagline')],['Deal Book about',g('vAbout')],['Deal Book keywords',[g('vTag1'),g('vTag2'),g('vTag3')].join(' | ')],['Deal Book QR link',g('vQR')||g('vWebsite')],['Headshot link',g('vHead')],['Logo link',g('vLogo')],['Teammates wanting a page ($99 each)',g('vMateList')]];
+    var rows=[['Form','Founder Deal Book Virtual ($149)'],['Submitted at',new Date().toISOString()],['First name',g('vFirst')],['Last name',g('vLast')],['Email',g('vEmail')],['Role',g('vRole')],['LinkedIn',g('vLinkedin')],['Company',g('vCompany')],['Website',g('vWebsite')],['Deal Book tagline',g('vTagline')],['Deal Book about',g('vAbout')],['Deal Book keywords',[g('vTag1'),g('vTag2'),g('vTag3')].join(' | ')],['Deal Book QR link',g('vQR')||g('vWebsite')],['Headshot link',g('vHead')],['Logo link',g('vLogo')],['Teammates wanting a page ($99 each)',document.getElementById('vMates').value],['Teammate details',YKMates.text(YKMates.data('vm','vMates'))]];
     var data={access_key:'5c1c96c6-7a4f-4cc7-85d3-4dd79f67e20a',subject:'Virtual Deal Book: '+g('vCompany')+' (payment pending)',from_name:'Yorkseed Hong Kong Delegation',replyto:g('vEmail')};
     rows.forEach(function(r){data[r[0]]=r[1]||'-';});
     fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
       .then(function(r){return r.json();}).then(function(res){
         if(!res.success)throw new Error();
-        document.getElementById('vPay').href='https://buy.stripe.com/8x28wI3gjel0fMs4Atbo41R?prefilled_email='+encodeURIComponent(g('vEmail'))+'&client_reference_id='+encodeURIComponent(g('vCompany').replace(/[^A-Za-z0-9_-]/g,'-').slice(0,60));
+        var vm=parseInt(document.getElementById('vMates').value||'0',10);document.getElementById('vMateNote').textContent=vm>0?' At checkout, add '+vm+' teammate page'+(vm>1?'s':'')+' ($99 each).':'';document.getElementById('vPay').href='https://buy.stripe.com/8x28wI3gjel0fMs4Atbo41R?prefilled_email='+encodeURIComponent(g('vEmail'))+'&client_reference_id='+encodeURIComponent(g('vCompany').replace(/[^A-Za-z0-9_-]/g,'-').slice(0,60));
         f.hidden=true;document.getElementById('vDone').hidden=false;box.scrollIntoView({behavior:'smooth',block:'start'});
       }).catch(function(){b.disabled=false;b.textContent='Continue to payment';alert('Something went wrong. Please try again.');});
   });
