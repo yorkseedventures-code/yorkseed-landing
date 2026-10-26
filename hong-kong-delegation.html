@@ -509,6 +509,7 @@ form,.done{padding:28px}
 .done h3{font-size:30px}
 .luma-card h3{font-size:26px}
 @media(max-width:700px){.hero h1{font-size:40px}.big{font-size:28px}}
+.chips{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}@media(max-width:560px){.chips{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -532,7 +533,7 @@ form,.done{padding:28px}
       <div><span>AFF</span><b>January 26 to 27</b></div>
     </div>
     <div class="btns">
-      <a href="https://tally.so/r/nrzzko" class="btn btn-gold" target="_blank" rel="noopener">Apply free</a>
+      <a href="#apply" class="btn btn-gold">Apply free</a>
       <a href="#week" class="btn btn-line">See the trip</a>
     </div>
   </div>
@@ -606,10 +607,10 @@ form,.done{padding:28px}
     <div class="side">
       <div class="label">Apply</div>
       <h2 class="big">Join us <em>in Hong Kong</em></h2>
-      <p>Registration is free. Register your interest now, and we'll send the detailed application when it opens.</p>
+      <p>The delegation is free. Apply below: we review every application and confirm your place and your complimentary AFF pass.</p>
       <ol class="steps">
-        <li>Register your interest, two minutes</li>
-        <li>We send the detailed application for your Deal Book profile, and AFF's own registration form for your pass</li>
+        <li>Apply below, five minutes</li>
+        <li>We review it and send AFF's own registration form for your pass</li>
         <li>We confirm your place and your AFF pass. Add-ons can be bought any time from the pricing section</li>
         <li>Send your Deal Book profile by January 15</li>
         <li>Meet the group in Hong Kong</li>
@@ -617,8 +618,8 @@ form,.done{padding:28px}
     </div>
     <div>
       <div class="luma-card" id="interestCard">
-        <div class="lc-k">Registration is free</div>
-        <h3>Register your <em>interest</em></h3>
+        <div class="lc-k">Free to join</div>
+        <h3>Apply <em>free</em></h3>
         <p style="color:var(--ink2);line-height:1.7;margin-bottom:14px">Every registered delegate receives:</p>
         <ul class="lc-list" style="margin-bottom:20px">
           <li><span>Complimentary AFF delegate pass<small>A full pass usually costs over $1,000. Full 2-day program, January 26 to 27</small></span></li>
@@ -628,11 +629,9 @@ form,.done{padding:28px}
           <li><span>Your profile page in the Deal Book</span></li>
           <li><span>More to come<small>We're still in the early phase of planning</small></span></li>
         </ul>
-        <p style="color:var(--ink2);line-height:1.7;margin-bottom:22px">Two minutes: your name, company, LinkedIn and WhatsApp. It also asks whether you'd like to exhibit at AFF, either sharing a booth with the delegation ($799 per person, no payment now, only charged if 7 delegates commit) or with your own booth. The detailed application for your Deal Book profile follows once it opens. AFF also asks each delegate to complete its own registration form for the pass, and we'll send it to you.</p>
-        <a class="lc-btn" href="https://tally.so/r/nrzzko" target="_blank" rel="noopener">Register your interest, free</a>
-        <p class="small">Flights, ground transport and hotel are not included. By registering you agree to the <a href="#terms">Terms</a> and <a href="#privacy">Privacy Notice</a>.</p>
+        <p class="small">Flights, ground transport and hotel are not included. By applying you agree to the <a href="#terms">Terms</a> and <a href="#privacy">Privacy Notice</a>.</p>
       </div>
-      <form id="delegationForm" novalidate hidden>
+      <form id="delegationForm" novalidate>
         <input type="checkbox" id="botcheck" style="display:none" tabindex="-1" autocomplete="off"/>
         <div class="who">
           <label><input type="radio" name="role" value="Founder" checked/>Founder</label>
@@ -675,8 +674,40 @@ form,.done{padding:28px}
             <label><input type="radio" name="extra" value="Editorial + Coworking"/><b>Editorial + 4-Day Coworking</b><span>$449</span></label>
             <label><input type="radio" name="extra" value="Full Bundle"/><b>Full Bundle: Editorial + Coworking + 3 hotel nights</b><span>$899</span></label>
           </div>
-          <label class="agree" style="margin:14px 0 0"><input type="checkbox" id="boothInterest"/><span>I'm interested in the shared booth, 2 days, $799 per person. No payment now: we charge only once at least 7 delegates have committed.</span></label>
-          <label class="agree" style="margin:8px 0 0"><input type="checkbox" id="ownBooth"/><span>I'd like my own booth at AFF instead. Send me the options.</span></label>
+          </div>
+
+        <div class="f" id="boothGroup"><span class="lab">Exhibiting at AFF</span>
+          <p class="hint">Optional. You can join as a delegate only, share a booth with the delegation, or take your own. Nothing is charged now. The shared booth is $799 per person for 2 days and is only charged once at least 7 delegates have committed.</p>
+          <div class="pkg three-up" id="boothBox">
+            <label><input type="radio" name="booth" value="Delegate only" checked/><b>Delegate only</b><span>No booth</span></label>
+            <label><input type="radio" name="booth" value="Shared booth"/><b>Share a booth with the Yorkseed Delegation</b><span>$799 per person, only if 7 commit</span></label>
+            <label><input type="radio" name="booth" value="Own booth"/><b>I'd like my own booth</b><span>Send me the options</span></label>
+          </div>
+        </div>
+        <div id="boothFields" hidden>
+          <div class="f"><span class="lab">Product categories</span><p class="hint">Pick everything that fits.</p>
+            <div class="chips" id="catBox">
+              <label class="agree" style="margin:4px 0"><input type="checkbox" name="cat" value="Fintech"/><span>Fintech</span></label>
+              <label class="agree" style="margin:4px 0"><input type="checkbox" name="cat" value="AI & Robotics"/><span>AI &amp; Robotics</span></label>
+              <label class="agree" style="margin:4px 0"><input type="checkbox" name="cat" value="Asset / Fund Management"/><span>Asset / Fund Management</span></label>
+              <label class="agree" style="margin:4px 0"><input type="checkbox" name="cat" value="Insurtech"/><span>Insurtech</span></label>
+              <label class="agree" style="margin:4px 0"><input type="checkbox" name="cat" value="Blockchain / Web3"/><span>Blockchain / Web3</span></label>
+              <label class="agree" style="margin:4px 0"><input type="checkbox" name="cat" value="Big Data / Analytics"/><span>Big Data / Analytics</span></label>
+              <label class="agree" style="margin:4px 0"><input type="checkbox" name="cat" value="Payment Tech"/><span>Payment Tech</span></label>
+              <label class="agree" style="margin:4px 0"><input type="checkbox" name="cat" value="Cybersecurity / Regtech"/><span>Cybersecurity / Regtech</span></label>
+              <label class="agree" style="margin:4px 0"><input type="checkbox" name="cat" value="Cloud / SaaS"/><span>Cloud / SaaS</span></label>
+              <label class="agree" style="margin:4px 0"><input type="checkbox" name="cat" value="Wealthtech / Digital Finance"/><span>Wealthtech / Digital Finance</span></label>
+              <label class="agree" style="margin:4px 0"><input type="checkbox" name="cat" value="Consulting / Advisory"/><span>Consulting / Advisory</span></label>
+              <label class="agree" style="margin:4px 0"><input type="checkbox" name="cat" value="Other"/><span>Other</span></label>
+            </div>
+          </div>
+          <div class="f" id="pkgGroup"><span class="lab">Booth package</span><p class="hint">For your own booth. We'll send pricing before anything is confirmed.</p>
+            <div class="pkg three-up">
+              <label><input type="radio" name="pkg" value="A: 6 sqm Standard Booth (3m x 2m)"/><b>A: 6 sqm Standard Booth</b><span>3m x 2m</span></label>
+              <label><input type="radio" name="pkg" value="B: 18 sqm Standard Booth (6m x 3m)"/><b>B: 18 sqm Standard Booth</b><span>6m x 3m</span></label>
+              <label><input type="radio" name="pkg" value="C: Custom-Built Raw Space (per sqm)"/><b>C: Custom-Built Raw Space</b><span>Per sqm</span></label>
+            </div>
+          </div>
         </div>
 
         <div class="f" id="dealbookGroup"><span class="lab">Your Deal Book profile</span>
@@ -707,9 +738,10 @@ form,.done{padding:28px}
           <div class="f"><label for="logo" id="logoLabel">Link to your company logo</label><p class="hint">Same idea: a link to your logo file, ideally a PNG with a transparent background.</p><input type="url" id="logo" placeholder="https://"/></div>
         </div>
 
-        <label class="agree"><input type="checkbox" id="agree"/><span>My company isn't in cannabis or casino gambling, and Yorkseed can keep my details to run the delegation.</span></label>
+        <label class="agree"><input type="checkbox" id="ackTravel"/><span>I understand flights, ground transport and hotel are not included.</span></label>
+        <label class="agree"><input type="checkbox" id="agree"/><span>My company isn't in cannabis or casino gambling, and Yorkseed can keep my details and contact me with delegation updates and the detailed information.</span></label>
 
-        <button type="submit" id="submitBtn">Send application</button>
+        <button type="submit" id="submitBtn">Apply free</button>
         <p class="small" id="submitNote">Free to join. We'll reply within two days.</p>
       </form>
       <div class="done" id="done">
@@ -816,7 +848,7 @@ form,.done{padding:28px}
     <div class="fine">
       <span>Full Bundle: Editorial + Coworking + 3 hotel nights, January 25 to 28, in a Wan Chai hotel (one room, one delegate, limited rooms): <b>$899</b>. <a href="mailto:partnership@yorkseed.co?subject=Full%20Bundle">Email us to reserve</a></span>
       <span>Shared booth at AFF, January 26 and 27: <b>$799 per person</b>. Optional, and you pay nothing now: just tell us you're interested. We charge only once at least 7 delegates have committed, and if we don't reach 7 there's no shared booth. Own booth also possible, tell us on the interest form.</span>
-      <span>Investors, LPs and family offices: <b>free</b>. <a href="https://tally.so/r/nrzzko" target="_blank" rel="noopener">Register your interest</a></span>
+      <span>Investors, LPs and family offices: <b>free</b>. <a href="#apply">Apply free</a></span>
       <span>Brands: advertise or sponsor the Deal Book. <a href="mailto:partnership@yorkseed.co">partnership@yorkseed.co</a></span>
     </div>
   </div>
@@ -938,6 +970,9 @@ document.addEventListener('visibilitychange',function(){if(!document.hidden){var
   function featureYes(){var c=form.querySelector('[name=feature]:checked');return !!c&&c.value==='Yes';}
   function dealbookYes(){var c=form.querySelector('[name=dealbook]:checked');return !!c&&c.value==='Yes';}
   function mediaNeeded(){return featureYes()||dealbookYes();}
+  function boothVal(){return form.querySelector('[name=booth]:checked').value;}
+  function syncBooth(){var b=boothVal();$('boothFields').hidden=b==='Delegate only';$('pkgGroup').hidden=b!=='Own booth';}
+  form.querySelectorAll('[name=booth]').forEach(function(r){r.addEventListener('change',syncBooth);});
   function syncExtras(){$('dbFields').hidden=!dealbookYes();$('featureFields').hidden=!mediaNeeded();}
   form.querySelectorAll('[name=feature],[name=dealbook]').forEach(function(r){r.addEventListener('change',syncExtras);});
   document.querySelectorAll('[data-extra]').forEach(function(a){a.addEventListener('click',function(){var r=form.querySelector('[name=extra][value="'+a.getAttribute('data-extra')+'"]');if(r)r.checked=true;});});
@@ -965,6 +1000,7 @@ document.addEventListener('visibilitychange',function(){if(!document.hidden){var
       else if(!URLRE.test(x)){mark($(id),'Please paste a full link starting with https://');ok=false;}
       else if(SHORT.test(x)){mark($(id),'Please use the full link.');ok=false;}
     });}
+    if(!$('ackTravel').checked){mark($('ackTravel').parentNode,'Please tick this to send.');ok=false;}
     if(!$('agree').checked){mark($('agree').parentNode,'Please tick this to send.');ok=false;}
     return ok;
   }
@@ -981,7 +1017,7 @@ document.addEventListener('visibilitychange',function(){if(!document.hidden){var
       ['First name',v('firstName')],['Last name',v('lastName')],['Role',v('jobTitle')],['Email',v('email')],['WhatsApp',v('phone')],['LinkedIn',v('linkedin')],
       ['Company',v('company')],['Website',v('website')],
       ['One-liner',f?v('oneLiner'):''],['Stage',f?v('stage'):''],['Investment focus',f?'':v('focus')],
-      ['Shared booth interest',$('boothInterest').checked?'Yes ($799, needs 7)':'No'],['Own booth interest',$('ownBooth').checked?'Yes':'No'],['Optional extra',ex==='None'?'None':ex+(ex==='Editorial Feature'?' ($295)':(ex==='Full Bundle'?' ($899)':' ($449)'))],
+      ['Booth interest',boothVal()],['Booth product categories',boothVal()==='Delegate only'?'':Array.prototype.map.call(form.querySelectorAll('[name=cat]:checked'),function(c){return c.value;}).join(', ')],['Booth package',boothVal()==='Own booth'?((form.querySelector('[name=pkg]:checked')||{}).value||''):''],['Shared booth note',boothVal()==='Shared booth'?'$799 per person, charged only if 7 delegates commit':''],['Optional extra',ex==='None'?'None':ex+(ex==='Editorial Feature'?' ($295)':(ex==='Full Bundle'?' ($899)':' ($449)'))],['Acknowledged flights and hotel not included','Yes'],
       ['Who they want to meet',v('goals')],['Heard via',v('referral')],
       ['Deal Book profile',form.querySelector('[name=dealbook]:checked').value],['Deal Book tagline',dealbookYes()?v('dbTagline'):''],['Deal Book about',dealbookYes()?v('dbAbout'):''],['Deal Book keywords',dealbookYes()?[v('dbTag1'),v('dbTag2'),v('dbTag3')].join(' | '):''],['Deal Book QR link',dealbookYes()?(v('dbQR')||v('website')):''],
       ['OK to feature in press and social',form.querySelector('[name=feature]:checked').value],['Headshot link',mediaNeeded()?v('headshot'):''],['Logo link',mediaNeeded()?v('logo'):'']
@@ -996,10 +1032,10 @@ document.addEventListener('visibilitychange',function(){if(!document.hidden){var
         form.style.display='none';$('done').style.display='block';
         $('done').scrollIntoView({behavior:'smooth',block:'center'});
       })
-      .catch(function(){btn.disabled=false;btn.textContent='Send application';alert('Something went wrong. Please try again.');});
+      .catch(function(){btn.disabled=false;btn.textContent='Apply free';alert('Something went wrong. Please try again.');});
   });
   try{var q=(new URLSearchParams(location.search).get('role')||'').toLowerCase();if(q==='investor')form.querySelector('[name=role][value=Investor]').checked=true;}catch(e){}
-  applyRole();
+  applyRole();syncBooth();
 })();
 
 </script>
