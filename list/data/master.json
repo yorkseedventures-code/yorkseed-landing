@@ -833,6 +833,13 @@
    "end": "2026-10-30"
   },
   {
+   "id": "t49dxb",
+   "name": "TOKEN2049 Dubai",
+   "hub": "dxb",
+   "start": "2027-04-19",
+   "end": "2027-04-24"
+  },
+  {
    "id": "hardtech",
    "name": "Hard Tech Week",
    "hub": "slc",
