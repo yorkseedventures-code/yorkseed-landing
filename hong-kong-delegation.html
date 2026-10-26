@@ -217,6 +217,7 @@ form,.done{background:var(--paper);color:var(--ink);padding:36px;border-radius:2
 .who label+label{border-left:1px solid var(--line)}
 .who input{position:absolute;opacity:0;pointer-events:none}
 .who label:has(input:checked){background:var(--black);color:#fff}
+.who:has([name=role]){grid-template-columns:repeat(3,1fr)}.who:has([name=role]) label{padding:13px 6px;letter-spacing:.08em}
 .f{margin-bottom:18px}
 .f>label,.f .lab{display:block;font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink2);margin-bottom:7px}
 .f .hint{font-size:13px;color:var(--ink3);margin:-3px 0 7px}
@@ -658,12 +659,15 @@ details.opt{border:1px solid rgba(12,12,12,.15);background:#fff;padding:0 16px;m
           <div class="f"><label for="email">Email</label><input type="email" id="email" autocomplete="email"/></div>
           <div class="f"><label for="phone">WhatsApp</label><input type="tel" id="phone" autocomplete="tel" placeholder="+852 …"/></div>
         </div>
-        <div class="two"><div class="f"><label for="jobTitle">Your role</label><input type="text" id="jobTitle" placeholder="e.g. Co-founder &amp; CEO" autocomplete="organization-title"/></div><div class="f"><label for="linkedin">LinkedIn</label><input type="url" id="linkedin" placeholder="https://linkedin.com/in/…"/></div></div>
         <div class="two">
           <div class="f"><label for="company" id="companyLabel">Company</label><input type="text" id="company" autocomplete="organization"/></div>
-          <div class="f"><label for="website">Website</label><input type="url" id="website" placeholder="https://"/></div>
+          <div class="f"><label for="linkedin">LinkedIn</label><input type="url" id="linkedin" placeholder="https://linkedin.com/in/…"/></div>
         </div>
 
+
+
+        <details class="opt"><summary>Optional: more about you, add-ons, booth, teammates and Deal Book profile <small>(skip now, you can do any of this later)</small></summary>
+        <div class="two"><div class="f"><label for="jobTitle">Your role</label><input type="text" id="jobTitle" placeholder="e.g. Co-founder &amp; CEO" autocomplete="organization-title"/></div><div class="f"><label for="website">Website</label><input type="url" id="website" placeholder="https://"/></div></div>
         <div class="founder-only">
           <div class="f"><label for="oneLiner">What does your company do?</label><input type="text" id="oneLiner" maxlength="160" placeholder="One sentence"/></div>
           <div class="f"><label for="stage">Stage</label>
@@ -677,8 +681,6 @@ details.opt{border:1px solid rgba(12,12,12,.15);background:#fff;padding:0 16px;m
 
         <div class="f"><label for="goals" id="goalsLabel">Who do you want to meet in Hong Kong?</label><p class="hint" id="goalsHint">Tell us who and what you're hoping to find at AFF.</p><textarea id="goals"></textarea></div>
         <div class="f"><label for="referral">How did you hear about this?</label><input type="text" id="referral" placeholder="Optional"/></div>
-
-        <details class="opt"><summary>Optional: add-ons, booth, teammates and Deal Book profile <small>(skip now, you can do any of this later)</small></summary>
         <div class="f" id="extraGroup"><span class="lab">Optional extras</span>
           <p class="hint">Joining is free. Want to do more with the week? Pick one here, or buy it any time from the pricing section.</p>
           <div class="pkg three-up" id="extraBox">
@@ -758,6 +760,7 @@ details.opt{border:1px solid rgba(12,12,12,.15);background:#fff;padding:0 16px;m
         </div>
         </details>
 
+        <label class="agree"><input type="checkbox" id="ackFollow"/><span>I understand Yorkseed will send follow-up information when the detailed application form is released.</span></label>
         <label class="agree"><input type="checkbox" id="ackTravel"/><span>I understand flights, ground transport and hotel are not included.</span></label>
         <label class="agree"><input type="checkbox" id="agree"/><span>My company isn't in cannabis or casino gambling, and Yorkseed can keep my details and contact me with delegation updates and the detailed information.</span></label>
 
@@ -1047,11 +1050,11 @@ document.addEventListener('visibilitychange',function(){if(!document.hidden){var
   var URLRE=/^https?:\/\/\S+\.\S+/i,SHORT=/(bit\.ly|wa\.me|t\.me|tinyurl\.com)/i;
   function validate(){
     clearAll();var ok=true;
-    var req=['firstName','lastName','jobTitle','email','phone','linkedin','company','goals'].concat(founder()?['oneLiner','stage']:[]);
+    var req=['firstName','lastName','email','phone','linkedin','company'];
     req.forEach(function(id){if(!v(id)){mark($(id),'Please fill this in.');ok=false;}});
     if(v('email')&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v('email'))){mark($('email'),'That email doesn\'t look right.');ok=false;}
     ['linkedin','website'].forEach(function(id){var x=v(id);if(x&&SHORT.test(x)){mark($(id),'Please use the full link.');ok=false;}});
-    if(v('goals')&&v('goals').length<40){mark($('goals'),'A little more detail, please.');ok=false;}
+    
     if(extra()!=='None'&&!v('website')){mark($('website'),'Please add your website.');ok=false;}
     if(dealbookYes()){
       ['dbTagline','dbAbout','dbTag1','dbTag2','dbTag3'].forEach(function(id){if(!v(id)){mark($(id),'Please fill this in.');ok=false;}});
@@ -1065,6 +1068,7 @@ document.addEventListener('visibilitychange',function(){if(!document.hidden){var
       else if(!URLRE.test(x)){mark($(id),'Please paste a full link starting with https://');ok=false;}
       else if(SHORT.test(x)){mark($(id),'Please use the full link.');ok=false;}
     });}
+    if(!$('ackFollow').checked){mark($('ackFollow').parentNode,'Please tick this to send.');ok=false;}
     if(!$('ackTravel').checked){mark($('ackTravel').parentNode,'Please tick this to send.');ok=false;}
     if(!$('agree').checked){mark($('agree').parentNode,'Please tick this to send.');ok=false;}
     return ok;
@@ -1073,7 +1077,7 @@ document.addEventListener('visibilitychange',function(){if(!document.hidden){var
   form.addEventListener('submit',function(e){
     e.preventDefault();
     if($('botcheck').checked)return;
-    if(!validate()){var f=form.querySelector('.err');if(f)f.scrollIntoView({behavior:'smooth',block:'center'});return;}
+    if(!validate()){var f=form.querySelector('.err');var dt=f&&f.closest('details.opt');if(dt)dt.open=true;if(f)f.scrollIntoView({behavior:'smooth',block:'center'});return;}
     btn.disabled=true;btn.textContent='Sending…';
     var f=founder(),ex=extra();var mt=parseInt($('mates').value,10)||0;
     // Fixed column order so every email lines up as the same row
@@ -1082,7 +1086,7 @@ document.addEventListener('visibilitychange',function(){if(!document.hidden){var
       ['First name',v('firstName')],['Last name',v('lastName')],['Role',v('jobTitle')],['Email',v('email')],['WhatsApp',v('phone')],['LinkedIn',v('linkedin')],
       ['Company',v('company')],['Website',v('website')],
       ['One-liner',f?v('oneLiner'):''],['Stage',f?v('stage'):''],['Investment focus / organization',f?'':v('focus')],
-      ['Booth interest',boothVal()],['Booth product categories',boothVal()==='Delegate only'?'':Array.prototype.map.call(form.querySelectorAll('[name=cat]:checked'),function(c){return c.value;}).join(', ')],['Booth package',boothVal()==='Own booth'?((form.querySelector('[name=pkg]:checked')||{}).value||''):''],['Shared booth note',boothVal()==='Shared booth'?'$799 per person, charged only if 7 delegates commit':''],['Optional extra',ex==='None'?'None':ex+(ex==='Editorial Feature'?' ($295)':(ex==='Full Bundle'?' ($899)':' ($449)'))],['Extra teammate Deal Book pages ($99 each)',$('mates').value],['Acknowledged flights and hotel not included','Yes'],
+      ['Booth interest',boothVal()],['Booth product categories',boothVal()==='Delegate only'?'':Array.prototype.map.call(form.querySelectorAll('[name=cat]:checked'),function(c){return c.value;}).join(', ')],['Booth package',boothVal()==='Own booth'?((form.querySelector('[name=pkg]:checked')||{}).value||''):''],['Shared booth note',boothVal()==='Shared booth'?'$799 per person, charged only if 7 delegates commit':''],['Optional extra',ex==='None'?'None':ex+(ex==='Editorial Feature'?' ($295)':(ex==='Full Bundle'?' ($899)':' ($449)'))],['Extra teammate Deal Book pages ($99 each)',$('mates').value],['Acknowledged flights and hotel not included','Yes'],['Agreed to follow-up when detailed application is released','Yes'],
       ['Who they want to meet',v('goals')],['Heard via',v('referral')],
       ['Deal Book profile',((form.querySelector('[name=dealbook]:checked')||{}).value||'Not answered')],['Deal Book tagline',dealbookYes()?v('dbTagline'):''],['Deal Book about',dealbookYes()?v('dbAbout'):''],['Deal Book keywords',dealbookYes()?[v('dbTag1'),v('dbTag2'),v('dbTag3')].join(' | '):''],['Deal Book QR link',dealbookYes()?(v('dbQR')||v('website')):''],
       ['OK to feature in press and social',((form.querySelector('[name=feature]:checked')||{}).value||'Not answered')],['Headshot link',mediaNeeded()?v('headshot'):''],['Logo link',mediaNeeded()?v('logo'):'']
