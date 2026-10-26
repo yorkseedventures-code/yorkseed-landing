@@ -158,6 +158,7 @@ def page(path, title, desc, canon, body, ld, img=None, index=True):
 <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','G-MN9TDJSXN0');</script>
 <script src="/assets/site-chrome.js" defer></script>
 <script src="/assets/ys-ref.js" defer></script>
+<script src="/assets/list-change.js" defer></script>
 <style>yk-header:not(:defined){{display:block;min-height:73px}}{CSS}</style>
 </head>
 <body>
@@ -422,7 +423,8 @@ for e in events:
     body = f"""<div class="crumb"><a href="https://yorkseed.co/">Yorkseed</a> / <a href="/">The List</a> / {crumb2}</div>
 <div class="hero"><div>{ys}<h1>{e_(e['title'])}</h1>
 <div style="margin:0 0 18px">{dts}</div>
-<div class="cta">{f'<a class="btn r" href="{e_(ref(e["link"], camp))}" target="_blank" rel="noopener">Register ↗</a>' if e["link"] else ''}<a class="btn" href="/#e/{e['slug']}">Add to calendar · Share</a></div></div>
+<div class="cta">{f'<a class="btn r" href="{e_(ref(e["link"], camp))}" target="_blank" rel="noopener">Register ↗</a>' if e["link"] else ''}<a class="btn" href="/#e/{e['slug']}">Add to calendar · Share</a></div>
+<p style="margin:14px 0 0;font-size:13px;color:var(--ink3)">Hosting this event? <a href="#" data-ys-change data-title="{e_(e['title'])}" data-date="{e['date']}" data-link="{e_(e['link'] or '')}" data-url="{canon}" style="color:var(--red)">Change or remove it</a></p></div>
 {f'<img src="{e_(img)}" alt="{e_(e["title"])}" width="800" height="600" referrerpolicy="no-referrer">' if img else ''}</div>
 {f'<h2>About this <em>event</em></h2><p class="lede">{e_(e["desc"])}</p>' if e["desc"] else ''}
 {(f'<h2>More {e_(w["name"]) + " side events" if w else "events in " + e_(h["name"])} on <em>{e_(dd.strftime("%B"))} {dd.day}</em></h2>' + rows(same, camp)) if same else ''}
