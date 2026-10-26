@@ -83877,5 +83877,19 @@
   "yorkseed": true,
   "src": "manual",
   "type": "Social"
+ },
+ {
+  "title": "The AI Summit New York",
+  "hub": "nyc",
+  "date": "2026-12-09",
+  "start": null,
+  "end": null,
+  "venue": "Javits Center, 429 11th Ave, New York",
+  "host": "The AI Summit",
+  "link": "https://newyork.theaisummit.com/",
+  "desc": "Two-day AI summit at the Javits Center, December 9 to 10, 2026. Registration opens soon on the event site.",
+  "type": "Conferences",
+  "src": "manual",
+  "noTime": true
  }
 ]
