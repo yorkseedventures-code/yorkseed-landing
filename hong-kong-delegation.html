@@ -536,7 +536,7 @@ details.opt{border:1px solid rgba(12,12,12,.15);background:#fff;padding:0 16px;m
   <div class="in">
     <div class="eyebrow label">Asian Financial Forum · Hong Kong · January 25 to 28, 2027</div>
     <h1>The Yorkseed<br><em>Hong Kong</em> Delegation</h1>
-    <p class="sub">Yorkseed returns to the Asian Financial Forum as official community partner of HKTDC. The delegation is free: apply, and if you're approved your full AFF pass is complimentary, with a group to walk into the week with and the AFF Deal-Making platform.</p>
+    <p class="sub">Yorkseed returns to the Asian Financial Forum as official community partner of HKTDC. The delegation is free: register your interest, and if you're approved your full AFF pass is complimentary, with a group to walk into the week with and the AFF Deal-Making platform.</p>
     <div class="meta">
       <div><span>Delegation</span><b>January 25 to 28, 2027</b></div>
       <div><span>To join</span><b>Free</b></div>
@@ -544,7 +544,7 @@ details.opt{border:1px solid rgba(12,12,12,.15);background:#fff;padding:0 16px;m
       <div><span>AFF</span><b>January 26 to 27</b></div>
     </div>
     <div class="btns">
-      <a href="#apply" class="btn btn-gold">Apply</a>
+      <a href="#apply" class="btn btn-gold">Register interest</a>
       <a href="#week" class="btn btn-line">See the trip</a>
     </div>
   </div>
@@ -561,7 +561,7 @@ details.opt{border:1px solid rgba(12,12,12,.15);background:#fff;padding:0 16px;m
 <div class="hk-strip">
   <div class="in hk-clear">
     <div><b>Free</b><span>Your delegation place and a full Asian Financial Forum pass, usually over $1,000.</span></div>
-    <div><b>Apply</b><span>Tell us who you are. We review every application and confirm your pass.</span></div>
+    <div><b>Register interest</b><span>Tell us who you are. We review every registration and confirm your place.</span></div>
     <div><b>Optional extras</b><span>Editorial page, coworking, hotel, shared booth and Founder Deal Book Virtual are paid and entirely optional. <a href="#extras">See extras</a></span></div>
   </div>
 </div>
@@ -616,11 +616,11 @@ details.opt{border:1px solid rgba(12,12,12,.15);background:#fff;padding:0 16px;m
   <div class="hero-tiles"></div>
   <div class="in">
     <div class="side">
-      <div class="label">Apply</div>
+      <div class="label">Register interest</div>
       <h2 class="big">Join us <em>in Hong Kong</em></h2>
-      <p>The delegation is free. Apply below: we review every application and confirm your place and your complimentary AFF pass.</p>
+      <p>The delegation is free. Register your interest below and we'll review it and confirm your place. We'll send the AFF registration link for your complimentary pass when it's available.</p>
       <ol class="steps">
-        <li>Apply below, five minutes</li>
+        <li>Register your interest below, five minutes</li>
         <li>We review it and send AFF's own registration form for your pass</li>
         <li>We confirm your place and your AFF pass. Add-ons can be bought any time from the pricing section</li>
         <li>Send your Deal Book profile by January 15</li>
@@ -760,12 +760,11 @@ details.opt{border:1px solid rgba(12,12,12,.15);background:#fff;padding:0 16px;m
         <label class="agree"><input type="checkbox" id="ackTravel"/><span>I understand flights, ground transport and hotel are not included.</span></label>
         <label class="agree"><input type="checkbox" id="agree"/><span>My company isn't in cannabis or casino gambling, and Yorkseed can keep my details and contact me with delegation updates and the detailed information.</span></label>
 
-        <button type="submit" id="submitBtn">Apply</button>
-        <p class="small" id="submitNote">Free to join. We'll reply within two days.</p>
+        <button type="submit" id="submitBtn">Register interest</button>
       </form>
       <div class="done" id="done">
         <h3>See you in <em>Hong Kong</em>.</h3>
-        <p id="doneText">Application received. We'll get back to you within two days.</p>
+        <p id="doneText">Thank you, we've received your interest. We'll be in touch with next steps, including your AFF registration link once it's available.</p>
         <div id="payBlock" hidden>
           <p class="small">Optional: you can pay for your add-ons now. We'll also email you the link, so there's no rush.</p>
           <div class="paynow" id="payBtns"></div>
@@ -917,7 +916,7 @@ details.opt{border:1px solid rgba(12,12,12,.15);background:#fff;padding:0 16px;m
 </section>
 <section class="faq">
   <div class="in">
-    <div><div class="label">Questions</div><h2 class="big">Before <em>you apply</em></h2></div>
+    <div><div class="label">Questions</div><h2 class="big">Before <em>you register</em></h2></div>
     <div>
       <details><summary>Does it cost anything to join?</summary><p>No. The delegation is free and you receive a complimentary AFF delegate pass. You pay for your own flights. Hotel is included only if you choose the full bundle. The extras on this page are optional.</p></details>
       <details><summary>Do I need to buy an AFF ticket?</summary><p>No. A full AFF pass usually costs over $1,000, but as official community partner of HKTDC, Yorkseed gives every delegate a complimentary AFF delegate pass, with onsite access to the full 2-day program, the exhibition areas and the AFF Deal-Making platform, plus keynote luncheons (meal entitlements are subject to prior reservation). AFF has its own short registration form for each delegate pass, and we'll send it to you once your place is confirmed.</p></details>
@@ -1091,7 +1090,7 @@ document.addEventListener('visibilitychange',function(){if(!document.hidden){var
       .then(function(r){return r.json();})
       .then(function(res){
         if(!res.success)throw new Error();
-        $('doneText').textContent='Application received. We\'ll get back to you within two days.';
+        $('doneText').textContent='Thank you, we\'ve received your interest. We\'ll be in touch with next steps, including your AFF registration link once it\'s available.';
         var LINK={'Editorial Feature':'https://buy.stripe.com/28E4gs9EHb8O43K4Atbo40T','Editorial + Coworking':'https://buy.stripe.com/14AbIU047el0as88QJbo40U'},pb=[],em='?prefilled_email='+encodeURIComponent(v('email'));
         if(LINK[ex])pb.push([LINK[ex]+em,'Pay now: '+ex+(ex==='Editorial Feature'?' $295':' $449'),0]);
         if(ex==='Full Bundle')pb.push(['mailto:info@yorkseed.co?subject=Full%20Bundle%20'+encodeURIComponent(v('company')),'Email us to reserve your Full Bundle, $899',1]);
@@ -1100,7 +1099,7 @@ document.addEventListener('visibilitychange',function(){if(!document.hidden){var
         form.style.display='none';$('done').style.display='block';
         $('done').scrollIntoView({behavior:'smooth',block:'center'});
       })
-      .catch(function(){btn.disabled=false;btn.textContent='Apply';alert('Something went wrong. Please try again.');});
+      .catch(function(){btn.disabled=false;btn.textContent='Register interest';alert('Something went wrong. Please try again.');});
   });
   try{var q=(new URLSearchParams(location.search).get('role')||'').toLowerCase();if(q==='investor')form.querySelector('[name=role][value=Investor]').checked=true;}catch(e){}
   applyRole();syncBooth();syncDesc();
