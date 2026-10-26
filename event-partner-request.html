@@ -820,8 +820,13 @@ function doSubmit(){
   };
   row.forEach(function(p){data[p[0]]=p[1]||'-';});
 
-  fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
-    .then(function(r){return r.json();})
+  var mine={firstName:val('firstName'),lastName:val('lastName'),email:val('email'),organization:val('organization'),partnershipType:checked('partnershipType'),
+    managerAccess:checked('managerAccess'),eventName:val('eventName'),eventDate:val('eventDate'),eventCity:val('eventCity'),venue:val('venue'),eventLink:val('eventLink'),
+    eventDescription:val('eventDescription'),botcheck:document.getElementById('botcheck').checked?'1':'',details:row.map(function(p){return {k:p[0],v:p[1]};}).filter(function(d){return d.v;})};
+  // Goes to the Yorkseed backend (so approving it can send the logo materials automatically); the web3forms email is the backup if that is down.
+  fetch('https://yorkseed-backend-production.up.railway.app/api/partner-requests/submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(mine)})
+    .then(function(r){if(!r.ok)throw new Error('backend');return {success:true};})
+    .catch(function(){return fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)}).then(function(r){return r.json();});})
     .then(function(res){
       closeModal();
       if(res.success){

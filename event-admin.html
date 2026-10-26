@@ -72,6 +72,7 @@ textarea{min-height:130px;resize:vertical}
   <div class="hd"><h1>Event Manager</h1><button type="button" id="keyChange">Change key</button></div>
   <nav class="nav" id="nav" aria-label="Sections">
     <button data-go="inbox">Inbox <span class="n" id="nInbox" hidden></span></button>
+    <button data-go="partners">Partners <span class="n" id="nPartners" hidden></span></button>
     <button data-go="events">Yorkseed events</button>
     <button data-go="ads">Sidebar ads <span class="n soft" id="nAds" hidden></span></button>
     <button data-go="organizers">Pre-approved <span class="n soft" id="nTrust" hidden></span></button>
@@ -98,6 +99,13 @@ textarea{min-height:130px;resize:vertical}
   <div style="display:flex;gap:8px;flex-wrap:wrap"><input id="trustEmail" type="email" placeholder="organizer@email.com" style="flex:1;min-width:200px"><button class="btn" id="trustAdd" style="width:auto;margin:0;padding:0 18px;min-height:46px">Pre-approve</button></div>
   <div id="trustList" style="margin-top:10px"><div class="hint">Loading...</div></div>
   <div class="hint">You can also tap "Pre-approve organizer" on any submission in the Inbox.</div>
+</div>
+
+<div class="card" id="partners" data-sec="partners">
+  <h2>Partner requests <span id="ptCount"></span></h2>
+  <div class="tabs" id="ptTabs"><button data-pt="todo" class="on">Needs you</button><button data-pt="wait">Waiting on partner</button><button data-pt="live">Live</button><button data-pt="no">Declined</button></div>
+  <div id="ptList"><div class="hint">Loading...</div></div>
+  <div class="hint">Step 1: approve a request and the logo materials go to the partner with a private page to send their links. Step 2: when they send the links, open them, then approve. The event goes live on The List with the &#9650; and flows into the next Pulse.</div>
 </div>
 
 <div class="card" id="ads" data-sec="ads">
@@ -277,6 +285,43 @@ document.addEventListener('click',function(ev){
   else if(t.id==='trustAdd'){var em=$('trustEmail').value.trim();if(!em)return;t.disabled=true;trust(em).then(function(){$('trustEmail').value=''}).catch(function(e){alert(e.message)}).then(function(){t.disabled=false})}
   else if(id=t.dataset.subDel){if(t.dataset.sure===id){subApi('/'+id,{method:'DELETE'}).then(loadSubs)}else{t.dataset.sure=id;t.textContent='Tap again';setTimeout(function(){t.textContent='Delete';delete t.dataset.sure},3000)}}
 });
+var PT='https://yorkseed-backend-production.up.railway.app/api/partner-requests',pts=[],ptTab='todo',HUBMAP=null;
+function ptApi(path,opt){var keep=API;API=PT;try{return api(path,opt)}finally{API=keep}}
+function guessHub(city){var c=(city||'').toLowerCase().replace(/[^a-z]/g,'');if(!c||!HUBMAP)return '';var f='';HUBMAP.forEach(function(h){var n=(h.name||'').toLowerCase().replace(/[^a-z]/g,'');if(!f&&n&&(c.indexOf(n)>-1||n.indexOf(c)>-1))f=h.id});return f}
+function loadPartners(){
+  if(!key()){$('ptList').innerHTML='<div class="hint">Enter your key to see partner requests.</div>';return}
+  var need=HUBMAP?Promise.resolve():fetch('/list/data/master.json').then(function(r){return r.json()}).then(function(m){HUBMAP=m.hubs||[]}).catch(function(){HUBMAP=[]});
+  need.then(function(){return ptApi('')}).then(function(j){pts=j.requests||[];var n=j.waiting||0;$('ptCount').innerHTML=n?'<span class="pill">'+n+' need you</span>':'';badge('nPartners',n);renderPartners()})
+    .catch(function(err){$('ptList').innerHTML='<div class="hint">'+esc(err.message)+'</div>'});
+}
+function ptLink(label,u){return u?'<div class="meta">'+esc(label)+': <a href="'+esc(u)+'" target="_blank" rel="noopener">'+esc(u)+'</a></div>':''}
+function renderPartners(){
+  var grp={todo:['new','links_in'],wait:['materials_sent'],live:['live'],no:['rejected']}[ptTab];
+  var rows=pts.filter(function(x){return grp.indexOf(x.status)>-1});
+  $('ptList').innerHTML=rows.length?rows.map(function(x){
+    var st={new:'New request',materials_sent:'Materials sent, waiting for their links',links_in:'Links received: check them, then approve',live:'Live on The List',rejected:'Declined'}[x.status];
+    var hubOpts='<option value="">Pick city</option>'+(HUBMAP||[]).map(function(h){return '<option value="'+esc(h.id)+'"'+(h.id===(x.hub||guessHub(x.eventCity))?' selected':'')+'>'+esc(h.name)+'</option>'}).join('');
+    var acts='';
+    if(x.status==='new')acts='<button class="ok" data-pt-mat="'+x.id+'">Approve and send logo materials</button><button data-pt-no="'+x.id+'">Decline</button>';
+    else if(x.status==='materials_sent')acts='<button data-pt-mat="'+x.id+'">Resend materials</button><button data-pt-no="'+x.id+'">Decline</button>';
+    else if(x.status==='links_in')acts='<select id="ptHub'+x.id+'" style="min-height:40px">'+hubOpts+'</select><input id="ptDate'+x.id+'" type="date" value="'+esc(x.eventDate||'')+'" style="min-height:40px"><button class="ok" data-pt-live="'+x.id+'">Approve and go live</button><button data-pt-no="'+x.id+'">Decline</button>';
+    else if(x.status==='live')acts='<button data-pt-no="'+x.id+'">Take off the List</button>';
+    var l=x.links||{};
+    return '<div class="sub-it"><b>'+esc(x.eventName)+'</b> <span class="tag" style="padding:2px 8px">'+esc(x.partnershipType||'Partner')+'</span><div class="meta">'+esc(st)+'</div>'
+      +'<div class="meta">'+[x.eventCity,x.eventDate,x.venue].filter(Boolean).map(esc).join(' · ')+'</div>'
+      +'<div class="meta">From '+[x.firstName+' '+x.lastName,x.organization,x.email].filter(function(v){return v&&v.trim()}).map(esc).join(' · ')+' · <a href="mailto:'+esc(x.email)+'">email them</a></div>'
+      +(x.eventDescription?'<div class="desc">'+esc(x.eventDescription)+'</div>':'')
+      +ptLink('Their event link',x.eventLink)+ptLink('Event page (with logo + Yorkseed line)',l.eventPage)+ptLink('Post',l.post)+ptLink('Description',l.description)+(l.note?'<div class="meta">Note: '+esc(l.note)+'</div>':'')
+      +'<div class="acts">'+acts+'</div></div>';
+  }).join(''):'<div class="hint">Nothing here.</div>';
+}
+document.addEventListener('click',function(ev){
+  var t=ev.target,id;if(!t.dataset)return;
+  if(t.dataset.pt){ptTab=t.dataset.pt;[].forEach.call(document.querySelectorAll('#ptTabs button'),function(b){b.className=b.dataset.pt===ptTab?'on':''});renderPartners()}
+  else if(id=t.dataset.ptMat){t.disabled=true;ptApi('/'+id+'/materials',{method:'PUT'}).then(function(){alert('Logo materials sent.');loadPartners()}).catch(function(e){alert(e.message);t.disabled=false})}
+  else if(id=t.dataset.ptLive){var h=$('ptHub'+id).value,d=$('ptDate'+id).value;if(!h){alert('Pick the city first.');return}t.disabled=true;ptApi('/'+id+'/live',{method:'PUT',body:{hub:h,date:d}}).then(function(){loadPartners()}).catch(function(e){alert(e.message);t.disabled=false})}
+  else if(id=t.dataset.ptNo){if(t.dataset.sure!==id){t.dataset.sure=id;t.textContent='Tap again to confirm';return}ptApi('/'+id+'/reject',{method:'PUT'}).then(loadPartners).catch(function(e){alert(e.message)})}
+});
 var ADS='https://yorkseed-backend-production.up.railway.app/api/list-ads';
 function adsApi(path,opt){var keep=API;API=ADS;try{return api(path,opt)}finally{API=keep}}
 function d10(x){return x?new Date(x).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}):''}
@@ -294,7 +339,7 @@ function loadAds(){
 document.addEventListener('click',function(ev){var t=ev.target,id;if(!t.dataset)return;
   if(id=t.dataset.adDown){if(t.dataset.sure!==id){t.dataset.sure=id;t.textContent='Tap again to take down';return}adsApi('/'+id,{method:'PUT',body:{status:'taken_down'}}).then(loadAds)}
   else if(id=t.dataset.adUp){adsApi('/'+id,{method:'PUT',body:{status:'live'}}).then(loadAds)}});
-$('key').addEventListener('change',function(){try{localStorage.setItem('ys_events_key',key())}catch(e){}load();loadSubs();loadAds();loadTrust()});
+$('key').addEventListener('change',function(){try{localStorage.setItem('ys_events_key',key())}catch(e){}load();loadSubs();loadAds();loadTrust();loadPartners()});
 function load(){
   if(!key()){$('list').innerHTML='<div class="hint">Enter your key to see events.</div>';$('delStatus').textContent='Enter your key to use this switch.';return}
   api('').then(function(j){
@@ -311,8 +356,8 @@ document.addEventListener('click',function(ev){
   else if(id=t.dataset&&t.dataset.hide){var e2=cache.find(function(x){return x.id===id});e2.hidden=!e2.hidden;api('/'+id,{method:'PUT',body:e2}).then(load)}
   else if(id=t.dataset&&t.dataset.del){if(t.dataset.sure===id){api('/'+id,{method:'DELETE'}).then(load)}else{t.dataset.sure=id;t.textContent='Tap again';setTimeout(function(){t.textContent='Delete';delete t.dataset.sure},3000)}}
 });
-load();loadSubs();loadAds();loadTrust();
-var SECS={inbox:1,events:1,ads:1,organizers:1,tools:1,submissions:'inbox'};
+load();loadSubs();loadAds();loadTrust();loadPartners();
+var SECS={inbox:1,events:1,ads:1,organizers:1,partners:1,tools:1,submissions:'inbox'};
 function showSec(s){s=SECS[s]===1?s:(SECS[s]||'inbox');[].forEach.call(document.querySelectorAll('[data-sec]'),function(c){c.hidden=c.dataset.sec!==s});
   [].forEach.call(document.querySelectorAll('#nav button'),function(b){b.className=b.dataset.go===s?'on':''});
   try{history.replaceState(null,'','#'+s)}catch(e){}window.scrollTo(0,0)}

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Send your links | Yorkseed partner</title>
+<meta name="robots" content="noindex,nofollow"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{--ink:#1a1714;--mut:#6b645c;--line:#e4ded6;--bg:#faf7f2;--red:#c8102e;--blue:#2563eb}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "DM Sans",system-ui,sans-serif}
+main{max-width:560px;margin:0 auto;padding:40px 20px 64px}
+.k{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut)}
+h1{font:400 34px/1.15 "Playfair Display",Georgia,serif;margin:8px 0 10px}
+.tri{color:var(--blue)}
+p{margin:0 0 14px;color:#3b362f}
+.card{background:#fff;border:1px solid var(--line);padding:22px;margin-top:22px}
+label{display:block;font-size:13px;font-weight:500;margin:16px 0 6px}
+label small{font-weight:400;color:var(--mut)}
+input,textarea{width:100%;font:inherit;padding:12px;border:1px solid var(--ink);background:#fff;border-radius:0}
+textarea{min-height:80px}
+button{margin-top:20px;width:100%;min-height:48px;background:var(--red);color:#fff;border:0;font:500 15px "DM Sans",sans-serif;cursor:pointer}
+button:disabled{opacity:.6}
+.err{color:var(--red);font-size:14px;margin-top:12px}
+ul{padding-left:20px;color:#3b362f}
+a{color:var(--red)}
+[hidden]{display:none!important}
+</style></head>
+<body><main>
+<div class="k">Yorkseed partner</div>
+<h1 id="h">One last step</h1>
+<p id="sub">Loading your event...</p>
+
+<div class="card" id="formCard" hidden>
+  <p><b>Before you send the links, check your event has:</b></p>
+  <ul id="need"></ul>
+  <form id="f" novalidate>
+    <label for="eventPage">Your live event page <small>(required)</small></label>
+    <input id="eventPage" type="url" placeholder="https://" required/>
+    <label for="post">A post or newsletter mention <small>(optional)</small></label>
+    <input id="post" type="url" placeholder="https://"/>
+    <label for="description">Where the Yorkseed line appears <small>(optional, if it is not on the event page)</small></label>
+    <input id="description" type="url" placeholder="https://"/>
+    <label for="note">Anything we should know? <small>(optional)</small></label>
+    <textarea id="note" maxlength="1000"></textarea>
+    <div class="err" id="err" hidden></div>
+    <button type="submit" id="go">Send my links</button>
+  </form>
+</div>
+
+<div class="card" id="done" hidden>
+  <p><b>Thank you.</b> We have your links. We will check them and, once approved, your event goes live on The Yorkseed List with the <span class="tri">&#9650;</span> and is shared across the Yorkseed network. You will get an email when it is live.</p>
+</div>
+<div class="card" id="live" hidden><p><b>Your event is already live</b> on The Yorkseed List. Nothing more to do.</p></div>
+<div class="card" id="bad" hidden><p>This link is not active. Please use the link in your latest Yorkseed email, or write to <a href="mailto:info@yorkseed.co">info@yorkseed.co</a>.</p></div>
+
+<script>
+(function(){
+  var API='https://yorkseed-backend-production.up.railway.app/api/partner-requests/materials/';
+  var t=(new URLSearchParams(location.search).get('t')||'').trim();
+  var $=function(i){return document.getElementById(i)};
+  function show(id){['formCard','done','live','bad'].forEach(function(x){$(x).hidden=x!==id})}
+  if(!/^[a-f0-9]{48}$/.test(t)){$('sub').textContent='';show('bad');return}
+  fetch(API+t).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(d){
+    $('h').textContent=d.eventName;
+    var tier=d.partnershipType||'Community Partner';
+    $('sub').innerHTML='Thank you for partnering with Yorkseed as a <b>'+tier.replace(/[<>&]/g,'')+'</b>. Send us your links when your event is ready.';
+    var n=['The Yorkseed logo on your event graphic','A Yorkseed line in your event description, linked to Yorkseed'];
+    if(/co-?host/i.test(tier))n.push('Yorkseed added as a co-host on your event page');
+    $('need').innerHTML=n.map(function(x){return '<li>'+x+'</li>'}).join('');
+    if(d.status==='live')show('live');else if(d.status==='links_in'&&d.links&&d.links.eventPage){$('eventPage').value=d.links.eventPage;$('post').value=d.links.post||'';$('description').value=d.links.description||'';$('note').value=d.links.note||'';show('formCard')}else show('formCard');
+  }).catch(function(){$('sub').textContent='';show('bad')});
+  $('f').addEventListener('submit',function(e){e.preventDefault();
+    var b={eventPage:$('eventPage').value.trim(),post:$('post').value.trim(),description:$('description').value.trim(),note:$('note').value.trim()};
+    $('err').hidden=true;
+    if(!/^https?:\/\//.test(b.eventPage)){$('err').textContent='Add the link to your event page, starting with https://';$('err').hidden=false;return}
+    $('go').disabled=true;
+    fetch(API+t,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(b)}).then(function(r){return r.json().then(function(j){if(!r.ok)throw new Error(j.message||'Something went wrong');return j})})
+      .then(function(j){show(j.live?'live':'done')}).catch(function(x){$('err').textContent=x.message;$('err').hidden=false;$('go').disabled=false});
+  });
+})();
+</script>
+</main></body></html>
