@@ -85388,5 +85388,44 @@
   "desc": "Details and registration on the event page.",
   "type": "Conferences",
   "src": "manual"
+ },
+ {
+  "title": "Wealth and Migration Summit 2026",
+  "hub": "lis",
+  "date": "2026-11-05",
+  "start": "09:00",
+  "end": null,
+  "venue": "EPIC SANA Marquês Hotel Lisboa, Lisbon",
+  "host": "",
+  "link": "https://www.eventbrite.pt/e/wealth-and-migration-summit-2026-tickets-2002131336724",
+  "desc": "Details and registration on the event page.",
+  "type": "Conferences",
+  "src": "manual"
+ },
+ {
+  "title": "Women Leaders Delegation @ Web Summit Lisbon",
+  "hub": "lis",
+  "date": "2026-11-08",
+  "start": "18:00",
+  "end": null,
+  "venue": "MEO Arena, Lisbon",
+  "host": "",
+  "link": "https://www.eventbrite.ie/e/women-leaders-delegation-web-summit-lisbon-tickets-2001885302830",
+  "desc": "Details and registration on the event page.",
+  "type": "Social",
+  "src": "manual"
+ },
+ {
+  "title": "Web Summit Networking Event @ Delirium Café",
+  "hub": "lis",
+  "date": "2026-11-11",
+  "start": "18:00",
+  "end": null,
+  "venue": "Delirium Café Lisboa, Chiado, Lisbon",
+  "host": "WeRoad",
+  "link": "https://www.eventbrite.co.uk/e/web-summit-networking-event-delirium-cafe-tickets-2002956334314",
+  "desc": "Details and registration on the event page.",
+  "type": "Social",
+  "src": "manual"
  }
 ]
