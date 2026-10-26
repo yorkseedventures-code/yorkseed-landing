@@ -68,7 +68,7 @@ em{font-style:italic}
 .hero h1 em{color:var(--gold-light)}
 .hero .tag{font-family:var(--serif);font-style:italic;font-size:clamp(22px,2.6vw,28px);color:rgba(255,255,255,.7);margin:22px 0 8px}
 .hero .sub{margin-top:26px;max-width:560px;font-size:16px;line-height:1.75;color:rgba(255,255,255,.62);margin-bottom:40px}
-.meta{display:grid;grid-template-columns:repeat(4,auto);justify-content:start;gap:16px 56px;margin-bottom:40px}
+.meta{display:grid;grid-template-columns:repeat(5,auto);justify-content:start;gap:16px 40px;margin-bottom:40px}
 @media(max-width:760px){.meta{grid-template-columns:1fr 1fr;gap:18px 24px}}
 .meta div>span{display:block;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:6px}
 .meta div b{font-weight:400;font-size:15px}
@@ -327,6 +327,7 @@ form,.done{padding:28px}
 .done h3{font-size:30px}
 .luma-card h3{font-size:26px}
 @media(max-width:700px){.hero h1{font-size:40px}.big{font-size:28px}}
+.btns .dl{flex-basis:100%;font-size:13px;color:rgba(255,255,255,.75);margin-top:2px;letter-spacing:.02em}details.more{margin-top:18px}details.more summary{cursor:pointer;list-style:none;border:1px solid rgba(12,12,12,.2);padding:16px 18px;font-weight:600;font-size:14px;background:#fff}details.more summary::-webkit-details-marker{display:none}details.more summary small{display:block;font-weight:400;color:#6b645c;margin-top:4px;font-size:13px}details.more summary::after{content:"+";float:right;font-size:18px;line-height:1}details.more[open] summary::after{content:"\2212"}details.more[open] summary{margin-bottom:14px}@media(max-width:1100px){.meta{grid-template-columns:repeat(3,auto)}}
 </style>
 </head>
 <body>
@@ -340,13 +341,15 @@ form,.done{padding:28px}
     <p class="sub">Founders in Lisbon for Web Summit week, travelling together with Yorkseed. Possible introductions to investors where there's a fit, a group to walk into the week with, and a network to stay in touch with after Lisbon.</p>
     <div class="meta">
       <div><span>Dates</span><b>November 8 to 12</b></div>
+      <div><span>Apply by</span><b>November 6</b></div>
       <div><span>From</span><b><span data-fo>€495 per company</span><span data-so>€595 per company</span></b></div>
-      <div><span>Founding spots</span><b><span data-fo>First 10 companies</span><span data-so>Sold out</span></b></div>
+      <div><span>Founding spots</span><b><span data-fo>10 spots, all open</span><span data-so>Sold out</span></b></div>
       <div><span>Investors</span><b>Complimentary</b></div>
     </div>
     <div class="btns">
       <a href="#apply" class="btn btn-gold">Apply to join</a>
       <a href="#week" class="btn btn-line">See the week</a>
+      <span class="dl">Applications and profiles close November 6. Kickoff is November 9.</span>
     </div>
     <div class="hero-foot"><span>Part of <a href="/delegation/">Yorkseed Delegations</a></span><span><a href="/delegation/lisbon-2026/delegates/">Meet the delegates &rarr;</a></span></div>
   </div>
@@ -429,7 +432,7 @@ form,.done{padding:28px}
   <div class="in">
     <div class="head">
       <div><div class="label">Pricing</div><h2 class="big">Per company, <em>one delegate included</em></h2></div>
-      <p>One application for everyone. We review it, and if you're approved we send your payment link. Web Summit ticket not included, and you don't need one to join.</p>
+      <p>One application for everyone. Applications close November 6. We review it, and if you're approved we send your payment link. Web Summit ticket not included, and you don't need one to join.</p>
     </div>
     <div class="tiers" data-fo>
       <div class="tier feat">
@@ -477,6 +480,7 @@ form,.done{padding:28px}
         <a href="#apply" class="btn" data-tier="Premium">Apply</a>
       </div>
     </div>
+    <details class="more" id="moreWays"><summary>More ways to join <small>Partner Delegate €995 · Virtual listing €195 · extra teammates · investors</small></summary>
     <div class="partner" id="partner">
       <div>
         <div class="t">Executives, corporates and service providers</div>
@@ -500,42 +504,7 @@ form,.done{padding:28px}
       <span>Investors, LPs and family offices: <b>complimentary</b>, subject to approval. <a href="#apply" data-role="Investor">Apply as an investor</a></span>
       <span>Brands: <b>sponsor the December showcase</b>, 3 spots. <a href="https://luma.com/relg9v16?utm_source=yorkseed&amp;utm_medium=delegation_page" target="_blank" rel="noopener">See partnership</a></span>
     </div>
-  </div>
-</section>
-
-<section class="forwho">
-  <div class="in">
-    <div>
-      <div class="label">Who it's for</div>
-      <h2 class="big">Founders <em>coming to Lisbon</em> for Web Summit week</h2>
-    </div>
-    <ul class="list">
-      <li><span><strong>You'll be in Lisbon.</strong> You have a Web Summit ticket, you're getting one, or you're still deciding. You don't need a ticket to join: our famous <a href="https://list.yorkseed.co/#web-summit-lisbon" target="_blank" rel="noopener" style="color:var(--red)">master side event list</a> covers the side events happening all week.</span></li>
-      <li><span><strong>You're building something venture-scale.</strong> Pre-seed to Series A, raising now or in the next year.</span></li>
-      <li><span><strong>You want relationships.</strong> People you'll still be talking to in six months.</span></li>
-      <li><span><strong>Not in cannabis or casino gambling.</strong> Same rule as every Yorkseed hub.</span></li>
-      <li><span><strong>Partners and investors too.</strong> Executives, corporates, advisors, law firms, banks, recruiters, EOR and payroll companies and consultants join as <a href="#partner" style="color:var(--red)">Partner Delegates</a>. VCs, angel groups, LPs, family offices and other allocators join as investors, complimentary.</span></li>
-    </ul>
-  </div>
-</section>
-
-<section class="faq">
-  <div class="in">
-    <div><div class="label">Questions</div><h2 class="big">Before <em>you apply</em></h2></div>
-    <div>
-      <details><summary>Is the Web Summit ticket included? Do I need one?</summary><p>It isn't included, and you don't need one to join. If you want to go inside Web Summit, buy it through Web Summit. If you're still deciding, the delegation works either way, and our famous <a href="https://list.yorkseed.co/#web-summit-lisbon" target="_blank" rel="noopener" style="color:var(--red)">master side event list</a> lists the side events happening all week.</p></details>
-      <details><summary>What is KoiCard, and how do I get access?</summary><p>KoiCard is an app that reads business cards and QR codes and saves them as contacts, with notes and color labels, so you can follow up after Web Summit. Every delegate gets free access for two weeks, with 300 scans, from November 5 to November 18. Once you've joined, we'll send you an access code. Sign up at <a href="https://koicard.app" target="_blank" rel="noopener" style="color:var(--red)">koicard.app</a>, open Settings and enter the code.</p></details>
-      <details><summary>Can I advertise or get editorial coverage in the Deal Book?</summary><p>Yes. The Deal Book is distributed digitally across the Yorkseed network and our channels. Companies, funds and partners can take a partner page in the Lisbon Deal Book, in The Yorkseed Annual at year end, or both. Partner pages are labelled Partner. See <a href="/delegation/partner/" style="color:var(--red)">packages and rates</a>, or write to <a href="mailto:partnership@yorkseed.co" style="color:var(--red)">partnership@yorkseed.co</a>.</p></details>
-      <details><summary>What do I need for my Deal Book page?</summary><p>If you say yes on the application, we ask for a tagline, two or three sentences about your company or firm, three keywords, your website, links to your headshot and logo, and where you'd like the QR code on your page to send people. You can also add a headshot link for each teammate. We'll build the page from that. Please make sure anyone with a photo link can open it.</p></details>
-      <details><summary>Will you feature me publicly?</summary><p>Only if you say yes. The application asks whether we can feature you, and if you agree, you send us a link to your headshot and your company or firm logo. We may use your name, role, company, a short description and those images in the Yorkseed Lisbon Delegation press release and on Yorkseed's social channels. This covers founders and investors. If you say no, nothing changes for the rest of the delegation.</p></details>
-      <details><summary>Will there be more programs?</summary><p>We might add more programs to the delegation. Everyone will be in one WhatsApp group chat, so you'll hear about anything new there.</p></details>
-      <details><summary>I can't make it to Lisbon. Can I still be in the Deal Book?</summary><p>Yes. Choose Founder Deal Book Virtual, €195 per company. You get your own Deal Book page, shared across the Yorkseed network during Web Summit week and online after, consideration for the December Global Founder Showcase and one month of Yorkseed Connect. Virtual teammates are €95 each. It doesn't include Yorkseed House, the kickoff, meetups, KoiCard or the delegate group. Applications and profiles close November 6.</p></details>
-      <details><summary>Why per company?</summary><p>Most of what you get goes to the company: the Deal Book profile, introductions, the showcase and Yorkseed Connect. One person is included, and extra teammates are €175 each.</p></details>
-      <details><summary>When do I pay?</summary><p>After you're approved. Everyone sends the same application, and we review each one within two days. If you're approved, founders and partners get a Stripe payment link by email, and investors get a confirmation. Once you've paid, we add you to the delegation's Luma guest list, where you'll get venue details and updates for the week.</p></details>
-      <details><summary>Am I guaranteed a showcase slot?</summary><p>No. Every founder in the delegation is considered and we pick the companies that fit the investors joining. Premium companies go first.</p></details>
-      <details><summary>I'm an executive or a service provider. Can I join?</summary><p>Yes, as a Partner Delegate, €995 per company. That covers executives, corporates, advisors, law firms, banks, recruiters, EOR and payroll companies, consultants and other ecosystem organizations. You get a seat at the Executive Lunch on Monday, November 9, a clearly labeled Partner profile in the Deal Book, access to the delegate group and selected gatherings, three months of Yorkseed Connect and relevant connection opportunities. We ask every partner to offer delegates a useful perk, like a free consultation, a discount or credits. Your perk is also listed in the Vault on Yorkseed Connect. Extra teammates are €175 each, and each one gets an Executive Lunch seat too. Choose "Partner" at the top of the form.</p></details>
-      <details><summary>I'm an investor. Can I join?</summary><p>Please do. It's complimentary for VCs, angel groups, LPs, family offices and other allocators, subject to approval. We run due diligence on every investor and approve VCs, angel groups and networks, LPs, family offices and other allocators only. If you raise for others, offer market entry, or are looking for new clients, join as a Partner Delegate. Choose "Investor" at the top of the form. If you can only make the virtual showcase, <a href="https://luma.com/relg9v16?utm_source=yorkseed&utm_medium=delegation_page" target="_blank" rel="noopener" style="color:var(--red)">request a seat on Luma</a>.</p></details>
-    </div>
+    </details>
   </div>
 </section>
 
@@ -688,6 +657,44 @@ form,.done{padding:28px}
     </div>
   </div>
 </section>
+
+<section class="forwho">
+  <div class="in">
+    <div>
+      <div class="label">Who it's for</div>
+      <h2 class="big">Founders <em>coming to Lisbon</em> for Web Summit week</h2>
+    </div>
+    <ul class="list">
+      <li><span><strong>You'll be in Lisbon.</strong> You have a Web Summit ticket, you're getting one, or you're still deciding. You don't need a ticket to join: our famous <a href="https://list.yorkseed.co/#web-summit-lisbon" target="_blank" rel="noopener" style="color:var(--red)">master side event list</a> covers the side events happening all week.</span></li>
+      <li><span><strong>You're building something venture-scale.</strong> Pre-seed to Series A, raising now or in the next year.</span></li>
+      <li><span><strong>You want relationships.</strong> People you'll still be talking to in six months.</span></li>
+      <li><span><strong>Not in cannabis or casino gambling.</strong> Same rule as every Yorkseed hub.</span></li>
+      <li><span><strong>Partners and investors too.</strong> Executives, corporates, advisors, law firms, banks, recruiters, EOR and payroll companies and consultants join as <a href="#partner" style="color:var(--red)">Partner Delegates</a>. VCs, angel groups, LPs, family offices and other allocators join as investors, complimentary.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="in">
+    <div><div class="label">Questions</div><h2 class="big">Before <em>you apply</em></h2></div>
+    <div>
+      <details><summary>Is the Web Summit ticket included? Do I need one?</summary><p>It isn't included, and you don't need one to join. If you want to go inside Web Summit, buy it through Web Summit. If you're still deciding, the delegation works either way, and our famous <a href="https://list.yorkseed.co/#web-summit-lisbon" target="_blank" rel="noopener" style="color:var(--red)">master side event list</a> lists the side events happening all week.</p></details>
+      <details><summary>What is KoiCard, and how do I get access?</summary><p>KoiCard is an app that reads business cards and QR codes and saves them as contacts, with notes and color labels, so you can follow up after Web Summit. Every delegate gets free access for two weeks, with 300 scans, from November 5 to November 18. Once you've joined, we'll send you an access code. Sign up at <a href="https://koicard.app" target="_blank" rel="noopener" style="color:var(--red)">koicard.app</a>, open Settings and enter the code.</p></details>
+      <details><summary>Can I advertise or get editorial coverage in the Deal Book?</summary><p>Yes. The Deal Book is distributed digitally across the Yorkseed network and our channels. Companies, funds and partners can take a partner page in the Lisbon Deal Book, in The Yorkseed Annual at year end, or both. Partner pages are labelled Partner. See <a href="/delegation/partner/" style="color:var(--red)">packages and rates</a>, or write to <a href="mailto:partnership@yorkseed.co" style="color:var(--red)">partnership@yorkseed.co</a>.</p></details>
+      <details><summary>What do I need for my Deal Book page?</summary><p>If you say yes on the application, we ask for a tagline, two or three sentences about your company or firm, three keywords, your website, links to your headshot and logo, and where you'd like the QR code on your page to send people. You can also add a headshot link for each teammate. We'll build the page from that. Please make sure anyone with a photo link can open it.</p></details>
+      <details><summary>Will you feature me publicly?</summary><p>Only if you say yes. The application asks whether we can feature you, and if you agree, you send us a link to your headshot and your company or firm logo. We may use your name, role, company, a short description and those images in the Yorkseed Lisbon Delegation press release and on Yorkseed's social channels. This covers founders and investors. If you say no, nothing changes for the rest of the delegation.</p></details>
+      <details><summary>Will there be more programs?</summary><p>We might add more programs to the delegation. Everyone will be in one WhatsApp group chat, so you'll hear about anything new there.</p></details>
+      <details><summary>I can't make it to Lisbon. Can I still be in the Deal Book?</summary><p>Yes. Choose Founder Deal Book Virtual, €195 per company. You get your own Deal Book page, shared across the Yorkseed network during Web Summit week and online after, consideration for the December Global Founder Showcase and one month of Yorkseed Connect. Virtual teammates are €95 each. It doesn't include Yorkseed House, the kickoff, meetups, KoiCard or the delegate group. Applications and profiles close November 6.</p></details>
+      <details><summary>Why per company?</summary><p>Most of what you get goes to the company: the Deal Book profile, introductions, the showcase and Yorkseed Connect. One person is included, and extra teammates are €175 each.</p></details>
+      <details><summary>When do I pay?</summary><p>After you're approved. Everyone sends the same application, and we review each one within two days. If you're approved, founders and partners get a Stripe payment link by email, and investors get a confirmation. Once you've paid, we add you to the delegation's Luma guest list, where you'll get venue details and updates for the week.</p></details>
+      <details><summary>Am I guaranteed a showcase slot?</summary><p>No. Every founder in the delegation is considered and we pick the companies that fit the investors joining. Premium companies go first.</p></details>
+      <details><summary>I'm an executive or a service provider. Can I join?</summary><p>Yes, as a Partner Delegate, €995 per company. That covers executives, corporates, advisors, law firms, banks, recruiters, EOR and payroll companies, consultants and other ecosystem organizations. You get a seat at the Executive Lunch on Monday, November 9, a clearly labeled Partner profile in the Deal Book, access to the delegate group and selected gatherings, three months of Yorkseed Connect and relevant connection opportunities. We ask every partner to offer delegates a useful perk, like a free consultation, a discount or credits. Your perk is also listed in the Vault on Yorkseed Connect. Extra teammates are €175 each, and each one gets an Executive Lunch seat too. Choose "Partner" at the top of the form.</p></details>
+      <details><summary>I'm an investor. Can I join?</summary><p>Please do. It's complimentary for VCs, angel groups, LPs, family offices and other allocators, subject to approval. We run due diligence on every investor and approve VCs, angel groups and networks, LPs, family offices and other allocators only. If you raise for others, offer market entry, or are looking for new clients, join as a Partner Delegate. Choose "Investor" at the top of the form. If you can only make the virtual showcase, <a href="https://luma.com/relg9v16?utm_source=yorkseed&utm_medium=delegation_page" target="_blank" rel="noopener" style="color:var(--red)">request a seat on Luma</a>.</p></details>
+    </div>
+  </div>
+</section>
+
+
 
 
 <aside id="ysWSSide" style="max-width:760px;margin:32px auto;padding:22px 24px;border:1px solid rgba(0,0,0,.1);background:#fff;font-family:'DM Sans',system-ui,sans-serif"><div style="font:400 10px 'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#c8102e;margin-bottom:6px">The Yorkseed List</div><a href="https://list.yorkseed.co/web-summit-lisbon-2026-side-events/" style="font:400 22px 'Playfair Display',Georgia,serif;color:#111;text-decoration:none">Web Summit 2026 side events: the full list →</a><p style="margin:6px 0 0;font-size:14px;color:#555">300+ parties, founder meetups, investor dinners and pitch events around Web Summit, November 2 to 16, by day. Updated daily.</p></aside>
@@ -870,6 +877,13 @@ form,.done{padding:28px}
     try{localStorage.setItem('ys_fso',so?'1':'0')}catch(e){}
   }).catch(function(){});
 })();
+</script>
+<script>
+(function(){var d=document.getElementById('moreWays');if(!d)return;
+function open(){d.open=true;}
+if(window.innerWidth>900)open();
+function chk(){var h=location.hash;if(h==='#partner'||h==='#virtual'){open();var t=document.querySelector(h);if(t)t.scrollIntoView();}}
+window.addEventListener('hashchange',chk);chk();})();
 </script>
 <script src="/assets/url-prefill.js" defer></script>
 </body>
