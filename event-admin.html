@@ -282,13 +282,13 @@ function adsApi(path,opt){var keep=API;API=ADS;try{return api(path,opt)}finally{
 function d10(x){return x?new Date(x).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}):''}
 function loadAds(){
   if(!key()){$('adList').innerHTML='<div class="hint">Enter your key to see ads.</div>';return}
-  adsApi('').then(function(j){var a=j.ads||[];var now=Date.now();badge('nAds',a.filter(function(x){return x.status==='live'&&new Date(x.endAt).getTime()>now}).length);
+  adsApi('').then(function(j){var a=j.ads||[];var now=Date.now();badge('nAds',a.filter(function(x){return x.status==='pending_review'||(x.status==='live'&&new Date(x.endAt).getTime()>now)}).length);
     $('adList').innerHTML=a.length?a.map(function(x){var on=x.status==='live'&&new Date(x.endAt).getTime()>now;
       return '<div class="sub-it" style="display:grid;grid-template-columns:120px 1fr;gap:12px"><img src="'+esc(x.img)+'" alt="" style="width:120px;height:100px;object-fit:cover;border:1px solid var(--line)"><div><b>'+esc(x.brand)+'</b>'
-        +'<div class="meta">'+esc(x.hubName||x.hub)+' · '+(on?'<span style="color:var(--green);font-weight:600">Live</span>':esc(x.status==='taken_down'?'Taken down':'Ended'))+' · '+d10(x.startAt)+' to '+d10(x.endAt)+' · $'+(x.amount/100).toLocaleString()+'</div>'
+        +'<div class="meta">'+esc(x.hubName||x.hub)+' · '+(on?'<span style="color:var(--green);font-weight:600">Live</span>':(x.status==='pending_review'?'<span style="font-weight:600">Paid, waiting for your approval</span>':esc(x.status==='taken_down'?'Taken down':'Ended')))+' · '+d10(x.startAt)+' to '+d10(x.endAt)+' · $'+(x.amount/100).toLocaleString()+'</div>'
         +'<div class="meta">'+(x.views||0).toLocaleString()+' views · '+(x.clicks||0).toLocaleString()+' clicks'+(x.views?' · '+((x.clicks||0)/x.views*100).toFixed(1)+'% click rate':'')+'</div>'
         +'<div class="meta">'+esc(x.email)+' · <a href="'+esc(x.url)+'" target="_blank" rel="noopener">link</a></div>'
-        +'<div class="acts">'+(on?'<button data-ad-down="'+x.id+'">Take down</button>':(x.status==='taken_down'&&new Date(x.endAt).getTime()>now?'<button data-ad-up="'+x.id+'">Put back up</button>':''))+'</div></div></div>'}).join(''):'<div class="hint">No sidebar ads yet.</div>';
+        +'<div class="acts">'+(x.status==='pending_review'?'<button data-ad-up="'+x.id+'">Approve and go live</button>':'')+(on?'<button data-ad-down="'+x.id+'">Take down</button>':(x.status==='taken_down'&&new Date(x.endAt).getTime()>now?'<button data-ad-up="'+x.id+'">Put back up</button>':''))+'</div></div></div>'}).join(''):'<div class="hint">No sidebar ads yet.</div>';
   }).catch(function(err){$('adList').innerHTML='<div class="hint">'+esc(err.message)+'</div>'});
 }
 document.addEventListener('click',function(ev){var t=ev.target,id;if(!t.dataset)return;

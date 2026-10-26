@@ -2607,6 +2607,7 @@ loadSelfAds();
     const dt=v=>v?new Intl.DateTimeFormat("en-US",{month:"long",day:"numeric",year:"numeric"}).format(new Date(v)):"";
     if(x.status==="paid"){toast("Payment received. We are setting up your booking now and will email you when it is in place.");return;}
     if(x.status==="live"){const end=dt(x.endAt);if(x.startAt&&new Date(x.startAt)>new Date(Date.now()+36e5)){toast(`Payment received. Your banner is booked and starts on ${dt(x.startAt)}. A confirmation email is on its way.`);return;}toast(`Payment received. Your banner is live${x.hubName?" in "+x.hubName:""}${end?" until "+end:""}. A confirmation email is on its way.`);loadSelfAds();return;}
+    if(x.status==="pending_review"){toast(`Payment received. Your banner is in a quick review and goes live once approved. We will email you. Questions: ${YS_INBOX}`);return;}
     if(++n<10)setTimeout(poll,2000);else toast(`Payment received. Your ad will appear in a minute. Questions: ${YS_INBOX}`);}).catch(()=>{if(++n<10)setTimeout(poll,2000);});
   poll();})();
 fetch(SUB_API+"/public").then(r=>r.ok?r.json():{events:[]}).then(x=>{const a=(x&&x.events)||[];const seen=new Set(EVENTS.map(e=>(e.link||e.title)+"|"+e.date));let n=0;
