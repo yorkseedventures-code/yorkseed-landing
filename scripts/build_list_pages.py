@@ -280,6 +280,7 @@ for h in hubs.values():
 
 # ---- conference week pages ----
 # Extra content for the conferences Yorkseed is strongest on
+WEEK_OG = {"lisws": "/list/img/og-web-summit-lisbon.jpg"}
 WEEK_ABOUT = json.load(open(f"{REPO}/list/data/week-about.json"))
 WEEK_EXTRA = {
  "lisws": {
@@ -311,7 +312,7 @@ for w in weeks:
     title = f"{w['name']} {s.year} Side Events ({n}) | The Yorkseed List"
     if len(title) > 66: title = f"{w['name']} {s.year} Side Events | Yorkseed"
     desc = (f"All {n} {w['name']} {s.year} side events in {h['name']}: parties, founder meetups, investor dinners and pitch events, {rng}. Free to browse, updated daily, with links to register.")
-    canon = f"{LIST}{w['slug']}/"; img = IMGPATH.get(h["img"] or h["id"])
+    canon = f"{LIST}{w['slug']}/"; img = WEEK_OG.get(w["id"]) or IMGPATH.get(h["img"] or h["id"])
     qs = [(q, a.replace("{n}", str(n))) for q, a in X.get("faq", [])] or [
           (f"What are the best {w['name']} {s.year} side events?", f"The Yorkseed List tracks {n} side events around {w['name']} in {h['name']}, {rng}, from founder and investor meetups to dinners, parties and pitch events."),
           (f"Do I need a {w['name']} ticket for side events?", "Most side events are separate from the main conference and have their own registration. Check each event's page, many are free with approval."),
@@ -396,7 +397,7 @@ for w in weeks:
         ld = [ORG, {"@type":"CollectionPage","@id":canon,"url":canon,"name":title,"description":desc,"publisher":{"@id":ORG["@id"]},"dateModified":TODAY.isoformat()},
               {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"The List","item":LIST},{"@type":"ListItem","position":2,"name":f"{w['name']} side events","item":f"{LIST}{w['slug']}/"},{"@type":"ListItem","position":3,"name":nice,"item":canon}]},
               {"@type":"ItemList","numberOfItems":n,"itemListElement":[{"@type":"ListItem","position":k+1,"url":f"{LIST}e/{e['slug']}/","name":e["title"]} for k, e in enumerate(evs)]}]
-        page(f"{REPO}/list/{w['slug']}/{d}/index.html", title, desc, canon, body, ld, IMGPATH.get(h["img"] or h["id"]), index=n >= 2)
+        page(f"{REPO}/list/{w['slug']}/{d}/index.html", title, desc, canon, body, ld, WEEK_OG.get(w["id"]) or IMGPATH.get(h["img"] or h["id"]), index=n >= 2)
         written.append((canon, n >= 2, "daily", "0.8"))
 
 # ---- one page per event: /e/<slug>/ ----
