@@ -280,6 +280,7 @@ for h in hubs.values():
 
 # ---- conference week pages ----
 # Extra content for the conferences Yorkseed is strongest on
+WEEK_ABOUT = json.load(open(f"{REPO}/list/data/week-about.json"))
 WEEK_EXTRA = {
  "lisws": {
   "short": "Web Summit",
@@ -332,7 +333,7 @@ for w in weeks:
     others = " · ".join(f'<a href="/{o["slug"]}/" style="color:var(--red)">{e_(o["name"])}</a>' for o in weeks if o["id"] != w["id"])
     body = f"""<div class="crumb"><a href="https://yorkseed.co/">Yorkseed</a> / <a href="/">The List</a> / <a href="/{h['slug']}/">{e_(h['name'])}</a> / {e_(w['name'])}</div>
 <div class="hero"><div><h1>{e_(w['name'])} {s.year} <em>side events</em></h1>
-<p class="lede">{e_(X.get('lede') or f"The master side event list for {w['name']} in {h['name']}, {rng}. Every founder, investor and startup event around the week, in one place.")}</p>
+<p class="lede">{e_(X.get('lede') or (WEEK_ABOUT.get(w['id']) and f"{WEEK_ABOUT[w['id']]} This is the master side event list for {w['name']}, {rng}.") or f"The master side event list for {w['name']} in {h['name']}, {rng}. Every founder, investor and startup event around the week, in one place.")}</p>
 <p class="meta">{n} side event{'s' if n!=1 else ''} · {rng} · Updated {TODAY.strftime('%B')} {TODAY.day}, {TODAY.year}</p>
 <div class="cta"><a class="btn r" href="/#w/{w['id']}">Open the interactive List</a><a class="btn" href="/#submit">Add a side event</a></div></div>
 {f'<img src="{img}" alt="{e_(h["name"])}, {e_(w["name"])} side events" width="800" height="600">' if img else ''}</div>
