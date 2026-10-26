@@ -27,6 +27,13 @@ a{color:inherit}.w{max-width:960px;margin:0 auto;padding:0 20px}
 .crumb{font:400 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink4);margin:40px 0 18px}.crumb a{text-decoration:none}.crumb a:hover{color:var(--red)}
 h1{font:400 clamp(32px,5vw,52px)/1.08 var(--serif);margin:0 0 14px;letter-spacing:-.01em}h1 em{color:var(--red)}
 .lede{font-size:17px;color:var(--ink2);max-width:62ch;margin:0 0 10px}.meta{font:400 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin:0 0 22px}
+.adslot{margin:18px 0 6px;border:1px dashed var(--line);padding:14px 16px;display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:#fff}
+.adslot b{font:500 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);display:block;margin-bottom:3px}
+.adslot span{font-size:14px;color:var(--ink2)}
+.adslot .btn{white-space:nowrap}
+.adslot.live{display:block;text-align:center;border-style:solid;padding:10px}
+.adslot.live img{max-width:100%;height:auto;display:block;margin:0 auto}
+.adslot.live a.adv{display:block;margin-top:6px;font:400 11px var(--mono);color:var(--ink4)}
 .hero{display:grid;grid-template-columns:1.25fr 1fr;gap:32px;align-items:center;padding-bottom:28px;border-bottom:1px solid var(--line)}
 .hero img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;display:block}
 .cta{display:flex;flex-wrap:wrap;gap:10px}.btn{display:inline-block;padding:12px 18px;font:500 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border:1px solid var(--ink)}
@@ -50,6 +57,7 @@ h2{font:400 26px/1.2 var(--serif);margin:40px 0 6px}h2 em{color:var(--red)}
 <yk-header><a href="https://yorkseed.co/">Yorkseed</a> <a href="/">The List</a> <a href="https://yorkseed.co/events.html">Events</a></yk-header>
 <main class="w">
 <div class="crumb"><a href="https://yorkseed.co/">Yorkseed</a> / <a href="/">The List</a> / <a href="/san-francisco-bay-area/">Bay Area</a></div>
+<div class="adslot" id="ysAd" data-kind="event" data-hub="sf"><div><b>Advertise here</b><span>On every event page, right where people decide to go. From US$279/month. Goes live as soon as you pay.</span></div><a class="btn r" href="/#book/event">Book this banner</a></div><script>(function(){var el=document.getElementById("ysAd");if(!el)return;var k=el.dataset.kind,h=el.dataset.hub,bk=el.querySelector("a.btn").getAttribute("href");fetch("https://yorkseed-backend-production.up.railway.app/api/list-ads/live").then(function(r){return r.ok?r.json():{ads:[]}}).then(function(x){var a=((x&&x.ads)||[]).filter(function(a){return a.kind===k&&(k!=="city"||a.hub===h)&&a.img&&a.url});if(!a.length)return;a=a[Math.floor(Math.random()*a.length)];var l=document.createElement("a");l.href=a.url;l.target="_blank";l.rel="sponsored noopener";var i=document.createElement("img");i.src=a.img;i.alt=a.alt||a.brand||"";l.appendChild(i);var v=document.createElement("a");v.className="adv";v.href=bk;v.textContent="Advertise here";el.className="adslot live";el.innerHTML="";el.appendChild(l);el.appendChild(v);}).catch(function(){});})();</script>
 <div class="hero"><div><h1>Fifty Hills Prom</h1>
 <div style="margin:0 0 18px"><p style="margin:4px 0"><b>When</b> Saturday, November 21, 2026 · 7:00 PM to 11:00 PM</p><p style="margin:4px 0"><b>Where</b> Bayview Dining Room, Bay Area</p><p style="margin:4px 0"><b>Host</b> Emily Park</p></div>
 <div class="cta"><a class="btn r" href="https://luma.com/ta5oavjt?utm_source=yorkseed&amp;utm_medium=the_list&amp;utm_campaign=list_event&amp;ref=yorkseed" target="_blank" rel="noopener">Register ↗</a><a class="btn" href="/#e/fifty-hills-prom-2026-11-21">Add to calendar · Share</a></div>

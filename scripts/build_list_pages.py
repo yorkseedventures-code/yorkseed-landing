@@ -38,6 +38,17 @@ SLUG = {"yyj":"victoria-bc","gift":"gift-city","sat":"san-antonio","nyc":"new-yo
         "dxb":"dubai-uae","virtual":"online","hkg":"hong-kong","tlv":"tel-aviv","bue":"buenos-aires","kul":"kuala-lumpur","mex":"mexico-city"}
 COMMUNITY = {"nyc":"nyc","sf":"bay-area","la":"los-angeles","dc":"dc","sao":"sao-paulo-rio","hkg":"hong-kong","tlv":"tel-aviv","bue":"buenos-aires",
              "kul":"kuala-lumpur","mex":"mexico-city","dxb":"dubai"}
+ADS_LIVE = "https://yorkseed-backend-production.up.railway.app/api/list-ads/live"
+def adslot(kind, hub, label, where, price):
+    """Banner space on static pages: shows the booked banner if there is one, otherwise invites people to book it."""
+    book = f"/#book/{kind}/{hub}" if kind == "city" else f"/#book/{kind}"
+    return (f'<div class="adslot" id="ysAd" data-kind="{kind}" data-hub="{hub}"><div><b>Advertise here</b><span>{where} From {price}. Goes live as soon as you pay.</span></div>'
+            f'<a class="btn r" href="{book}">Book this banner</a></div>'
+            '<script>(function(){var el=document.getElementById("ysAd");if(!el)return;var k=el.dataset.kind,h=el.dataset.hub,bk=el.querySelector("a.btn").getAttribute("href");'
+            f'fetch("{ADS_LIVE}").then(function(r){{return r.ok?r.json():{{ads:[]}}}}).then(function(x){{var a=((x&&x.ads)||[]).filter(function(a){{return a.kind===k&&(k!=="city"||a.hub===h)&&a.img&&a.url}});if(!a.length)return;a=a[Math.floor(Math.random()*a.length)];'
+            'var l=document.createElement("a");l.href=a.url;l.target="_blank";l.rel="sponsored noopener";var i=document.createElement("img");i.src=a.img;i.alt=a.alt||a.brand||"";l.appendChild(i);'
+            'var v=document.createElement("a");v.className="adv";v.href=bk;v.textContent="Advertise here";el.className="adslot live";el.innerHTML="";el.appendChild(l);el.appendChild(v);}).catch(function(){});})();</script>')
+
 def slugify(s): return re.sub(r'[^a-z0-9]+', '-', s.lower().replace("&","and").replace("ã","a").replace("é","e").replace("ü","u").replace("ö","o")).strip('-')
 hubs = {h["id"]: h for h in data["hubs"]}
 for h in hubs.values():
@@ -116,6 +127,13 @@ a{color:inherit}.w{max-width:960px;margin:0 auto;padding:0 20px}
 .crumb{font:400 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink4);margin:40px 0 18px}.crumb a{text-decoration:none}.crumb a:hover{color:var(--red)}
 h1{font:400 clamp(32px,5vw,52px)/1.08 var(--serif);margin:0 0 14px;letter-spacing:-.01em}h1 em{color:var(--red)}
 .lede{font-size:17px;color:var(--ink2);max-width:62ch;margin:0 0 10px}.meta{font:400 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin:0 0 22px}
+.adslot{margin:18px 0 6px;border:1px dashed var(--line);padding:14px 16px;display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:#fff}
+.adslot b{font:500 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);display:block;margin-bottom:3px}
+.adslot span{font-size:14px;color:var(--ink2)}
+.adslot .btn{white-space:nowrap}
+.adslot.live{display:block;text-align:center;border-style:solid;padding:10px}
+.adslot.live img{max-width:100%;height:auto;display:block;margin:0 auto}
+.adslot.live a.adv{display:block;margin-top:6px;font:400 11px var(--mono);color:var(--ink4)}
 .hero{display:grid;grid-template-columns:1.25fr 1fr;gap:32px;align-items:center;padding-bottom:28px;border-bottom:1px solid var(--line)}
 .hero img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;display:block}
 .cta{display:flex;flex-wrap:wrap;gap:10px}.btn{display:inline-block;padding:12px 18px;font:500 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border:1px solid var(--ink)}
@@ -260,6 +278,7 @@ for h in hubs.values():
 <p class="meta">{n} upcoming event{'s' if n!=1 else ''} · Updated {TODAY.strftime('%B')} {TODAY.day}, {TODAY.year}</p>
 <div class="cta"><a class="btn r" href="/#{h['id']}">Open the interactive List</a><a class="btn" href="/#submit">List your event free</a></div></div>
 {f'<img src="{img}" alt="{e_(city)} skyline" width="800" height="600" loading="eager">' if img else ''}</div>
+{adslot('city', h['id'], city, 'Top of '+(short or city)+' events page, above the list: seen by everyone looking for events here.', 'US$249/month')}
 {weeks_html}
 <h2>Upcoming events {'online' if online else 'in <em>'+e_(city)+'</em>'}</h2>
 {rows(evs, camp) if evs else f'<div class="empty">No events are listed {"online" if online else "in "+e_(city)} yet. Hosting one? <a href="/#submit" style="color:var(--red)">List it free</a> and it will appear here within a day.</div>'}
@@ -421,6 +440,7 @@ for e in events:
     if re.search(r"yorkseed\s+house", e["title"], re.I) or e.get("house"): ys += '<p class="meta" style="color:#E0457B">■ Yorkseed House</p>'
     dts = ("".join(f"<p style=\"margin:4px 0\"><b>{k}</b> {e_(v)}</p>" for k, v in [("When", when), ("Where", where + ("" if where == h["name"] else f", {h['name']}")), ("Host", e["host"]), ("Type", e["type"])] if v))
     body = f"""<div class="crumb"><a href="https://yorkseed.co/">Yorkseed</a> / <a href="/">The List</a> / {crumb2}</div>
+{adslot('event', h['id'], h['name'], 'On every event page, right where people decide to go.', 'US$279/month')}
 <div class="hero"><div>{ys}<h1>{e_(e['title'])}</h1>
 <div style="margin:0 0 18px">{dts}</div>
 <div class="cta">{f'<a class="btn r" href="{e_(ref(e["link"], camp))}" target="_blank" rel="noopener">Register ↗</a>' if e["link"] else ''}<a class="btn" href="/#e/{e['slug']}">Add to calendar · Share</a></div>
