@@ -85427,5 +85427,44 @@
   "desc": "Details and registration on the event page.",
   "type": "Social",
   "src": "manual"
+ },
+ {
+  "title": "Tech Run Lisbon 2026",
+  "hub": "lis",
+  "date": "2026-11-08",
+  "start": "14:00",
+  "end": null,
+  "venue": "Unicorn Factory Lisboa, Beato, Lisbon",
+  "host": "iOn live",
+  "link": "https://waitastart.com/tech-run-2026/",
+  "desc": "Details and registration on the event page.",
+  "type": "Social",
+  "src": "manual"
+ },
+ {
+  "title": "Magusto Tech +",
+  "hub": "lis",
+  "date": "2026-11-10",
+  "start": "17:00",
+  "end": null,
+  "venue": "Quidgest, Picoas, Lisbon",
+  "host": "Quidgest",
+  "link": "https://luma.com/cs3guwjk",
+  "desc": "Details and registration on the event page.",
+  "type": "Meetups",
+  "src": "manual"
+ },
+ {
+  "title": "The Green Match",
+  "hub": "lis",
+  "date": "2026-11-10",
+  "start": "18:30",
+  "end": null,
+  "venue": "Unicorn Factory Lisboa, Beato, Lisbon",
+  "host": "Unicorn Factory Lisboa",
+  "link": "https://luma.com/ivpnhbap",
+  "desc": "Details and registration on the event page.",
+  "type": "Meetups",
+  "src": "manual"
  }
 ]
