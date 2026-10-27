@@ -307,7 +307,6 @@ html:not(.fso) [data-so]{display:none!important}
 .gal figure:first-child{grid-row:span 2}
 .gal img{display:block;width:100%;height:100%;object-fit:cover}
 .gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:34px 14px 12px;font-size:12px;letter-spacing:.04em;color:#fff;background:linear-gradient(transparent,rgba(12,12,12,.72))}
-@media(min-width:801px){.gal figure:last-child{grid-column:span 2}}
 @media(max-width:800px){.gal{grid-template-columns:1fr 1fr;grid-auto-rows:160px}.gal figure:first-child{grid-column:span 2;grid-row:span 2}}
 .free{display:inline-block;margin-top:18px;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-light);border:1px solid rgba(212,170,133,.5);padding:7px 12px;border-radius:999px}
 .pkg.three-up{grid-template-columns:1fr}
@@ -456,6 +455,13 @@ body{font-family:var(--sans);font-weight:400}
 details summary::after,details summary span{color:var(--gold)}
 .track .n,.apply .steps li::before{color:#E6C7A4}
 .tier li::before{color:var(--gold)}
+/* Proof photos in the intro and beside the form */
+.proof{position:relative;margin:36px 0 0;border-radius:4px;overflow:hidden;background:var(--oxblood-deep)}
+.proof img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.proof figcaption{position:absolute;left:0;right:0;bottom:0;padding:34px 16px 12px;font-size:12px;letter-spacing:.04em;color:#fff;background:linear-gradient(transparent,rgba(12,12,12,.75))}
+.apply .proof{margin-top:40px}
+@media(min-width:901px){.apply .side{position:sticky;top:96px}.proof-tall img{aspect-ratio:4/5}}
+@media(max-width:700px){.proof{margin-top:24px}}
 /* Terms and privacy: one clean row, no stray empty band or double rule */
 .legal{padding:0 0 72px}
 .legal-wrap{border:0;padding:0}
@@ -468,9 +474,32 @@ details summary::after,details summary span{color:var(--gold)}
 .fine span{display:block;padding:16px 0;border-bottom:1px solid var(--line);line-height:1.65}
 /* Phone: keep section spacing tight (later desktop rules were overriding it) */
 @media(max-width:700px){
-.gallery,.pricing,.pricing.quiet{padding:56px 0}
-.legal{padding:0 0 56px}
-.fine{font-size:14px}
+.gallery,.pricing,.pricing.quiet{padding:48px 0}
+.legal{padding:0 0 48px}
+.fine{font-size:13px}
+/* Tighter phone type: one heading size, calmer body copy */
+.intro,.dark,.week,.apply,.sample,.forwho,.faq{padding:48px 0}
+.hero h1{font-size:38px}
+.hero .sub{font-size:14.5px;line-height:1.65}
+.meta div b{font-size:16px}
+.big,.pricing.quiet .big{font-size:26px;line-height:1.1}
+.intro p,.sample .lede,.gallery .lede,.week .lede,.apply .side p,.faq details p{font-size:14.5px;line-height:1.65}
+.intro p{margin-bottom:14px}
+.hk-strip span,.forwho span,.forwho strong{font-size:13.5px;line-height:1.6}
+.dark .big{margin-bottom:28px}
+.dark h3,.week h3{font-size:19px}
+.dark p,.week p{font-size:13.5px;line-height:1.65}
+.dark .n{font-size:16px}
+.apply h3{font-size:22px}
+.tier h3,.pricing.quiet .tier h3{font-size:20px}
+.tier .p,.pricing.quiet .tier .p{font-size:38px;line-height:1}
+.tier li{font-size:13.5px}
+.faq summary,summary{font-size:18px;line-height:1.3}
+.legal-wrap summary{font-size:11px}
+details{padding:14px 0}
+.legal h3{font-size:22px}
+.legal li{font-size:13px}
+.dbp.dbp-cover h3{font-size:34px}
 }
 </style>
 <script src="/assets/site-chrome.js" defer></script>
@@ -588,7 +617,10 @@ details.opt{border:1px solid rgba(12,12,12,.15);background:#fff;padding:0 16px;m
 
 <section class="intro">
   <div class="in">
-    <h2 class="big">AFF is free to attend.<br><em>Go in with people.</em></h2>
+    <div>
+      <h2 class="big">AFF is free to attend.<br><em>Go in with people.</em></h2>
+      <figure class="proof"><img src="/assets/hk/delegation-aff.jpg" alt="The Yorkseed Delegation in front of the Asian Financial Forum stage at AFF 2026" loading="lazy" style="object-position:50% 58%"/><figcaption>The Yorkseed Delegation at AFF 2026</figcaption></figure>
+    </div>
     <div>
       <p>Yorkseed is proud to return to the Asian Financial Forum, in partnership with the Hong Kong Trade Development Council (HKTDC) as official community partner, and we're leading a Yorkseed Delegation. The founders and investors who get the most out of a big forum aren't the ones with the longest schedule. They're the ones who arrive with people already in their corner.</p>
       <p>The delegation is <strong>free to join</strong>, and every delegate receives a complimentary AFF delegate pass. A full AFF pass usually costs over $1,000; for Yorkseed delegates, it's complimentary. We'll also give you a group to walk into the week with, and stay in touch after everyone flies home.</p>
@@ -646,6 +678,7 @@ details.opt{border:1px solid rgba(12,12,12,.15);background:#fff;padding:0 16px;m
         <li>Send your Deal Book profile by January 15</li>
         <li>Meet the group in Hong Kong</li>
       </ol>
+      <figure class="proof proof-tall"><img src="/assets/hk/community-partners-wall.jpg" alt="Yorkseed's logo on the AFF Community Partners wall" loading="lazy" style="object-position:50% 60%"/><figcaption>Official community partner of HKTDC: Yorkseed on the AFF partners wall</figcaption></figure>
     </div>
     <div>
       <div class="luma-card" id="interestCard">
@@ -856,8 +889,6 @@ details.opt{border:1px solid rgba(12,12,12,.15);background:#fff;padding:0 16px;m
     <h2 class="big">The forum <em>in pictures</em></h2>
     <p class="lede">Two days of keynotes, an exhibition floor, deal-making meetings and luncheons, and the Yorkseed Delegation table in the room.</p>
     <div class="gal">
-      <figure><img src="/assets/hk/delegation-aff.jpg" alt="The Yorkseed Delegation in front of the Asian Financial Forum stage at AFF 2026" loading="lazy" style="object-position:50% 60%"/><figcaption>The Yorkseed Delegation at AFF 2026</figcaption></figure>
-      <figure><img src="/assets/hk/community-partners-wall.jpg" alt="Yorkseed's logo on the AFF Community Partners wall" loading="lazy" style="object-position:50% 62%"/><figcaption>Yorkseed on the AFF Community Partners wall</figcaption></figure>
       <figure><img src="/assets/hk/yorkseed-table.jpg" alt="The Yorkseed Delegation table sign at an AFF keynote luncheon" loading="lazy"/><figcaption>The Yorkseed Delegation table at an AFF keynote luncheon</figcaption></figure>
       <figure><img src="/assets/hk/deal-making.jpg" alt="Two attendees in a one-to-one meeting at the AFF Deal-Making area" loading="lazy"/><figcaption>AFF Deal-Making</figcaption></figure>
       <figure><img src="/assets/hk/plenary.jpg" alt="A plenary session at the Asian Financial Forum" loading="lazy"/><figcaption>Plenary session</figcaption></figure>
