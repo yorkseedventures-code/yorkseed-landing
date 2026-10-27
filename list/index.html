@@ -2463,7 +2463,7 @@ function pulseField(){
       <small class="muted full" id="bkPUnote" style="grid-column:1/-1">${usd?"Charged together with your booking.":`Charged in ${pc.cur==="gbp"?"pounds":"euros"} (${PULSE_SYM[pc.cur]}) in a second, short checkout right after your booking payment.`} It uses the headline and link above.${pc.surge?` <b>Tech Week pricing:</b> +30% on ${pc.surge===BK.pulseWeeks?(BK.pulseWeeks>1?"all "+BK.pulseWeeks+" weeks":"this week"):pc.surge+" of your "+BK.pulseWeeks+" weeks"} (${esc(pc.names.join(", "))}).`:""}</small>
     </div></div>`;}
 function drawBook(){setBookHash();
-  const v=SLOTS[BK.kind];if(BK.kind==="side"||BK.kind==="pulse"){BK.db=false;BK.sheet=false;}if(BK.kind==="pulse")BK.pulse=true;else if(BK.pulse&&BK.wasPulse){BK.pulse=false;}BK.wasPulse=BK.kind==="pulse";
+  const v=SLOTS[BK.kind];if(BK.kind==="side"||BK.kind==="pulse"){BK.db=false;}if(BK.kind==="pulse")BK.sheet=false;if(BK.kind==="pulse")BK.pulse=true;else if(BK.pulse&&BK.wasPulse){BK.pulse=false;}BK.wasPulse=BK.kind==="pulse";
   $("#bkBody").innerHTML=`<form class="bookgrid" id="bkForm" novalidate>
     <div class="field"><label>What are you promoting?</label><div class="goals">${GOALS.map(([g,l])=>`<button type="button" data-goal="${g}"${BK.goal===g?' class="on"':""}>${l}</button>`).join("")}</div></div>
     <div class="field"><label>Placement</label><div class="opts">${Object.entries(SLOTS).filter(([k,x])=>!x.retired).map(([k,x])=>`<label><input type="radio" name="bkKind" value="${k}"${k===BK.kind?" checked":""}><b>${x.name}</b><span class="pr">${x.durs.length>1?"from ":""}${money(Math.min(...x.durs.map(d=>d[2])))}</span><small>Best for ${x.best}</small></label>`).join("")}</div>
@@ -2471,7 +2471,7 @@ function drawBook(){setBookHash();
     ${v.scope?`<div class="field"><label for="bkHub">City</label><select id="bkHub">${HUBS.filter(h=>h.id!=="virtual").map(h=>`<option value="${h.id}"${h.id===BK.hub?" selected":""}>${h.name}</option>`).join("")}</select></div>`:""}
     ${BK.kind==="sheet"?`<div class="field"><label for="bkSheet">Which spreadsheet</label>${sheetSel("bkSheet")}</div>`:""}
     <div class="field"${BK.kind==="pulse"?" hidden":""}><label>How long</label><div class="opts">${v.durs.map(([k,l,p,mo],i)=>`<label><input type="radio" name="bkDur" value="${k}"${durOf(v,BK.dur)[0]===k?" checked":""}><b>${l}</b><span class="pr">${money(p)}</span>${i&&mo>=1?`<small>${money(Math.round(p/mo))} a month${mo>=6?", best value":""}</small>`:mo<1?`<small>${BK.kind==="feat"?FEAT_NOTE[k]:BK.kind==="sheet"?"One highlighted row, from when the sheet goes out until the conference ends.":"Minimum. Good for a Tech Week or launch."}</small>`:""}</label>`).join("")}</div></div>
-    <div class="field"${BK.kind==="side"||BK.kind==="pulse"?" hidden":""}><label>Add-on</label><div class="opts">${BK.kind==="sheet"?"":`<label><input type="checkbox" id="bkSH"${BK.sheet?" checked":""}><b>Conference spreadsheet feature</b><span class="pr">+${money(SHEET_PRICE)}</span><small>A highlighted row in the Yorkseed sheet we pass around for one conference or Tech Week.</small></label><div class="field" id="bkSHw"${BK.sheet?"":" hidden"} style="margin:2px 0 8px"><label for="bkSheetA">Which spreadsheet</label>${sheetSel("bkSheetA")}</div>`}<label><input type="checkbox" id="bkDB"${BK.db?" checked":""}><b>Yorkseed Deal Book page</b><span class="pr">+${money(DB_PRICE)}</span><small id="bkDBt">${dbText()}</small></label></div><small class="muted" style="font-size:12.5px;margin-top:6px;display:block">Fill in your page below and we build it for you. Just a Deal Book page: US$1,000. Presenting a whole edition: <a href="mailto:info@yorkseed.co?subject=Deal%20Book%20presenting%20partner" style="color:inherit;text-decoration:underline">ask us</a>.</small>
+    <div class="field"${BK.kind==="pulse"?" hidden":""}><label>Add-on</label><div class="opts">${BK.kind==="sheet"?"":`<label><input type="checkbox" id="bkSH"${BK.sheet?" checked":""}><b>Conference spreadsheet feature</b><span class="pr">+${money(SHEET_PRICE)}</span><small>A highlighted row in the Yorkseed sheet we pass around for one conference or Tech Week.</small></label><div class="field" id="bkSHw"${BK.sheet?"":" hidden"} style="margin:2px 0 8px"><label for="bkSheetA">Which spreadsheet</label>${sheetSel("bkSheetA")}</div>`}${BK.kind==="side"?"":`<label><input type="checkbox" id="bkDB"${BK.db?" checked":""}><b>Yorkseed Deal Book page</b><span class="pr">+${money(DB_PRICE)}</span><small id="bkDBt">${dbText()}</small></label>`}</div>${BK.kind==="side"?"":`<small class="muted" style="font-size:12.5px;margin-top:6px;display:block">Fill in your page below and we build it for you. Just a Deal Book page: US$1,000. Presenting a whole edition: <a href="mailto:info@yorkseed.co?subject=Deal%20Book%20presenting%20partner" style="color:inherit;text-decoration:underline">ask us</a>.</small>
     <details class="dbexw"><summary>See an example Deal Book page</summary>
       <div class="dbex"><span class="eyebrow">Partner · Lisbon edition</span>
         <h4>Harbor &amp; Pine <em>Legal</em></h4>
@@ -2481,7 +2481,7 @@ function drawBook(){setBookHash();
         <small class="muted" style="display:block;margin-top:10px">Example only. Your page: 2 paragraphs, 1 offer, up to 2 headshots with title and contact.</small>
       </div>
       <a href="https://yorkseed.co/delegation/lisbon-2026/book/" target="_blank" rel="noopener" class="dbreal">See the Lisbon Deal Book →</a>
-    </details><small style="display:none"></small></div>
+    </details>`}<small style="display:none"></small></div>
     ${BK.kind==="feat"||BK.kind==="sheet"?"":pulseField()}
     <div class="fgrid">
       <div class="field"${BK.kind==="side"||BK.kind==="pulse"?" hidden":""}><label for="bkStart">${BK.kind==="feat"?"Event date":BK.kind==="sheet"?"Your event date":"Start"}</label>${v.durs.some(d=>d[3]<1)?`<input id="bkStart" type="date" min="${addDays(1)}" value="${addDays(7)}">`:`<select id="bkStart">${monthOpts().map(([v2,l])=>`<option value="${v2}-01">${l}</option>`).join("")}</select>`}</div>
@@ -2519,7 +2519,7 @@ function drawBook(){setBookHash();
   f.querySelectorAll("[data-goal]").forEach(bt=>bt.onclick=()=>{const g=GOALMAP[bt.dataset.goal];keep();BK.goal=bt.dataset.goal;BK.kind=g[0];BK.dur=g[1];drawBook();restore();});
   f.querySelectorAll("input[name=bkDur]").forEach(r=>r.onchange=()=>{BK.dur=r.value;sumBook();});
   if($("#bkHub"))$("#bkHub").onchange=e=>{BK.hub=e.target.value;if(BK.kind==="pulse"){keep();drawBook();restore();}else sumBook();};
-  $("#bkDB").onchange=e=>{BK.db=e.target.checked;$("#bkDBsec").hidden=!BK.db;sumBook();};
+  if($("#bkDB"))$("#bkDB").onchange=e=>{BK.db=e.target.checked;$("#bkDBsec").hidden=!BK.db;sumBook();};
   if($("#bkPU")){$("#bkPU").onchange=e=>{BK.pulse=e.target.checked;$("#bkPUw").hidden=!BK.pulse;sumBook();};
     $("#bkPUh").onchange=e=>{BK.pulseHub=e.target.value;keep();drawBook();restore();};
     $("#bkPUn").onchange=e=>{BK.pulseWeeks=+e.target.value;keep();drawBook();restore();};
