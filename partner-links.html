@@ -69,7 +69,7 @@ a{color:var(--red)}
     $('h').textContent=d.eventName;
     var tier=d.partnershipType||'Community Partner';
     $('sub').innerHTML='Thank you for partnering with Yorkseed as a <b>'+tier.replace(/[<>&]/g,'')+'</b>. Send us your links when your event is ready.';
-    var n=['The Yorkseed logo on your event graphic','A Yorkseed line in your event description, linked to Yorkseed'];
+    var n=['The Yorkseed logo on your event graphic (from the logo and branding folder in our email)','The Yorkseed description from the branding document, with the link to Yorkseed'];
     if(/co-?host/i.test(tier)){var ce=(d.cohostEmail||'').replace(/[<>&"]/g,'');n.push('Yorkseed added as a manager co-host with access to the guest list: <b>'+ce+'</b> (on Luma, or the same role on your platform). Yorkseed is a co-host, so this is a Yorkseed event too.');$('cohostBox').hidden=false;$('cohostTxt').textContent='I added '+ce+' as a manager co-host with guest list access.';window.__co=1}
     $('need').innerHTML=n.map(function(x){return '<li>'+x+'</li>'}).join('');
     if(d.status==='live')show('live');else if(d.status==='links_in'&&d.links&&d.links.eventPage){$('eventPage').value=d.links.eventPage;$('post').value=d.links.post||'';$('description').value=d.links.description||'';$('note').value=d.links.note||'';$('platform').value=d.links.platform||'';$('cohostAdded').checked=!!d.links.cohostAdded;show('formCard')}else show('formCard');
