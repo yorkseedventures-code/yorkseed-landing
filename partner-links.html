@@ -40,6 +40,11 @@ a{color:var(--red)}
     <input id="post" type="url" placeholder="https://"/>
     <label for="description">Where the Yorkseed line appears <small>(optional, if it is not on the event page)</small></label>
     <input id="description" type="url" placeholder="https://"/>
+    <div id="cohostBox" hidden>
+      <label for="platform">Event platform <small>(Luma, Eventbrite, other)</small></label>
+      <input id="platform" type="text" placeholder="Luma"/>
+      <label style="display:flex;gap:10px;align-items:flex-start;font-weight:400;cursor:pointer"><input id="cohostAdded" type="checkbox" style="width:20px;height:20px;margin:2px 0 0;flex:0 0 auto"/><span id="cohostTxt"></span></label>
+    </div>
     <label for="note">Anything we should know? <small>(optional)</small></label>
     <textarea id="note" maxlength="1000"></textarea>
     <div class="err" id="err" hidden></div>
@@ -65,14 +70,15 @@ a{color:var(--red)}
     var tier=d.partnershipType||'Community Partner';
     $('sub').innerHTML='Thank you for partnering with Yorkseed as a <b>'+tier.replace(/[<>&]/g,'')+'</b>. Send us your links when your event is ready.';
     var n=['The Yorkseed logo on your event graphic','A Yorkseed line in your event description, linked to Yorkseed'];
-    if(/co-?host/i.test(tier))n.push('Yorkseed added as a co-host on your event page');
+    if(/co-?host/i.test(tier)){var ce=(d.cohostEmail||'').replace(/[<>&"]/g,'');n.push('Yorkseed added as a manager co-host with access to the guest list: <b>'+ce+'</b> (on Luma, or the same role on your platform). Yorkseed is a co-host, so this is a Yorkseed event too.');$('cohostBox').hidden=false;$('cohostTxt').textContent='I added '+ce+' as a manager co-host with guest list access.';window.__co=1}
     $('need').innerHTML=n.map(function(x){return '<li>'+x+'</li>'}).join('');
-    if(d.status==='live')show('live');else if(d.status==='links_in'&&d.links&&d.links.eventPage){$('eventPage').value=d.links.eventPage;$('post').value=d.links.post||'';$('description').value=d.links.description||'';$('note').value=d.links.note||'';show('formCard')}else show('formCard');
+    if(d.status==='live')show('live');else if(d.status==='links_in'&&d.links&&d.links.eventPage){$('eventPage').value=d.links.eventPage;$('post').value=d.links.post||'';$('description').value=d.links.description||'';$('note').value=d.links.note||'';$('platform').value=d.links.platform||'';$('cohostAdded').checked=!!d.links.cohostAdded;show('formCard')}else show('formCard');
   }).catch(function(){$('sub').textContent='';show('bad')});
   $('f').addEventListener('submit',function(e){e.preventDefault();
-    var b={eventPage:$('eventPage').value.trim(),post:$('post').value.trim(),description:$('description').value.trim(),note:$('note').value.trim()};
+    var b={platform:$('platform').value.trim(),cohostAdded:$('cohostAdded').checked,eventPage:$('eventPage').value.trim(),post:$('post').value.trim(),description:$('description').value.trim(),note:$('note').value.trim()};
     $('err').hidden=true;
     if(!/^https?:\/\//.test(b.eventPage)){$('err').textContent='Add the link to your event page, starting with https://';$('err').hidden=false;return}
+    if(window.__co&&!b.cohostAdded){$('err').textContent='Please add Yorkseed as a manager co-host with guest list access, then tick the box.';$('err').hidden=false;return}
     $('go').disabled=true;
     fetch(API+t,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(b)}).then(function(r){return r.json().then(function(j){if(!r.ok)throw new Error(j.message||'Something went wrong');return j})})
       .then(function(j){show(j.live?'live':'done')}).catch(function(x){$('err').textContent=x.message;$('err').hidden=false;$('go').disabled=false});

@@ -311,7 +311,7 @@ function renderPartners(){
       +'<div class="meta">'+[x.eventCity,x.eventDate,x.venue].filter(Boolean).map(esc).join(' · ')+'</div>'
       +'<div class="meta">From '+[x.firstName+' '+x.lastName,x.organization,x.email].filter(function(v){return v&&v.trim()}).map(esc).join(' · ')+' · <a href="mailto:'+esc(x.email)+'">email them</a></div>'
       +(x.eventDescription?'<div class="desc">'+esc(x.eventDescription)+'</div>':'')
-      +ptLink('Their event link',x.eventLink)+ptLink('Event page (with logo + Yorkseed line)',l.eventPage)+ptLink('Post',l.post)+ptLink('Description',l.description)+(l.note?'<div class="meta">Note: '+esc(l.note)+'</div>':'')
+      +ptLink('Their event link',x.eventLink)+ptLink('Event page (with logo + Yorkseed line)',l.eventPage)+ptLink('Post',l.post)+(l.platform?'<div class="meta">Platform: '+esc(l.platform)+'</div>':'')+(/co-?host/i.test(x.partnershipType||'')?'<div class="meta">'+(l.cohostAdded?'✓ They say Yorkseed is added as manager co-host (guest list). Check it on the event page.':'Yorkseed not yet added as manager co-host')+'</div>':'')+ptLink('Description',l.description)+(l.note?'<div class="meta">Note: '+esc(l.note)+'</div>':'')
       +'<div class="acts">'+acts+'</div></div>';
   }).join(''):'<div class="hint">Nothing here.</div>';
 }

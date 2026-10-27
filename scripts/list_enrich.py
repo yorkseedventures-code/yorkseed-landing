@@ -283,7 +283,7 @@ def import_submissions():
         k = (d.get("link") or "").split("?")[0].rstrip("/")
         if (k and k in seen_l) or (norm(d.get("title")), d["date"]) in seen_t: continue
         seen_l.add(k); seen_t.add((norm(d.get("title")), d["date"]))
-        events.append({x: d.get(x) for x in ("title", "hub", "date", "start", "end", "venue", "host", "link", "desc", "type", "partner") if d.get(x)})
+        events.append({x: d.get(x) for x in ("title", "hub", "date", "start", "end", "venue", "host", "link", "desc", "type", "partner", "yorkseed") if d.get(x)})
         added += 1
     if added: json.dump(events, open(f"{REPO}/list/events.json", "w"), ensure_ascii=False, indent=1)
     print(f"submissions: {added} approved events copied into events.json, {len(covers)} with an uploaded cover")
