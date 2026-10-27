@@ -2665,7 +2665,7 @@ loadSelfAds();
     if(++n<10)setTimeout(poll,2000);else toast(`Payment received. Your ad will appear in a minute. Questions: ${YS_INBOX}`);}).catch(()=>{if(++n<10)setTimeout(poll,2000);});
   poll();})();
 fetch(SUB_API+"/public").then(r=>r.ok?r.json():{events:[]}).then(x=>{const a=(x&&x.events)||[];const seen=new Set(EVENTS.map(e=>(e.link||e.title)+"|"+e.date));let n=0;
-  a.forEach(d=>{if(!d||!d.hub||!d.date||!HUBS.some(h=>h.id===d.hub))return;const k=(d.link||d.title)+"|"+d.date;if(seen.has(k))return;seen.add(k);EVENTS.push(dbEvent(d.id,d));n++;});if(n)rerenderAll();}).catch(()=>{});
+  a.forEach(d=>{if(d&&d.hub&&/^c-/.test(d.hub)&&d.hubName&&!HUBS.some(h=>h.id===d.hub)){const nh=makeHub(d.hubName,(d.newCity||"").split(", ")[1]||"",d.tz||"America/New_York");nh.id=d.hub;HUBS.push(nh);}if(!d||!d.hub||!d.date||!HUBS.some(h=>h.id===d.hub))return;const k=(d.link||d.title)+"|"+d.date;if(seen.has(k))return;seen.add(k);EVENTS.push(dbEvent(d.id,d));n++;});if(n)rerenderAll();}).catch(()=>{});
 (async()=>{try{
   if(!window.claude||!claude.use)return;
   DB=await claude.use("db");USER=await claude.use("user");
