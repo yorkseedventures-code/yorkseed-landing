@@ -455,6 +455,22 @@ body{font-family:var(--sans);font-weight:400}
 details summary::after,details summary span{color:var(--gold)}
 .track .n,.apply .steps li::before{color:#E6C7A4}
 .tier li::before{color:var(--gold)}
+/* Terms and privacy: one clean row, no stray empty band or double rule */
+.legal{padding:0 0 72px}
+.legal-wrap{border:0;padding:0}
+.legal-wrap:last-child{border-bottom:0}
+.legal-wrap summary{border-top:0;border-bottom:1px solid var(--line);padding:22px 0}
+.legal-wrap[open] summary{border-bottom:0}
+.legal-wrap .legal-grid{margin-top:8px}
+/* Add-on notes under the pricing cards: read as a tidy list */
+.fine{flex-direction:column;gap:0;margin-top:28px;border-top:1px solid var(--line)}
+.fine span{display:block;padding:16px 0;border-bottom:1px solid var(--line);line-height:1.65}
+/* Phone: keep section spacing tight (later desktop rules were overriding it) */
+@media(max-width:700px){
+.gallery,.pricing,.pricing.quiet{padding:56px 0}
+.legal{padding:0 0 56px}
+.fine{font-size:14px}
+}
 </style>
 <script src="/assets/site-chrome.js" defer></script>
 <style>yk-header:not(:defined){display:block;min-height:73px}</style>
