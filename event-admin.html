@@ -288,7 +288,7 @@ document.addEventListener('click',function(ev){
 });
 var PT='https://yorkseed-backend-production.up.railway.app/api/partner-requests',pts=[],ptTab='todo',HUBMAP=null;
 function ptApi(path,opt){var keep=API;API=PT;try{return api(path,opt)}finally{API=keep}}
-function guessHub(city){var c=(city||'').toLowerCase().replace(/[^a-z]/g,'');if(!c||!HUBMAP)return '';var f='';HUBMAP.forEach(function(h){var n=(h.name||'').toLowerCase().replace(/[^a-z]/g,'');if(!f&&n&&(c.indexOf(n)>-1||n.indexOf(c)>-1))f=h.id});return f}
+function guessHub(city){var c=(city||'').toLowerCase().replace(/[^a-z]/g,'');if(!c||!HUBMAP)return '';var f='';HUBMAP.forEach(function(h){if(!f&&h.id===c)f=h.id});var al={newyork:'nyc',newyorkcity:'nyc',sanfrancisco:'sf',bayarea:'sf',losangeles:'la',washington:'dc',washingtondc:'dc'};if(!f&&al[c])f=al[c];HUBMAP.forEach(function(h){var n=(h.name||'').toLowerCase().replace(/[^a-z]/g,'');if(!f&&n&&(c.indexOf(n)>-1||n.indexOf(c)>-1))f=h.id});return f}
 function loadPartners(){
   if(!key()){$('ptList').innerHTML='<div class="hint">Enter your key to see partner requests.</div>';return}
   var need=HUBMAP?Promise.resolve():fetch('/list/data/master.json').then(function(r){return r.json()}).then(function(m){HUBMAP=m.hubs||[]}).catch(function(){HUBMAP=[]});
