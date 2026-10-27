@@ -307,6 +307,7 @@ function renderPartners(){
     else if(x.status==='materials_sent')acts='<button data-pt-mat="'+x.id+'">Resend materials</button><button data-pt-no="'+x.id+'">Decline</button>';
     else if(x.status==='links_in')acts='<select id="ptHub'+x.id+'" style="min-height:40px">'+hubOpts+'</select><input id="ptDate'+x.id+'" type="date" value="'+esc(x.eventDate||'')+'" style="min-height:40px"><button class="ok" data-pt-live="'+x.id+'">Approve and go live</button><button data-pt-no="'+x.id+'">Decline</button>';
     else if(x.status==='live')acts='<button data-pt-no="'+x.id+'">Take off the List</button>';
+    acts+='<button data-pt-del="'+x.id+'">Delete</button>';
     var l=x.links||{};
     return '<div class="sub-it"><b>'+esc(x.eventName)+'</b> <span class="tag" style="padding:2px 8px">'+esc(x.partnershipType||'Partner')+'</span><div class="meta">'+esc(st)+'</div>'
       +'<div class="meta">'+[x.eventCity,x.eventDate,(x.eventStart?x.eventStart+(x.eventEnd?'–'+x.eventEnd:''):''),x.venue].filter(Boolean).map(esc).join(' · ')+'</div>'
@@ -322,6 +323,7 @@ document.addEventListener('click',function(ev){
   if(t.dataset.pt){ptTab=t.dataset.pt;[].forEach.call(document.querySelectorAll('#ptTabs button'),function(b){b.className=b.dataset.pt===ptTab?'on':''});renderPartners()}
   else if(id=t.dataset.ptMat){t.disabled=true;ptApi('/'+id+'/materials',{method:'PUT'}).then(function(){alert('Logo materials sent.');loadPartners()}).catch(function(e){alert(e.message);t.disabled=false})}
   else if(id=t.dataset.ptLive){var h=$('ptHub'+id).value,d=$('ptDate'+id).value;if(!h){alert('Pick the city first.');return}t.disabled=true;ptApi('/'+id+'/live',{method:'PUT',body:{hub:h,date:d}}).then(function(){loadPartners()}).catch(function(e){alert(e.message);t.disabled=false})}
+  else if(id=t.dataset.ptDel){if(t.dataset.sure!==id){t.dataset.sure=id;t.textContent='Tap again to delete for good';setTimeout(function(){t.textContent='Delete';delete t.dataset.sure},4000);return}ptApi('/'+id,{method:'DELETE'}).then(loadPartners).catch(function(e){alert(e.message)})}
   else if(id=t.dataset.ptNo){if(t.dataset.sure!==id){t.dataset.sure=id;t.textContent='Tap again to confirm';return}ptApi('/'+id+'/reject',{method:'PUT'}).then(loadPartners).catch(function(e){alert(e.message)})}
 });
 var ADS='https://yorkseed-backend-production.up.railway.app/api/list-ads';
