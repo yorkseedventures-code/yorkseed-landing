@@ -320,7 +320,7 @@ img{display:block;max-width:100%}
  <div class="perks three" style="margin-top:0">
   <div class="perk"><i>01</i><h3><span class="tri">▲</span> on the List and map</h3><p>A blue “<span class="tri">▲</span> Yorkseed partner” badge on your event, and a <span class="tri">▲</span> on your city on the map.</p></div>
   <div class="perk"><i>02</i><h3>Shared across 50+ hubs</h3><p>Yorkseed promotes partner events to the founders and investors they fit.</p></div>
-  <div class="perk"><i>03</i><h3>Co-hosts fill the room</h3><p>With manager access, Yorkseed invites its own network directly on your event page.</p></div>
+  <div class="perk"><i>03</i><h3>Co-hosts fill the room</h3><p>As a manager co-host with guest list access, Yorkseed invites its own network directly.</p></div>
  </div>
 </div></section></div>
 
@@ -331,7 +331,7 @@ img{display:block;max-width:100%}
       <ul>
         <li>Yorkseed logo on your event graphic</li>
         <li>A Yorkseed one-liner or short paragraph in your event description, hyperlinked back to Yorkseed</li>
-        <li>Co-hosts list Yorkseed as a visible co-host on the event page</li>
+        <li>Co-hosts add Yorkseed as a visible manager co-host, with guest list access</li>
       </ul>
       We provide the logo, copy and link. Events must have a clear business purpose with active founders and investors in the room.
     </div>
@@ -456,13 +456,13 @@ img{display:block;max-width:100%}
                   </label>
                   <label class="ptype">
                     <span class="ptype-top"><input type="radio" name="partnershipType" value="Co-host"/>Co-host</span>
-                    <span class="ptype-desc">Yorkseed listed as a visible co-host on the event page, plus all Community Partner requirements.</span>
+                    <span class="ptype-desc">A Yorkseed event: Yorkseed is a visible manager co-host with guest list access and invites its network, plus all Community Partner requirements.</span>
                   </label>
                 </div>
               </div>
               <div class="field" id="managerField" style="display:none">
-                <label>Will you grant Yorkseed manager co-host access on the event platform? <span class="req">*</span></label>
-                <span class="field-hint">With manager access we invite our network directly through Luma or your event platform.</span>
+                <label>Will you add Yorkseed as a manager co-host, with access to the guest list? <span class="req">*</span></label>
+                <span class="field-hint">Co-host events are Yorkseed events too. We need manager co-host access to your event and its guest list on Luma (or the same role on your event platform), and we will also invite our network directly. If you can't grant this, choose Community Partner instead.</span>
                 <div class="check-grid inline" id="managerGrid">
                   <label class="check-label"><input type="radio" name="managerAccess" value="Yes"/><span>Yes</span></label>
                   <label class="check-label"><input type="radio" name="managerAccess" value="No"/><span>No</span></label>
@@ -768,6 +768,7 @@ function validateForm(){
   var pt=form.querySelector('[name="partnershipType"]:checked');
   if(!pt){setGroupError('ptypeGrid','Please choose a partnership type.');valid=false;}
   if(pt&&pt.value==='Co-host'&&!form.querySelector('[name="managerAccess"]:checked')){setGroupError('managerGrid','Please choose an option.');valid=false;}
+  else if(pt&&pt.value==='Co-host'&&form.querySelector('[name="managerAccess"]:checked').value!=='Yes'){setGroupError('managerGrid','Co-host needs manager access and the guest list. Choose Yes, or pick Community Partner instead.');valid=false;}
   if(!form.querySelectorAll('[name="audience"]:checked').length){setGroupError('audienceGrid','Please select at least one audience.');valid=false;}
   if(!form.querySelectorAll('[name="sector"]:checked').length){setGroupError('sectorGrid','Please select at least one sector.');valid=false;}
   var allCommit=Array.prototype.every.call(document.querySelectorAll('#commitList input'),function(i){return i.checked;});
