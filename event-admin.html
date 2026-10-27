@@ -308,7 +308,7 @@ function renderPartners(){
     else if(x.status==='live')acts='<button data-pt-no="'+x.id+'">Take off the List</button>';
     var l=x.links||{};
     return '<div class="sub-it"><b>'+esc(x.eventName)+'</b> <span class="tag" style="padding:2px 8px">'+esc(x.partnershipType||'Partner')+'</span><div class="meta">'+esc(st)+'</div>'
-      +'<div class="meta">'+[x.eventCity,x.eventDate,x.venue].filter(Boolean).map(esc).join(' · ')+'</div>'
+      +'<div class="meta">'+[x.eventCity,x.eventDate,(x.eventStart?x.eventStart+(x.eventEnd?'–'+x.eventEnd:''):''),x.venue].filter(Boolean).map(esc).join(' · ')+'</div>'
       +'<div class="meta">From '+[x.firstName+' '+x.lastName,x.organization,x.email].filter(function(v){return v&&v.trim()}).map(esc).join(' · ')+' · <a href="mailto:'+esc(x.email)+'">email them</a></div>'
       +(x.eventDescription?'<div class="desc">'+esc(x.eventDescription)+'</div>':'')
       +(x.img?'<div style="margin-top:8px"><a href="'+esc(x.img)+'" target="_blank" rel="noopener"><img src="'+esc(x.img)+'" alt="Event image" style="width:200px;aspect-ratio:16/10;object-fit:cover;border:1px solid var(--line)"></a></div>':'')

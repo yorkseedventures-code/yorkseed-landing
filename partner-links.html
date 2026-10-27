@@ -34,6 +34,13 @@ a{color:var(--red)}
   <p><b>Before you send the links, check your event has:</b></p>
   <ul id="need"></ul>
   <form id="f" novalidate>
+    <label for="date">Event date <small>(required)</small></label>
+    <input id="date" type="date" required/>
+    <div style="display:flex;gap:12px"><div style="flex:1"><label for="start">Start time <small>(required)</small></label><input id="start" type="time"/></div><div style="flex:1"><label for="end">End time</label><input id="end" type="time"/></div></div>
+    <label for="city">City <small>(required)</small></label>
+    <input id="city" type="text" placeholder="New York"/>
+    <label for="venue">Venue or location <small>(optional)</small></label>
+    <input id="venue" type="text" placeholder="Venue name or address"/>
     <label for="img">Event image <small>(required, JPG or PNG, used on The Yorkseed List)</small></label>
     <input id="img" type="file" accept="image/png,image/jpeg,image/webp" style="padding:10px"/>
     <img id="prev" alt="" hidden style="margin-top:10px;max-width:100%;max-height:200px;border:1px solid var(--line)"/>
@@ -71,6 +78,7 @@ a{color:var(--red)}
   if(!/^[a-f0-9]{48}$/.test(t)){$('sub').textContent='';show('bad');return}
   fetch(API+t).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(d){
     $('h').textContent=d.eventName;
+    var w=d.when||{};$('date').value=w.date||'';$('start').value=w.start||'';$('end').value=w.end||'';$('city').value=w.city||'';$('venue').value=w.venue||'';
     var tier=d.partnershipType||'Community Partner';
     $('sub').innerHTML='Thank you for partnering with Yorkseed as a <b>'+tier.replace(/[<>&]/g,'')+'</b>. Send us your links when your event is ready.';
     var n=['The Yorkseed logo on your event graphic (from the logo and branding folder in our email)','The Yorkseed description from the branding document, with the link to Yorkseed'];
@@ -84,8 +92,9 @@ a{color:var(--red)}
       if(u.length>1.55e6){$('err').textContent='That image is too large. Please choose a smaller one.';$('err').hidden=false;return}
       window.__img=u;$('prev').src=u;$('prev').hidden=false;$('err').hidden=true};im.onerror=function(){$('err').textContent='We could not read that image. Try a JPG or PNG.';$('err').hidden=false};im.src=rd.result};rd.readAsDataURL(f)});
   $('f').addEventListener('submit',function(e){e.preventDefault();
-    var b={image:window.__img||'',platform:$('platform').value.trim(),cohostAdded:$('cohostAdded').checked,eventPage:$('eventPage').value.trim(),post:$('post').value.trim(),description:$('description').value.trim(),note:$('note').value.trim()};
+    var b={date:$('date').value,start:$('start').value,end:$('end').value,city:$('city').value.trim(),venue:$('venue').value.trim(),image:window.__img||'',platform:$('platform').value.trim(),cohostAdded:$('cohostAdded').checked,eventPage:$('eventPage').value.trim(),post:$('post').value.trim(),description:$('description').value.trim(),note:$('note').value.trim()};
     $('err').hidden=true;
+    if(!b.date||!b.start||!b.city){$('err').textContent='Please add the event date, start time and city.';$('err').hidden=false;return}
     if(!window.__img&&!window.__has){$('err').textContent='Please upload an image for your event.';$('err').hidden=false;return}
     if(!/^https?:\/\//.test(b.eventPage)){$('err').textContent='Add the link to your event page, starting with https://';$('err').hidden=false;return}
     if(window.__co&&!b.cohostAdded){$('err').textContent='Please add Yorkseed as a manager co-host with guest list access, then tick the box.';$('err').hidden=false;return}
