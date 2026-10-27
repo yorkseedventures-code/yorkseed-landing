@@ -2443,8 +2443,9 @@ function dbText(){const v=SLOTS[BK.kind];const ed=v.scope?WEEKS.find(w=>w.hub===
   return ed?`A full page in the ${hubById(BK.hub).name} edition (${ed.name}), carried into the Annual Deal Book shared in December.`:`A full page in our next delegation edition, carried into the Annual Deal Book shared in December.`;}
 const GOALS=[["one","One event"],["week","A Tech Week, conference or launch"],["year","My brand, all year"]];
 const GOALMAP={one:["feat","ev"],week:["side","1m"],year:["home","12m"]};
-function openBook(kind,hub){BK.kind=kind&&SLOTS[kind]&&!SLOTS[kind].retired?kind:kind==="list"?"side":"home";BK.goal="";BK.db=false;BK.sheet=false;BK.pulse=BK.kind==="pulse";BK.pulseWeeks=1;BK.pulseStart="";BK.hs=["",""];BK.hub=hub&&hub!=="all"?hub:(st.hub!=="all"?st.hub:"nyc");BK.pulseHub=BK.hub;BK.img="";drawBook();$("#book").hidden=false;}
-function closeBook(){$("#book").hidden=true;}
+function openBook(kind,hub){BK.kind=kind&&SLOTS[kind]&&!SLOTS[kind].retired?kind:kind==="list"?"side":"home";BK.goal="";BK.db=false;BK.sheet=false;BK.pulse=BK.kind==="pulse";BK.pulseWeeks=1;BK.pulseStart="";BK.hs=["",""];BK.hub=hub&&hub!=="all"?hub:(st.hub!=="all"?st.hub:"nyc");BK.pulseHub=BK.hub;BK.img="";drawBook();$("#book").hidden=false;setBookHash();}
+function setBookHash(){try{if($("#book").hidden)return;const h="#book/"+BK.kind+(BK.hub&&BK.hub!=="all"?"/"+BK.hub:"");if(location.hash!==h)history.replaceState(null,"",location.pathname+location.search+h);}catch(e){}}
+function closeBook(){$("#book").hidden=true;try{if(/^#book\//.test(location.hash))history.replaceState(null,"",location.pathname+location.search);}catch(e){}}
 function monthOpts(){const out=[];for(let i=1;i<=6;i++){const d=new Date(Date.UTC(2026,9+i,1));out.push([d.toISOString().slice(0,7),new Intl.DateTimeFormat("en-US",{month:"long",year:"numeric",timeZone:"UTC"}).format(d)]);}return out;}
 function pulseField(){
   if(BK.kind==="pulse")BK.pulseHub=BK.hub;if(!BK.pulseHub)BK.pulseHub=BK.hub;const mons=pulseMondays(8);if(!mons.includes(BK.pulseStart))BK.pulseStart=mons[0];
@@ -2461,7 +2462,7 @@ function pulseField(){
       <div class="field"><label for="bkPUs">Starting Monday</label><select id="bkPUs">${mons.map(m=>`<option value="${m}"${m===BK.pulseStart?" selected":""}>${mfmt(m)}</option>`).join("")}</select></div>
       <small class="muted full" id="bkPUnote" style="grid-column:1/-1">${usd?"Charged together with your booking.":`Charged in ${pc.cur==="gbp"?"pounds":"euros"} (${PULSE_SYM[pc.cur]}) in a second, short checkout right after your booking payment.`} It uses the headline and link above.${pc.surge?` <b>Tech Week pricing:</b> +30% on ${pc.surge===BK.pulseWeeks?(BK.pulseWeeks>1?"all "+BK.pulseWeeks+" weeks":"this week"):pc.surge+" of your "+BK.pulseWeeks+" weeks"} (${esc(pc.names.join(", "))}).`:""}</small>
     </div></div>`;}
-function drawBook(){
+function drawBook(){setBookHash();
   const v=SLOTS[BK.kind];if(BK.kind==="side"||BK.kind==="pulse"){BK.db=false;BK.sheet=false;}if(BK.kind==="pulse")BK.pulse=true;else if(BK.pulse&&BK.wasPulse){BK.pulse=false;}BK.wasPulse=BK.kind==="pulse";
   $("#bkBody").innerHTML=`<form class="bookgrid" id="bkForm" novalidate>
     <div class="field"><label>What are you promoting?</label><div class="goals">${GOALS.map(([g,l])=>`<button type="button" data-goal="${g}"${BK.goal===g?' class="on"':""}>${l}</button>`).join("")}</div></div>
@@ -2610,7 +2611,7 @@ if($("#tiers"))$("#tiers").innerHTML=TIERS.map(t=>`<div class="tier${t.rec?" rec
 syncWeeks();renderHome();paneShow();
 setInterval(()=>{if(st.view==="home")renderCityRow();},30000);
 const hash=(location.hash||"").slice(1);
-NAV_SILENT=true;try{if(/^e\//.test(hash))openFromHash();else if(openListFromHash(hash)){}else if(/^book\//.test(hash)){const bp=hash.split("/");try{history.replaceState(null,"",location.pathname+location.search);}catch(err){}openBook(bp[1],bp[2]);}else if(["submit","pricing","partner","weeks"].includes(hash))scrollToId(hash);else if(!hash&&!/[?&]home\b/.test(location.search)){const nh=nearHub();if(nh)goCity(nh);}}finally{NAV_SILENT=false;}
+NAV_SILENT=true;try{if(/^e\//.test(hash))openFromHash();else if(openListFromHash(hash)){}else if(/^book\//.test(hash)){const bp=hash.split("/");openBook(bp[1],bp[2]);}else if(["submit","pricing","partner","weeks"].includes(hash))scrollToId(hash);else if(!hash&&!/[?&]home\b/.test(location.search)){const nh=nearHub();if(nh)goCity(nh);}}finally{NAV_SILENT=false;}
 
 makePicker($("#homeSel"));makePicker($("#hHub"),true);makePicker($("#fCity"),true);
 
