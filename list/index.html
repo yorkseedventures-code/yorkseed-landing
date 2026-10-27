@@ -2611,7 +2611,7 @@ if($("#tiers"))$("#tiers").innerHTML=TIERS.map(t=>`<div class="tier${t.rec?" rec
 syncWeeks();renderHome();paneShow();
 setInterval(()=>{if(st.view==="home")renderCityRow();},30000);
 const hash=(location.hash||"").slice(1);
-NAV_SILENT=true;try{if(/^e\//.test(hash))openFromHash();else if(openListFromHash(hash)){}else if(/^book\//.test(hash)){const bp=hash.split("/");openBook(bp[1],bp[2]);}else if(["submit","pricing","partner","weeks"].includes(hash))scrollToId(hash);else if(!hash&&!/[?&]home\b/.test(location.search)){const nh=nearHub();if(nh)goCity(nh);}}finally{NAV_SILENT=false;}
+NAV_SILENT=true;try{if(/^e\//.test(hash))openFromHash();else if(openListFromHash(hash)){}else if(/^book(\/|$)/.test(hash)){const bp=hash.split("/");openBook(bp[1],bp[2]);}else if(["submit","pricing","partner","weeks"].includes(hash))scrollToId(hash);else if(!hash&&!/[?&]home\b/.test(location.search)){const nh=nearHub();if(nh)goCity(nh);}}finally{NAV_SILENT=false;}
 
 makePicker($("#homeSel"));makePicker($("#hHub"),true);makePicker($("#fCity"),true);
 
