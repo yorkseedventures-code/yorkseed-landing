@@ -262,7 +262,7 @@ function renderSubs(){
   var rows=subs.filter(function(x){return x.status===subTab});
   $('subList').innerHTML=rows.length?rows.map(function(x){
     var city=x.newCity?esc(x.newCity)+' (new city)':esc(x.hubName||x.hub);
-    var by=[x.name,x.email].filter(Boolean).map(esc).join(' · ')+(x.auto?' · <span class="tag" style="padding:2px 8px">Auto-approved</span>':'');
+    var by=[x.name,x.email].filter(Boolean).map(esc).join(' · ')+(x.auto?' · <span class="tag" style="padding:2px 8px">Auto-approved</span>':'')+(x.yorkseed?' · <span class="tag" style="padding:2px 8px">★ Yorkseed event</span>':'');
     var acts=x.status==='pending'?'<button class="ok" data-sub-ok="'+x.id+'">Approve</button><button data-sub-no="'+x.id+'">Reject</button>':x.status==='approved'?'<button data-sub-no="'+x.id+'">Take off the List</button>':'<button data-sub-ok="'+x.id+'">Approve</button>';
     return '<div class="sub-it"><b>'+esc(x.title)+'</b><div class="meta">'+city+' · '+esc(when(x))+(x.venue?' · '+esc(x.venue):'')+'</div>'
       +'<div class="meta">'+[x.type,x.host?'Host: '+x.host:'',x.placement&&x.placement!=='free'?'Wants: '+x.placement:''].filter(Boolean).map(esc).join(' · ')+'</div>'
