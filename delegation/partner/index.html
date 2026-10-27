@@ -81,6 +81,28 @@ legend{font-family:Jost,sans-serif;font-size:12px;font-weight:500;letter-spacing
 #partner-form button{margin-top:16px;min-height:46px}
 @media (max-width:560px){#partner-form .opts{grid-template-columns:1fr}}
 </style>
+<style id="pt-tight2">
+body{font-size:16px}
+.pt-hero h1{font-size:clamp(26px,3.2vw,36px)}
+.pt-hero p{font-size:15px;max-width:600px}
+.pt-label h2{font-size:clamp(19px,2.2vw,24px)}
+.pt-prices td{font-size:14px}.pt-prices td.n{font-size:15px}.pt-prices s{font-size:12.5px}
+.pt-note{font-size:12.5px}
+.pt-grid li{font-size:14px;padding:8px 0}.pt-mail{font-size:14px}
+#partner-form h2{font-size:22px}
+#partner-form .opt{font-size:13.5px;padding:8px 10px}#partner-form .opt small{font-size:11.5px}
+#partner-form label span{font-size:13.5px}
+#partner-form input[type=text],#partner-form input[type=email],#partner-form textarea{font-size:14px;padding:8px 11px}
+#partner-form .pt-total{font-size:13.5px}
+#partner-form .note{font-size:13px}
+.pt-ex{display:grid;grid-template-columns:minmax(0,270px) minmax(0,1fr);gap:28px;align-items:start;margin-top:16px}
+.pt-ex figure{margin:0}.pt-ex img{display:block;width:100%;border:1px solid var(--line);background:#fff}
+.pt-ex figcaption{font-size:12.5px;color:#5E554B;margin-top:6px}
+.pt-ex h3{font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:17px;margin:0 0 6px}
+.pt-ex p{font-size:14px;line-height:1.5;margin:0 0 10px;color:#3D3731}
+.pt-links{display:flex;gap:16px;flex-wrap:wrap;font-size:13.5px;margin-top:10px}.pt-links a{color:#B3261E}
+@media(max-width:820px){.pt-ex{grid-template-columns:1fr}.pt-ex figure:first-child{max-width:270px}}
+</style>
 </head>
 <body>
 <div class="pt-head"><a class="eyebrow" href="/delegation/">Yorkseed Delegations</a><a class="eyebrow" href="mailto:partnership@yorkseed.co">partnership@yorkseed.co</a></div>
@@ -89,6 +111,18 @@ legend{font-family:Jost,sans-serif;font-size:12px;font-weight:500;letter-spacing
   <div class="eyebrow" style="color:#B3261E">Partner with Yorkseed</div>
   <h1>Your page in the <em>Deal Book</em> and the <em>Annual</em></h1>
   <p>Each Yorkseed delegation has a Deal Book read by founders, investors and partners, and it stays online after the week. At year end, The Yorkseed Annual collects every delegation in one edition. A limited number of partner pages are available in each.</p>
+</section>
+
+<section class="pt-sec" id="example">
+  <div class="pt-label"><h2>What a page looks like</h2><span class="eyebrow" style="color:var(--muted)">Example</span></div>
+  <div class="pt-ex">
+    <figure><img src="/delegation/img/deal-book-example-page.jpg" alt="Example Deal Book partner page" loading="lazy"><figcaption>Partner page: your logo, a short description, one offer for readers with a QR code, and your contact in town.</figcaption></figure>
+    <div>
+      <h3>Or a two-page feature spread</h3>
+      <figure><img src="/delegation/img/deal-book-example-spread.jpg" alt="Example two-page feature spread: a story page next to a partner page" loading="lazy"><figcaption>Feature spread: a story page plus your partner page, with a mention in the launch email and on social.</figcaption></figure>
+      <div class="pt-links"><a href="/delegation/lisbon-2026/book/">Read the Lisbon Deal Book &rarr;</a><a href="/delegation/hong-kong-2027/book/">Hong Kong Deal Book &rarr;</a></div>
+    </div>
+  </div>
 </section>
 
 <section class="pt-sec">
@@ -185,6 +219,8 @@ legend{font-family:Jost,sans-serif;font-size:12px;font-weight:500;letter-spacing
       var co = (f.Company && f.Company.value) || "";
       document.getElementById("f-subject").value = "Partner request | " + (co || "New") + " | " + (ed || "?") + " | " + (pk || "?");
     }
+        var q = new URLSearchParams(location.search), qe = { lisbon: "Lisbon Deal Book 2026", hongkong: "Hong Kong Deal Book 2027", annual: "The Yorkseed Annual 2026", both: "Both" }[q.get("e")], qp = { page: "Partner page", spread: "Feature spread", presenting: "Presenting partner" }[q.get("p")];
+    [["Edition", qe], ["Package", qp]].forEach(function (x) { if (!x[1]) return; var el = f.querySelector('input[name="' + x[0] + '"][value="' + x[1] + '"]'); if (el) el.checked = true; });
     f.addEventListener("change", update); f.addEventListener("input", update); update();
   })();
 </script>
