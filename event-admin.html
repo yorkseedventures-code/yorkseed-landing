@@ -87,6 +87,7 @@ textarea{min-height:130px;resize:vertical}
 </div>
 
 <div class="card" id="submissions" data-sec="inbox">
+  <div id="ptBanner" hidden style="background:#fdecea;border:1px solid #e5b4ae;padding:12px 14px;margin-bottom:14px"><b id="ptBannerTxt"></b> <button type="button" id="ptBannerGo" style="width:auto;margin:0 0 0 8px;padding:0 14px;min-height:36px">Open Partners</button></div>
   <h2>Submissions from The List <span id="subCount"></span></h2>
   <div class="tabs" id="subTabs"><button data-st="pending" class="on">Pending</button><button data-st="approved">Approved</button><button data-st="rejected">Rejected</button></div>
   <div id="subList"><div class="hint">Loading...</div></div>
@@ -291,7 +292,7 @@ function guessHub(city){var c=(city||'').toLowerCase().replace(/[^a-z]/g,'');if(
 function loadPartners(){
   if(!key()){$('ptList').innerHTML='<div class="hint">Enter your key to see partner requests.</div>';return}
   var need=HUBMAP?Promise.resolve():fetch('/list/data/master.json').then(function(r){return r.json()}).then(function(m){HUBMAP=m.hubs||[]}).catch(function(){HUBMAP=[]});
-  need.then(function(){return ptApi('')}).then(function(j){pts=j.requests||[];var n=j.waiting||0;$('ptCount').innerHTML=n?'<span class="pill">'+n+' need you</span>':'';badge('nPartners',n);renderPartners()})
+  need.then(function(){return ptApi('')}).then(function(j){pts=j.requests||[];var n=j.waiting||0;$('ptCount').innerHTML=n?'<span class="pill">'+n+' need you</span>':'';badge('nPartners',n);$('ptBanner').hidden=!n;$('ptBannerTxt').textContent=n+' partner request'+(n>1?'s':'')+' need you';renderPartners()})
     .catch(function(err){$('ptList').innerHTML='<div class="hint">'+esc(err.message)+'</div>'});
 }
 function ptLink(label,u){return u?'<div class="meta">'+esc(label)+': <a href="'+esc(u)+'" target="_blank" rel="noopener">'+esc(u)+'</a></div>':''}
@@ -362,6 +363,7 @@ var SECS={inbox:1,events:1,ads:1,organizers:1,partners:1,tools:1,submissions:'in
 function showSec(s){s=SECS[s]===1?s:(SECS[s]||'inbox');[].forEach.call(document.querySelectorAll('[data-sec]'),function(c){c.hidden=c.dataset.sec!==s});
   [].forEach.call(document.querySelectorAll('#nav button'),function(b){b.className=b.dataset.go===s?'on':''});
   try{history.replaceState(null,'','#'+s)}catch(e){}window.scrollTo(0,0)}
+$('ptBannerGo').onclick=function(){showSec('partners')};
 document.getElementById('nav').addEventListener('click',function(ev){var b=ev.target.closest('button');if(b)showSec(b.dataset.go)});
 $('keyChange').onclick=function(){var c=$('keyCard');c.style.display='';$('key').value='';$('key').focus();c.scrollIntoView()};
 function badge(id,n){var e=$(id);e.hidden=!n;e.textContent=n||''}
