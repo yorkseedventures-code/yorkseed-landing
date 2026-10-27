@@ -34,6 +34,10 @@ a{color:var(--red)}
   <p><b>Before you send the links, check your event has:</b></p>
   <ul id="need"></ul>
   <form id="f" novalidate>
+    <label for="img">Event image <small>(required, JPG or PNG, used on The Yorkseed List)</small></label>
+    <input id="img" type="file" accept="image/png,image/jpeg,image/webp" style="padding:10px"/>
+    <img id="prev" alt="" hidden style="margin-top:10px;max-width:100%;max-height:200px;border:1px solid var(--line)"/>
+    <div id="hasImg" hidden style="font-size:13px;color:var(--mut);margin-top:6px">We already have your image. Choose a file to replace it.</div>
     <label for="eventPage">Your live event page <small>(required)</small></label>
     <input id="eventPage" type="url" placeholder="https://" required/>
     <label for="post">A post or newsletter mention <small>(optional)</small></label>
@@ -72,11 +76,17 @@ a{color:var(--red)}
     var n=['The Yorkseed logo on your event graphic (from the logo and branding folder in our email)','The Yorkseed description from the branding document, with the link to Yorkseed'];
     if(/co-?host/i.test(tier)){var ce=(d.cohostEmail||'').replace(/[<>&"]/g,'');n.push('Yorkseed added as a manager co-host with access to the guest list: <b>'+ce+'</b> (on Luma, or the same role on your platform). Yorkseed is a co-host, so this is a Yorkseed event too.');$('cohostBox').hidden=false;$('cohostTxt').textContent='I added '+ce+' as a manager co-host with guest list access.';window.__co=1}
     $('need').innerHTML=n.map(function(x){return '<li>'+x+'</li>'}).join('');
-    if(d.status==='live')show('live');else if(d.status==='links_in'&&d.links&&d.links.eventPage){$('eventPage').value=d.links.eventPage;$('post').value=d.links.post||'';$('description').value=d.links.description||'';$('note').value=d.links.note||'';$('platform').value=d.links.platform||'';$('cohostAdded').checked=!!d.links.cohostAdded;show('formCard')}else show('formCard');
+    if(d.status==='live')show('live');else if(d.status==='links_in'&&d.links&&d.links.eventPage){$('eventPage').value=d.links.eventPage;$('post').value=d.links.post||'';$('description').value=d.links.description||'';$('note').value=d.links.note||'';$('platform').value=d.links.platform||'';$('cohostAdded').checked=!!d.links.cohostAdded;if(d.hasImage){window.__has=1;$('hasImg').hidden=false}show('formCard')}else show('formCard');
   }).catch(function(){$('sub').textContent='';show('bad')});
+  $('img').addEventListener('change',function(){var f=this.files[0];window.__img='';$('prev').hidden=true;if(!f)return;
+    var rd=new FileReader();rd.onload=function(){var im=new Image();im.onload=function(){var W=1200,sc=Math.min(1,W/im.width),c=document.createElement('canvas');c.width=Math.round(im.width*sc);c.height=Math.round(im.height*sc);var x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height);x.drawImage(im,0,0,c.width,c.height);
+      var q=.85,u=c.toDataURL('image/jpeg',q);while(u.length>1.5e6&&q>.4){q-=.1;u=c.toDataURL('image/jpeg',q)}
+      if(u.length>1.55e6){$('err').textContent='That image is too large. Please choose a smaller one.';$('err').hidden=false;return}
+      window.__img=u;$('prev').src=u;$('prev').hidden=false;$('err').hidden=true};im.onerror=function(){$('err').textContent='We could not read that image. Try a JPG or PNG.';$('err').hidden=false};im.src=rd.result};rd.readAsDataURL(f)});
   $('f').addEventListener('submit',function(e){e.preventDefault();
-    var b={platform:$('platform').value.trim(),cohostAdded:$('cohostAdded').checked,eventPage:$('eventPage').value.trim(),post:$('post').value.trim(),description:$('description').value.trim(),note:$('note').value.trim()};
+    var b={image:window.__img||'',platform:$('platform').value.trim(),cohostAdded:$('cohostAdded').checked,eventPage:$('eventPage').value.trim(),post:$('post').value.trim(),description:$('description').value.trim(),note:$('note').value.trim()};
     $('err').hidden=true;
+    if(!window.__img&&!window.__has){$('err').textContent='Please upload an image for your event.';$('err').hidden=false;return}
     if(!/^https?:\/\//.test(b.eventPage)){$('err').textContent='Add the link to your event page, starting with https://';$('err').hidden=false;return}
     if(window.__co&&!b.cohostAdded){$('err').textContent='Please add Yorkseed as a manager co-host with guest list access, then tick the box.';$('err').hidden=false;return}
     $('go').disabled=true;
