@@ -1244,6 +1244,16 @@ body{font-size:var(--t-body)}
 .hero h1,.cityhero h1,.evinfo h1{font-size:var(--t-h1)!important;line-height:1.02!important;letter-spacing:-.02em}
 .cityhero h1 em[style]{font-size:.62em!important}
 h2,.head h2,.listhead h2,.uphead h2,.evspons .head h2,.calhead h3{font-size:var(--t-h2)!important;line-height:1.1}
+.srail .ssc{display:block;background:var(--surface,#fff);border:1px solid var(--line);border-top:3px solid var(--accent);padding:12px;color:inherit;text-decoration:none}
+.srail .ssc img{display:block;width:100%;border:1px solid var(--line)}
+.srail .ssc small{display:block;font-family:var(--f-label);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin:12px 0 6px}
+.srail .ssc h3{font-family:var(--f-display);font-weight:400;font-size:20px;line-height:1.2;margin:0}.srail .ssc h3 em{color:var(--accent)}
+.srail .ssc .go{display:block;margin-top:12px;background:var(--accent);color:#fff;font-family:var(--f-label);font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:12px;text-align:center}
+.ssm{display:none}
+@media(max-width:960px){.ssm{display:flex;gap:10px;align-items:center;background:var(--surface,#fff);border:1px solid var(--line);border-left:3px solid var(--accent);padding:6px 10px 6px 6px;margin:10px 0;color:inherit;text-decoration:none}
+.ssm img{width:64px;flex:none;display:block;border:1px solid var(--line)}
+.ssm span{flex:1;min-width:0;font-family:var(--f-display);font-size:14px;line-height:1.25}.ssm span b{display:block;font:500 8.5px/1 var(--f-label);letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:3px}.ssm span em{color:var(--accent)}
+.ssm i{font-style:normal;color:var(--accent);font-weight:600;font-size:16px}}
 @media(max-width:640px){.listhead h2#listCount{font-size:17px!important;white-space:nowrap}}
 .dayhead h3{font-size:var(--t-day)!important}
 .crow .ttl,.wrow .wn,.ritem .rt,.card h3,.yscard h3,.stile h4,.fbanner h3,.fbanner.slim h3,.cta3 h3,.week h3,.promo h3,.slot h3,.opt b,.step b{font-size:var(--t-row)!important;line-height:1.25}
@@ -1964,11 +1974,15 @@ function filtered(){
     .sort((a,b)=>a.date.localeCompare(b.date)||((RANK[a.place]??9)-(RANK[b.place]??9))||a.utc-b.utc);
 }
 const DATES=[["any","Any time"],["today","Today"],["week","This week"],["weekend","Weekend"],["30","Next 30 days"]];
+const SS_URL="https://docs.google.com/spreadsheets/d/1Z-CSAENhQygbIPVqP5WbKbbVAGfJFYoixORwWyN8n9o/edit?usp=drivesdk",SS_IMG="/list/img/yorkseed-web-summit-sheet.jpg";
+const ssOn=()=>st.hub==="lis"||st.week==="lisws";
+const ssRail=()=>`<a class="ssc" href="${SS_URL}" target="_blank" rel="noopener"><img src="${SS_IMG}" alt="Preview of the Yorkseed Web Summit Lisbon 2026 spreadsheet" loading="lazy"><small>Where Yorkseed started</small><h3>Web Summit <em>original side event spreadsheet</em></h3><span class="go">Open the spreadsheet ↗</span></a>`;
+const ssMob=()=>`<a id="ssMob" class="ssm" href="${SS_URL}" target="_blank" rel="noopener"><img src="${SS_IMG}" alt="" loading="lazy"><span><b>Where Yorkseed started</b>Web Summit <em>original side event spreadsheet</em></span><i>↗</i></a>`;
 function renderRail(){const el=$("#rail");if(!el)return;const hub=st.hub==="all"?null:st.hub;const h=hub?hubById(hub):null;
   const bks=hub?allBookings().filter(b=>b.kind==="side"&&b.hub===hub).slice(0,3):[];
   const card=bk=>`<${bk.url?`a href="${esc(refLink(bk.url,"sponsor"))}" target="_blank" rel="noopener sponsored"`:"div"} class="sad${bk.img?" creative":""}"${bk.adId?` data-adid="${bk.adId}"`:""}><span class="lab">${bk.live?"Sponsored":"Sponsored · preview"} · ${esc(bk.brand)}</span>${bk.img?`<img src="${esc(bk.img)}" alt="${esc(bk.brand+(bk.headline?": "+bk.headline:""))}">`:`<div class="sb"><small>${esc(bk.brand)}</small><h3>${esc(bk.headline||"")}</h3>${bk.blurb?`<p>${esc(bk.blurb)}</p>`:""}${bk.url?`<span class="btn btn-primary btn-sm">${esc(bk.cta||"Learn more")}</span>`:""}</div>`}</${bk.url?"a":"div"}>`;
   const empty=()=>`<div class="sad empty"><div><span class="eyebrow" style="color:var(--accent)">Sidebar ad</span><h3>Your brand <em>here</em></h3><p>In view while people scroll ${h?esc(h.name)+"'s":"the"} events.</p></div><div class="foot"><span class="dim">300 × 250 · from ${money(SLOTS.side.durs[0][2])}</span><button class="btn btn-line btn-sm" type="button" data-book="side"${hub?` data-bcity="${hub}"`:""}>Book</button></div></div>`;
-  el.innerHTML=bks.map(card).join("")+(bks.length<3?empty():"")+(bks.length<2?`<div class="rprom"><span class="eyebrow" style="color:var(--accent)">For organizers</span><h3>Hosting an <em>event?</em></h3><p>List it free so founders and investors${h?" in "+esc(h.name):""} can find it.</p><button class="btn btn-primary btn-sm" type="button" data-chat="1">List an Event</button></div>`:"");
+  el.innerHTML=(ssOn()?ssRail():"")+bks.map(card).join("")+(bks.length<3?empty():"")+(bks.length<2?`<div class="rprom"><span class="eyebrow" style="color:var(--accent)">For organizers</span><h3>Hosting an <em>event?</em></h3><p>List it free so founders and investors${h?" in "+esc(h.name):""} can find it.</p><button class="btn btn-primary btn-sm" type="button" data-chat="1">List an Event</button></div>`:"");
   requestAnimationFrame(()=>{el.classList.toggle("nostick",el.offsetHeight>innerHeight-110);watchAds(el);});}
 function renderCity(){
   setTimeout(syncListUrl,0);try{renderRail();}catch(e){}
@@ -1996,7 +2010,7 @@ function renderCity(){
   $("#fDate").innerHTML=DATES.map(([v,l])=>`<option value="${v}">${l}</option>`).join("")+(st.date==="weeks"?'<option value="weeks">Conference weeks</option>':"");$("#fDate").value=st.date==="7"?"week":st.date;$("#fDate").hidden=st.mode==="cal";
   const chips=[];if(w)chips.push(`<span class="weekchip">${esc(w.name)}<button data-clear="week" aria-label="Clear week">×</button></span>`);if(st.savedOnly)chips.push(`<span class="weekchip">★ Saved<button data-clear="savedOnly" aria-label="Show all events">×</button></span>`);if(st.topic)chips.push(`<span class="weekchip">${esc(st.topic)}<button data-clear="topic" aria-label="Clear topic">×</button></span>`);if(st.day)chips.push(`<span class="weekchip">${dParts(st.day).wd} ${dParts(st.day).day} ${dParts(st.day).mon}<button data-clear="day" aria-label="Clear day">×</button></span>`);if(st.date==="weeks")chips.push(`<span class="weekchip">Conference weeks<button data-clear="date" aria-label="Clear">×</button></span>`);
   $("#weekChip").innerHTML=chips.join(" ");
-  {const old=$("#ysProg");if(old)old.remove();const pw=w&&w.ys?w:(h?WEEKS.find(x=>x.hub===h.id&&x.ys&&x.end>=addDays(0)):null);if(pw)$("#bCity").insertAdjacentHTML("beforebegin",`<div id="ysProg">${ysProgramsHtml(pw)}</div>`);}
+  {const old=$("#ysProg");if(old)old.remove();const pw=w&&w.ys?w:(h?WEEKS.find(x=>x.hub===h.id&&x.ys&&x.end>=addDays(0)):null);if(pw)$("#bCity").insertAdjacentHTML("beforebegin",`<div id="ysProg">${ysProgramsHtml(pw)}</div>`);}{const o=$("#ssMob");if(o)o.remove();if(ssOn())$("#bCity").insertAdjacentHTML("afterend",ssMob());}
   if(st.mode==="cal"){renderCal(h,w);$("#bCity").innerHTML=st.hub==="all"?bannerHtml("home"):bannerHtml("city",st.hub);return;}
   const list=filtered();
   $("#listCount").innerHTML=`${list.length} <em>event${list.length===1?"":"s"}</em> ${w?(addDays(0)>=w.start&&addDays(0)<=w.end?"this week":"at "+esc(w.name)+", "+range(w.start,w.end)):h?"in "+h.name:"worldwide"}`;
