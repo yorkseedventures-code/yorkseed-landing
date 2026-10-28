@@ -430,7 +430,9 @@ const EVENT = {
   onsiteContact: "",
   venueName:     "Foley Hoag",
   venueAddress:  "",
-  venueMapUrl:   ""
+  venueMapUrl:   "",
+  opensAt:       "2026-12-08T13:00:00Z",   // 8:00 AM ET on December 8
+  opensLabel:    "the morning of December 8"
 };
 
 const ATTENDEES = [];
@@ -440,6 +442,10 @@ function applyEventConfig() {
   document.getElementById('login-event-name').textContent = EVENT.name;
   var loginDetail = EVENT.city + ' · ' + EVENT.dateLabel + ' · ' + EVENT.timeLabel;
   document.getElementById('login-event-detail').textContent = loginDetail;
+  if (EVENT.opensAt && Date.now() < Date.parse(EVENT.opensAt) && location.search.indexOf('preview=1') < 0) {
+    var subEl0 = document.querySelector('.login-card') && document.querySelector('.login-card').previousElementSibling;
+    if (subEl0 && subEl0.classList.contains('sub')) subEl0.textContent = 'Your matches open on ' + EVENT.opensLabel + ', the day of the event. Come back then, enter the first name and email you registered with, and we will show you who to meet.';
+  }
   var resultsDetailHtml = EVENT.dateLabel + ' &middot; ' + EVENT.timeLabel + ' &middot; ' + (EVENT.venueMapUrl ? '<a href="' + EVENT.venueMapUrl + '" target="_blank" rel="noopener">' + EVENT.venueName + '</a>' : EVENT.venueName);
   document.getElementById('results-event-detail').innerHTML = resultsDetailHtml;
   document.getElementById('results-venue-address').textContent = EVENT.venueAddress;
@@ -511,6 +517,10 @@ document.getElementById('login-btn').addEventListener('click', function() {
   var em = document.getElementById('email').value;
   if (!fn.trim() || !em.trim()) {
     showError('Please enter both your first name and email.');
+    return;
+  }
+  if (EVENT.opensAt && Date.now() < Date.parse(EVENT.opensAt) && location.search.indexOf('preview=1') < 0) {
+    showError('Matches open on ' + EVENT.opensLabel + '. Please come back then.');
     return;
   }
   var attendee = findAttendee(fn, em);
