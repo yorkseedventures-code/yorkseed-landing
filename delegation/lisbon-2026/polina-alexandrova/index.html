@@ -70,6 +70,23 @@
       </label>
       <label><span>Your LinkedIn profile</span><input type="text" inputmode="url" autocomplete="url" name="LinkedIn" placeholder="linkedin.com/in/yourname" pattern="\s*(https?://)?([A-Za-z]{2,3}\.)?linkedin\.com/.+" title="Please enter your LinkedIn profile link, e.g. https://linkedin.com/in/yourname" required></label>
       <label><span>Your meeting link (optional, but highly recommended)</span><input type="text" inputmode="url" autocomplete="off" name="Booking link" placeholder="calendly.com/yourname"><small style="display:block;margin-top:6px;opacity:.7">A Calendly or booking link, so the delegate can book a time with you directly.</small></label>
+      <label><span>How would you like to meet?</span>
+        <select name="Meeting format" required>
+          <option value="">Choose one</option>
+          <option>In person in Lisbon</option>
+          <option>Remote (video call)</option>
+          <option>Either works</option>
+        </select>
+      </label>
+      <fieldset class="dates" style="border:0;padding:0;margin:18px 0"><legend style="font-size:inherit;padding:0 0 8px"><span>Days you are free in Lisbon (Web Summit week)</span></legend>
+        <label class="consent" style="display:inline-flex;margin:0 14px 6px 0"><input type="checkbox" name="Available Nov 8" value="Yes"><span>Nov 8</span></label>
+        <label class="consent" style="display:inline-flex;margin:0 14px 6px 0"><input type="checkbox" name="Available Nov 9" value="Yes"><span>Nov 9</span></label>
+        <label class="consent" style="display:inline-flex;margin:0 14px 6px 0"><input type="checkbox" name="Available Nov 10" value="Yes"><span>Nov 10</span></label>
+        <label class="consent" style="display:inline-flex;margin:0 14px 6px 0"><input type="checkbox" name="Available Nov 11" value="Yes"><span>Nov 11</span></label>
+        <label class="consent" style="display:inline-flex;margin:0 14px 6px 0"><input type="checkbox" name="Available Nov 12" value="Yes"><span>Nov 12</span></label>
+      </fieldset>
+      <label><span>Best times, or time zone for a remote call (optional)</span><input type="text" name="Best times" placeholder="e.g. mornings, or 3 to 5pm ET"></label>
+      <label><span>Phone or WhatsApp (optional)</span><input type="text" inputmode="tel" autocomplete="tel" name="Phone" placeholder="+1 555 000 0000"><small style="display:block;margin-top:6px;opacity:.7">Only if you want the delegate to be able to reach you this way.</small></label>
       <label><span>What would you like to discuss?</span><textarea name="Message" rows="4" required></textarea></label>
       <label class="consent">
         <input type="checkbox" name="Consent" value="Yes" required>
