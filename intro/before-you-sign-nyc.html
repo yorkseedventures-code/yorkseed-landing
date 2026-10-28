@@ -429,8 +429,8 @@ const EVENT = {
   timeLabel:     "6:00 - 8:00 PM",
   onsiteContact: "",
   venueName:     "Foley Hoag",
-  venueAddress:  "1301 Avenue of the Americas, New York, NY 10019",
-  venueMapUrl:   "https://www.google.com/maps/search/?api=1&query=Foley+Hoag+1301+Avenue+of+the+Americas+New+York+NY+10019"
+  venueAddress:  "",
+  venueMapUrl:   ""
 };
 
 const ATTENDEES = [];
@@ -440,9 +440,10 @@ function applyEventConfig() {
   document.getElementById('login-event-name').textContent = EVENT.name;
   var loginDetail = EVENT.city + ' · ' + EVENT.dateLabel + ' · ' + EVENT.timeLabel;
   document.getElementById('login-event-detail').textContent = loginDetail;
-  var resultsDetailHtml = EVENT.dateLabel + ' &middot; ' + EVENT.timeLabel + ' &middot; <a href="' + EVENT.venueMapUrl + '" target="_blank" rel="noopener">' + EVENT.venueName + '</a>';
+  var resultsDetailHtml = EVENT.dateLabel + ' &middot; ' + EVENT.timeLabel + ' &middot; ' + (EVENT.venueMapUrl ? '<a href="' + EVENT.venueMapUrl + '" target="_blank" rel="noopener">' + EVENT.venueName + '</a>' : EVENT.venueName);
   document.getElementById('results-event-detail').innerHTML = resultsDetailHtml;
   document.getElementById('results-venue-address').textContent = EVENT.venueAddress;
+  if (!EVENT.venueAddress) document.getElementById('results-venue-address').style.display = 'none';
   var contactEl = document.getElementById('results-host-label');
   if (EVENT.onsiteContact) {
     contactEl.textContent = EVENT.onsiteContact;
