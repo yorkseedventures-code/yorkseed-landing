@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Yorkseed Intro Match</title>
+  <meta name="description" content="Curated in-person matches for Yorkseed events. Find your event, sign in, and see who to meet.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,600;1,500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red:#c8372d; --gold:#b08d57; --ink:#0e0e0e; --ink2:#2c2c2c; --ink3:#555; --ink4:#888;
+      --off:#f7f6f4; --white:#fff; --border:#e3dfd9;
+      --sans:'DM Sans',sans-serif; --serif:'Playfair Display',Georgia,serif; --mono:'DM Mono',monospace;
+    }
+    body { font-family:var(--sans); background:var(--off); color:var(--ink); line-height:1.5; -webkit-font-smoothing:antialiased; }
+    a { color:inherit; }
+    .wrap { max-width:760px; margin:0 auto; padding:88px 20px 80px; }
+    .kicker { font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); font-weight:500; margin-bottom:10px; }
+    h1 { font-family:var(--serif); font-weight:600; font-size:44px; line-height:1.08; letter-spacing:-.01em; margin-bottom:16px; }
+    .lede { font-size:17px; color:var(--ink2); max-width:560px; margin-bottom:12px; }
+    .how { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:36px 0 48px; }
+    .step { background:var(--white); border:1px solid var(--border); border-radius:6px; padding:18px 18px 16px; }
+    .step-n { font-family:var(--mono); font-size:11px; color:var(--red); letter-spacing:.08em; margin-bottom:6px; }
+    .step-t { font-size:14px; color:var(--ink2); }
+    .section-label { font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink4); margin:0 0 14px; display:flex; align-items:center; gap:10px; }
+    .section-label::after { content:""; flex:1; height:1px; background:var(--border); }
+    .list { display:flex; flex-direction:column; gap:12px; margin-bottom:44px; }
+    .card { display:flex; align-items:center; gap:18px; background:var(--white); border:1px solid var(--border); border-left:3px solid var(--gold); border-radius:6px; padding:20px 22px; text-decoration:none; transition:box-shadow .15s ease, transform .15s ease; }
+    .card:hover { box-shadow:0 4px 16px rgba(14,14,14,.06); transform:translateY(-1px); }
+    .card.upcoming { border-left-color:var(--red); }
+    .date { flex:0 0 64px; text-align:center; border-right:1px solid var(--border); padding-right:16px; }
+    .date-m { font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--red); }
+    .date-d { font-family:var(--serif); font-size:30px; line-height:1.1; font-weight:600; }
+    .date-y { font-family:var(--mono); font-size:10px; color:var(--ink4); }
+    .info { flex:1; min-width:0; }
+    .name { font-family:var(--serif); font-size:20px; font-weight:600; line-height:1.25; margin-bottom:4px; }
+    .meta { font-family:var(--mono); font-size:12px; color:var(--ink3); }
+    .go { font-family:var(--mono); font-size:12px; color:var(--red); white-space:nowrap; }
+    .past .card { opacity:.82; }
+    .empty { font-size:14px; color:var(--ink3); background:var(--white); border:1px dashed var(--border); border-radius:6px; padding:18px 20px; }
+    .cta { background:var(--ink); color:var(--white); border-radius:6px; padding:30px 28px; margin-top:8px; }
+    .cta .kicker { color:var(--gold); }
+    .cta h3 { font-family:var(--serif); font-size:24px; font-weight:600; margin-bottom:8px; }
+    .cta p { color:#cfcfcf; font-size:15px; margin-bottom:18px; }
+    .btn { display:inline-block; background:var(--red); color:#fff; text-decoration:none; font-size:15px; padding:12px 22px; border-radius:4px; }
+    @media (max-width:600px) {
+      .wrap { padding:72px 16px 60px; }
+      h1 { font-size:34px; }
+      .how { grid-template-columns:1fr; margin:28px 0 36px; }
+      .card { padding:16px; gap:14px; }
+      .date { flex-basis:52px; padding-right:12px; }
+      .date-d { font-size:24px; }
+      .name { font-size:17px; }
+      .go { display:none; }
+      .btn { display:block; text-align:center; }
+    }
+  </style>
+  <script src="/assets/site-chrome.js" defer></script>
+  <style>yk-header:not(:defined){display:block;min-height:73px}</style>
+  <script src="/assets/ys-ref.js" defer></script>
+</head>
+<body>
+<yk-header><a href="/">Yorkseed</a> <a href="/hubs.html">Hubs</a> <a href="/events.html">Events</a> <a href="/investors">Investor list</a> <a href="/contact.html">Contact</a></yk-header>
+<div class="wrap">
+  <div class="kicker">Yorkseed Intro Match</div>
+  <h1>Know who to meet before you walk in.</h1>
+  <p class="lede">Every Yorkseed event comes with curated in-person matches. Three people, why you should meet, and how to open the conversation.</p>
+
+  <div class="how">
+    <div class="step"><div class="step-n">01</div><div class="step-t">Find your event below.</div></div>
+    <div class="step"><div class="step-n">02</div><div class="step-t">Sign in with the first name and email you registered with.</div></div>
+    <div class="step"><div class="step-n">03</div><div class="step-t">See your matches, plus a conversation starter for each.</div></div>
+  </div>
+
+  <div class="section-label">Upcoming</div>
+  <div class="list" id="upcoming"></div>
+
+  <div class="section-label">Past events</div>
+  <div class="list past" id="past"></div>
+
+  <div class="cta">
+    <div class="kicker">Yorkseed Connect</div>
+    <h3>Keep the conversation going.</h3>
+    <p>Verified profiles, warm introductions, and access to Yorkseed's global capital network, beyond the event.</p>
+    <a class="btn" href="https://yorkseed.co/connect?utm_source=intro&utm_campaign=intro-hub">Explore Yorkseed Connect</a>
+  </div>
+</div>
+<yk-footer></yk-footer>
+
+<script>
+// Add new event match pages here. date is the event day (YYYY-MM-DD).
+var EVENTS = [
+  { name: "Before You Sign: 10 Clauses Every Founder Should Understand", date: "2026-12-08", city: "New York", venue: "Foley Hoag", url: "/intro/before-you-sign-nyc" },
+  { name: "The Yorkseed AI Breakfast: East Meets West & Beyond", date: "2026-10-30", city: "New York", venue: "Pearl Cohen", url: "/intro/ai-breakfast-nyc" },
+  { name: "Founders × Capitals NYC", date: "2026-10-23", city: "New York", venue: "Everything's Jake", url: "/intro/founders-x-capitals-nyc" },
+  { name: "Founders × Capitals NYC: Pitch Roulette", date: "2026-10-23", city: "New York", venue: "Everything's Jake", url: "/intro/pitch-roulette" },
+  { name: "Curious About Launching a Startup?", date: "2026-09-12", city: "New York", venue: "Anytime Bar & Billiards", url: "/intro/curious-about-launching-a-startup-nyc-2026-09-12" },
+  { name: "Bootstrapped & Solo Founders Afterwork", date: "2026-09-11", city: "New York", venue: "", url: "/intro/bootstrapped-solo-founders-afterwork-nyc-2026-09-11" },
+  { name: "Yorkseed Raise Summit Pitch Roulette", date: "2026-07-06", city: "Paris", venue: "Yorkseed House", url: "/intro/raise-summit-paris-2026-07-06" },
+  { name: "Yorkseed Venture Social", date: "2026-06-30", city: "New York", venue: "The Ready Cantina", url: "/intro/venture-social-nyc-2026-06-30" }
+];
+
+var MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function card(e, upcoming){
+  var p = e.date.split('-');
+  var meta = [e.city, e.venue].filter(Boolean).join(' · ');
+  return '<a class="card' + (upcoming ? ' upcoming' : '') + '" href="' + e.url + '">' +
+    '<div class="date"><div class="date-m">' + MONTHS[+p[1]-1] + '</div><div class="date-d">' + (+p[2]) + '</div><div class="date-y">' + p[0] + '</div></div>' +
+    '<div class="info"><div class="name">' + esc(e.name) + '</div><div class="meta">' + esc(meta) + '</div></div>' +
+    '<div class="go">' + (upcoming ? 'See my matches →' : 'View →') + '</div></a>';
+}
+(function(){
+  var now = new Date(); now.setHours(0,0,0,0);
+  var up = [], past = [];
+  EVENTS.forEach(function(e){
+    var p = e.date.split('-'), d = new Date(+p[0], +p[1]-1, +p[2]);
+    (d >= now ? up : past).push(e);
+  });
+  up.sort(function(a,b){ return a.date < b.date ? -1 : 1; });
+  past.sort(function(a,b){ return a.date < b.date ? 1 : -1; });
+  document.getElementById('upcoming').innerHTML = up.length ? up.map(function(e){ return card(e,true); }).join('') :
+    '<div class="empty">No upcoming match pages yet. Check back before your next Yorkseed event.</div>';
+  document.getElementById('past').innerHTML = past.map(function(e){ return card(e,false); }).join('');
+})();
+</script>
+</body>
+</html>
