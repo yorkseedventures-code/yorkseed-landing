@@ -93,7 +93,7 @@ textarea{min-height:130px;resize:vertical}
 
 <div class="card" id="delegation" data-sec="delegation">
   <h2>Delegation applications <span id="dgCount"></span></h2>
-  <div class="tabs" id="dgTabs"><button data-dg="pending" class="on">Pending</button><button data-dg="approved">Approved</button><button data-dg="paid">Paid</button><button data-dg="declined">Declined</button><button data-dg="invoices">Invoices</button></div>
+  <div class="tabs" id="dgTabs"><button data-dg="pending" class="on">Pending</button><button data-dg="approved">Approved</button><button data-dg="paid">Paid</button><button data-dg="declined">Declined</button><button data-dg="roster">Delegates</button><button data-dg="invoices">Invoices</button></div>
   <div id="dgList"><div class="hint">Loading...</div></div>
   <details style="margin-top:14px"><summary style="cursor:pointer;font-weight:600">Add an application by hand</summary>
     <div class="hint" style="margin:8px 0">Paste the whole Web3Forms email below. It reads every answer for you.</div>
@@ -305,6 +305,7 @@ document.addEventListener('input',function(ev){if(ev.target&&ev.target.id==='cov
 document.addEventListener('change',function(ev){var t=ev.target;if(!t.dataset||!t.dataset.subFlag)return;var m=document.getElementById('fm'+t.dataset.id);if(m){m.textContent='Not saved yet';m.style.color='#b45309'}});
 document.addEventListener('click',function(ev){
   var t=ev.target,id;if(!t.dataset)return;
+  if(t.dataset.dgCsv){dgCsv();return}
   if(t.dataset.st){subTab=t.dataset.st;[].forEach.call(document.querySelectorAll('#subTabs button'),function(b){b.className=b.dataset.st===subTab?'on':''});renderSubs()}
   else if(id=t.dataset.subSaveflags){var body={};[].forEach.call(document.querySelectorAll('[data-sub-flag][data-id="'+id+'"]'),function(c){body[c.dataset.subFlag]=c.checked});var m=document.getElementById('fm'+id);t.disabled=true;if(m){m.textContent='Saving…';m.style.color='#52525b'}subApi('/'+id,{method:'PUT',body:body}).then(function(j){var x=subs.find(function(s){return s.id===id});if(x&&j.submission)['yorkseed','partner','featured','house'].forEach(function(k){x[k]=j.submission[k]});if(m){m.textContent='Saved ✓ It is updating on the List now';m.style.color='#15803d'}}).catch(function(e){if(m){m.textContent='Could not save: '+e.message;m.style.color='#b91c1c'}}).then(function(){t.disabled=false})}
   else if(id=t.dataset.subOk){t.disabled=true;subApi('/'+id,{method:'PUT',body:{status:'approved'}}).then(loadSubs).catch(function(e){alert(e.message)})}
@@ -403,8 +404,33 @@ function loadDeleg(){
   dgApi('').then(function(j){dgs=j.applications||[];dgLinks=j.links||{};var n=j.waiting||0;$('dgCount').innerHTML=n?'<span class="pill">'+n+' pending</span>':'';badge('nDeleg',n);renderDeleg()})
     .catch(function(e){$('dgList').innerHTML='<div class="hint">'+esc(e.message)+'</div>'});
 }
+function dgKind(x){return x.status==='paid'?'Paid':(x.comped||/investor/i.test(x.role||''))?'Comped':'Awaiting payment'}
+function dgRoster(){return dgs.filter(function(x){return x.status==='approved'||x.status==='paid'})}
+function renderRoster(){
+  var rows=dgRoster(),kinds=['Paid','Comped','Awaiting payment'],grp=['Founder','Partner','Investor'];
+  function g(x){var r=x.role||'';return /investor/i.test(r)?'Investor':/partner/i.test(r)?'Partner':'Founder'}
+  var cnt=kinds.map(function(k){return '<span class="pill" style="margin-right:6px">'+rows.filter(function(x){return dgKind(x)===k}).length+' '+k.toLowerCase()+'</span>'}).join('');
+  var h='<div class="acts" style="margin-bottom:10px">'+cnt+'<span class="hint">'+rows.length+' approved in total</span><button data-dg-csv="1" type="button">Download CSV</button></div>';
+  grp.forEach(function(G){
+    var gr=rows.filter(function(x){return g(x)===G});if(!gr.length)return;
+    h+='<h3 style="margin:18px 0 6px">'+G+'s <span class="hint">('+gr.length+')</span></h3>';
+    kinds.forEach(function(k){
+      gr.filter(function(x){return dgKind(x)===k}).forEach(function(x){
+        h+='<div class="sub-it"><b>'+esc(x.name)+'</b> <span class="tag" style="padding:2px 8px">'+k+'</span>'+(x.company?' · '+esc(x.company):'')+'<div class="meta">'+[x.package,x.rate,x.email].filter(Boolean).map(esc).join(' · ')+(x.luma?' · On Luma':'')+'</div></div>';
+      })
+    })
+  });
+  $('dgList').innerHTML=rows.length?h:'<div class="hint">No approved delegates yet.</div>';
+}
+function dgCsv(){
+  var rows=dgRoster(),q=function(v){return '"'+String(v==null?'':v).replace(/"/g,'""')+'"'};
+  var out=[['Name','Company','Email','Role','Status','Package','Rate','On Luma'].map(q).join(',')];
+  rows.forEach(function(x){out.push([x.name,x.company,x.email,x.role||'Founder',dgKind(x),x.package,x.rate,x.luma?'yes':'no'].map(q).join(','))});
+  var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([out.join('\n')],{type:'text/csv'}));a.download='delegates.csv';a.click();
+}
 function renderDeleg(){
   if(dgTab==='invoices'){renderInv();return}
+  if(dgTab==='roster'){renderRoster();return}
   var rows=dgs.filter(function(x){return x.status===dgTab});
   $('dgList').innerHTML=rows.length?rows.map(function(x){
     var f=x.fields||{},det=Object.keys(f).map(function(k){return '<div class="meta"><b>'+esc(k)+':</b> '+esc(f[k])+'</div>'}).join('');
@@ -420,7 +446,7 @@ function renderDeleg(){
       +'<div class="meta">'+[x.package,x.rate,x.email].filter(Boolean).map(esc).join(' · ')+' · '+esc(new Date(x.createdAt).toLocaleDateString())+'</div>'
       +(x.status==='approved'&&x.emailError?'<div class="meta" style="color:var(--red)">Email not sent: '+esc(x.emailError)+'</div>':'')
       +(x.status==='approved'&&x.emailedAt?'<div class="meta">Payment email sent '+esc(new Date(x.emailedAt).toLocaleString())+'</div>':'')
-      +(x.invoice?'<div class="meta">Invoice '+esc(x.invoice.number)+(x.invoice.emailedAt?' emailed '+esc(new Date(x.invoice.emailedAt).toLocaleString()):x.invoice.emailError?' · not emailed: '+esc(x.invoice.emailError):'')+'</div>':'')+((x.status==='approved'||x.status==='paid')?'<label class="meta" style="display:flex;gap:6px;align-items:center;margin-top:6px"><input type="checkbox" style="width:auto" data-dg-luma="'+x.id+'"'+(x.luma?' checked':'')+'> Added to the Luma guest list</label>':'')
+      +(x.invoice?'<div class="meta">Invoice '+esc(x.invoice.number)+(x.invoice.emailedAt?' emailed '+esc(new Date(x.invoice.emailedAt).toLocaleString()):x.invoice.emailError?' · not emailed: '+esc(x.invoice.emailError):'')+'</div>':'')+((x.status==='approved'||x.status==='paid')?'<label class="meta" style="display:flex;gap:6px;align-items:center;margin-top:6px"><input type="checkbox" style="width:auto" data-dg-luma="'+x.id+'"'+(x.luma?' checked':'')+'> Added to the Luma guest list</label>':'')+((x.status==='approved'||x.status==='paid')?'<label class="meta" style="display:flex;gap:6px;align-items:center;margin-top:6px"><input type="checkbox" style="width:auto" data-dg-comp="'+x.id+'"'+(x.comped?' checked':'')+'> Comped (free place)</label>':'')
       +'<details style="margin-top:8px"><summary style="cursor:pointer;font-size:13px">All answers</summary>'+det+'</details>'+draft
       +'<div class="acts">'+acts+'</div></div>';
   }).join(''):'<div class="hint">Nothing here.</div>';
@@ -435,7 +461,7 @@ document.addEventListener('click',function(ev){
   else if(id=t.dataset.dgDel){if(t.dataset.sure===id){dgApi('/'+id,{method:'DELETE'}).then(loadDeleg)}else{t.dataset.sure=id;t.textContent='Tap again';setTimeout(function(){t.textContent='Delete';delete t.dataset.sure},3000)}}
   else if(t.id==='dgAdd'){var f=dgParse($('dgPaste').value);if(!f['Email']){$('dgAddMsg').textContent='Could not find an email in that text.';return}t.disabled=true;dgApi('',{method:'POST',body:{fields:f,program:/hong/i.test(f['Form']||'')?'hong-kong':'lisbon-2026'}}).then(function(){$('dgPaste').value='';$('dgAddMsg').textContent='Added.';loadDeleg()}).catch(function(e){$('dgAddMsg').textContent=e.message}).then(function(){t.disabled=false})}
 });
-document.addEventListener('change',function(ev){var t=ev.target,id=t.dataset&&t.dataset.dgLuma;if(id)dgApi('/'+id,{method:'PUT',body:{luma:t.checked}}).catch(function(e){alert(e.message)})});
+document.addEventListener('change',function(ev){var t=ev.target,id=t.dataset&&t.dataset.dgLuma;if(id)dgApi('/'+id,{method:'PUT',body:{luma:t.checked}}).catch(function(e){alert(e.message)});id=t.dataset&&t.dataset.dgComp;if(id)dgApi('/'+id,{method:'PUT',body:{comped:t.checked}}).then(loadDeleg).catch(function(e){alert(e.message)})});
 function dgParse(txt){var L=String(txt||'').split(/\r?\n/).map(function(s){return s.trim()}).filter(Boolean),i=L.indexOf('Form'),o={};if(i<0)return o;for(var k=i;k+1<L.length&&!/^Visitor IP/i.test(L[k]);k+=2){if(/^Visitor IP/i.test(L[k+1]))break;o[L[k]]=L[k+1]}return o}
 
 var dgInv=[];
