@@ -306,6 +306,7 @@ document.addEventListener('change',function(ev){var t=ev.target;if(!t.dataset||!
 document.addEventListener('click',function(ev){
   var t=ev.target,id;if(!t.dataset)return;
   if(t.dataset.dgCsv){dgCsv();return}
+  if(t.dataset.dgCc){t.disabled=true;dgApi('/'+t.dataset.dgCc+'/connect-comp',{method:'POST',body:{months:+t.dataset.m}}).then(function(j){alert('Done: Core until '+new Date(j.expiresAt).toLocaleDateString()+'.');loadDeleg()}).catch(function(e){alert(e.message);t.disabled=false});return}
   if(t.dataset.st){subTab=t.dataset.st;[].forEach.call(document.querySelectorAll('#subTabs button'),function(b){b.className=b.dataset.st===subTab?'on':''});renderSubs()}
   else if(id=t.dataset.subSaveflags){var body={};[].forEach.call(document.querySelectorAll('[data-sub-flag][data-id="'+id+'"]'),function(c){body[c.dataset.subFlag]=c.checked});var m=document.getElementById('fm'+id);t.disabled=true;if(m){m.textContent='Saving…';m.style.color='#52525b'}subApi('/'+id,{method:'PUT',body:body}).then(function(j){var x=subs.find(function(s){return s.id===id});if(x&&j.submission)['yorkseed','partner','featured','house'].forEach(function(k){x[k]=j.submission[k]});if(m){m.textContent='Saved ✓ It is updating on the List now';m.style.color='#15803d'}}).catch(function(e){if(m){m.textContent='Could not save: '+e.message;m.style.color='#b91c1c'}}).then(function(){t.disabled=false})}
   else if(id=t.dataset.subOk){t.disabled=true;subApi('/'+id,{method:'PUT',body:{status:'approved'}}).then(loadSubs).catch(function(e){alert(e.message)})}
@@ -404,6 +405,17 @@ function loadDeleg(){
   dgApi('').then(function(j){dgs=j.applications||[];dgLinks=j.links||{};var n=j.waiting||0;$('dgCount').innerHTML=n?'<span class="pill">'+n+' pending</span>':'';badge('nDeleg',n);renderDeleg()})
     .catch(function(e){$('dgList').innerHTML='<div class="hint">'+esc(e.message)+'</div>'});
 }
+function dgConnect(x){
+  var c=x.connect||{},h='<div class="meta" style="margin-top:6px"><b>Deal Book:</b> '+esc(x.dealBook||'Not answered')+'</div>';
+  h+='<label class="meta" style="display:flex;gap:6px;align-items:center;margin-top:4px"><input type="checkbox" style="width:auto" data-dg-noc="'+x.id+'"'+(x.noConnect?' checked':'')+'> No Connect offer (existing member, or not the lead investor)</label>';
+  if(x.noConnect)return h;
+  var m=c.months||6,t;
+  if(c.state==='paid')t='Connect: current paid member, no offer.';
+  else if(c.state==='comped')t='Connect: Core until '+(c.expiresAt?esc(new Date(c.expiresAt).toLocaleDateString()):'')+'.';
+  else if(c.state==='free')t='Connect: free account. <button data-dg-cc="'+x.id+'" data-m="'+m+'" type="button">Give '+m+' month'+(m>1?'s':'')+' Core</button>';
+  else t='Connect: no account yet. They sign up at app.yorkseed.co, then you give '+m+' month'+(m>1?'s':'')+' Core here.';
+  return h+'<div class="meta" style="margin-top:4px">'+t+'</div>';
+}
 function dgKind(x){return x.status==='paid'?'Paid':(x.comped||/investor/i.test(x.role||''))?'Comped':'Awaiting payment'}
 function dgRoster(){return dgs.filter(function(x){return x.status==='approved'||x.status==='paid'})}
 function renderRoster(){
@@ -446,7 +458,7 @@ function renderDeleg(){
       +'<div class="meta">'+[x.package,x.rate,x.email].filter(Boolean).map(esc).join(' · ')+' · '+esc(new Date(x.createdAt).toLocaleDateString())+'</div>'
       +(x.status==='approved'&&x.emailError?'<div class="meta" style="color:var(--red)">Email not sent: '+esc(x.emailError)+'</div>':'')
       +(x.status==='approved'&&x.emailedAt?'<div class="meta">Payment email sent '+esc(new Date(x.emailedAt).toLocaleString())+'</div>':'')
-      +(x.invoice?'<div class="meta">Invoice '+esc(x.invoice.number)+(x.invoice.emailedAt?' emailed '+esc(new Date(x.invoice.emailedAt).toLocaleString()):x.invoice.emailError?' · not emailed: '+esc(x.invoice.emailError):'')+'</div>':'')+((x.status==='approved'||x.status==='paid')?'<label class="meta" style="display:flex;gap:6px;align-items:center;margin-top:6px"><input type="checkbox" style="width:auto" data-dg-luma="'+x.id+'"'+(x.luma?' checked':'')+'> Added to the Luma guest list</label>':'')+((x.status==='approved'||x.status==='paid')?'<label class="meta" style="display:flex;gap:6px;align-items:center;margin-top:6px"><input type="checkbox" style="width:auto" data-dg-comp="'+x.id+'"'+(x.comped?' checked':'')+'> Comped (free place)</label>':'')
+      +(x.invoice?'<div class="meta">Invoice '+esc(x.invoice.number)+(x.invoice.emailedAt?' emailed '+esc(new Date(x.invoice.emailedAt).toLocaleString()):x.invoice.emailError?' · not emailed: '+esc(x.invoice.emailError):'')+'</div>':'')+((x.status==='approved'||x.status==='paid')?'<label class="meta" style="display:flex;gap:6px;align-items:center;margin-top:6px"><input type="checkbox" style="width:auto" data-dg-luma="'+x.id+'"'+(x.luma?' checked':'')+'> Added to the Luma guest list</label>':'')+((x.status==='approved'||x.status==='paid')?'<label class="meta" style="display:flex;gap:6px;align-items:center;margin-top:6px"><input type="checkbox" style="width:auto" data-dg-comp="'+x.id+'"'+(x.comped?' checked':'')+'> Comped (free place)</label>':'')+((x.status==='approved'||x.status==='paid')?dgConnect(x):'')
       +'<details style="margin-top:8px"><summary style="cursor:pointer;font-size:13px">All answers</summary>'+det+'</details>'+draft
       +'<div class="acts">'+acts+'</div></div>';
   }).join(''):'<div class="hint">Nothing here.</div>';
@@ -461,7 +473,7 @@ document.addEventListener('click',function(ev){
   else if(id=t.dataset.dgDel){if(t.dataset.sure===id){dgApi('/'+id,{method:'DELETE'}).then(loadDeleg)}else{t.dataset.sure=id;t.textContent='Tap again';setTimeout(function(){t.textContent='Delete';delete t.dataset.sure},3000)}}
   else if(t.id==='dgAdd'){var f=dgParse($('dgPaste').value);if(!f['Email']){$('dgAddMsg').textContent='Could not find an email in that text.';return}t.disabled=true;dgApi('',{method:'POST',body:{fields:f,program:/hong/i.test(f['Form']||'')?'hong-kong':'lisbon-2026'}}).then(function(){$('dgPaste').value='';$('dgAddMsg').textContent='Added.';loadDeleg()}).catch(function(e){$('dgAddMsg').textContent=e.message}).then(function(){t.disabled=false})}
 });
-document.addEventListener('change',function(ev){var t=ev.target,id=t.dataset&&t.dataset.dgLuma;if(id)dgApi('/'+id,{method:'PUT',body:{luma:t.checked}}).catch(function(e){alert(e.message)});id=t.dataset&&t.dataset.dgComp;if(id)dgApi('/'+id,{method:'PUT',body:{comped:t.checked}}).then(loadDeleg).catch(function(e){alert(e.message)})});
+document.addEventListener('change',function(ev){var t=ev.target,id=t.dataset&&t.dataset.dgLuma;if(id)dgApi('/'+id,{method:'PUT',body:{luma:t.checked}}).catch(function(e){alert(e.message)});id=t.dataset&&t.dataset.dgNoc;if(id)dgApi('/'+id,{method:'PUT',body:{noConnect:t.checked}}).then(loadDeleg).catch(function(e){alert(e.message)});id=t.dataset&&t.dataset.dgComp;if(id)dgApi('/'+id,{method:'PUT',body:{comped:t.checked}}).then(loadDeleg).catch(function(e){alert(e.message)})});
 function dgParse(txt){var L=String(txt||'').split(/\r?\n/).map(function(s){return s.trim()}).filter(Boolean),i=L.indexOf('Form'),o={};if(i<0)return o;for(var k=i;k+1<L.length&&!/^Visitor IP/i.test(L[k]);k+=2){if(/^Visitor IP/i.test(L[k+1]))break;o[L[k]]=L[k+1]}return o}
 
 var dgInv=[];
