@@ -77,6 +77,7 @@ textarea{min-height:130px;resize:vertical}
   <nav class="nav" id="nav" aria-label="Sections">
     <button data-go="inbox">Inbox <span class="n" id="nInbox" hidden></span></button>
     <button data-go="partners">Partners <span class="n" id="nPartners" hidden></span></button>
+    <button data-go="delegation">Delegation <span class="n" id="nDeleg" hidden></span></button>
     <button data-go="events">Yorkseed events</button>
     <button data-go="ads">Sidebar ads <span class="n soft" id="nAds" hidden></span></button>
     <button data-go="organizers">Pre-approved <span class="n soft" id="nTrust" hidden></span></button>
@@ -88,6 +89,18 @@ textarea{min-height:130px;resize:vertical}
   <h2>Your key</h2>
   <input id="key" type="password" placeholder="Event manager key" autocomplete="off"/>
   <div class="hint">Saved on this device only.</div>
+</div>
+
+<div class="card" id="delegation" data-sec="delegation">
+  <h2>Delegation applications <span id="dgCount"></span></h2>
+  <div class="tabs" id="dgTabs"><button data-dg="pending" class="on">Pending</button><button data-dg="approved">Approved</button><button data-dg="paid">Paid</button><button data-dg="declined">Declined</button></div>
+  <div id="dgList"><div class="hint">Loading...</div></div>
+  <details style="margin-top:14px"><summary style="cursor:pointer;font-weight:600">Add an application by hand</summary>
+    <div class="hint" style="margin:8px 0">Paste the whole Web3Forms email below. It reads every answer for you.</div>
+    <textarea id="dgPaste" rows="6" placeholder="Paste the Web3Forms email here"></textarea>
+    <div class="acts"><button class="ok" id="dgAdd" type="button">Add from pasted email</button><span class="hint" id="dgAddMsg"></span></div>
+  </details>
+  <div class="hint">New applications from the Lisbon and Hong Kong forms land here automatically. Approve emails the payment link. If email can't send, you get a draft to copy.</div>
 </div>
 
 <div class="card" id="submissions" data-sec="inbox">
@@ -363,7 +376,7 @@ function loadAds(){
 document.addEventListener('click',function(ev){var t=ev.target,id;if(!t.dataset)return;
   if(id=t.dataset.adDown){if(t.dataset.sure!==id){t.dataset.sure=id;t.textContent='Tap again to take down';return}adsApi('/'+id,{method:'PUT',body:{status:'taken_down'}}).then(loadAds)}
   else if(id=t.dataset.adUp){adsApi('/'+id,{method:'PUT',body:{status:'live'}}).then(loadAds)}});
-$('key').addEventListener('change',function(){try{localStorage.setItem('ys_events_key',key())}catch(e){}load();loadSubs();loadAds();loadTrust();loadPartners()});
+$('key').addEventListener('change',function(){try{localStorage.setItem('ys_events_key',key())}catch(e){}load();loadSubs();loadAds();loadTrust();loadPartners();loadDeleg()});
 function load(){
   if(!key()){$('list').innerHTML='<div class="hint">Enter your key to see events.</div>';$('delStatus').textContent='Enter your key to use this switch.';return}
   api('').then(function(j){
@@ -381,7 +394,50 @@ document.addEventListener('click',function(ev){
   else if(id=t.dataset&&t.dataset.del){if(t.dataset.sure===id){api('/'+id,{method:'DELETE'}).then(load)}else{t.dataset.sure=id;t.textContent='Tap again';setTimeout(function(){t.textContent='Delete';delete t.dataset.sure},3000)}}
 });
 load();loadSubs();loadAds();loadTrust();loadPartners();
-var SECS={inbox:1,events:1,ads:1,organizers:1,partners:1,tools:1,submissions:'inbox'};
+/* Delegation applications */
+var DG='https://yorkseed-backend-production.up.railway.app/api/delegation-applications',dgs=[],dgTab='pending',dgLinks={},dgDraft={};
+function dgApi(path,opt){var keep=API;API=DG;try{return api(path,opt)}finally{API=keep}}
+function dgGuess(x){var r=(x.rate||'')+' '+(x.package||''),n=(r.match(/\d{3}/)||[''])[0],p=/partner/i.test(x.role||'');if(/virtual/i.test(x.package||'')||n==='195')return 'vi';return p?({'795':'pea','895':'pmid','995':'pa'}[n]||'pea'):({'395':'ea','495':'fo','595':'st'}[n]||'fo')}
+function loadDeleg(){
+  if(!key()){$('dgList').innerHTML='<div class="hint">Enter your key to see applications.</div>';return}
+  dgApi('').then(function(j){dgs=j.applications||[];dgLinks=j.links||{};var n=j.waiting||0;$('dgCount').innerHTML=n?'<span class="pill">'+n+' pending</span>':'';badge('nDeleg',n);renderDeleg()})
+    .catch(function(e){$('dgList').innerHTML='<div class="hint">'+esc(e.message)+'</div>'});
+}
+function renderDeleg(){
+  var rows=dgs.filter(function(x){return x.status===dgTab});
+  $('dgList').innerHTML=rows.length?rows.map(function(x){
+    var f=x.fields||{},det=Object.keys(f).map(function(k){return '<div class="meta"><b>'+esc(k)+':</b> '+esc(f[k])+'</div>'}).join('');
+    var opts=Object.keys(dgLinks).filter(function(k){return !x.role||dgLinks[k].role===(/partner/i.test(x.role)?'Partner':'Founder')}).map(function(k){return '<option value="'+k+'"'+(k===dgGuess(x)?' selected':'')+'>'+esc(dgLinks[k].label)+'</option>'}).join('');
+    var inv=/investor/i.test(x.role||''),acts='';
+    if(x.status==='pending')acts=(inv?'':'<select id="dgL'+x.id+'" style="min-height:40px">'+opts+'</select>')+'<button class="ok" data-dg-ap="'+x.id+'">'+(inv?'Approve and email confirmation':'Approve and email payment link')+'</button><button data-dg-st="declined" data-id="'+x.id+'">Decline</button>';
+    else if(x.status==='approved')acts='<button class="ok" data-dg-st="paid" data-id="'+x.id+'">Mark paid</button>'+(inv?'':'<select id="dgL'+x.id+'" style="min-height:40px">'+opts.replace(' selected','').replace('value="'+x.linkKey+'"','value="'+x.linkKey+'" selected')+'</select>')+'<button data-dg-ap="'+x.id+'">Resend email</button><button data-dg-st="pending" data-id="'+x.id+'">Back to pending</button>';
+    else if(x.status==='paid')acts='<button data-dg-st="approved" data-id="'+x.id+'">Back to approved</button>';
+    else acts='<button data-dg-st="pending" data-id="'+x.id+'">Back to pending</button>';
+    acts+='<button data-dg-del="'+x.id+'">Delete</button>';
+    var d=dgDraft[x.id],draft=d?'<div class="note" style="margin-top:10px;background:#fff8e1;border:1px solid #f0d98a;padding:10px"><b>Email could not be sent'+(d.error?' ('+esc(d.error)+')':'')+'.</b> Send it from your own email:<div class="meta" style="white-space:pre-wrap;margin-top:6px">'+esc(d.subject)+'\n\n'+esc(d.body)+'</div><div class="acts"><button data-dg-copy="'+x.id+'">Copy email</button><a class="tool" href="mailto:'+esc(x.email)+'?subject='+encodeURIComponent(d.subject)+'&body='+encodeURIComponent(d.body)+'">Open in Mail</a></div></div>':'';
+    return '<div class="sub-it"><b>'+esc(x.name)+'</b> <span class="tag" style="padding:2px 8px">'+esc(x.role||'Applicant')+'</span>'+(x.company?' · '+esc(x.company):'')
+      +'<div class="meta">'+[x.package,x.rate,x.email].filter(Boolean).map(esc).join(' · ')+' · '+esc(new Date(x.createdAt).toLocaleDateString())+'</div>'
+      +(x.status==='approved'&&x.emailError?'<div class="meta" style="color:var(--red)">Email not sent: '+esc(x.emailError)+'</div>':'')
+      +(x.status==='approved'&&x.emailedAt?'<div class="meta">Payment email sent '+esc(new Date(x.emailedAt).toLocaleString())+'</div>':'')
+      +((x.status==='approved'||x.status==='paid')?'<label class="meta" style="display:flex;gap:6px;align-items:center;margin-top:6px"><input type="checkbox" style="width:auto" data-dg-luma="'+x.id+'"'+(x.luma?' checked':'')+'> Added to the Luma guest list</label>':'')
+      +'<details style="margin-top:8px"><summary style="cursor:pointer;font-size:13px">All answers</summary>'+det+'</details>'+draft
+      +'<div class="acts">'+acts+'</div></div>';
+  }).join(''):'<div class="hint">Nothing here.</div>';
+}
+document.addEventListener('click',function(ev){
+  var t=ev.target,id;if(!t.dataset)return;
+  if(t.dataset.dg){dgTab=t.dataset.dg;[].forEach.call(document.querySelectorAll('#dgTabs button'),function(b){b.className=b.dataset.dg===dgTab?'on':''});renderDeleg()}
+  else if(id=t.dataset.dgAp){var sel=$('dgL'+id);t.disabled=true;dgApi('/'+id+'/approve',{method:'POST',body:{linkKey:sel?sel.value:''}}).then(function(j){if(!j.emailed){dgDraft[id]={subject:j.draft.subject,body:j.draft.body,error:j.error};dgTab='approved';[].forEach.call(document.querySelectorAll('#dgTabs button'),function(b){b.className=b.dataset.dg===dgTab?'on':''})}else{delete dgDraft[id];alert('Approved. Email sent.')}loadDeleg()}).catch(function(e){alert(e.message);t.disabled=false})}
+  else if(t.dataset.dgSt){t.disabled=true;dgApi('/'+t.dataset.id,{method:'PUT',body:{status:t.dataset.dgSt}}).then(loadDeleg).catch(function(e){alert(e.message);t.disabled=false})}
+  else if(id=t.dataset.dgCopy){var d=dgDraft[id];try{navigator.clipboard.writeText(d.subject+'\n\n'+d.body);t.textContent='Copied'}catch(e){alert('Select and copy the text above.')}}
+  else if(id=t.dataset.dgDel){if(t.dataset.sure===id){dgApi('/'+id,{method:'DELETE'}).then(loadDeleg)}else{t.dataset.sure=id;t.textContent='Tap again';setTimeout(function(){t.textContent='Delete';delete t.dataset.sure},3000)}}
+  else if(t.id==='dgAdd'){var f=dgParse($('dgPaste').value);if(!f['Email']){$('dgAddMsg').textContent='Could not find an email in that text.';return}t.disabled=true;dgApi('',{method:'POST',body:{fields:f,program:/hong/i.test(f['Form']||'')?'hong-kong':'lisbon-2026'}}).then(function(){$('dgPaste').value='';$('dgAddMsg').textContent='Added.';loadDeleg()}).catch(function(e){$('dgAddMsg').textContent=e.message}).then(function(){t.disabled=false})}
+});
+document.addEventListener('change',function(ev){var t=ev.target,id=t.dataset&&t.dataset.dgLuma;if(id)dgApi('/'+id,{method:'PUT',body:{luma:t.checked}}).catch(function(e){alert(e.message)})});
+function dgParse(txt){var L=String(txt||'').split(/\r?\n/).map(function(s){return s.trim()}).filter(Boolean),i=L.indexOf('Form'),o={};if(i<0)return o;for(var k=i;k+1<L.length&&!/^Visitor IP/i.test(L[k]);k+=2){if(/^Visitor IP/i.test(L[k+1]))break;o[L[k]]=L[k+1]}return o}
+
+loadDeleg();
+var SECS={delegation:1,inbox:1,events:1,ads:1,organizers:1,partners:1,tools:1,submissions:'inbox'};
 function showSec(s){s=SECS[s]===1?s:(SECS[s]||'inbox');[].forEach.call(document.querySelectorAll('[data-sec]'),function(c){c.hidden=c.dataset.sec!==s});
   [].forEach.call(document.querySelectorAll('#nav button'),function(b){b.className=b.dataset.go===s?'on':''});
   try{history.replaceState(null,'','#'+s)}catch(e){}window.scrollTo(0,0)}

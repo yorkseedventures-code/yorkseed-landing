@@ -695,6 +695,8 @@ details{padding:11px 0}
 
 
 <script>
+function ykSave(program,d){try{var f={};Object.keys(d).forEach(function(k){if(['access_key','subject','from_name','replyto','botcheck'].indexOf(k)<0)f[k]=d[k]});fetch('https://yorkseed-backend-production.up.railway.app/api/delegation-applications/submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({program:program,fields:f}),keepalive:true}).catch(function(){})}catch(e){}}
+
 /* One application flow. Everyone applies here, Yorkseed reviews and approves manually.
    Approved founders and partners get the right Stripe link by email (links in HANDOVER-lisbon-delegation.md).
    Approved investors get a complimentary confirmation. No payment happens on this page. */
@@ -832,7 +834,7 @@ details{padding:11px 0}
     ];
     var subj=(v('accessCode')?'[ACCESS CODE '+v('accessCode').toUpperCase()+'] ':'')+'Lisbon Delegation: '+r+' | '+v('company')+(f?' | '+tier:(p?' | '+v('pField'):''));
     var data={access_key:'5c1c96c6-7a4f-4cc7-85d3-4dd79f67e20a',subject:subj,from_name:'Yorkseed Lisbon Delegation',replyto:v('email')};
-    row.forEach(function(q){data[q[0]]=q[1]||'-';});
+    row.forEach(function(q){data[q[0]]=q[1]||'-';});ykSave('lisbon-2026',data);
     fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
       .then(function(res){return res.json();})
       .then(function(res){

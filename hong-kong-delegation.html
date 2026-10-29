@@ -1092,6 +1092,8 @@ document.addEventListener('visibilitychange',function(){if(!document.hidden){var
 })();
 </script>
 <script>
+function ykSave(program,d){try{var f={};Object.keys(d).forEach(function(k){if(['access_key','subject','from_name','replyto','botcheck'].indexOf(k)<0)f[k]=d[k]});fetch('https://yorkseed-backend-production.up.railway.app/api/delegation-applications/submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({program:program,fields:f}),keepalive:true}).catch(function(){})}catch(e){}}
+
 (function(){
   var form=document.getElementById('delegationForm'),btn=document.getElementById('submitBtn');
   function $(id){return document.getElementById(id);}
@@ -1190,7 +1192,7 @@ document.addEventListener('visibilitychange',function(){if(!document.hidden){var
       ['OK to feature in press and social',((form.querySelector('[name=feature]:checked')||{}).value||'Not answered')],['Headshot link',mediaNeeded()?v('headshot'):''],['Logo link',mediaNeeded()?v('logo'):'']
     ];
     var data={access_key:'5c1c96c6-7a4f-4cc7-85d3-4dd79f67e20a',subject:'Hong Kong Delegation: '+role()+' | '+v('company')+(ex!=='None'?' | '+ex:''),from_name:'Yorkseed Hong Kong Delegation',replyto:v('email')};
-    row.forEach(function(p){data[p[0]]=p[1]||'-';});
+    row.forEach(function(p){data[p[0]]=p[1]||'-';});ykSave('hong-kong',data);
     fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
       .then(function(r){return r.json();})
       .then(function(res){
@@ -1236,7 +1238,7 @@ document.addEventListener('visibilitychange',function(){if(!document.hidden){var
     var b=document.getElementById('vBtn');b.disabled=true;b.textContent='Sending…';
     var rows=[['Form','Founder Deal Book Virtual ($149)'],['Submitted at',new Date().toISOString()],['First name',g('vFirst')],['Last name',g('vLast')],['Email',g('vEmail')],['Role',g('vRole')],['LinkedIn',g('vLinkedin')],['Company',g('vCompany')],['Website',g('vWebsite')],['Deal Book tagline',g('vTagline')],['Deal Book about',g('vAbout')],['Deal Book keywords',[g('vTag1'),g('vTag2'),g('vTag3')].join(' | ')],['Deal Book QR link',g('vQR')||g('vWebsite')],['Headshot link',g('vHead')],['Logo link',g('vLogo')],['Teammates wanting a page ($99 each)',document.getElementById('vMates').value],['Teammate details',YKMates.text(YKMates.data('vm','vMates'))]];
     var data={access_key:'5c1c96c6-7a4f-4cc7-85d3-4dd79f67e20a',subject:'Virtual Deal Book: '+g('vCompany')+' (payment pending)',from_name:'Yorkseed Hong Kong Delegation',replyto:g('vEmail')};
-    rows.forEach(function(r){data[r[0]]=r[1]||'-';});
+    rows.forEach(function(r){data[r[0]]=r[1]||'-';});ykSave('hong-kong',data);
     fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
       .then(function(r){return r.json();}).then(function(res){
         if(!res.success)throw new Error();
