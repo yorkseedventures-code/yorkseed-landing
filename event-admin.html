@@ -35,6 +35,7 @@ h2{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--red);
 label{display:block;font-size:13px;color:var(--ink4);margin:12px 0 5px}
 input,select,textarea{width:100%;font:inherit;font-size:16px;padding:12px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
 textarea{min-height:130px;resize:vertical}
+.flags{display:flex;gap:8px 18px;flex-wrap:wrap;margin:10px 0}.flags label{display:flex;align-items:center;gap:8px;margin:0;font-size:14px;color:var(--ink);white-space:nowrap}.flags input[type=checkbox]{width:18px;height:18px;min-height:0;padding:0;margin:0;flex:none}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .btn{width:100%;margin-top:14px;min-height:50px;border:0;border-radius:12px;font:600 16px system-ui;background:var(--ink);color:#fff;cursor:pointer}
 .btn.red{background:var(--red)}
@@ -269,7 +270,7 @@ function renderSubs(){
       +(by?'<div class="meta">From '+by+(x.email?' · <a href="mailto:'+esc(x.email)+'?subject='+encodeURIComponent('Your event on The Yorkseed List: '+x.title)+'">email them</a>':'')+'</div>':'')
       +(x.desc?'<div class="desc">'+esc(x.desc)+'</div>':'')
       +(x.img?'<div style="margin-top:8px;display:flex;gap:10px;align-items:center"><a href="'+esc(x.img)+'" target="_blank" rel="noopener"><img src="'+esc(x.img)+'" alt="Cover" style="width:160px;aspect-ratio:16/10;object-fit:cover;border:1px solid var(--line)"></a><button class="sbtn" data-sub-noimg="'+x.id+'">Remove cover</button></div>':'')
-      +'<div class="flags" style="display:flex;gap:14px;flex-wrap:wrap;margin:8px 0">'+[['yorkseed','★ Yorkseed event'],['partner','▲ Community partner event'],['featured','Featured event'],['house','■ Yorkseed House']].map(function(f){return '<label style="display:inline-flex;gap:6px;align-items:center;font-size:13px"><input type="checkbox" data-sub-flag="'+f[0]+'" data-id="'+x.id+'"'+(x[f[0]]?' checked':'')+'> '+f[1]+'</label>'}).join('')+'</div>'
+      +'<div class="flags">'+[['yorkseed','★ Yorkseed event'],['partner','▲ Community partner event'],['featured','Featured event'],['house','■ Yorkseed House']].map(function(f){return '<label><input type="checkbox" data-sub-flag="'+f[0]+'" data-id="'+x.id+'"'+(x[f[0]]?' checked':'')+'> '+f[1]+'</label>'}).join('')+'</div>'
       +'<div class="acts">'+(x.link?'<a href="'+esc(x.link)+'" target="_blank" rel="noopener">Open event page</a>':'')+acts
       +(x.email?(trustSet[x.email.toLowerCase()]?'<span class="tag">✓ Pre-approved organizer</span>':'<button data-sub-trust="'+x.id+'">Pre-approve organizer</button>'):'')
       +'<button data-sub-del="'+x.id+'">Delete</button></div>'
