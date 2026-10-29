@@ -749,6 +749,7 @@ footer{margin-top:0}
 .ystags{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px;line-height:1}.ystags .ystag{margin:0!important;vertical-align:0;padding:3px 7px!important;font-size:9px!important;letter-spacing:.12em;white-space:nowrap}
 @media (max-width:640px){.ystags .ystag{font-size:8.5px!important;padding:3px 6px!important}}
 .ritem .ystags .ystag{font-size:8px!important;letter-spacing:.07em;padding:3px 5px!important}.ritem .ystags{gap:4px}
+.ysmore{display:block;margin:10px 0 2px;padding:6px 0;font-family:var(--f-label);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);background:none;border:0;cursor:pointer;text-align:left}
 .hero .wrap{padding-block:36px 26px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,520px);gap:12px 40px;align-items:end}
 .hero .wrap>*{max-width:none}
 .hero .eyebrow{grid-column:1/-1}
@@ -2066,8 +2067,8 @@ function renderUpcoming(){
   $("#railSpons").innerHTML=railSponsor();
 
   const list=upcoming().filter(e=>e.date>=addDays(0)).sort((a,b)=>a.date.localeCompare(b.date)||a.utc-b.utc);
-  const ys=list.filter(e=>e.place==="spotlight").slice(0,4);
-  $("#railYs").innerHTML=ys.map(e=>{const d=dParts(e.date);return`<button class="ritem" type="button" data-ev="${e.id}"><span class="rd">${d.mon} <b>${d.day}</b></span><span class="rt">${esc(e.title)}<small>${hubById(e.hub).name}</small></span></button>`}).join("");
+  const ysAllL=list.filter(e=>e.place==="spotlight"),ys=window.__ysAll?ysAllL:ysAllL.slice(0,4);
+  $("#railYs").innerHTML=ys.map(e=>{const d=dParts(e.date);return`<button class="ritem" type="button" data-ev="${e.id}"><span class="rd">${d.mon} <b>${d.day}</b></span><span class="rt">${esc(e.title)}<small>${hubById(e.hub).name}</small></span></button>`}).join("")+(ysAllL.length>4?`<button class="link ysmore" type="button" data-ysall="1">${window.__ysAll?"Show fewer":"See all "+ysAllL.length+" Yorkseed events"} ${window.__ysAll?"↑":"→"}</button>`:"");
   const today=addDays(0);const ws0=[...WEEKS].filter(w=>w.end>=today&&weekOk(w)).sort((a,b)=>a.start.localeCompare(b.start));const ws=[...ws0.slice(0,3),...ws0.slice(3).filter(w=>w.ys).slice(0,1)];
   $("#railWeeks").innerHTML=ws.map(w=>{const live=today>=w.start;const n=upcoming().filter(e=>e.week===w.id).length;return`<button class="ritem" type="button" data-weekgo="${w.id}"><span class="rd">${live?'<em>Now</em>':range(w.start,w.end).split(/[–-]/)[0]}</span><span class="rt">${esc(w.name)}<small>${hubById(w.hub).name} · ${n} event${n===1?"":"s"}${w.ys?" "+ysProgramsHtml(w,2):""}</small></span></button>`}).join("");
   const tc=[...HUBS].filter(h=>h.id!=="virtual").sort((a,b)=>hubCount(b.id)-hubCount(a.id)).slice(0,6);
@@ -2654,6 +2655,7 @@ if(window.YS_STATIC){const J=f=>fetch(String(window.YS_STATIC).replace(/^1$/,"")
   J("events.json").then(a=>{a=Array.isArray(a)?a:(a&&a.events)||[];const seen=new Set(EVENTS.map(e=>(e.link||e.title)+"|"+e.date));let n=0;
     a.forEach((d,i)=>{if(!d||!d.hub||!d.date||!HUBS.some(h=>h.id===d.hub))return;const k=(d.link||d.title)+"|"+d.date;if(seen.has(k))return;seen.add(k);EVENTS.push(dbEvent((d.title||"e").slice(0,1)+i,d));n++;});if(n)rerenderAll();});
   J("banners.json").then(a=>{a=Array.isArray(a)?a:(a&&a.banners)||[];if(a.length){LIVE_BANNERS=a.map(b=>({...b,live:true}));rerenderAll();}});}
+document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest("[data-ysall]");if(!b)return;e.preventDefault();window.__ysAll=!window.__ysAll;renderUpcoming();});
 loadSelfAds();
 (function adReturn(){const m=location.search.match(/[?&]ad=([a-f0-9]{24})/);if(!m)return;
   try{history.replaceState(history.state,"",location.pathname+location.hash);}catch(e){}
