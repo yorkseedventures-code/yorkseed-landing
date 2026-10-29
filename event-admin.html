@@ -93,7 +93,7 @@ textarea{min-height:130px;resize:vertical}
 
 <div class="card" id="delegation" data-sec="delegation">
   <h2>Delegation applications <span id="dgCount"></span></h2>
-  <div class="tabs" id="dgTabs"><button data-dg="pending" class="on">Pending</button><button data-dg="approved">Approved</button><button data-dg="paid">Paid</button><button data-dg="declined">Declined</button></div>
+  <div class="tabs" id="dgTabs"><button data-dg="pending" class="on">Pending</button><button data-dg="approved">Approved</button><button data-dg="paid">Paid</button><button data-dg="declined">Declined</button><button data-dg="invoices">Invoices</button></div>
   <div id="dgList"><div class="hint">Loading...</div></div>
   <details style="margin-top:14px"><summary style="cursor:pointer;font-weight:600">Add an application by hand</summary>
     <div class="hint" style="margin:8px 0">Paste the whole Web3Forms email below. It reads every answer for you.</div>
@@ -404,6 +404,7 @@ function loadDeleg(){
     .catch(function(e){$('dgList').innerHTML='<div class="hint">'+esc(e.message)+'</div>'});
 }
 function renderDeleg(){
+  if(dgTab==='invoices'){renderInv();return}
   var rows=dgs.filter(function(x){return x.status===dgTab});
   $('dgList').innerHTML=rows.length?rows.map(function(x){
     var f=x.fields||{},det=Object.keys(f).map(function(k){return '<div class="meta"><b>'+esc(k)+':</b> '+esc(f[k])+'</div>'}).join('');
@@ -411,7 +412,7 @@ function renderDeleg(){
     var inv=/investor/i.test(x.role||''),acts='';
     if(x.status==='pending')acts=(inv?'':'<select id="dgL'+x.id+'" style="min-height:40px">'+opts+'</select>')+'<button class="ok" data-dg-ap="'+x.id+'">'+(inv?'Approve and email confirmation':'Approve and email payment link')+'</button><button data-dg-st="declined" data-id="'+x.id+'">Decline</button>';
     else if(x.status==='approved')acts='<button class="ok" data-dg-st="paid" data-id="'+x.id+'">Mark paid</button>'+(inv?'':'<select id="dgL'+x.id+'" style="min-height:40px">'+opts.replace(' selected','').replace('value="'+x.linkKey+'"','value="'+x.linkKey+'" selected')+'</select>')+'<button data-dg-ap="'+x.id+'">Resend email</button><button data-dg-st="pending" data-id="'+x.id+'">Back to pending</button>';
-    else if(x.status==='paid')acts='<button data-dg-st="approved" data-id="'+x.id+'">Back to approved</button>';
+    else if(x.status==='paid')acts=(x.invoice?'<button data-dg-inv="'+x.id+'">Resend invoice</button>':'')+'<button data-dg-st="approved" data-id="'+x.id+'">Back to approved</button>';
     else acts='<button data-dg-st="pending" data-id="'+x.id+'">Back to pending</button>';
     acts+='<button data-dg-del="'+x.id+'">Delete</button>';
     var d=dgDraft[x.id],draft=d?'<div class="note" style="margin-top:10px;background:#fff8e1;border:1px solid #f0d98a;padding:10px"><b>Email could not be sent'+(d.error?' ('+esc(d.error)+')':'')+'.</b> Send it from your own email:<div class="meta" style="white-space:pre-wrap;margin-top:6px">'+esc(d.subject)+'\n\n'+esc(d.body)+'</div><div class="acts"><button data-dg-copy="'+x.id+'">Copy email</button><a class="tool" href="mailto:'+esc(x.email)+'?subject='+encodeURIComponent(d.subject)+'&body='+encodeURIComponent(d.body)+'">Open in Mail</a></div></div>':'';
@@ -419,7 +420,7 @@ function renderDeleg(){
       +'<div class="meta">'+[x.package,x.rate,x.email].filter(Boolean).map(esc).join(' · ')+' · '+esc(new Date(x.createdAt).toLocaleDateString())+'</div>'
       +(x.status==='approved'&&x.emailError?'<div class="meta" style="color:var(--red)">Email not sent: '+esc(x.emailError)+'</div>':'')
       +(x.status==='approved'&&x.emailedAt?'<div class="meta">Payment email sent '+esc(new Date(x.emailedAt).toLocaleString())+'</div>':'')
-      +((x.status==='approved'||x.status==='paid')?'<label class="meta" style="display:flex;gap:6px;align-items:center;margin-top:6px"><input type="checkbox" style="width:auto" data-dg-luma="'+x.id+'"'+(x.luma?' checked':'')+'> Added to the Luma guest list</label>':'')
+      +(x.invoice?'<div class="meta">Invoice '+esc(x.invoice.number)+(x.invoice.emailedAt?' emailed '+esc(new Date(x.invoice.emailedAt).toLocaleString()):x.invoice.emailError?' · not emailed: '+esc(x.invoice.emailError):'')+'</div>':'')+((x.status==='approved'||x.status==='paid')?'<label class="meta" style="display:flex;gap:6px;align-items:center;margin-top:6px"><input type="checkbox" style="width:auto" data-dg-luma="'+x.id+'"'+(x.luma?' checked':'')+'> Added to the Luma guest list</label>':'')
       +'<details style="margin-top:8px"><summary style="cursor:pointer;font-size:13px">All answers</summary>'+det+'</details>'+draft
       +'<div class="acts">'+acts+'</div></div>';
   }).join(''):'<div class="hint">Nothing here.</div>';
@@ -429,12 +430,29 @@ document.addEventListener('click',function(ev){
   if(t.dataset.dg){dgTab=t.dataset.dg;[].forEach.call(document.querySelectorAll('#dgTabs button'),function(b){b.className=b.dataset.dg===dgTab?'on':''});renderDeleg()}
   else if(id=t.dataset.dgAp){var sel=$('dgL'+id);t.disabled=true;dgApi('/'+id+'/approve',{method:'POST',body:{linkKey:sel?sel.value:''}}).then(function(j){if(!j.emailed){dgDraft[id]={subject:j.draft.subject,body:j.draft.body,error:j.error};dgTab='approved';[].forEach.call(document.querySelectorAll('#dgTabs button'),function(b){b.className=b.dataset.dg===dgTab?'on':''})}else{delete dgDraft[id];alert('Approved. Email sent.')}loadDeleg()}).catch(function(e){alert(e.message);t.disabled=false})}
   else if(t.dataset.dgSt){t.disabled=true;dgApi('/'+t.dataset.id,{method:'PUT',body:{status:t.dataset.dgSt}}).then(loadDeleg).catch(function(e){alert(e.message);t.disabled=false})}
+  else if(id=t.dataset.dgInv){t.disabled=true;dgApi('/'+id+'/send-invoice',{method:'POST'}).then(function(j){alert(j.ok?'Invoice sent.':'Not sent: '+j.error);loadDeleg()}).catch(function(e){alert(e.message);t.disabled=false})}
   else if(id=t.dataset.dgCopy){var d=dgDraft[id];try{navigator.clipboard.writeText(d.subject+'\n\n'+d.body);t.textContent='Copied'}catch(e){alert('Select and copy the text above.')}}
   else if(id=t.dataset.dgDel){if(t.dataset.sure===id){dgApi('/'+id,{method:'DELETE'}).then(loadDeleg)}else{t.dataset.sure=id;t.textContent='Tap again';setTimeout(function(){t.textContent='Delete';delete t.dataset.sure},3000)}}
   else if(t.id==='dgAdd'){var f=dgParse($('dgPaste').value);if(!f['Email']){$('dgAddMsg').textContent='Could not find an email in that text.';return}t.disabled=true;dgApi('',{method:'POST',body:{fields:f,program:/hong/i.test(f['Form']||'')?'hong-kong':'lisbon-2026'}}).then(function(){$('dgPaste').value='';$('dgAddMsg').textContent='Added.';loadDeleg()}).catch(function(e){$('dgAddMsg').textContent=e.message}).then(function(){t.disabled=false})}
 });
 document.addEventListener('change',function(ev){var t=ev.target,id=t.dataset&&t.dataset.dgLuma;if(id)dgApi('/'+id,{method:'PUT',body:{luma:t.checked}}).catch(function(e){alert(e.message)})});
 function dgParse(txt){var L=String(txt||'').split(/\r?\n/).map(function(s){return s.trim()}).filter(Boolean),i=L.indexOf('Form'),o={};if(i<0)return o;for(var k=i;k+1<L.length&&!/^Visitor IP/i.test(L[k]);k+=2){if(/^Visitor IP/i.test(L[k+1]))break;o[L[k]]=L[k+1]}return o}
+
+var dgInv=[];
+function loadInv(){dgApi('/invoices/all').then(function(j){dgInv=j.invoices||[];if(dgTab==='invoices')renderInv()}).catch(function(e){$('dgList').innerHTML='<div class="hint">'+esc(e.message)+'</div>'})}
+function invCur(c){return {eur:'€',usd:'$',gbp:'£'}[c]||(c||'').toUpperCase()+' '}
+function renderInv(){
+  var tot={};dgInv.forEach(function(x){tot[x.currency]=(tot[x.currency]||0)+x.amount});
+  var sum=Object.keys(tot).map(function(c){return invCur(c)+tot[c].toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})}).join(' + ');
+  $('dgList').innerHTML='<div class="acts" style="margin-bottom:8px"><button id="invCsv" type="button">Download CSV</button><span class="hint">'+dgInv.length+' invoices'+(sum?' · '+esc(sum):'')+'</span></div>'
+   +(dgInv.length?dgInv.map(function(x){return '<div class="sub-it"><b>'+esc(x.number)+'</b> · '+esc(invCur(x.currency)+x.amount.toFixed(2))+'<div class="meta">'+[x.issuedOn,x.company||x.name,x.email].filter(Boolean).map(esc).join(' · ')+(x.manual?' · logged by hand':'')+'</div>'+(x.emailError?'<div class="meta" style="color:var(--red)">Email not sent: '+esc(x.emailError)+'</div>':'')+(x.note?'<div class="meta">'+esc(x.note)+'</div>':'')+'</div>'}).join(''):'<div class="hint">No invoices yet. One is created and emailed automatically when a delegation payment comes in.</div>')
+   +'<details style="margin-top:12px"><summary style="cursor:pointer;font-weight:600">Log an invoice made elsewhere</summary><div style="display:grid;gap:6px;margin-top:8px"><input id="lgNum" placeholder="Invoice number, e.g. YS-WS-2026-001"><input id="lgDate" type="date"><input id="lgCo" placeholder="Company"><input id="lgEmail" placeholder="Email"><input id="lgAmt" type="number" step="0.01" placeholder="Amount"><select id="lgCur"><option value="eur">EUR €</option><option value="usd">USD $</option><option value="gbp">GBP £</option></select><input id="lgNote" placeholder="What it was for"></div><div class="acts"><button class="ok" id="lgSave" type="button">Log invoice</button><span class="hint" id="lgMsg"></span></div></details>';
+}
+document.addEventListener('click',function(ev){var t=ev.target;
+  if(t.dataset&&t.dataset.dg==='invoices')loadInv();
+  else if(t.id==='invCsv'){var q=function(v){return '"'+String(v==null?'':v).replace(/"/g,'""')+'"'};var rows=[['Invoice','Date','Company','Name','Email','Amount','Currency','Logged by hand','Note']].concat(dgInv.map(function(x){return [x.number,x.issuedOn,x.company,x.name,x.email,x.amount,x.currency.toUpperCase(),x.manual?'yes':'',x.note]}));var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([rows.map(function(r){return r.map(q).join(',')}).join('\n')],{type:'text/csv'}));a.download='yorkseed-invoices.csv';a.click()}
+  else if(t.id==='lgSave'){var b={number:$('lgNum').value,issuedOn:$('lgDate').value,company:$('lgCo').value,email:$('lgEmail').value,amount:$('lgAmt').value,currency:$('lgCur').value,note:$('lgNote').value};t.disabled=true;dgApi('/invoices/manual',{method:'POST',body:b}).then(loadInv).catch(function(e){$('lgMsg').textContent=e.message;t.disabled=false})}
+});
 
 loadDeleg();
 var SECS={delegation:1,inbox:1,events:1,ads:1,organizers:1,partners:1,tools:1,submissions:'inbox'};
