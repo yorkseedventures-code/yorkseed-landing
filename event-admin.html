@@ -406,13 +406,13 @@ function loadDeleg(){
     .catch(function(e){$('dgList').innerHTML='<div class="hint">'+esc(e.message)+'</div>'});
 }
 function dgConnect(x){
-  var c=x.connect||{},h='<div class="meta" style="margin-top:6px"><b>Deal Book:</b> '+esc(x.dealBook||'Not answered')+'</div>';
+  var c=x.connect||{},h='<div class="meta" style="margin-top:6px">Deal Book: <span style="font-weight:600">'+esc(x.dealBook||'Not answered')+'</span></div>';
   h+='<label class="meta" style="display:flex;gap:6px;align-items:center;margin-top:4px"><input type="checkbox" style="width:auto" data-dg-noc="'+x.id+'"'+(x.noConnect?' checked':'')+'> No Connect offer (existing member, or not the lead investor)</label>';
   if(x.noConnect)return h;
   var m=c.months||6,t;
   if(c.state==='paid')t='Connect: current paid member, no offer.';
   else if(c.state==='comped')t='Connect: Core until '+(c.expiresAt?esc(new Date(c.expiresAt).toLocaleDateString()):'')+'.';
-  else if(c.state==='free')t='Connect: free account. <button data-dg-cc="'+x.id+'" data-m="'+m+'" type="button">Give '+m+' month'+(m>1?'s':'')+' Core</button>';
+  else if(c.state==='free')t='Connect: free account. <button style="min-height:32px;padding:4px 12px;border-radius:8px;background:#0b0b0c;color:#fff;border:0;margin-left:6px" data-dg-cc="'+x.id+'" data-m="'+m+'" type="button">Give '+m+' month'+(m>1?'s':'')+' Core</button>';
   else t='Connect: no account yet. They sign up at app.yorkseed.co, then you give '+m+' month'+(m>1?'s':'')+' Core here.';
   return h+'<div class="meta" style="margin-top:4px">'+t+'</div>';
 }
