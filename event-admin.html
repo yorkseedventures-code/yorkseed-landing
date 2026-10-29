@@ -36,7 +36,8 @@ label{display:block;font-size:13px;color:var(--ink4);margin:12px 0 5px}
 input,select,textarea{width:100%;font:inherit;font-size:16px;padding:12px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
 textarea{min-height:130px;resize:vertical}
 .flags{display:flex;gap:8px 18px;flex-wrap:wrap;margin:10px 0}.flags label{display:flex;align-items:center;gap:8px;margin:0;font-size:14px;color:var(--ink);white-space:nowrap}.flags input[type=checkbox]{width:18px;height:18px;min-height:0;padding:0;margin:0;flex:none}
-.flagbar{display:flex;align-items:center;gap:6px 12px;flex-wrap:wrap;flex-basis:100%;margin-top:4px}.flagbar button{white-space:nowrap;width:auto;margin:0;padding:10px 16px;min-height:44px;font:600 14px system-ui;border-radius:10px;border:1px solid var(--green);background:var(--green);color:#fff;cursor:pointer}.flagbar button:disabled{opacity:.6}.flagmsg{font-size:13px}
+.flagbar{display:flex;align-items:center;gap:6px 12px;flex-wrap:wrap;flex-basis:100%;margin-top:4px}.photo-up{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.photo-btn{display:inline-flex;align-items:center;margin:0;min-height:44px;padding:0 18px;border-radius:10px;border:1px solid var(--green);background:var(--green);color:#fff!important;font:600 14px system-ui;cursor:pointer}
+.flagbar button{white-space:nowrap;width:auto;margin:0;padding:10px 16px;min-height:44px;font:600 14px system-ui;border-radius:10px;border:1px solid var(--green);background:var(--green);color:#fff;cursor:pointer}.flagbar button:disabled{opacity:.6}.flagmsg{font-size:13px}
 @media(max-width:640px){.flags{display:grid;grid-template-columns:1fr 1fr;gap:4px 10px}.flags label{white-space:normal;min-height:44px;padding:4px 0;font-size:14px;line-height:1.25}.flags input[type=checkbox]{width:22px;height:22px}}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .btn{width:100%;margin-top:14px;min-height:50px;border:0;border-radius:12px;font:600 16px system-ui;background:var(--ink);color:#fff;cursor:pointer}
@@ -158,7 +159,10 @@ textarea{min-height:130px;resize:vertical}
   <label>Location</label><input id="location"/>
   <label>Description</label><textarea id="description" style="min-height:220px"></textarea>
   <label>Hosts (comma separated)</label><input id="hosts"/>
-  <label>Cover image link</label><input id="coverImage" type="url"/>
+  <label>Cover image</label>
+  <div class="photo-up"><label class="photo-btn" for="coverFile">Upload a photo</label><input id="coverFile" type="file" accept="image/jpeg,image/png,image/webp" hidden><span id="coverMsg" class="flagmsg"></span></div>
+  <img id="coverPrev" alt="" hidden style="width:240px;max-width:100%;aspect-ratio:16/10;object-fit:cover;border:1px solid var(--line);margin:8px 0 0">
+  <label style="margin-top:12px">Or paste an image link</label><input id="coverImage" type="url"/>
   <label>Event link (where people RSVP)</label><input id="lumaUrl" type="url"/>
   <label>Series (optional)</label><select id="series"><option value="">None</option><option value="valois">Valois</option><option value="nycfw">NYC Founder Week</option></select>
   <label>Page address (optional, yorkseed.co/e/...)</label><input id="slug" placeholder="leave blank to auto-make"/>
@@ -189,7 +193,7 @@ function api(path,opt){
 var F=['series','slug','title','dateISO','type','date','city','spots','location','description','coverImage','lumaUrl','promoCode'];
 var extra={country:'',venue:''};
 function syncVirtual(){var v=$('location').value.trim();$('locType').value=/^(virtual|online)/i.test(v)?'virtual':/^location to be announced/i.test(v)?'tba':'in'}
-function fill(e){F.forEach(function(f){$(f).value=e[f]||(f==='type'?'passport':'')});$('hosts').value=(e.hosts||[]).join(', ');extra={country:e.country||'',venue:e.venue||''};syncVirtual()}
+function fill(e){F.forEach(function(f){$(f).value=e[f]||(f==='type'?'passport':'')});$('hosts').value=(e.hosts||[]).join(', ');extra={country:e.country||'',venue:e.venue||''};syncVirtual();if(typeof coverPrev==='function')coverPrev()}
 document.addEventListener('change',function(ev){if(ev.target&&ev.target.id==='locType'){var l=$('location'),v=ev.target.value,auto=/^(virtual|online|location to be announced)/i.test(l.value.trim());if(v==='virtual')l.value='Virtual \u00b7 Online';else if(v==='tba')l.value='Location to be announced';else if(auto)l.value=''}});
 function read(){var o={};F.forEach(function(f){o[f]=$(f).value.trim()});o.hosts=$('hosts').value.split(',').map(function(x){return x.trim()}).filter(Boolean);o.country=extra.country;o.venue=extra.venue;return o}
 function openEditor(title){showSec('events');$('editor').style.display='block';$('edTitle').textContent=title;$('editor').scrollIntoView({behavior:'smooth'})}
@@ -279,6 +283,12 @@ function renderSubs(){
       +(x.newCity&&x.status==='pending'?'<div class="hint">New city: approving saves it, but it only shows on the List once that city is added. Ask Claude to add the city.</div>':'')+'</div>';
   }).join(''):'<div class="hint">'+(subTab==='pending'?'No new submissions.':'Nothing here.')+'</div>';
 }
+/* cover photo upload: shrink it in the browser, send it to the backend, and fill in the cover image link */
+function coverPrev(){var u=$('coverImage').value.trim(),im=$('coverPrev');if(/^https:\/\//.test(u)){im.src=u;im.hidden=false}else{im.hidden=true}}
+function shrinkImage(file,maxW,maxBytes){return new Promise(function(res,rej){var r=new FileReader();r.onerror=function(){rej(new Error('Could not read that file.'))};r.onload=function(){var img=new Image();img.onerror=function(){rej(new Error('That does not look like an image.'))};img.onload=function(){var w=img.width,h=img.height,k=Math.min(1,maxW/w);w=Math.round(w*k);h=Math.round(h*k);var c=document.createElement('canvas');c.width=w;c.height=h;var x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,w,h);x.drawImage(img,0,0,w,h);var q=.88,out=c.toDataURL('image/jpeg',q);while(out.length*0.75>maxBytes&&q>.4){q-=.08;out=c.toDataURL('image/jpeg',q)}if(out.length*0.75>maxBytes){rej(new Error('That photo is too large. Try a smaller one.'));return}res(out)};img.src=r.result};r.readAsDataURL(file)})}
+document.addEventListener('change',function(ev){var t=ev.target;if(!t||t.id!=='coverFile'||!t.files||!t.files[0])return;var m=$('coverMsg');if(!key()){m.textContent='Enter your key first';m.style.color='#b91c1c';return}m.textContent='Uploading…';m.style.color='#52525b';
+  shrinkImage(t.files[0],1600,1000000).then(function(d){return api('/upload',{method:'POST',body:{image:d}})}).then(function(j){$('coverImage').value=j.url;coverPrev();m.textContent='Uploaded ✓ Now press Save on the event';m.style.color='#15803d'}).catch(function(e){m.textContent=e.message;m.style.color='#b91c1c'}).then(function(){t.value=''})});
+document.addEventListener('input',function(ev){if(ev.target&&ev.target.id==='coverImage')coverPrev()});
 document.addEventListener('change',function(ev){var t=ev.target;if(!t.dataset||!t.dataset.subFlag)return;var m=document.getElementById('fm'+t.dataset.id);if(m){m.textContent='Not saved yet';m.style.color='#b45309'}});
 document.addEventListener('click',function(ev){
   var t=ev.target,id;if(!t.dataset)return;
