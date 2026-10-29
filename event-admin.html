@@ -269,12 +269,14 @@ function renderSubs(){
       +(by?'<div class="meta">From '+by+(x.email?' · <a href="mailto:'+esc(x.email)+'?subject='+encodeURIComponent('Your event on The Yorkseed List: '+x.title)+'">email them</a>':'')+'</div>':'')
       +(x.desc?'<div class="desc">'+esc(x.desc)+'</div>':'')
       +(x.img?'<div style="margin-top:8px;display:flex;gap:10px;align-items:center"><a href="'+esc(x.img)+'" target="_blank" rel="noopener"><img src="'+esc(x.img)+'" alt="Cover" style="width:160px;aspect-ratio:16/10;object-fit:cover;border:1px solid var(--line)"></a><button class="sbtn" data-sub-noimg="'+x.id+'">Remove cover</button></div>':'')
+      +'<div class="flags" style="display:flex;gap:14px;flex-wrap:wrap;margin:8px 0">'+[['yorkseed','★ Yorkseed event'],['partner','▲ Community partner event'],['featured','Featured event'],['house','■ Yorkseed House']].map(function(f){return '<label style="display:inline-flex;gap:6px;align-items:center;font-size:13px"><input type="checkbox" data-sub-flag="'+f[0]+'" data-id="'+x.id+'"'+(x[f[0]]?' checked':'')+'> '+f[1]+'</label>'}).join('')+'</div>'
       +'<div class="acts">'+(x.link?'<a href="'+esc(x.link)+'" target="_blank" rel="noopener">Open event page</a>':'')+acts
       +(x.email?(trustSet[x.email.toLowerCase()]?'<span class="tag">✓ Pre-approved organizer</span>':'<button data-sub-trust="'+x.id+'">Pre-approve organizer</button>'):'')
       +'<button data-sub-del="'+x.id+'">Delete</button></div>'
       +(x.newCity&&x.status==='pending'?'<div class="hint">New city: approving saves it, but it only shows on the List once that city is added. Ask Claude to add the city.</div>':'')+'</div>';
   }).join(''):'<div class="hint">'+(subTab==='pending'?'No new submissions.':'Nothing here.')+'</div>';
 }
+document.addEventListener('change',function(ev){var t=ev.target;if(!t.dataset||!t.dataset.subFlag)return;var body={};body[t.dataset.subFlag]=t.checked;t.disabled=true;subApi('/'+t.dataset.id,{method:'PUT',body:body}).then(function(j){var x=subs.find(function(s){return s.id===t.dataset.id});if(x&&j.submission)x[t.dataset.subFlag]=j.submission[t.dataset.subFlag]}).catch(function(e){alert(e.message);t.checked=!t.checked}).then(function(){t.disabled=false})});
 document.addEventListener('click',function(ev){
   var t=ev.target,id;if(!t.dataset)return;
   if(t.dataset.st){subTab=t.dataset.st;[].forEach.call(document.querySelectorAll('#subTabs button'),function(b){b.className=b.dataset.st===subTab?'on':''});renderSubs()}
