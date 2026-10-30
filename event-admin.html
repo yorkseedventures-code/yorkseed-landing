@@ -454,13 +454,15 @@ function dgConnect(x){
   else t='Connect: no account yet. They sign up at app.yorkseed.co, then you give '+m+' month'+(m>1?'s':'')+' Core here.';
   return h+'<div class="meta" style="margin-top:4px">'+t+'</div>';
 }
+function dgRole(x){var r=x.role||'';return /investor/i.test(r)?'Investor':/partner/i.test(r)?'Partner':'Founder'}
+function dgCounts(R){var c={Founder:0,Investor:0,Partner:0};R.forEach(function(x){c[dgRole(x)]++});return c.Founder+' founders · '+c.Investor+' investors · '+c.Partner+' partners'}
 function dgKind(x){return x.status==='paid'?'Paid':(x.comped||/investor/i.test(x.role||''))?'Comped':'Awaiting payment'}
 function dgRoster(){return dgs.filter(function(x){return x.status==='approved'||x.status==='paid'})}
 function renderRoster(){
   var rows=dgRoster(),kinds=['Paid','Comped','Awaiting payment'],grp=['Founder','Partner','Investor'];
   function g(x){var r=x.role||'';return /investor/i.test(r)?'Investor':/partner/i.test(r)?'Partner':'Founder'}
   var cnt=kinds.map(function(k){return '<span class="pill" style="margin-right:6px">'+rows.filter(function(x){return dgKind(x)===k}).length+' '+k.toLowerCase()+'</span>'}).join('');
-  var h='<div class="acts" style="margin-bottom:10px">'+cnt+'<span class="hint">'+rows.length+' approved in total</span><button data-dg-csv="1" type="button">Download CSV</button></div>';
+  var h='<div class="acts" style="margin-bottom:10px">'+cnt+'<span class="hint"><b>'+rows.length+' delegates:</b> '+dgCounts(rows)+'</span><button data-dg-csv="1" type="button">Download CSV</button></div>';
   grp.forEach(function(G){
     var gr=rows.filter(function(x){return g(x)===G});if(!gr.length)return;
     h+='<h3 style="margin:18px 0 6px">'+G+'s <span class="hint">('+gr.length+')</span></h3>';
@@ -579,7 +581,7 @@ function renderToday(){
   $('tdList').innerHTML=rows.length?rows.join(''):'<div class="hint">Nothing needs you right now.</div>';
   badge('nToday',total,1);
   var R=A.filter(function(x){return x.status==='approved'||x.status==='paid'}),c=function(k){return R.filter(function(x){return dgKind(x)===k}).length};
-  $('tdStats').innerHTML='<div><b>'+c('Paid')+'</b><span>Paid</span></div><div><b>'+c('Comped')+'</b><span>Comped</span></div><div><b>'+c('Awaiting payment')+'</b><span>Awaiting</span></div>';
+  $('tdStats').innerHTML='<div style="grid-column:1/-1"><b>'+R.length+' delegates</b><span>'+dgCounts(R)+'</span></div><div><b>'+c('Paid')+'</b><span>Paid</span></div><div><b>'+c('Comped')+'</b><span>Comped</span></div><div><b>'+c('Awaiting payment')+'</b><span>Awaiting</span></div>';
 }
 function badge(id,n,skip){var e=$(id);e.hidden=!n;e.textContent=n||'';BD[id]=n;if(!skip)try{renderToday()}catch(x){}}
 showSec((location.hash||'#today').slice(1));
