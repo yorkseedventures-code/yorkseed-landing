@@ -608,10 +608,10 @@ details.opt{border:1px solid rgba(12,12,12,.15);background:#fff;padding:0 16px;m
     <div class="meta">
       <div><span>Delegation</span><b>January 25 to 28, 2027</b></div>
       <div><span>Register</span><b>Interest form</b></div>
-      <div><span>AFF pass</span><b><i class="yk-left" style="font-style:normal">2</i> of 5 free spots left, then from about US$370</b></div>
+      <div><span>AFF pass</span><b class="yk-w" data-out="Complimentary passes full. Delegate rate from about US$370"><i class="yk-left" style="font-style:normal">2</i> of 5 free spots left, then from about US$370</b></div>
       <div><span>AFF</span><b>January 26 to 27</b></div>
     </div>
-    <div class="left-pill" style="margin-bottom:22px"><i class="yk-left">2</i> of 5 complimentary passes left</div>
+    <div class="left-pill yk-w" style="margin-bottom:22px" data-out="Complimentary passes are full. Delegate rate open"><i class="yk-left">2</i> of 5 complimentary passes left</div>
     <div class="btns">
       <a href="#apply" class="btn btn-gold">Register interest</a>
       <a href="#week" class="btn btn-line">See the trip</a>
@@ -630,7 +630,7 @@ details.opt{border:1px solid rgba(12,12,12,.15);background:#fff;padding:0 16px;m
 <div class="hk-strip">
   <div class="in hk-clear">
     <div><b>Register interest</b><span>Tell us who you are. We review every registration and confirm your place.</span></div>
-    <div><b>Delegate rate</b><span>Full Pass about US$500 (HKD 3,900), listed at US$1,400. Standard Pass about US$370 (HKD 2,820). The first 5 delegates receive a complimentary pass, <i class="yk-left" style="font-style:normal">2</i> left.</span></div>
+    <div><b>Delegate rate</b><span>Full Pass about US$500 (HKD 3,900), listed at US$1,400. Standard Pass about US$370 (HKD 2,820). <span class="yk-w" data-out="The 5 complimentary passes have been taken. Delegates now register at the discounted rate.">The first 5 delegates receive a complimentary pass, <i class="yk-left" style="font-style:normal">2</i> left.</span></span></div>
     <div><b>Optional extras</b><span>Editorial page, coworking, hotel, shared booth and Founder Deal Book Virtual are paid and entirely optional. <a href="#extras">See extras</a></span></div>
   </div>
 </div>
@@ -690,7 +690,7 @@ details.opt{border:1px solid rgba(12,12,12,.15);background:#fff;padding:0 16px;m
     <div class="side">
       <div class="label">Register interest</div>
       <h2 class="big">Join us <em>in Hong Kong</em></h2>
-      <p>Register your interest below and we'll review it and confirm your place. The first 5 delegates receive a complimentary AFF pass (<i class="yk-left" style="font-style:normal">2</i> spots left); after that, delegates register at the AFF group rate. Registering interest is not a booking. After the first 5 complimentary places, the AFF pass is a discounted paid ticket. Once the delegation is confirmed with AFF, we'll send your registration link and code.</p>
+      <p>Register your interest below and we'll review it and confirm your place. <span class="yk-w" data-out="The 5 complimentary AFF passes have been taken. Delegates now register at the discounted AFF group rate.">The first 5 delegates receive a complimentary AFF pass (<i class="yk-left" style="font-style:normal">2</i> left); after that, delegates register at the AFF group rate.</span> Registering interest is not a booking. After the first 5 complimentary places, the AFF pass is a discounted paid ticket. Once the delegation is confirmed with AFF, we'll send your registration link and code.</p>
       <ol class="steps">
         <li>Register your interest below</li>
         <li>We review it and send AFF's own registration form for your pass</li>
@@ -755,7 +755,7 @@ details.opt{border:1px solid rgba(12,12,12,.15);background:#fff;padding:0 16px;m
         <div class="f"><label for="goals" id="goalsLabel">Who do you want to meet in Hong Kong?</label><p class="hint" id="goalsHint">Tell us who and what you're hoping to find at AFF.</p><textarea id="goals"></textarea></div>
         <div class="f"><label for="referral">How did you hear about this?</label><input type="text" id="referral" placeholder="Optional"/></div>
         <div class="f" id="passGroup"><span class="lab">Which AFF pass would you like?</span>
-          <p class="hint"><b class="pass-left"><i class="yk-left" style="font-style:normal">2</i> of 5 complimentary passes left.</b> The first 5 delegates receive a complimentary pass. After that, delegates register at the discounted delegate rate. Choose the pass you want and we'll follow up with instructions to redeem your code. Please give us some time.</p>
+          <p class="hint"><span class="yk-w" data-out="&lt;b class=&quot;pass-left&quot;&gt;Complimentary passes are full.&lt;/b&gt; Delegates now register at the discounted delegate rate."><b class="pass-left"><i class="yk-left" style="font-style:normal">2</i> of 5 complimentary passes left.</b> The first 5 delegates receive a complimentary pass. After that, delegates register at the discounted delegate rate.</span> Choose the pass you want and we'll follow up with instructions to redeem your code. Please give us some time.</p>
           <div class="pkg" id="passBox">
             <label><input type="radio" name="pass" value="Full Pass"/><b>Full Pass</b><span>About US$500 (HKD 3,900). Includes the keynote luncheons on both days.</span></label>
             <label><input type="radio" name="pass" value="Standard Pass"/><b>Standard Pass</b><span>About US$370 (HKD 2,820). No meals.</span></label>
@@ -1281,7 +1281,7 @@ function ykSave(program,d){try{var f={};Object.keys(d).forEach(function(k){if(['
 <script src="/assets/url-prefill.js" defer></script>
 <script>
 (function(){var U='https://yorkseed-backend-production.up.railway.app/api/delegation-applications/comp-spots?program=hong-kong';
-function go(){try{fetch(U).then(function(r){return r.ok?r.json():null}).then(function(c){if(!c||typeof c.left!=='number')return;var n=document.querySelectorAll('.yk-left');for(var i=0;i<n.length;i++)n[i].textContent=c.left;}).catch(function(){})}catch(e){}}
+function go(){try{fetch(U).then(function(r){return r.ok?r.json():null}).then(function(c){if(!c||typeof c.left!=='number')return;var n=document.querySelectorAll('.yk-left');for(var i=0;i<n.length;i++)n[i].textContent=c.left;var w=document.querySelectorAll('.yk-w');for(var j=0;j<w.length;j++){var e=w[j];if(e.getAttribute('data-in')===null)e.setAttribute('data-in',e.innerHTML);if(c.left===0){var o=e.getAttribute('data-out');if(e.className.indexOf('pass-left')<0&&o.indexOf('<')<0)e.textContent=o;else e.innerHTML=o}else if(e.getAttribute('data-gone')){e.innerHTML=e.getAttribute('data-in')}e.setAttribute('data-gone',c.left===0?'1':'')}}).catch(function(){})}catch(e){}}
 go();setInterval(go,60000);})();
 </script>
 </body>
