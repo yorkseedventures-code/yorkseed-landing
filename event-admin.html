@@ -446,7 +446,7 @@ function loadDeleg(){
 function dgConnect(x){
   var c=x.connect||{},h='<div class="meta" style="margin-top:6px">Deal Book: <span style="font-weight:600">'+esc(x.dealBook||'Not answered')+'</span></div>';
   h+='<label class="meta" style="display:flex;gap:6px;align-items:center;margin-top:4px"><input type="checkbox" style="width:auto" data-dg-noc="'+x.id+'"'+(x.noConnect?' checked':'')+'> No Connect offer (existing member, or not the lead investor)</label>';
-  if(x.noConnect)return h;
+  if(x.noConnect||x.status==='pending')return h;
   var m=c.months||6,t;
   if(c.state==='paid')t='Connect: current paid member, no offer.';
   else if(c.state==='comped')t='Connect: Core until '+(c.expiresAt?esc(new Date(c.expiresAt).toLocaleDateString()):'')+'.';
@@ -496,7 +496,7 @@ function renderDeleg(){
       +'<div class="meta">'+[x.package,x.rate,x.email].filter(Boolean).map(esc).join(' · ')+' · '+esc(new Date(x.createdAt).toLocaleDateString())+'</div>'
       +(x.status==='approved'&&x.emailError?'<div class="meta" style="color:var(--red)">Email not sent: '+esc(x.emailError)+'</div>':'')
       +(x.status==='approved'&&x.emailedAt?'<div class="meta">Payment email sent '+esc(new Date(x.emailedAt).toLocaleString())+'</div>':'')
-      +(x.invoice?'<div class="meta">Invoice '+esc(x.invoice.number)+(x.invoice.emailedAt?' emailed '+esc(new Date(x.invoice.emailedAt).toLocaleString()):x.invoice.emailError?' · not emailed: '+esc(x.invoice.emailError):'')+'</div>':'')+((x.status==='approved'||x.status==='paid')?'<label class="meta" style="display:flex;gap:6px;align-items:center;margin-top:6px"><input type="checkbox" style="width:auto" data-dg-luma="'+x.id+'"'+(x.luma?' checked':'')+'> Added to the Luma guest list</label>':'')+((x.status==='approved'||x.status==='paid')?'<label class="meta" style="display:flex;gap:6px;align-items:center;margin-top:6px"><input type="checkbox" style="width:auto" data-dg-comp="'+x.id+'"'+(x.comped?' checked':'')+'> Comped (free place)</label>':'')+((x.status==='approved'||x.status==='paid')?dgConnect(x):'')
+      +(x.invoice?'<div class="meta">Invoice '+esc(x.invoice.number)+(x.invoice.emailedAt?' emailed '+esc(new Date(x.invoice.emailedAt).toLocaleString()):x.invoice.emailError?' · not emailed: '+esc(x.invoice.emailError):'')+'</div>':'')+((x.status==='approved'||x.status==='paid')?'<label class="meta" style="display:flex;gap:6px;align-items:center;margin-top:6px"><input type="checkbox" style="width:auto" data-dg-luma="'+x.id+'"'+(x.luma?' checked':'')+'> Added to the Luma guest list</label>':'')+((x.status==='approved'||x.status==='paid')?'<label class="meta" style="display:flex;gap:6px;align-items:center;margin-top:6px"><input type="checkbox" style="width:auto" data-dg-comp="'+x.id+'"'+(x.comped?' checked':'')+'> Comped (free place)</label>':'')+((x.status==='pending'||x.status==='approved'||x.status==='paid')?dgConnect(x):'')
       +'<details style="margin-top:8px"><summary style="cursor:pointer;font-size:13px">All answers</summary>'+det+'</details>'+draft
       +'<div class="acts">'+acts+'</div></div>';
   }).join(''):'<div class="hint">Nothing here.</div>';
