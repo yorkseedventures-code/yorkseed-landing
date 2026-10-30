@@ -133,8 +133,8 @@ body{overflow-wrap:anywhere}
   <div class="tabs" id="dgTabs"><button data-dg="pending" class="on">Pending</button><button data-dg="approved">Approved</button><button data-dg="paid">Paid</button><button data-dg="declined">Declined</button><button data-dg="roster">Delegates</button><button data-dg="invoices">Invoices</button></div>
   <div id="dgList"><div class="hint">Loading...</div></div>
   <details style="margin-top:14px"><summary style="cursor:pointer;font-weight:600">Add an application by hand</summary>
-    <div class="hint" style="margin:8px 0">Paste the whole Web3Forms email below. It reads every answer for you.</div>
-    <textarea id="dgPaste" rows="6" placeholder="Paste the Web3Forms email here"></textarea>
+    <div class="hint" style="margin:8px 0">Paste the whole Web3Forms email, or the guest details from Luma, below. It reads every answer for you.</div>
+    <textarea id="dgPaste" rows="6" placeholder="Paste the Web3Forms email or Luma guest details here"></textarea>
     <div class="acts"><button class="ok" id="dgAdd" type="button">Add from pasted email</button><span class="hint" id="dgAddMsg"></span></div>
   </details>
   <div class="hint">New applications from the Lisbon and Hong Kong forms land here automatically. Approve emails the payment link. If email can't send, you get a draft to copy.</div>
@@ -512,7 +512,25 @@ document.addEventListener('click',function(ev){
   else if(t.id==='dgAdd'){var f=dgParse($('dgPaste').value);if(!f['Email']){$('dgAddMsg').textContent='Could not find an email in that text.';return}t.disabled=true;dgApi('',{method:'POST',body:{fields:f,program:/hong/i.test(f['Form']||'')?'hong-kong':'lisbon-2026'}}).then(function(){$('dgPaste').value='';$('dgAddMsg').textContent='Added.';loadDeleg()}).catch(function(e){$('dgAddMsg').textContent=e.message}).then(function(){t.disabled=false})}
 });
 document.addEventListener('change',function(ev){var t=ev.target,id=t.dataset&&t.dataset.dgLuma;if(id)dgApi('/'+id,{method:'PUT',body:{luma:t.checked}}).catch(function(e){alert(e.message)});id=t.dataset&&t.dataset.dgNoc;if(id)dgApi('/'+id,{method:'PUT',body:{noConnect:t.checked}}).then(loadDeleg).catch(function(e){alert(e.message)});id=t.dataset&&t.dataset.dgComp;if(id)dgApi('/'+id,{method:'PUT',body:{comped:t.checked}}).then(loadDeleg).catch(function(e){alert(e.message)})});
-function dgParse(txt){var L=String(txt||'').split(/\r?\n/).map(function(s){return s.trim()}).filter(Boolean),i=L.indexOf('Form'),o={};if(i<0)return o;for(var k=i;k+1<L.length&&!/^Visitor IP/i.test(L[k]);k+=2){if(/^Visitor IP/i.test(L[k+1]))break;o[L[k]]=L[k+1]}return o}
+function dgParseLuma(txt){
+  var L=String(txt||'').split(/\r?\n/).map(function(x){return x.trim()}).filter(Boolean),o={},i,emRe=/^[^\s@]+@[^\s@]+\.[^\s@]+$/,name='',ei=-1;
+  for(i=0;i<L.length;i++){var m=L[i].match(/^\[([^\]]+)\]\(https?:[^)]*\)$/);if(m&&!name)name=m[1];if(emRe.test(L[i])&&ei<0)ei=i}
+  if(ei<0)return {};
+  if(!name&&ei>0)name=L[ei-1];
+  var parts=name.split(/\s+/),first=parts.shift()||'',last=parts.join(' ');
+  var ti=L.indexOf('Ticket'),ticket=ti>=0?(L[ti+1]||''):'';
+  var qi=L.indexOf('Registration Questions');qi=qi>=0?qi+1:L.length;if(L[qi]==='Edit')qi++;
+  var qa=[];for(i=qi;i+1<L.length&&!/^Timeline$/i.test(L[i]);i+=2){qa.push([L[i],L[i+1]]);if(/^Who invited you/i.test(L[i]))break}
+  var map=[[/^Job Title/i,'Role'],[/^Company/i,'Company'],[/whatsapp/i,'WhatsApp'],[/linkedin or website/i,'LinkedIn'],[/category better describes/i,'Category'],[/stage focus/i,'Stage'],[/^Your sectors/i,'Sectors'],[/type of investor/i,'Investor type'],[/investment thesis/i,'Investment focus'],[/check size/i,'Check size'],[/include in the deal ?book/i,'Deal Book profile'],[/PORTFOLIO COMPANIES/i,'Portfolio companies'],[/YOUR TAGLINE/i,'Deal Book tagline'],[/ABOUT YOUR/i,'Deal Book about'],[/THREE KEYWORDS/i,'Deal Book keywords'],[/QR CODE/i,'Deal Book QR link'],[/HEADSHOT/i,'Headshot link'],[/LOGO/i,'Logo link'],[/Who invited/i,'Heard via']];
+  qa.forEach(function(p){var q=p[0],a=p[1];if(!a||/^[—–-]$/.test(a))return;var k=null;map.some(function(r){if(r[0].test(q)){k=r[1];return true}});o[k||q.slice(0,60)]=a});
+  var cat=((o['Category']||'')+' '+ticket).toLowerCase();
+  var role=/investor|\blp\b|family office|allocator|fund/.test(cat)?'Investor':/partner|service|sponsor/.test(cat)?'Partner':'Founder';
+  var db=(o['Deal Book profile']||'').toLowerCase();if(db)o['Deal Book profile']=/^y/.test(db)?'Yes':'No';
+  o['Form']='Lisbon Delegation (Luma)';o['Applying as']=role;o['First name']=first;if(last)o['Last name']=last;o['Email']=L[ei];o['Ticket']=ticket;
+  o['Package']=role==='Investor'?'Investor (complimentary)':(o['Package']||'');
+  return o;
+}
+function dgParse(txt){if(/Registration Questions/.test(String(txt||''))&&/Registration Time|Ticket/.test(String(txt||'')))return dgParseLuma(txt);var L=String(txt||'').split(/\r?\n/).map(function(s){return s.trim()}).filter(Boolean),i=L.indexOf('Form'),o={};if(i<0)return o;for(var k=i;k+1<L.length&&!/^Visitor IP/i.test(L[k]);k+=2){if(/^Visitor IP/i.test(L[k+1]))break;o[L[k]]=L[k+1]}return o}
 
 var dgInv=[];
 function loadInv(){dgApi('/invoices/all').then(function(j){dgInv=j.invoices||[];if(dgTab==='invoices')renderInv()}).catch(function(e){$('dgList').innerHTML='<div class="hint">'+esc(e.message)+'</div>'})}
