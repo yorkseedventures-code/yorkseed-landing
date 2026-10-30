@@ -368,6 +368,7 @@ details{padding:11px 0}
       <div><span>Price now</span><b><span data-yk="price">€595</span> per company</b></div>
       <div><span>Next price</span><b data-yk="rises">Applications close November 11</b></div>
       <div><span>Investors</span><b>Complimentary</b></div>
+      <div id="ykCountBox" hidden><span>Joining so far</span><b id="ykCount"></b></div>
     </div>
     <div class="btns">
       <a href="#apply" class="btn btn-gold">Apply to join</a>
@@ -698,6 +699,9 @@ details{padding:11px 0}
 
 
 <script>
+(function(){var U='https://yorkseed-backend-production.up.railway.app/api/delegation-applications/public-counts?program=lisbon-2026';
+function ykCounts(){try{fetch(U).then(function(r){return r.ok?r.json():null}).then(function(c){if(!c||!c.total)return;var p=[];if(c.founders)p.push(c.founders+(c.founders>1?' founders':' founder'));if(c.investors)p.push(c.investors+(c.investors>1?' investors':' investor'));if(c.partners)p.push(c.partners+(c.partners>1?' partners':' partner'));var e=document.getElementById('ykCount'),b=document.getElementById('ykCountBox');if(e&&b){e.textContent=p.join(' · ');b.hidden=false}}).catch(function(){})}catch(e){}}
+ykCounts();setInterval(ykCounts,60000);})();
 function ykSave(program,d){try{var f={};Object.keys(d).forEach(function(k){if(['access_key','subject','from_name','replyto','botcheck'].indexOf(k)<0)f[k]=d[k]});fetch('https://yorkseed-backend-production.up.railway.app/api/delegation-applications/submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({program:program,fields:f}),keepalive:true}).catch(function(){})}catch(e){}}
 
 /* One application flow. Everyone applies here, Yorkseed reviews and approves manually.
