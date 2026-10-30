@@ -110,6 +110,7 @@
     <div><dt>In Lisbon</dt><dd>Nov 8 – Nov 12, 2026</dd></div>
     <div><dt>Introduction requests</dt><dd><span class="st" id="dn-st"><i></i><span id="dn-st-t">Open November 1 – 21, 2026</span></span></dd></div>
     <div><dt>Contact</dt><dd>Through Yorkseed only</dd></div>
+    <div id="dn-count-box" hidden><dt>Joining so far</dt><dd id="dn-count"></dd></div>
   </dl>
   <nav class="dn-filters" aria-label="Jump to section"><a href="#investor">Investors <span>5</span></a><a href="#more">Founders and partners</a></nav>
 
@@ -140,5 +141,8 @@
 var f=function(d){return d.toLocaleDateString("en-US",{month:"long",day:"numeric",timeZone:"UTC"})};
 if(n<o){t.textContent="Open from "+f(o)}else if(n<=c){el.className="st open";t.textContent="Open until "+f(c)}else{el.className="st closed";t.textContent="Closed"}})();
 </script>
+<script>(function(){var U='https://yorkseed-backend-production.up.railway.app/api/delegation-applications/public-counts?program=lisbon-2026';
+function go(){try{fetch(U).then(function(r){return r.ok?r.json():null}).then(function(c){if(!c||!c.total)return;var p=[];if(c.founders)p.push(c.founders+(c.founders>1?' founders':' founder'));if(c.investors)p.push(c.investors+(c.investors>1?' investors':' investor'));if(c.partners)p.push(c.partners+(c.partners>1?' partners':' partner'));var e=document.getElementById('dn-count'),b=document.getElementById('dn-count-box');if(e&&b){e.textContent=p.join(' · ');b.hidden=false}}).catch(function(){})}catch(e){}}
+go();setInterval(go,60000);})();</script>
 </body>
 </html>
