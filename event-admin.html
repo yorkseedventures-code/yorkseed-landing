@@ -73,6 +73,29 @@ textarea{min-height:130px;resize:vertical}
 .tdr button,#today .acts button{min-height:36px;padding:6px 12px;border:1px solid #0b0b0c;border-radius:8px;background:#fff;font:600 13px system-ui;cursor:pointer}
 .tdt{flex:1;min-width:0}.tdt b{display:block;font-size:15px}.tdt span{font-size:12.5px;color:#6b6860}
 .tdstats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:6px 0 4px}.tdstats div{background:#fff;border:1px solid var(--line,#e1ded7);border-radius:12px;padding:10px}.tdstats b{font-size:20px;display:block}.tdstats span{font-size:11.5px;color:#6b6860}
+
+/* Responsive: phone, tablet, desktop */
+body{overflow-wrap:anywhere}
+.sub-it .meta,.tdt span{word-break:break-word}
+@media(max-width:640px){body{padding:0 14px 80px}.nav button{min-height:44px}.sub-it .acts button,.sub-it .acts a,.ev .acts button,.ev .acts a,.tdr button,#today .acts button{min-height:44px}.tabs button{min-height:40px}.tdr{gap:10px}}
+@media(min-width:700px) and (max-width:1023px){body{max-width:920px}}
+@media(min-width:1024px){
+  body{max-width:none;padding:28px 48px 80px 288px;font-size:15px}
+  .top{position:fixed;left:0;top:0;bottom:0;width:244px;margin:0;padding:26px 16px;border-bottom:0;border-right:1px solid var(--line);overflow-y:auto}
+  .top .hd{flex-direction:column;align-items:flex-start;gap:6px}
+  .nav{flex-direction:column;overflow:visible;margin-top:20px;gap:2px}
+  .nav button{width:100%;justify-content:space-between;border-radius:10px;border-color:transparent;background:transparent;padding:11px 12px;font-size:15px}
+  .nav button:hover{background:rgba(11,11,12,.06)}.nav button.on{background:var(--ink);color:#fff}
+  body>.card{max-width:1120px;padding:22px 24px}
+  #dgList,#tdList{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px}
+  #dgList>:not(.sub-it){grid-column:1/-1}
+  #dgList .sub-it{border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:14px;background:#fff}
+  #tdList .tdr:nth-child(2){border-top:0;padding-top:2px}
+  #tdList>.hint{grid-column:1/-1}
+  .tdstats{max-width:560px}
+  .sub-it .acts button,.sub-it .acts a{padding:8px 12px;font-size:13px}
+}
+@media(min-width:1500px){body{padding-left:300px;padding-top:28px}#dgList{grid-template-columns:repeat(3,minmax(0,1fr))}body>.card{max-width:1400px}}
 </style>
 <script src="/assets/ys-ref.js" defer></script>
 </head>
