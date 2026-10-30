@@ -131,6 +131,7 @@ body{overflow-wrap:anywhere}
 <div class="card" id="delegation" data-sec="delegation">
   <h2>Delegation applications <span id="dgCount"></span></h2>
   <div class="tabs" id="dgTabs"><button data-dg="pending" class="on">Pending</button><button data-dg="approved">Approved</button><button data-dg="paid">Paid</button><button data-dg="declined">Declined</button><button data-dg="roster">Delegates</button><button data-dg="invoices">Invoices</button></div>
+  <div class="tabs" id="dgProg" style="margin-top:8px"><button data-dgp="all" class="on">All events</button><button data-dgp="lisbon-2026">Lisbon 2026</button><button data-dgp="hong-kong">Hong Kong 2027</button></div>
   <div id="dgList"><div class="hint">Loading...</div></div>
   <details style="margin-top:14px"><summary style="cursor:pointer;font-weight:600">Add an application by hand</summary>
     <div class="hint" style="margin:8px 0">Paste the whole Web3Forms email, or the guest details from Luma, below. It reads every answer for you.</div>
@@ -457,7 +458,11 @@ function dgConnect(x){
 function dgRole(x){var r=x.role||'';return /investor/i.test(r)?'Investor':/partner/i.test(r)?'Partner':'Founder'}
 function dgCounts(R){var c={Founder:0,Investor:0,Partner:0};R.forEach(function(x){c[dgRole(x)]++});return c.Founder+' founders · '+c.Investor+' investors · '+c.Partner+' partners'}
 function dgKind(x){return x.status==='paid'?'Paid':(x.comped||/investor/i.test(x.role||''))?'Comped':'Awaiting payment'}
-function dgRoster(){return dgs.filter(function(x){return x.status==='approved'||x.status==='paid'})}
+var dgProg='all';
+function dgPg(x){return /hong/i.test(x.program||'')?'hong-kong':'lisbon-2026'}
+function dgPgLabel(x){return dgPg(x)==='hong-kong'?'Hong Kong 2027':'Lisbon 2026'}
+function dgInProg(x){return dgProg==='all'||dgPg(x)===dgProg}
+function dgRoster(){return dgs.filter(function(x){return (x.status==='approved'||x.status==='paid')&&dgInProg(x)})}
 function renderRoster(){
   var rows=dgRoster(),kinds=['Paid','Comped','Awaiting payment'],grp=['Founder','Partner','Investor'];
   function g(x){var r=x.role||'';return /investor/i.test(r)?'Investor':/partner/i.test(r)?'Partner':'Founder'}
@@ -483,18 +488,19 @@ function dgCsv(){
 function renderDeleg(){
   if(dgTab==='invoices'){renderInv();return}
   if(dgTab==='roster'){renderRoster();return}
-  var rows=dgs.filter(function(x){return x.status===dgTab});
+  var rows=dgs.filter(function(x){return x.status===dgTab&&dgInProg(x)});
   $('dgList').innerHTML=rows.length?rows.map(function(x){
     var f=x.fields||{},det=Object.keys(f).map(function(k){return '<div class="meta"><b>'+esc(k)+':</b> '+esc(f[k])+'</div>'}).join('');
-    var opts=Object.keys(dgLinks).filter(function(k){return !x.role||dgLinks[k].role===(/partner/i.test(x.role)?'Partner':'Founder')}).map(function(k){return '<option value="'+k+'"'+(k===dgGuess(x)?' selected':'')+'>'+esc(dgLinks[k].label)+'</option>'}).join('');
-    var inv=/investor/i.test(x.role||''),acts='';
-    if(x.status==='pending')acts=(inv?'':'<select id="dgL'+x.id+'" style="min-height:40px">'+opts+'</select>')+'<button class="ok" data-dg-ap="'+x.id+'">'+(inv?'Approve and email confirmation':'Approve and email payment link')+'</button><button data-dg-st="declined" data-id="'+x.id+'">Decline</button>';
+    var opts=Object.keys(dgLinks).filter(function(k){return !x.role||dgLinks[k].role===(/partner/i.test(x.role)?'Partner':'Founder')}).map(function(k){return '<option value="'+k+'"'+(k===dgGuess(x)?' selected':'')+'>'+esc(dgLinks[k].label)+'</option>'}).join('')+'<option value="comp"'+(x.comped?' selected':'')+'>Complimentary (no payment)</option>';
+    var inv=/investor/i.test(x.role||''),hk=dgPg(x)==='hong-kong',acts='';
+    if(hk)opts='<option value="comp">Complimentary (Hong Kong)</option>';
+    if(x.status==='pending')acts=(inv||hk?'':'<select id="dgL'+x.id+'" data-dg-sel="'+x.id+'" style="min-height:40px">'+opts+'</select>')+'<button class="ok" id="dgB'+x.id+'" data-dg-ap="'+x.id+'"'+(hk?' data-dg-hk="1"':'')+'>'+(hk?'Approve (you send the email)':inv?'Approve and email confirmation':'Approve and email payment link')+'</button><button data-dg-st="declined" data-id="'+x.id+'">Decline</button>';
     else if(x.status==='approved')acts='<button class="ok" data-dg-st="paid" data-id="'+x.id+'">Mark paid</button>'+(inv?'':'<select id="dgL'+x.id+'" style="min-height:40px">'+opts.replace(' selected','').replace('value="'+x.linkKey+'"','value="'+x.linkKey+'" selected')+'</select>')+'<button data-dg-ap="'+x.id+'">Resend email</button><button data-dg-st="pending" data-id="'+x.id+'">Back to pending</button>';
     else if(x.status==='paid')acts=(x.invoice?'<button data-dg-inv="'+x.id+'">Resend invoice</button>':'')+'<button data-dg-st="approved" data-id="'+x.id+'">Back to approved</button>';
     else acts='<button data-dg-st="pending" data-id="'+x.id+'">Back to pending</button>';
     acts+='<button data-dg-del="'+x.id+'">Delete</button>';
     var d=dgDraft[x.id],draft=d?'<div class="note" style="margin-top:10px;background:#fff8e1;border:1px solid #f0d98a;padding:10px"><b>Email could not be sent'+(d.error?' ('+esc(d.error)+')':'')+'.</b> Send it from your own email:<div class="meta" style="white-space:pre-wrap;margin-top:6px">'+esc(d.subject)+'\n\n'+esc(d.body)+'</div><div class="acts"><button data-dg-copy="'+x.id+'">Copy email</button><a class="tool" href="mailto:'+esc(x.email)+'?subject='+encodeURIComponent(d.subject)+'&body='+encodeURIComponent(d.body)+'">Open in Mail</a></div></div>':'';
-    return '<div class="sub-it"><b>'+esc(x.name)+'</b> <span class="tag" style="padding:2px 8px">'+esc(x.role||'Applicant')+'</span>'+(x.company?' · '+esc(x.company):'')
+    return '<div class="sub-it"><b>'+esc(x.name)+'</b> <span class="tag" style="padding:2px 8px;'+(dgPg(x)==='hong-kong'?'background:#FDECEA;color:#B3261E':'background:#EAF2FB;color:#1F4E8C')+'">'+dgPgLabel(x)+'</span> <span class="tag" style="padding:2px 8px">'+esc(x.role||'Applicant')+'</span>'+(x.company?' · '+esc(x.company):'')
       +'<div class="meta">'+[x.package,x.rate,x.email].filter(Boolean).map(esc).join(' · ')+' · '+esc(new Date(x.createdAt).toLocaleDateString())+'</div>'
       +(x.status==='approved'&&x.emailError?'<div class="meta" style="color:var(--red)">Email not sent: '+esc(x.emailError)+'</div>':'')
       +(x.status==='approved'&&x.emailedAt?'<div class="meta">Payment email sent '+esc(new Date(x.emailedAt).toLocaleString())+'</div>':'')
@@ -505,15 +511,16 @@ function renderDeleg(){
 }
 document.addEventListener('click',function(ev){
   var t=ev.target,id;if(!t.dataset)return;
+  if(t.dataset.dgp){dgProg=t.dataset.dgp;[].forEach.call(document.querySelectorAll('#dgProg button'),function(b){b.className=b.dataset.dgp===dgProg?'on':''});renderDeleg();return}
   if(t.dataset.dg){dgTab=t.dataset.dg;[].forEach.call(document.querySelectorAll('#dgTabs button'),function(b){b.className=b.dataset.dg===dgTab?'on':''});renderDeleg()}
-  else if(id=t.dataset.dgAp){var sel=$('dgL'+id);t.disabled=true;dgApi('/'+id+'/approve',{method:'POST',body:{linkKey:sel?sel.value:''}}).then(function(j){if(!j.emailed){dgDraft[id]={subject:j.draft.subject,body:j.draft.body,error:j.error};dgTab='approved';[].forEach.call(document.querySelectorAll('#dgTabs button'),function(b){b.className=b.dataset.dg===dgTab?'on':''})}else{delete dgDraft[id];alert('Approved. Email sent.')}loadDeleg()}).catch(function(e){alert(e.message);t.disabled=false})}
+  else if(id=t.dataset.dgAp){var sel=$('dgL'+id),comp=!!t.dataset.dgHk||(sel&&sel.value==='comp');t.disabled=true;dgApi('/'+id+'/approve',{method:'POST',body:{linkKey:sel&&!comp?sel.value:'',comp:comp}}).then(function(j){if(!j.emailed){dgDraft[id]={subject:j.draft.subject,body:j.draft.body,error:j.error};dgTab='approved';[].forEach.call(document.querySelectorAll('#dgTabs button'),function(b){b.className=b.dataset.dg===dgTab?'on':''})}else{delete dgDraft[id];alert('Approved. Email sent.')}loadDeleg()}).catch(function(e){alert(e.message);t.disabled=false})}
   else if(t.dataset.dgSt){t.disabled=true;dgApi('/'+t.dataset.id,{method:'PUT',body:{status:t.dataset.dgSt}}).then(loadDeleg).catch(function(e){alert(e.message);t.disabled=false})}
   else if(id=t.dataset.dgInv){t.disabled=true;dgApi('/'+id+'/send-invoice',{method:'POST'}).then(function(j){alert(j.ok?'Invoice sent.':'Not sent: '+j.error);loadDeleg()}).catch(function(e){alert(e.message);t.disabled=false})}
   else if(id=t.dataset.dgCopy){var d=dgDraft[id];try{navigator.clipboard.writeText(d.subject+'\n\n'+d.body);t.textContent='Copied'}catch(e){alert('Select and copy the text above.')}}
   else if(id=t.dataset.dgDel){if(t.dataset.sure===id){dgApi('/'+id,{method:'DELETE'}).then(loadDeleg)}else{t.dataset.sure=id;t.textContent='Tap again';setTimeout(function(){t.textContent='Delete';delete t.dataset.sure},3000)}}
   else if(t.id==='dgAdd'){var f=dgParse($('dgPaste').value);if(!f['Email']){$('dgAddMsg').textContent='Could not find an email in that text.';return}t.disabled=true;dgApi('',{method:'POST',body:{fields:f,program:/hong/i.test(f['Form']||'')?'hong-kong':'lisbon-2026'}}).then(function(){$('dgPaste').value='';$('dgAddMsg').textContent='Added.';loadDeleg()}).catch(function(e){$('dgAddMsg').textContent=e.message}).then(function(){t.disabled=false})}
 });
-document.addEventListener('change',function(ev){var t=ev.target,id=t.dataset&&t.dataset.dgLuma;if(id)dgApi('/'+id,{method:'PUT',body:{luma:t.checked}}).catch(function(e){alert(e.message)});id=t.dataset&&t.dataset.dgDb;if(id)dgApi('/'+id,{method:'PUT',body:{dealBookChoice:t.value}}).then(loadDeleg).catch(function(e){alert(e.message)});id=t.dataset&&t.dataset.dgNoc;if(id)dgApi('/'+id,{method:'PUT',body:{noConnect:t.checked}}).then(loadDeleg).catch(function(e){alert(e.message)});id=t.dataset&&t.dataset.dgComp;if(id)dgApi('/'+id,{method:'PUT',body:{comped:t.checked}}).then(loadDeleg).catch(function(e){alert(e.message)})});
+document.addEventListener('change',function(ev){var t=ev.target,id=t.dataset&&t.dataset.dgSel;if(id){var b=$('dgB'+id);if(b&&!b.dataset.dgHk&&/payment link|confirmation/.test(b.textContent))b.textContent=t.value==='comp'?'Approve and email confirmation':'Approve and email payment link'}id=t.dataset&&t.dataset.dgLuma;if(id)dgApi('/'+id,{method:'PUT',body:{luma:t.checked}}).catch(function(e){alert(e.message)});id=t.dataset&&t.dataset.dgDb;if(id)dgApi('/'+id,{method:'PUT',body:{dealBookChoice:t.value}}).then(loadDeleg).catch(function(e){alert(e.message)});id=t.dataset&&t.dataset.dgNoc;if(id)dgApi('/'+id,{method:'PUT',body:{noConnect:t.checked}}).then(loadDeleg).catch(function(e){alert(e.message)});id=t.dataset&&t.dataset.dgComp;if(id)dgApi('/'+id,{method:'PUT',body:{comped:t.checked}}).then(loadDeleg).catch(function(e){alert(e.message)})});
 function dgParseLuma(txt){
   var L=String(txt||'').split(/\r?\n/).map(function(x){return x.trim()}).filter(Boolean),o={},i,emRe=/^[^\s@]+@[^\s@]+\.[^\s@]+$/,name='',ei=-1;
   for(i=0;i<L.length;i++){var m=L[i].match(/^\[([^\]]+)\]\(https?:[^)]*\)$/);if(m&&!name)name=m[1];if(emRe.test(L[i])&&ei<0)ei=i}
