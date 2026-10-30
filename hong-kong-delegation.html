@@ -571,6 +571,7 @@ details.opt{border:1px solid rgba(12,12,12,.15);background:#fff;padding:0 16px;m
 .mate{border:1px solid rgba(12,12,12,.12);padding:14px 14px 2px;margin:0 0 14px;background:#fff}.mate-h{font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--oxblood);margin-bottom:8px}
 .stephead{display:flex;align-items:center;gap:10px;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--oxblood);margin:26px 0 14px;padding-top:18px;border-top:1px solid rgba(12,12,12,.12)}.stephead.first{border-top:0;padding-top:0;margin-top:0}.stephead b{display:inline-flex;width:22px;height:22px;border-radius:50%;background:var(--oxblood);color:#fff;align-items:center;justify-content:center;font-size:11px;letter-spacing:0}
 </style>
+<style>.left-pill{display:flex;width:fit-content;max-width:100%;align-items:center;gap:8px;margin:0 0 44px;padding:9px 14px;border:1px solid rgba(230,199,164,.55);color:#E6C7A4;font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600}.left-pill i{font-style:normal;font-size:17px;color:#fff}.pass-left{font-weight:600;color:var(--oxblood)}</style>
 <style id="hk-mobile">
 @media(max-width:700px){
 .dbpages{display:flex;max-width:none;margin:0 -20px;padding:0 20px 12px;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 20px;-webkit-overflow-scrolling:touch}
@@ -585,7 +586,9 @@ details.opt{border:1px solid rgba(12,12,12,.15);background:#fff;padding:0 16px;m
 .f{margin-bottom:14px}
 .lc-list li{padding:11px 0}
 .day{padding:18px 0}
-.hk-strip .in>div,.hk-strip>div{padding-top:0}
+.hk-strip{padding:18px 0 6px}
+.pricing.quiet,.gallery{padding:40px 0}
+.left-pill{margin-top:14px}
 }
 </style>
 </head>
@@ -609,6 +612,7 @@ details.opt{border:1px solid rgba(12,12,12,.15);background:#fff;padding:0 16px;m
       <div><span>AFF pass</span><b><i class="yk-left" style="font-style:normal">2</i> of 5 free spots left, then from about US$370</b></div>
       <div><span>AFF</span><b>January 26 to 27</b></div>
     </div>
+    <div class="left-pill" style="margin-bottom:22px"><i class="yk-left">2</i> of 5 complimentary passes left</div>
     <div class="btns">
       <a href="#apply" class="btn btn-gold">Register interest</a>
       <a href="#week" class="btn btn-line">See the trip</a>
@@ -752,7 +756,7 @@ details.opt{border:1px solid rgba(12,12,12,.15);background:#fff;padding:0 16px;m
         <div class="f"><label for="goals" id="goalsLabel">Who do you want to meet in Hong Kong?</label><p class="hint" id="goalsHint">Tell us who and what you're hoping to find at AFF.</p><textarea id="goals"></textarea></div>
         <div class="f"><label for="referral">How did you hear about this?</label><input type="text" id="referral" placeholder="Optional"/></div>
         <div class="f" id="passGroup"><span class="lab">Which AFF pass would you like?</span>
-          <p class="hint">The first 5 delegates receive a complimentary pass. After that, delegates register at the discounted delegate rate. Choose the pass you want and we'll follow up with instructions to redeem your code. Please give us some time.</p>
+          <p class="hint"><b class="pass-left"><i class="yk-left" style="font-style:normal">2</i> of 5 complimentary passes left.</b> The first 5 delegates receive a complimentary pass. After that, delegates register at the discounted delegate rate. Choose the pass you want and we'll follow up with instructions to redeem your code. Please give us some time.</p>
           <div class="pkg" id="passBox">
             <label><input type="radio" name="pass" value="Full Pass"/><b>Full Pass</b><span>About US$500 (HKD 3,900). Includes the keynote luncheons on both days.</span></label>
             <label><input type="radio" name="pass" value="Standard Pass"/><b>Standard Pass</b><span>About US$370 (HKD 2,820). No meals.</span></label>
