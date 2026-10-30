@@ -734,6 +734,13 @@ details.opt{border:1px solid rgba(12,12,12,.15);background:#fff;padding:0 16px;m
 
         <div class="f"><label for="goals" id="goalsLabel">Who do you want to meet in Hong Kong?</label><p class="hint" id="goalsHint">Tell us who and what you're hoping to find at AFF.</p><textarea id="goals"></textarea></div>
         <div class="f"><label for="referral">How did you hear about this?</label><input type="text" id="referral" placeholder="Optional"/></div>
+        <div class="f" id="passGroup"><span class="lab">Which AFF pass would you like?</span>
+          <p class="hint">The first 5 delegates receive a complimentary pass. After that, delegates register at the discounted delegate rate. Choose the pass you want and we'll follow up with instructions to redeem your code. Please give us some time.</p>
+          <div class="pkg" id="passBox">
+            <label><input type="radio" name="pass" value="Full Pass"/><b>Full Pass</b><span>About US$500 (HKD 3,900). Includes the keynote luncheons on both days.</span></label>
+            <label><input type="radio" name="pass" value="Standard Pass"/><b>Standard Pass</b><span>About US$370 (HKD 2,820). No meals.</span></label>
+          </div>
+        </div>
         <div class="stephead"><b>2</b>Add-ons, booth and teammates (all optional)</div>
         <div class="f" id="extraGroup"><span class="lab">Optional extras</span>
           <p class="hint">Want to do more with the week? Pick one here and you can pay right after you register.</p>
@@ -816,7 +823,7 @@ details.opt{border:1px solid rgba(12,12,12,.15);background:#fff;padding:0 16px;m
         </div>
         </div>
 
-        <label class="agree"><input type="checkbox" id="ackFollow"/><span>I understand Yorkseed will send follow-up information when the detailed application form is released.</span></label>
+        <label class="agree"><input type="checkbox" id="ackFollow"/><span>I understand the first 5 delegates receive a complimentary AFF pass and after that the AFF pass is a discounted paid ticket. Yorkseed will follow up with instructions to redeem my code, and this may take some time.</span></label>
         <label class="agree"><input type="checkbox" id="ackTravel"/><span>I understand flights, ground transport and hotel are not included.</span></label>
         <label class="agree"><input type="checkbox" id="agree"/><span>My company isn't in cannabis or casino gambling, and Yorkseed can keep my details and contact me with delegation updates and the detailed information.</span></label>
 
@@ -824,7 +831,7 @@ details.opt{border:1px solid rgba(12,12,12,.15);background:#fff;padding:0 16px;m
       </form>
       <div class="done" id="done">
         <h3>See you in <em>Hong Kong</em>.</h3>
-        <p id="doneText">Thank you, we've received your interest. We'll be in touch with next steps, including your AFF registration link once it's available.</p>
+        <p id="doneText">Thank you, we've received your interest. We'll follow up with instructions to redeem your code. Please give us some time.</p>
         <div id="payBlock" hidden>
           <p class="small">Optional: you can pay for your add-ons now. We'll also email you the link, so there's no rush.</p>
           <div class="paynow" id="payBtns"></div>
@@ -1101,6 +1108,8 @@ function ykSave(program,d){try{var f={};Object.keys(d).forEach(function(k){if(['
   function role(){return form.querySelector('[name=role]:checked').value;}
   function founder(){return role()==='Founder';}
   function extra(){return form.querySelector('[name=extra]:checked').value;}
+  function pass(){var c=form.querySelector('[name=pass]:checked');return c?c.value:'';}
+  var PASSPRICE={'Full Pass':'About US$500 (HKD 3,900)','Standard Pass':'About US$370 (HKD 2,820)'};
   function mark(el,msg){el.classList.add('err');var m=el.parentNode.querySelector('.errmsg');if(!m){m=document.createElement('p');m.className='errmsg';el.parentNode.appendChild(m);}m.textContent=msg;}
   function clearAll(){form.querySelectorAll('.err').forEach(function(e){e.classList.remove('err');});form.querySelectorAll('.errmsg').forEach(function(e){e.remove();});}
 
@@ -1154,6 +1163,7 @@ function ykSave(program,d){try{var f={};Object.keys(d).forEach(function(k){if(['
     if(v('email')&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v('email'))){mark($('email'),'That email doesn\'t look right.');ok=false;}
     ['linkedin','website'].forEach(function(id){var x=v(id);if(x&&SHORT.test(x)){mark($(id),'Please use the full link.');ok=false;}});
     
+    if(!pass()){mark($('passBox'),'Please choose a pass.');ok=false;}
     if(!YKMates.check('m',YKMates.data('m','mates'),mark))ok=false;
     if(extra()!=='None'&&!v('website')){mark($('website'),'Please add your website.');ok=false;}
     if(dealbookYes()){
@@ -1187,7 +1197,7 @@ function ykSave(program,d){try{var f={};Object.keys(d).forEach(function(k){if(['
       ['Company',v('company')],['Website',v('website')],
       ['One-liner',f?v('oneLiner'):''],['Stage',f?v('stage'):''],['Investment focus / organization',f?'':v('focus')],
       ['Booth interest',boothVal()],['Booth product categories',boothVal()==='Delegate only'?'':Array.prototype.map.call(form.querySelectorAll('[name=cat]:checked'),function(c){return c.value;}).join(', ')],['Booth package',boothVal()==='Own booth'?((form.querySelector('[name=pkg]:checked')||{}).value||''):''],['Shared booth note',boothVal()==='Shared booth'?'$799 per person, charged only if 7 delegates commit':''],['Optional extra',ex==='None'?'None':ex+(ex==='Editorial Feature'?' ($295)':(ex==='Full Bundle'?' ($899)':' ($449)'))],['Extra teammate Deal Book pages ($99 each)',$('mates').value],['Teammate details',YKMates.text(YKMates.data('m','mates'))],['Acknowledged flights and hotel not included','Yes'],['Agreed to follow-up when detailed application is released','Yes'],
-      ['Who they want to meet',v('goals')],['Heard via',v('referral')],
+      ['Who they want to meet',v('goals')],['Heard via',v('referral')],['AFF pass wanted',pass()],['AFF pass price',PASSPRICE[pass()]||''],
       ['Deal Book profile',((form.querySelector('[name=dealbook]:checked')||{}).value||'Not answered')],['Deal Book tagline',dealbookYes()?v('dbTagline'):''],['Deal Book about',dealbookYes()?v('dbAbout'):''],['Deal Book keywords',dealbookYes()?[v('dbTag1'),v('dbTag2'),v('dbTag3')].join(' | '):''],['Deal Book QR link',dealbookYes()?(v('dbQR')||v('website')):''],
       ['OK to feature in press and social',((form.querySelector('[name=feature]:checked')||{}).value||'Not answered')],['Headshot link',mediaNeeded()?v('headshot'):''],['Logo link',mediaNeeded()?v('logo'):'']
     ];
@@ -1197,7 +1207,7 @@ function ykSave(program,d){try{var f={};Object.keys(d).forEach(function(k){if(['
       .then(function(r){return r.json();})
       .then(function(res){
         if(!res.success)throw new Error();
-        $('doneText').textContent='Thank you, we\'ve received your interest. We\'ll be in touch with next steps, including your AFF registration link once it\'s available.';
+        $('doneText').textContent='Thank you, we\'ve received your interest and your '+pass()+' choice ('+(PASSPRICE[pass()]||'').replace(/^About/,'about')+'). We\'ll follow up with instructions to redeem your code. Please give us some time.';
         var LINK={'Editorial Feature':'https://buy.stripe.com/28E4gs9EHb8O43K4Atbo40T','Editorial + Coworking':'https://buy.stripe.com/14AbIU047el0as88QJbo40U'},pb=[],em='?prefilled_email='+encodeURIComponent(v('email'));
         if(LINK[ex])pb.push([LINK[ex]+em,'Pay now: '+ex+(ex==='Editorial Feature'?' $295':' $449'),0]);
         if(ex==='Full Bundle')pb.push(['mailto:info@yorkseed.co?subject=Full%20Bundle%20'+encodeURIComponent(v('company')),'Email us to reserve your Full Bundle, $899',1]);
