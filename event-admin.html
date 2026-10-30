@@ -444,7 +444,7 @@ function loadDeleg(){
     .catch(function(e){$('dgList').innerHTML='<div class="hint">'+esc(e.message)+'</div>'});
 }
 function dgConnect(x){
-  var c=x.connect||{},h='<div class="meta" style="margin-top:6px">Deal Book: <span style="font-weight:600">'+esc(x.dealBook||'Not answered')+'</span></div>';
+  var c=x.connect||{},h='<div class="meta" style="margin-top:6px;display:flex;gap:8px;align-items:center">Deal Book: <select data-dg-db="'+x.id+'" style="width:auto;min-height:36px;padding:4px 8px;font-size:14px"><option value=""'+(/^(yes|no|inc)/i.test(x.dealBook||'')?'':' selected')+'>Not answered</option><option value="Yes"'+(/^yes/i.test(x.dealBook||'')?' selected':'')+'>Yes</option><option value="Included"'+(/^inc/i.test(x.dealBook||'')?' selected':'')+'>Included by us (can opt out)</option><option value="No"'+(/^no/i.test(x.dealBook||'')?' selected':'')+'>No</option></select></div>';
   h+='<label class="meta" style="display:flex;gap:6px;align-items:center;margin-top:4px"><input type="checkbox" style="width:auto" data-dg-noc="'+x.id+'"'+(x.noConnect?' checked':'')+'> No Connect offer (existing member, or not the lead investor)</label>';
   if(x.noConnect||x.status==='pending')return h;
   var m=c.months||6,t;
@@ -511,7 +511,7 @@ document.addEventListener('click',function(ev){
   else if(id=t.dataset.dgDel){if(t.dataset.sure===id){dgApi('/'+id,{method:'DELETE'}).then(loadDeleg)}else{t.dataset.sure=id;t.textContent='Tap again';setTimeout(function(){t.textContent='Delete';delete t.dataset.sure},3000)}}
   else if(t.id==='dgAdd'){var f=dgParse($('dgPaste').value);if(!f['Email']){$('dgAddMsg').textContent='Could not find an email in that text.';return}t.disabled=true;dgApi('',{method:'POST',body:{fields:f,program:/hong/i.test(f['Form']||'')?'hong-kong':'lisbon-2026'}}).then(function(){$('dgPaste').value='';$('dgAddMsg').textContent='Added.';loadDeleg()}).catch(function(e){$('dgAddMsg').textContent=e.message}).then(function(){t.disabled=false})}
 });
-document.addEventListener('change',function(ev){var t=ev.target,id=t.dataset&&t.dataset.dgLuma;if(id)dgApi('/'+id,{method:'PUT',body:{luma:t.checked}}).catch(function(e){alert(e.message)});id=t.dataset&&t.dataset.dgNoc;if(id)dgApi('/'+id,{method:'PUT',body:{noConnect:t.checked}}).then(loadDeleg).catch(function(e){alert(e.message)});id=t.dataset&&t.dataset.dgComp;if(id)dgApi('/'+id,{method:'PUT',body:{comped:t.checked}}).then(loadDeleg).catch(function(e){alert(e.message)})});
+document.addEventListener('change',function(ev){var t=ev.target,id=t.dataset&&t.dataset.dgLuma;if(id)dgApi('/'+id,{method:'PUT',body:{luma:t.checked}}).catch(function(e){alert(e.message)});id=t.dataset&&t.dataset.dgDb;if(id)dgApi('/'+id,{method:'PUT',body:{dealBookChoice:t.value}}).then(loadDeleg).catch(function(e){alert(e.message)});id=t.dataset&&t.dataset.dgNoc;if(id)dgApi('/'+id,{method:'PUT',body:{noConnect:t.checked}}).then(loadDeleg).catch(function(e){alert(e.message)});id=t.dataset&&t.dataset.dgComp;if(id)dgApi('/'+id,{method:'PUT',body:{comped:t.checked}}).then(loadDeleg).catch(function(e){alert(e.message)})});
 function dgParseLuma(txt){
   var L=String(txt||'').split(/\r?\n/).map(function(x){return x.trim()}).filter(Boolean),o={},i,emRe=/^[^\s@]+@[^\s@]+\.[^\s@]+$/,name='',ei=-1;
   for(i=0;i<L.length;i++){var m=L[i].match(/^\[([^\]]+)\]\(https?:[^)]*\)$/);if(m&&!name)name=m[1];if(emRe.test(L[i])&&ei<0)ei=i}
