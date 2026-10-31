@@ -53,4 +53,46 @@
   }
   define('yk-header', HEADER_HTML, wireMenu);
   define('yk-footer', FOOTER_HTML);
+
+  /* Fade the Yorkseed Concierge (Noupe) chat bubble while the footer is on screen,
+     so it stops covering footer links/text on mobile. No-op if the widget or footer
+     can't be found, so this never breaks anything if either changes. */
+  (function fadeConciergeNearFooter(){
+    function footerEl(){
+      var hosts = document.querySelectorAll('yk-footer');
+      for (var i = 0; i < hosts.length; i++){
+        var sr = hosts[i].shadowRoot;
+        var f = sr && sr.querySelector('footer.foot');
+        if (f) return f;
+      }
+      return null;
+    }
+    function widgetRoot(){
+      var w = document.querySelector('[id*="noupe" i], [class*="noupe" i], iframe[src*="noupe" i], iframe[title*="concierge" i], iframe[title*="noupe" i]');
+      if (!w) return null;
+      var el = w;
+      while (el && el !== document.body){
+        if (window.getComputedStyle(el).position === 'fixed') return el;
+        el = el.parentElement;
+      }
+      return w;
+    }
+    var tries = 0, timer = setInterval(function(){
+      tries++;
+      var w = widgetRoot(), f = footerEl();
+      if (w && f){
+        clearInterval(timer);
+        var io = new IntersectionObserver(function(entries){
+          entries.forEach(function(entry){
+            w.style.transition = 'opacity .2s ease';
+            w.style.opacity = entry.isIntersecting ? '0' : '1';
+            w.style.pointerEvents = entry.isIntersecting ? 'none' : '';
+          });
+        }, {threshold: 0.01});
+        io.observe(f);
+      } else if (tries > 40){
+        clearInterval(timer); /* widget never appeared (blocked, not on this page, etc.) */
+      }
+    }, 500);
+  })();
 })();
