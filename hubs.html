@@ -158,7 +158,10 @@ h1,h2,h3{font-weight:400;text-wrap:balance}
 .filters{display:flex;flex-wrap:wrap;gap:8px}
 @media(max-width:900px){
   .dir-bar{position:sticky;top:calc(72px + env(safe-area-inset-top,0px));z-index:15;flex-direction:column;align-items:stretch;gap:10px;margin:0 calc(-1*var(--gutter));padding:10px var(--gutter) 10px;background:rgba(255,255,255,.97);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);box-shadow:0 8px 16px -12px rgba(11,11,12,.18)}
-  .dir-bar .search{flex:none;height:48px;min-width:0}
+  .dir-bar .search{flex:none;height:42px;min-width:0}
+  .f{padding:7px 12px;font-size:12.5px}
+  .hub{padding:8px 6px 8px 0}
+  .hub-city{font-size:14.5px}
   .filters{flex-wrap:nowrap;flex:none;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin:0 calc(-1*var(--gutter));padding-inline:var(--gutter)}
   .filters::-webkit-scrollbar{display:none}
   .f{flex:none;white-space:nowrap}
@@ -240,14 +243,35 @@ h1,h2,h3{font-weight:400;text-wrap:balance}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 /* Mobile: keep headings consistent and modest so they don't eat the screen */
 @media(max-width:600px){
-  .hero h1{font-size:2rem;max-width:none}
-  .h2{font-size:1.75rem}
-  .lead h2{font-size:1.75rem}
-  .lede,.hero .sub{font-size:1rem}
-  .stats b{font-size:1.75rem}
-  .region-head h3{font-size:1.25rem}
-  .global h3{font-size:1.25rem}
-  .step .n{font-size:2.25rem}
+  .hero h1{font-size:1.75rem;max-width:none}
+  .h2{font-size:1.5rem}
+  .lead h2{font-size:1.5rem}
+  .lede,.hero .sub{font-size:.95rem;line-height:1.5}
+  .stats b{font-size:1.4rem}
+  .region-head h3{font-size:1.1rem}
+  .global h3{font-size:1.1rem}
+  .step .n{font-size:1.75rem}
+  .hero{padding-block:28px 24px}
+  .hero .wrap{gap:16px}
+  .eyebrow{font-size:10.5px}
+  .hero-actions{gap:8px}
+  .btn{height:42px;padding-inline:18px;font-size:13.5px;border-radius:10px}
+  .stats{padding-top:16px;margin-top:0;gap:14px}
+  .stats div{gap:2px}
+  .stats span{font-size:10px}
+  .head{gap:8px;margin-bottom:18px}
+  .label{font-size:10.5px}
+  :root{--sec:32px}
+  .region{padding-block:16px}
+  .region-head{gap:3px}
+  .conf{padding:12px 32px 12px 12px}
+  .lead{padding:22px}
+  .lead p{margin-top:10px}
+  .lead .acts{margin-top:18px}
+  .dir{padding:10px 12px}
+  .global{padding:16px 18px;margin-top:20px}
+  .global p{margin-top:4px}
+  .trust{margin-top:22px;padding-top:16px}
 }
 </style>
 <script src="/assets/ys-ref.js" defer></script>
