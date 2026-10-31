@@ -156,6 +156,13 @@ h1,h2,h3{font-weight:400;text-wrap:balance}
 .search svg{color:var(--ink-3);flex:none}
 .search input{border:0;outline:0;font:400 15px var(--sans);width:100%;background:none;color:var(--ink)}
 .filters{display:flex;flex-wrap:wrap;gap:8px}
+@media(max-width:900px){
+  .dir-bar{position:sticky;top:calc(72px + env(safe-area-inset-top,0px));z-index:15;flex-direction:column;align-items:stretch;gap:10px;margin:0 calc(-1*var(--gutter));padding:10px var(--gutter) 10px;background:rgba(255,255,255,.97);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);box-shadow:0 8px 16px -12px rgba(11,11,12,.18)}
+  .dir-bar .search{flex:none;height:48px;min-width:0}
+  .filters{flex-wrap:nowrap;flex:none;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin:0 calc(-1*var(--gutter));padding-inline:var(--gutter)}
+  .filters::-webkit-scrollbar{display:none}
+  .f{flex:none;white-space:nowrap}
+}
 .f{font:500 13px var(--sans);border:1px solid var(--line);background:var(--paper);color:var(--ink-2);padding:8px 14px;border-radius:999px;cursor:pointer;display:inline-flex;gap:6px;align-items:center}
 .f span{color:var(--ink-3);font-variant-numeric:tabular-nums}
 .f[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
@@ -231,6 +238,17 @@ h1,h2,h3{font-weight:400;text-wrap:balance}
 .dir.open .av{background:none;border:1px dashed rgba(255,255,255,.35);color:var(--hac)}
 .dir.open a{color:var(--hac);font-size:13px}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+/* Mobile: keep headings consistent and modest so they don't eat the screen */
+@media(max-width:600px){
+  .hero h1{font-size:2rem;max-width:none}
+  .h2{font-size:1.75rem}
+  .lead h2{font-size:1.75rem}
+  .lede,.hero .sub{font-size:1rem}
+  .stats b{font-size:1.75rem}
+  .region-head h3{font-size:1.25rem}
+  .global h3{font-size:1.25rem}
+  .step .n{font-size:2.25rem}
+}
 </style>
 <script src="/assets/ys-ref.js" defer></script>
 </head>
