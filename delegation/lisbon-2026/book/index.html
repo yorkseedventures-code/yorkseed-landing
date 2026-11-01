@@ -189,6 +189,7 @@ a{color:inherit}
   var TITLES=["Cover", "Contents", "Welcome", "Letter from the Founder", "The Delegation", "Delegate Directory", "Lisbon", "Feature: Why Lisbon, Why Now", "The Lisbon Edit", "Itinerary", "How to Connect", "Punch Capital", "EdgeCraft", "R&D Capital", "Calendula Ventures", "ONONO", "The Yorkseed List", "The Yorkseed Ecosystem", "Thank You"], LINKS=[{"page": 12, "name": "Shane Sabine", "url": "/delegation/lisbon-2026/shane-sabine/"}, {"page": 13, "name": "Munjal Subodh", "url": "/delegation/lisbon-2026/munjal-subodh/"}, {"page": 13, "name": "N\u00f3ra Jurics-Feh\u00e9r", "url": "/delegation/lisbon-2026/nora-jurics-feher/"}, {"page": 14, "name": "Mohammed Al Rasbi", "url": "/delegation/lisbon-2026/mohammed-al-rasbi/"}, {"page": 15, "name": "Polina Alexandrova", "url": "/delegation/lisbon-2026/polina-alexandrova/"}, {"page": 16, "name": "Marko G\u00f6ls", "url": "/delegation/lisbon-2026/marko-goels/"}], OPEN=new Date("2026-11-01T00:00:00Z"), CLOSE=new Date("2026-11-21T23:59:59Z"), total=TITLES.length;
   function ev(name,p){try{gtag('event',name,p||{})}catch(e){}}
   function pad(n){return (n<10?'0':'')+n}
+  var dlPage=null;try{var qp=new URLSearchParams(location.search).get('page');if(qp){dlPage=Math.max(0,Math.min(total-1,parseInt(qp,10)-1))}}catch(e){}
   document.querySelectorAll('a[data-delegate]').forEach(function(a){a.addEventListener('click',function(){ev('deal_book_request_click',{delegate:a.dataset.delegate})})});
   var pdf=document.getElementById('bk-pdf'), now=new Date();
   if(now>=OPEN&&now<=CLOSE){fetch(pdf.getAttribute('href'),{method:'HEAD'}).then(function(r){if(r.ok)pdf.hidden=false}).catch(function(){})}
@@ -260,6 +261,7 @@ a{color:inherit}
   document.querySelectorAll('.list .pg').forEach(function(pg){pg.addEventListener('click',function(e){if(e.target.closest('.hs'))return;openZoom(+pg.dataset.i,1.8)})});
   document.getElementById('bk-zoom').addEventListener('click',function(){openZoom(window._flipIndex?window._flipIndex():0)});
   document.querySelectorAll('#book .hs, .list .hs').forEach(function(a){a.addEventListener('click',function(){ev('deal_book_link_click',{href:a.getAttribute('href')})})});
+  if(dlPage!=null)openZoom(dlPage);
   if(window.matchMedia('(max-width:820px)').matches||!window.St)return;
   var el=document.getElementById('book');
   var H=Math.max(440,Math.min(900,window.innerHeight-235)),W=Math.round(H*794/1123);
