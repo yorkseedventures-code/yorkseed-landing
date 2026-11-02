@@ -86740,5 +86740,18 @@
   "desc": "Details and registration on the event page.",
   "type": "Conferences",
   "src": "manual"
+ },
+ {
+  "title": "Amsterdam Startup Meetup – November 2026",
+  "hub": "ams",
+  "date": "2026-11-05",
+  "start": null,
+  "end": null,
+  "venue": "Amsterdam City Centre",
+  "host": "Startup Network Europe",
+  "link": "https://www.eventbrite.ie/e/the-amsterdam-startup-meetup-november-2026-tickets-1995668896391",
+  "desc": "Details and registration on the event page.",
+  "type": "Meetups",
+  "src": "manual"
  }
 ]
