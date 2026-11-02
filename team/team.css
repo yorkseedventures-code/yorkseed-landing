@@ -7,7 +7,7 @@ a { color: inherit; }
 .wrap.dir { max-width: 560px; text-align: left; }
 
 .brand { display: inline-flex; align-items: center; text-decoration: none; margin-bottom: 14px; }
-.brand img { height: 34px; display: block; }
+.brand img { height: 46px; display: block; }
 .tagline { color: var(--muted); font-size: 14px; line-height: 1.5; max-width: 360px; margin: 0 auto 32px; }
 
 /* profile page */
