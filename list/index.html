@@ -1811,7 +1811,20 @@ const UNTIL={"https://luma.com/a2jp6jc9":"2026-11-13"};
 EVENTS.forEach(e=>{if(e.link&&DESC[e.link])e.desc=DESC[e.link];});
 EVENTS.forEach(decorate);
 const NOW=Date.now();
-const upcoming=()=>EVENTS.filter(e=>e.utcEnd>=NOW-36e5);
+/* the same event often arrives from several sources (curated list, Luma, Eventbrite, a partner site): show it once */
+let UP_KEY="",UP_VAL=[];
+function dedupeEvents(list){const nk=t=>String(t||"").toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]/g,"");
+  const score=e=>(e.place?4:0)+(e.host?2:0)+(/luma\.com|lu\.ma|eventbrite/.test(e.link||"")?1:0)+(e.start?1:0)+(e.cover||e.img&&!/^ev\d/.test(e.img)?1:0);
+  const mn=t=>{const p=String(t).split(":");return (+p[0])*60+(+p[1]||0);};
+  const by={};const out=[];
+  list.forEach(e=>{const k=e.hub+"|"+e.date,n=nk(e.title),arr=by[k]||(by[k]=[]);
+    const m=arr.find(x=>(x.n===n||(Math.min(x.n.length,n.length)>=18&&(x.n.startsWith(n)||n.startsWith(x.n))))&&(!x.e.start||!e.start||Math.abs(mn(x.e.start)-mn(e.start))<=90));
+    if(!m){arr.push({n,e});out.push(e);return;}
+    const a=m.e,b=e,win=score(b)>score(a)?b:a,lose=win===a?b:a;
+    ["host","venue","cover","desc","start","end"].forEach(f=>{if(!win[f]&&lose[f])win[f]=lose[f];});
+    if(win!==a){out[out.indexOf(a)]=win;m.e=win;}});
+  return out;}
+const upcoming=()=>{const k=EVENTS.length+"|"+(EVENTS[EVENTS.length-1]||{}).id;if(k!==UP_KEY){UP_KEY=k;UP_VAL=dedupeEvents(EVENTS.filter(e=>e.utcEnd>=NOW-36e5));}return UP_VAL;};
 const RANK={week:0,spotlight:1,featured:2};
 
 const st={mode:"list",month:"",day:null,ignoreDate:false,limit:40,sig:"",allWeeks:false,view:"home",hub:"all",type:"all",topic:null,q:"",date:"any",week:null,sort:"date",evId:null,prev:"home"};
