@@ -130,7 +130,7 @@ body{overflow-wrap:anywhere}
 
 <div class="card" id="delegation" data-sec="delegation">
   <h2>Delegation applications <span id="dgCount"></span></h2>
-  <div class="tabs" id="dgTabs"><button data-dg="pending" class="on">Pending</button><button data-dg="approved">Approved</button><button data-dg="paid">Paid</button><button data-dg="declined">Declined</button><button data-dg="roster">Delegates</button><button data-dg="invoices">Invoices</button></div>
+  <div class="tabs" id="dgTabs"><button data-dg="pending" class="on">Pending</button><button data-dg="approved">Conditional (unpaid)</button><button data-dg="paid">Confirmed</button><button data-dg="declined">Declined</button><button data-dg="roster">Delegates</button><button data-dg="invoices">Invoices</button></div>
   <div style="margin-top:10px;font:600 11px system-ui;letter-spacing:.08em;text-transform:uppercase;color:#6b6860">Show delegation</div><div class="tabs" id="dgProg" style="margin-top:6px"><button data-dgp="all" class="on">All events</button><button data-dgp="lisbon-2026">Lisbon 2026</button><button data-dgp="hong-kong">Hong Kong 2027</button></div>
   <div id="dgList"><div class="hint">Loading...</div></div>
   <details style="margin-top:14px"><summary style="cursor:pointer;font-weight:600">Add an application by hand</summary>
@@ -461,6 +461,7 @@ function dgKind(x){return x.status==='paid'?'Paid':(x.comped||/investor/i.test(x
 var dgProg='all';
 function dgPg(x){return /hong/i.test(x.program||'')?'hong-kong':'lisbon-2026'}
 function dgPgLabel(x){return dgPg(x)==='hong-kong'?'Hong Kong 2027':'Lisbon 2026'}
+function dgTabOf(x){return x.status==='approved'&&(x.comped||/investor/i.test(x.role||''))?'paid':x.status}
 function dgInProg(x){return dgProg==='all'||dgPg(x)===dgProg}
 function dgRoster(){return dgs.filter(function(x){return (x.status==='approved'||x.status==='paid')&&dgInProg(x)})}
 function renderRoster(){
@@ -486,8 +487,8 @@ function dgCsv(){
   var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([out.join('\n')],{type:'text/csv'}));a.download='delegates.csv';a.click();
 }
 function dgCounts2(){
-  var st={pending:'Pending',approved:'Approved',paid:'Paid',declined:'Declined'};
-  [].forEach.call(document.querySelectorAll('#dgTabs button'),function(b){var k=b.dataset.dg;if(!st[k])return;var n=dgs.filter(function(x){return x.status===k&&dgInProg(x)}).length;b.textContent=st[k]+(n?' '+n:'')});
+  var st={pending:'Pending',approved:'Conditional (unpaid)',paid:'Confirmed',declined:'Declined'};
+  [].forEach.call(document.querySelectorAll('#dgTabs button'),function(b){var k=b.dataset.dg;if(!st[k])return;var n=dgs.filter(function(x){return dgTabOf(x)===k&&dgInProg(x)}).length;b.textContent=st[k]+(n?' '+n:'')});
   var pl={all:'All events','lisbon-2026':'Lisbon 2026','hong-kong':'Hong Kong 2027'};
   [].forEach.call(document.querySelectorAll('#dgProg button'),function(b){var k=b.dataset.dgp,n=dgs.filter(function(x){return x.status!=='declined'&&(k==='all'||dgPg(x)===k)}).length;b.textContent=pl[k]+' ('+n+')'});
 }
@@ -495,7 +496,7 @@ function renderDeleg(){
   try{dgCounts2()}catch(e){}
   if(dgTab==='invoices'){renderInv();return}
   if(dgTab==='roster'){renderRoster();return}
-  var rows=dgs.filter(function(x){return x.status===dgTab&&dgInProg(x)});
+  var rows=dgs.filter(function(x){return dgTabOf(x)===dgTab&&dgInProg(x)});
   $('dgList').innerHTML=rows.length?rows.map(function(x){
     var f=x.fields||{},det=Object.keys(f).map(function(k){return '<div class="meta"><b>'+esc(k)+':</b> '+esc(f[k])+'</div>'}).join('');
     var opts=Object.keys(dgLinks).filter(function(k){return !x.role||dgLinks[k].role===(/partner/i.test(x.role)?'Partner':'Founder')}).map(function(k){return '<option value="'+k+'"'+(k===dgGuess(x)?' selected':'')+'>'+esc(dgLinks[k].label)+'</option>'}).join('')+'<option value="comp"'+(x.comped?' selected':'')+'>Complimentary (no payment)</option>';
@@ -507,14 +508,14 @@ function renderDeleg(){
     else acts='<button data-dg-st="pending" data-id="'+x.id+'">Back to pending</button>';
     acts+='<button data-dg-del="'+x.id+'">Delete</button>';
     var d=dgDraft[x.id],draft=d?'<div class="note" style="margin-top:10px;background:#fff8e1;border:1px solid #f0d98a;padding:10px"><b>Email could not be sent'+(d.error?' ('+esc(d.error)+')':'')+'.</b> Send it from your own email:<div class="meta" style="white-space:pre-wrap;margin-top:6px">'+esc(d.subject)+'\n\n'+esc(d.body)+'</div><div class="acts"><button data-dg-copy="'+x.id+'">Copy email</button><a class="tool" href="mailto:'+esc(x.email)+'?subject='+encodeURIComponent(d.subject)+'&body='+encodeURIComponent(d.body)+'">Open in Mail</a></div></div>':'';
-    return '<div class="sub-it"><b>'+esc(x.name)+'</b> <span class="tag" style="padding:2px 8px;'+(dgPg(x)==='hong-kong'?'background:#FDECEA;color:#B3261E':'background:#EAF2FB;color:#1F4E8C')+'">'+dgPgLabel(x)+'</span> <span class="tag" style="padding:2px 8px">'+esc(x.role||'Applicant')+'</span>'+(x.company?' · '+esc(x.company):'')
+    return '<div class="sub-it"><b>'+esc(x.name)+'</b> <span class="tag" style="padding:2px 8px;'+(dgPg(x)==='hong-kong'?'background:#FDECEA;color:#B3261E':'background:#EAF2FB;color:#1F4E8C')+'">'+dgPgLabel(x)+'</span> <span class="tag" style="padding:2px 8px">'+esc(x.role||'Applicant')+'</span>'+(x.status==='approved'&&(x.comped||/investor/i.test(x.role||''))?' <span class="tag" style="padding:2px 8px;background:#E7F3EC;color:#1F6B3A">Confirmed, no payment</span>':x.status==='approved'?' <span class="tag" style="padding:2px 8px;background:#FFF4DB;color:#8A5A00">Awaiting payment</span>':x.status==='paid'?' <span class="tag" style="padding:2px 8px;background:#E7F3EC;color:#1F6B3A">Paid</span>':'')+(x.company?' · '+esc(x.company):'')
       +'<div class="meta">'+[x.package,x.rate,x.email].filter(Boolean).map(esc).join(' · ')+' · '+esc(new Date(x.createdAt).toLocaleDateString())+'</div>'
       +(x.status==='approved'&&x.emailError?'<div class="meta" style="color:var(--red)">Email not sent: '+esc(x.emailError)+'</div>':'')
       +(x.status==='approved'&&x.emailedAt?'<div class="meta">Payment email sent '+esc(new Date(x.emailedAt).toLocaleString())+'</div>':'')+(x.status==='approved'&&x.remindedAt?'<div class="meta">Reminder sent '+esc(new Date(x.remindedAt).toLocaleString())+(x.reminders>1?' ('+x.reminders+' so far)':'')+'</div>':'')
       +(x.invoice?'<div class="meta">Invoice '+esc(x.invoice.number)+(x.invoice.emailedAt?' emailed '+esc(new Date(x.invoice.emailedAt).toLocaleString()):x.invoice.emailError?' · not emailed: '+esc(x.invoice.emailError):'')+'</div>':'')+((x.status==='approved'||x.status==='paid')?'<label class="meta" style="display:flex;gap:6px;align-items:center;margin-top:6px"><input type="checkbox" style="width:auto" data-dg-luma="'+x.id+'"'+(x.luma?' checked':'')+'> Added to the Luma guest list</label>':'')+((x.status==='approved'||x.status==='paid')?'<label class="meta" style="display:flex;gap:6px;align-items:center;margin-top:6px"><input type="checkbox" style="width:auto" data-dg-comp="'+x.id+'"'+(x.comped?' checked':'')+'> Comped (free place)</label>':'')+((x.status==='pending'||x.status==='approved'||x.status==='paid')?dgConnect(x):'')
       +'<details style="margin-top:8px"><summary style="cursor:pointer;font-size:13px">All answers</summary>'+det+'</details>'+draft
       +'<div class="acts">'+acts+'</div></div>';
-  }).join(''):'<div class="hint">No '+dgTab+' applications'+(dgProg==='all'?'':' for '+(dgProg==='hong-kong'?'Hong Kong 2027':'Lisbon 2026'))+'.</div>';
+  }).join(''):'<div class="hint">No '+({pending:'pending',approved:'conditional (unpaid)',paid:'confirmed',declined:'declined'}[dgTab]||dgTab)+' applications'+(dgProg==='all'?'':' for '+(dgProg==='hong-kong'?'Hong Kong 2027':'Lisbon 2026'))+'.</div>';
 }
 document.addEventListener('click',function(ev){
   var t=ev.target,id;if(!t.dataset)return;
@@ -588,7 +589,7 @@ function renderToday(){
   add(pend.length,'Approve delegation applications',tdNames(pend),'delegation','pending');
   add(fail.length,'Payment email did not send',tdNames(fail)+' · copy the draft and send it','delegation','approved');
   add(conn.length,'Paid, Connect not switched on',tdNames(conn)+' · give the free months','delegation','paid');
-  add(unpaid.length,'Approved, not paid yet',unpaid.slice(0,3).map(function(x){var d=days(x);return esc(x.name)+(d!=null?' ('+d+'d)':'')}).join(', '),'delegation','approved');
+  add(unpaid.length,'Conditionally approved, awaiting payment',unpaid.slice(0,3).map(function(x){var d=days(x);return esc(x.name)+(d!=null?' ('+d+'d)':'')}).join(', '),'delegation','approved');
   add(noinv.length,'Invoice not emailed',tdNames(noinv),'delegation','paid');
   add(+BD.nInbox||0,'Events to review','New submissions on The Yorkseed List','inbox');
   add(+BD.nPartners||0,'Partner requests','Waiting for an answer','partners');
