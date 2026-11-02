@@ -7,7 +7,7 @@
 <meta id="metadesc" name="description" content="Meet the Yorkseed team.">
 <meta name="robots" content="index, follow">
 <link id="canon" rel="canonical" href="https://yorkseed.co/team/">
-<meta id="ogtitle" property="og:type" content="profile">
+<meta property="og:type" content="profile">
 <meta property="og:site_name" content="Yorkseed">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Source+Serif+4:wght@400;600&family=Jost:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/team/team.css">
@@ -17,30 +17,26 @@
 <div class="wrap">
   <a class="brand" href="https://yorkseed.co"><img src="/assets/brand/yorkseed-logo.png" alt="Yorkseed"></a>
 
-  <div id="profile" class="profile-grid" hidden>
-    <div class="pcol">
-      <img id="photo" class="photo" src="" alt="" hidden>
-      <div id="ph" class="ph" hidden></div>
-    </div>
-    <div class="main">
-      <span id="badge" class="badge"></span>
-      <div id="name" class="name"></div>
-      <div id="role" class="role" hidden></div>
-      <div id="city" class="city" hidden></div>
-      <p id="bio" class="bio" hidden></p>
-      <div id="links" class="linklist"></div>
+  <div id="profile" hidden>
+    <img id="photo" class="photo" src="" alt="" hidden>
+    <div id="ph" class="ph" hidden></div>
 
-      <div class="more">
-        <h2>More from Yorkseed</h2>
-        <p class="sub">A few places to go next.</p>
-        <div id="stdlinks" class="linklist"></div>
-      </div>
-    </div>
+    <div id="badge" class="badge"></div>
+    <h1 id="name"></h1>
+    <div id="role" class="role" hidden></div>
+    <p id="bio" class="bio" hidden></p>
+
+    <div id="links" class="links"></div>
+
+    <div class="sec">More from Yorkseed</div>
+    <div id="stdlinks" class="links"></div>
+
+    <div class="foot" id="footline"></div>
   </div>
 
   <div id="notfound" class="notfound" hidden>
     <h1>We couldn't find that page</h1>
-    <p class="lede">This profile may have moved. <a href="/team/">See the full team directory</a>.</p>
+    <p>This profile may have moved. <a href="/team/">See the full team directory</a>.</p>
   </div>
 </div>
 
@@ -48,7 +44,6 @@
 (function () {
   var API = "https://yorkseed-backend-production.up.railway.app";
   var LABELS = { "Team": "Team", "Hub Director": "Hub Director", "Volunteer": "Volunteer" };
-  var CLASS = { "Team": "team", "Hub Director": "hub-director", "Volunteer": "volunteer" };
 
   var STANDARD_LINKS = [
     { label: "Yorkseed Delegations, join a founder or investor trip to a major event", url: "https://yorkseed.co/delegation/" },
@@ -69,12 +64,13 @@
     return (name || "").trim().split(/\s+/).map(function (p) { return p[0]; }).slice(0, 2).join("").toUpperCase();
   }
 
-  function linkRow(label, url) {
+  function linkRow(label, url, sub) {
     var a = document.createElement("a");
+    a.className = sub ? "lnk sub" : "lnk";
     a.href = url;
     a.target = "_blank";
     a.rel = "noopener";
-    a.innerHTML = "<span>" + escapeHtml(label) + "</span><span class=\"go\">↗</span>";
+    a.innerHTML = "<span>" + escapeHtml(label) + " ↗</span>";
     return a;
   }
 
@@ -82,7 +78,7 @@
     window.location.pathname.replace(/^\/team\//, "").replace(/\/$/, "");
 
   var stdEl = document.getElementById("stdlinks");
-  STANDARD_LINKS.forEach(function (l) { stdEl.appendChild(linkRow(l.label, l.url)); });
+  STANDARD_LINKS.forEach(function (l) { stdEl.appendChild(linkRow(l.label, l.url, true)); });
 
   if (!slug) {
     document.getElementById("notfound").hidden = false;
@@ -97,20 +93,15 @@
         document.getElementById("metadesc").setAttribute("content", m.name + (m.role ? " (" + m.role + ")" : "") + " at Yorkseed.");
         document.getElementById("canon").setAttribute("href", "https://yorkseed.co/team/" + slug);
 
-        var badge = document.getElementById("badge");
         var cat = m.category || "Team";
-        badge.className = "badge " + (CLASS[cat] || "team");
-        badge.textContent = LABELS[cat] || cat;
+        var badgeText = [LABELS[cat] || cat, m.city].filter(Boolean).join(" · ");
+        document.getElementById("badge").textContent = badgeText;
 
         document.getElementById("name").textContent = m.name;
 
         if (m.role) {
           document.getElementById("role").textContent = m.role;
           document.getElementById("role").hidden = false;
-        }
-        if (m.city) {
-          document.getElementById("city").textContent = m.city;
-          document.getElementById("city").hidden = false;
         }
         if (m.bio) {
           document.getElementById("bio").textContent = m.bio;
@@ -129,7 +120,9 @@
         }
 
         var linksEl = document.getElementById("links");
-        (m.links || []).forEach(function (l) { linksEl.appendChild(linkRow(l.label, l.url)); });
+        (m.links || []).forEach(function (l) { linksEl.appendChild(linkRow(l.label, l.url, false)); });
+
+        document.getElementById("footline").innerHTML = "A Yorkseed " + escapeHtml(LABELS[cat] || cat) + " · <a href=\"https://yorkseed.co\">yorkseed.co</a>";
 
         document.getElementById("profile").hidden = false;
       })
