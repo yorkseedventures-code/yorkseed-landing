@@ -3,11 +3,11 @@
 body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Source Serif 4', Georgia, serif; display: flex; justify-content: center; }
 a { color: inherit; }
 
-.wrap { width: 100%; max-width: 440px; padding: 48px 24px 64px; text-align: center; }
+.wrap { width: 100%; max-width: 440px; padding: 68px 24px 64px; text-align: center; }
 .wrap.dir { max-width: 560px; text-align: left; }
 
-.brand { display: inline-flex; align-items: center; text-decoration: none; margin-bottom: 14px; }
-.brand img { height: 46px; display: block; }
+.brand { display: inline-flex; align-items: center; text-decoration: none; margin-bottom: 28px; }
+.brand img { height: 58px; display: block; }
 .tagline { color: var(--muted); font-size: 14px; line-height: 1.5; max-width: 360px; margin: 0 auto 32px; }
 .tagline a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
 
