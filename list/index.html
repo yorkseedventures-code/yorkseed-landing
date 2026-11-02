@@ -286,6 +286,7 @@ form.fcard{background:var(--surface);border:1px solid var(--line);padding:28px;d
 .calmenu{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
 .calmenu a,.calmenu button{display:block;text-align:center;padding:12px 10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:inherit;font-size:14px;text-decoration:none;cursor:pointer}
 .calmenu a:hover,.calmenu button:hover{border-color:var(--ink)}
+#shareMenu{grid-template-columns:1fr}
 .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:50;background:var(--surface);color:var(--ink);box-shadow:0 10px 30px -12px rgba(30,27,24,.35);padding:14px 20px;max-width:min(520px,calc(100% - 32px));font-size:15px;border-left:3px solid #B3261E}
 footer{background:var(--bg-2);color:var(--muted);border-top:1px solid var(--ink);margin-top:80px;padding-block:32px calc(32px + env(safe-area-inset-bottom,0px));font-family:var(--f-label);font-size:11px;letter-spacing:.18em;text-transform:uppercase}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
@@ -1800,9 +1801,18 @@ function calMenu(e,btn){let m=document.getElementById("calMenu");if(m){m.remove(
   m.querySelectorAll("[data-ics]").forEach(b=>b.onclick=()=>{downloadIcs(e);m.remove();});
   m.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>setTimeout(()=>m.remove(),50)));
   btn.closest(".two").insertAdjacentElement("afterend",m);}
-async function shareEv(e){const h=hubById(e.hub),d=dParts(e.date),url=evUrl(e);const text=`${e.title} · ${d.long}${e.noTime?"":", "+fE(e,h.tz)+" "+abE(e,h.tz)} · ${h.name}`;
-  if(navigator.share){try{await navigator.share({title:e.title,text,url});return;}catch(err){if(err&&err.name==="AbortError")return;}}
-  try{await navigator.clipboard.writeText(url);toast("Link copied. Paste it anywhere to share this event.");}catch(err){toast(url);}}
+function shareMenu(btn,msg,url,title){let m=document.getElementById("shareMenu");if(m){m.remove();return;}
+  const full=msg.includes(url)?msg:msg+" "+url,q=encodeURIComponent;
+  m=document.createElement("div");m.id="shareMenu";m.className="calmenu";
+  m.innerHTML=`<a href="https://wa.me/?text=${q(full)}" target="_blank" rel="noopener">Share on WhatsApp</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=${q(url)}" target="_blank" rel="noopener">Share on LinkedIn</a><a href="https://twitter.com/intent/tweet?text=${q(msg.replace(url,"").trim())}&url=${q(url)}" target="_blank" rel="noopener">Share on X</a><button type="button" data-copy="1">Copy link</button>`+(navigator.share?`<button type="button" data-more="1">More…</button>`:"");
+  m.querySelector("[data-copy]").onclick=async()=>{try{await navigator.clipboard.writeText(url);toast("Link copied. Paste it anywhere to share.");}catch(err){toast(url);}m.remove();};
+  const mo=m.querySelector("[data-more]");if(mo)mo.onclick=async()=>{m.remove();try{await navigator.share({title,text:msg,url});}catch(err){}};
+  m.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>setTimeout(()=>m.remove(),50)));
+  (btn.closest(".two")||btn.parentElement).insertAdjacentElement("afterend",m);}
+function shareEv(e,btn){const h=hubById(e.hub),d=dParts(e.date),url=evUrl(e),P=window.YS_PATHS||{},w=e.week&&weekById(e.week),wp=w&&P.w&&P.w[e.week];
+  const when=`${d.long}${e.noTime?"":", "+fE(e,h.tz)}`;
+  let msg=w&&wp?`Heading to ${w.name}? ${e.title} (${when}) looks worth it: ${url}\nEvery side event, sorted by role: https://list.yorkseed.co/${wp.e||wp.s}/`:`${e.title} (${when}, ${h.name}) is on The Yorkseed List: ${url}`;
+  shareMenu(btn||$("#shareBtn"),msg,url,e.title);}
 /* each screen is its own browser history step, so swipe-back and the Back button return to the previous screen */
 let NAV_SILENT=false,NAV_DEPTH=0;
 function navKey(){return st.view+"|"+(st.view==="city"?st.hub+"|"+(st.week||"")+"|"+(st.day||""):"")+"|"+(st.view==="event"?st.evId:"");}
@@ -1827,10 +1837,10 @@ function listShareUrl(){const P=window.YS_PATHS||{h:{},w:{}},L="https://list.yor
   if(w){const wp=P.w&&P.w[w.id];if(wp){if(st.day&&(wp.d||[]).includes(st.day))return L+wp.s+"/"+st.day+"/";return L+(wp.e||wp.s)+"/";}return L+listHash();}
   if(st.hub&&st.hub!=="all"){const hs=P.h&&P.h[st.hub];return hs?L+hs+"/":L+"#"+st.hub;}
   return L+"#events";}
-async function shareList(){const url=listShareUrl(),w=st.week&&weekById(st.week),h=st.hub&&st.hub!=="all"?hubById(st.hub):null;
+function shareList(ev){const url=listShareUrl(),w=st.week&&weekById(st.week),h=st.hub&&st.hub!=="all"?hubById(st.hub):null;
   const title=w?`${w.name} side events${st.day?" · "+dParts(st.day).long:""} · The Yorkseed List`:h?`Startup & tech events in ${h.name} · The Yorkseed List`:"The Yorkseed List: startup & tech events worldwide";
-  if(navigator.share){try{await navigator.share({title,url});return;}catch(err){if(err&&err.name==="AbortError")return;}}
-  try{await navigator.clipboard.writeText(url);toast("Link copied: "+url.replace(/^https:\/\//,""));}catch(err){toast(url);}}
+  const msg=w?`Every ${w.name} side event, sorted by role: ${url}`:h?`Startup & tech events in ${h.name}: ${url}`:`The Yorkseed List, startup & tech events worldwide: ${url}`;
+  shareMenu((ev&&ev.currentTarget)||$("#cityShare"),msg,url,title);}
 function show(view,prevKey){
   if(prevKey===undefined)prevKey=navKey();
   if(!NAV_SILENT){try{history.replaceState({...(history.state&&history.state.ys?history.state:navState()),y:scrollY},"");}catch(err){}}
@@ -2151,7 +2161,7 @@ function renderEvent(){
   if($("#follow"))$("#follow").onclick=ev=>{ev.target.textContent=ev.target.textContent==="Follow"?"Following":"Follow";};
   const rb=$("#regBtn");if(rb)rb.onclick=()=>toast("Sample event: real listings link to the organizer's registration page.");
   $("#calBtn").onclick=ev=>calMenu(e,ev.currentTarget);
-  $("#shareBtn").onclick=()=>shareEv(e);
+  $("#shareBtn").onclick=ev=>shareEv(e,ev.currentTarget);
 }
 function mapSvg(seed){let s=[...seed].reduce((a,c)=>a+c.charCodeAt(0),7);const r=()=>(s=(s*9301+49297)%233280)/233280;let l="";for(let i=0;i<9;i++){const y=12+i*12+r()*4;l+=`<path d="M0 ${y} L400 ${y+r()*14-7}" stroke="var(--line)" stroke-width="${r()>.75?4:1.5}"/>`;}for(let i=0;i<14;i++){const x=10+i*30+r()*8;l+=`<path d="M${x} 0 L${x+r()*30-15} 120" stroke="var(--line)" stroke-width="${r()>.8?4:1.5}"/>`;}return`<svg viewBox="0 0 400 120"><rect width="400" height="120" fill="var(--bg-2)"/>${l}<path d="M330 0 C310 40 350 80 320 120" stroke="var(--accent-soft)" stroke-width="14" fill="none"/><g transform="translate(200 52)"><path d="M0 18 C-9 6 -10 2 -10 -2 a10 10 0 0 1 20 0 c0 4 -1 8 -10 20z" fill="#E5484D"/><circle cy="-2" r="3.5" fill="#fff"/></g></svg>`;}
 
