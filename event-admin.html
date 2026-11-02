@@ -197,9 +197,9 @@ body{overflow-wrap:anywhere}
 
   <div id="tlLoginCard">
     <label>Email</label><input id="tlEmail" type="email" autocomplete="username" placeholder="you@email.com"/>
-    <label>Access code</label><input id="tlCode" type="text" autocomplete="one-time-code" style="text-transform:uppercase" placeholder="Code from Jess"/>
-    <button class="btn red" id="tlLoginBtn">Log in</button>
+    <button class="btn red" id="tlLoginBtn">Email me a sign-in link</button>
     <div class="msg" id="tlLoginMsg"></div>
+    <div class="hint">Only works if Jess has turned on Team Login for this email. The link is good for 15 minutes.</div>
   </div>
 
   <div id="tlEditCard" style="display:none">
@@ -217,7 +217,8 @@ body{overflow-wrap:anywhere}
     </div>
 
     <label>Role / title</label><input id="tlRole"/>
-    <label>City</label><input id="tlCity"/>
+    <label>City</label><input id="tlCity" disabled style="background:#F3F0EA;color:var(--muted,#6b6459)"/>
+    <div class="hint" style="margin-top:-10px">Jess sets your city. Ask her if it needs to change.</div>
     <label>One-line bio</label><textarea id="tlBio" style="min-height:90px"></textarea>
 
     <label style="margin-top:14px">Your links</label>
@@ -767,30 +768,44 @@ showSec((location.hash||'#today').slice(1));
     try{localStorage.removeItem('ys_team_token')}catch(e){}
     $('tlEditCard').style.display='none';
     $('tlLoginCard').style.display='block';
-    $('tlEmail').value='';$('tlCode').value='';
+    $('tlEmail').value='';
     say('tlLoginMsg','',true);
   }
   $('tlLogout').onclick=logout;
 
   $('tlLoginBtn').onclick=function(){
-    var email=$('tlEmail').value.trim(),code=$('tlCode').value.trim();
-    if(!email||!code)return say('tlLoginMsg','Enter your email and access code.',false);
+    var email=$('tlEmail').value.trim();
+    if(!email)return say('tlLoginMsg','Enter your email.',false);
     $('tlLoginBtn').disabled=true;
-    fetch(API+'/login',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({email:email,code:code})})
-      .then(function(r){return r.json().then(function(j){if(!r.ok)throw new Error(j.message||'Could not log in');return j})})
-      .then(function(j){
-        token=j.token;
-        try{localStorage.setItem('ys_team_token',token)}catch(e){}
-        say('tlLoginMsg','',true);
-        showEditor(j.member);
-      })
+    fetch(API+'/magic-login',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({email:email})})
+      .then(function(r){return r.json().then(function(j){if(!r.ok)throw new Error(j.message||'Could not send a link');return j})})
+      .then(function(j){say('tlLoginMsg',j.message||'Check your email for a sign-in link.',true)})
       .catch(function(e){say('tlLoginMsg',e.message,false)})
       .finally(function(){$('tlLoginBtn').disabled=false});
   };
 
+  // A Team Login email link lands back here as ?tlogin=<token>#team (or
+  // ?tlerror=1 if it was expired/already used). Consume it once, then strip
+  // it from the URL so a refresh or re-share never resubmits the token.
+  (function consumeMagicLink(){
+    var qs=new URLSearchParams(location.search);
+    var urlToken=qs.get('tlogin'),urlErr=qs.get('tlerror');
+    if(!urlToken&&!urlErr)return;
+    if(urlToken){
+      token=urlToken;
+      try{localStorage.setItem('ys_team_token',token)}catch(e){}
+    }
+    try{
+      var u=new URL(location.href);
+      u.searchParams.delete('tlogin');u.searchParams.delete('tlerror');
+      history.replaceState(null,'',u.pathname+(u.search||'')+u.hash);
+    }catch(e){}
+    if(urlErr)say('tlLoginMsg','That link expired or was already used. Request a new one.',false);
+  })();
+
   $('tlSave').onclick=function(){
     $('tlSave').disabled=true;
-    api('/me',{method:'PATCH',body:{role:$('tlRole').value,city:$('tlCity').value,bio:$('tlBio').value,links:links}})
+    api('/me',{method:'PATCH',body:{role:$('tlRole').value,bio:$('tlBio').value,links:links}})
       .then(function(j){say('tlSaveMsg','Saved.',true);showEditor(j.member)})
       .catch(function(e){say('tlSaveMsg',e.message,false)})
       .finally(function(){$('tlSave').disabled=false});
