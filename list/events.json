@@ -86736,5 +86736,31 @@
   "link": "https://www.meetup.com/startupbangalore/events/316849863/",
   "desc": "Details and registration on the event page.",
   "src": "meetup"
+ },
+ {
+  "title": "Beyond the Demo: What It Really Takes to Put AI Robots to Work (Intel masterclass)",
+  "hub": "lis",
+  "date": "2026-11-11",
+  "start": "13:00",
+  "end": "13:45",
+  "venue": "Masterclass Room 2, Web Summit, MEO Arena / FIL, Lisbon",
+  "host": "Intel",
+  "link": "https://www.intel.com/content/www/us/en/newsroom/news/artificial-intelligence/intel-at-web-summit-2026.html",
+  "desc": "Official Web Summit masterclass from Intel on getting robots out of the demo stage and into real work: physical AI, edge AI trade-offs and deployment. Web Summit ticket required.",
+  "type": "Workshops",
+  "src": "manual"
+ },
+ {
+  "title": "Places That Think Back: How Agentic and Physical AI Make Cities and Spaces Cognitive (Intel)",
+  "hub": "lis",
+  "date": "2026-11-11",
+  "start": "10:25",
+  "end": "10:45",
+  "venue": "CIS Stage, Pavilion 2, Web Summit, Lisbon",
+  "host": "Intel",
+  "link": "https://www.intel.com/content/www/us/en/newsroom/news/artificial-intelligence/intel-at-web-summit-2026.html#places-that-think-back",
+  "desc": "Official Web Summit stage session from Intel on agentic and physical AI in cities and buildings. Web Summit ticket required.",
+  "type": "Conferences",
+  "src": "manual"
  }
 ]
