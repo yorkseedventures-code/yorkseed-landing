@@ -111,6 +111,7 @@ body{overflow-wrap:anywhere}
     <button data-go="ads">Sidebar ads <span class="n soft" id="nAds" hidden></span></button>
     <button data-go="organizers">Pre-approved <span class="n soft" id="nTrust" hidden></span></button>
     <button data-go="tools">Tools</button>
+    <button data-go="team">Team Login</button>
   </nav>
 </div>
 
@@ -188,6 +189,47 @@ body{overflow-wrap:anywhere}
   <h2>Tools</h2>
   <a class="tool" href="/invoice.html"><span><b>Invoice maker</b><small>Make a PDF invoice for a delegate or sponsor.</small></span><span class="go">Open</span></a>
   <a class="tool" href="https://list.yorkseed.co" target="_blank" rel="noopener"><span><b>The Yorkseed List</b><small>See the public List.</small></span><span class="go">Open</span></a>
+</div>
+
+<div class="card" id="team" data-sec="team">
+  <h2>Team Login</h2>
+  <p class="intro">For hub directors, team and volunteers Jess has given a login to. Not for Jess's own key above.</p>
+
+  <div id="tlLoginCard">
+    <label>Email</label><input id="tlEmail" type="email" autocomplete="username" placeholder="you@email.com"/>
+    <label>Access code</label><input id="tlCode" type="text" autocomplete="one-time-code" style="text-transform:uppercase" placeholder="Code from Jess"/>
+    <button class="btn red" id="tlLoginBtn">Log in</button>
+    <div class="msg" id="tlLoginMsg"></div>
+  </div>
+
+  <div id="tlEditCard" style="display:none">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:6px">
+      <span class="hint" id="tlWho" style="margin:0"></span>
+      <button type="button" id="tlLogout" style="width:auto;padding:0 14px;min-height:36px;border-radius:8px;border:1px solid var(--line);background:#fff;font:600 13px system-ui;cursor:pointer">Log out</button>
+    </div>
+
+    <label>Photo</label>
+    <div class="photo-up">
+      <img id="tlPhotoPrev" alt="" hidden style="width:64px;height:64px;border-radius:10px;object-fit:cover;border:1px solid var(--line)"/>
+      <label class="photo-btn" for="tlPhotoFile">Change photo</label>
+      <input id="tlPhotoFile" type="file" accept="image/jpeg,image/png,image/webp" hidden/>
+      <span id="tlPhotoMsg" class="flagmsg"></span>
+    </div>
+
+    <label>Role / title</label><input id="tlRole"/>
+    <label>City</label><input id="tlCity"/>
+    <label>One-line bio</label><textarea id="tlBio" style="min-height:90px"></textarea>
+
+    <label style="margin-top:14px">Your links</label>
+    <div id="tlLinks"></div>
+    <button type="button" id="tlAddLink" style="width:auto;margin-top:8px;padding:0 14px;min-height:40px;border-radius:9px;border:1px solid var(--line);background:#fff;font:600 13px system-ui;cursor:pointer">+ Add a link</button>
+    <div class="hint">For example, label one "Email me" with mailto:you@yorkseed.co, or "Book time with me" with your Calendly link.</div>
+
+    <button class="btn red" id="tlSave">Save</button>
+    <div class="msg" id="tlSaveMsg"></div>
+
+    <a class="tool" id="tlViewPage" href="#" target="_blank" rel="noopener"><span><b>See your public page</b><small id="tlPageUrl"></small></span><span class="go">Open</span></a>
+  </div>
 </div>
 
 <div class="card" id="delCard" data-sec="tools">
@@ -600,7 +642,7 @@ document.addEventListener('click',function(ev){var t=ev.target;
 });
 
 loadDeleg();
-var SECS={today:1,delegation:1,inbox:1,events:1,ads:1,organizers:1,partners:1,tools:1,submissions:'inbox'};
+var SECS={today:1,delegation:1,inbox:1,events:1,ads:1,organizers:1,partners:1,tools:1,team:1,submissions:'inbox'};
 function showSec(s){s=SECS[s]===1?s:(SECS[s]||'today');[].forEach.call(document.querySelectorAll('[data-sec]'),function(c){c.hidden=c.dataset.sec!==s});
   [].forEach.call(document.querySelectorAll('#nav button'),function(b){b.className=b.dataset.go===s?'on':''});
   try{history.replaceState(null,'','#'+s)}catch(e){}window.scrollTo(0,0)}
@@ -634,6 +676,119 @@ function renderToday(){
 }
 function badge(id,n,skip){var e=$(id);e.hidden=!n;e.textContent=n||'';BD[id]=n;if(!skip)try{renderToday()}catch(x){}}
 showSec((location.hash||'#today').slice(1));
+</script>
+
+<script>
+// Team Login: a separate sign-in for hub directors, team and volunteers Jess
+// has given access to, scoped to editing only their own /team/ page. Does not
+// use the events key above, and talks to a different API (Connect's /api/team).
+(function(){
+  var API='https://yorkseed-backend-production.up.railway.app/api/team';
+  function $(i){return document.getElementById(i)}
+  function say(id,t,ok){var m=$(id);if(!m)return;m.textContent=t;m.className=t?('msg '+(ok?'ok':'err')):'msg'}
+  function esc(s){return String(s||'').replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+
+  var token=null;
+  try{token=localStorage.getItem('ys_team_token')}catch(e){}
+  var links=[];
+
+  function api(path,opt){
+    opt=opt||{};opt.headers=Object.assign({'Authorization':'Bearer '+token},opt.headers||{});
+    if(opt.body&&typeof opt.body!=='string'){opt.body=JSON.stringify(opt.body);opt.headers['content-type']='application/json'}
+    return fetch(API+path,opt).then(function(r){return r.json().catch(function(){return{}}).then(function(j){
+      if(!r.ok){if(r.status===401)logout();throw new Error(j.message||'Something went wrong')}
+      return j;
+    })});
+  }
+
+  function renderLinks(){
+    var wrap=$('tlLinks');wrap.innerHTML='';
+    links.forEach(function(l,i){
+      var row=document.createElement('div');
+      row.style.cssText='display:flex;gap:8px;margin-top:8px';
+      row.innerHTML='<input data-k="label" placeholder="Label, e.g. Email me" style="flex:1" value="'+esc(l.label)+'"><input data-k="url" placeholder="https://... or mailto:..." style="flex:2" value="'+esc(l.url)+'"><button type="button" aria-label="Remove" style="width:auto;padding:0 12px;min-height:44px;border-radius:9px;border:1px solid var(--line);background:#fff;cursor:pointer">&times;</button>';
+      var inputs=row.querySelectorAll('input');
+      inputs[0].addEventListener('input',function(e){links[i].label=e.target.value});
+      inputs[1].addEventListener('input',function(e){links[i].url=e.target.value});
+      row.querySelector('button').addEventListener('click',function(){links.splice(i,1);renderLinks()});
+      wrap.appendChild(row);
+    });
+  }
+  $('tlAddLink').onclick=function(){links.push({label:'',url:''});renderLinks()};
+
+  function showEditor(m){
+    links=(m.links||[]).map(function(l){return {label:l.label,url:l.url}});
+    $('tlWho').textContent='Logged in as '+m.name;
+    $('tlRole').value=m.role||'';
+    $('tlCity').value=m.city||'';
+    $('tlBio').value=m.bio||'';
+    renderLinks();
+    if(m.hasPhoto){$('tlPhotoPrev').src=API+'/'+m.slug+'/photo?v='+Date.now();$('tlPhotoPrev').hidden=false}
+    else{$('tlPhotoPrev').hidden=true}
+    $('tlPageUrl').textContent='yorkseed.co/team/'+m.slug;
+    $('tlViewPage').href='https://yorkseed.co/team/'+m.slug;
+    $('tlLoginCard').style.display='none';
+    $('tlEditCard').style.display='block';
+  }
+
+  function logout(){
+    token=null;
+    try{localStorage.removeItem('ys_team_token')}catch(e){}
+    $('tlEditCard').style.display='none';
+    $('tlLoginCard').style.display='block';
+    $('tlEmail').value='';$('tlCode').value='';
+    say('tlLoginMsg','',true);
+  }
+  $('tlLogout').onclick=logout;
+
+  $('tlLoginBtn').onclick=function(){
+    var email=$('tlEmail').value.trim(),code=$('tlCode').value.trim();
+    if(!email||!code)return say('tlLoginMsg','Enter your email and access code.',false);
+    $('tlLoginBtn').disabled=true;
+    fetch(API+'/login',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({email:email,code:code})})
+      .then(function(r){return r.json().then(function(j){if(!r.ok)throw new Error(j.message||'Could not log in');return j})})
+      .then(function(j){
+        token=j.token;
+        try{localStorage.setItem('ys_team_token',token)}catch(e){}
+        say('tlLoginMsg','',true);
+        showEditor(j.member);
+      })
+      .catch(function(e){say('tlLoginMsg',e.message,false)})
+      .finally(function(){$('tlLoginBtn').disabled=false});
+  };
+
+  $('tlSave').onclick=function(){
+    $('tlSave').disabled=true;
+    api('/me',{method:'PATCH',body:{role:$('tlRole').value,city:$('tlCity').value,bio:$('tlBio').value,links:links}})
+      .then(function(j){say('tlSaveMsg','Saved.',true);showEditor(j.member)})
+      .catch(function(e){say('tlSaveMsg',e.message,false)})
+      .finally(function(){$('tlSave').disabled=false});
+  };
+
+  // Scale down to at most 480px on the long side before upload, so a normal
+  // phone photo clears the backend's 250KB cap without a cropping step.
+  $('tlPhotoFile').addEventListener('change',function(e){
+    var f=e.target.files&&e.target.files[0];e.target.value='';
+    if(!f)return;
+    var url=URL.createObjectURL(f);
+    var img=new Image();
+    img.onload=function(){
+      URL.revokeObjectURL(url);
+      var MAX=480,scale=Math.min(1,MAX/Math.max(img.width,img.height));
+      var w=Math.round(img.width*scale),h=Math.round(img.height*scale);
+      var c=document.createElement('canvas');c.width=w;c.height=h;
+      c.getContext('2d').drawImage(img,0,0,w,h);
+      $('tlPhotoMsg').textContent='Uploading...';
+      api('/me/photo',{method:'PUT',body:{image:c.toDataURL('image/jpeg',0.85)}})
+        .then(function(j){$('tlPhotoMsg').textContent='Photo saved.';showEditor(j.member)})
+        .catch(function(e){$('tlPhotoMsg').textContent=e.message});
+    };
+    img.onerror=function(){URL.revokeObjectURL(url);$('tlPhotoMsg').textContent='Could not read that image.'};
+    img.src=url;
+  });
+
+  if(token){api('/me').then(function(j){showEditor(j.member)}).catch(function(){logout()})}
+})();
 </script>
 <script src="/assets/url-prefill.js" defer></script>
 </body>
