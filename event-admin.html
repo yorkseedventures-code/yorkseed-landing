@@ -222,8 +222,14 @@ body{overflow-wrap:anywhere}
 
     <label style="margin-top:14px">Your links</label>
     <div id="tlLinks"></div>
-    <button type="button" id="tlAddLink" style="width:auto;margin-top:8px;padding:0 14px;min-height:40px;border-radius:9px;border:1px solid var(--line);background:#fff;font:600 13px system-ui;cursor:pointer">+ Add a link</button>
-    <div class="hint">For example, label one "Email me" with mailto:you@yorkseed.co, or "Book time with me" with your Calendly link.</div>
+    <div class="flagbar" style="margin-top:8px">
+      <button type="button" class="tlQuick" data-label="Book a meeting with me" data-kind="url">+ Book a meeting</button>
+      <button type="button" class="tlQuick" data-label="Email me" data-kind="email">+ Email</button>
+      <button type="button" class="tlQuick" data-label="Call or text me" data-kind="tel">+ Phone</button>
+      <button type="button" class="tlQuick" data-label="My profile" data-kind="url">+ Profile</button>
+      <button type="button" id="tlAddLink" style="width:auto;padding:0 14px;min-height:40px;border-radius:9px;border:1px solid var(--line);background:#fff;color:var(--ink);font:600 13px system-ui;cursor:pointer">+ Other link</button>
+    </div>
+    <div class="hint">For email and phone, just type the address or number, no need to type "mailto:" or "tel:".</div>
 
     <button class="btn red" id="tlSave">Save</button>
     <div class="msg" id="tlSaveMsg"></div>
@@ -701,20 +707,45 @@ showSec((location.hash||'#today').slice(1));
     })});
   }
 
+  // Turns a plain email or phone number into a proper mailto:/tel: link, and a
+  // bare domain into https://, so team members never need to know the syntax.
+  function formatLinkUrl(raw){
+    var v=String(raw||'').trim();
+    if(!v)return v;
+    if(/^(https?:|mailto:|tel:)/i.test(v))return v;
+    if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v))return 'mailto:'+v;
+    if(/^[+]?[\d\s().-]{6,}$/.test(v))return 'tel:'+v.replace(/[\s().-]/g,'');
+    return 'https://'+v.replace(/^\/+/,'');
+  }
+
   function renderLinks(){
     var wrap=$('tlLinks');wrap.innerHTML='';
     links.forEach(function(l,i){
       var row=document.createElement('div');
       row.style.cssText='display:flex;gap:8px;margin-top:8px';
-      row.innerHTML='<input data-k="label" placeholder="Label, e.g. Email me" style="flex:1" value="'+esc(l.label)+'"><input data-k="url" placeholder="https://... or mailto:..." style="flex:2" value="'+esc(l.url)+'"><button type="button" aria-label="Remove" style="width:auto;padding:0 12px;min-height:44px;border-radius:9px;border:1px solid var(--line);background:#fff;cursor:pointer">&times;</button>';
+      row.innerHTML='<input data-k="label" placeholder="Label, e.g. Email me" style="flex:1" value="'+esc(l.label)+'"><input data-k="url" placeholder="Paste a link, or type your email or number" style="flex:2" value="'+esc(l.url)+'"><button type="button" aria-label="Remove" style="width:auto;padding:0 12px;min-height:44px;border-radius:9px;border:1px solid var(--line);background:#fff;cursor:pointer">&times;</button>';
       var inputs=row.querySelectorAll('input');
       inputs[0].addEventListener('input',function(e){links[i].label=e.target.value});
       inputs[1].addEventListener('input',function(e){links[i].url=e.target.value});
+      inputs[1].addEventListener('blur',function(e){links[i].url=formatLinkUrl(e.target.value);e.target.value=links[i].url});
       row.querySelector('button').addEventListener('click',function(){links.splice(i,1);renderLinks()});
       wrap.appendChild(row);
     });
   }
-  $('tlAddLink').onclick=function(){links.push({label:'',url:''});renderLinks()};
+  $('tlAddLink').onclick=function(){links.push({label:'',url:''});renderLinks();focusLastUrl()};
+  [].forEach.call(document.querySelectorAll('.tlQuick'),function(btn){
+    btn.addEventListener('click',function(){
+      links.push({label:btn.dataset.label,url:''});
+      renderLinks();
+      focusLastUrl();
+    });
+  });
+  function focusLastUrl(){
+    var rows=$('tlLinks').children;
+    if(!rows.length)return;
+    var last=rows[rows.length-1].querySelectorAll('input')[1];
+    if(last)last.focus();
+  }
 
   function showEditor(m){
     links=(m.links||[]).map(function(l){return {label:l.label,url:l.url}});
