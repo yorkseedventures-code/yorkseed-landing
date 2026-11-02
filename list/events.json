@@ -87143,5 +87143,44 @@
   "desc": "Details and registration on the event page.",
   "type": "Networking",
   "src": "manual"
+ },
+ {
+  "title": "First Citizens Innovation Banking x Withum x Valli Ventures: Fintech Founder Wine Tasting",
+  "hub": "nyc",
+  "date": "2026-11-17",
+  "start": "18:00",
+  "end": "21:00",
+  "venue": "New York, NY",
+  "host": "Valli Ventures",
+  "link": "https://luma.com/9fyyx5ta",
+  "desc": "Invite-only wine tasting for Series A and fintech founders in SoHo. Registration requires host approval.",
+  "type": "Networking",
+  "src": "manual"
+ },
+ {
+  "title": "The Finance Leaders' Table",
+  "hub": "nyc",
+  "date": "2026-11-04",
+  "start": "18:30",
+  "end": "21:30",
+  "venue": "New York, NY",
+  "host": "Valli Ventures, Cristina Ciaravalli & Turnstile",
+  "link": "https://luma.com/m9q8a4am",
+  "desc": "Invitation-style dinner for finance leaders at Estela. Registration requires host approval.",
+  "type": "Networking",
+  "src": "manual"
+ },
+ {
+  "title": "Valli Ventures Holiday Celebration",
+  "hub": "nyc",
+  "date": "2026-12-02",
+  "start": "18:00",
+  "end": "20:30",
+  "venue": "New York, NY",
+  "host": "Valli Ventures",
+  "link": "https://luma.com/j0ob2lxe",
+  "desc": "Invite-only holiday evening for founders, VCs and executives. Venue shown after registration.",
+  "type": "Networking",
+  "src": "manual"
  }
 ]
