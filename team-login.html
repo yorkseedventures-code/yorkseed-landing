@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Yorkseed Team Login</title>
+<meta name="description" content="Sign in to edit your Yorkseed team page."/>
+<meta name="robots" content="noindex, nofollow"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Source+Serif+4:wght@400;600&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#1E1B18;--muted:#4A433C;--line:#DDD4C7;--bg:#F7F4EE;--card:#FFFFFF;--accent:#B3261E;--green:#0a5a3e}
+body{font-family:'Source Serif 4',Georgia,serif;background:var(--bg);color:var(--ink);padding:68px 20px 80px;max-width:460px;margin:0 auto;font-size:16px;line-height:1.5}
+.brand{display:block;text-align:center;margin-bottom:28px}
+.brand img{height:58px}
+.tagline{text-align:center;color:var(--muted);font-size:14.5px;line-height:1.6;max-width:360px;margin:0 auto 36px}
+.tagline a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+h1{font-family:Jost,sans-serif;font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.intro{color:var(--muted);font-size:14px;line-height:1.55;margin:-2px 0 22px}
+.card{background:var(--card);border:1px solid var(--line);padding:30px 26px;margin-bottom:16px}
+label{display:block;font-family:Jost,sans-serif;font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:18px 0 7px}
+input,select,textarea{width:100%;font-family:'Source Serif 4',Georgia,serif;font-size:16px;padding:12px 14px;border:1px solid var(--line);border-radius:0;background:#fff;color:var(--ink)}
+input:focus,textarea:focus{outline:none;border-color:var(--ink)}
+input:disabled{background:#F3F0EA;color:var(--muted)}
+textarea{min-height:110px;resize:vertical;line-height:1.5}
+.flagbar{display:flex;align-items:center;gap:8px 10px;flex-wrap:wrap;flex-basis:100%;margin-top:8px}
+.photo-up{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.photo-btn{display:inline-flex;align-items:center;margin:0;min-height:42px;padding:0 18px;border:1px solid var(--ink);background:var(--ink);color:#fff!important;font:500 12.5px Jost,sans-serif;letter-spacing:.04em;cursor:pointer}
+.flagbar button{white-space:nowrap;width:auto;margin:0;padding:9px 14px;min-height:40px;font:500 12px Jost,sans-serif;letter-spacing:.04em;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+.flagbar button:hover{border-color:var(--ink)}
+.flagbar button:disabled{opacity:.5}
+.flagmsg{font-size:13px;color:var(--muted)}
+.btn{width:100%;margin-top:22px;min-height:50px;border:1px solid var(--accent);background:var(--accent);color:#fff;font:500 13px Jost,sans-serif;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+.btn:hover{opacity:.92}
+.btn:disabled{opacity:.5}
+.msg{margin-top:14px;font-size:14.5px;line-height:1.5;padding:12px 14px;border:1px solid transparent;display:none}
+.msg.ok{display:block;background:rgba(10,90,62,.07);border-color:rgba(10,90,62,.2);color:var(--green)}
+.msg.err{display:block;background:rgba(179,38,30,.06);border-color:rgba(179,38,30,.25);color:var(--accent)}
+.hint{font-size:12.5px;color:var(--muted);line-height:1.5;margin-top:7px}
+.tool{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 0 0;border-top:1px solid var(--line);text-decoration:none;color:inherit;margin-top:26px}
+.tool b{display:block;font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:17px}
+.tool small{color:var(--muted);font-size:12.5px}
+.tool span.go{font:500 11px Jost,sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:9px 14px;border:1px solid var(--line);background:#fff;flex:none}
+</style>
+</head>
+<body>
+
+<a class="brand" href="https://yorkseed.co"><img src="/assets/brand/yorkseed-logo.png" alt="Yorkseed"></a>
+<p class="tagline"><a href="https://yorkseed.co">Yorkseed</a> is a global capital network and platform serving founders, investors and allocators. <a href="https://thevalois.com" target="_blank" rel="noopener">Valois</a> is its private capital layer.</p>
+
+<div class="card" id="team">
+  <h1>Team Login</h1>
+  <p class="intro">For hub directors, team and volunteers Jess has given a login to, to edit your own Yorkseed page.</p>
+
+  <div id="tlLoginCard">
+    <label>Email</label><input id="tlEmail" type="email" autocomplete="username" placeholder="you@email.com"/>
+    <button class="btn red" id="tlLoginBtn">Email me a sign-in link</button>
+    <div class="msg" id="tlLoginMsg"></div>
+    <div class="hint">Only works if Jess has turned on Team Login for this email. The link is good for 15 minutes.</div>
+  </div>
+
+  <div id="tlEditCard" style="display:none">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:6px">
+      <span class="hint" id="tlWho" style="margin:0"></span>
+      <button type="button" id="tlLogout" style="width:auto;padding:0 14px;min-height:36px;border-radius:8px;border:1px solid var(--line);background:#fff;font:600 13px system-ui;cursor:pointer">Log out</button>
+    </div>
+
+    <label>Photo</label>
+    <div class="photo-up">
+      <img id="tlPhotoPrev" alt="" hidden style="width:68px;height:68px;border-radius:50%;object-fit:cover;border:1px solid var(--line)"/>
+      <label class="photo-btn" for="tlPhotoFile">Change photo</label>
+      <input id="tlPhotoFile" type="file" accept="image/jpeg,image/png,image/webp" hidden/>
+      <span id="tlPhotoMsg" class="flagmsg"></span>
+    </div>
+
+    <label>Role / title</label><input id="tlRole"/>
+    <label>City</label><input id="tlCity" disabled style="background:#F3F0EA;color:var(--ink4)"/>
+    <div class="hint" style="margin-top:-10px">Jess sets your city. Ask her if it needs to change.</div>
+    <label>One-line bio</label><textarea id="tlBio" style="min-height:90px"></textarea>
+
+    <label style="margin-top:14px">Your links</label>
+    <div id="tlLinks"></div>
+    <div class="flagbar" style="margin-top:8px">
+      <button type="button" class="tlQuick" data-label="Book a meeting with me" data-kind="url">+ Book a meeting</button>
+      <button type="button" class="tlQuick" data-label="Email me" data-kind="email">+ Email</button>
+      <button type="button" class="tlQuick" data-label="Call or text me" data-kind="tel">+ Phone</button>
+      <button type="button" class="tlQuick" data-label="My profile" data-kind="url">+ Profile</button>
+      <button type="button" id="tlAddLink" style="width:auto;padding:0 14px;min-height:40px;border-radius:9px;border:1px solid var(--line);background:#fff;color:var(--ink);font:600 13px system-ui;cursor:pointer">+ Other link</button>
+    </div>
+    <div class="hint">For email and phone, just type the address or number, no need to type "mailto:" or "tel:".</div>
+
+    <button class="btn red" id="tlSave">Save</button>
+    <div class="msg" id="tlSaveMsg"></div>
+
+    <a class="tool" id="tlViewPage" href="#" target="_blank" rel="noopener"><span><b>See your public page</b><small id="tlPageUrl"></small></span><span class="go">Open</span></a>
+  </div>
+</div>
+
+<script>
+// Team Login: a separate sign-in for hub directors, team and volunteers Jess
+// has given access to, scoped to editing only their own /team/ page. Lives on
+// its own page (not event-admin.html) so it can stay reachable even when
+// event-admin.html sits behind Jess's own Netlify password protection.
+(function(){
+  var API='https://yorkseed-backend-production.up.railway.app/api/team';
+  function $(i){return document.getElementById(i)}
+  function say(id,t,ok){var m=$(id);if(!m)return;m.textContent=t;m.className=t?('msg '+(ok?'ok':'err')):'msg'}
+  function esc(s){return String(s||'').replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+
+  var token=null;
+  try{token=localStorage.getItem('ys_team_token')}catch(e){}
+  var links=[];
+
+  function api(path,opt){
+    opt=opt||{};opt.headers=Object.assign({'Authorization':'Bearer '+token},opt.headers||{});
+    if(opt.body&&typeof opt.body!=='string'){opt.body=JSON.stringify(opt.body);opt.headers['content-type']='application/json'}
+    return fetch(API+path,opt).then(function(r){return r.json().catch(function(){return{}}).then(function(j){
+      if(!r.ok){if(r.status===401)logout();throw new Error(j.message||'Something went wrong')}
+      return j;
+    })});
+  }
+
+  // Turns a plain email or phone number into a proper mailto:/tel: link, and a
+  // bare domain into https://, so team members never need to know the syntax.
+  function formatLinkUrl(raw){
+    var v=String(raw||'').trim();
+    if(!v)return v;
+    if(/^(https?:|mailto:|tel:)/i.test(v))return v;
+    if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v))return 'mailto:'+v;
+    if(/^[+]?[\d\s().-]{6,}$/.test(v))return 'tel:'+v.replace(/[\s().-]/g,'');
+    return 'https://'+v.replace(/^\/+/,'');
+  }
+
+  function renderLinks(){
+    var wrap=$('tlLinks');wrap.innerHTML='';
+    links.forEach(function(l,i){
+      var row=document.createElement('div');
+      row.style.cssText='display:flex;gap:8px;margin-top:8px';
+      row.innerHTML='<input data-k="label" placeholder="Label, e.g. Email me" style="flex:1" value="'+esc(l.label)+'"><input data-k="url" placeholder="Paste a link, or type your email or number" style="flex:2" value="'+esc(l.url)+'"><button type="button" aria-label="Remove" style="width:auto;padding:0 12px;min-height:44px;border-radius:9px;border:1px solid var(--line);background:#fff;cursor:pointer">&times;</button>';
+      var inputs=row.querySelectorAll('input');
+      inputs[0].addEventListener('input',function(e){links[i].label=e.target.value});
+      inputs[1].addEventListener('input',function(e){links[i].url=e.target.value});
+      inputs[1].addEventListener('blur',function(e){links[i].url=formatLinkUrl(e.target.value);e.target.value=links[i].url});
+      row.querySelector('button').addEventListener('click',function(){links.splice(i,1);renderLinks()});
+      wrap.appendChild(row);
+    });
+  }
+  $('tlAddLink').onclick=function(){links.push({label:'',url:''});renderLinks();focusLastUrl()};
+  [].forEach.call(document.querySelectorAll('.tlQuick'),function(btn){
+    btn.addEventListener('click',function(){
+      links.push({label:btn.dataset.label,url:''});
+      renderLinks();
+      focusLastUrl();
+    });
+  });
+  function focusLastUrl(){
+    var rows=$('tlLinks').children;
+    if(!rows.length)return;
+    var last=rows[rows.length-1].querySelectorAll('input')[1];
+    if(last)last.focus();
+  }
+
+  function showEditor(m){
+    links=(m.links||[]).map(function(l){return {label:l.label,url:l.url}});
+    $('tlWho').textContent='Logged in as '+m.name;
+    $('tlRole').value=m.role||'';
+    $('tlCity').value=m.city||'';
+    $('tlBio').value=m.bio||'';
+    renderLinks();
+    if(m.hasPhoto){$('tlPhotoPrev').src=API+'/'+m.slug+'/photo?v='+Date.now();$('tlPhotoPrev').hidden=false}
+    else{$('tlPhotoPrev').hidden=true}
+    $('tlPageUrl').textContent='yorkseed.co/team/'+m.slug;
+    $('tlViewPage').href='https://yorkseed.co/team/'+m.slug;
+    $('tlLoginCard').style.display='none';
+    $('tlEditCard').style.display='block';
+  }
+
+  function logout(){
+    token=null;
+    try{localStorage.removeItem('ys_team_token')}catch(e){}
+    $('tlEditCard').style.display='none';
+    $('tlLoginCard').style.display='block';
+    $('tlEmail').value='';
+    say('tlLoginMsg','',true);
+  }
+  $('tlLogout').onclick=logout;
+
+  $('tlLoginBtn').onclick=function(){
+    var email=$('tlEmail').value.trim();
+    if(!email)return say('tlLoginMsg','Enter your email.',false);
+    $('tlLoginBtn').disabled=true;
+    fetch(API+'/magic-login',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({email:email})})
+      .then(function(r){return r.json().then(function(j){if(!r.ok)throw new Error(j.message||'Could not send a link');return j})})
+      .then(function(j){say('tlLoginMsg',j.message||'Check your email for a sign-in link.',true)})
+      .catch(function(e){say('tlLoginMsg',e.message,false)})
+      .finally(function(){$('tlLoginBtn').disabled=false});
+  };
+
+  // A Team Login email link lands back here as ?tlogin=<token> (or
+  // ?tlerror=1 if it was expired/already used). Consume it once, then strip
+  // it from the URL so a refresh or re-share never resubmits the token.
+  (function consumeMagicLink(){
+    var qs=new URLSearchParams(location.search);
+    var urlToken=qs.get('tlogin'),urlErr=qs.get('tlerror');
+    if(!urlToken&&!urlErr)return;
+    if(urlToken){
+      token=urlToken;
+      try{localStorage.setItem('ys_team_token',token)}catch(e){}
+    }
+    try{
+      var u=new URL(location.href);
+      u.searchParams.delete('tlogin');u.searchParams.delete('tlerror');
+      history.replaceState(null,'',u.pathname+(u.search||'')+u.hash);
+    }catch(e){}
+    if(urlErr)say('tlLoginMsg','That link expired or was already used. Request a new one.',false);
+  })();
+
+  $('tlSave').onclick=function(){
+    $('tlSave').disabled=true;
+    api('/me',{method:'PATCH',body:{role:$('tlRole').value,bio:$('tlBio').value,links:links}})
+      .then(function(j){say('tlSaveMsg','Saved.',true);showEditor(j.member)})
+      .catch(function(e){say('tlSaveMsg',e.message,false)})
+      .finally(function(){$('tlSave').disabled=false});
+  };
+
+  // Scale down to at most 480px on the long side before upload, so a normal
+  // phone photo clears the backend's 250KB cap without a cropping step.
+  $('tlPhotoFile').addEventListener('change',function(e){
+    var f=e.target.files&&e.target.files[0];e.target.value='';
+    if(!f)return;
+    var url=URL.createObjectURL(f);
+    var img=new Image();
+    img.onload=function(){
+      URL.revokeObjectURL(url);
+      var MAX=480,scale=Math.min(1,MAX/Math.max(img.width,img.height));
+      var w=Math.round(img.width*scale),h=Math.round(img.height*scale);
+      var c=document.createElement('canvas');c.width=w;c.height=h;
+      c.getContext('2d').drawImage(img,0,0,w,h);
+      $('tlPhotoMsg').textContent='Uploading...';
+      api('/me/photo',{method:'PUT',body:{image:c.toDataURL('image/jpeg',0.85)}})
+        .then(function(j){$('tlPhotoMsg').textContent='Photo saved.';showEditor(j.member)})
+        .catch(function(e){$('tlPhotoMsg').textContent=e.message});
+    };
+    img.onerror=function(){URL.revokeObjectURL(url);$('tlPhotoMsg').textContent='Could not read that image.'};
+    img.src=url;
+  });
+
+  if(token){api('/me').then(function(j){showEditor(j.member)}).catch(function(){logout()})}
+})();
+</script>
+</body>
+</html>

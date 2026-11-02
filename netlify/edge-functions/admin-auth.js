@@ -18,7 +18,7 @@ export default async (request, context) => {
   }
   return new Response("Login required", {
     status: 401,
-    headers: { "WWW-Authenticate": 'Basic realm="Yorkseed team", charset="UTF-8"', "Cache-Control": "no-store" },
+    headers: { "WWW-Authenticate": 'Basic realm="Yorkseed admin", charset="UTF-8"', "Cache-Control": "no-store" },
   });
 };
 export const config = { path: ["/event-admin", "/event-admin.html", "/event-admin/*"] };
