@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Team &amp; Volunteers · Yorkseed</title>
+<meta name="description" content="Meet the Yorkseed team, hub directors and volunteers around the world.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://yorkseed.co/team/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Yorkseed">
+<meta property="og:title" content="Team &amp; Volunteers · Yorkseed">
+<meta property="og:description" content="Meet the Yorkseed team, hub directors and volunteers around the world.">
+<meta property="og:url" content="https://yorkseed.co/team/">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Source+Serif+4:wght@400;600&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/team/team.css">
+<script src="/assets/ys-ref.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+  <a class="brand" href="https://yorkseed.co"><img src="/assets/brand/yorkseed-logo.png" alt="Yorkseed"></a>
+  <h1>Team &amp; Volunteers</h1>
+  <p class="lede">Meet the people behind Yorkseed, our hub directors around the world, and the volunteers who help run our events.</p>
+
+  <div id="groups" class="groups"></div>
+  <p id="empty" class="empty" hidden>No one is listed here yet.</p>
+</div>
+
+<script>
+(function () {
+  var API = "https://yorkseed-backend-production.up.railway.app";
+  var ORDER = ["Team", "Hub Director", "Volunteer"];
+  var LABELS = { "Team": "Team", "Hub Director": "Hub Directors", "Volunteer": "Volunteers" };
+  var CLASS = { "Team": "team", "Hub Director": "hub-director", "Volunteer": "volunteer" };
+
+  function initials(name) {
+    return (name || "").trim().split(/\s+/).map(function (p) { return p[0]; }).slice(0, 2).join("").toUpperCase();
+  }
+
+  function card(m) {
+    var a = document.createElement("a");
+    a.href = "/team/" + m.slug;
+    var media = m.hasPhoto
+      ? '<img class="photo" src="' + API + '/api/team/' + m.slug + '/photo" alt="">'
+      : '<div class="ph">' + initials(m.name) + '</div>';
+    a.innerHTML =
+      '<div class="ph-wrap">' + media +
+      '<div><div class="name">' + escapeHtml(m.name) + '</div>' +
+      (m.role ? '<div class="role">' + escapeHtml(m.role) + '</div>' : '') +
+      '</div></div>';
+    return a;
+  }
+
+  function escapeHtml(s) {
+    return String(s || "").replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+
+  fetch(API + "/api/team")
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      var members = (data && data.members) || data || [];
+      if (!Array.isArray(members) || members.length === 0) {
+        document.getElementById("empty").hidden = false;
+        return;
+      }
+      var byCat = {};
+      members.forEach(function (m) {
+        var cat = m.category || "Team";
+        (byCat[cat] = byCat[cat] || []).push(m);
+      });
+      var groupsEl = document.getElementById("groups");
+      ORDER.forEach(function (cat) {
+        var list = byCat[cat];
+        if (!list || !list.length) return;
+        var section = document.createElement("div");
+        section.className = "group";
+        var h2 = document.createElement("h2");
+        h2.innerHTML = '<span class="badge ' + CLASS[cat] + '">' + LABELS[cat] + '</span>';
+        var dir = document.createElement("div");
+        dir.className = "dir";
+        list.forEach(function (m) { dir.appendChild(card(m)); });
+        section.appendChild(h2);
+        section.appendChild(dir);
+        groupsEl.appendChild(section);
+      });
+    })
+    .catch(function () {
+      document.getElementById("empty").textContent = "Could not load the team right now. Please try again shortly.";
+      document.getElementById("empty").hidden = false;
+    });
+})();
+</script>
+</body>
+</html>
