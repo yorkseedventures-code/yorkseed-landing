@@ -148,6 +148,12 @@ body{overflow-wrap:anywhere}
   <div id="subList"><div class="hint">Loading...</div></div>
   <div class="hint">Events people submit on list.yorkseed.co. You get an email for each one. Approve puts it on the List right away; reject keeps it off.</div>
 </div>
+<div class="card" id="changes" data-sec="inbox">
+  <h2>Edit requests <span id="chCount"></span></h2>
+  <div class="tabs" id="chTabs"><button data-ct="pending" class="on">Pending</button><button data-ct="approved">Approved</button><button data-ct="rejected">Rejected</button></div>
+  <div id="chList"><div class="hint">Loading...</div></div>
+  <div class="hint">People who ask to change or remove an event on the List. Approve applies it on the List right away and emails them that it is live. Reject leaves the event as it is.</div>
+</div>
 
 <div class="card" id="organizers" data-sec="organizers">
   <h2>Pre-approved organizers</h2>
@@ -306,9 +312,36 @@ function when(x){var t=x.date;try{t=new Date(x.date+'T12:00:00').toLocaleDateStr
   if(x.start)t+=' · '+hm(x.start)+(x.end?'–'+hm(x.end):'');return t}
 function loadSubs(){
   if(!key()){$('subList').innerHTML='<div class="hint">Enter your key to see submissions.</div>';return}
-  subApi('').then(function(j){subs=j.submissions||[];var n=j.pending||0;$('subCount').innerHTML=n?'<span class="pill">'+n+' new</span>':'';badge('nInbox',n);renderSubs()})
+  subApi('').then(function(j){subs=j.submissions||[];var n=j.pending||0;subPend=n;$('subCount').innerHTML=n?'<span class="pill">'+n+' new</span>':'';inboxBadge();renderSubs();loadChanges()})
     .catch(function(err){$('subList').innerHTML='<div class="hint">'+esc(err.message)+'</div>'});
 }
+var chs=[],chTab='pending',subPend=0,chPend=0;
+function inboxBadge(){badge('nInbox',subPend+chPend)}
+function loadChanges(){
+  if(!key()){return}
+  subApi('/changes').then(function(j){chs=j.changes||[];chPend=j.pending||0;$('chCount').innerHTML=chPend?'<span class="pill">'+chPend+' new</span>':'';inboxBadge();renderChanges()})
+    .catch(function(err){$('chList').innerHTML='<div class="hint">'+esc(err.message)+'</div>'});
+}
+var CHLAB={title:'Title',date:'Date',start:'Start',end:'End',venue:'Venue',link:'Link',desc:'Description'};
+function renderChanges(){
+  var rows=chs.filter(function(x){return x.status===chTab});
+  $('chList').innerHTML=rows.length?rows.map(function(x){
+    var who=[x.name,x.email].filter(Boolean).map(esc).join(' · ');
+    var ver=x.organizer?'<span class="tag" style="padding:2px 8px">✓ Matches the organizer</span>':'<span class="tag" style="padding:2px 8px;background:#fff3cd">Unverified sender</span>';
+    var diff=x.kind==='remove'?'<div class="desc"><b>Wants this event removed.</b></div>':'<div class="desc">'+Object.keys(x.fields||{}).map(function(k){return '<div><b>'+esc(CHLAB[k]||k)+':</b> '+esc(x.fields[k])+'</div>'}).join('')+'</div>';
+    var acts=x.status==='pending'?'<button class="ok" data-ch-ok="'+x.id+'">Approve</button><button data-ch-no="'+x.id+'">Reject</button>':x.status==='approved'?'<button data-ch-no="'+x.id+'">Undo (reject)</button>':'<button data-ch-ok="'+x.id+'">Approve</button>';
+    return '<div class="sub-it"><b>'+esc(x.target&&x.target.title)+'</b><div class="meta">'+esc((x.target&&x.target.date)||'')+(x.target&&x.target.link?' · <a href="'+esc(x.target.link)+'" target="_blank" rel="noopener">event page</a>':'')+'</div>'
+      +diff+(x.note?'<div class="desc">Note: '+esc(x.note)+'</div>':'')
+      +'<div class="meta">From '+who+' '+ver+'</div><div class="acts">'+acts+'<button data-ch-del="'+x.id+'">Delete</button></div></div>';
+  }).join(''):'<div class="hint">'+(chTab==='pending'?'No new requests.':'Nothing here.')+'</div>';
+}
+document.addEventListener('click',function(ev){
+  var t=ev.target,id;if(!t.dataset)return;
+  if(t.dataset.ct){chTab=t.dataset.ct;[].forEach.call(document.querySelectorAll('#chTabs button'),function(b){b.className=b.dataset.ct===chTab?'on':''});renderChanges()}
+  else if(id=t.dataset.chOk){t.disabled=true;subApi('/changes/'+id,{method:'PUT',body:{status:'approved'}}).then(loadChanges).catch(function(e){alert(e.message)})}
+  else if(id=t.dataset.chNo){t.disabled=true;subApi('/changes/'+id,{method:'PUT',body:{status:'rejected'}}).then(loadChanges).catch(function(e){alert(e.message)})}
+  else if(id=t.dataset.chDel){if(t.dataset.sure===id){subApi('/changes/'+id,{method:'DELETE'}).then(loadChanges)}else{t.dataset.sure=id;t.textContent='Tap again';setTimeout(function(){t.textContent='Delete';delete t.dataset.sure},3000)}}
+});
 function loadTrust(){
   if(!key()){$('trustList').innerHTML='';return}
   subApi('/trusted').then(function(j){trusted=j.trusted||[];badge('nTrust',trusted.length);trustSet={};trusted.forEach(function(r){trustSet[r.email]=1});
