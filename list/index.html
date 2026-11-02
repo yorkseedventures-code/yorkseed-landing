@@ -284,6 +284,7 @@ form.fcard{background:var(--surface);border:1px solid var(--line);padding:28px;d
 .modal{position:fixed;inset:0;z-index:40;background:rgba(16,14,12,.6);display:grid;place-items:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
 .sheet{background:var(--surface);max-width:500px;width:100%;max-height:90%;overflow:auto;padding:28px;display:grid;gap:16px;border-top:3px solid var(--accent)}
 .stabs{border-bottom:1px solid var(--line);margin-top:0}.stabs .slbl{align-self:center;font-family:var(--f-label);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);opacity:.7}.stabs .ttab{font-size:11px}
+.tp{position:relative}.tpbox{display:flex;flex-wrap:wrap;gap:6px;align-items:center;border:1px solid var(--line);background:var(--surface);padding:6px 8px;min-height:44px}.tpchip{display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:var(--surface);font-size:13px;padding:4px 4px 4px 10px}.tpchip button{border:0;background:none;color:inherit;cursor:pointer;font-size:16px;line-height:1;padding:0 6px}.tpin{flex:1;min-width:140px;border:0!important;outline:0;background:none;font:inherit;font-size:15px;padding:6px 2px}.tplist{position:absolute;z-index:30;left:0;right:0;margin:2px 0 0;padding:4px 0;list-style:none;background:var(--surface);border:1px solid var(--ink);box-shadow:0 8px 24px rgba(0,0,0,.12);max-height:240px;overflow:auto}.tplist li{padding:9px 12px;cursor:pointer;font-size:14px}.tplist li:hover{background:var(--line)}.tplist li.none{color:var(--muted);cursor:default}.tpnote{font-size:12px;color:var(--muted);margin-top:4px}
 .catchks{display:flex;flex-wrap:wrap;gap:6px 14px;padding-top:6px}.catchk{display:inline-flex;align-items:center;gap:6px;font-size:14px;cursor:pointer}.catwrap>span{display:block;font-size:12px;color:var(--muted)}
 .ttab .tn{opacity:.55;font-size:.85em;margin-left:2px}
 .calmenu{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
@@ -1534,8 +1535,8 @@ input::placeholder,textarea::placeholder{font-size:13.5px;color:var(--soft);opac
           <div class="field full"><label for="sTitle">Event Title *</label><input id="sTitle" placeholder="e.g. AI Founder Dinner"><div class="err" id="eTitle" hidden></div></div>
           <div class="field full"><label for="sDesc">Description *</label><textarea id="sDesc" placeholder="Tell us about your event..."></textarea><div class="err" id="eDesc" hidden></div></div>
           <div class="field"><label for="sType">Event Type *</label><select id="sType"></select></div>
-          <div class="field"><label for="sSector">Sector</label><select id="sSector"></select></div>
-          <div class="field full"><label>Also tag as (optional)</label><div class="catchks" id="sCats"></div></div>
+          <div class="field full"><label>Sectors (up to 5, optional)</label><div id="sSectors"></div></div>
+          <div class="field full"><label>Also tag as (up to 3, optional)</label><div id="sCats"></div></div>
           <div class="field"><label for="sHost">Host *</label><input id="sHost" placeholder="Organization or person"><div class="err" id="eHost" hidden></div></div>
           <div class="field full"><label for="sLink">Registration link</label><input id="sLink" type="url" placeholder="https://"></div>
           <div class="field full"><label for="sCover">Cover image (optional)</label><div class="cover" data-cover="s"></div></div>
@@ -1652,7 +1653,7 @@ const CAT_RE={
 "Breakfast":/breakfast|pastries|croissant|bagel|morning mixer|early bird|brunch|morning coffee|coffee (?:meet|club|chat)/i,
 "Lunch":/\blunch(?:eon)?\b|lunch ?& ?learn|\bbites\b/i,
 "Dinner":/dinner|supper club|chef's table|\bfeast\b|private dining|founders'? table|allocator table|investors'? table|\bsupper\b|dinner club/i};
-const SECTORS=["AI","Fintech","Climate","Health","Deep Tech","Robotics","Space","Defense & Security","Consumer","SaaS / Enterprise","Gaming","Creator Economy"];
+const SECTORS=["AI","Fintech","Climate","Health","Deep Tech","Robotics","Space","Defense & Security","Consumer","SaaS / Enterprise","Gaming","Creator Economy","Mobility & Auto","PropTech & Real Estate","EdTech & Education","Media & Entertainment","Food & Agtech","Hardware / IoT","Marketing & Adtech","Future of Work / HR"];
 const SEC_RE={"AI":/\bai\b|agent|\bllms?\b|claude|openai|\bgpt|machine learning|\bml\b|genai|copilot|codex|vibe cod/i,
 "Fintech":/fintech|payments?\b|banking|insurtech|neobank|lending|wealthtech|regtech|stablecoin/i,
 "Climate":/climate|energy|sustainab|cleantech|carbon|\besg\b|net.?zero|agrifood|agtech|water|battery|nuclear/i,
@@ -1664,11 +1665,29 @@ const SEC_RE={"AI":/\bai\b|agent|\bllms?\b|claude|openai|\bgpt|machine learning|
 "Consumer":/consumer|e-?commerce|retail|\bdtc\b|\bcpg\b|fashion|food ?tech/i,
 "SaaS / Enterprise":/\bsaas\b|enterprise|\bb2b\b|devtools|developer tools|\bcloud\b|\bapi\b|data ?(?:eng|infra)/i,
 "Gaming":/gaming|game ?dev|esports|\bgames\b|\bgame jam/i,
-"Creator Economy":/creator|influencer|newsletter|podcast/i};
-function sectorsFor(e){const a=SECTORS.filter(c=>SEC_RE[c].test(e.title));if(e.sector&&SECTORS.includes(e.sector)&&!a.includes(e.sector))a.unshift(e.sector);return a;}
-function sectorOpts(sel){return`<option value="">Pick a sector (optional)</option>`+SECTORS.map(c=>`<option${c===sel?" selected":""}>${c}</option>`).join("");}
-function catChecks(sel){return CAT_TYPES.map(c=>`<label class="catchk"><input type="checkbox" value="${c}"${(sel||[]).includes(c)?" checked":""}> ${c}</label>`).join("");}
-const picked=id=>[...document.querySelectorAll("#"+id+" input:checked")].map(x=>x.value);
+"Creator Economy":/creator|influencer|newsletter|podcast/i,
+"Mobility & Auto":/mobility|\bev\b|electric vehicle|automotive|logistics|supply chain|transport|aviation/i,
+"PropTech & Real Estate":/proptech|real estate|construction|housing|\bproperty\b/i,
+"EdTech & Education":/edtech|education|\bschool\b|bootcamp/i,
+"Media & Entertainment":/\bmedia\b|entertainment|\bfilm\b|\bmusic\b|storytelling|publishing/i,
+"Food & Agtech":/agtech|agrifood|\bfood\b|farming|agricultur|restaurant/i,
+"Hardware / IoT":/hardware|\biot\b|wearable|smart glasses|chips?\b|electronics|manufactur/i,
+"Marketing & Adtech":/marketing|adtech|\bseo\b|branding|advertis|\bgtm\b|go-to-market/i,
+"Future of Work / HR":/future of work|\bhr\b|hiring|recruit|remote work/i};
+function sectorsFor(e){const a=SECTORS.filter(c=>SEC_RE[c].test(e.title));(e.xsectors||[]).forEach(c=>{if(SECTORS.includes(c)&&!a.includes(c))a.unshift(c);});return a;}
+function tp(id,opts,max,sel,ph){const root=document.getElementById(id);if(!root)return;let chosen=(sel||[]).filter(x=>opts.includes(x)).slice(0,max);
+  root.classList.add("tp");root.innerHTML=`<div class="tpbox"></div><ul class="tplist" hidden></ul><div class="tpnote"></div>`;
+  const box=root.querySelector(".tpbox"),list=root.querySelector(".tplist"),note=root.querySelector(".tpnote");let inp;
+  const draw=()=>{box.innerHTML=chosen.map(v=>`<span class="tpchip" data-v="${esc(v)}">${esc(v)}<button type="button" aria-label="Remove ${esc(v)}">×</button></span>`).join("")+(chosen.length<max?`<input class="tpin" type="text" autocomplete="off" placeholder="${chosen.length?"Add another…":ph}">`:"");
+    inp=box.querySelector(".tpin");note.textContent=chosen.length>=max?`Maximum of ${max} reached. Remove one to change it.`:`Up to ${max}. Type to search.`;
+    box.querySelectorAll(".tpchip button").forEach(b=>b.onclick=()=>{chosen=chosen.filter(x=>x!==b.parentElement.dataset.v);draw();});
+    if(inp){inp.oninput=sug;inp.onfocus=sug;inp.onblur=()=>setTimeout(()=>list.hidden=true,150);inp.onkeydown=ev=>{if(ev.key==="Enter"){ev.preventDefault();const f=list.querySelector("li[data-v]");if(f)add(f.dataset.v);}if(ev.key==="Backspace"&&!inp.value&&chosen.length){chosen.pop();draw();}};}};
+  const add=v=>{if(chosen.length<max&&!chosen.includes(v)){chosen.push(v);}draw();if(inp)inp.focus();};
+  const sug=()=>{const q=(inp.value||"").trim().toLowerCase(),m=opts.filter(o=>!chosen.includes(o)&&(!q||o.toLowerCase().includes(q))).slice(0,8);
+    list.innerHTML=m.map(o=>`<li data-v="${esc(o)}">${esc(o)}</li>`).join("")||`<li class="none">No match</li>`;list.hidden=false;
+    list.querySelectorAll("li[data-v]").forEach(li=>li.onmousedown=ev=>{ev.preventDefault();add(li.dataset.v);});};
+  draw();}
+const picked=id=>[...document.querySelectorAll("#"+id+" .tpchip")].map(x=>x.dataset.v);
 function catsFor(e){const a=CAT_TYPES.filter(c=>CAT_RE[c].test(c==="Women in Tech"?e.title+" "+(e.host||""):e.title));(e.xcats||[]).forEach(c=>{if(CAT_TYPES.includes(c)&&!a.includes(c))a.push(c);});return a;}
 const TOPICS=["AI","Fintech","Climate","Health","Deep Tech","Web3","Investing","Founders"];
 const TYPES=["Conferences","Meetups","Communal Dining","Pitch","Workshops","Hackathons","Demo Days","Investor Events","Side Events"];
@@ -2222,7 +2241,7 @@ function validate(){
 }
 function renderReview(){
   const p=TIERS.find(t=>t.id===document.querySelector("input[name=place]:checked").value);const h=hubById($("#sHub").value);const w=$("#sWeek").value?weekById($("#sWeek").value):null;
-  $("#review").innerHTML=`<dt>Event</dt><dd>${esc($("#sTitle").value)}</dd><dt>Type</dt><dd>${esc([$("#sType").value,$("#sSector").value,...picked("sCats")].filter(Boolean).join(" · "))}</dd><dt>Host</dt><dd>${esc($("#sHost").value)}</dd><dt>When</dt><dd>${esc($("#sDate").value)} · ${esc($("#sStart").value)}–${esc($("#sEnd").value)} ${h.name} time</dd><dt>City</dt><dd>${h.name}${w?" · "+esc(w.name):""}</dd>`;
+  $("#review").innerHTML=`<dt>Event</dt><dd>${esc($("#sTitle").value)}</dd><dt>Type</dt><dd>${esc([$("#sType").value,...picked("sSectors"),...picked("sCats")].filter(Boolean).join(" · "))}</dd><dt>Host</dt><dd>${esc($("#sHost").value)}</dd><dt>When</dt><dd>${esc($("#sDate").value)} · ${esc($("#sStart").value)}–${esc($("#sEnd").value)} ${h.name} time</dd><dt>City</dt><dd>${h.name}${w?" · "+esc(w.name):""}</dd>`;
 }
 function syncWeeks(){const ws=WEEKS.filter(w=>w.hub===$("#sHub").value);$("#sWeek").innerHTML='<option value="">No</option>'+ws.map(w=>`<option value="${w.id}">${esc(w.name)} (${range(w.start,w.end)})</option>`).join("");}
 function setPlace(id){const r=document.querySelector(`input[name=place][value="${id}"]`);if(r){r.checked=true;updSum();}}
@@ -2230,12 +2249,12 @@ $("#subForm").addEventListener("submit",async ev=>{
   ev.preventDefault();if(!validate())return;
   if(step<4){step=step===2?4:step+1;paneShow();return;}
   const place=document.querySelector("input[name=place]:checked").value;
-  const e=decorate({id:"u"+Date.now(),title:$("#sTitle").value.trim(),hub:$("#sHub").value,date:$("#sDate").value,start:$("#sStart").value||"18:00",end:$("#sEnd").value||"21:00",type:$("#sType").value,sector:$("#sSector").value||"",xcats:picked("sCats"),host:$("#sHost").value.trim(),tags:[$("#sType").value.replace(/s$/,"")],place:place==="free"?null:place,week:$("#sWeek").value||null,img:"ev"+(1+Math.floor(Math.random()*8)),venue:$("#sVenue").value.trim(),link:/^https?:\/\//.test($("#sLink").value)?$("#sLink").value:"",desc:$("#sDesc").value.trim(),cover:COVER.s||"",mine:true});
+  const e=decorate({id:"u"+Date.now(),title:$("#sTitle").value.trim(),hub:$("#sHub").value,date:$("#sDate").value,start:$("#sStart").value||"18:00",end:$("#sEnd").value||"21:00",type:$("#sType").value,xsectors:picked("sSectors"),xcats:picked("sCats"),host:$("#sHost").value.trim(),tags:[$("#sType").value.replace(/s$/,"")],place:place==="free"?null:place,week:$("#sWeek").value||null,img:"ev"+(1+Math.floor(Math.random()*8)),venue:$("#sVenue").value.trim(),link:/^https?:\/\//.test($("#sLink").value)?$("#sLink").value:"",desc:$("#sDesc").value.trim(),cover:COVER.s||"",mine:true});
   EVENTS.push(e);
   try{const s=JSON.parse(localStorage.getItem("yl-subs2")||"[]");const c={...e};delete c.utc;delete c.utcEnd;delete c.cover;s.push(c);localStorage.setItem("yl-subs2",JSON.stringify(s));}catch(x){}
   const paid=place!=="free";
   const nb=$("#nextBtn");nb.disabled=true;nb.textContent="Sending…";
-  const res=await sendSubmission({title:e.title,hub:e.hub,hubName:hubById(e.hub).name,date:e.date,start:e.start,end:e.end,tz:hubById(e.hub).tz,venue:e.venue,type:e.type,sector:e.sector||"",tags:(e.xcats||[]).join(","),host:e.host,link:e.link,desc:e.desc,week:e.week||"",placement:place,name:$("#sName").value.trim(),email:$("#sEmail").value.trim(),website:$("#sWebsite").value,image:COVER.s||"",via:"form"});
+  const res=await sendSubmission({title:e.title,hub:e.hub,hubName:hubById(e.hub).name,date:e.date,start:e.start,end:e.end,tz:hubById(e.hub).tz,venue:e.venue,type:e.type,sector:(e.xsectors||[]).join(","),tags:(e.xcats||[]).join(","),host:e.host,link:e.link,desc:e.desc,week:e.week||"",placement:place,name:$("#sName").value.trim(),email:$("#sEmail").value.trim(),website:$("#sWebsite").value,image:COVER.s||"",via:"form"});
   nb.disabled=false;nb.textContent="Continue";
   if(!res.ok){EVENTS.pop();toast(res.msg||`We couldn't send that just now. Please try again, or email ${YS_INBOX}.`);return;}
   $("#subForm").reset();COVER.s="";mountCover(document.querySelector('[data-cover="s"]'),"s","sCover");$("#sStart").value="18:30";$("#sEnd").value="21:00";syncWeeks();setPlace("free");step=1;paneShow();
@@ -2349,7 +2368,7 @@ function showCard(){
   c.innerHTML=`<h4>${d.title?esc(d.title):"Your <em>event</em>"}</h4>
   <label>Title<input id="eTitle2" value="${esc(d.title)}" placeholder="e.g. AI Founders Dinner"></label>
   <div class="row2"><label>Date<input id="eDate2" type="date" value="${esc(d.date)}" min="2026-10-19"></label><label>Type<select id="eType2">${TYPES.map(t=>`<option${t===d.type?" selected":""}>${t}</option>`).join("")}</select></label></div>
-  <div class="row2"><label>Sector<select id="eSector2">${sectorOpts(d.sector)}</select></label><div class="catwrap"><span>Also tag as (optional)</span><div class="catchks" id="eCats2">${catChecks(d.xcats)}</div></div></div>
+  <div class="row2"><div class="catwrap"><span>Sectors (up to 5, optional)</span><div id="eSectors2"></div></div><div class="catwrap"><span>Also tag as (up to 3, optional)</span><div id="eCats2"></div></div></div>
   <div class="row2"><label>Starts<input id="eStart2" type="time" value="${esc(d.start)}"></label><label>Ends<input id="eEnd2" type="time" value="${esc(d.end)}"></label></div>
   <div class="row2"><label>City<select id="eHub2">${[...HUBS].sort((a,b)=>a.name.localeCompare(b.name)).map(h=>`<option value="${h.id}"${h.id===d.hub?" selected":""}>${h.name}</option>`).join("")}<option value="__new">My city isn't listed…</option></select></label><label>Venue<input id="eVenue2" value="${esc(d.venue)}" placeholder="Venue or neighborhood"></label></div>
   <div class="newcity" id="eNew2" hidden><div class="row2"><label>City name<input id="eNewName" placeholder="e.g. Porto"></label><label>Country<input id="eNewCountry" placeholder="e.g. Portugal"></label></div><label>Time zone<select id="eNewTz">${tzList().map(z=>`<option${z===myTz?" selected":""}>${z}</option>`).join("")}</select></label><span class="tzline">New cities open on the List once we accept the first event there.</span></div>
@@ -2364,6 +2383,7 @@ function showCard(){
   <button class="btn btn-primary" type="button" id="eOk2">Looks right</button>`;
   $("#dlog").append(c);COVER.c="";mountCover(c.querySelector('[data-cover="c"]'),"c","eCover2");scrollLog();
   const tz=()=>{const nw=$("#eHub2").value==="__new";$("#eNew2").hidden=!nw;const h=nw?{id:"x",name:$("#eNewName").value.trim()||"your city",tz:$("#eNewTz").value}:hubById($("#eHub2").value);$("#eTz2").textContent=`Times are in ${h.name} local time (${h.id==="virtual"?"ET":abbr(toUtc($("#eDate2").value||"2026-10-20","12:00",h.tz),h.tz)}).`;};
+  tp("eSectors2",SECTORS,5,chat.draft.xsectors,"Type a sector");tp("eCats2",CAT_TYPES,3,chat.draft.xcats,"Type a category");
   {let touched=false;$("#eType2").onchange=()=>touched=true;$("#eTitle2").addEventListener("input",()=>{if(!touched)$("#eType2").value=inferType($("#eTitle2").value);});}
   tz();$("#eHub2").onchange=tz;$("#eNewTz").onchange=tz;$("#eNewName").oninput=tz;$("#eDate2").onchange=tz;$("#eTitle2").focus();
   $("#eOk2").onclick=confirmCard;
@@ -2375,19 +2395,19 @@ function confirmCard(){
   let hubId=v("#eHub2"),newHub=null;
   if(nw){const nm=v("#eNewName");const ex=HUBS.find(h=>h.name.toLowerCase()===nm.toLowerCase());if(ex)hubId=ex.id;else{newHub=makeHub(nm,v("#eNewCountry"),v("#eNewTz"));HUBS.push(newHub);hubId=newHub.id;try{const nh=JSON.parse(localStorage.getItem("yl-newhubs")||"[]");nh.push(newHub);localStorage.setItem("yl-newhubs",JSON.stringify(nh));}catch(x){}}}
   chat.newHub=newHub;chat.who={name:v("#eName2"),email:v("#eEmail2"),web:$("#eWeb2").value};
-  const d=Object.assign(chat.draft,{title,date,start:v("#eStart2"),end:v("#eEnd2"),hub:hubId,venue:v("#eVenue2"),type:v("#eType2"),sector:v("#eSector2"),xcats:picked("eCats2"),host:v("#eHost2"),desc:v("#eDesc2"),link:/^https?:\/\//.test(v("#eLink2"))?v("#eLink2"):""});
+  const d=Object.assign(chat.draft,{title,date,start:v("#eStart2"),end:v("#eEnd2"),hub:hubId,venue:v("#eVenue2"),type:v("#eType2"),xsectors:picked("eSectors2"),xcats:picked("eCats2"),host:v("#eHost2"),desc:v("#eDesc2"),link:/^https?:\/\//.test(v("#eLink2"))?v("#eLink2"):""});
   if(d.start&&!d.end){const [hh,mm]=d.start.split(":").map(Number);d.end=String(Math.min(23,hh+2)).padStart(2,"0")+":"+String(mm).padStart(2,"0");}
   $("#ecard").outerHTML=`<div class="esum">${esc(d.title)}</div>`;
   me("Looks right");chat.state="review";
   const st2=document.createElement("div");st2.className="status";st2.innerHTML=`<span class="spin"></span><span><b>${esc(d.title)}</b><small>Reviewing your event…</small></span>`;$("#dlog").append(st2);scrollLog();
   const hh=hubById(hubId);
-  const sent=sendSubmission({title:d.title,hub:newHub?"":hubId,hubName:hh?hh.name:"",newCity:newHub?[newHub.name,newHub.country].filter(Boolean).join(", "):"",date:d.date,start:d.start,end:d.end,tz:newHub?newHub.tz:(hh?hh.tz:""),venue:d.venue,type:d.type,sector:d.sector||"",tags:(d.xcats||[]).join(","),host:d.host,link:d.link,desc:d.desc,placement:"free",name:chat.who.name,email:chat.who.email,website:chat.who.web,image:COVER.c||"",via:d.dup?"chat-update":"chat"});
+  const sent=sendSubmission({title:d.title,hub:newHub?"":hubId,hubName:hh?hh.name:"",newCity:newHub?[newHub.name,newHub.country].filter(Boolean).join(", "):"",date:d.date,start:d.start,end:d.end,tz:newHub?newHub.tz:(hh?hh.tz:""),venue:d.venue,type:d.type,sector:(d.xsectors||[]).join(","),tags:(d.xcats||[]).join(","),host:d.host,link:d.link,desc:d.desc,placement:"free",name:chat.who.name,email:chat.who.email,website:chat.who.web,image:COVER.c||"",via:d.dup?"chat-update":"chat"});
   const cv=COVER.c;COVER.c="";
   setTimeout(async()=>{
     const res=await sent;
     let e=d.dup?EVENTS.find(x=>x.id===d.dup):null;
-    if(e){Object.assign(e,{title:d.title,date:d.date,start:d.start||null,end:d.start?d.end:null,hub:d.hub,venue:d.venue,type:d.type,sector:d.sector||"",xcats:d.xcats||[],host:d.host||e.host,desc:d.desc||e.desc,link:d.link||e.link});if(cv)e.cover=cv;decorate(e);}
-    else{e=decorate({id:"u"+Date.now(),title:d.title,hub:d.hub,date:d.date,start:d.start||null,end:d.start?d.end:null,type:d.type,sector:d.sector||"",xcats:d.xcats||[],host:d.host||"",tags:inferTags(d.title+" "+(d.desc||"")),aud:[],place:null,week:null,img:"ev"+(1+Math.floor(Math.random()*8)),venue:d.venue,link:d.link,desc:d.desc||"Submitted to the List.",cover:cv||"",mine:true});EVENTS.push(e);
+    if(e){Object.assign(e,{title:d.title,date:d.date,start:d.start||null,end:d.start?d.end:null,hub:d.hub,venue:d.venue,type:d.type,xsectors:d.xsectors||[],xcats:d.xcats||[],host:d.host||e.host,desc:d.desc||e.desc,link:d.link||e.link});if(cv)e.cover=cv;decorate(e);}
+    else{e=decorate({id:"u"+Date.now(),title:d.title,hub:d.hub,date:d.date,start:d.start||null,end:d.start?d.end:null,type:d.type,xsectors:d.xsectors||[],xcats:d.xcats||[],host:d.host||"",tags:inferTags(d.title+" "+(d.desc||"")),aud:[],place:null,week:null,img:"ev"+(1+Math.floor(Math.random()*8)),venue:d.venue,link:d.link,desc:d.desc||"Submitted to the List.",cover:cv||"",mine:true});EVENTS.push(e);
       try{const s=JSON.parse(localStorage.getItem("yl-subs2")||"[]");const c={...e};delete c.utc;delete c.utcEnd;delete c.cover;s.push(c);localStorage.setItem("yl-subs2",JSON.stringify(s));}catch(x){}}
     const h=hubById(e.hub);
     st2.innerHTML=`<span class="done">✓</span><span><b>${esc(e.title)}</b><small>${res.ok?(res.live?"Live on the List":"Sent for review"):"Not sent yet"} · ${h.name} · ${dParts(e.date).wd} ${dParts(e.date).day} ${dParts(e.date).mon}</small></span>`;
@@ -2671,7 +2691,7 @@ function makePicker(sel,alignLeft){
 }
 // ---------- init ----------
 $("#sHub").innerHTML=HUBS.map(h=>`<option value="${h.id}">${h.name}</option>`).join("");
-$("#sType").innerHTML=TYPES.map(t=>`<option>${t}</option>`).join("");$("#sSector").innerHTML=sectorOpts("");$("#sCats").innerHTML=catChecks([]);
+$("#sType").innerHTML=TYPES.map(t=>`<option>${t}</option>`).join("");tp("sSectors",SECTORS,5,[],"Type a sector, e.g. AI or Fintech");tp("sCats",CAT_TYPES,3,[],"Type a category, e.g. Dinner");
 $("#placeOpts").innerHTML=TIERS.map(t=>`<label><input type="radio" name="place" value="${t.id}"${t.id==="free"?" checked":""}><b>${t.name}</b><span class="p">${t.price?"$"+t.price:"Free"}</span><small>${t.items.slice(-2).join(" · ")}</small></label>`).join("");
 document.querySelectorAll("input[name=place]").forEach(r=>r.onchange=updSum);
 if($("#tiers"))$("#tiers").innerHTML=TIERS.map(t=>`<div class="tier${t.rec?" rec":""}"><b>${t.name}</b><div class="price">$${t.price}</div><div class="unit">${t.unit}</div><ul>${t.items.map(i=>`<li>${i}</li>`).join("")}</ul><button class="btn ${t.price?"btn-primary":"btn-line"}" type="button" data-tier="${t.id}">${t.cta}</button></div>`).join("");
@@ -2695,7 +2715,7 @@ function liveBookings(){const t=addDays(0);return LIVE_BANNERS.filter(b=>b.activ
 function allBookings(){return [...SELF_ADS.filter(b=>!b.end||b.end>=addDays(0)),...liveBookings(),...BOOKINGS];}
 function rerenderAll(){if(PENDING_EV&&openFromHash())return;try{renderHome();}catch(e){}try{if(st.view==="city")renderCity();if(st.view==="event")renderEvent();}catch(e){}try{renderBanners();}catch(e){}try{drawMZ();}catch(e){}}
 function dbEvent(id,d){const w=WEEKS.find(x=>x.hub===d.hub&&d.date>=x.start&&d.date<=x.end);
-  return decorate({id:"d_"+id,title:d.title||"Untitled",hub:d.hub,date:d.date,start:d.start||null,end:d.start?(d.end||null):null,type:d.type||inferType(d.title||""),sector:d.sector||"",xcats:String(d.tags||"").split(",").filter(Boolean),host:d.host||"",tags:(()=>{const t=inferTags((d.title||"")+" "+(d.desc||""));return t.length?t.slice(0,3):["Founders"];})(),aud:[],place:d.featured?"featured":(d.yorkseed?"spotlight":null),partner:!!d.partner,house:!!d.house,week:w?w.id:null,img:"ev"+(1+(id.charCodeAt(0)%8)),venue:d.venue||"",link:d.link||"",desc:d.desc||"",cover:/^https:\/\//.test(d.img||"")?d.img:"",live:true});}
+  return decorate({id:"d_"+id,title:d.title||"Untitled",hub:d.hub,date:d.date,start:d.start||null,end:d.start?(d.end||null):null,type:d.type||inferType(d.title||""),xsectors:String(d.sector||"").split(",").filter(Boolean),xcats:String(d.tags||"").split(",").filter(Boolean),host:d.host||"",tags:(()=>{const t=inferTags((d.title||"")+" "+(d.desc||""));return t.length?t.slice(0,3):["Founders"];})(),aud:[],place:d.featured?"featured":(d.yorkseed?"spotlight":null),partner:!!d.partner,house:!!d.house,week:w?w.id:null,img:"ev"+(1+(id.charCodeAt(0)%8)),venue:d.venue||"",link:d.link||"",desc:d.desc||"",cover:/^https:\/\//.test(d.img||"")?d.img:"",live:true});}
 var PHOTOS={};
 function evImgTag(e,fb){const p=(e&&e.cover)||(e&&e.link&&(PHOTOS||{})[e.link]);return p?`<img src="${esc(p)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src=this.dataset.fb" data-fb="${fb}">`:`<img src="${fb}" alt="">`;}
 if(window.YS_STATIC){fetch(String(window.YS_STATIC).replace(/^1$/,"")+"data/photos.json",{cache:"no-store"}).then(r=>r.ok?r.json():{}).then(m=>{let n=0;for(const k in m){if(m[k]&&m[k].img){PHOTOS[k]=m[k].img;n++;}}if(n&&typeof rerenderAll==="function")rerenderAll();}).catch(()=>{});}
