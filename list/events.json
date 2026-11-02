@@ -1137,17 +1137,6 @@
   "src": "luma"
  },
  {
-  "title": "AGNTCon + MCPCon North America: The AI Agents Conference",
-  "hub": "sf",
-  "date": "2026-10-22",
-  "start": null,
-  "end": null,
-  "venue": "San Jose Convention Center, 150 W San Carlos St",
-  "host": "The Linux Foundation",
-  "link": "https://events.linuxfoundation.org/agntcon-mcpcon-north-america/",
-  "desc": "AGNTCon + MCPCon is the flagship annual conference for the open agentic AI ecosystem."
- },
- {
   "title": "AI at Work: From Personal Productivity to Engineering at Scale",
   "hub": "dub",
   "date": "2026-10-22",
@@ -5100,17 +5089,6 @@
   "src": "luma"
  },
  {
-  "title": "SF AI->SI Code and Coffee Sunday October 25th 2026 @Salesforce Park!",
-  "hub": "sf",
-  "date": "2026-10-25",
-  "start": "14:00",
-  "end": "17:00",
-  "venue": "Salesforce Park, 100 Fremont Street, San Francisco, CA",
-  "host": "San Francisco AI Code and Coffee",
-  "link": "https://www.meetup.com/sf-code-coffee/events/316997837/",
-  "desc": "🚨 **IMPORTANT: Luma is our main event platform for this event.** Last month was **1000+ RSVPs and growing! 🔥** 🌉☕ SF AI→SI Code & Coffee is back at Sale"
- },
- {
   "title": "【免費AI實戰講座】Vibe Coding 新手101：用 AI Agent 都做到你第一個網站/ SaaS、推廣和變現",
   "hub": "hkg",
   "date": "2026-10-25",
@@ -8267,17 +8245,6 @@
   "src": "luma"
  },
  {
-  "title": "Tough Tech Summit 2026 | The Engine",
-  "hub": "bos",
-  "date": "2026-10-27",
-  "start": "08:00",
-  "end": "18:00",
-  "venue": "Hotel Commonwealth, 500 Commonwealth Ave, Boston, MA 02215",
-  "host": "The Engine",
-  "link": "https://engine.xyz/toughtechsummit",
-  "desc": "The 2026 Tough Tech Summit returns on October 27 at Hotel Commonwealth in Boston. Join a curated group of founders, investors, and ecosystem leaders for a…"
- },
- {
   "title": "Open Coffee Club",
   "hub": "yvr",
   "date": "2026-10-27",
@@ -10249,19 +10216,6 @@
   "src": "foundercal"
  },
  {
-  "title": "Hacktoberfest @ México Tech Week",
-  "hub": "mex",
-  "date": "2026-10-27",
-  "start": "15:00",
-  "end": null,
-  "venue": "",
-  "host": "Mobil3",
-  "link": "https://www.getonbrd.com/events/2026/hacktoberfest-mexico-tech-week-ciudad-de-mexico-mexico",
-  "type": "Hackathons",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
   "title": "Capital Raising Essentials for Entrepreneurs",
   "hub": "yvr",
   "date": "2026-10-27",
@@ -10725,17 +10679,6 @@
   "link": "https://luma.com/aivalley-lqjv",
   "desc": "Who Killed the Build? 💀 A Halloween DevTools Murder Mystery with Flox The build is dead. The cause? Unknown.",
   "src": "luma"
- },
- {
-  "title": "The New AI Developer Stack",
-  "hub": "sf",
-  "date": "2026-10-27",
-  "start": "17:00",
-  "end": "20:00",
-  "venue": "Wilson Sonsini Goodrich & Rosati, One Market Plaza, Spear Tower #3300, San Francisco, CA 94105, USA, San Francisco, CA",
-  "host": "Mobile Monday Silicon Valley",
-  "link": "https://www.meetup.com/mobile-monday-silicon-valley/events/316800587/",
-  "desc": "**Sign up on Luma Please:** [https://luma.com/8r3itwhb](https://luma.com/8r3itwhb) The modern software engineering stack is undergoing its most radical tr"
  },
  {
   "title": "Mexico City Tech Week SaaS & AI Founder + Investor Rooftop Happy Hour 2026",
@@ -13245,16 +13188,6 @@
   "desc": "Africa's tech-ecosystem conference from TechCabal, October 28 and 29, with founders, investors and operators from across the continent."
  },
  {
-  "title": "Futureproof Festival",
-  "hub": "yvr",
-  "date": "2026-10-28",
-  "venue": "Vancouver",
-  "link": "https://www.futureproof.website",
-  "type": "Conferences",
-  "desc": "A data conference in Vancouver, October 28 to 30. Details and tickets on the event page.",
-  "src": "confstech"
- },
- {
   "title": "Mozilla Festival",
   "hub": "bcn",
   "date": "2026-10-28",
@@ -13757,19 +13690,6 @@
   "link": "https://luma.com/platform-nks0",
   "desc": "Details and registration on the event page.",
   "src": "luma-cal"
- },
- {
-  "title": "beyond economy Festival 2026",
-  "hub": "muc",
-  "date": "2026-10-28",
-  "start": "08:00",
-  "end": "18:00",
-  "venue": "House of Communication, Friedenstraße 24, 81671 München",
-  "host": "beyond economy",
-  "link": "https://beyond-economy.eco",
-  "type": "Conferences",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
  },
  {
   "title": "People Day by Buk 2026",
@@ -15718,17 +15638,6 @@
   "src": "luma"
  },
  {
-  "title": "Open Source Higgsfield · Comfy",
-  "hub": "sf",
-  "date": "2026-10-28",
-  "start": "15:00",
-  "end": "22:00",
-  "venue": "Frontier Tower 🧑‍🚀, Frontier Tower 🧑‍🚀, 995 Market St, San Francisco, CA 94103, USA",
-  "host": "ComfyUI",
-  "link": "https://comfy.org/open-source-higgsfield",
-  "desc": "Higgsfield said they’d open source their platform. Let’s help. You have two weeks to rebuild their most popular apps and more with ComfyUI."
- },
- {
   "title": "The Data Team's New Tools",
   "hub": "hel",
   "date": "2026-10-28",
@@ -15850,19 +15759,6 @@
   "host": "Mexico Tech Week 2026",
   "link": "https://luma.com/mxtw-5e52a7d9",
   "type": "Meetups",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "Café, Cloud y Capital: Tech Due Diligence",
-  "hub": "mex",
-  "date": "2026-10-28",
-  "start": "15:00",
-  "end": "16:00",
-  "venue": "C. Marsella 45, 45 Calle Marsella, 06030, Ciudad de México",
-  "host": "Startup Grind",
-  "link": "https://www.startupgrind.com/e/mbs9ud",
-  "type": "Workshops",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
  },
@@ -25334,17 +25230,6 @@
   "src": "meetup"
  },
  {
-  "title": "AI Startup Rodeo Edition 02: Machine-to-machine payments",
-  "hub": "atx",
-  "date": "2026-10-30",
-  "start": "08:00",
-  "end": "17:00",
-  "venue": "Q Branch, The Texas Embassy, 200 E 6th Street, Suite 300",
-  "host": "AI Startup Rodeo",
-  "link": "https://aistartuprodeo.com/",
-  "desc": "AI Startup Rodeo is a one-day builder event in downtown Austin. Talks and live demos on AI agents, developer tools, security, open-source infrastructure and startups. Edition 02 focuses on machine-to-machine payments: how software pays and gets paid."
- },
- {
   "title": "Tough Tech Dual-Use Day 2026: One Year of SHIELD",
   "hub": "bos",
   "date": "2026-10-30",
@@ -26276,19 +26161,6 @@
   "link": "https://luma.com/pnpsv-afwg",
   "desc": "Details and registration on the event page.",
   "src": "luma"
- },
- {
-  "title": "Bytes & Bites: Women in Tech Week Edition REGISTER ON LUMA**",
-  "hub": "atl",
-  "date": "2026-10-30",
-  "start": "11:45",
-  "end": null,
-  "venue": "Krog Street Market, 99 Krog Street NW, Atlanta, ga",
-  "host": "REFACTR.TECH",
-  "link": "https://www.meetup.com/refactr-tech/events/317036425",
-  "type": "Communal Dining",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
  },
  {
   "title": "THE GTM FELLOWSHIP - A HALLOWEEN HACKATHON + PARTY",
@@ -29118,17 +28990,6 @@
   "link": "https://luma.com/DivineComedy",
   "desc": "You have fallen. Now rise . This Halloween, our three-floor social club becomes three worlds: the crimson depths of Hell , the cindered terraces of Purgatory , and the resplendent light of Heaven .",
   "src": "luma"
- },
- {
-  "title": "India Blockchain Week 2026",
-  "hub": "bom",
-  "date": "2026-11-01",
-  "start": null,
-  "end": null,
-  "venue": "Fairmont Mumbai, Fairmont Mumbai Airport, Andheri",
-  "host": "Hashed Emergent",
-  "link": "https://indiablockchainweek.com/",
-  "desc": "India Blockchain Week 2026 — Accelerating India's Digital Renaissance. The two-day flagship conference anchoring India Blockchain Week, hosted by Hashed Emergent."
  },
  {
   "title": "AI Expo Europe 2026!",
@@ -33864,17 +33725,6 @@
   "link": "https://luma.com/jhwq44s8",
   "desc": "Women Behind the Win Join Fireworks’ SVP of Sales, Soumya Tulloss, alongside Anoushka Vaswani from Lightspeed Ventures, and Brenna Shubin, Kat McCormick Sweeney, Grace Kim, and Julianna Ziliotto from Fireworks for an intimate dining experience bringing…",
   "src": "luma"
- },
- {
-  "title": "HACKATHON - Agent Eval Harness (by the Friendly Data Meetup)",
-  "hub": "ldn",
-  "date": "2026-11-04",
-  "start": "17:30",
-  "end": "21:00",
-  "venue": "230 Blackfriars Road, 230 Blackfriars Rd, London SE1 8NW, UK, London, 17",
-  "host": "The Friendly Data Meetup London",
-  "link": "https://www.meetup.com/the-friendly-data-meetup/events/316927507/",
-  "desc": "SIGN UP HERE TO ATTEND 👉 [https://luma.com/h8zer2ek](https://luma.com/h8zer2ek) ______________________________________________ Hi new friends and old!"
  },
  {
   "title": "HACKATHON - Agent Eval Harness",
@@ -39448,17 +39298,6 @@
   "desc": "It started here. Now it gets bigger! Tech Run is coming back to Lisbon! The city that kicked off this movement in 2024 is about to go bigger, louder, and faster in 2026, bringing together entrepreneurs, builders, and change-makers for a race that goes way…"
  },
  {
-  "title": "Heal Your Business From the Inside Out",
-  "hub": "mia",
-  "date": "2026-11-08",
-  "start": "14:00",
-  "end": "18:00",
-  "venue": "CALMA Wellness Lounge, CALMA Wellness Lounge, 710 NW 5th Ave Ste 1091, Fort Lauderdale, FL 33311, USA",
-  "host": "Longevity Social Club",
-  "link": "https://thelongevitysocialclub.com/heal-your-business",
-  "desc": "An afternoon working session for women founders at Calma Wellness Lounge, Fort Lauderdale, on November 8, 2026."
- },
- {
   "title": "Heal Your Business From the Inside Out · A Mindset Workshop for Female Founders in Fort Lauderdale",
   "hub": "mia",
   "date": "2026-11-08",
@@ -39921,19 +39760,6 @@
   "link": "https://www.meetup.com/ai-professionals-nyc-machine-learning/events/317079218/",
   "desc": "Details and registration on the event page.",
   "src": "meetup"
- },
- {
-  "title": "Startup Guide Summit",
-  "hub": "lis",
-  "date": "2026-11-09",
-  "start": "14:00",
-  "end": "21:00",
-  "venue": "Casa do Impacto, Tv. de São Pedro 8, 1200-432 Lisboa, Portugal",
-  "host": "Startup Guide",
-  "link": "https://luma.com/otenqnxf",
-  "type": "Conferences",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
  },
  {
   "title": "COREangels Day & Investors Boat Party",
@@ -40406,17 +40232,6 @@
   "src": "foundercal"
  },
  {
-  "title": "AI Engineer Code Summit 2026",
-  "hub": "sf",
-  "date": "2026-11-10",
-  "start": null,
-  "end": null,
-  "venue": "Hilton San Francisco Union Square, 333 O'Farrell St",
-  "host": "AI Engineer",
-  "link": "https://ai.engineer/code/2026",
-  "desc": "The application-only AI Engineer Code Summit brings together leading coding-agent builders and AI engineers in San Francisco, November 10-12, 2026."
- },
- {
   "title": "Digital Asset Summit London 2026",
   "hub": "ldn",
   "date": "2026-11-10",
@@ -40548,17 +40363,6 @@
   "type": "Communal Dining",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
- },
- {
-  "title": "Machine Intelligence Summit",
-  "hub": "zrh",
-  "date": "2026-11-10",
-  "start": "09:00",
-  "end": "20:00",
-  "venue": "IPZ, IPZ, c/o Stiftung Innovationspark Zürich, Wangenstrasse 68, 8600 Duebendorf, Switzerland",
-  "host": "ellipsis Venture",
-  "link": "http://www.machine-intelligence.io",
-  "desc": "One day, one room, 200 people who build frontier AI in Europe. 10 November 2026, Innovation Park Zurich. Invite only."
  },
  {
   "title": "SAAF Project: Shared Audit Agents Framework",
@@ -41467,17 +41271,6 @@
   "host": "Entrepreneurs Roundtable",
   "link": "https://www.eranyc.com/",
   "desc": "Early stage fund and technology accelerator located in New York City that runs two, four month programs per year. Initial investment is $150K on a 6% post-money SAFE and the potential for follow-on funding."
- },
- {
-  "title": "Future Days turns 3",
-  "hub": "lis",
-  "date": "2026-11-10",
-  "start": "18:00",
-  "end": "20:30",
-  "venue": "With Company, R. Afonso Annes Penedo 1D, 1950-014 Lisboa, Portugal, Lisboa",
-  "host": "Skipping Time",
-  "link": "https://www.meetup.com/with-skipping-time/events/317070918/",
-  "desc": "Hi everyone, Future Days turns three, and we’d love to celebrate with the people who’ve been part of these meetups. On November 10, we’re opening our doo"
  },
  {
   "title": "Monthly Meetup of the Web3 Developers Underground community",
@@ -43762,18 +43555,6 @@
   "src": "luma"
  },
  {
-  "title": "Female Founders Breakfast: Websummit Special",
-  "hub": "lis",
-  "date": "2026-11-12",
-  "start": "09:00",
-  "end": "10:30",
-  "venue": "Avila Spaces",
-  "host": "Female Founders Breakfasts & Nina Simone",
-  "link": "https://luma.com/sx67k4x0",
-  "desc": "Details and registration on the event page.",
-  "src": "luma"
- },
- {
   "title": "SGLang Summit 2026 by LMSYS",
   "hub": "sf",
   "date": "2026-11-12",
@@ -44695,19 +44476,6 @@
   "src": "foundercal"
  },
  {
-  "title": "Upstream: Digital Tech Meetup at Second Draught",
-  "hub": "hou",
-  "date": "2026-11-12",
-  "start": "17:30",
-  "end": "20:00",
-  "venue": "Second Draught, 4201 Main St. Suite 130, Houston, TX",
-  "host": "Ion",
-  "link": "https://iondistrict.com/event/upstream-digital-tech-meetup-at-second-draught-3/2026-11-12",
-  "type": "Communal Dining",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
   "title": "Demo Day LA - November 2026",
   "hub": "la",
   "date": "2026-11-12",
@@ -45071,19 +44839,6 @@
   "venue": "Private LA venue (shared on approval), Los Angeles, CA",
   "host": "LvlUp Ventures",
   "link": "https://www.lvlup.vc/events/la-cpg-demo-day",
-  "type": "Demo Days",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "LvlUp Demo Day & Holiday Cocktail Hour",
-  "hub": "la",
-  "date": "2026-11-12",
-  "start": "18:00",
-  "end": null,
-  "venue": "El Segundo, CA",
-  "host": "LvlUp Ventures",
-  "link": "https://airtable.com/appcdU4raxlkiAWMl/pag2ZqFIumHw5rVu4/form",
   "type": "Demo Days",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -45658,17 +45413,6 @@
   "type": "Hackathons",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
- },
- {
-  "title": "Unblock AI Conference 2026 · Lisbon, 13 Nov",
-  "hub": "lis",
-  "date": "2026-11-13",
-  "start": "08:00",
-  "end": "20:00",
-  "venue": "Jupiter Lisboa Hotel - Rooftop & Spa, Jupiter Lisboa Hotel - Rooftop & Spa, Av. da República 46, 1050-195 Lisboa, Portugal",
-  "host": "UnblockAI",
-  "link": "https://conference.unblockai.pt/",
-  "desc": "One day in Lisbon with talks from teams that run AI in production, three hands-on workshops and a happy hour. Fri 13 Nov 2026, Hotel Júpiter."
  },
  {
   "title": "AI Community Conference - Toronto 2026",
@@ -47709,16 +47453,6 @@
   "link": "https://www.software-architecture-gathering.com",
   "type": "Conferences",
   "desc": "A tech conference in Berlin, November 16 to 19. Details and tickets on the event page.",
-  "src": "confstech"
- },
- {
-  "title": "AI Engineering Summit",
-  "hub": "ber",
-  "date": "2026-11-16",
-  "venue": "Berlin",
-  "link": "https://ai-engineering-summit.de",
-  "type": "Conferences",
-  "desc": "A data conference in Berlin, November 16 to 20. Details and tickets on the event page.",
   "src": "confstech"
  },
  {
@@ -53291,17 +53025,6 @@
   "src": "foundercal"
  },
  {
-  "title": "European Defense Tech Hackathon – Paris 2026",
-  "hub": "par",
-  "date": "2026-11-20",
-  "start": "12:00",
-  "end": null,
-  "venue": "Paris",
-  "host": "European Defense Tech Hub",
-  "link": "https://events.eurodefense.tech/paris-2026",
-  "desc": "Choose your Ticket"
- },
- {
   "title": "Founders Only: IP",
   "hub": "bos",
   "date": "2026-11-20",
@@ -53319,7 +53042,7 @@
   "date": "2026-11-20",
   "start": "12:00",
   "end": null,
-  "venue": "",
+  "venue": "Paris",
   "host": "European Defense Tech Hub",
   "link": "https://luma.com/edth-nov-2026-paris",
   "type": "Hackathons",
@@ -54814,23 +54537,12 @@
   "src": "foundercal"
  },
  {
-  "title": "German–Italian Defense Tech Summit 2026",
-  "hub": "ber",
-  "date": "2026-11-24",
-  "start": "14:30",
-  "end": "21:30",
-  "venue": "Berlin",
-  "host": "European Defense Tech Hub",
-  "link": "https://events.eurodefense.tech/german-italian-defense-tech-summit",
-  "desc": "Choose your Ticket"
- },
- {
   "title": "German – Italian Defense Tech Summit",
   "hub": "ber",
   "date": "2026-11-24",
   "start": "14:30",
   "end": "21:30",
-  "venue": "",
+  "venue": "Berlin",
   "host": "European Defense Tech Hub",
   "link": "https://luma.com/german-italian-summit",
   "type": "Conferences",
@@ -56560,24 +56272,11 @@
   "src": "foundercal"
  },
  {
-  "title": "The Revenue Engine Hackathon: Berlin Edition | HubSpot for Startups, with OpenAI, Clay, and Lemlist",
-  "hub": "ber",
-  "date": "2026-11-27",
-  "start": "08:30",
-  "end": "17:00",
-  "venue": "HubSpot Tower",
-  "host": "HubSpot for Startups",
-  "link": "https://offers.hubspot.com/berlin-revenue-engine-hackathon-2026",
-  "type": "Hackathons",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
   "title": "The Revenue Engine Hackathon: Berlin Edition 🇩🇪",
   "hub": "ber",
   "date": "2026-11-27",
   "start": "08:30",
-  "end": null,
+  "end": "17:00",
   "venue": "HubSpot",
   "host": "HubSpot for Startups",
   "link": "https://luma.com/https://offers.hubspot.com/the-revenue-engine-hackathon-berlin",
@@ -57593,19 +57292,6 @@
   "host": "ToBeReaL",
   "link": "https://pitchperfectbioeconomy.eu/whats-going-on",
   "type": "Pitch",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "Frontiers Health Italia 2026",
-  "hub": "mil",
-  "date": "2026-12-01",
-  "start": "09:00",
-  "end": "18:00",
-  "venue": "Centro Congressi Assolombarda, Via Pantano 9, 20122 Milano",
-  "host": "Frontiers Health",
-  "link": "https://frontiers.health/fh-italia-2026",
-  "type": "Conferences",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
  },
@@ -61563,19 +61249,6 @@
   "host": "Venture Café Berlin",
   "link": "https://community.venturecafeberlin.org/events/86",
   "type": "Meetups",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "Techstars NYC Demo Day",
-  "hub": "nyc",
-  "date": "2026-12-10",
-  "start": "17:00",
-  "end": null,
-  "venue": "Techstars NYC, New York, NY",
-  "host": "Techstars",
-  "link": "https://www.techstars.com/demoday",
-  "type": "Demo Days",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
  },
@@ -68863,16 +68536,6 @@
   "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
  },
  {
-  "title": "Founders Cowork & Coffee",
-  "hub": "scl",
-  "date": "2026-11-19",
-  "start": "10:30",
-  "venue": "Vitacura, Santiago",
-  "host": "Deel",
-  "link": "https://techweek.cl/en/founders-cowork-coffee",
-  "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
- },
- {
   "title": "Rueda de Contactos EtMday",
   "hub": "scl",
   "date": "2026-11-19",
@@ -68890,26 +68553,6 @@
   "venue": "Vitacura, Santiago",
   "host": "Emprende tu Mente",
   "link": "https://techweek.cl/en/cabify-pitch-etmday",
-  "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
- },
- {
-  "title": "Impactaland Demo Day: Future Mining Challenge by Quintil Lab",
-  "hub": "scl",
-  "date": "2026-11-19",
-  "start": "12:00",
-  "venue": "Vitacura, Santiago",
-  "host": "Impacta VC",
-  "link": "https://techweek.cl/en/impactaland-demo-day-future-mining-challenge-by-quintil-lab-accelerator",
-  "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
- },
- {
-  "title": "Impactaland: LAN Demo Day, The Batch 5",
-  "hub": "scl",
-  "date": "2026-11-19",
-  "start": "15:00",
-  "venue": "Vitacura, Santiago",
-  "host": "Impacta VC",
-  "link": "https://techweek.cl/en/impactaland-lan-demo-day-the-batch-5",
   "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
  },
  {
@@ -68960,16 +68603,6 @@
   "venue": "Vitacura, Santiago",
   "host": "Impacta VC",
   "link": "https://techweek.cl/en/impactaland-dia-2",
-  "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
- },
- {
-  "title": "Impactaland | The New Leadership: Playbook for the AI Era",
-  "hub": "scl",
-  "date": "2026-11-20",
-  "start": "15:30",
-  "venue": "Vitacura, Santiago",
-  "host": "Impacta VC",
-  "link": "https://techweek.cl/en/impactaland-the-new-leadership-playbook-for-the-ai-era",
   "desc": "Part of Chile Tech Week 2026 (November 16 to 22). Registration through the host's page."
  },
  {
@@ -78090,17 +77723,6 @@
  },
  {
   "title": "IP for AI Startups: How Founders Can Create a Defensible Moat",
-  "hub": "sf",
-  "date": "2026-10-26",
-  "start": "17:30",
-  "venue": "",
-  "host": "San Francisco Startup Traction Funding Network",
-  "link": "https://www.meetup.com/san-francisco-startup-traction-funding-network/events/316992411/",
-  "desc": "Details and registration on the event page.",
-  "src": "meetup"
- },
- {
-  "title": "IP for AI Startups: How Founders Can Create a Defensible Moat",
   "hub": "tor",
   "date": "2026-10-26",
   "start": "20:30",
@@ -78228,17 +77850,6 @@
   "venue": "",
   "host": "Sydney Startup Idea To Ipo",
   "link": "https://www.meetup.com/sydney-startup-idea-to-ipo/events/316510048/",
-  "desc": "Details and registration on the event page.",
-  "src": "meetup"
- },
- {
-  "title": "3 Hours to Research Intelligence: Build Your First AI Agent",
-  "hub": "syd",
-  "date": "2026-10-27",
-  "start": "08:00",
-  "venue": "",
-  "host": "Sydney Startup Idea To Ipo",
-  "link": "https://www.meetup.com/sydney-startup-idea-to-ipo/events/316510162/",
   "desc": "Details and registration on the event page.",
   "src": "meetup"
  },
@@ -78441,17 +78052,6 @@
   "src": "meetup"
  },
  {
-  "title": "Paid By Monday: Build a Side Hustle with AI in One Weekend",
-  "hub": "syd",
-  "date": "2026-10-30",
-  "start": "09:00",
-  "venue": "",
-  "host": "Sydney Startup Idea To Ipo",
-  "link": "https://www.meetup.com/sydney-startup-idea-to-ipo/events/316956860/",
-  "desc": "Details and registration on the event page.",
-  "src": "meetup"
- },
- {
   "title": "Founder Mixer & Business Networking | Saturday Social in Covent Garden",
   "hub": "ldn",
   "date": "2026-10-31",
@@ -78606,17 +78206,6 @@
   "src": "meetup"
  },
  {
-  "title": "AI & Tech Networking Event in Toronto by Ascent Valley",
-  "hub": "tor",
-  "date": "2026-11-10",
-  "start": "19:00",
-  "venue": "",
-  "host": "Startup Networking Founder Ecosystem Toronto",
-  "link": "https://www.meetup.com/startup-networking-founder-ecosystem-toronto/events/316406793/",
-  "desc": "Details and registration on the event page.",
-  "src": "meetup"
- },
- {
   "title": "WSTI Festi 2026: SME AI Forum, Can AI Help Your Business Grow?",
   "hub": "syd",
   "date": "2026-11-10",
@@ -78673,17 +78262,6 @@
  },
  {
   "title": "How to Build an AI Employee That Starts Today",
-  "hub": "sf",
-  "date": "2026-11-16",
-  "start": "09:00",
-  "venue": "",
-  "host": "San Francisco Startup Traction Funding Network",
-  "link": "https://www.meetup.com/san-francisco-startup-traction-funding-network/events/317106780/",
-  "desc": "Details and registration on the event page.",
-  "src": "meetup"
- },
- {
-  "title": "How to Build an AI Employee That Starts Today",
   "hub": "tor",
   "date": "2026-11-16",
   "start": "12:00",
@@ -78723,17 +78301,6 @@
   "venue": "",
   "host": "Startup Networking Founder Events San Francisco",
   "link": "https://www.meetup.com/startup-networking-founder-events-san-francisco/events/316386952/",
-  "desc": "Details and registration on the event page.",
-  "src": "meetup"
- },
- {
-  "title": "The Startup Pitch: Demo Showcase",
-  "hub": "nyc",
-  "date": "2026-11-19",
-  "start": "17:30",
-  "venue": "",
-  "host": "Startup Grind Nyc",
-  "link": "https://www.meetup.com/startup-grind-nyc/events/317079171/",
   "desc": "Details and registration on the event page.",
   "src": "meetup"
  },
@@ -79040,16 +78607,6 @@
   "link": "https://refreshmiami.com/event/miami-made-thrive-together-tuesday-24/",
   "desc": "Listed on Refresh Miami, South Florida's tech community calendar. Details and registration on the event page.",
   "start": "07:30"
- },
- {
-  "title": "South Miami Tech Tuesdays by Purple Horizons",
-  "hub": "mia",
-  "date": "2026-11-03",
-  "venue": "Bougainvillea's Old Florida Tavern, South Miami",
-  "host": "Refresh Miami",
-  "link": "https://refreshmiami.com/event/south-miami-tech-tuesdays-presented-by-purple-horizons/2026-11-03/",
-  "desc": "Listed on Refresh Miami, South Florida's tech community calendar. Details and registration on the event page.",
-  "start": "18:00"
  },
  {
   "title": "WIRED World Fair: A Festival of the Future",
@@ -81662,16 +81219,6 @@
   "desc": "The world's biggest consumer-tech show, January 6 to 9, with thousands of startups at Eureka Park."
  },
  {
-  "title": "GITEX Global 2026",
-  "hub": "dxb",
-  "date": "2026-12-07",
-  "venue": "Dubai World Trade Centre",
-  "host": "GITEX",
-  "link": "https://www.gitex.com/",
-  "type": "Conferences",
-  "desc": "One of the world's largest tech shows, December 7 to 11, spanning AI, cloud, cyber and telecom."
- },
- {
   "title": "J.P. Morgan Healthcare Conference 2027",
   "hub": "sf",
   "date": "2027-01-11",
@@ -82936,18 +82483,6 @@
   "src": "luma"
  },
  {
-  "title": "Global Startup Ecosystem Mixer 2026 / Slush Day 0",
-  "hub": "hel",
-  "date": "2026-11-17",
-  "start": "15:30",
-  "end": "18:30",
-  "venue": "Kamppi, Helsinki",
-  "host": "Violetta Korhonen & Elton Kullström",
-  "link": "https://luma.com/tnewjjth",
-  "desc": "Details and registration on the event page.",
-  "src": "luma"
- },
- {
   "title": "AIC Insurtech Conference 2026",
   "hub": "bog",
   "date": "2026-10-27",
@@ -83779,18 +83314,6 @@
   "src": "manual"
  },
  {
-  "title": "Open Coffee Lisbon Evening Social",
-  "hub": "lis",
-  "date": "2026-10-27",
-  "start": "18:00",
-  "end": null,
-  "venue": "Titanic Sur Mer",
-  "host": "Open Coffee Lisbon",
-  "link": "https://innovationscene.pt/lisbon/events/5z1ux/",
-  "desc": "Details and registration on the event page.",
-  "src": "manual"
- },
- {
   "title": "Hangout #56: On the Road 2 Web Summit",
   "hub": "lis",
   "date": "2026-10-28",
@@ -83811,18 +83334,6 @@
   "venue": "IDEA Spaces São Sebastião",
   "host": "AI Builders Lisbon",
   "link": "https://innovationscene.pt/lisbon/events/5z1vw/",
-  "desc": "Details and registration on the event page.",
-  "src": "manual"
- },
- {
-  "title": "Unblock AI Lisbon Meetup #08",
-  "hub": "lis",
-  "date": "2026-10-28",
-  "start": "18:30",
-  "end": null,
-  "venue": "TP Portugal, Tejo",
-  "host": "Unblock AI",
-  "link": "https://innovationscene.pt/lisbon/events/5z1vh/",
   "desc": "Details and registration on the event page.",
   "src": "manual"
  },
@@ -83864,20 +83375,6 @@
   "yorkseed": true,
   "src": "manual",
   "type": "Social"
- },
- {
-  "title": "The AI Summit New York",
-  "hub": "nyc",
-  "date": "2026-12-09",
-  "start": null,
-  "end": null,
-  "venue": "Javits Center, 429 11th Ave, New York",
-  "host": "The AI Summit",
-  "link": "https://newyork.theaisummit.com/",
-  "desc": "Two-day AI summit at the Javits Center, December 9 to 10, 2026. Registration opens soon on the event site.",
-  "type": "Conferences",
-  "src": "manual",
-  "noTime": true
  },
  {
   "title": "Consumer Founders Sushi Happy Hour (Consumer Club x Superwall)",
@@ -84114,19 +83611,6 @@
   "src": "manual"
  },
  {
-  "title": "4th Annual staaake Jump Off Rooftop AI/Tech Event",
-  "hub": "lis",
-  "date": "2026-11-08",
-  "start": "18:00",
-  "end": null,
-  "venue": "IDB Rooftop by Mirari, Lisbon",
-  "host": "staaake",
-  "link": "https://www.eventbrite.ch/e/4th-annual-staaake-jump-off-rooftop-aitech-event-reverse-network-meet-tickets-1996196544601",
-  "desc": "Details and registration on the event page.",
-  "type": "Social",
-  "src": "manual"
- },
- {
   "title": "The Real Deal Table: Investor Dinner hosted by Djassi Ventures",
   "hub": "lis",
   "date": "2026-11-08",
@@ -84164,20 +83648,6 @@
   "desc": "Details and registration on the event page.",
   "type": "Communal Dining",
   "src": "manual"
- },
- {
-  "title": "Lisbon Beyond Summit 2026",
-  "hub": "lis",
-  "date": "2026-11-09",
-  "start": null,
-  "end": null,
-  "venue": "Myriad Crystal Center, Lisbon",
-  "host": "B2PORTUGAL",
-  "link": "https://www.b2match.com/e/lisbon-beyond-summit-2026",
-  "desc": "Details and registration on the event page.",
-  "type": "Conferences",
-  "src": "manual",
-  "noTime": true
  },
  {
   "title": "Meet & Greet + Subway Ride to the AI/Tech Conference Opening",
@@ -84255,19 +83725,6 @@
   "link": "https://luma.com/pxwl1esg",
   "desc": "Details and registration on the event page.",
   "type": "Communal Dining",
-  "src": "manual"
- },
- {
-  "title": "The Lisbon Longevity Salon",
-  "hub": "lis",
-  "date": "2026-11-07",
-  "start": "09:30",
-  "end": null,
-  "venue": "Lisbon",
-  "host": "Beyond The Code",
-  "link": "https://luma.com/m2p8i4y2",
-  "desc": "Details and registration on the event page.",
-  "type": "Social",
   "src": "manual"
  },
  {
@@ -84427,19 +83884,6 @@
   "src": "manual"
  },
  {
-  "title": "COREangels Day Lisbon 2026",
-  "hub": "lis",
-  "date": "2026-11-09",
-  "start": "14:00",
-  "end": null,
-  "venue": "Location after RSVP",
-  "host": "COREangels",
-  "link": "https://www.coreangels.com/public-events/coreangelsday26",
-  "desc": "Details and registration on the event page.",
-  "type": "Conferences",
-  "src": "manual"
- },
- {
   "title": "Lisbon Meets German Startups",
   "hub": "lis",
   "date": "2026-11-09",
@@ -84489,19 +83933,6 @@
   "link": "https://www.eventbrite.ca/e/founders-night-8-best-networking-event-at-web-summit26-tickets-2002195532736",
   "desc": "Details and registration on the event page.",
   "type": "Conferences",
-  "src": "manual"
- },
- {
-  "title": "Pitch&Drink with P2S.vc in Lisbon",
-  "hub": "lis",
-  "date": "2026-11-09",
-  "start": "18:00",
-  "end": null,
-  "venue": "Location after RSVP",
-  "host": "Pre-seed to Succeed",
-  "link": "https://luma.com/k1ftimq0",
-  "desc": "Details and registration on the event page.",
-  "type": "Pitch",
   "src": "manual"
  },
  {
@@ -84582,19 +84013,6 @@
   "type": "Conferences",
   "src": "manual",
   "noTime": true
- },
- {
-  "title": "App Growth Breakfast @ Web Summit Lisbon",
-  "hub": "lis",
-  "date": "2026-11-10",
-  "start": "09:00",
-  "end": null,
-  "venue": "Location after RSVP",
-  "host": "Campaignswell & Adapty",
-  "link": "https://luma.com/shjh7kkx",
-  "desc": "Details and registration on the event page.",
-  "type": "Communal Dining",
-  "src": "manual"
  },
  {
   "title": "SheSapiens Mastermind & Networking Lisbon",
@@ -84692,25 +84110,12 @@
   "hub": "lis",
   "date": "2026-11-10",
   "start": "18:00",
-  "end": null,
+  "end": "20:30",
   "venue": "Marvila, Lisbon",
   "host": "Future Days",
   "link": "https://luma.com/yon0jkxq",
   "desc": "Details and registration on the event page.",
   "type": "Social",
-  "src": "manual"
- },
- {
-  "title": "GLOBALS On Tour: Lisbon 2026",
-  "hub": "lis",
-  "date": "2026-11-10",
-  "start": "18:00",
-  "end": null,
-  "venue": "Location after RSVP",
-  "host": "Club GLOBALS",
-  "link": "https://events.clubglobals.com/GLOBALSOnTourLisbon2026",
-  "desc": "Details and registration on the event page.",
-  "type": "Meetups",
   "src": "manual"
  },
  {
@@ -84724,19 +84129,6 @@
   "link": "https://www.eventbrite.pt/e/angels-meetup-websummit-edition-10th-november-2026-tickets-2003782107223",
   "desc": "Details and registration on the event page.",
   "type": "Conferences",
-  "src": "manual"
- },
- {
-  "title": "Barcelona Catalonia Networking Cocktail 2026",
-  "hub": "lis",
-  "date": "2026-11-10",
-  "start": "18:30",
-  "end": null,
-  "venue": "Marquês de Pombal, Lisbon",
-  "host": "ACCIÓ Catalonia Trade & Investment and Barcelona Activa",
-  "link": "https://marketaccess-global.com/en/barcelona-catalonia-networking-cocktail-2026",
-  "desc": "Details and registration on the event page.",
-  "type": "Social",
   "src": "manual"
  },
  {
@@ -84763,19 +84155,6 @@
   "link": "https://luma.com/wv8nwa1p",
   "desc": "Details and registration on the event page.",
   "type": "Conferences",
-  "src": "manual"
- },
- {
-  "title": "AI in Ecommerce & Networking Night",
-  "hub": "lis",
-  "date": "2026-11-10",
-  "start": "19:00",
-  "end": null,
-  "venue": "Alfama, Lisbon",
-  "host": "Perspective",
-  "link": "https://www.eventbrite.ie/e/ai-in-ecommerce-networking-night-web-summit-week-lisbon-tickets-1994374286177",
-  "desc": "Details and registration on the event page.",
-  "type": "Social",
   "src": "manual"
  },
  {
@@ -84883,19 +84262,6 @@
   "src": "manual"
  },
  {
-  "title": "London & Beyond: Lisbon",
-  "hub": "lis",
-  "date": "2026-11-11",
-  "start": "13:00",
-  "end": null,
-  "venue": "Parque das Nações, Lisbon",
-  "host": "Goodwille",
-  "link": "https://luma.com/4pugsvqv",
-  "desc": "Details and registration on the event page.",
-  "type": "Meetups",
-  "src": "manual"
- },
- {
   "title": "The Human Side of AI: Emotional Intelligence and the Future of Work",
   "hub": "lis",
   "date": "2026-11-11",
@@ -84948,19 +84314,6 @@
   "src": "manual"
  },
  {
-  "title": "Tech Startups on the Rooftop",
-  "hub": "lis",
-  "date": "2026-11-11",
-  "start": "18:00",
-  "end": null,
-  "venue": "Martim Moniz, Lisbon",
-  "host": "Anna S",
-  "link": "https://luma.com/rjh3pf7g",
-  "desc": "Details and registration on the event page.",
-  "type": "Social",
-  "src": "manual"
- },
- {
   "title": "Latin America After Hours",
   "hub": "lis",
   "date": "2026-11-11",
@@ -84969,19 +84322,6 @@
   "venue": "Lisbon",
   "host": "",
   "link": "https://luma.com/bemptbqf",
-  "desc": "Details and registration on the event page.",
-  "type": "Social",
-  "src": "manual"
- },
- {
-  "title": "Funders & Founders Night by AltaIR Capital: The New Shape of Early Stage",
-  "hub": "lis",
-  "date": "2026-11-11",
-  "start": "18:30",
-  "end": null,
-  "venue": "Location after RSVP",
-  "host": "AltaIR Capital",
-  "link": "https://luma.com/h19cccc5",
   "desc": "Details and registration on the event page.",
   "type": "Social",
   "src": "manual"
@@ -85169,32 +84509,6 @@
   "src": "manual"
  },
  {
-  "title": "Closing Night of Web Summit Week: Founders, Drinks and Snacks at The Nest",
-  "hub": "lis",
-  "date": "2026-11-12",
-  "start": "18:30",
-  "end": null,
-  "venue": "Avenidas Novas, Lisbon",
-  "host": "Madalena Costa",
-  "link": "https://luma.com/wt5b7nsg",
-  "desc": "Details and registration on the event page.",
-  "type": "Conferences",
-  "src": "manual"
- },
- {
-  "title": "Contracts & Cocktails: A Founder Legal Tech Mixer",
-  "hub": "lis",
-  "date": "2026-11-12",
-  "start": "19:00",
-  "end": null,
-  "venue": "Arroios, Lisbon",
-  "host": "Stripe Legal Tech Community x Contractr AI",
-  "link": "https://luma.com/hihh4mxe",
-  "desc": "Details and registration on the event page.",
-  "type": "Social",
-  "src": "manual"
- },
- {
   "title": "Founders (don't) cry",
   "hub": "lis",
   "date": "2026-11-12",
@@ -85205,19 +84519,6 @@
   "link": "https://luma.com/ldiykyt8",
   "desc": "Details and registration on the event page.",
   "type": "Meetups",
-  "src": "manual"
- },
- {
-  "title": "Lisbon 2026 Venture Capital World Summit",
-  "hub": "lis",
-  "date": "2026-11-13",
-  "start": "10:00",
-  "end": null,
-  "venue": "Parque das Nações, Lisbon",
-  "host": "Venture Capital World Summit",
-  "link": "https://luma.com/s23ft4kf",
-  "desc": "Details and registration on the event page.",
-  "type": "Conferences",
   "src": "manual"
  },
  {
@@ -85255,19 +84556,6 @@
   "venue": "Cais do Sodré, Lisbon",
   "host": "Notion Portugal community",
   "link": "https://luma.com/na45i7k7",
-  "desc": "Details and registration on the event page.",
-  "type": "Conferences",
-  "src": "manual"
- },
- {
-  "title": "Beach Field Trip post Tech/AI Conference: Reverse Network Meet",
-  "hub": "lis",
-  "date": "2026-11-13",
-  "start": "11:00",
-  "end": null,
-  "venue": "Lisbon",
-  "host": "",
-  "link": "https://www.eventbrite.ch/e/beach-field-trip-post-techai-conference-reverse-network-meet-tickets-2000258308446",
   "desc": "Details and registration on the event page.",
   "type": "Conferences",
   "src": "manual"
@@ -85338,19 +84626,6 @@
   "src": "manual"
  },
  {
-  "title": "Last Man/Woman Standing: B(AI)rro Alto Bar Event",
-  "hub": "lis",
-  "date": "2026-11-13",
-  "start": "22:00",
-  "end": null,
-  "venue": "Lisbon",
-  "host": "",
-  "link": "https://www.eventbrite.ch/e/last-manwoman-standing-bairro-alto-bar-event-reverse-network-meet-tickets-1997546553514",
-  "desc": "Details and registration on the event page.",
-  "type": "Meetups",
-  "src": "manual"
- },
- {
   "title": "Primum Next",
   "hub": "lis",
   "date": "2026-11-14",
@@ -85361,19 +84636,6 @@
   "link": "https://luma.com/3pjp2io2",
   "desc": "Details and registration on the event page.",
   "type": "Meetups",
-  "src": "manual"
- },
- {
-  "title": "AI Devs & Hoopers Morning Run",
-  "hub": "lis",
-  "date": "2026-11-14",
-  "start": "11:00",
-  "end": null,
-  "venue": "Alcântara, Lisbon",
-  "host": "staaake",
-  "link": "https://luma.com/staaake-hghb",
-  "desc": "Details and registration on the event page.",
-  "type": "Social",
   "src": "manual"
  },
  {
@@ -85400,19 +84662,6 @@
   "link": "https://www.eventbrite.pt/e/wealth-and-migration-summit-2026-tickets-2002131336724",
   "desc": "Details and registration on the event page.",
   "type": "Conferences",
-  "src": "manual"
- },
- {
-  "title": "Women Leaders Delegation @ Web Summit Lisbon",
-  "hub": "lis",
-  "date": "2026-11-08",
-  "start": "18:00",
-  "end": null,
-  "venue": "MEO Arena, Lisbon",
-  "host": "",
-  "link": "https://www.eventbrite.ie/e/women-leaders-delegation-web-summit-lisbon-tickets-2001885302830",
-  "desc": "Details and registration on the event page.",
-  "type": "Social",
   "src": "manual"
  },
  {
@@ -86024,19 +85273,6 @@
   "link": "https://luma.com/iecg7wfr",
   "desc": "Details and registration on the event page.",
   "type": "Investor Events",
-  "src": "manual"
- },
- {
-  "title": "Uncharted Jazzy Summit by F1V, Solidgate, SID Fund, 28digital, Aleph, 500 Global, MongoDB & CircleCI",
-  "hub": "lis",
-  "date": "2026-11-10",
-  "start": "19:00",
-  "end": "02:00",
-  "venue": "Lisbon, Portugal",
-  "host": "Flyer One Ventures + Solidgate + SID Venture Partners",
-  "link": "https://websummit.dealflow.eu/e/1y3ft4u/",
-  "desc": "Details and registration on the event page.",
-  "type": "Conferences",
   "src": "manual"
  },
  {
@@ -87210,19 +86446,6 @@
   "src": "manual"
  },
  {
-  "title": "200ms",
-  "hub": "ldn",
-  "date": "2026-11-13",
-  "start": "09:00",
-  "end": "18:00",
-  "venue": "Olympia, Hammersmith Rd",
-  "host": "",
-  "link": "https://luma.com/6xip72je",
-  "desc": "Solana Breakpoint London week. Details and registration on the event page.",
-  "type": "Conferences",
-  "src": "manual"
- },
- {
   "title": "Riserva London: Stablecoins and compliance over wine",
   "hub": "ldn",
   "date": "2026-11-14",
@@ -87500,8 +86723,8 @@
   "hub": "lis",
   "date": "2026-11-10",
   "start": "19:00",
-  "end": null,
-  "venue": "",
+  "end": "02:00",
+  "venue": "Lisbon, Portugal",
   "host": "Flyer One Ventures",
   "link": "https://luma.com/7f0xwdil",
   "desc": "Web Summit Lisbon side event. Details and registration on the event page.",
