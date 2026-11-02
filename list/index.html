@@ -283,6 +283,7 @@ form.fcard{background:var(--surface);border:1px solid var(--line);padding:28px;d
 
 .modal{position:fixed;inset:0;z-index:40;background:rgba(16,14,12,.6);display:grid;place-items:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
 .sheet{background:var(--surface);max-width:500px;width:100%;max-height:90%;overflow:auto;padding:28px;display:grid;gap:16px;border-top:3px solid var(--accent)}
+.ttab .tn{opacity:.55;font-size:.85em;margin-left:2px}
 .calmenu{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
 .calmenu a,.calmenu button{display:block;text-align:center;padding:12px 10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:inherit;font-size:14px;text-decoration:none;cursor:pointer}
 .calmenu a:hover,.calmenu button:hover{border-color:var(--ink)}
@@ -1989,10 +1990,10 @@ function groupedHtml(list){
     return`<div class="dayhead" data-day="${x.date}"><h3>${lbl}, <em>${new Intl.DateTimeFormat("en-US",{month:"long",day:"numeric",timeZone:"UTC"}).format(d)}</em></h3><span>${x.items.length} event${x.items.length===1?"":"s"}</span></div>${x.items.map(e=>rowHtml(e)).join("")}`}).join("");
 }
 function addDays(n){return dKey(NOW+n*864e5,myTz);}
-function filtered(){
+function filtered(skipType){
   const q=st.q.trim().toLowerCase(),today=addDays(0);
   const inDate=e=>{switch(st.date){case"today":return e.date===today;case"week":return e.date<=addDays(6);case"weekend":{const wd=new Date(e.date+"T12:00:00Z").getUTCDay();return e.date<=addDays(7)&&(wd===0||wd===6);}case"30":return e.date<=addDays(29);case"weeks":return!!e.week;default:return true;}};
-  return upcoming().filter(e=>(!st.savedOnly||saved.has(e.id))&&(st.hub==="all"||e.hub===st.hub)&&(st.type==="all"||e.type===st.type||(e.cats||[]).includes(st.type))&&(!st.topic||e.tags.includes(st.topic))&&(!st.week||e.week===st.week)&&(st.ignoreDate||((!st.day||e.date===st.day)&&inDate(e)))&&(!q||[e.title,e.host,e.type,hubById(e.hub).name,...e.tags].join(" ").toLowerCase().includes(q)))
+  return upcoming().filter(e=>(!st.savedOnly||saved.has(e.id))&&(st.hub==="all"||e.hub===st.hub)&&(skipType||st.type==="all"||e.type===st.type||(e.cats||[]).includes(st.type))&&(!st.topic||e.tags.includes(st.topic))&&(!st.week||e.week===st.week)&&(st.ignoreDate||((!st.day||e.date===st.day)&&inDate(e)))&&(!q||[e.title,e.host,e.type,hubById(e.hub).name,...e.tags].join(" ").toLowerCase().includes(q)))
     .sort((a,b)=>a.date.localeCompare(b.date)||((RANK[a.place]??9)-(RANK[b.place]??9))||a.utc-b.utc);
 }
 const DATES=[["any","Any time"],["today","Today"],["week","This week"],["weekend","Weekend"],["30","Next 30 days"]];
@@ -2024,7 +2025,7 @@ function renderCity(){
   document.querySelectorAll(".vtoggle button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.v===st.mode)));
   $("#dChips").hidden=true;
   $("#cTabs").innerHTML=`<button class="ctab" data-tab="all" aria-pressed="${st.hub==="all"}"><span class="all">All</span>All cities</button>`+[...HUBS].sort((a,b)=>hubCount(b.id)-hubCount(a.id)).map(x=>`<button class="ctab" data-tab="${x.id}" aria-pressed="${st.hub===x.id}">${x.img?`<img src="${IMG[x.img]}" alt="">`:`<span class="all">${x.code}</span>`}${x.name}</button>`).join("");
-  $("#tTabs").innerHTML=["all",...TYPES,...CAT_TYPES].map(t=>`<button class="ttab" data-type="${t}" aria-pressed="${st.type===t}">${t==="all"?"All Events":t}</button>`).join("");
+  {const base=filtered(true),cnt=t=>t==="all"?base.length:base.filter(e=>e.type===t||(e.cats||[]).includes(t)).length;$("#tTabs").innerHTML=["all",...TYPES,...CAT_TYPES].filter(t=>t==="all"||t===st.type||cnt(t)>0).map(t=>`<button class="ttab" data-type="${t}" aria-pressed="${st.type===t}">${t==="all"?"All Events":t} <span class="tn">${cnt(t)}</span></button>`).join("");}
   $("#dChips").innerHTML=DATES.map(([v,l])=>`<button class="dchip" type="button" data-date="${v}" aria-pressed="${st.date===v||(v==="week"&&st.date==="7")}">${l}</button>`).join("");
   if(document.activeElement!==$("#cq"))$("#cq").value=st.q;
   $("#fCity").innerHTML=`<option value="all">All cities</option>`+[...HUBS].sort((a,b)=>a.name.localeCompare(b.name)).map(x=>`<option value="${x.id}">${x.name}${x.isNew?" · New":""} (${hubCount(x.id)})</option>`).join("");$("#fCity").value=st.hub;
