@@ -9,6 +9,7 @@ a { color: inherit; }
 .brand { display: inline-flex; align-items: center; text-decoration: none; margin-bottom: 14px; }
 .brand img { height: 46px; display: block; }
 .tagline { color: var(--muted); font-size: 14px; line-height: 1.5; max-width: 360px; margin: 0 auto 32px; }
+.tagline a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
 
 /* profile page */
 .photo { width: 124px; height: 124px; border-radius: 50%; object-fit: cover; margin: 0 auto 20px; display: block; border: 1px solid var(--line); }
