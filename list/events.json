@@ -87168,5 +87168,18 @@
   "type": "Conferences",
   "week": "slush",
   "src": "manual"
+ },
+ {
+  "title": "Fractal: The Whole in Every Part – Guided Tour & Cocktail Reception (Lisbon Art Weekend)",
+  "hub": "lis",
+  "date": "2026-11-06",
+  "start": "18:00",
+  "end": null,
+  "venue": "THIS IS NOT A WHITE CUBE, Rua da Emenda 72, Lisbon",
+  "host": "THIS IS NOT A WHITE CUBE",
+  "link": "https://thisisnotawhitecube.com/news/34-the-8th-edition-of-lisbon-art-weekend-arrives-the-gallery-is-part-of-the-law-programme/",
+  "desc": "Lisbon Art Weekend (Nov 5–8): guided tour and cocktail reception for the gallery's 10th anniversary group show. Free.",
+  "type": "Mixers",
+  "src": "manual"
  }
 ]
