@@ -10387,19 +10387,6 @@
   "src": "foundercal"
  },
  {
-  "title": "AI in Government Panel – Seattle AI Week",
-  "hub": "sea",
-  "date": "2026-10-27",
-  "start": "16:00",
-  "end": "18:00",
-  "venue": "AI House, 2801 Alaskan Wy, Seattle, WA",
-  "host": "Ascend VC",
-  "link": "https://www.geekwire.com/calendar-event/ai-in-government-panel-seattle-ai-week",
-  "type": "Conferences",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
   "title": "Tokenize This Lisbon",
   "hub": "lis",
   "date": "2026-10-27",
@@ -28886,17 +28873,6 @@
   "src": "foundercal"
  },
  {
-  "title": "eChai Startup Demo Day in Bengaluru : HSR Edition",
-  "hub": "blr",
-  "date": "2026-10-31",
-  "start": "18:00",
-  "venue": "",
-  "host": "Startupbangalore",
-  "link": "https://www.meetup.com/startupbangalore/events/316849863/",
-  "desc": "Details and registration on the event page.",
-  "src": "meetup"
- },
- {
   "title": "MumbAI AI Saturdays—Get Funded to Co-Work @Adani Inspire BKC, BHIVE",
   "hub": "bom",
   "date": "2026-10-31",
@@ -39466,19 +39442,6 @@
   "src": "foundercal"
  },
  {
-  "title": "NY Tech Meetup: Columbia University SPS Edition",
-  "hub": "nyc",
-  "date": "2026-11-09",
-  "start": "00:00",
-  "end": null,
-  "venue": "Civic Hall",
-  "host": "NY Tech Alliance",
-  "link": "https://www.nytech.org/events",
-  "type": "Meetups",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
   "title": "Venture Leaders Cleantech 2026",
   "hub": "zrh",
   "date": "2026-11-09",
@@ -41450,19 +41413,6 @@
   "host": "Berlin Tech Events: Week of 19 Oct 2026 | An Open Room",
   "link": "https://www.anopenroom.com/london/events/lessons-from-leading-women-tech-entrepreneurs-1110",
   "type": "Meetups",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "Startup Pitch & Networking London",
-  "hub": "ldn",
-  "date": "2026-11-10",
-  "start": "18:00",
-  "end": "20:00",
-  "venue": "The Cadogan Arms, 298 King's Road, London, SW3 5UG",
-  "host": "Berlin Tech Events: Week of 19 Oct 2026 | An Open Room",
-  "link": "https://www.anopenroom.com/london/events/startup-pitch-networking-london-1110",
-  "type": "Pitch",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
  },
@@ -46592,17 +46542,6 @@
   "link": "https://www.meetup.com/founders-running-club-warsaw/events/bptsxtyjcpbsb/",
   "desc": "Details and registration on the event page.",
   "src": "meetup"
- },
- {
-  "title": "DevDay Exchange Community: Kuala Lumpur - Learn, Build & Get Certified",
-  "hub": "kul",
-  "date": "2026-11-14",
-  "start": "10:00",
-  "end": "17:00",
-  "venue": "Universiti Tunku Abdul Rahman (UTAR), Universiti Tunku Abdul Rahman (UTAR), Jalan Sungai Long, Bandar Sungai Long, 43000 Kajang, Selangor, Malaysia",
-  "host": "Codex Malaysia Community",
-  "link": "https://luma.com/user/CodexMYGlobal",
-  "desc": "From AI basics to real workflows, agents and Codex - in one hands-on day. Join Codex Community Malaysia for a practical student and builder meetup where you’ll learn how to move from simple prompting to structured AI workflows and building with Codex."
  },
  {
   "title": "Digital Marketing & Workshop; Strategy and Career Talks at the Villa",
@@ -55766,23 +55705,12 @@
   "src": "foundercal"
  },
  {
-  "title": "New Defense Summit",
-  "hub": "ber",
-  "date": "2026-11-26",
-  "start": "12:00",
-  "end": "18:00",
-  "venue": "Berlin",
-  "host": "European Defense Tech Hub",
-  "link": "https://events.eurodefense.tech/new-defense-summit",
-  "desc": "Choose your Ticket"
- },
- {
   "title": "New Defense Summit 2026",
   "hub": "ber",
   "date": "2026-11-26",
   "start": "12:00",
   "end": "18:00",
-  "venue": "",
+  "venue": "Berlin",
   "host": "European Defense Tech Hub",
   "link": "https://luma.com/new-defense-summit-2026",
   "type": "Conferences",
@@ -58562,17 +58490,6 @@
   "type": "Conferences",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
- },
- {
-  "title": "Physical AI Summit - Austin 2026 : Autonomy Unleashed - Air, Land, Sea",
-  "hub": "atx",
-  "date": "2026-12-03",
-  "start": "09:00",
-  "venue": "",
-  "host": "Founder",
-  "link": "https://www.meetup.com/founder/events/315189343/",
-  "desc": "Details and registration on the event page.",
-  "src": "meetup"
  },
  {
   "title": "FiBAN Startup Clinic with Danske Bank",
@@ -83650,19 +83567,6 @@
   "src": "manual"
  },
  {
-  "title": "Meet & Greet + Subway Ride to the AI/Tech Conference Opening",
-  "hub": "lis",
-  "date": "2026-11-09",
-  "start": "14:30",
-  "end": null,
-  "venue": "Praça do Comércio, Lisbon",
-  "host": "staaake",
-  "link": "https://www.eventbrite.ch/e/meet-greet-subway-ride-to-aitech-conf-opening-reverse-network-meet-tickets-1997541918651",
-  "desc": "Details and registration on the event page.",
-  "type": "Social",
-  "src": "manual"
- },
- {
   "title": "Family Offices Investors Summit Lisbon",
   "hub": "lis",
   "date": "2026-11-09",
@@ -83918,19 +83822,6 @@
   "venue": "Location after RSVP",
   "host": "FOUNDERS community",
   "link": "https://luma.com/ie4jh0pf",
-  "desc": "Details and registration on the event page.",
-  "type": "Conferences",
-  "src": "manual"
- },
- {
-  "title": "FOUNDERS NIGHT #8: Best Networking Event at Web Summit'26",
-  "hub": "lis",
-  "date": "2026-11-09",
-  "start": "18:00",
-  "end": null,
-  "venue": "Alfama, Lisbon",
-  "host": "Startup Founders Association",
-  "link": "https://www.eventbrite.ca/e/founders-night-8-best-networking-event-at-web-summit26-tickets-2002195532736",
   "desc": "Details and registration on the event page.",
   "type": "Conferences",
   "src": "manual"
@@ -84647,19 +84538,6 @@
   "venue": "Sintra, Lisbon",
   "host": "Nomad Steam",
   "link": "https://luma.com/alft36rf",
-  "desc": "Details and registration on the event page.",
-  "type": "Conferences",
-  "src": "manual"
- },
- {
-  "title": "Wealth and Migration Summit 2026",
-  "hub": "lis",
-  "date": "2026-11-05",
-  "start": "09:00",
-  "end": null,
-  "venue": "EPIC SANA Marquês Hotel Lisboa, Lisbon",
-  "host": "",
-  "link": "https://www.eventbrite.pt/e/wealth-and-migration-summit-2026-tickets-2002131336724",
   "desc": "Details and registration on the event page.",
   "type": "Conferences",
   "src": "manual"
