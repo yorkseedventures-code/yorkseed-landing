@@ -86675,5 +86675,70 @@
   "desc": "Details and registration on the event page.",
   "type": "Meetups",
   "src": "manual"
+ },
+ {
+  "title": "Lisbon Digital Party",
+  "hub": "lis",
+  "date": "2026-11-09",
+  "start": "18:00",
+  "end": "22:00",
+  "venue": "Casica - Italian Trattoria, Lisboa",
+  "host": "Fermatix AI",
+  "link": "https://luma.com/dh7rdy4s",
+  "desc": "Details and registration on the event page.",
+  "type": "Meetups",
+  "src": "manual"
+ },
+ {
+  "title": "H2H 2.0: How AI's biggest threat isn't what you think",
+  "hub": "lis",
+  "date": "2026-11-11",
+  "start": "15:00",
+  "end": "15:45",
+  "venue": "Sixt Research Development Services, Lisboa",
+  "host": "Kuma Partners",
+  "link": "https://luma.com/i91jzozo",
+  "desc": "Details and registration on the event page.",
+  "type": "Meetups",
+  "src": "manual"
+ },
+ {
+  "title": "Beyond the hype: How to align your leadership team when AI moves faster than people",
+  "hub": "lis",
+  "date": "2026-11-11",
+  "start": "16:00",
+  "end": "16:45",
+  "venue": "Sixt Research Development Services, Lisboa",
+  "host": "Kuma Partners",
+  "link": "https://luma.com/az8uos4e",
+  "desc": "Details and registration on the event page.",
+  "type": "Meetups",
+  "src": "manual"
+ },
+ {
+  "title": "Frontier Founders & VCs Soirée",
+  "hub": "lis",
+  "date": "2026-11-11",
+  "start": "18:00",
+  "end": "21:00",
+  "venue": "SIXT Hub, Parque das Nações, Lisbon",
+  "host": "Kuma Partners",
+  "link": "https://luma.com/tjed8ali",
+  "desc": "Details and registration on the event page.",
+  "type": "Meetups",
+  "src": "manual"
+ },
+ {
+  "title": "Guided Morning Walk in Lisbon Before Web Summit",
+  "hub": "lis",
+  "date": "2026-11-12",
+  "start": "08:30",
+  "end": "09:30",
+  "venue": "Lisboa",
+  "host": "After Comma",
+  "link": "https://luma.com/ugpauofi",
+  "desc": "Details and registration on the event page.",
+  "type": "Conferences",
+  "src": "manual"
  }
 ]
