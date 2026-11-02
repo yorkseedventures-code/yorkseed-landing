@@ -283,6 +283,7 @@ form.fcard{background:var(--surface);border:1px solid var(--line);padding:28px;d
 
 .modal{position:fixed;inset:0;z-index:40;background:rgba(16,14,12,.6);display:grid;place-items:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
 .sheet{background:var(--surface);max-width:500px;width:100%;max-height:90%;overflow:auto;padding:28px;display:grid;gap:16px;border-top:3px solid var(--accent)}
+.stabs{border-bottom:1px solid var(--line);margin-top:0}.stabs .slbl{align-self:center;font-family:var(--f-label);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);opacity:.7}.stabs .ttab{font-size:11px}
 .ttab .tn{opacity:.55;font-size:.85em;margin-left:2px}
 .calmenu{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
 .calmenu a,.calmenu button{display:block;text-align:center;padding:12px 10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:inherit;font-size:14px;text-decoration:none;cursor:pointer}
@@ -1458,6 +1459,7 @@ input::placeholder,textarea::placeholder{font-size:13.5px;color:var(--soft);opac
           <input id="cq" type="search" placeholder="Search events" aria-label="Search events">
           <select id="fCity" aria-label="City"></select>
           <select id="fType" aria-label="Type"></select>
+          <select id="fSector" aria-label="Sector"></select>
           <select id="fDate" aria-label="When"></select>
           <div class="dchips" id="dChips" hidden></div>
           <div class="vtoggle" role="group" aria-label="View"><button type="button" data-v="list" aria-pressed="true">List</button><button type="button" data-v="cal" aria-pressed="false">Calendar</button></div>
@@ -1647,6 +1649,20 @@ const CAT_RE={
 "Breakfast":/breakfast|pastries|croissant|bagel|morning mixer|early bird|brunch|morning coffee|coffee (?:meet|club|chat)/i,
 "Lunch":/\blunch(?:eon)?\b|lunch ?& ?learn|\bbites\b/i,
 "Dinner":/dinner|supper club|chef's table|\bfeast\b|private dining|founders'? table|allocator table|investors'? table|\bsupper\b|dinner club/i};
+const SECTORS=["AI","Fintech","Climate","Health","Deep Tech","Robotics","Space","Defense & Security","Consumer","SaaS / Enterprise","Gaming","Creator Economy"];
+const SEC_RE={"AI":/\bai\b|agent|\bllms?\b|claude|openai|\bgpt|machine learning|\bml\b|genai|copilot|codex|vibe cod/i,
+"Fintech":/fintech|payments?\b|banking|insurtech|neobank|lending|wealthtech|regtech|stablecoin/i,
+"Climate":/climate|energy|sustainab|cleantech|carbon|\besg\b|net.?zero|agrifood|agtech|water|battery|nuclear/i,
+"Health":/health|\bbio|medtech|biotech|longevity|pharma|life sciences|femtech|clinical/i,
+"Deep Tech":/deep ?tech|hard ?tech|tough tech|quantum|semiconductor|photonic|nanotech|materials/i,
+"Robotics":/robot|physical ai|humanoid|\bdrones?\b|autonom/i,
+"Space":/\bspace ?tech\b|\bspace\b|satellite|orbital|aerospace/i,
+"Defense & Security":/defen[cs]e|dual[- ]use|national security|military|cyber|security/i,
+"Consumer":/consumer|e-?commerce|retail|\bdtc\b|\bcpg\b|fashion|food ?tech/i,
+"SaaS / Enterprise":/\bsaas\b|enterprise|\bb2b\b|devtools|developer tools|\bcloud\b|\bapi\b|data ?(?:eng|infra)/i,
+"Gaming":/gaming|game ?dev|esports|\bgames\b|\bgame jam/i,
+"Creator Economy":/creator|influencer|newsletter|podcast/i};
+function sectorsFor(e){return SECTORS.filter(c=>SEC_RE[c].test(e.title));}
 function catsFor(e){return CAT_TYPES.filter(c=>CAT_RE[c].test(c==="Women in Tech"?e.title+" "+(e.host||""):e.title));}
 const TOPICS=["AI","Fintech","Climate","Health","Deep Tech","Web3","Investing","Founders"];
 const TYPES=["Conferences","Meetups","Communal Dining","Pitch","Workshops","Hackathons","Demo Days","Investor Events","Side Events"];
@@ -1758,7 +1774,7 @@ function makeHub(name,country,tz){const id="c-"+name.toLowerCase().normalize("NF
 try{const nh=JSON.parse(localStorage.getItem("yl-newhubs")||"[]");if(Array.isArray(nh))nh.forEach(h=>{if(h&&h.id&&!HUBS.some(x=>x.id===h.id))HUBS.push(h);});}catch(e){}
 try{const s=JSON.parse(localStorage.getItem("yl-subs2")||"[]");if(Array.isArray(s))EVENTS=EVENTS.concat(s.filter(e=>HUBS.some(h=>h.id===e.hub)));}catch(e){}
 let saved=new Set();try{saved=new Set(JSON.parse(localStorage.getItem("yl-saved")||"[]"));}catch(e){}
-function decorate(e){const tz=hubById(e.hub).tz;e.noTime=!e.start;e.utc=toUtc(e.date,e.start||"12:00",tz);e.utcEnd=toUtc(e.date,e.end||"23:59",tz);e.cats=catsFor(e);return e;}
+function decorate(e){const tz=hubById(e.hub).tz;e.noTime=!e.start;e.utc=toUtc(e.date,e.start||"12:00",tz);e.utcEnd=toUtc(e.date,e.end||"23:59",tz);e.cats=catsFor(e);e.sectors=sectorsFor(e);return e;}
 function fE(e,tz){return e.noTime?"":fT(e.utc,tz)}
 function fEnd(e,tz){return e.noTime?"":fT(e.utcEnd,tz)}
 function abE(e,tz){return e.noTime?"":abbr(e.utc,tz)}
@@ -1991,10 +2007,10 @@ function groupedHtml(list){
     return`<div class="dayhead" data-day="${x.date}"><h3>${lbl}, <em>${new Intl.DateTimeFormat("en-US",{month:"long",day:"numeric",timeZone:"UTC"}).format(d)}</em></h3><span>${x.items.length} event${x.items.length===1?"":"s"}</span></div>${x.items.map(e=>rowHtml(e)).join("")}`}).join("");
 }
 function addDays(n){return dKey(NOW+n*864e5,myTz);}
-function filtered(skipType){
+function filtered(skipType,skipTopic){
   const q=st.q.trim().toLowerCase(),today=addDays(0);
   const inDate=e=>{switch(st.date){case"today":return e.date===today;case"week":return e.date<=addDays(6);case"weekend":{const wd=new Date(e.date+"T12:00:00Z").getUTCDay();return e.date<=addDays(7)&&(wd===0||wd===6);}case"30":return e.date<=addDays(29);case"weeks":return!!e.week;default:return true;}};
-  return upcoming().filter(e=>(!st.savedOnly||saved.has(e.id))&&(st.hub==="all"||e.hub===st.hub)&&(skipType||st.type==="all"||e.type===st.type||(e.cats||[]).includes(st.type))&&(!st.topic||e.tags.includes(st.topic))&&(!st.week||e.week===st.week)&&(st.ignoreDate||((!st.day||e.date===st.day)&&inDate(e)))&&(!q||[e.title,e.host,e.type,hubById(e.hub).name,...e.tags].join(" ").toLowerCase().includes(q)))
+  return upcoming().filter(e=>(!st.savedOnly||saved.has(e.id))&&(st.hub==="all"||e.hub===st.hub)&&(skipType||st.type==="all"||e.type===st.type||(e.cats||[]).includes(st.type))&&(skipTopic||!st.topic||e.tags.includes(st.topic)||(e.sectors||[]).includes(st.topic))&&(!st.week||e.week===st.week)&&(st.ignoreDate||((!st.day||e.date===st.day)&&inDate(e)))&&(!q||[e.title,e.host,e.type,hubById(e.hub).name,...e.tags].join(" ").toLowerCase().includes(q)))
     .sort((a,b)=>a.date.localeCompare(b.date)||((RANK[a.place]??9)-(RANK[b.place]??9))||a.utc-b.utc);
 }
 const DATES=[["any","Any time"],["today","Today"],["week","This week"],["weekend","Weekend"],["30","Next 30 days"]];
@@ -2026,11 +2042,13 @@ function renderCity(){
   document.querySelectorAll(".vtoggle button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.v===st.mode)));
   $("#dChips").hidden=true;
   $("#cTabs").innerHTML=`<button class="ctab" data-tab="all" aria-pressed="${st.hub==="all"}"><span class="all">All</span>All cities</button>`+[...HUBS].sort((a,b)=>hubCount(b.id)-hubCount(a.id)).map(x=>`<button class="ctab" data-tab="${x.id}" aria-pressed="${st.hub===x.id}">${x.img?`<img src="${IMG[x.img]}" alt="">`:`<span class="all">${x.code}</span>`}${x.name}</button>`).join("");
-  {const base=filtered(true),cnt=t=>t==="all"?base.length:base.filter(e=>e.type===t||(e.cats||[]).includes(t)).length;$("#tTabs").innerHTML=["all",...TYPES,...CAT_TYPES].filter(t=>t==="all"||t===st.type||cnt(t)>0).map(t=>`<button class="ttab" data-type="${t}" aria-pressed="${st.type===t}">${t==="all"?"All Events":t} <span class="tn">${cnt(t)}</span></button>`).join("");}
   $("#dChips").innerHTML=DATES.map(([v,l])=>`<button class="dchip" type="button" data-date="${v}" aria-pressed="${st.date===v||(v==="week"&&st.date==="7")}">${l}</button>`).join("");
   if(document.activeElement!==$("#cq"))$("#cq").value=st.q;
   $("#fCity").innerHTML=`<option value="all">All cities</option>`+[...HUBS].sort((a,b)=>a.name.localeCompare(b.name)).map(x=>`<option value="${x.id}">${x.name}${x.isNew?" · New":""} (${hubCount(x.id)})</option>`).join("");$("#fCity").value=st.hub;
-  $("#fType").innerHTML=["all",...TYPES,...CAT_TYPES].map(t=>`<option value="${t}">${t==="all"?"All types":t}</option>`).join("");$("#fType").value=st.type;
+  {const tb=filtered(true),tc=t=>t==="all"?tb.length:tb.filter(e=>e.type===t||(e.cats||[]).includes(t)).length;
+   $("#fType").innerHTML=["all",...TYPES,...CAT_TYPES].filter(t=>t==="all"||t===st.type||tc(t)>0).map(t=>`<option value="${t}">${t==="all"?"All types":t} (${tc(t)})</option>`).join("");$("#fType").value=st.type;
+   const sb=filtered(false,true),sc=t=>sb.filter(e=>e.tags.includes(t)||(e.sectors||[]).includes(t)).length;
+   $("#fSector").innerHTML=`<option value="">All sectors (${sb.length})</option>`+[...new Set([...SECTORS,"Web3","Investing","Founders"])].filter(t=>t===st.topic||sc(t)>0).map(t=>`<option value="${t}">${t} (${sc(t)})</option>`).join("");$("#fSector").value=st.topic||"";}
   $("#fDate").innerHTML=DATES.map(([v,l])=>`<option value="${v}">${l}</option>`).join("")+(st.date==="weeks"?'<option value="weeks">Conference weeks</option>':"");$("#fDate").value=st.date==="7"?"week":st.date;$("#fDate").hidden=st.mode==="cal";
   const chips=[];if(w)chips.push(`<span class="weekchip">${esc(w.name)}<button data-clear="week" aria-label="Clear week">×</button></span>`);if(st.savedOnly)chips.push(`<span class="weekchip">★ Saved<button data-clear="savedOnly" aria-label="Show all events">×</button></span>`);if(st.topic)chips.push(`<span class="weekchip">${esc(st.topic)}<button data-clear="topic" aria-label="Clear topic">×</button></span>`);if(st.day)chips.push(`<span class="weekchip">${dParts(st.day).wd} ${dParts(st.day).day} ${dParts(st.day).mon}<button data-clear="day" aria-label="Clear day">×</button></span>`);if(st.date==="weeks")chips.push(`<span class="weekchip">Conference weeks<button data-clear="date" aria-label="Clear">×</button></span>`);
   $("#weekChip").innerHTML=chips.join(" ");
@@ -2241,6 +2259,7 @@ document.addEventListener("click",ev=>{
   if(t.dataset.tier){setPlace(t.dataset.tier);step=1;paneShow();scrollToId("submit");return;}
   if(t.dataset.tab){st.hub=t.dataset.tab;if(st.week&&weekById(st.week).hub!==st.hub)st.week=null;renderCity();return;}
   if(t.dataset.type){st.type=t.dataset.type;renderCity();return;}
+  if(t.dataset.sector){st.topic=st.topic===t.dataset.sector?null:t.dataset.sector;renderCity();return;}
   if(t.dataset.date){st.date=t.dataset.date;st.day=null;renderCity();return;}
   if(t.dataset.v){st.mode=t.dataset.v;renderCity();return;}
   if(t.dataset.day){st.day=t.dataset.day;st.mode="list";st.date="any";renderCity();document.getElementById("cq").scrollIntoView({behavior:"smooth",block:"center"});return;}
@@ -2252,7 +2271,7 @@ document.addEventListener("click",ev=>{
 document.addEventListener("keydown",ev=>{if(ev.key==="Enter"&&ev.target.matches("article[data-ev]"))goEvent(ev.target.dataset.ev);if(ev.key==="Escape")$("#modal").hidden=true;});
 $("#cityShare").onclick=shareList;
 $("#backBtn").onclick=()=>{if(NAV_DEPTH>0)history.back();else show(st.prev==="event"?"home":st.prev);};
-$("#fCity").onchange=e=>{st.hub=e.target.value;st.week=null;st.day=null;st.month="";renderCity();};$("#fType").onchange=e=>{st.type=e.target.value;renderCity();};$("#fDate").onchange=e=>{st.date=e.target.value;st.day=null;renderCity();};
+$("#fCity").onchange=e=>{st.hub=e.target.value;st.week=null;st.day=null;st.month="";renderCity();};$("#fSector").onchange=e=>{st.topic=e.target.value||null;renderCity();};$("#fType").onchange=e=>{st.type=e.target.value;renderCity();};$("#fDate").onchange=e=>{st.date=e.target.value;st.day=null;renderCity();};
 {const mb=$("#menuBtn"),mn=$("#mnav");const setM=o=>{mn.hidden=!o;mb.setAttribute("aria-expanded",String(o));mb.classList.toggle("on",o);};mb.onclick=()=>setM(mn.hidden);mn.addEventListener("click",e=>{if(e.target.closest("button,a"))setM(false);});addEventListener("resize",()=>{if(innerWidth>980)setM(false);});}
 $("#homeSel").onchange=e=>{const v=e.target.value;setHome(v);st.q="";st.date="any";st.topic=null;st.week=null;st.type="all";goCity(v);};
 $("#hHub").onchange=e=>{st.q=$("#hq").value.trim();st.date="any";st.topic=null;st.week=null;st.type="all";goCity(e.target.value);e.target.value="all";};
