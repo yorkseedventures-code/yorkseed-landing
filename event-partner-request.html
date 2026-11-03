@@ -320,7 +320,7 @@ img{display:block;max-width:100%}
  <div class="perks three" style="margin-top:0">
   <div class="perk"><i>01</i><h3><span class="tri">▲</span> on the List and map</h3><p>A blue “<span class="tri">▲</span> Yorkseed partner” badge on your event, and a <span class="tri">▲</span> on your city on the map.</p></div>
   <div class="perk"><i>02</i><h3>Shared across 50+ hubs</h3><p>Yorkseed promotes partner events to the founders and investors they fit.</p></div>
-  <div class="perk"><i>03</i><h3>Co-hosts fill the room</h3><p>As a manager co-host with guest list access, Yorkseed invites its own network directly.</p></div>
+  <div class="perk"><i>03</i><h3>Co-hosts fill the room</h3><p>Listed as a host with full manager access, including the guest list, Yorkseed invites its own network directly.</p></div>
  </div>
 </div></section></div>
 
@@ -331,7 +331,7 @@ img{display:block;max-width:100%}
       <ul>
         <li>Yorkseed logo on your event graphic</li>
         <li>A Yorkseed one-liner or short paragraph in your event description, hyperlinked back to Yorkseed</li>
-        <li>Co-hosts add Yorkseed as a visible manager co-host, with guest list access</li>
+        <li>Co-hosts list Yorkseed as a host, with full manager access including the guest list</li>
       </ul>
       We provide the logo, copy and link. Events must have a clear business purpose with active founders and investors in the room.
     </div>
@@ -456,13 +456,13 @@ img{display:block;max-width:100%}
                   </label>
                   <label class="ptype">
                     <span class="ptype-top"><input type="radio" name="partnershipType" value="Co-host"/>Co-host</span>
-                    <span class="ptype-desc">A Yorkseed event: Yorkseed is a visible manager co-host with guest list access and invites its network, plus all Community Partner requirements.</span>
+                    <span class="ptype-desc">A Yorkseed event: Yorkseed is listed as a host, with full manager access including the guest list, and invites its network, plus all Community Partner requirements.</span>
                   </label>
                 </div>
               </div>
               <div class="field" id="managerField" style="display:none">
-                <label>Will you add Yorkseed as a manager co-host, with access to the guest list? <span class="req">*</span></label>
-                <span class="field-hint">Co-host events are Yorkseed events too. We need manager co-host access to your event and its guest list on Luma (or the same role on your event platform), and we will also invite our network directly. If you can't grant this, choose Community Partner instead.</span>
+                <label>Will you list Yorkseed as a host and give us full manager access, including the guest list? <span class="req">*</span></label>
+                <span class="field-hint">Co-host events are Yorkseed events too. We need to be listed as a host on your event, publicly, on Luma (or your event platform), with full manager access to your event and its guest list, and we will also invite our network directly. If you can't grant this, choose Community Partner instead.</span>
                 <div class="check-grid inline" id="managerGrid">
                   <label class="check-label"><input type="radio" name="managerAccess" value="Yes"/><span>Yes</span></label>
                   <label class="check-label"><input type="radio" name="managerAccess" value="No"/><span>No</span></label>
@@ -511,6 +511,17 @@ img{display:block;max-width:100%}
                     <option>75–150</option>
                     <option>150–500</option>
                     <option>500+</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field-row single">
+                <div class="field">
+                  <label for="accessType">Is it paid, free, or invite-only? <span class="req">*</span></label>
+                  <select id="accessType" name="accessType" required>
+                    <option value="" disabled selected>Select one</option>
+                    <option>Free to attend</option>
+                    <option>Paid / ticketed</option>
+                    <option>Invite-only / private</option>
                   </select>
                 </div>
               </div>
@@ -590,7 +601,7 @@ img{display:block;max-width:100%}
               <div class="field">
                 <span class="field-hint">All three are required to partner with Yorkseed.</span>
                 <div class="commit-list" id="commitList">
-                  <label class="commit"><input type="checkbox" id="commitBranding"/><span><strong>Branding guidelines.</strong> I will place a Yorkseed one-liner in the event description, hyperlinked back to Yorkseed (required). I will also place the Yorkseed logo on the event graphic (optional). <span id="coCommit" style="display:none">As a co-host, I will also add Yorkseed as a visible manager co-host, with access to the guest list.</span></span></label>
+                  <label class="commit"><input type="checkbox" id="commitBranding"/><span><strong>Branding guidelines.</strong> I will place a Yorkseed one-liner in the event description, hyperlinked back to Yorkseed (required). I will also place the Yorkseed logo on the event graphic (optional). <span id="coCommit" style="display:none">As a co-host, I will also list Yorkseed as a host and give it full manager access, including the guest list.</span></span></label>
                   <label class="commit"><input type="checkbox" id="commitAudience"/><span><strong>Intentional networking.</strong> This event is built for founders and investors. It is not a general party, social, open mixer or yoga session anyone can walk into.</span></label>
                   <label class="commit"><input type="checkbox" id="commitSector"/><span><strong>Sector exclusions.</strong> This event and its organizers are not related to cannabis or casino gambling.</span></label>
                 </div>
@@ -663,6 +674,7 @@ img{display:block;max-width:100%}
       <div class="modal-check-item"><span class="check-icon">👥</span><span><strong>Audience</strong>: built for founders and investors, with a clear business purpose</span></div>
       <div class="modal-check-item"><span class="check-icon">🤝</span><span><strong>Organizers and partners</strong>: everyone hosting, sponsoring or supporting</span></div>
       <div class="modal-check-item"><span class="check-icon">🔗</span><span><strong>Event link</strong>: your Luma, Eventbrite or event page, if live</span></div>
+      <div class="modal-check-item"><span class="check-icon">🎟️</span><span><strong>Access</strong>: whether it's free, paid, or invite-only</span></div>
     </div>
     <div class="modal-actions">
       <button class="modal-back" onclick="closeModal()">← Go back and check</button>
@@ -739,7 +751,7 @@ function setGroupError(gridId,msg){
   e.textContent=msg;
 }
 function clearGroupError(gridId){var g=document.getElementById(gridId);var e=g&&g.parentNode.querySelector('.field-error');if(e)e.textContent='';}
-var REQUIRED=['firstName','lastName','email','basedCity','linkedin','organization','jobTitle','orgType','eventName','eventDate','eventCity','eventFormat','eventDescription','eventPurpose','organizers'];
+var REQUIRED=['firstName','lastName','email','basedCity','linkedin','organization','jobTitle','orgType','eventName','eventDate','eventCity','eventFormat','accessType','eventDescription','eventPurpose','organizers'];
 REQUIRED.forEach(function(id){
   var el=document.getElementById(id);if(!el)return;
   el.addEventListener('input',function(){clearError(el);});
@@ -769,7 +781,7 @@ function validateForm(){
   var pt=form.querySelector('[name="partnershipType"]:checked');
   if(!pt){setGroupError('ptypeGrid','Please choose a partnership type.');valid=false;}
   if(pt&&pt.value==='Co-host'&&!form.querySelector('[name="managerAccess"]:checked')){setGroupError('managerGrid','Please choose an option.');valid=false;}
-  else if(pt&&pt.value==='Co-host'&&form.querySelector('[name="managerAccess"]:checked').value!=='Yes'){setGroupError('managerGrid','Co-host needs manager access and the guest list. Choose Yes, or pick Community Partner instead.');valid=false;}
+  else if(pt&&pt.value==='Co-host'&&form.querySelector('[name="managerAccess"]:checked').value!=='Yes'){setGroupError('managerGrid','Co-host needs us listed as a host with full manager access and the guest list. Choose Yes, or pick Community Partner instead.');valid=false;}
   if(!form.querySelectorAll('[name="audience"]:checked').length){setGroupError('audienceGrid','Please select at least one audience.');valid=false;}
   if(!form.querySelectorAll('[name="sector"]:checked').length){setGroupError('sectorGrid','Please select at least one sector.');valid=false;}
   var allCommit=Array.prototype.every.call(document.querySelectorAll('#commitList input'),function(i){return i.checked;});
@@ -804,9 +816,9 @@ function doSubmit(){
     ['First name',val('firstName')],['Last name',val('lastName')],['Email',val('email')],['Phone',val('phone')],
     ['Based in',val('basedCity')],['LinkedIn',val('linkedin')],
     ['Organization',val('organization')],['Role',val('jobTitle')],['Website',val('website')],['Organization type',val('orgType')],
-    ['Partnership type',checked('partnershipType')],['Manager co-host access',checked('managerAccess')],
+    ['Partnership type',checked('partnershipType')],['Listed as host + full manager access (incl. guest list)',checked('managerAccess')],
     ['Event name',val('eventName')],['Event date',val('eventDate')],['Event city',val('eventCity')],['Event format',val('eventFormat')],
-    ['Expected attendance',val('attendance')],['Venue',val('venue')],['Event link',val('eventLink')],
+    ['Expected attendance',val('attendance')],['Access type',val('accessType')],['Venue',val('venue')],['Event link',val('eventLink')],
     ['Event description',val('eventDescription')],['Event purpose',val('eventPurpose')],
     ['Audience',checked('audience')],['Organizers and partners',val('organizers')],['Sector focus',checked('sector')],
     ['Agrees to branding guidelines',document.getElementById('commitBranding').checked?'Yes':'No'],
