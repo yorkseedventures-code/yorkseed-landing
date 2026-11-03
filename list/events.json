@@ -85726,17 +85726,18 @@
   "src": "manual"
  },
  {
-  "title": "Show What You Build: Makers & Doers Meetup (Web Summit Special)",
+  "title": "Show What You Build: DA Ultimate Makers & Doers Secret Cult (Web Summit Special)",
   "hub": "lis",
   "date": "2026-11-11",
   "start": "18:00",
   "end": "20:30",
   "venue": "Primal Moves Lisbon, Calçada do Marquês de Abrantes 54, 1200-656 Lisboa, Portugal",
-  "host": "Primal Moves Lisbon + CrazyMonkeyJo + NOT A NAME",
-  "link": "https://lisbon.primalmoves.com/events/show-what-you-build-da-ultimate-makers-doers-secret-cult",
-  "desc": "Details and registration on the event page.",
+  "host": "Yorkseed + Primal Moves Lisbon + CrazyMonkeyJo + NOT A NAME",
+  "link": "https://luma.com/rnm96bu0",
+  "desc": "Free, informal meetup for creators and builders. Three presenters demo their projects on stage, then Q&A and drinks. Part of the Yorkseed Passport Series for Web Summit Lisbon 2026.",
   "type": "Conferences",
-  "src": "manual"
+  "src": "manual",
+  "yorkseed": true
  },
  {
   "title": "Next Round's on Us | Web Summit 2026",
@@ -87193,6 +87194,20 @@
   "link": "https://www.gfhsforum.org/content?article_id=722",
   "desc": "Resilient Cities, Just Transition: Empowering the Implementation Era of Climate Actions. 300+ global leaders, policymakers, innovators and practitioners from 50+ countries. Topics: SDGs and climate goals, smart and green cities, urban heat and water resilience, AI for resilient cities, nature-based solutions.",
   "type": "Conferences",
+  "src": "manual"
+ },
+ {
+  "title": "Gypsy Lunch · Family Style",
+  "hub": "lis",
+  "date": "2026-11-12",
+  "start": "13:00",
+  "end": "15:30",
+  "venue": "TEJÁ House, Cais do Sodré 5, 1200-450 Lisboa",
+  "host": "Yorkseed + TEJÁ House + Gypsy Lisboa",
+  "link": "https://luma.com/tejahouse-ues5",
+  "desc": "A shared midday meal where Gypsy's Anatolian and Mediterranean autumn dishes are passed around one table. €25 per person.",
+  "type": "Communal Dining",
+  "yorkseed": true,
   "src": "manual"
  }
 ]
