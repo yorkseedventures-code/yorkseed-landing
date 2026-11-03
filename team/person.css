@@ -71,3 +71,19 @@ a { color: inherit; }
 
 .toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); background: var(--ink); color: #fff; font-family: var(--sans); font-size: 13px; padding: 10px 16px; border-radius: 999px; opacity: 0; transition: opacity .2s; pointer-events: none; }
 .toast.on { opacity: 1; }
+
+/* desktop: profile card on the left, links on the right */
+@media (min-width: 900px) {
+  .page { max-width: 1040px; padding: 40px 48px 64px; }
+  .top { margin-bottom: 40px; }
+  .top .brand img { height: 30px; }
+  .grid { display: grid; grid-template-columns: 380px minmax(0, 1fr); gap: 56px; align-items: start; }
+  .left { position: sticky; top: 32px; background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 44px 36px 36px; }
+  .left .avatar { width: 168px; height: 168px; box-shadow: 0 0 0 6px var(--bg), 0 0 0 7px var(--line); }
+  .left .hero h1 { font-size: 38px; }
+  .left .save { margin-top: 30px; }
+  .right { padding-top: 4px; }
+  .right .mine { margin-top: 0; }
+  .right .more { margin-top: 40px; }
+  .right .about { margin-top: 32px; max-width: 520px; }
+}
