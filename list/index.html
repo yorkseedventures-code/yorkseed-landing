@@ -22,6 +22,24 @@
 <style>[hidden]{display:none!important}.fbanner.ysp.ysp-house .lab{background:#E0457B!important;color:#fff!important}.fbanner.ysp.ysp-house{border-color:#E0457B}.fbanner.ysp.ysp-house .adv{display:none}.crow.ys{background:linear-gradient(90deg,rgba(179,38,30,.07),rgba(179,38,30,.015) 70%);box-shadow:inset 3px 0 0 var(--accent);padding-left:14px;padding-right:6px}
 .fbanner.ysp.ysp-flag .lab{background:var(--accent)!important;color:#fff!important}.fbanner.ysp.ysp-flag{border:1px solid var(--accent)}.fbanner.ysp.ysp-flag .adv{display:none}.fbanner.slim.ysp-flag{border-left:4px solid var(--accent)}.fbanner.slim.ysp-flag h3::before{content:"★ Yorkseed flagship";display:block;font-family:var(--f-label);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
 .fbanner.slim.ysp-house{border:1px solid #E0457B;border-left:4px solid #E0457B}.fbanner.slim.ysp-house h3::before{content:"■ Yorkseed House";display:block;font-family:var(--f-label);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#E0457B;margin-bottom:4px}
+
+/* day strip: one tile per day with its event count, sticks under the nav */
+.dstrip{position:sticky;top:var(--navh,64px);z-index:12;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;background:var(--bg);padding:10px 0;margin:2px 0 4px;border-bottom:1px solid var(--line)}
+.dstrip::-webkit-scrollbar{display:none}
+.dstrip button{flex:0 0 auto;min-width:56px;display:grid;justify-items:center;gap:2px;padding:7px 8px 7px;border:1px solid var(--line);border-radius:0;background:var(--surface);color:var(--ink);cursor:pointer}
+.dstrip small{font-family:var(--f-label);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.dstrip b{font-family:var(--f-display);font-weight:400;font-size:22px;line-height:1}
+.dstrip span{font-family:var(--f-label);font-size:11px;color:var(--soft);font-variant-numeric:tabular-nums}
+.dstrip button.core{border-top:3px solid var(--accent);padding-top:5px}
+.dstrip button.none{opacity:.45}
+.dstrip button.dsall b{font-family:var(--f-label);font-size:12px;letter-spacing:.14em;text-transform:uppercase;line-height:22px}
+.dstrip button[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.dstrip button[aria-pressed=true] small,.dstrip button[aria-pressed=true] span{color:var(--bg);opacity:.75}
+.dstrip button.core[aria-pressed=true]{border-top-color:var(--accent)}
+.dstrip button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.dayhead{top:calc(var(--navh,64px) + var(--dsh,0px))!important}
+.dayhead .coretag{font-family:var(--f-label);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);padding:2px 6px;margin-left:10px;vertical-align:middle;white-space:nowrap}
+@media (max-width:640px){.dstrip{gap:5px;padding:8px 0}.dstrip button{min-width:50px;padding:6px 6px}.dstrip b{font-size:19px}.dstrip button.core{padding-top:4px}.dayhead .coretag{font-size:8.5px;margin-left:6px;padding:1px 5px}}
 </style>
 <style id="ysShareCss">.cityhero .btn-share{margin-top:18px;border-color:var(--ink);color:var(--ink);background:transparent}.cityhero .btn-share:hover{background:var(--ink);color:var(--bg)}.cityhero .btn-share .ico{width:14px;height:14px}.cityhero .btn-share[hidden]{display:none}</style>
 <script id="ysPaths">window.YS_PATHS={"h":{"nyc":"new-york","sf":"san-francisco-bay-area","atx":"austin","bos":"boston","chi":"chicago","la":"los-angeles","mia":"miami","dc":"washington-dc","mtl":"montreal","tor":"toronto","ams":"amsterdam","bcn":"barcelona","ber":"berlin","can":"cannes","cph":"copenhagen","dub":"dublin","hel":"helsinki","lis":"lisbon","ldn":"london","mil":"milan","muc":"munich","par":"paris","sto":"stockholm","zrh":"zurich","dav":"davos","bue":"buenos-aires","mex":"mexico-city","sao":"sao-paulo-rio","tlv":"tel-aviv","dxb":"dubai-uae","hkg":"hong-kong","kul":"kuala-lumpur","sgp":"singapore","syd":"sydney","virtual":"online","sea":"seattle","tyo":"tokyo","blr":"bengaluru","mad":"madrid","yvr":"vancouver","den":"denver-boulder","tpe":"taipei","sel":"seoul","bkk":"bangkok","jkt":"jakarta","nbo":"nairobi","los":"lagos","mel":"melbourne","phl":"philadelphia","waw":"warsaw","bom":"mumbai","riy":"riyadh","doh":"doha","hou":"houston","dal":"dallas","atl":"atlanta","sdg":"san-diego","slc":"salt-lake-city","rdu":"raleigh-durham","nsh":"nashville","man":"manchester","edi":"edinburgh","osl":"oslo","vie":"vienna","prg":"prague","bru":"brussels","ist":"istanbul","cpt":"cape-town","jnb":"johannesburg","cai":"cairo","sha":"shanghai","szx":"shenzhen","mnl":"manila","sgn":"ho-chi-minh-city","akl":"auckland","bog":"bogot","mde":"medell-n","scl":"santiago","lim":"lima","del":"new-delhi","hyd":"hyderabad","lvs":"las-vegas","pdx":"portland","pnq":"pune","maa":"chennai","bud":"budapest","iev":"kyiv","beg":"belgrade","sat":"san-antonio","yyj":"victoria-bc","gift":"gift-city"},"w":{"osai":{"s":"sf-open-source-ai-week-2026-side-events","e":"sf-open-source-ai-week-side-events","d":["2026-10-26"]},"tough":{"s":"tough-tech-week-2026-side-events","e":"tough-tech-week-side-events","d":["2026-10-26","2026-10-27","2026-10-28","2026-10-29","2026-10-30"]},"atw":{"s":"austin-tech-week-2026-side-events","e":"austin-tech-week-side-events","d":["2026-10-26","2026-10-27","2026-10-28","2026-10-29","2026-10-30"]},"switch":{"s":"switch-singapore-2026-side-events","e":"switch-singapore-side-events","d":["2026-10-26","2026-10-27","2026-10-28","2026-10-29"]},"slush":{"s":"slush-helsinki-2026-side-events","e":"slush-helsinki-side-events","d":["2026-11-16","2026-11-17","2026-11-18","2026-11-19"]},"lisws":{"s":"web-summit-lisbon-2026-side-events","e":"web-summit-lisbon-side-events","d":["2026-11-02","2026-11-03","2026-11-04","2026-11-05","2026-11-06","2026-11-07","2026-11-08","2026-11-09","2026-11-10","2026-11-11","2026-11-12","2026-11-13","2026-11-14","2026-11-15"]},"wef":{"s":"wef-davos-2027-side-events","e":"wef-davos-side-events","d":["2027-01-18","2027-01-19","2027-01-20","2027-01-21"]},"aff":{"s":"asian-financial-forum-2027-side-events","e":"asian-financial-forum-side-events","d":["2027-01-26","2027-01-27","2027-01-28"]},"mxtw":{"s":"mexico-tech-week-2026-side-events","e":"mexico-tech-week-side-events","d":["2026-10-26","2026-10-27","2026-10-28","2026-10-29","2026-10-30","2026-10-31","2026-11-01"]},"seaai":{"s":"seattle-ai-week-2026-side-events","e":"seattle-ai-week-side-events","d":["2026-10-26","2026-10-27","2026-10-28","2026-10-29","2026-10-30"]},"t49dxb":{"s":"token2049-dubai-2027-side-events","e":"token2049-dubai-side-events","d":[]},"hardtech":{"s":"hard-tech-week-2026-side-events","e":"hard-tech-week-side-events","d":["2026-10-26","2026-10-27","2026-10-28","2026-10-29","2026-10-30"]},"dtw":{"s":"deeptech-week-tlv-2026-side-events","e":"deeptech-week-tlv-side-events","d":["2026-11-15","2026-11-16","2026-11-17","2026-11-18","2026-11-19"]},"hkfw":{"s":"hong-kong-fintech-week-2026-side-events","e":"hong-kong-fintech-week-side-events","d":["2026-11-02","2026-11-03","2026-11-04","2026-11-06"]},"afro":{"s":"afrotech-2026-side-events","e":"afrotech-side-events","d":["2026-11-02","2026-11-03","2026-11-04","2026-11-05","2026-11-06"]},"cltw":{"s":"chile-tech-week-2026-side-events","e":"chile-tech-week-side-events","d":["2026-11-16","2026-11-17","2026-11-18","2026-11-19","2026-11-20","2026-11-21"]},"mdtw":{"s":"madrid-tech-week-2026-side-events","e":"madrid-tech-week-side-events","d":["2026-10-28","2026-10-29","2026-10-30","2026-11-03","2026-11-04","2026-11-05"]},"batw":{"s":"tecweek-buenos-aires-2026-side-events","e":"tecweek-buenos-aires-side-events","d":["2026-10-27","2026-10-28","2026-10-29","2026-10-30","2026-10-31"]},"reinvent":{"s":"aws-re-invent-2026-side-events","e":"aws-re-invent-side-events","d":["2026-11-29","2026-11-30","2026-12-01","2026-12-02","2026-12-03"]},"gitex":{"s":"gitex-and-expand-north-star-2026-side-events","e":"gitex-and-expand-north-star-side-events","d":["2026-12-06","2026-12-07","2026-12-08","2026-12-09"]},"ces":{"s":"ces-2027-side-events","e":"ces-side-events","d":["2027-01-04","2027-01-06","2027-01-07"]},"jpm":{"s":"jpm-healthcare-week-2027-side-events","e":"jpm-healthcare-week-side-events","d":["2027-01-11","2027-01-12","2027-01-13","2027-01-14","2027-01-15"]},"wsq":{"s":"web-summit-qatar-2027-side-events","e":"web-summit-qatar-side-events","d":["2027-01-31"]}}};</script>
@@ -1471,6 +1489,7 @@ input::placeholder,textarea::placeholder{font-size:13.5px;color:var(--soft);opac
           <h2 id="listCount">Events</h2>
           <div class="ctl"><span id="weekChip"></span></div>
         </div>
+        <div class="dstrip" id="dStrip" hidden></div>
         <div id="spot"></div>
         <div id="rows"></div>
         <div class="listmore" id="moreWrap"></div>
@@ -1719,7 +1738,7 @@ const WEEKS=[
  {id:"aff",about:"The Asian Financial Forum is Hong Kong's annual finance conference, held at the Hong Kong Convention and Exhibition Centre and organized by the Hong Kong SAR Government and HKTDC. It brings together financial leaders, investors, family offices and policymakers. Yorkseed runs a delegation here.",name:"Asian Financial Forum",hub:"hkg",start:"2027-01-25",end:"2027-01-28",re:/asian financial forum|\baff\b|private equity|fintech|financ|wealth|family office|capital|invest|bank|asset/i},
  {id:"switch",about:"SWITCH (Singapore Week of Innovation and Technology) is Asia's innovation festival, organized by Enterprise Singapore with support from the National Research Foundation. Its flagship is the SLINGSHOT startup pitching finals, alongside keynotes, market access sessions and roundtables on AI, climate and energy, quantum, advanced materials, healthcare and biotech, and digital connectivity. The 2025 edition drew over 25,000 attendees from 100+ markets.",name:"SWITCH Singapore",hub:"sgp",start:"2026-10-26",end:"2026-10-29",re:/switch/i},
  {id:"slush",about:"Slush is Finland's startup conference, held at Messukeskus Helsinki on Nov 18-19 with a Day 0 founders and investor program on Nov 17. Founded in 2008, it runs matchmaking for 20,000+ scheduled meetings, the Slush 100 competition and 600+ community side events. The 2026 theme is Radical Resilience.",name:"Slush Helsinki",hub:"hel",start:"2026-11-16",end:"2026-11-20",re:/slush/i},
- {id:"lisws",about:"Web Summit is Europe's largest tech conference, held Nov 9-12, 2026 at MEO Arena and FIL in Lisbon, with 70,000+ attendees across startups, investors, corporates and media.",name:"Web Summit Lisbon",hub:"lis",start:"2026-11-02",end:"2026-11-16",re:/./,
+ {id:"lisws",core:["2026-11-09","2026-11-12"],coreName:"Web Summit",about:"Web Summit is Europe's largest tech conference, held Nov 9-12, 2026 at MEO Arena and FIL in Lisbon, with 70,000+ attendees across startups, investors, corporates and media.",name:"Web Summit Lisbon",hub:"lis",start:"2026-11-02",end:"2026-11-16",re:/./,
    ys:[{kind:"Delegation",title:"Yorkseed Lisbon Delegation",blurb:"Travel to Web Summit with a small group of founders, partners and investors. Deal Book profile, introductions where there is a fit, and delegate meetups all week.",cta:"Apply",url:"https://yorkseed.co/lisbon-delegation",more:[["Meet the delegates","https://yorkseed.co/delegation/lisbon-2026/delegates/"],["Read the Deal Book","https://yorkseed.co/delegation/lisbon-2026/book/"]]},{kind:"House",title:"Yorkseed House Pop Up",blurb:"Yorkseed's home base during Web Summit week, open all week Nov 9 to 13: a place to meet founders, investors and partners between sessions.",cta:"See Yorkseed House",url:"https://yorkseed.co/events/yorkseed-house-web-summit-lisbon-2026",more:[]}]}
 ];
 const TIERS=[
@@ -1894,7 +1913,7 @@ function listHash(){const w=st.week&&weekById(st.week);if(w)return "#"+weekSlug(
 let NAV_SHOWING=false;
 function syncListUrl(){if(NAV_SHOWING||st.view!=="city"||st.savedOnly)return;const u=listHash();if(location.hash!==u){try{history.replaceState(navState(),"",u);}catch(err){}}}
 function openListFromHash(h){h=decodeURIComponent((h||"").replace(/^#/,"")).toLowerCase();
-  const goWeek=(w,day)=>{st.week=w.id;st.topic=null;st.q="";st.date="any";st.type="all";goCity(w.hub);if(day){st.day=day;st.mode="list";renderCity();}return true;};
+  const goWeek=(w,day)=>{st.week=w.id;st.topic=null;st.q="";st.date="any";st.type="all";goCity(w.hub);day=day||firstCoreDay(w);if(day){st.day=day;st.mode="list";renderCity();}return true;};
   let m=h.match(/^w\/([a-z0-9]+)(?:\/(\d{4}-\d{2}-\d{2}))?$/);if(m&&weekById(m[1]))return goWeek(weekById(m[1]),m[2]);
   if(h==="events"){st.week=null;goCity("all");return true;}
   m=h.match(/^([a-z0-9-]+)(?:\/(\d{4}-\d{2}-\d{2}))?$/);if(!m)return false;
@@ -2037,13 +2056,14 @@ function rowHtml(e,withDate){const h=hubById(e.hub),y=yourTime(e),wk=e.week&&!st
   <span class="sub">${[st.hub==="all"||st.view==="home"?h.name:"",e.noTime&&!(st.hub==="all"||st.view==="home")?"":esc(e.type),host,wk?esc(wk.name):""].filter(Boolean).join(" · ")} ${at}</span>
   <span class="meta2">${e.price?`<span class="price">${esc(e.price)}</span>`:""}${(e.aud||[]).map(a=>`<span class="aud">${esc(a)}</span>`).join("")}${e.series?`<span class="ser">${esc(e.series)}</span>`:""}${y?`<span class="yours">${y}</span>`:""}</span></button>
   ${heartBtn(e,"iconbtn")}</div>`;}
+let DAYN={};
 function groupedHtml(list){
   const today=dKey(NOW,myTz),tmr=dKey(NOW+864e5,myTz),cut=(st.week&&st.view==="city")||st.day?"9999":dKey(NOW+14*864e5,myTz);
   const g=[];list.forEach(e=>{const key=e.date<cut?e.date:"M"+e.date.slice(0,7);const last=g[g.length-1];if(last&&last.key===key)last.items.push(e);else g.push({key,date:e.date,items:[e]});});
   return g.map(x=>{if(x.key[0]==="M"){const d=new Date(x.key.slice(1)+"-15T12:00:00Z");const mn=new Intl.DateTimeFormat("en-US",{month:"long",timeZone:"UTC"}).format(d);const sameMonth=x.key.slice(1)===today.slice(0,7)||x.key.slice(1)===cut.slice(0,7);const yr=x.key.slice(1,5)!==today.slice(0,4)?" "+x.key.slice(1,5):"";
       return`<div class="dayhead"><h3>${sameMonth?"Later in ":""}<em>${mn}${yr}</em></h3><span>${x.items.length} event${x.items.length===1?"":"s"}</span></div>${x.items.map(e=>rowHtml(e,true)).join("")}`;}
-    const d=new Date(x.date+"T12:00:00Z");const lbl=x.date===today?"Today":x.date===tmr?"Tomorrow":new Intl.DateTimeFormat("en-US",{weekday:"long",timeZone:"UTC"}).format(d);
-    return`<div class="dayhead" data-day="${x.date}"><h3>${lbl}, <em>${new Intl.DateTimeFormat("en-US",{month:"long",day:"numeric",timeZone:"UTC"}).format(d)}</em></h3><span>${x.items.length} event${x.items.length===1?"":"s"}</span></div>${x.items.map(e=>rowHtml(e)).join("")}`}).join("");
+    const d=new Date(x.date+"T12:00:00Z");const lbl=x.date===today?"Today":x.date===tmr?"Tomorrow":new Intl.DateTimeFormat("en-US",{weekday:"long",timeZone:"UTC"}).format(d);const cw=coreWeek(x.date);
+    return`<div class="dayhead" data-day="${x.date}"><h3>${lbl}, <em>${new Intl.DateTimeFormat("en-US",{month:"long",day:"numeric",timeZone:"UTC"}).format(d)}</em>${cw?`<span class="coretag">${esc(cw.coreName||cw.name)} day</span>`:""}</h3><span>${DAYN[x.date]||x.items.length} event${(DAYN[x.date]||x.items.length)===1?"":"s"}</span></div>${x.items.map(e=>rowHtml(e)).join("")}`}).join("");
 }
 function addDays(n){return dKey(NOW+n*864e5,myTz);}
 function filtered(skipType,skipTopic){
@@ -2092,9 +2112,11 @@ function renderCity(){
   const chips=[];if(w)chips.push(`<span class="weekchip">${esc(w.name)}<button data-clear="week" aria-label="Clear week">×</button></span>`);if(st.savedOnly)chips.push(`<span class="weekchip">★ Saved<button data-clear="savedOnly" aria-label="Show all events">×</button></span>`);if(st.topic)chips.push(`<span class="weekchip">${esc(st.topic)}<button data-clear="topic" aria-label="Clear topic">×</button></span>`);if(st.day)chips.push(`<span class="weekchip">${dParts(st.day).wd} ${dParts(st.day).day} ${dParts(st.day).mon}<button data-clear="day" aria-label="Clear day">×</button></span>`);if(st.date==="weeks")chips.push(`<span class="weekchip">Conference weeks<button data-clear="date" aria-label="Clear">×</button></span>`);
   $("#weekChip").innerHTML=chips.join(" ");
   {const old=$("#ysProg");if(old)old.remove();const pw=w&&w.ys?w:(h?WEEKS.find(x=>x.hub===h.id&&x.ys&&x.end>=addDays(0)):null);if(pw)$("#bCity").insertAdjacentHTML("beforebegin",`<div id="ysProg">${ysProgramsHtml(pw)}</div>`);}{const o=$("#ssMob");if(o)o.remove();if(ssOn())$("#bCity").insertAdjacentHTML("afterend",ssMob());}
-  if(st.mode==="cal"){renderCal(h,w);$("#bCity").innerHTML=st.hub==="all"?bannerHtml("home"):bannerHtml("city",st.hub);return;}
+  if(st.mode==="cal"){$("#dStrip").hidden=true;setStripVars();renderCal(h,w);$("#bCity").innerHTML=st.hub==="all"?bannerHtml("home"):bannerHtml("city",st.hub);return;}
   const list=filtered();
-  $("#listCount").innerHTML=`${list.length} <em>event${list.length===1?"":"s"}</em> ${w?(addDays(0)>=w.start&&addDays(0)<=w.end?"this week":"at "+esc(w.name)+", "+range(w.start,w.end)):h?"in "+h.name:"worldwide"}`;
+  DAYN={};list.forEach(e=>{DAYN[e.date]=(DAYN[e.date]||0)+1});
+  renderDayStrip(w);
+  $("#listCount").innerHTML=`${list.length} <em>event${list.length===1?"":"s"}</em> ${st.day?"on "+dParts(st.day).wd+" "+dParts(st.day).day+" "+dParts(st.day).mon+(w?" at "+esc(w.name):h?" in "+h.name:""):w?(addDays(0)>=w.start&&addDays(0)<=w.end?"this week":"at "+esc(w.name)+", "+range(w.start,w.end)):h?"in "+h.name:"worldwide"}`;
   const spots=st.q?[]:list.filter(e=>e.place==="spotlight"||e.place==="week").slice(0,3);
   $("#bCity").insertAdjacentHTML("afterend","");
   $("#spot").innerHTML=spots.length?`<div class="spotlabel">${w?"Week picks":"From Yorkseed"}</div><div class="spot">${spots.map(cardHtml).join("")}</div>`:"";
@@ -2104,6 +2126,25 @@ function renderCity(){
   setTimeout(renderCityBanners,0);
   $("#moreWrap").innerHTML=left>0?`<button class="btn btn-line" type="button" data-more="1">Show ${Math.min(PAGE,left)} more · ${left} left</button>`:"";
 }
+// Which conference has its main days on this date, for the city or week in view
+function coreWeek(date){const w=st.week?weekById(st.week):null;if(w&&w.core)return date>=w.core[0]&&date<=w.core[1]?w:null;
+  if(st.hub==="all")return null;return WEEKS.find(x=>x.core&&x.hub===st.hub&&date>=x.core[0]&&date<=x.core[1])||null;}
+// Before a conference starts, open its week on the first main day (the strip shows the run-up days)
+function firstCoreDay(w){return w&&w.core&&addDays(0)<w.core[0]?w.core[0]:null;}
+function nextDay(d){const t=new Date(d+"T12:00:00Z");t.setUTCDate(t.getUTCDate()+1);return t.toISOString().slice(0,10);}
+function setStripVars(){const nav=document.querySelector(".nav"),el=$("#dStrip"),r=document.documentElement.style;
+  r.setProperty("--navh",(nav?nav.offsetHeight:64)+"px");r.setProperty("--dsh",(el&&!el.hidden?el.offsetHeight:0)+"px");}
+function renderDayStrip(w){const el=$("#dStrip");if(!el)return;const today=addDays(0);
+  st.ignoreDate=true;const pool=filtered();st.ignoreDate=false;
+  let days=[];if(w){for(let d=w.start>today?w.start:today;d<=w.end;d=nextDay(d))days.push(d);}else{for(let i=0;i<14;i++)days.push(addDays(i));}
+  if(st.day&&!days.includes(st.day))days.push(st.day),days.sort();
+  if(days.length<2||!pool.length){el.hidden=true;el.innerHTML="";setStripVars();return;}
+  const cnt={};pool.forEach(e=>{cnt[e.date]=(cnt[e.date]||0)+1});
+  el.hidden=false;
+  el.innerHTML=`<button type="button" class="dsall" data-dsday="" aria-pressed="${!st.day}" aria-label="All days, ${pool.length} events"><small>All</small><b>Days</b><span>${pool.length}</span></button>`+days.map(d=>{const p=dParts(d),cw=coreWeek(d),n=cnt[d]||0;
+    return`<button type="button" class="${cw?"core":""}${n?"":" none"}" data-dsday="${d}" aria-pressed="${st.day===d}" aria-label="${p.wd} ${p.day} ${p.mon}, ${n} event${n===1?"":"s"}${cw?", "+esc(cw.coreName||cw.name)+" day":""}"><small>${d===today?"Today":p.wd}</small><b>${p.day}</b><span>${n}</span></button>`}).join("");
+  const on=el.querySelector('[aria-pressed="true"]');if(on&&on.dataset.dsday)el.scrollLeft=Math.max(0,on.offsetLeft-el.clientWidth/2+on.offsetWidth/2);
+  setStripVars();}
 function renderCal(h,w){
   st.ignoreDate=true;const all=filtered();st.ignoreDate=false;
   if(!st.month){const f=(w?w.start:addDays(0));st.month=f.slice(0,7);}
@@ -2293,7 +2334,7 @@ document.addEventListener("click",ev=>{
   if(t.dataset.scroll){scrollToId(t.dataset.scroll);return;}
   if(t.dataset.city){st.week=null;st.topic=null;st.q="";st.date="any";goCity(t.dataset.city);return;}
   if(t.dataset.topic){st.topic=t.dataset.topic;st.week=null;st.q="";goCity("all");return;}
-  if(t.dataset.weekgo){st.week=t.dataset.weekgo;st.topic=null;st.q="";st.date="any";st.type="all";goCity(weekById(st.week).hub);return;}
+  if(t.dataset.weekgo){st.week=t.dataset.weekgo;st.topic=null;st.q="";st.date="any";st.type="all";goCity(weekById(st.week).hub);{const fd=firstCoreDay(weekById(st.week));if(fd){st.day=fd;st.mode="list";renderCity();}}return;}
   if(t.dataset.pin){openChat();return;const w=weekById(t.dataset.pin);$("#sHub").value=w.hub;syncWeeks();$("#sWeek").value=w.id;$("#sDate").value=w.start;scrollToId("submit");toast(`Add your side event for ${w.name}. The week is already selected.`);return;}
   if(t.dataset.tier){setPlace(t.dataset.tier);step=1;paneShow();scrollToId("submit");return;}
   if(t.dataset.tab){st.hub=t.dataset.tab;if(st.week&&weekById(st.week).hub!==st.hub)st.week=null;renderCity();return;}
@@ -2719,6 +2760,10 @@ const hash=(location.hash||"").slice(1);
 NAV_SILENT=true;try{if(/^e\//.test(hash))openFromHash();else if(openListFromHash(hash)){}else if(/^book(\/|$)/.test(hash)){const bp=hash.split("/");openBook(bp[1],bp[2]);}else if(["submit","pricing","partner","weeks"].includes(hash))scrollToId(hash);else if(!hash&&!/[?&]home\b/.test(location.search)){const nh=nearHub();if(nh)goCity(nh);}}finally{NAV_SILENT=false;}
 
 makePicker($("#homeSel"));makePicker($("#hHub"),true);makePicker($("#fCity"),true);
+$("#dStrip").addEventListener("click",ev=>{const b=ev.target.closest("button[data-dsday]");if(!b)return;ev.stopPropagation();
+  st.day=b.dataset.dsday||null;st.date="any";st.mode="list";const el=$("#dStrip"),wasStuck=el.getBoundingClientRect().top<=(parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--navh"))||64)+1;
+  renderCity();if(wasStuck){const y=$("#dStrip").offsetTop;window.scrollTo({top:Math.max(0,document.querySelector(".listhead").getBoundingClientRect().top+scrollY-(parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--navh"))||64)),behavior:"smooth"});}});
+addEventListener("resize",setStripVars);setStripVars();
 
 // ---------- live data (db) + owner admin ----------
 const PAYLINKS={side:{"2w":"https://buy.stripe.com/fZufZa8ADfp46bS5Exbo41E","1m":"https://buy.stripe.com/eVq7sE3gj2Ci7fW8QJbo41F","3m":"https://buy.stripe.com/7sY6oAg35el02ZGaYRbo41G","6m":"https://buy.stripe.com/fZu28keZ190G7fW4Atbo41H","12m":"https://buy.stripe.com/aFadR2eZ1gt8cAgaYRbo41I"},sheet:{conf:"https://buy.stripe.com/fZubIU6sva4Kas8aYRbo410"},feat:{ev:"https://buy.stripe.com/dRmaEQ4kn1yeas81ohbo41l","1m":"https://buy.stripe.com/4gM7sE047dgW2ZG0kdbo41m","3m":"https://buy.stripe.com/cNi3cog35el0fMsff7bo41n"},
