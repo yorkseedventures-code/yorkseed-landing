@@ -1,1 +1,12 @@
-[]
+[
+ {
+  "kind": "side",
+  "hub": "*",
+  "brand": "Koicard",
+  "headline": "Scan a card. Done.",
+  "blurb": "AI business card scanner for conferences, meetups and coffee chats. Free to start.",
+  "url": "https://koicard.app/landing",
+  "img": "/list/img/koicard.jpg",
+  "active": true
+ }
+]
