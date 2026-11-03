@@ -2688,12 +2688,16 @@ function makePicker(sel,alignLeft){
   const lab=()=>{const o=sel.options[sel.selectedIndex];b.textContent=o?o.text.replace(/\s*\(\d+\)$/,""):"Choose";};
   new MutationObserver(lab).observe(sel,{childList:true});lab();setInterval(lab,700);
   let pop=null;
-  const close=()=>{if(pop){pop.remove();pop=null;b.setAttribute("aria-expanded","false");}};
+  const close=()=>{if(pop){removeEventListener("resize",pop._fit);pop.remove();pop=null;b.setAttribute("aria-expanded","false");}};
   b.addEventListener("click",ev=>{ev.stopPropagation();if(pop){close();return;}
     document.querySelectorAll(".cppop").forEach(p=>p.remove());
     pop=document.createElement("div");pop.className="cppop"+(alignLeft?" left":"");
     pop.innerHTML=`<input type="search" placeholder="Search cities" aria-label="Search cities"><div class="cplist" role="listbox"></div>`;
     w.appendChild(pop);b.setAttribute("aria-expanded","true");
+    // Keep the popup fully on screen: phones put the button on the left, where a right-aligned popup spills off the edge
+    const fit=()=>{if(!pop)return;const wr=w.getBoundingClientRect(),vw=document.documentElement.clientWidth,pw=pop.offsetWidth,m=12;
+      let x=alignLeft?wr.left:wr.right-pw;x=Math.max(m,Math.min(x,vw-m-pw));pop.style.right="auto";pop.style.left=(x-wr.left)+"px";};
+    fit();addEventListener("resize",fit);pop._fit=fit;
     const list=pop.querySelector(".cplist"),inp=pop.querySelector("input");
     const draw=q=>{q=(q||"").toLowerCase();list.innerHTML=[...sel.options].filter(o=>!q||o.text.toLowerCase().includes(q)).map(o=>{const m=o.text.match(/^(.*?)\s*\((\d+)\)$/);return`<button type="button" role="option" data-v="${esc(o.value)}" class="${o.value===sel.value?"on":""}">${esc(m?m[1]:o.text)}${m?`<span>${m[2]}</span>`:""}</button>`}).join("")||`<div class="note" style="padding:10px 12px">No city matches.</div>`;};
     draw();inp.oninput=()=>draw(inp.value);
