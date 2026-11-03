@@ -57,7 +57,10 @@
   fetch(API + "/api/team")
     .then(function (r) { return r.json(); })
     .then(function (data) {
-      var members = (data && data.members) || data || [];
+      // Unassigned general cards (/team/a to /team/h, /team/volunteer,
+      // /team/yorkseed) all read "Yorkseed Team": they are not people, so
+      // they stay out of the directory until a card is given to someone.
+      var members = ((data && data.members) || data || []).filter(function (m) { return m.name !== "Yorkseed Team"; });
       if (!Array.isArray(members) || members.length === 0) {
         document.getElementById("empty").hidden = false;
         return;
