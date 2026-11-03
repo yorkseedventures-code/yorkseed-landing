@@ -588,7 +588,25 @@ function dgParseLuma(txt){
   o['Package']=role==='Investor'?'Investor (complimentary)':(o['Package']||'');
   return o;
 }
-function dgParse(txt){if(/Registration Questions/.test(String(txt||''))&&/Registration Time|Ticket/.test(String(txt||'')))return dgParseLuma(txt);var L=String(txt||'').split(/\r?\n/).map(function(s){return s.trim()}).filter(Boolean),i=L.indexOf('Form'),o={};if(i<0)return o;for(var k=i;k+1<L.length&&!/^Visitor IP/i.test(L[k]);k+=2){if(/^Visitor IP/i.test(L[k+1]))break;o[L[k]]=L[k+1]}return o}
+/* Luma approval emails, or any pasted mix of an email address and the guest's answers: find the email anywhere, the name next to it, and each known question with its answer */
+function dgParseLoose(txt){
+  var raw=String(txt||''),L=raw.split(/\r?\n/).map(function(x){return x.trim()}).filter(Boolean);
+  var skip=/(@(.*\.)?(lu\.ma|luma\.com|luma-mail\.com|yorkseed\.co|web3forms\.com)$)|^(no-?reply|notifications?|mailer)@/i;
+  var em=(raw.match(/[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}/g)||[]).filter(function(e){return !skip.test(e)})[0];
+  if(!em)return {};
+  var name='',m=raw.match(/\[([^\]]+)\]\(https?:[^)]*\)/);if(m)name=m[1];
+  if(!name){m=raw.match(/^(.{2,60}?)\s+(?:has\s+)?(?:registered|requested|wants to|is requesting|signed up)/im);if(m)name=m[1].replace(/^\W+/,'')}
+  if(!name){var ei=L.findIndex(function(x){return x.toLowerCase()===em.toLowerCase()});if(ei>0&&L[ei-1].length<60&&!/[:?]$/.test(L[ei-1]))name=L[ei-1]}
+  if(!name)name=em.split('@')[0].replace(/[._]+/g,' ');
+  var QRE=[/^Job Title/i,/^Company/i,/whatsapp/i,/linkedin or website/i,/category better describes/i,/stage focus/i,/^Your sectors/i,/type of investor/i,/investment thesis/i,/check size/i,/include in the deal ?book/i,/PORTFOLIO COMPANIES/i,/YOUR TAGLINE/i,/ABOUT YOUR/i,/THREE KEYWORDS/i,/QR CODE/i,/HEADSHOT/i,/LOGO/i,/Who invited/i];
+  var isQ=function(s){return QRE.some(function(r){return r.test(s)})},pairs=[];
+  for(var i=0;i<L.length;i++){if(!isQ(L[i]))continue;var q=L[i],a='',c=q.match(/^(.*?[?:])\s+(\S.*)$/);
+    if(c&&c[2].length<400&&!isQ(c[2])){q=c[1];a=c[2]}else if(i+1<L.length&&!isQ(L[i+1])){a=L[i+1];i++}
+    pairs.push(q.replace(/[:]$/,''),a||'—')}
+  return dgParseLuma(name+'\n'+em+'\nTicket\nDelegation\nRegistration Questions\n'+pairs.join('\n'));
+}
+function dgParse(txt){var o=dgParse0(txt);return o&&o['Email']?o:dgParseLoose(txt)}
+function dgParse0(txt){if(/Registration Questions/.test(String(txt||''))&&/Registration Time|Ticket/.test(String(txt||'')))return dgParseLuma(txt);var L=String(txt||'').split(/\r?\n/).map(function(s){return s.trim()}).filter(Boolean),i=L.indexOf('Form'),o={};if(i<0)return o;for(var k=i;k+1<L.length&&!/^Visitor IP/i.test(L[k]);k+=2){if(/^Visitor IP/i.test(L[k+1]))break;o[L[k]]=L[k+1]}return o}
 
 var dgInv=[];
 function loadInv(){dgApi('/invoices/all').then(function(j){dgInv=j.invoices||[];if(dgTab==='invoices')renderInv()}).catch(function(e){$('dgList').innerHTML='<div class="hint">'+esc(e.message)+'</div>'})}
