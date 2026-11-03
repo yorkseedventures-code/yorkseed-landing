@@ -110,6 +110,7 @@ body{overflow-wrap:anywhere}
     <button data-go="events">Yorkseed events</button>
     <button data-go="ads">Sidebar ads <span class="n soft" id="nAds" hidden></span></button>
     <button data-go="organizers">Pre-approved <span class="n soft" id="nTrust" hidden></span></button>
+    <button data-go="team">Team cards</button>
     <button data-go="tools">Tools</button>
   </nav>
 </div>
@@ -182,6 +183,37 @@ body{overflow-wrap:anywhere}
   <input id="url" type="url" inputmode="url" placeholder="https://..."/>
   <button class="btn red" id="fetchBtn">Fetch event details</button>
   <div class="msg" id="fetchMsg"></div>
+</div>
+
+<div class="card" id="teamCards" data-sec="team">
+  <h2>Team cards (a to h)</h2>
+  <p class="intro">The printed cards with QR codes for yorkseed.co/team/a to /team/h. Give a card to someone, then put their name, photo and links on it here. The link and QR code never change.</p>
+  <div id="tcList"><div class="hint">Loading...</div></div>
+  <div id="tcEdit" hidden style="margin-top:14px;padding-top:14px;border-top:1px solid var(--line)">
+    <h2 id="tcTitle" style="color:var(--ink)">Card</h2>
+    <div class="photo-up" style="margin-top:4px"><img id="tcPhoto" alt="" style="width:72px;height:72px;border-radius:50%;object-fit:cover;border:1px solid var(--line);background:#eee"><label class="photo-btn" for="tcFile">Upload a photo</label><input id="tcFile" type="file" accept="image/jpeg,image/png,image/webp" hidden><span id="tcPhotoMsg" class="hint"></span></div>
+    <label>Name</label><input id="tcName" placeholder="Their full name">
+    <div class="row2">
+      <div><label>Title</label><input id="tcRole" placeholder="e.g. Hub Director, Yorkseed London"></div>
+      <div><label>City</label><input id="tcCity" placeholder="e.g. London"></div>
+    </div>
+    <label>Type</label><select id="tcCat"><option>Team</option><option>Hub Director</option><option>Volunteer</option></select>
+    <label>Short bio</label><textarea id="tcBio" style="min-height:90px" maxlength="600"></textarea>
+    <label>Links</label>
+    <div id="tcLinks"></div>
+    <div class="tabs" style="margin-top:8px">
+      <button type="button" data-tcq="LinkedIn">+ LinkedIn</button>
+      <button type="button" data-tcq="WhatsApp me">+ WhatsApp</button>
+      <button type="button" data-tcq="Email me">+ Email</button>
+      <button type="button" data-tcq="Book a meeting with me">+ Booking</button>
+      <button type="button" data-tcq="">+ Other link</button>
+    </div>
+    <div class="hint">Paste a link, or type an email or phone number. Phone numbers need the country code (e.g. +33 6 12 34 56 78); they open WhatsApp on the page.</div>
+    <button class="btn red" id="tcSave" type="button">Save card</button>
+    <button class="btn ghost" id="tcCancel" type="button">Close</button>
+    <button class="btn ghost" id="tcReset" type="button" style="color:var(--red)">Reset to the general Yorkseed card</button>
+    <div class="msg" id="tcMsg"></div>
+  </div>
 </div>
 
 <div class="card" data-sec="tools">
@@ -625,7 +657,7 @@ document.addEventListener('click',function(ev){var t=ev.target;
 });
 
 loadDeleg();
-var SECS={today:1,delegation:1,inbox:1,events:1,ads:1,organizers:1,partners:1,tools:1,submissions:'inbox'};
+var SECS={today:1,delegation:1,inbox:1,events:1,ads:1,organizers:1,partners:1,team:1,tools:1,submissions:'inbox'};
 function showSec(s){s=SECS[s]===1?s:(SECS[s]||'today');[].forEach.call(document.querySelectorAll('[data-sec]'),function(c){c.hidden=c.dataset.sec!==s});
   [].forEach.call(document.querySelectorAll('#nav button'),function(b){b.className=b.dataset.go===s?'on':''});
   try{history.replaceState(null,'','#'+s)}catch(e){}window.scrollTo(0,0)}
@@ -658,6 +690,105 @@ function renderToday(){
   $('tdStats').innerHTML='<div style="grid-column:1/-1"><b>'+R.length+' delegates</b><span>'+dgCounts(R)+'</span></div><div><b>'+c('Paid')+'</b><span>Paid</span></div><div><b>'+c('Comped')+'</b><span>Comped</span></div><div><b>'+c('Awaiting payment')+'</b><span>Awaiting</span></div>';
 }
 function badge(id,n,skip){var e=$(id);e.hidden=!n;e.textContent=n||'';BD[id]=n;if(!skip)try{renderToday()}catch(x){}}
+// ---- Team cards (a to h) --------------------------------------------
+var TM='https://yorkseed-backend-production.up.railway.app/api/team',tcAll=[],tcCur=null,tcLinksArr=[];
+var TC_LETTERS=['a','b','c','d','e','f','g','h'];
+var TC_GENERIC={name:'Yorkseed Team',category:'Team',role:'Yorkseed · Global capital network',city:'50+ cities',
+  bio:'Thanks for connecting with the Yorkseed team. Yorkseed is a curated capital network for founders, investors and allocators, founded in New York City in 2023 and active in 50+ cities across five continents.',
+  links:[{label:'30 days free on Yorkseed Connect',url:'https://app.yorkseed.co/eventoffer'},{label:'Valois · for family offices and allocators',url:'https://thevalois.com/apply'},{label:'The Yorkseed List · events in 50+ cities',url:'https://list.yorkseed.co/'},{label:'Yorkseed on LinkedIn',url:'https://linkedin.com/company/yorkseed'},{label:'Yorkseed on Instagram',url:'https://instagram.com/yorkseed'},{label:'yorkseed.co',url:'https://yorkseed.co'}]};
+function tmApi(path,opt){
+  opt=opt||{};opt.headers=Object.assign({'x-events-key':key()},opt.headers||{});
+  if(opt.body&&typeof opt.body!=='string'){opt.body=JSON.stringify(opt.body);opt.headers['content-type']='application/json'}
+  return fetch(TM+path,opt).then(function(r){return r.json().catch(function(){return {}}).then(function(j){if(!r.ok){if(r.status===401){$('keyCard').style.display='block'}throw new Error(j.message||'Something went wrong')}return j})})
+}
+function tcFmt(raw){var v=String(raw||'').trim();if(!v)return v;if(/^(https?:|mailto:|tel:)/i.test(v))return v;
+  if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v))return 'mailto:'+v;
+  if(/^[+]?[\d\s().-]{6,}$/.test(v)){var d=v.replace(/[\s().-]/g,'');if(/^00/.test(d))d='+'+d.slice(2);return 'tel:'+d}
+  return 'https://'+v.replace(/^\/+/,'')}
+function tcPhotoUrl(m){return m.hasPhoto?TM+'/'+m.slug+'/photo?v='+encodeURIComponent(m.updatedAt||Date.now()):''}
+function loadTeamCards(){
+  if(!key()){$('tcList').innerHTML='<div class="hint">Enter your key first.</div>';return}
+  tmApi('/admin/all').then(function(j){
+    tcAll=(j.members||[]).filter(function(m){return TC_LETTERS.indexOf(m.slug)>=0}).sort(function(a,b){return a.slug<b.slug?-1:1});
+    var rows=TC_LETTERS.map(function(l){var m=tcAll.filter(function(x){return x.slug===l})[0];
+      if(!m)return '<div class="ev"><div><b>Card '+l.toUpperCase()+'</b><small>Not created yet</small></div></div>';
+      var free=m.name==='Yorkseed Team';
+      return '<div class="ev'+(m.active?'':' hid')+'"><div style="display:flex;gap:10px;align-items:center"><img src="'+esc(tcPhotoUrl(m))+'" alt="" style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:1px solid var(--line);background:#eee"><div><b>Card '+l.toUpperCase()+' · '+(free?'<span style="color:var(--ink4)">not assigned</span>':esc(m.name))+'</b><small>yorkseed.co/team/'+l+(m.role&&!free?' · '+esc(m.role):'')+'</small></div></div><div class="acts"><a href="https://yorkseed.co/team/'+l+'" target="_blank" rel="noopener">View</a><button type="button" data-tc-edit="'+l+'">'+(free?'Assign':'Edit')+'</button></div></div>'});
+    $('tcList').innerHTML=rows.join('');
+  }).catch(function(e){$('tcList').innerHTML='<div class="hint">'+esc(e.message)+'</div>'});
+}
+function tcRenderLinks(){
+  var w=$('tcLinks');w.innerHTML='';
+  tcLinksArr.forEach(function(l,i){
+    var row=document.createElement('div');row.style.cssText='display:flex;gap:6px;margin-top:6px';
+    row.innerHTML='<input data-k="label" placeholder="Label, e.g. LinkedIn" style="flex:1" value="'+esc(l.label)+'"><input data-k="url" placeholder="Paste a link, or type an email or number" style="flex:2" value="'+esc(l.url)+'"><button type="button" aria-label="Move up" class="sbtn">↑</button><button type="button" aria-label="Remove" class="sbtn">×</button>';
+    var ins=row.querySelectorAll('input'),bs=row.querySelectorAll('button');
+    ins[0].oninput=function(e){tcLinksArr[i].label=e.target.value};
+    ins[1].oninput=function(e){tcLinksArr[i].url=e.target.value};
+    ins[1].onblur=function(e){tcLinksArr[i].url=tcFmt(e.target.value);e.target.value=tcLinksArr[i].url};
+    bs[0].onclick=function(){if(i>0){var t=tcLinksArr[i-1];tcLinksArr[i-1]=tcLinksArr[i];tcLinksArr[i]=t;tcRenderLinks()}};
+    bs[1].onclick=function(){tcLinksArr.splice(i,1);tcRenderLinks()};
+    w.appendChild(row);
+  });
+}
+function tcOpen(letter){
+  var m=tcAll.filter(function(x){return x.slug===letter})[0];if(!m)return;tcCur=m;
+  var free=m.name==='Yorkseed Team';
+  $('tcTitle').textContent='Card '+letter.toUpperCase()+' · yorkseed.co/team/'+letter;
+  $('tcName').value=free?'':m.name;$('tcRole').value=free?'':(m.role||'');$('tcCity').value=free?'':(m.city||'');
+  $('tcBio').value=free?'':(m.bio||'');$('tcCat').value=m.category||'Team';
+  tcLinksArr=free?[]:(m.links||[]).map(function(l){return {label:l.label,url:l.url}});
+  $('tcPhoto').src=tcPhotoUrl(m);$('tcPhotoMsg').textContent=free?'Shows the Yorkseed logo until you upload a photo.':'';
+  $('tcMsg').className='msg';tcRenderLinks();$('tcEdit').hidden=false;$('tcEdit').scrollIntoView({behavior:'smooth'});
+}
+function tcImageToDataUrl(src,cb){
+  var img=new Image();img.onload=function(){
+    var S=480,c=document.createElement('canvas');c.width=S;c.height=S;var x=c.getContext('2d');
+    var s=Math.min(img.width,img.height),sx=(img.width-s)/2,sy=Math.max(0,(img.height-s)*0.25);
+    x.drawImage(img,sx,sy,s,s,0,0,S,S);cb(c.toDataURL('image/jpeg',0.85));
+  };img.onerror=function(){cb(null)};img.src=src;
+}
+function tcLogoDataUrl(cb){
+  var img=new Image();img.onload=function(){
+    var S=480,c=document.createElement('canvas');c.width=S;c.height=S;var x=c.getContext('2d');
+    x.fillStyle='#F7F4EE';x.fillRect(0,0,S,S);var w=340,h=Math.round(img.height*w/img.width);x.drawImage(img,(S-w)/2,(S-h)/2,w,h);
+    cb(c.toDataURL('image/jpeg',0.9));
+  };img.onerror=function(){cb(null)};img.src='/assets/brand/yorkseed-logo.png';
+}
+$('tcList').addEventListener('click',function(ev){var b=ev.target.closest('[data-tc-edit]');if(b)tcOpen(b.dataset.tcEdit)});
+[].forEach.call(document.querySelectorAll('[data-tcq]'),function(b){b.addEventListener('click',function(){
+  tcLinksArr.push({label:b.dataset.tcq,url:''});tcRenderLinks();var r=$('tcLinks').lastChild;if(r)r.querySelectorAll('input')[b.dataset.tcq?1:0].focus()})});
+$('tcCancel').onclick=function(){$('tcEdit').hidden=true;tcCur=null};
+$('tcFile').onchange=function(e){
+  var f=e.target.files&&e.target.files[0];if(!f||!tcCur)return;var cur=tcCur;
+  $('tcPhotoMsg').textContent='Uploading...';
+  var rd=new FileReader();rd.onload=function(){tcImageToDataUrl(rd.result,function(data){
+    if(!data){$('tcPhotoMsg').textContent='Could not read that image.';return}
+    tmApi('/'+cur._id+'/photo',{method:'PUT',body:{image:data}}).then(function(){
+      $('tcPhoto').src=data;$('tcPhotoMsg').textContent='Photo saved.';cur.hasPhoto=true;cur.updatedAt=String(Date.now());loadTeamCards();
+    }).catch(function(err){$('tcPhotoMsg').textContent=err.message})})};
+  rd.readAsDataURL(f);e.target.value='';
+};
+$('tcSave').onclick=function(){
+  if(!tcCur)return;var name=$('tcName').value.trim();
+  if(!name)return say('tcMsg','Add their name first.',false);
+  tcLinksArr=tcLinksArr.map(function(l){return {label:String(l.label||'').trim(),url:tcFmt(l.url)}}).filter(function(l){return l.label&&l.url});
+  tcRenderLinks();
+  if(tcLinksArr.some(function(l){return /^tel:/i.test(l.url)&&!/^tel:\+/i.test(l.url)}))return say('tcMsg','Add the country code to the phone number, starting with +, e.g. +33 6 12 34 56 78 or +1 212 555 0100.',false);
+  $('tcSave').disabled=true;
+  tmApi('/'+tcCur._id,{method:'PATCH',body:{name:name,role:$('tcRole').value.trim(),city:$('tcCity').value.trim(),bio:$('tcBio').value.trim(),category:$('tcCat').value,links:tcLinksArr,active:true}})
+    .then(function(){say('tcMsg','Saved. Live on yorkseed.co/team/'+tcCur.slug+' within a minute.',true);loadTeamCards()})
+    .catch(function(e){say('tcMsg',e.message,false)}).then(function(){$('tcSave').disabled=false});
+};
+$('tcReset').onclick=function(){
+  if(!tcCur)return;var cur=tcCur;$('tcReset').disabled=true;
+  tmApi('/'+cur._id,{method:'PATCH',body:TC_GENERIC}).then(function(){
+    return new Promise(function(res){tcLogoDataUrl(function(d){if(!d)return res();tmApi('/'+cur._id+'/photo',{method:'PUT',body:{image:d}}).then(res,res)})});
+  }).then(function(){say('tcMsg','Card '+cur.slug.toUpperCase()+' is back to the general Yorkseed card.',true);loadTeamCards();setTimeout(function(){$('tcEdit').hidden=true},900)})
+    .catch(function(e){say('tcMsg',e.message,false)}).then(function(){$('tcReset').disabled=false});
+};
+document.getElementById('nav').addEventListener('click',function(ev){var b=ev.target.closest('button');if(b&&b.dataset.go==='team')loadTeamCards()});
+if((location.hash||'')==='#team')setTimeout(loadTeamCards,0);
 showSec((location.hash||'#today').slice(1));
 </script>
 <script src="/assets/url-prefill.js" defer></script>
