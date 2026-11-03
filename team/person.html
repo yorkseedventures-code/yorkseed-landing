@@ -83,6 +83,7 @@
     cal: '<path d="M3 5h12v10H3zM3 8h12M6 3v3.5M12 3v3.5" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>',
     work: '<path d="M2.5 6h13v8.5h-13zM6.5 6V4h5v2M2.5 10h13" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>',
     phone: '<path d="M5 2.5h3l1 3.5-2 1.2a8 8 0 0 0 3.8 3.8L12 9l3.5 1v3a2 2 0 0 1-2.2 2C7.6 14.5 3.5 10.4 3 4.7A2 2 0 0 1 5 2.5z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>',
+    chat: '<path d="M9 2.8a6.2 6.2 0 0 0-5.4 9.3L2.8 15.2l3.2-.8A6.2 6.2 0 1 0 9 2.8z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M6.8 6.6c.2 1.9 2.3 4 4.4 4.4l.8-1-1.2-.7-.6.5c-.7-.3-1.4-1-1.7-1.7l.5-.6-.7-1.2z" fill="currentColor"/>',
     web: '<circle cx="9" cy="9" r="6.5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M2.5 9h13M9 2.5c2 2 2.8 4.2 2.8 6.5S11 13.5 9 15.5C7 13.5 6.2 11.3 6.2 9S7 4.5 9 2.5z" fill="none" stroke="currentColor" stroke-width="1.3"/>'
   };
 
@@ -103,6 +104,11 @@
   function describe(url) {
     var u = String(url || "");
     if (/^mailto:/i.test(u)) return { ic: "mail", s: u.replace(/^mailto:/i, "").split("?")[0] };
+    if (/^tel:\+/i.test(u)) {
+      // Phone numbers with a country code open a WhatsApp chat.
+      var num = u.replace(/^tel:/i, "");
+      return { ic: "chat", s: "WhatsApp · " + num, href: "https://wa.me/" + num.replace(/\D/g, "") };
+    }
     if (/^tel:/i.test(u)) return { ic: "phone", s: u.replace(/^tel:/i, "") };
     var host = "";
     try { host = new URL(u).hostname.replace(/^www\./, ""); } catch (e) {}
@@ -114,8 +120,8 @@
   function personalLink(l) {
     var d = describe(l.url);
     var a = document.createElement("a");
-    a.className = "btn"; a.href = l.url;
-    if (!/^(mailto|tel):/i.test(l.url)) { a.target = "_blank"; a.rel = "noopener"; }
+    a.className = "btn"; a.href = d.href || l.url;
+    if (!/^(mailto|tel):/i.test(a.href)) { a.target = "_blank"; a.rel = "noopener"; }
     a.innerHTML = '<span class="ic"><svg viewBox="0 0 18 18" aria-hidden="true">' + ICONS[d.ic] + '</svg></span>' +
       '<span class="tx"><div class="t">' + esc(l.label) + '</div>' + (d.s ? '<div class="s">' + esc(d.s) + '</div>' : '') + '</span>' + ARROW;
     return a;
@@ -124,7 +130,7 @@
   function standardLink(l) {
     var a = document.createElement("a");
     a.href = l.url; a.target = "_blank"; a.rel = "noopener";
-    a.innerHTML = '<span class="tx"><div class="t">' + esc(l.t) + '</div><div class="s">' + esc(l.s) + '</div></span>' + ARROW;
+    a.innerHTML = '<span class="tx"><div class="t">' + esc(l.t) + '</div>' + (l.s ? '<div class="s">' + esc(l.s) + '</div>' : '') + '</span>' + ARROW;
     return a;
   }
 
@@ -155,8 +161,20 @@
   var slug = new URLSearchParams(window.location.search).get("u") ||
     window.location.pathname.replace(/^\/team\//, "").replace(/\/$/, "");
 
+  // "More from Yorkseed" is edited in Connect → Admin → Team & Links.
+  // STANDARD_LINKS above is only the fallback if that list can't be loaded.
   var stdEl = document.getElementById("stdlinks");
-  STANDARD_LINKS.forEach(function (l) { stdEl.appendChild(standardLink(l)); });
+  function renderStd(list) {
+    stdEl.innerHTML = "";
+    list.forEach(function (l) { stdEl.appendChild(standardLink(l)); });
+    stdEl.parentNode.hidden = !list.length;
+  }
+  fetch(API + "/api/team/promo-links")
+    .then(function (r) { if (!r.ok) throw new Error(); return r.json(); })
+    .then(function (d) {
+      renderStd((d.links || []).map(function (l) { return { t: l.title, s: l.subtitle, url: l.url }; }));
+    })
+    .catch(function () { renderStd(STANDARD_LINKS); });
 
   if (!slug) { document.getElementById("notfound").hidden = false; return; }
 

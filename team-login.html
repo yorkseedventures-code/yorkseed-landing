@@ -83,11 +83,11 @@ textarea{min-height:110px;resize:vertical;line-height:1.5}
     <div class="flagbar" style="margin-top:8px">
       <button type="button" class="tlQuick" data-label="Book a meeting with me" data-kind="url">+ Book a meeting</button>
       <button type="button" class="tlQuick" data-label="Email me" data-kind="email">+ Email</button>
-      <button type="button" class="tlQuick" data-label="Call or text me" data-kind="tel">+ Phone</button>
+      <button type="button" class="tlQuick" data-label="WhatsApp me" data-kind="tel">+ WhatsApp</button>
       <button type="button" class="tlQuick" data-label="My profile" data-kind="url">+ Profile</button>
       <button type="button" id="tlAddLink" style="width:auto;padding:0 14px;min-height:40px;border-radius:9px;border:1px solid var(--line);background:#fff;color:var(--ink);font:600 13px system-ui;cursor:pointer">+ Other link</button>
     </div>
-    <div class="hint">For email and phone, just type the address or number, no need to type "mailto:" or "tel:".</div>
+    <div class="hint">For email and phone, just type the address or number, no need to type "mailto:" or "tel:". Phone numbers need the country code, e.g. +33 6 12 34 56 78 or +1 212 555 0100.</div>
 
     <button class="btn red" id="tlSave">Save</button>
     <div class="msg" id="tlSaveMsg"></div>
@@ -127,7 +127,7 @@ textarea{min-height:110px;resize:vertical;line-height:1.5}
     if(!v)return v;
     if(/^(https?:|mailto:|tel:)/i.test(v))return v;
     if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v))return 'mailto:'+v;
-    if(/^[+]?[\d\s().-]{6,}$/.test(v))return 'tel:'+v.replace(/[\s().-]/g,'');
+    if(/^[+]?[\d\s().-]{6,}$/.test(v)){var d=v.replace(/[\s().-]/g,'');if(/^00/.test(d))d='+'+d.slice(2);return 'tel:'+d}
     return 'https://'+v.replace(/^\/+/,'');
   }
 
@@ -216,6 +216,12 @@ textarea{min-height:110px;resize:vertical;line-height:1.5}
   })();
 
   $('tlSave').onclick=function(){
+    links=links.map(function(l){return {label:l.label,url:formatLinkUrl(l.url)}});
+    if(links.some(function(l){return /^tel:/i.test(l.url)&&!/^tel:\+/i.test(l.url)})){
+      renderLinks();
+      say('tlSaveMsg','Add the country code to your phone number, starting with +, e.g. +33 6 12 34 56 78 (France) or +1 212 555 0100 (US).',false);
+      return;
+    }
     $('tlSave').disabled=true;
     api('/me',{method:'PATCH',body:{role:$('tlRole').value,bio:$('tlBio').value,links:links}})
       .then(function(j){say('tlSaveMsg','Saved.',true);showEditor(j.member)})
