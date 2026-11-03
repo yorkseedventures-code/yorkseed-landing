@@ -72,7 +72,8 @@
     a.href = url;
     a.target = "_blank";
     a.rel = "noopener";
-    a.innerHTML = "<span>" + escapeHtml(label) + " ↗</span>";
+    a.innerHTML = "<span>" + escapeHtml(label) + "</span>" +
+      '<svg class="arr" viewBox="0 0 12 12" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>';
     return a;
   }
 
