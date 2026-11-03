@@ -87181,5 +87181,18 @@
   "desc": "Lisbon Art Weekend (Nov 5–8): guided tour and cocktail reception for the gallery's 10th anniversary group show. Free.",
   "type": "Mixers",
   "src": "manual"
+ },
+ {
+  "title": "GFHS 2026: 21st Global Forum on Human Settlements & Sustainable Cities Awards (COP31 Associated Event)",
+  "hub": "ist",
+  "date": "2026-11-13",
+  "start": null,
+  "end": null,
+  "venue": "Antalya, Türkiye (venue shared on registration)",
+  "host": "Global Forum on Human Settlements (GFHS)",
+  "link": "http://www.gfhsforum.org/",
+  "desc": "Resilient Cities, Just Transition: Empowering the Implementation Era of Climate Actions. 300+ global leaders, policymakers, innovators and practitioners from 50+ countries. Topics: SDGs and climate goals, smart and green cities, urban heat and water resilience, AI for resilient cities, nature-based solutions.",
+  "type": "Conferences",
+  "src": "manual"
  }
 ]
