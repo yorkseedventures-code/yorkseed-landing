@@ -1,4 +1,6 @@
 # Team & Links: pretty per-person URLs, served from one template (data comes from Connect)
+# Kimberly's QR code uses /team/kimberly-neer; keep the short link working too.
+/team/kimberly  /team/kimberly-neer  301
 /team/:slug  /team/person.html?u=:slug  200
 
 # The Yorkseed List lives on list.yorkseed.co (same Netlify project, files in /list/)
