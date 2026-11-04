@@ -199,6 +199,7 @@ body{overflow-wrap:anywhere}
     </div>
     <label>Type</label><select id="tcCat"><option>Team</option><option>Hub Director</option><option>Volunteer</option></select>
     <label>Short bio</label><textarea id="tcBio" style="min-height:90px" maxlength="600"></textarea>
+    <label>Contact note <span class="hint">Saved into the note field when someone adds this person to their contacts</span></label><textarea id="tcNote" style="min-height:60px" maxlength="300" placeholder="Optional, e.g. Member of the Yorkseed team. yorkseed.co"></textarea>
     <label>Links</label>
     <div id="tcLinks"></div>
     <div class="tabs" style="margin-top:8px">
@@ -736,7 +737,7 @@ function tcOpen(letter){
   var free=m.name==='Yorkseed Team';
   $('tcTitle').textContent='Card '+letter.toUpperCase()+' · yorkseed.co/team/'+letter;
   $('tcName').value=free?'':m.name;$('tcRole').value=free?'':(m.role||'');$('tcCity').value=free?'':(m.city||'');
-  $('tcBio').value=free?'':(m.bio||'');$('tcCat').value=m.category||'Team';
+  $('tcBio').value=free?'':(m.bio||'');$('tcNote').value=free?'':(m.contactNote||'');$('tcCat').value=m.category||'Team';
   tcLinksArr=free?[]:(m.links||[]).map(function(l){return {label:l.label,url:l.url}});
   $('tcPhoto').src=tcPhotoUrl(m);$('tcPhotoMsg').textContent=free?'Shows the Yorkseed logo until you upload a photo.':'';
   $('tcMsg').className='msg';tcRenderLinks();$('tcEdit').hidden=false;$('tcEdit').scrollIntoView({behavior:'smooth'});
@@ -776,7 +777,7 @@ $('tcSave').onclick=function(){
   tcRenderLinks();
   if(tcLinksArr.some(function(l){return /^tel:/i.test(l.url)&&!/^tel:\+/i.test(l.url)}))return say('tcMsg','Add the country code to the phone number, starting with +, e.g. +33 6 12 34 56 78 or +1 212 555 0100.',false);
   $('tcSave').disabled=true;
-  tmApi('/'+tcCur._id,{method:'PATCH',body:{name:name,role:$('tcRole').value.trim(),city:$('tcCity').value.trim(),bio:$('tcBio').value.trim(),category:$('tcCat').value,links:tcLinksArr,active:true}})
+  tmApi('/'+tcCur._id,{method:'PATCH',body:{name:name,role:$('tcRole').value.trim(),city:$('tcCity').value.trim(),bio:$('tcBio').value.trim(),contactNote:$('tcNote').value.trim(),category:$('tcCat').value,links:tcLinksArr,active:true}})
     .then(function(){say('tcMsg','Saved. Live on yorkseed.co/team/'+tcCur.slug+' within a minute.',true);loadTeamCards()})
     .catch(function(e){say('tcMsg',e.message,false)}).then(function(){$('tcSave').disabled=false});
 };
