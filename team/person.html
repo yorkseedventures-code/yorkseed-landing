@@ -155,8 +155,9 @@
       else if (/^tel:/i.test(l.url)) lines.push("TEL;TYPE=CELL:" + l.url.replace(/^tel:/i, ""));
       else lines.push("URL:" + l.url);
     });
-    // placeholder cards /team/a to /team/h are reassigned later, so their address is not saved into contacts
-    if (!/\/team\/[a-h]\/?(\?.*)?$/i.test(String(pageUrl))) lines.push("URL:" + pageUrl);
+    // placeholder cards /team/a to /team/h are reassigned later, so the Yorkseed website is saved instead of their own page
+    lines.push("URL:" + (/\/team\/[a-h]\/?(\?.*)?$/i.test(String(pageUrl)) ? "https://yorkseed.co" : pageUrl));
+    lines.push("NOTE:" + vcardEscape("Part of the Yorkseed team. Connected through Yorkseed, yorkseed.co"));
     if (photoB64) lines.push("PHOTO;ENCODING=b;TYPE=JPEG:" + photoB64);
     lines.push("END:VCARD");
     return lines.join("\r\n");
