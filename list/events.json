@@ -87352,5 +87352,19 @@
   "desc": "Web Summit Lisbon 2026 side event. Details and registration on the event page.",
   "type": "Social",
   "src": "manual"
+ },
+ {
+  "title": "Téa Okou's Late Night Tea and Listening Sessions",
+  "hub": "lis",
+  "date": "2026-11-11",
+  "start": "21:00",
+  "end": "01:00",
+  "venue": "TEJÁ House, Cais do Sodré 5, 1200-450 Lisboa",
+  "host": "Yorkseed + TEJÁ House",
+  "link": "https://luma.com/a1d3ne8a",
+  "desc": "A sober, low-key late night at Tejá House. DJs from the Senses collective play slow sets, with tea and pastries from Cha's Bakery. €12.",
+  "type": "Social",
+  "yorkseed": true,
+  "src": "manual"
  }
 ]
