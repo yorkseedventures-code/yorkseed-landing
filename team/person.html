@@ -157,7 +157,7 @@
     });
     // placeholder cards /team/a to /team/z are reassigned later, so the Yorkseed website is saved instead of their own page
     lines.push("URL:" + (/\/team\/[a-z]\/?(\?.*)?$/i.test(String(pageUrl)) ? "https://yorkseed.co" : pageUrl));
-    lines.push("NOTE:" + vcardEscape("Part of the Yorkseed team. Connected through Yorkseed, yorkseed.co"));
+    lines.push("NOTE:" + vcardEscape("Member of the Yorkseed team. Yorkseed is a global venture network connecting founders and investors. yorkseed.co"));
     if (photoB64) lines.push("PHOTO;ENCODING=b;TYPE=JPEG:" + photoB64);
     lines.push("END:VCARD");
     return lines.join("\r\n");
