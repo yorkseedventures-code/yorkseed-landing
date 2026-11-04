@@ -329,14 +329,15 @@ for w in weeks:
     h = hubs[w["hub"]]; evs = w["events"]; n = len(evs); camp = "list_" + w["slug"]; X = WEEK_EXTRA.get(w["id"], {})
     s, en = dt.date.fromisoformat(w["start"]), dt.date.fromisoformat(w["end"])
     rng = f"{s.strftime('%B')} {s.day} to {en.strftime('%B') + ' ' if en.month != s.month else ''}{en.day}, {en.year}"
-    title = f"{w['name']} {s.year} Side Events ({n}) | The Yorkseed List"
-    if len(title) > 66: title = f"{w['name']} {s.year} Side Events | Yorkseed"
-    desc = (f"All {n} {w['name']} {s.year} side events in {h['name']}: parties, founder meetups, investor dinners and pitch events, {rng}. Free to browse, updated daily, with links to register.")
+    title = f"{w['name']} {s.year} Events & Side Events ({n}) | Yorkseed List"
+    if len(title) > 66: title = f"{w['name']} {s.year} Events & Side Events | Yorkseed"
+    desc = (f"{w['name']} {s.year} events: all {n} side events in {h['name']}, {rng}. Parties, founder meetups, investor dinners, pitch events and breakfasts. Free to browse, updated daily, with links to register.")
     canon = f"{LIST}{w['slug']}/"; img = WEEK_OG.get(w["id"]) or IMGPATH.get(h["img"] or h["id"])
-    qs = [(q, a.replace("{n}", str(n))) for q, a in X.get("faq", [])] or [
+    lead_q = [(f"What events are happening at {w['name']} {s.year}?", f"The Yorkseed List tracks {n} events around {w['name']} {s.year} in {h['name']}, {rng}: opening night parties, founder breakfasts and lunches, investor dinners, pitch events, workshops and conference side events. Browse them by day on this page, or filter by type and sector in the interactive List.")]
+    qs = lead_q + ([(q, a.replace("{n}", str(n))) for q, a in X.get("faq", [])] or [
           (f"What are the best {w['name']} {s.year} side events?", f"The Yorkseed List tracks {n} side events around {w['name']} in {h['name']}, {rng}, from founder and investor meetups to dinners, parties and pitch events."),
           (f"Do I need a {w['name']} ticket for side events?", "Most side events are separate from the main conference and have their own registration. Check each event's page, many are free with approval."),
-          ("How do I add my side event?", "Listing is free. Paste your event link at list.yorkseed.co and the Yorkseed team reviews it within a day.")]
+          ("How do I add my side event?", "Listing is free. Paste your event link at list.yorkseed.co and the Yorkseed team reviews it within a day.")])
     fh = '<div class="faq">' + "".join(f"<details><summary>{e_(q)}</summary><p>{e_(a)}</p></details>" for q, a in qs) + "</div>"
     days = {}
     for e in evs: days[e["date"]] = days.get(e["date"], 0) + 1
@@ -353,7 +354,7 @@ for w in weeks:
     links = " · ".join(f'<a href="{u}" style="color:var(--red)">{e_(t)}</a>' for t, u in X.get("links", []))
     others = " · ".join(f'<a href="/{o["slug"]}/" style="color:var(--red)">{e_(o["name"])}</a>' for o in weeks if o["id"] != w["id"])
     body = f"""<div class="crumb"><a href="https://yorkseed.co/">Yorkseed</a> / <a href="/">The List</a> / <a href="/{h['slug']}/">{e_(h['name'])}</a> / {e_(w['name'])}</div>
-<div class="hero"><div><h1>{e_(w['name'])} {s.year} <em>side events</em></h1>
+<div class="hero"><div><h1>{e_(w['name'])} {s.year} <em>events &amp; side events</em></h1>
 <p class="lede">{e_(X.get('lede') or (WEEK_ABOUT.get(w['id']) and f"{WEEK_ABOUT[w['id']]} This is the master side event list for {w['name']}, {rng}.") or f"The master side event list for {w['name']} in {h['name']}, {rng}. Every founder, investor and startup event around the week, in one place.")}</p>
 <p class="meta">{n} side event{'s' if n!=1 else ''} · {rng} · Updated {TODAY.strftime('%B')} {TODAY.day}, {TODAY.year}</p>
 <div class="cta"><a class="btn r" href="/#w/{w['id']}">Open the interactive List</a><a class="btn" href="/#submit">Add a side event</a></div></div>
