@@ -87209,5 +87209,18 @@
   "type": "Communal Dining",
   "yorkseed": true,
   "src": "manual"
+ },
+ {
+  "title": "Here comes the Question! – Quiz Night with Alexander Drouz",
+  "hub": "lis",
+  "date": "2026-11-08",
+  "start": "18:00",
+  "end": "22:00",
+  "venue": "Lisbon (address after sign-up)",
+  "host": "YR! Events",
+  "link": "https://luma.com/8xrdlzm6",
+  "desc": "Web Summit Lisbon 2026 side event. Details and registration on the event page.",
+  "type": "Social",
+  "src": "manual"
  }
 ]
