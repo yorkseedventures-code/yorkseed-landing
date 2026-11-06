@@ -114,9 +114,6 @@ h1 em{font-style:italic;color:var(--red)}
 .featured-card-img{background:linear-gradient(135deg,#1a1209 0%,#2e1e0a 40%,#3d2810 100%);position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:32px;min-height:280px}
 .featured-card-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(0,0,0,.55) 100%);pointer-events:none}
 .featured-img-city{font-family:var(--serif);font-size:clamp(48px,6vw,80px);font-weight:400;color:rgba(255,255,255,.08);letter-spacing:-.03em;line-height:1;position:absolute;bottom:24px;left:28px;z-index:0;user-select:none}
-.featured-img-badge{position:relative;z-index:1;display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;padding:5px 10px;border-radius:3px;background:rgba(200,55,45,.9);color:#fff;margin-bottom:12px;width:fit-content}
-.featured-img-badge::before{content:'';display:block;width:5px;height:5px;border-radius:50%;background:#fff;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 .featured-img-title{font-family:var(--serif);font-size:22px;font-weight:400;color:#fff;line-height:1.2;letter-spacing:-.01em;position:relative;z-index:1}
 
 .featured-card-img.has-img{justify-content:flex-start;align-items:flex-start;padding:16px;min-height:0;width:100%;box-sizing:border-box;height:200px;background-color:#111;align-self:start}
@@ -512,7 +509,6 @@ function renderFeatured(ev){
       <div class="featured-card-img${ev.coverImage?' has-img':''}"${bgStyle ? ` style="${bgStyle}"` : ''}>
         ${ev.coverImage?'':`<div class="featured-img-city">${ev.city||''}</div>`}
         <div style="position:relative;z-index:1">
-          <div class="featured-img-badge">&#9679; Next up</div>
           ${ev.coverImage?'':`<div class="featured-img-title">${ev.title}</div>`}
         </div>
       </div>
