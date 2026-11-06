@@ -87366,5 +87366,57 @@
   "type": "Social",
   "yorkseed": true,
   "src": "manual"
+ },
+ {
+  "title": "Startup Crash Test: AI & Regulated Industries",
+  "hub": "lis",
+  "date": "2026-11-08",
+  "start": "17:00",
+  "end": null,
+  "venue": "Lisbon",
+  "host": "",
+  "link": "https://luma.com/xbo1iedf",
+  "desc": "Startup crash test for AI companies in regulated industries, during Web Summit week.",
+  "type": "Meetups",
+  "src": "cybertech"
+ },
+ {
+  "title": "Fake by Default: How to Prove What's Real in the Age of AI",
+  "hub": "lis",
+  "date": "2026-11-11",
+  "start": "11:30",
+  "end": null,
+  "venue": "PTW Palace, Rua Gomes Freire 98, 1150-179 Lisboa",
+  "host": "Cybertech Acceleration + 351 Portuguese Startup Association",
+  "link": "https://luma.com/w71bd25m",
+  "desc": "Panel on deepfakes, synthetic evidence and how to prove what is real in the age of AI.",
+  "type": "Meetups",
+  "src": "cybertech"
+ },
+ {
+  "title": "TTI at Web Summit: Can AI Growth and Safety Be Aligned?",
+  "hub": "lis",
+  "date": "2026-11-11",
+  "start": "18:00",
+  "end": null,
+  "venue": "Lisbon",
+  "host": "",
+  "link": "https://luma.com/3504dzdm",
+  "desc": "Discussion on whether AI growth and AI safety can be aligned.",
+  "type": "Meetups",
+  "src": "cybertech"
+ },
+ {
+  "title": "Private Dinner for 30 Defence Leaders",
+  "hub": "lis",
+  "date": "2026-11-11",
+  "start": "19:00",
+  "end": null,
+  "venue": "Lisbon",
+  "host": "",
+  "link": "https://luma.com/edm55r5w",
+  "desc": "Private dinner for 30 defence leaders during Web Summit week.",
+  "type": "Communal Dining",
+  "src": "cybertech"
  }
 ]
