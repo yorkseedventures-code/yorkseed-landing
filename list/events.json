@@ -88849,5 +88849,31 @@
   "desc": "Hosted by Venture Capital World Summit. Web Summit Lisbon 2026 side event. Check the registration page for details and access.",
   "type": "Conferences",
   "src": "side-event-guides"
+ },
+ {
+  "title": "Mastermind GO GLOBAL by Cybertech (Douro Valley)",
+  "hub": "lis",
+  "date": "2026-11-07",
+  "start": "10:00",
+  "end": null,
+  "venue": "Quinta da Pacheca, Cambres, Lamego (Douro Valley, outside Lisbon)",
+  "host": "Thiago Vieira, Incubou, 351 Startups, Cybertech",
+  "link": "https://luma.com/alsn4k2h",
+  "desc": "Small, hands-on mastermind for AI and cyber founders from the US, Brazil and Europe, ahead of Web Summit. Ends with a guided estate tour and wine tasting. Limited spots.",
+  "type": "Workshops",
+  "src": "portugal-tech-week"
+ },
+ {
+  "title": "Porto Defence Meetup #3",
+  "hub": "lis",
+  "date": "2026-11-07",
+  "start": null,
+  "end": null,
+  "venue": "Porto (outside Lisbon, venue after approval)",
+  "host": "",
+  "link": "https://luma.com/l2qy6ci7",
+  "desc": "Defence-tech meetup in Porto the weekend before Web Summit. Check the registration page for details.",
+  "type": "Meetups",
+  "src": "portugal-tech-week"
  }
 ]
