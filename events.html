@@ -462,8 +462,8 @@ function buildDayTabs(events){
   let html=`<div class="day-tab all active" data-day="all" onclick="selectDay('all',this)"><div class="day-tab-dow">All</div><div class="day-tab-num">${events.length}</div><div class="day-tab-n">events</div></div>`;
   html+=days.map(d=>{
     const dt=new Date(d+'T12:00:00');
-    const dow=dt.toLocaleDateString('en-US',{weekday:'short'}).toUpperCase();
-    return `<div class="day-tab" data-day="${d}" onclick="selectDay('${d}',this)"><div class="day-tab-dow">${dow}</div><div class="day-tab-num">${dt.getDate()}</div><div class="day-tab-n">${byDay[d]}</div></div>`;
+    const mon=dt.toLocaleDateString('en-US',{month:'short'}).toUpperCase();
+    return `<div class="day-tab" data-day="${d}" onclick="selectDay('${d}',this)"><div class="day-tab-dow">${mon}</div><div class="day-tab-num">${dt.getDate()}</div><div class="day-tab-n">${byDay[d]}</div></div>`;
   }).join('');
   document.getElementById('dayTabs').innerHTML=days.length?html:'';
 }
