@@ -309,7 +309,7 @@ WEEK_EXTRA = {
   "lede": "Web Summit runs November 9 to 12, 2026 at MEO Arena and FIL in Lisbon. Around it, the city fills with parties, founder meetups, investor dinners, pitch nights and breakfasts. This is the master list, updated every day, and most events don't need a Web Summit ticket.",
   "ys": [("November 9", "Yorkseed Executive Lunch", "https://yorkseed.co/web-summit-lisbon"),
          ("November 9", "The Yorkseed Soirée – Web Summit Opening Night 2026", "https://yorkseed.co/web-summit-lisbon"),
-         ("November 9 to 13", "Yorkseed House Lisbon: open all week", "https://yorkseed.co/events/yorkseed-house-web-summit-lisbon-2026"),
+         ("November 9 to 13", "Yorkseed House Lisbon: open all week", "https://yorkseedhouse.com/websummit2026.html"),
          ("November 10", "Yorkseed Capital Lunch", "https://yorkseed.co/web-summit-lisbon"),
          ("November 11", "Yorkseed Allocator Lunch", "https://yorkseed.co/web-summit-lisbon"),
          ("November 8 to 12", "The Yorkseed Lisbon Delegation: founders and investors travelling together", "https://yorkseed.co/lisbon-delegation")],
