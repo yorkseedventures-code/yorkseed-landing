@@ -75,7 +75,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(255,255,255,
 @media(max-width:500px){.n-right .n-apply{display:none}}
 
 /* ═══ HERO ═══ */
-.hero{padding:112px 6vw 52px;border-bottom:1px solid var(--border)}
+.hero{padding:88px 6vw 36px;border-bottom:1px solid var(--border)}
 .hero-inner{max-width:1100px;margin:0 auto;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:24px}
 .ey{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink4);margin-bottom:18px;display:flex;align-items:center;gap:10px}
 .ey-line{width:20px;height:1px;background:var(--gold);opacity:.5}
@@ -88,13 +88,13 @@ h1 em{font-style:italic;color:var(--red)}
 .hstat-l{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);margin-top:4px}
 
 /* ═══ UPCOMING SECTION ═══ */
-.upcoming{padding:52px 6vw;border-bottom:1px solid var(--border);background:var(--white)}
+.upcoming{padding:36px 6vw 48px;border-bottom:1px solid var(--border);background:var(--white)}
 .upcoming-inner{max-width:1100px;margin:0 auto}
 .section-eyebrow{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:24px;display:flex;align-items:center;gap:10px}
 .section-eyebrow::before{content:'';display:block;width:16px;height:1px;background:var(--red);opacity:.5}
 
 /* Day tabs — pick a day, see what's on */
-.day-tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-bottom:28px;scrollbar-width:none}
+.day-tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-bottom:20px;scrollbar-width:none}
 .day-tabs::-webkit-scrollbar{display:none}
 .day-tab{flex:0 0 auto;min-width:56px;padding:7px 8px 8px;text-align:center;border:1px solid var(--border2);border-radius:8px;cursor:pointer;transition:border-color .15s,background .15s;background:var(--white)}
 .day-tab:hover{border-color:var(--ink4)}
@@ -106,7 +106,6 @@ h1 em{font-style:italic;color:var(--red)}
 .day-tab-n{font-family:var(--mono);font-size:8.5px;color:var(--ink4)}
 .day-tab.active .day-tab-n{color:var(--red)}
 .day-tab.all{min-width:52px}
-.day-tab.all .day-tab-num{font-family:var(--serif);font-size:18px;font-weight:400}
 .day-tab.all .day-tab-dow{color:var(--ink3)}
 
 /* Featured card, hero upcoming event */
@@ -476,14 +475,8 @@ function selectDay(day,el){
 }
 function renderUpcomingSection(day){
   const list=day==='all'?stillUpcomingGlobal:stillUpcomingGlobal.filter(e=>dayKey(e)===day);
-  if(!list.length){
-    document.getElementById('featuredContainer').innerHTML='';
-    document.getElementById('upcomingGrid').innerHTML='<div style="color:var(--ink4);font-size:13px;padding:20px 0">Nothing on this day.</div>';
-    return;
-  }
-  const first=list[0],rest=list.slice(1);
-  document.getElementById('featuredContainer').innerHTML=renderFeatured(first);
-  document.getElementById('upcomingGrid').innerHTML=rest.map(renderUpcomingCard).join('');
+  document.getElementById('featuredContainer').innerHTML='';
+  document.getElementById('upcomingGrid').innerHTML=list.length?list.map(renderUpcomingCard).join(''):'<div style="color:var(--ink4);font-size:13px;padding:20px 0">Nothing on this day.</div>';
 }
 
 // ─── HELPERS ─────────────────────────────────────────────────────────────────
