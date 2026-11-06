@@ -96,16 +96,17 @@ h1 em{font-style:italic;color:var(--red)}
 /* Day tabs — pick a day, see what's on */
 .day-tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-bottom:28px;scrollbar-width:none}
 .day-tabs::-webkit-scrollbar{display:none}
-.day-tab{flex:0 0 auto;min-width:64px;padding:10px 6px 12px;text-align:center;border:1px solid var(--border2);border-radius:9px;cursor:pointer;transition:border-color .15s,background .15s;background:var(--white)}
+.day-tab{flex:0 0 auto;min-width:56px;padding:7px 8px 8px;text-align:center;border:1px solid var(--border2);border-radius:8px;cursor:pointer;transition:border-color .15s,background .15s;background:var(--white)}
 .day-tab:hover{border-color:var(--ink4)}
 .day-tab.active{background:var(--ink);border-color:var(--ink)}
-.day-tab-dow{font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4)}
+.day-tab-dow{font-family:var(--mono);font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4)}
 .day-tab.active .day-tab-dow{color:rgba(255,255,255,.5)}
-.day-tab-num{font-family:var(--serif);font-size:22px;font-weight:400;color:var(--ink);line-height:1.3;letter-spacing:-.02em}
+.day-tab-num{font-family:var(--sans);font-size:13px;font-weight:500;color:var(--ink);line-height:1.5;letter-spacing:-.01em;white-space:nowrap}
 .day-tab.active .day-tab-num{color:#fff}
-.day-tab-n{font-family:var(--mono);font-size:9px;color:var(--ink4)}
+.day-tab-n{font-family:var(--mono);font-size:8.5px;color:var(--ink4)}
 .day-tab.active .day-tab-n{color:var(--red)}
-.day-tab.all{min-width:58px}
+.day-tab.all{min-width:52px}
+.day-tab.all .day-tab-num{font-family:var(--serif);font-size:18px;font-weight:400}
 .day-tab.all .day-tab-dow{color:var(--ink3)}
 
 /* Featured card, hero upcoming event */
@@ -462,8 +463,9 @@ function buildDayTabs(events){
   let html=`<div class="day-tab all active" data-day="all" onclick="selectDay('all',this)"><div class="day-tab-dow">All</div><div class="day-tab-num">${events.length}</div><div class="day-tab-n">events</div></div>`;
   html+=days.map(d=>{
     const dt=new Date(d+'T12:00:00');
-    const mon=dt.toLocaleDateString('en-US',{month:'short'}).toUpperCase();
-    return `<div class="day-tab" data-day="${d}" onclick="selectDay('${d}',this)"><div class="day-tab-dow">${mon}</div><div class="day-tab-num">${dt.getDate()}</div><div class="day-tab-n">${byDay[d]}</div></div>`;
+    const dow=dt.toLocaleDateString('en-US',{weekday:'short'}).toUpperCase();
+    const mon=dt.toLocaleDateString('en-US',{month:'short'});
+    return `<div class="day-tab" data-day="${d}" onclick="selectDay('${d}',this)"><div class="day-tab-dow">${dow}</div><div class="day-tab-num">${mon} ${dt.getDate()}</div><div class="day-tab-n">${byDay[d]}</div></div>`;
   }).join('');
   document.getElementById('dayTabs').innerHTML=days.length?html:'';
 }
