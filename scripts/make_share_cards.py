@@ -4,6 +4,7 @@ Run locally after scripts/build_list_pages.py (it writes list/data/share-weeks.j
     pip install pillow
     python3 scripts/build_list_pages.py && python3 scripts/make_share_cards.py
 Writes list/img/og-share-<hash>.jpg (1200x630). Weeks with a hand-made card (WEEK_OG) are skipped.
+Set a number by hand with: python3 scripts/make_share_cards.py slush-helsinki=200 (kept in list/data/share-card-counts.json; the real count wins once it is higher).
 Rerun when a week's count passes the next 10 so the "N+" on the card stays true.
 """
 import json, os, sys
@@ -78,8 +79,17 @@ def card(x, out):
 
 if __name__ == "__main__":
     weeks = json.load(open(os.path.join(REPO, "list", "data", "share-weeks.json")))
-    only = set(sys.argv[1:])
+    # args: optional week hashes to redo, and/or hash=N to put a set number on a card (e.g. slush-helsinki=200)
+    only, fixed = set(), {}
+    for a in sys.argv[1:]:
+        if "=" in a: k, v = a.split("=", 1); fixed[k] = int(v); only.add(k)
+        else: only.add(a)
+    saved = os.path.join(REPO, "list", "data", "share-card-counts.json")
+    try: fixed = {**json.load(open(saved)), **fixed}
+    except Exception: pass
+    json.dump(fixed, open(saved, "w"), indent=1)
     for x in weeks:
+        if x["hash"] in fixed: x["n"] = max(x["n"], fixed[x["hash"]])
         if x.get("custom") or (only and x["hash"] not in only): continue
         out = os.path.join(REPO, "list", "img", f"og-share-{x['hash']}.jpg")
         card(x, out); print("wrote", out)
