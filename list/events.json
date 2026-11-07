@@ -90724,5 +90724,57 @@
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Workshops",
   "src": "luma"
+ },
+ {
+  "title": "German x Finnish Beer Together 2026",
+  "hub": "hel",
+  "date": "2026-11-17",
+  "start": "19:00",
+  "end": null,
+  "venue": "Apollo Live Club, Helsinki",
+  "host": "",
+  "link": "https://www.eventbrite.fi/e/german-x-finnish-beer-together-2026-tickets-1999658468308",
+  "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
+  "type": "Social",
+  "src": "web"
+ },
+ {
+  "title": "Valleytop International Business Conference",
+  "hub": "hel",
+  "date": "2026-11-17",
+  "start": "10:00",
+  "end": null,
+  "venue": "Helsinki",
+  "host": "",
+  "link": "https://www.eventbrite.com/e/valleytop-international-business-conference-tickets-1998471333556",
+  "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
+  "type": "Conferences",
+  "src": "web"
+ },
+ {
+  "title": "Slush Networking Event @ Bier Bier: Disconnect like it's 1996",
+  "hub": "hel",
+  "date": "2026-11-18",
+  "start": "18:30",
+  "end": null,
+  "venue": "Bier Bier, Helsinki",
+  "host": "",
+  "link": "https://www.eventbrite.co.uk/e/slush-networking-event-bier-bier-disconnect-like-its-1996-tickets-2003417730362",
+  "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
+  "type": "Social",
+  "src": "web"
+ },
+ {
+  "title": "Saunominication",
+  "hub": "hel",
+  "date": "2026-11-18",
+  "start": "20:00",
+  "end": null,
+  "venue": "Helsinki (details after registration)",
+  "host": "Northlink Partners, Sisu Factory, University of Helsinki",
+  "link": "https://luma.com/jqjmmfny",
+  "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
+  "type": "Social",
+  "src": "web"
  }
 ]
