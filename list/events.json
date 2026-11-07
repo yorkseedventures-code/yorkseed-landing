@@ -89566,5 +89566,58 @@
   "type": "Meetups",
   "src": "side-events-guide",
   "yorkseed": true
+ },
+ {
+  "title": "The Yorkseed Soirée: Web Summit Opening Night 2026",
+  "hub": "lis",
+  "date": "2026-11-09",
+  "start": "20:00",
+  "end": null,
+  "venue": "Teja House, Cais do Sodré, Lisbon",
+  "host": "Yorkseed",
+  "link": "https://www.eventbrite.com/e/the-yorkseed-soiree-web-summit-opening-night-2026-tickets-2001113960725",
+  "desc": "Opening-night party for Web Summit Lisbon 2026 for founders, investors and ecosystem leaders.",
+  "type": "Social",
+  "src": "eventbrite",
+  "yorkseed": true
+ },
+ {
+  "title": "AI Tinkerers Lisbon: Agent Memory Demo Night (Web Summit Eve)",
+  "hub": "lis",
+  "date": "2026-11-08",
+  "start": "18:00",
+  "end": null,
+  "venue": "Lisbon (venue on registration)",
+  "host": "AI Tinkerers Lisbon",
+  "link": "https://lisbon.aitinkerers.org/p/ai-tinkerers-lisbon-agent-memory-demo-night-web-summit-eve",
+  "desc": "Demo night for AI builders on agent memory, held the evening before Web Summit.",
+  "type": "Meetups",
+  "src": "aitinkerers"
+ },
+ {
+  "title": "Safe Tech Dinner @ the WebSummit",
+  "hub": "lis",
+  "date": "2026-11-10",
+  "start": "20:30",
+  "end": null,
+  "venue": "Senhor Peixe, Parque das Nações, Lisbon",
+  "host": "",
+  "link": "https://www.eventbrite.ie/e/safe-tech-dinner-the-websummit-tickets-2003596625442",
+  "desc": "Tech dinner during Web Summit week.",
+  "type": "Communal Dining",
+  "src": "eventbrite"
+ },
+ {
+  "title": "Fórum do Atlântico e da Lusofonia",
+  "hub": "lis",
+  "date": "2026-11-13",
+  "start": "08:30",
+  "end": null,
+  "venue": "Hotel Vila Galé Collection Palácio dos Arcos, Paço de Arcos",
+  "host": "",
+  "link": "https://www.eventbrite.pt/e/bilhetes-forum-do-atlantico-e-da-lusofonia-2004109235673",
+  "desc": "Atlantic and Lusophone business forum in Paço de Arcos.",
+  "type": "Conferences",
+  "src": "eventbrite"
  }
 ]
