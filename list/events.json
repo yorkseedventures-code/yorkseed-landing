@@ -89513,5 +89513,58 @@
   "desc": "Friday night reverse-networking gathering in Bairro Alto for people still in Lisbon after Web Summit.",
   "type": "Social",
   "src": "side-events-guide"
+ },
+ {
+  "title": "Entering a New Market: What to Establish Before Scaling Sales",
+  "hub": "lis",
+  "date": "2026-11-09",
+  "start": "18:00",
+  "end": null,
+  "venue": "PTW Palace, Rua Gomes Freire 98, Lisbon",
+  "host": "Maximilian Gödecke (All3), Portugal Tech Week",
+  "link": "https://luma.com/8zfo6k4o",
+  "desc": "45-minute talk on building demand, planning go-to-market and preparing sales teams before expanding into new regions.",
+  "type": "Meetups",
+  "src": "side-events-guide"
+ },
+ {
+  "title": "Zillennium: Creator Economy Summit",
+  "hub": "lis",
+  "date": "2026-11-10",
+  "start": "16:00",
+  "end": null,
+  "venue": "Lisbon (TBA)",
+  "host": "Indvstry Clvb",
+  "link": "https://luma.com/vwibw2xa",
+  "desc": "Creator-economy summit on building businesses from culture and creator IP, with a panel, workshops and masterclasses.",
+  "type": "Conferences",
+  "src": "side-events-guide"
+ },
+ {
+  "title": "Across the Atlantic: RedBridge Web Summit Happy Hour",
+  "hub": "lis",
+  "date": "2026-11-10",
+  "start": "18:30",
+  "end": null,
+  "venue": "Lisbon (TBC)",
+  "host": "RedBridge Lisbon",
+  "link": "https://luma.com/1x92lkjk",
+  "desc": "European founders meet US investors and operators, with founder stories on expanding to the US.",
+  "type": "Social",
+  "src": "side-events-guide"
+ },
+ {
+  "title": "Yorkseed House Pop Up",
+  "hub": "lis",
+  "date": "2026-11-09",
+  "start": "10:00",
+  "end": null,
+  "venue": "Lisbon (TBA)",
+  "host": "Yorkseed",
+  "link": "https://luma.com/a2jp6jc9",
+  "desc": "Daytime pop-up base in Lisbon for Yorkseed's founders and investors during Web Summit week.",
+  "type": "Meetups",
+  "src": "side-events-guide",
+  "yorkseed": true
  }
 ]
