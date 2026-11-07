@@ -435,7 +435,7 @@
     <p class="sub" id="results-sub">Based on what you shared in your RSVP, here's who we think you should meet.</p>
 
     <div class="featured-section">
-      <div class="why-label">Top connections at this event</div>
+      <div class="why-label">Your event co-host</div>
       <div id="featured-list"></div>
     </div>
 
@@ -474,12 +474,11 @@ const EVENT = {
 // Add the real guest list (from the Luma export) once registrations are approved, following the ATTENDEES shape used on the other intro pages.
 const ATTENDEES = [];
 
-// Top connections shown to every attendee, regardless of their individual matches.
-// Fill in up to 5 total. Each entry uses the same shape as a match in ATTENDEES[].matches.
+// The event co-host, pinned above every attendee's personal matches.
 const FEATURED_MATCHES = [
   {
     name: "Stephanie Brooks",
-    role: "Founder, Rendez-Vous Partners",
+    role: "Co-Host · Founder, Rendez-Vous Partners",
     hook: "Already a Yorkseed collaborator, she co-hosted the Executive Rendez-Vous with Jessica in Paris this year.",
     bullets: [
       "Founded Rendez-Vous Partners, a boutique strategic growth and talent advisory for stealth-to-Series-C startups, born in Silicon Valley and now headquartered at Station F in Paris.",
@@ -490,7 +489,6 @@ const FEATURED_MATCHES = [
     linkedin: "https://www.linkedin.com/company/rendez-vous-partners",
     website: "https://www.rendezvouspartners.com"
   }
-  // Add up to 4 more featured connections here.
 ];
 
 function renderFeatured() {
@@ -511,7 +509,7 @@ function renderFeatured() {
     var hookHtml = m.hook ? '<div class="match-hook">' + m.hook.replace(/&/g,'&amp;').replace(/</g,'&lt;') + '</div>' : '';
     var linkHtml = m.linkedin ? '<div class="why-label" style="margin-top:14px;"><a href="' + m.linkedin + '" target="_blank" rel="noopener" style="color: var(--red); text-decoration: underline;">View on LinkedIn</a></div>' : '';
     card.innerHTML =
-      '<div class="featured-badge">Featured</div>' +
+      '<div class="featured-badge">Co-host</div>' +
       '<div class="match-name">' + m.name + '</div>' +
       '<div class="match-role">' + m.role + '</div>' +
       hookHtml +
