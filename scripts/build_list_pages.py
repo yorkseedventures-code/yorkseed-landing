@@ -323,6 +323,7 @@ WEEK_EXTRA = {
   "links": [("Yorkseed at Web Summit Lisbon", "https://yorkseed.co/web-summit-lisbon"), ("Join the Yorkseed Lisbon Delegation", "https://yorkseed.co/lisbon-delegation"), ("Read the Lisbon Deal Book", "https://yorkseed.co/delegation/lisbon-2026/book/")],
  },
 }
+ACTIVE_STYLE = ' style="border-color:var(--red);color:var(--red)"'
 def short_day(d):
     d = dt.date.fromisoformat(d); return d.strftime("%a, %b ") + str(d.day)
 for w in weeks:
@@ -407,7 +408,7 @@ for w in weeks:
         if len(title) > 68: title = f"{short} Side Events, {dd.strftime('%a %b')} {dd.day} | Yorkseed"
         desc = f"{n} {short} side events in {h['name']} on {nice}, {dd.year}: parties, founder meetups, investor dinners, breakfasts and pitch events, with times and links to register."
         canon = f"{LIST}{w['slug']}/{d}/"
-        nav = '<div class="weeks">' + "".join(f'<a href="/{w["slug"]}/{x}/"{" style=\"border-color:var(--red);color:var(--red)\"" if x==d else ""}>{e_(dt.date.fromisoformat(x).strftime("%a %b "))}{dt.date.fromisoformat(x).day} · {len(bydays[x])}</a>' for x in dl) + "</div>"
+        nav = '<div class="weeks">' + "".join(f'<a href="/{w["slug"]}/{x}/"{ACTIVE_STYLE if x==d else ""}>{e_(dt.date.fromisoformat(x).strftime("%a %b "))}{dt.date.fromisoformat(x).day} · {len(bydays[x])}</a>' for x in dl) + "</div>"
         body = f"""<div class="crumb"><a href="https://yorkseed.co/">Yorkseed</a> / <a href="/">The List</a> / <a href="/{w['slug']}/">{e_(w['name'])} side events</a> / {e_(dd.strftime('%b'))} {dd.day}</div>
 <h1>{e_(short)} side events, <em>{e_(nice)}</em></h1>
 <p class="lede">{n} side event{'s' if n!=1 else ''} around {e_(w['name'])} on {e_(nice)}, {dd.year}, in {e_(h['name'])}. Times are local. Most need their own registration, not a conference ticket.</p>
