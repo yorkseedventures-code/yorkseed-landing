@@ -261,6 +261,37 @@
       color: var(--red);
     }
 
+    .featured-section {
+      margin-bottom: 30px;
+    }
+    .featured-section .why-label {
+      margin-bottom: 14px;
+    }
+    .featured-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--red);
+      border-radius: 3px;
+      padding: 22px 24px;
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .featured-badge {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--white);
+      background: var(--red);
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 2px;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+    .featured-card .match-name { font-size: 20px; }
+    .featured-card .match-role { color: var(--red); }
+
     .footer-note {
       margin-top: 36px;
       font-family: var(--mono);
@@ -403,6 +434,11 @@
     <p class="onsite-contact" id="results-host-label"></p>
     <p class="sub" id="results-sub">Based on what you shared in your RSVP, here's who we think you should meet.</p>
 
+    <div class="featured-section">
+      <div class="why-label">Top connections at this event</div>
+      <div id="featured-list"></div>
+    </div>
+
     <div id="match-list"></div>
 
     <div class="bonus-card">
@@ -437,6 +473,55 @@ const EVENT = {
 
 // Add the real guest list (from the Luma export) once registrations are approved, following the ATTENDEES shape used on the other intro pages.
 const ATTENDEES = [];
+
+// Top connections shown to every attendee, regardless of their individual matches.
+// Fill in up to 5 total. Each entry uses the same shape as a match in ATTENDEES[].matches.
+const FEATURED_MATCHES = [
+  {
+    name: "Stephanie Brooks",
+    role: "CEO & Founder, Rendez-Vous Partners",
+    hook: "Helps venture-backed founders build the teams that get them to their next round.",
+    bullets: [
+      "Runs Rendez-Vous Partners, a talent and recruiting advisory for startups scaling from early stage through Series C.",
+      "Based between Station F in Paris and San Francisco, working closely with founders on both sides of the Atlantic.",
+      "Clients credit her with finding the top-tier technical and leadership talent that's hard to source alone."
+    ],
+    starter: "I heard you've placed key hires for founders scaling fast, what's changed about hiring for startups this year?",
+    linkedin: "https://www.linkedin.com/company/rendez-vous-partners",
+    website: "https://www.rendezvouspartners.com"
+  }
+  // Add up to 4 more featured connections here.
+];
+
+function renderFeatured() {
+  var section = document.querySelector('.featured-section');
+  var list = document.getElementById('featured-list');
+  if (!FEATURED_MATCHES.length) {
+    section.style.display = 'none';
+    return;
+  }
+  section.style.display = '';
+  list.innerHTML = '';
+  FEATURED_MATCHES.forEach(function(m) {
+    var card = document.createElement('div');
+    card.className = 'featured-card';
+    var bullets = m.bullets.map(function(b) {
+      return '<li>' + b.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</li>';
+    }).join('');
+    var hookHtml = m.hook ? '<div class="match-hook">' + m.hook.replace(/&/g,'&amp;').replace(/</g,'&lt;') + '</div>' : '';
+    var linkHtml = m.linkedin ? '<div class="why-label" style="margin-top:14px;"><a href="' + m.linkedin + '" target="_blank" rel="noopener" style="color: var(--red); text-decoration: underline;">View on LinkedIn</a></div>' : '';
+    card.innerHTML =
+      '<div class="featured-badge">Featured</div>' +
+      '<div class="match-name">' + m.name + '</div>' +
+      '<div class="match-role">' + m.role + '</div>' +
+      hookHtml +
+      '<div class="why-label">Why we think you should meet</div>' +
+      '<ul class="bullets">' + bullets + '</ul>' +
+      '<div class="starter"><b>Conversation starter:</b> &ldquo;' + m.starter.replace(/&/g,'&amp;').replace(/</g,'&lt;') + '&rdquo;</div>' +
+      linkHtml;
+    list.appendChild(card);
+  });
+}
 
 function applyEventConfig() {
   document.getElementById('page-title').textContent = 'Yorkseed Event In-Person Match - ' + EVENT.name;
@@ -529,6 +614,7 @@ document.getElementById('login-btn').addEventListener('click', function() {
     showError("We couldn't find you on the guest list. Double-check your first name and the email you used when you applied.");
     return;
   }
+  renderFeatured();
   renderMatches(attendee);
   document.getElementById('login-view').classList.remove('active');
   document.getElementById('results-view').classList.add('active');
