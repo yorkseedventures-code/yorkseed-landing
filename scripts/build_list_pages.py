@@ -331,7 +331,7 @@ for w in weeks:
     rng = f"{s.strftime('%B')} {s.day} to {en.strftime('%B') + ' ' if en.month != s.month else ''}{en.day}, {en.year}"
     title = f"{w['name']} {s.year} Events & Side Events ({n}) | Yorkseed List"
     if len(title) > 66: title = f"{w['name']} {s.year} Events & Side Events | Yorkseed"
-    desc = (f"{w['name']} {s.year} events: all {n} side events in {h['name']}, {rng}. Parties, founder meetups, investor dinners, pitch events and breakfasts. Free to browse, updated daily, with links to register.")
+    desc = (f"{w['name']} {s.year} events: all {n} side events in {h['name']}, {rng}. Parties, founder meetups, investor dinners, pitch events and breakfasts. Updated daily. Free to browse, free to add your event, with the option to feature it.")
     canon = f"{LIST}{w['slug']}/"; img = WEEK_OG.get(w["id"]) or IMGPATH.get(h["img"] or h["id"])
     lead_q = [(f"What events are happening at {w['name']} {s.year}?", f"The Yorkseed List tracks {n} events around {w['name']} {s.year} in {h['name']}, {rng}: opening night parties, founder breakfasts and lunches, investor dinners, pitch events, workshops and conference side events. Browse them by day on this page, or filter by type and sector in the interactive List.")]
     qs = lead_q + ([(q, a.replace("{n}", str(n))) for q, a in X.get("faq", [])] or [
