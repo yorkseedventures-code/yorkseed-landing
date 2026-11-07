@@ -89566,19 +89566,5 @@
   "type": "Meetups",
   "src": "side-events-guide",
   "yorkseed": true
- },
- {
-  "title": "Web Summit Kickoff by 307 Partners",
-  "hub": "lis",
-  "date": "2026-11-11",
-  "start": null,
-  "end": null,
-  "venue": "Lisbon (address shared after registration)",
-  "host": "307 Partners × Yorkseed Global Venture Network",
-  "link": "https://luma.com/at4syxaz",
-  "desc": "Private networking evening for venture funds, angel investors, accelerators and tech founders. Invitation or waitlist; limited spots.",
-  "type": "Investor Events",
-  "src": "luma",
-  "yorkseed": true
  }
 ]
