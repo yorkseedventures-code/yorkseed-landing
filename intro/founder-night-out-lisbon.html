@@ -14,14 +14,16 @@
     :root {
       --red:   #c8372d;
       --gold:  #b08d57;
+      --gold-soft: #d9c08a;
       --ink:   #0e0e0e;
       --ink2:  #2c2c2c;
-      --ink3:  #555;
-      --ink4:  #888;
-      --off:   #f7f6f4;
+      --ink3:  #5c5450;
+      --ink4:  #8c8178;
+      --off:   #f6f1e7;
+      --card:  #fffdf9;
       --white: #fff;
-      --border:  #e3dfd9;
-      --border2: #ccc;
+      --border:  #e8ddc9;
+      --border2: #d8cab0;
       --sans:  'DM Sans', sans-serif;
       --serif: 'Playfair Display', Georgia, serif;
       --mono:  'DM Mono', monospace;
@@ -29,7 +31,9 @@
 
     body {
       font-family: var(--sans);
-      background: var(--off);
+      background:
+        radial-gradient(900px 480px at 50% -80px, rgba(176,141,87,0.16), transparent 68%),
+        var(--off);
       color: var(--ink);
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
@@ -51,19 +55,30 @@
 
     .hero-banner {
       display: block;
-      width: 220px;
-      max-width: 46vw;
-      margin: 0 0 28px;
-      border-radius: 8px;
+      width: 100%;
+      max-width: 340px;
+      margin: 0 auto 36px;
+      border-radius: 14px;
       overflow: hidden;
-      box-shadow: 0 10px 28px rgba(14,14,14,0.16);
-      border: 1px solid rgba(14,14,14,0.06);
+      box-shadow: 0 24px 56px rgba(20,14,8,0.28), 0 2px 0 rgba(255,255,255,0.4) inset;
+      border: 1px solid rgba(14,14,14,0.08);
+      position: relative;
+    }
+    .hero-banner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06);
+      pointer-events: none;
     }
     .hero-banner img {
       display: block;
       width: 100%;
       height: auto;
+      transition: transform .35s ease;
     }
+    .hero-banner:hover img { transform: scale(1.025); }
 
     .product-kicker {
       display: flex;
@@ -135,11 +150,12 @@
     }
 
     .login-card {
-      background: var(--white);
+      background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 36px 32px;
+      border-radius: 14px;
+      padding: 40px 36px;
       max-width: 420px;
+      box-shadow: 0 18px 44px rgba(32,24,16,0.1);
     }
 
     .field { margin-bottom: 18px; }
@@ -212,12 +228,13 @@
     .logout:hover { color: var(--ink); }
 
     .match-card {
-      background: var(--white);
+      background: var(--card);
       border: 1px solid var(--border);
       border-left: 3px solid var(--gold);
-      border-radius: 3px;
-      padding: 22px 24px;
+      border-radius: 10px;
+      padding: 24px 26px;
       margin-bottom: 18px;
+      box-shadow: 0 10px 26px rgba(32,24,16,0.07);
     }
     .match-index {
       font-family: var(--mono);
@@ -274,8 +291,8 @@
     .starter {
       background: var(--off);
       border: 1px dashed var(--border2);
-      border-radius: 3px;
-      padding: 12px 14px;
+      border-radius: 8px;
+      padding: 13px 16px;
       font-size: 14px;
       font-weight: 300;
       font-style: italic;
@@ -294,13 +311,14 @@
       margin-bottom: 14px;
     }
     .featured-card {
-      background: var(--white);
+      background: var(--card);
       border: 1px solid var(--border);
       border-left: 3px solid var(--red);
-      border-radius: 3px;
-      padding: 22px 24px;
+      border-radius: 10px;
+      padding: 24px 26px;
       margin-bottom: 16px;
       position: relative;
+      box-shadow: 0 10px 26px rgba(32,24,16,0.07);
     }
     .featured-badge {
       font-family: var(--mono);
@@ -327,10 +345,12 @@
     }
 
     .bonus-card {
-      background: var(--ink);
-      border-radius: 4px;
-      padding: 28px 26px;
-      margin: 28px 0 8px;
+      background: linear-gradient(165deg, #1a1512, var(--ink) 60%);
+      border: 1px solid rgba(176,141,87,0.25);
+      border-radius: 14px;
+      padding: 30px 28px;
+      margin: 30px 0 8px;
+      box-shadow: 0 18px 44px rgba(20,14,8,0.22);
     }
     .bonus-eyebrow {
       font-family: var(--mono);
@@ -365,7 +385,7 @@
       font-size: 14px;
       font-weight: 500;
       padding: 11px 20px;
-      border-radius: 3px;
+      border-radius: 7px;
       text-decoration: none;
     }
     .bonus-cta:hover { opacity: .88; }
@@ -390,7 +410,7 @@
     @media (min-width: 1025px) {
       .wrap { max-width: 760px; padding: 116px 24px 100px; }
       .brand-logo { margin-bottom: 32px; }
-      .hero-banner { width: 180px; max-width: 180px; }
+      .hero-banner { max-width: 380px; margin-bottom: 40px; }
       .login-card { padding: 40px 38px; }
       .match-card { padding: 26px 30px; transition: box-shadow .15s ease, transform .15s ease; }
       .match-card:hover { box-shadow: 0 4px 16px rgba(14,14,14,0.06); transform: translateY(-1px); }
@@ -401,7 +421,7 @@
     @media (max-width: 600px) {
       .wrap { padding: 70px 16px 56px; }
       .brand-logo { margin-bottom: 20px; }
-      .hero-banner { width: 150px; max-width: 46vw; margin-bottom: 22px; }
+      .hero-banner { max-width: 260px; margin-bottom: 26px; }
       h1 { font-size: clamp(26px, 8vw, 34px); }
       .sub { font-size: 14.5px; margin-bottom: 26px; }
       .login-card { padding: 24px 18px; }
