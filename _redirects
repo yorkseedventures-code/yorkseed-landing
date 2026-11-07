@@ -166,6 +166,7 @@ https://list.yorkseed.co/wef-davos-side-events/*  https://list.yorkseed.co/wef-d
 # END evergreen week links
 
 
+
 # Kimberly's QR code uses /team/kimberly-neer; keep the short link working too.
 /team/kimberly  /team/kimberly-neer  301
 /team/:slug  /team/person.html?u=:slug  200
