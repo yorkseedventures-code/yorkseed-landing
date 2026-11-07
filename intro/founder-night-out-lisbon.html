@@ -471,8 +471,1925 @@ const EVENT = {
   opensLabel:    "the morning of November 10"
 };
 
-// Add the real guest list (from the Luma export) once registrations are approved, following the ATTENDEES shape used on the other intro pages.
-const ATTENDEES = [];
+// Approved guest list from the Luma export (55 guests), with curated matches.
+const ATTENDEES = [
+  {
+    "first_name": "Candice",
+    "email_hash": "21edb96aed1140d09e93da435e7486cbb61a5cbce614da40e9b0a97346b19a65",
+    "matches": [
+      {
+        "name": "Konstantin Yalovik",
+        "role": "CEO",
+        "hook": "Candice invests in exactly the kind of company Konstantin is building.",
+        "bullets": [
+          "CEO at launchOptions, based in Cyprus.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind launchOptions, how did it get started?"
+      },
+      {
+        "name": "Pablo Gini",
+        "role": "VP, Client Partners",
+        "hook": "Candice invests in exactly the kind of company Pablo is building.",
+        "bullets": [
+          "VP, Client Partners at Jalasoft, based in Dallas, TX.",
+          "Came to Web Summit Lisbon as an executive."
+        ],
+        "starter": "What's the story behind Jalasoft, how did it get started?"
+      },
+      {
+        "name": "Lisa Mereshko",
+        "role": "Co-founder",
+        "hook": "Candice invests in exactly the kind of company Lisa is building.",
+        "bullets": [
+          "Co-founder of psy., a global tech PR & comms agency focused on LLM/AI visibility, getting brands cited by AI answer engines like ChatGPT and Claude.",
+          "Co-hosting the AI & Deep Tech Startup Pitch Competition at Web Summit on November 10, with a jury of VCs from Nebius, SOSV, and Flourish Ventures."
+        ],
+        "starter": "What's the story behind psy.agency, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Dan",
+    "email_hash": "78993e89a76101b4a9bed00bb9a134cf86aee7420ad30b754fc64c62e087dbc9",
+    "matches": [
+      {
+        "name": "Luciano Carreño",
+        "role": "Founder",
+        "hook": "Dan invests in exactly the kind of company Luciano is building.",
+        "bullets": [
+          "Founder at Lendoor, based in Buenos Aires, Argentina.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Lendoor, how did it get started?"
+      },
+      {
+        "name": "Fabián Díaz",
+        "role": "Co-founder & CTO",
+        "hook": "Dan invests in exactly the kind of company Fabián is building.",
+        "bullets": [
+          "Co-founder & CTO at Lendoor, based in Buenos Aires, Argentina.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Lendoor, how did it get started?"
+      },
+      {
+        "name": "Elen Furmanets",
+        "role": "COO",
+        "hook": "Dan invests in exactly the kind of company Elen is building.",
+        "bullets": [
+          "COO at Banxe, based in Berlin.",
+          "Came to Web Summit Lisbon as an executive."
+        ],
+        "starter": "What's the story behind Banxe, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Lisa",
+    "email_hash": "42b0c7b9aa78e9e8574699f6ccf1f08e319492b26de944f4ba7f4d5f1de81100",
+    "matches": [
+      {
+        "name": "Candice Sun",
+        "role": "VP",
+        "hook": "Candice invests in exactly the kind of company Lisa is building.",
+        "bullets": [
+          "VP at Citi, based in Ireland.",
+          "Self-identified as an investor on the Web Summit guest list, open to meeting founders."
+        ],
+        "starter": "What's the story behind Citi, how did it get started?"
+      },
+      {
+        "name": "Chaymae Rahmani",
+        "role": "CEO",
+        "hook": "Both at Web Summit Lisbon this week building early-stage companies, worth comparing notes.",
+        "bullets": [
+          "CEO at Bioscale, based in United States.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Bioscale, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Richard",
+    "email_hash": "c50b255d0c3369718b3dcecbec52832c57b946a1c981dd882aed6c8662e304d1",
+    "matches": [
+      {
+        "name": "Dan Morehead",
+        "role": "Founder, Managing Partner",
+        "hook": "Dan invests in exactly the kind of company Richard is building.",
+        "bullets": [
+          "Founded Pantera Capital in 2003, the first US investment firm to launch dedicated Bitcoin, blockchain, and digital-asset venture funds.",
+          "Also a board member at Figure and former Chairman of Bitstamp (2014-2018); earlier co-founded and ran Atriax, a $100M electronic FX platform."
+        ],
+        "starter": "What's the story behind Pantera Capital, how did it get started?"
+      },
+      {
+        "name": "Alfiya Kayumova",
+        "role": "CEO & Co-founder",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Currently building EI UP; previously founded, scaled, and exited Green Growth as CEO and co-founder.",
+          "Now a startup mentor at Plug and Play Tech Center (agtech & climate tech); earlier led corporate development and investments at Cognitive Pilot."
+        ],
+        "starter": "What's the story behind EI UP, how did it get started?"
+      },
+      {
+        "name": "Ksenia Altshul",
+        "role": "Co-founder",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Co-founder at Plummi, based in Barcelona.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Plummi, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Alfiya",
+    "email_hash": "016474944a731b6970c7eaa75ddc365f0269f95bdab84c90c0c64a5f45910a95",
+    "matches": [
+      {
+        "name": "Oleksandr Skichko",
+        "role": "CEO",
+        "hook": "Oleksandr invests in exactly the kind of company Alfiya is building.",
+        "bullets": [
+          "CEO at CLT REZULT, based in UKRAINE / PORTUGAL.",
+          "Self-identified as an investor on the Web Summit guest list, open to meeting founders."
+        ],
+        "starter": "What's the story behind CLT REZULT, how did it get started?"
+      },
+      {
+        "name": "Richard Oastler",
+        "role": "Founder & CEO",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Founder & CEO of KPI Tree, building Canopy, a business-context layer that gives AI agents warehouse and org data they can act on, not just describe.",
+          "Previously Chief Data Officer at Planet and Head of Data Engineering at Dojo, where he built a platform processing over £50bn in card transactions."
+        ],
+        "starter": "What's the story behind KPI Tree, how did it get started?"
+      },
+      {
+        "name": "Ksenia Altshul",
+        "role": "Co-founder",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Co-founder at Plummi, based in Barcelona.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Plummi, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Said",
+    "email_hash": "67e25577678158cf59b35b81c9f8b3022b1f25fa7ca3907541e98a11dde012d5",
+    "matches": [
+      {
+        "name": "Gabriel Cunha",
+        "role": "Founding Partner",
+        "hook": "Gabriel invests in exactly the kind of company Said is building.",
+        "bullets": [
+          "Founding Partner at Owner Invest, based in Brazil.",
+          "Self-identified as an investor on the Web Summit guest list, open to meeting founders."
+        ],
+        "starter": "What's the story behind Owner Invest, how did it get started?"
+      },
+      {
+        "name": "Patrice Morgan",
+        "role": "Founder",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Runs Morgan Media / Bermuda Born, hosting seminars on living and relocating to Bermuda, alongside a background in reinsurance and corporate operations (Aflac, Peak Capital, Catalina Re).",
+          "Based in Bermuda; experience spans reinsurance support, compliance administration, and client relationship management across the UK and Bermuda."
+        ],
+        "starter": "What's the story behind Morgan Media Bermuda Born, how did it get started?"
+      },
+      {
+        "name": "Diogo Maia Caetano",
+        "role": "Founder & CEO",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Founder & CEO at Jammin', based in Lisbon.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Jammin', how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Patrice",
+    "email_hash": "a212fddfcfc3e57d51b9a2808d39c85a52f611b9f18b8d31cd3a27484345cb52",
+    "matches": [
+      {
+        "name": "Raphaela Mak",
+        "role": "CEO and co-founder",
+        "hook": "Both building at the intersection of culture, travel, and brand, worth comparing notes.",
+        "bullets": [
+          "CEO and co-founder at Metvibee, based in Stockholm.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Metvibee, how did it get started?"
+      },
+      {
+        "name": "Nazar Golodzhun",
+        "role": "GM / Investor",
+        "hook": "Nazar invests in exactly the kind of company Patrice is building.",
+        "bullets": [
+          "GM / Investor at ASKEP, Gold.Dev, axtiran.group, based in Warsaw, Poland.",
+          "Self-identified as an investor on the Web Summit guest list, open to meeting founders."
+        ],
+        "starter": "What's the story behind ASKEP, Gold.Dev, axtiran.group, how did it get started?"
+      },
+      {
+        "name": "Said Tezel",
+        "role": "Founder",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Founding Engineer at Cardamon (YC W25), an AI compliance platform that recently partnered with Nubank (140M+ customers) on global regulatory compliance.",
+          "Spent 6 years at Revolut as a software engineer and data analyst before that; also ran Pamukk as Managing Director for several years."
+        ],
+        "starter": "What's the story behind Pamukk, how did it get started?"
+      },
+      {
+        "name": "Diogo Maia Caetano",
+        "role": "Founder & CEO",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Founder & CEO at Jammin', based in Lisbon.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Jammin', how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Marko",
+    "email_hash": "29989435e7f4178120cfaf09ce22ede45804066ed185984f792d7703d90120cd",
+    "matches": [
+      {
+        "name": "Oleksandr Skichko",
+        "role": "CEO",
+        "hook": "Both at Web Summit Lisbon this week building early-stage companies, worth comparing notes.",
+        "bullets": [
+          "CEO at CLT REZULT, based in UKRAINE / PORTUGAL.",
+          "Self-identified as an investor on the Web Summit guest list, open to meeting founders."
+        ],
+        "starter": "What's the story behind CLT REZULT, how did it get started?"
+      },
+      {
+        "name": "Daria Boitsova",
+        "role": "HR",
+        "hook": "Daria's agency work could be useful for what Marko is building.",
+        "bullets": [
+          "HR at MI Agency, based in Ukraine.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind MI Agency, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Hannes",
+    "email_hash": "93b8209520b4484aa587895c3d9b840a0d9c3326c96055f5db0a1c1bb0f6d60d",
+    "matches": [
+      {
+        "name": "David Nabil Daouadji",
+        "role": "CEO",
+        "hook": "Both at Web Summit Lisbon this week building early-stage companies, worth comparing notes.",
+        "bullets": [
+          "CEO at Convilu, based in Amsterdam.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Convilu, how did it get started?"
+      },
+      {
+        "name": "Irina Mi",
+        "role": "CEO & Founder",
+        "hook": "Irina's agency work could be useful for what Hannes is building.",
+        "bullets": [
+          "CEO & Founder at MI Agency, based in Ukraine.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind MI Agency, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Chaymae",
+    "email_hash": "116f2a51c237234f68ec762cd18bcc690b47fcb583160285a97c94babeb47ac0",
+    "matches": [
+      {
+        "name": "Leandro Conti",
+        "role": "Founder & CEO",
+        "hook": "Leandro invests in exactly the kind of company Chaymae is building.",
+        "bullets": [
+          "Founder & CEO at Coral Finance, based in Buenos Aires, Argentina.",
+          "Self-identified as an investor on the Web Summit guest list, open to meeting founders."
+        ],
+        "starter": "What's the story behind Coral Finance, how did it get started?"
+      },
+      {
+        "name": "Alex Remez",
+        "role": "CEO & Founder",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "CEO & Founder at Hea, based in London, UK.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Hea, how did it get started?"
+      },
+      {
+        "name": "Filipa Filipe",
+        "role": "Founder & COO",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Founder & COO at Lotta, based in Lisbon.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Lotta, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Diogo",
+    "email_hash": "122012c89d214d9859219f5e9d1284dccff8bdc3ce78c3b166288129933b7bf7",
+    "matches": [
+      {
+        "name": "Candice Sun",
+        "role": "VP",
+        "hook": "Candice invests in exactly the kind of company Diogo is building.",
+        "bullets": [
+          "VP at Citi, based in Ireland.",
+          "Self-identified as an investor on the Web Summit guest list, open to meeting founders."
+        ],
+        "starter": "What's the story behind Citi, how did it get started?"
+      },
+      {
+        "name": "Said Tezel",
+        "role": "Founder",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Founding Engineer at Cardamon (YC W25), an AI compliance platform that recently partnered with Nubank (140M+ customers) on global regulatory compliance.",
+          "Spent 6 years at Revolut as a software engineer and data analyst before that; also ran Pamukk as Managing Director for several years."
+        ],
+        "starter": "What's the story behind Pamukk, how did it get started?"
+      },
+      {
+        "name": "Patrice Morgan",
+        "role": "Founder",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Runs Morgan Media / Bermuda Born, hosting seminars on living and relocating to Bermuda, alongside a background in reinsurance and corporate operations (Aflac, Peak Capital, Catalina Re).",
+          "Based in Bermuda; experience spans reinsurance support, compliance administration, and client relationship management across the UK and Bermuda."
+        ],
+        "starter": "What's the story behind Morgan Media Bermuda Born, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Ksenia",
+    "email_hash": "c5082d346a40d0b78a7f5abeff302c44a6cfb3d93334264a2df5a134ce0e648a",
+    "matches": [
+      {
+        "name": "Dan Morehead",
+        "role": "Founder, Managing Partner",
+        "hook": "Dan invests in exactly the kind of company Ksenia is building.",
+        "bullets": [
+          "Founded Pantera Capital in 2003, the first US investment firm to launch dedicated Bitcoin, blockchain, and digital-asset venture funds.",
+          "Also a board member at Figure and former Chairman of Bitstamp (2014-2018); earlier co-founded and ran Atriax, a $100M electronic FX platform."
+        ],
+        "starter": "What's the story behind Pantera Capital, how did it get started?"
+      },
+      {
+        "name": "Richard Oastler",
+        "role": "Founder & CEO",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Founder & CEO of KPI Tree, building Canopy, a business-context layer that gives AI agents warehouse and org data they can act on, not just describe.",
+          "Previously Chief Data Officer at Planet and Head of Data Engineering at Dojo, where he built a platform processing over £50bn in card transactions."
+        ],
+        "starter": "What's the story behind KPI Tree, how did it get started?"
+      },
+      {
+        "name": "Alfiya Kayumova",
+        "role": "CEO & Co-founder",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Currently building EI UP; previously founded, scaled, and exited Green Growth as CEO and co-founder.",
+          "Now a startup mentor at Plug and Play Tech Center (agtech & climate tech); earlier led corporate development and investments at Cognitive Pilot."
+        ],
+        "starter": "What's the story behind EI UP, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Oleksandr",
+    "email_hash": "41ec093a60f4b91934de9783335eace51db70fe742d7751da5f21a29d271c521",
+    "matches": [
+      {
+        "name": "Lisa Mereshko",
+        "role": "Co-founder",
+        "hook": "Oleksandr invests in exactly the kind of company Lisa is building.",
+        "bullets": [
+          "Co-founder of psy., a global tech PR & comms agency focused on LLM/AI visibility, getting brands cited by AI answer engines like ChatGPT and Claude.",
+          "Co-hosting the AI & Deep Tech Startup Pitch Competition at Web Summit on November 10, with a jury of VCs from Nebius, SOSV, and Flourish Ventures."
+        ],
+        "starter": "What's the story behind psy.agency, how did it get started?"
+      },
+      {
+        "name": "Richard Oastler",
+        "role": "Founder & CEO",
+        "hook": "Oleksandr invests in exactly the kind of company Richard is building.",
+        "bullets": [
+          "Founder & CEO of KPI Tree, building Canopy, a business-context layer that gives AI agents warehouse and org data they can act on, not just describe.",
+          "Previously Chief Data Officer at Planet and Head of Data Engineering at Dojo, where he built a platform processing over £50bn in card transactions."
+        ],
+        "starter": "What's the story behind KPI Tree, how did it get started?"
+      },
+      {
+        "name": "Alfiya Kayumova",
+        "role": "CEO & Co-founder",
+        "hook": "Oleksandr invests in exactly the kind of company Alfiya is building.",
+        "bullets": [
+          "Currently building EI UP; previously founded, scaled, and exited Green Growth as CEO and co-founder.",
+          "Now a startup mentor at Plug and Play Tech Center (agtech & climate tech); earlier led corporate development and investments at Cognitive Pilot."
+        ],
+        "starter": "What's the story behind EI UP, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "David Nabil",
+    "email_hash": "a494c0038e17794dfee0738e5ca5f6bdffbd69ae9a0c14549f56431db871030f",
+    "matches": [
+      {
+        "name": "Oleksandr Skichko",
+        "role": "CEO",
+        "hook": "Oleksandr invests in exactly the kind of company David Nabil is building.",
+        "bullets": [
+          "CEO at CLT REZULT, based in UKRAINE / PORTUGAL.",
+          "Self-identified as an investor on the Web Summit guest list, open to meeting founders."
+        ],
+        "starter": "What's the story behind CLT REZULT, how did it get started?"
+      },
+      {
+        "name": "Richard Oastler",
+        "role": "Founder & CEO",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Founder & CEO of KPI Tree, building Canopy, a business-context layer that gives AI agents warehouse and org data they can act on, not just describe.",
+          "Previously Chief Data Officer at Planet and Head of Data Engineering at Dojo, where he built a platform processing over £50bn in card transactions."
+        ],
+        "starter": "What's the story behind KPI Tree, how did it get started?"
+      },
+      {
+        "name": "Alfiya Kayumova",
+        "role": "CEO & Co-founder",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Currently building EI UP; previously founded, scaled, and exited Green Growth as CEO and co-founder.",
+          "Now a startup mentor at Plug and Play Tech Center (agtech & climate tech); earlier led corporate development and investments at Cognitive Pilot."
+        ],
+        "starter": "What's the story behind EI UP, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Jamie",
+    "email_hash": "41f0bd64e26b4fe8b079b53fe72677add98e78480a66c2fe09e61bec335fcc3e",
+    "matches": [
+      {
+        "name": "Gabriel Cunha",
+        "role": "Founding Partner",
+        "hook": "Gabriel invests in exactly the kind of company Jamie is building.",
+        "bullets": [
+          "Founding Partner at Owner Invest, based in Brazil.",
+          "Self-identified as an investor on the Web Summit guest list, open to meeting founders."
+        ],
+        "starter": "What's the story behind Owner Invest, how did it get started?"
+      },
+      {
+        "name": "Kim Than",
+        "role": "CEO",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "CEO at Genius PR, based in UK.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Genius PR, how did it get started?"
+      },
+      {
+        "name": "Daria Boitsova",
+        "role": "HR",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "HR at MI Agency, based in Ukraine.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind MI Agency, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Kim",
+    "email_hash": "80049a4e4e2d6a5e829596dcf9ef834ddd0ac6a4eb12a8fdbd79aa7248239dc0",
+    "matches": [
+      {
+        "name": "Nazar Golodzhun",
+        "role": "GM / Investor",
+        "hook": "Nazar invests in exactly the kind of company Kim is building.",
+        "bullets": [
+          "GM / Investor at ASKEP, Gold.Dev, axtiran.group, based in Warsaw, Poland.",
+          "Self-identified as an investor on the Web Summit guest list, open to meeting founders."
+        ],
+        "starter": "What's the story behind ASKEP, Gold.Dev, axtiran.group, how did it get started?"
+      },
+      {
+        "name": "Jamie Kingsley",
+        "role": "COO",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "COO at Genius PR, based in UK.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Genius PR, how did it get started?"
+      },
+      {
+        "name": "Daria Boitsova",
+        "role": "HR",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "HR at MI Agency, based in Ukraine.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind MI Agency, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Jordan",
+    "email_hash": "1214cb7c4bea8264e469872ecc9775d1d1e8607f1bb655f5f9089316b39cd82e",
+    "matches": [
+      {
+        "name": "Leandro Conti",
+        "role": "Founder & CEO",
+        "hook": "Leandro invests in exactly the kind of company Jordan is building.",
+        "bullets": [
+          "Founder & CEO at Coral Finance, based in Buenos Aires, Argentina.",
+          "Self-identified as an investor on the Web Summit guest list, open to meeting founders."
+        ],
+        "starter": "What's the story behind Coral Finance, how did it get started?"
+      },
+      {
+        "name": "Dana Glick",
+        "role": "Founder",
+        "hook": "Both at Web Summit Lisbon this week building early-stage companies, worth comparing notes.",
+        "bullets": [
+          "Founder at Space App, based in Lisbon, Portugal.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Space App, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Daria",
+    "email_hash": "cb9baf57c7e13ef4482ef9c63f25b5b676d81eff09bc9cea21a9aa44aa09218e",
+    "matches": [
+      {
+        "name": "Candice Sun",
+        "role": "VP",
+        "hook": "Candice invests in exactly the kind of company Daria is building.",
+        "bullets": [
+          "VP at Citi, based in Ireland.",
+          "Self-identified as an investor on the Web Summit guest list, open to meeting founders."
+        ],
+        "starter": "What's the story behind Citi, how did it get started?"
+      },
+      {
+        "name": "Jamie Kingsley",
+        "role": "COO",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "COO at Genius PR, based in UK.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Genius PR, how did it get started?"
+      },
+      {
+        "name": "Kim Than",
+        "role": "CEO",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "CEO at Genius PR, based in UK.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Genius PR, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Irina",
+    "email_hash": "033d18e927c7b000325d297d11f72a6ccf17c968df3369b4d924205eb1ab10aa",
+    "matches": [
+      {
+        "name": "Dan Morehead",
+        "role": "Founder, Managing Partner",
+        "hook": "Dan invests in exactly the kind of company Irina is building.",
+        "bullets": [
+          "Founded Pantera Capital in 2003, the first US investment firm to launch dedicated Bitcoin, blockchain, and digital-asset venture funds.",
+          "Also a board member at Figure and former Chairman of Bitstamp (2014-2018); earlier co-founded and ran Atriax, a $100M electronic FX platform."
+        ],
+        "starter": "What's the story behind Pantera Capital, how did it get started?"
+      },
+      {
+        "name": "Jamie Kingsley",
+        "role": "COO",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "COO at Genius PR, based in UK.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Genius PR, how did it get started?"
+      },
+      {
+        "name": "Kim Than",
+        "role": "CEO",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "CEO at Genius PR, based in UK.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Genius PR, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Maria",
+    "email_hash": "e4afac18651c84d1c95cc6b454426922fa5836fa2c8507c481a6fcb0cd0f3dbf",
+    "matches": [
+      {
+        "name": "Oleksandr Skichko",
+        "role": "CEO",
+        "hook": "Oleksandr invests in exactly the kind of company Maria is building.",
+        "bullets": [
+          "CEO at CLT REZULT, based in UKRAINE / PORTUGAL.",
+          "Self-identified as an investor on the Web Summit guest list, open to meeting founders."
+        ],
+        "starter": "What's the story behind CLT REZULT, how did it get started?"
+      },
+      {
+        "name": "Jamie Kingsley",
+        "role": "COO",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "COO at Genius PR, based in UK.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Genius PR, how did it get started?"
+      },
+      {
+        "name": "Kim Than",
+        "role": "CEO",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "CEO at Genius PR, based in UK.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Genius PR, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Anastasiia",
+    "email_hash": "47e308c447a022322d7a6a32d636cf36a2512100408de49ccc5d8a1de26a0c90",
+    "matches": [
+      {
+        "name": "Gabriel Cunha",
+        "role": "Founding Partner",
+        "hook": "Gabriel invests in exactly the kind of company Anastasiia is building.",
+        "bullets": [
+          "Founding Partner at Owner Invest, based in Brazil.",
+          "Self-identified as an investor on the Web Summit guest list, open to meeting founders."
+        ],
+        "starter": "What's the story behind Owner Invest, how did it get started?"
+      },
+      {
+        "name": "Jamie Kingsley",
+        "role": "COO",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "COO at Genius PR, based in UK.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Genius PR, how did it get started?"
+      },
+      {
+        "name": "Kim Than",
+        "role": "CEO",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "CEO at Genius PR, based in UK.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Genius PR, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Alex",
+    "email_hash": "5474fa10c44b3840f131a7831372de5dc4560b04a9a8f4920f1e909c44dd17b1",
+    "matches": [
+      {
+        "name": "Nazar Golodzhun",
+        "role": "GM / Investor",
+        "hook": "Nazar invests in exactly the kind of company Alex is building.",
+        "bullets": [
+          "GM / Investor at ASKEP, Gold.Dev, axtiran.group, based in Warsaw, Poland.",
+          "Self-identified as an investor on the Web Summit guest list, open to meeting founders."
+        ],
+        "starter": "What's the story behind ASKEP, Gold.Dev, axtiran.group, how did it get started?"
+      },
+      {
+        "name": "Chaymae Rahmani",
+        "role": "CEO",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "CEO at Bioscale, based in United States.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Bioscale, how did it get started?"
+      },
+      {
+        "name": "Filipa Filipe",
+        "role": "Founder & COO",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Founder & COO at Lotta, based in Lisbon.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Lotta, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "David",
+    "email_hash": "586288c9150a97a7285a63cc0681c8ab389a0efef2102ccef046b9ee0d8294d5",
+    "matches": [
+      {
+        "name": "Leandro Conti",
+        "role": "Founder & CEO",
+        "hook": "Leandro invests in exactly the kind of company David is building.",
+        "bullets": [
+          "Founder & CEO at Coral Finance, based in Buenos Aires, Argentina.",
+          "Self-identified as an investor on the Web Summit guest list, open to meeting founders."
+        ],
+        "starter": "What's the story behind Coral Finance, how did it get started?"
+      },
+      {
+        "name": "Jamie Kingsley",
+        "role": "COO",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "COO at Genius PR, based in UK.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Genius PR, how did it get started?"
+      },
+      {
+        "name": "Kim Than",
+        "role": "CEO",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "CEO at Genius PR, based in UK.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Genius PR, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Dana",
+    "email_hash": "293532a387550a22a406b157381513c237aeaefeb7b81ce984a4241f87019314",
+    "matches": [
+      {
+        "name": "Raphaela Mak",
+        "role": "CEO and co-founder",
+        "hook": "Both building at the intersection of culture, travel, and brand, worth comparing notes.",
+        "bullets": [
+          "CEO and co-founder at Metvibee, based in Stockholm.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Metvibee, how did it get started?"
+      },
+      {
+        "name": "Candice Sun",
+        "role": "VP",
+        "hook": "Candice invests in exactly the kind of company Dana is building.",
+        "bullets": [
+          "VP at Citi, based in Ireland.",
+          "Self-identified as an investor on the Web Summit guest list, open to meeting founders."
+        ],
+        "starter": "What's the story behind Citi, how did it get started?"
+      },
+      {
+        "name": "Said Tezel",
+        "role": "Founder",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Founding Engineer at Cardamon (YC W25), an AI compliance platform that recently partnered with Nubank (140M+ customers) on global regulatory compliance.",
+          "Spent 6 years at Revolut as a software engineer and data analyst before that; also ran Pamukk as Managing Director for several years."
+        ],
+        "starter": "What's the story behind Pamukk, how did it get started?"
+      },
+      {
+        "name": "Patrice Morgan",
+        "role": "Founder",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Runs Morgan Media / Bermuda Born, hosting seminars on living and relocating to Bermuda, alongside a background in reinsurance and corporate operations (Aflac, Peak Capital, Catalina Re).",
+          "Based in Bermuda; experience spans reinsurance support, compliance administration, and client relationship management across the UK and Bermuda."
+        ],
+        "starter": "What's the story behind Morgan Media Bermuda Born, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "May",
+    "email_hash": "3efbf5d9ab753b7057c3ad565035bee22fd7beb8f254be1cfd50b0663e79e2c0",
+    "matches": [
+      {
+        "name": "Dan Morehead",
+        "role": "Founder, Managing Partner",
+        "hook": "Dan invests in exactly the kind of company May is building.",
+        "bullets": [
+          "Founded Pantera Capital in 2003, the first US investment firm to launch dedicated Bitcoin, blockchain, and digital-asset venture funds.",
+          "Also a board member at Figure and former Chairman of Bitstamp (2014-2018); earlier co-founded and ran Atriax, a $100M electronic FX platform."
+        ],
+        "starter": "What's the story behind Pantera Capital, how did it get started?"
+      },
+      {
+        "name": "Richard Oastler",
+        "role": "Founder & CEO",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Founder & CEO of KPI Tree, building Canopy, a business-context layer that gives AI agents warehouse and org data they can act on, not just describe.",
+          "Previously Chief Data Officer at Planet and Head of Data Engineering at Dojo, where he built a platform processing over £50bn in card transactions."
+        ],
+        "starter": "What's the story behind KPI Tree, how did it get started?"
+      },
+      {
+        "name": "Alfiya Kayumova",
+        "role": "CEO & Co-founder",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Currently building EI UP; previously founded, scaled, and exited Green Growth as CEO and co-founder.",
+          "Now a startup mentor at Plug and Play Tech Center (agtech & climate tech); earlier led corporate development and investments at Cognitive Pilot."
+        ],
+        "starter": "What's the story behind EI UP, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Luciano",
+    "email_hash": "410d6037952c9689682c25e884db0a96508c65895ddc890caa0a8d6148159c83",
+    "matches": [
+      {
+        "name": "Oleksandr Skichko",
+        "role": "CEO",
+        "hook": "Oleksandr invests in exactly the kind of company Luciano is building.",
+        "bullets": [
+          "CEO at CLT REZULT, based in UKRAINE / PORTUGAL.",
+          "Self-identified as an investor on the Web Summit guest list, open to meeting founders."
+        ],
+        "starter": "What's the story behind CLT REZULT, how did it get started?"
+      },
+      {
+        "name": "Fabián Díaz",
+        "role": "Co-founder & CTO",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Co-founder & CTO at Lendoor, based in Buenos Aires, Argentina.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Lendoor, how did it get started?"
+      },
+      {
+        "name": "Elen Furmanets",
+        "role": "COO",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "COO at Banxe, based in Berlin.",
+          "Came to Web Summit Lisbon as an executive."
+        ],
+        "starter": "What's the story behind Banxe, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Alina",
+    "email_hash": "79f6249db401134083cfc3c2ce583de0b39406c45f99dbac8cd26f0ad233b330",
+    "matches": [
+      {
+        "name": "Gabriel Cunha",
+        "role": "Founding Partner",
+        "hook": "Gabriel invests in exactly the kind of company Alina is building.",
+        "bullets": [
+          "Founding Partner at Owner Invest, based in Brazil.",
+          "Self-identified as an investor on the Web Summit guest list, open to meeting founders."
+        ],
+        "starter": "What's the story behind Owner Invest, how did it get started?"
+      },
+      {
+        "name": "Jamie Kingsley",
+        "role": "COO",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "COO at Genius PR, based in UK.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Genius PR, how did it get started?"
+      },
+      {
+        "name": "Kim Than",
+        "role": "CEO",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "CEO at Genius PR, based in UK.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Genius PR, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Konstantin",
+    "email_hash": "ee220c7ff657d98e83dfcf4cceab285d56b03b1d3ec91da51b1520001b7eea18",
+    "matches": [
+      {
+        "name": "Nazar Golodzhun",
+        "role": "GM / Investor",
+        "hook": "Nazar invests in exactly the kind of company Konstantin is building.",
+        "bullets": [
+          "GM / Investor at ASKEP, Gold.Dev, axtiran.group, based in Warsaw, Poland.",
+          "Self-identified as an investor on the Web Summit guest list, open to meeting founders."
+        ],
+        "starter": "What's the story behind ASKEP, Gold.Dev, axtiran.group, how did it get started?"
+      },
+      {
+        "name": "Pablo Gini",
+        "role": "VP, Client Partners",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "VP, Client Partners at Jalasoft, based in Dallas, TX.",
+          "Came to Web Summit Lisbon as an executive."
+        ],
+        "starter": "What's the story behind Jalasoft, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Filipa",
+    "email_hash": "5d3a7558ae312e8187c0a971f162a82f6ef764516ea95bf06014238c4b7ebdf8",
+    "matches": [
+      {
+        "name": "Leandro Conti",
+        "role": "Founder & CEO",
+        "hook": "Leandro invests in exactly the kind of company Filipa is building.",
+        "bullets": [
+          "Founder & CEO at Coral Finance, based in Buenos Aires, Argentina.",
+          "Self-identified as an investor on the Web Summit guest list, open to meeting founders."
+        ],
+        "starter": "What's the story behind Coral Finance, how did it get started?"
+      },
+      {
+        "name": "Chaymae Rahmani",
+        "role": "CEO",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "CEO at Bioscale, based in United States.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Bioscale, how did it get started?"
+      },
+      {
+        "name": "Alex Remez",
+        "role": "CEO & Founder",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "CEO & Founder at Hea, based in London, UK.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Hea, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Anastasia",
+    "email_hash": "2d28702bbef9e210558d78cdba308f7d81ab688f345d8c14b08b40dd7c3f2851",
+    "matches": [
+      {
+        "name": "Candice Sun",
+        "role": "VP",
+        "hook": "Candice invests in exactly the kind of company Anastasia is building.",
+        "bullets": [
+          "VP at Citi, based in Ireland.",
+          "Self-identified as an investor on the Web Summit guest list, open to meeting founders."
+        ],
+        "starter": "What's the story behind Citi, how did it get started?"
+      },
+      {
+        "name": "Aleksandr Abalakin",
+        "role": "Co-founder / CCO",
+        "hook": "Both at Web Summit Lisbon this week building early-stage companies, worth comparing notes.",
+        "bullets": [
+          "Co-founder / CCO at DefendSphere, based in Spain.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind DefendSphere, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Margarida",
+    "email_hash": "95f2711452e671dd6374fa1a6af580a1ed0c25f40e210fc3bf973a25a4617753",
+    "matches": [
+      {
+        "name": "Dan Morehead",
+        "role": "Founder, Managing Partner",
+        "hook": "Dan invests in exactly the kind of company Margarida is building.",
+        "bullets": [
+          "Founded Pantera Capital in 2003, the first US investment firm to launch dedicated Bitcoin, blockchain, and digital-asset venture funds.",
+          "Also a board member at Figure and former Chairman of Bitstamp (2014-2018); earlier co-founded and ran Atriax, a $100M electronic FX platform."
+        ],
+        "starter": "What's the story behind Pantera Capital, how did it get started?"
+      },
+      {
+        "name": "Chaymae Rahmani",
+        "role": "CEO",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "CEO at Bioscale, based in United States.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Bioscale, how did it get started?"
+      },
+      {
+        "name": "Alex Remez",
+        "role": "CEO & Founder",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "CEO & Founder at Hea, based in London, UK.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Hea, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Yulia",
+    "email_hash": "188c46af4ab4ecbfcd79cbbd3d0646d89dc217baa857d78b8f04cf9923f95e9a",
+    "matches": [
+      {
+        "name": "Oleksandr Skichko",
+        "role": "CEO",
+        "hook": "Oleksandr invests in exactly the kind of company Yulia is building.",
+        "bullets": [
+          "CEO at CLT REZULT, based in UKRAINE / PORTUGAL.",
+          "Self-identified as an investor on the Web Summit guest list, open to meeting founders."
+        ],
+        "starter": "What's the story behind CLT REZULT, how did it get started?"
+      },
+      {
+        "name": "Stanislav Yevchenko",
+        "role": "Founder",
+        "hook": "Both at Web Summit Lisbon this week building early-stage companies, worth comparing notes.",
+        "bullets": [
+          "Founder at onevibe, based in Warsaw, Poland.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind onevibe, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Giulia",
+    "email_hash": "5ab948ba5976cfad756e23aef8ea8893b394586f997f0796483a0c947a53c309",
+    "matches": [
+      {
+        "name": "Gabriel Cunha",
+        "role": "Founding Partner",
+        "hook": "Gabriel invests in exactly the kind of company Giulia is building.",
+        "bullets": [
+          "Founding Partner at Owner Invest, based in Brazil.",
+          "Self-identified as an investor on the Web Summit guest list, open to meeting founders."
+        ],
+        "starter": "What's the story behind Owner Invest, how did it get started?"
+      },
+      {
+        "name": "Piotr Kram",
+        "role": "Co-founder",
+        "hook": "Both at Web Summit Lisbon this week building early-stage companies, worth comparing notes.",
+        "bullets": [
+          "Co-founder at KOD.AI, based in Warsaw, Poland.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind KOD.AI, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Gabriel",
+    "email_hash": "c64e602ef9504b545688f813d67e705fe1ef7bc9e6a240ae3b08de0611a8658c",
+    "matches": [
+      {
+        "name": "Konstantin Yalovik",
+        "role": "CEO",
+        "hook": "Gabriel invests in exactly the kind of company Konstantin is building.",
+        "bullets": [
+          "CEO at launchOptions, based in Cyprus.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind launchOptions, how did it get started?"
+      },
+      {
+        "name": "Pablo Gini",
+        "role": "VP, Client Partners",
+        "hook": "Gabriel invests in exactly the kind of company Pablo is building.",
+        "bullets": [
+          "VP, Client Partners at Jalasoft, based in Dallas, TX.",
+          "Came to Web Summit Lisbon as an executive."
+        ],
+        "starter": "What's the story behind Jalasoft, how did it get started?"
+      },
+      {
+        "name": "Lisa Mereshko",
+        "role": "Co-founder",
+        "hook": "Gabriel invests in exactly the kind of company Lisa is building.",
+        "bullets": [
+          "Co-founder of psy., a global tech PR & comms agency focused on LLM/AI visibility, getting brands cited by AI answer engines like ChatGPT and Claude.",
+          "Co-hosting the AI & Deep Tech Startup Pitch Competition at Web Summit on November 10, with a jury of VCs from Nebius, SOSV, and Flourish Ventures."
+        ],
+        "starter": "What's the story behind psy.agency, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Philipp",
+    "email_hash": "2560e83f797437ef45ce179c27715afe7b5c5e0918c939030278c7ca87cb9b54",
+    "matches": [
+      {
+        "name": "Nazar Golodzhun",
+        "role": "GM / Investor",
+        "hook": "Nazar invests in exactly the kind of company Philipp is building.",
+        "bullets": [
+          "GM / Investor at ASKEP, Gold.Dev, axtiran.group, based in Warsaw, Poland.",
+          "Self-identified as an investor on the Web Summit guest list, open to meeting founders."
+        ],
+        "starter": "What's the story behind ASKEP, Gold.Dev, axtiran.group, how did it get started?"
+      },
+      {
+        "name": "Natalie Salunke",
+        "role": "Founder & CEO",
+        "hook": "Natalie's agency work could be useful for what Philipp is building.",
+        "bullets": [
+          "Founder & CEO at Salunke Solutions, based in London.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Salunke Solutions, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Vlad",
+    "email_hash": "d3b5c85e53a760a44519293baafadb386e56665592bdb5dcaddf05d74198bbd5",
+    "matches": [
+      {
+        "name": "Leandro Conti",
+        "role": "Founder & CEO",
+        "hook": "Leandro invests in exactly the kind of company Vlad is building.",
+        "bullets": [
+          "Founder & CEO at Coral Finance, based in Buenos Aires, Argentina.",
+          "Self-identified as an investor on the Web Summit guest list, open to meeting founders."
+        ],
+        "starter": "What's the story behind Coral Finance, how did it get started?"
+      },
+      {
+        "name": "Richard Oastler",
+        "role": "Founder & CEO",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Founder & CEO of KPI Tree, building Canopy, a business-context layer that gives AI agents warehouse and org data they can act on, not just describe.",
+          "Previously Chief Data Officer at Planet and Head of Data Engineering at Dojo, where he built a platform processing over £50bn in card transactions."
+        ],
+        "starter": "What's the story behind KPI Tree, how did it get started?"
+      },
+      {
+        "name": "Alfiya Kayumova",
+        "role": "CEO & Co-founder",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Currently building EI UP; previously founded, scaled, and exited Green Growth as CEO and co-founder.",
+          "Now a startup mentor at Plug and Play Tech Center (agtech & climate tech); earlier led corporate development and investments at Cognitive Pilot."
+        ],
+        "starter": "What's the story behind EI UP, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Aleksandr",
+    "email_hash": "6da98416031a9a70b0530ee8e4e38ca26397ff8eea47c4100ccb9df14e5ac581",
+    "matches": [
+      {
+        "name": "Candice Sun",
+        "role": "VP",
+        "hook": "Candice invests in exactly the kind of company Aleksandr is building.",
+        "bullets": [
+          "VP at Citi, based in Ireland.",
+          "Self-identified as an investor on the Web Summit guest list, open to meeting founders."
+        ],
+        "starter": "What's the story behind Citi, how did it get started?"
+      },
+      {
+        "name": "Joao Freitas",
+        "role": "Founder",
+        "hook": "Both at Web Summit Lisbon this week building early-stage companies, worth comparing notes.",
+        "bullets": [
+          "Founder at Mezzolab, based in Porto.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Mezzolab, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Pablo",
+    "email_hash": "be5945d041e99833de8bbe1395148e9bd7778d822ab4f2c848756c593b32b965",
+    "matches": [
+      {
+        "name": "Dan Morehead",
+        "role": "Founder, Managing Partner",
+        "hook": "Dan invests in exactly the kind of company Pablo is building.",
+        "bullets": [
+          "Founded Pantera Capital in 2003, the first US investment firm to launch dedicated Bitcoin, blockchain, and digital-asset venture funds.",
+          "Also a board member at Figure and former Chairman of Bitstamp (2014-2018); earlier co-founded and ran Atriax, a $100M electronic FX platform."
+        ],
+        "starter": "What's the story behind Pantera Capital, how did it get started?"
+      },
+      {
+        "name": "Konstantin Yalovik",
+        "role": "CEO",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "CEO at launchOptions, based in Cyprus.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind launchOptions, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Stanislav",
+    "email_hash": "02400b31f4c45849d77d669a531ed7d4922e159d83a28592de228b5c0c9d67b6",
+    "matches": [
+      {
+        "name": "Oleksandr Skichko",
+        "role": "CEO",
+        "hook": "Oleksandr invests in exactly the kind of company Stanislav is building.",
+        "bullets": [
+          "CEO at CLT REZULT, based in UKRAINE / PORTUGAL.",
+          "Self-identified as an investor on the Web Summit guest list, open to meeting founders."
+        ],
+        "starter": "What's the story behind CLT REZULT, how did it get started?"
+      },
+      {
+        "name": "Richard Oastler",
+        "role": "Founder & CEO",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Founder & CEO of KPI Tree, building Canopy, a business-context layer that gives AI agents warehouse and org data they can act on, not just describe.",
+          "Previously Chief Data Officer at Planet and Head of Data Engineering at Dojo, where he built a platform processing over £50bn in card transactions."
+        ],
+        "starter": "What's the story behind KPI Tree, how did it get started?"
+      },
+      {
+        "name": "Alfiya Kayumova",
+        "role": "CEO & Co-founder",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Currently building EI UP; previously founded, scaled, and exited Green Growth as CEO and co-founder.",
+          "Now a startup mentor at Plug and Play Tech Center (agtech & climate tech); earlier led corporate development and investments at Cognitive Pilot."
+        ],
+        "starter": "What's the story behind EI UP, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Piotr",
+    "email_hash": "747dd2228cb41cdcde9f96f86bbc89cd01cc70f5d27b48422295f0821fbedf08",
+    "matches": [
+      {
+        "name": "Gabriel Cunha",
+        "role": "Founding Partner",
+        "hook": "Gabriel invests in exactly the kind of company Piotr is building.",
+        "bullets": [
+          "Founding Partner at Owner Invest, based in Brazil.",
+          "Self-identified as an investor on the Web Summit guest list, open to meeting founders."
+        ],
+        "starter": "What's the story behind Owner Invest, how did it get started?"
+      },
+      {
+        "name": "Richard Oastler",
+        "role": "Founder & CEO",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Founder & CEO of KPI Tree, building Canopy, a business-context layer that gives AI agents warehouse and org data they can act on, not just describe.",
+          "Previously Chief Data Officer at Planet and Head of Data Engineering at Dojo, where he built a platform processing over £50bn in card transactions."
+        ],
+        "starter": "What's the story behind KPI Tree, how did it get started?"
+      },
+      {
+        "name": "Alfiya Kayumova",
+        "role": "CEO & Co-founder",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Currently building EI UP; previously founded, scaled, and exited Green Growth as CEO and co-founder.",
+          "Now a startup mentor at Plug and Play Tech Center (agtech & climate tech); earlier led corporate development and investments at Cognitive Pilot."
+        ],
+        "starter": "What's the story behind EI UP, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Mariusz",
+    "email_hash": "14263ffb24c36028306ea8310b8ab43105ec821f35156761ffa10287d7cfc841",
+    "matches": [
+      {
+        "name": "Nazar Golodzhun",
+        "role": "GM / Investor",
+        "hook": "Nazar invests in exactly the kind of company Mariusz is building.",
+        "bullets": [
+          "GM / Investor at ASKEP, Gold.Dev, axtiran.group, based in Warsaw, Poland.",
+          "Self-identified as an investor on the Web Summit guest list, open to meeting founders."
+        ],
+        "starter": "What's the story behind ASKEP, Gold.Dev, axtiran.group, how did it get started?"
+      },
+      {
+        "name": "Richard Oastler",
+        "role": "Founder & CEO",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Founder & CEO of KPI Tree, building Canopy, a business-context layer that gives AI agents warehouse and org data they can act on, not just describe.",
+          "Previously Chief Data Officer at Planet and Head of Data Engineering at Dojo, where he built a platform processing over £50bn in card transactions."
+        ],
+        "starter": "What's the story behind KPI Tree, how did it get started?"
+      },
+      {
+        "name": "Alfiya Kayumova",
+        "role": "CEO & Co-founder",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Currently building EI UP; previously founded, scaled, and exited Green Growth as CEO and co-founder.",
+          "Now a startup mentor at Plug and Play Tech Center (agtech & climate tech); earlier led corporate development and investments at Cognitive Pilot."
+        ],
+        "starter": "What's the story behind EI UP, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Natalie",
+    "email_hash": "0b61d26f58a0a65c3c93eea5337404b5f903bf974ed0e50daf48d5026ae67900",
+    "matches": [
+      {
+        "name": "Leandro Conti",
+        "role": "Founder & CEO",
+        "hook": "Leandro invests in exactly the kind of company Natalie is building.",
+        "bullets": [
+          "Founder & CEO at Coral Finance, based in Buenos Aires, Argentina.",
+          "Self-identified as an investor on the Web Summit guest list, open to meeting founders."
+        ],
+        "starter": "What's the story behind Coral Finance, how did it get started?"
+      },
+      {
+        "name": "Jamie Kingsley",
+        "role": "COO",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "COO at Genius PR, based in UK.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Genius PR, how did it get started?"
+      },
+      {
+        "name": "Kim Than",
+        "role": "CEO",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "CEO at Genius PR, based in UK.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Genius PR, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Anastasiia",
+    "email_hash": "0f835e9fc241aa14daba263ef3fa9d1988259ec09615090161d36ae7128de8b5",
+    "matches": [
+      {
+        "name": "Candice Sun",
+        "role": "VP",
+        "hook": "Candice invests in exactly the kind of company Anastasiia is building.",
+        "bullets": [
+          "VP at Citi, based in Ireland.",
+          "Self-identified as an investor on the Web Summit guest list, open to meeting founders."
+        ],
+        "starter": "What's the story behind Citi, how did it get started?"
+      },
+      {
+        "name": "Jamie Kingsley",
+        "role": "COO",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "COO at Genius PR, based in UK.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Genius PR, how did it get started?"
+      },
+      {
+        "name": "Kim Than",
+        "role": "CEO",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "CEO at Genius PR, based in UK.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Genius PR, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Joao",
+    "email_hash": "913e10f61ca0b5a2b2210c0fb0c425a1b5653c2544cd295c4473c917e5955198",
+    "matches": [
+      {
+        "name": "Dan Morehead",
+        "role": "Founder, Managing Partner",
+        "hook": "Dan invests in exactly the kind of company Joao is building.",
+        "bullets": [
+          "Founded Pantera Capital in 2003, the first US investment firm to launch dedicated Bitcoin, blockchain, and digital-asset venture funds.",
+          "Also a board member at Figure and former Chairman of Bitstamp (2014-2018); earlier co-founded and ran Atriax, a $100M electronic FX platform."
+        ],
+        "starter": "What's the story behind Pantera Capital, how did it get started?"
+      },
+      {
+        "name": "Said Tezel",
+        "role": "Founder",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Founding Engineer at Cardamon (YC W25), an AI compliance platform that recently partnered with Nubank (140M+ customers) on global regulatory compliance.",
+          "Spent 6 years at Revolut as a software engineer and data analyst before that; also ran Pamukk as Managing Director for several years."
+        ],
+        "starter": "What's the story behind Pamukk, how did it get started?"
+      },
+      {
+        "name": "Patrice Morgan",
+        "role": "Founder",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Runs Morgan Media / Bermuda Born, hosting seminars on living and relocating to Bermuda, alongside a background in reinsurance and corporate operations (Aflac, Peak Capital, Catalina Re).",
+          "Based in Bermuda; experience spans reinsurance support, compliance administration, and client relationship management across the UK and Bermuda."
+        ],
+        "starter": "What's the story behind Morgan Media Bermuda Born, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Michiel",
+    "email_hash": "1564635a4dff924eb0447fd7ee965f41da2871537cf21a2bc51c00fee106ece3",
+    "matches": [
+      {
+        "name": "Oleksandr Skichko",
+        "role": "CEO",
+        "hook": "Oleksandr invests in exactly the kind of company Michiel is building.",
+        "bullets": [
+          "CEO at CLT REZULT, based in UKRAINE / PORTUGAL.",
+          "Self-identified as an investor on the Web Summit guest list, open to meeting founders."
+        ],
+        "starter": "What's the story behind CLT REZULT, how did it get started?"
+      },
+      {
+        "name": "Said Tezel",
+        "role": "Founder",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Founding Engineer at Cardamon (YC W25), an AI compliance platform that recently partnered with Nubank (140M+ customers) on global regulatory compliance.",
+          "Spent 6 years at Revolut as a software engineer and data analyst before that; also ran Pamukk as Managing Director for several years."
+        ],
+        "starter": "What's the story behind Pamukk, how did it get started?"
+      },
+      {
+        "name": "Patrice Morgan",
+        "role": "Founder",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Runs Morgan Media / Bermuda Born, hosting seminars on living and relocating to Bermuda, alongside a background in reinsurance and corporate operations (Aflac, Peak Capital, Catalina Re).",
+          "Based in Bermuda; experience spans reinsurance support, compliance administration, and client relationship management across the UK and Bermuda."
+        ],
+        "starter": "What's the story behind Morgan Media Bermuda Born, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Fabián",
+    "email_hash": "051d869344b2154eda11ec5e2935f11aaf17b0210b1b18c7d27f1a8162b888a4",
+    "matches": [
+      {
+        "name": "Gabriel Cunha",
+        "role": "Founding Partner",
+        "hook": "Gabriel invests in exactly the kind of company Fabián is building.",
+        "bullets": [
+          "Founding Partner at Owner Invest, based in Brazil.",
+          "Self-identified as an investor on the Web Summit guest list, open to meeting founders."
+        ],
+        "starter": "What's the story behind Owner Invest, how did it get started?"
+      },
+      {
+        "name": "Luciano Carreño",
+        "role": "Founder",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Founder at Lendoor, based in Buenos Aires, Argentina.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Lendoor, how did it get started?"
+      },
+      {
+        "name": "Elen Furmanets",
+        "role": "COO",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "COO at Banxe, based in Berlin.",
+          "Came to Web Summit Lisbon as an executive."
+        ],
+        "starter": "What's the story behind Banxe, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Bailey",
+    "email_hash": "1d115d592c7af43292710970a689d9af2279d9ed1720beafa398f4bbcdfc3146",
+    "matches": [
+      {
+        "name": "Nazar Golodzhun",
+        "role": "GM / Investor",
+        "hook": "Nazar invests in exactly the kind of company Bailey is building.",
+        "bullets": [
+          "GM / Investor at ASKEP, Gold.Dev, axtiran.group, based in Warsaw, Poland.",
+          "Self-identified as an investor on the Web Summit guest list, open to meeting founders."
+        ],
+        "starter": "What's the story behind ASKEP, Gold.Dev, axtiran.group, how did it get started?"
+      },
+      {
+        "name": "Richard Oastler",
+        "role": "Founder & CEO",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Founder & CEO of KPI Tree, building Canopy, a business-context layer that gives AI agents warehouse and org data they can act on, not just describe.",
+          "Previously Chief Data Officer at Planet and Head of Data Engineering at Dojo, where he built a platform processing over £50bn in card transactions."
+        ],
+        "starter": "What's the story behind KPI Tree, how did it get started?"
+      },
+      {
+        "name": "Alfiya Kayumova",
+        "role": "CEO & Co-founder",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Currently building EI UP; previously founded, scaled, and exited Green Growth as CEO and co-founder.",
+          "Now a startup mentor at Plug and Play Tech Center (agtech & climate tech); earlier led corporate development and investments at Cognitive Pilot."
+        ],
+        "starter": "What's the story behind EI UP, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Thomas",
+    "email_hash": "d0f61545a022525dd5cc26fc9dcf07c542256d225791c53c762f3a12f2459dc2",
+    "matches": [
+      {
+        "name": "Leandro Conti",
+        "role": "Founder & CEO",
+        "hook": "Leandro invests in exactly the kind of company Thomas is building.",
+        "bullets": [
+          "Founder & CEO at Coral Finance, based in Buenos Aires, Argentina.",
+          "Self-identified as an investor on the Web Summit guest list, open to meeting founders."
+        ],
+        "starter": "What's the story behind Coral Finance, how did it get started?"
+      },
+      {
+        "name": "Richard Oastler",
+        "role": "Founder & CEO",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Founder & CEO of KPI Tree, building Canopy, a business-context layer that gives AI agents warehouse and org data they can act on, not just describe.",
+          "Previously Chief Data Officer at Planet and Head of Data Engineering at Dojo, where he built a platform processing over £50bn in card transactions."
+        ],
+        "starter": "What's the story behind KPI Tree, how did it get started?"
+      },
+      {
+        "name": "Alfiya Kayumova",
+        "role": "CEO & Co-founder",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Currently building EI UP; previously founded, scaled, and exited Green Growth as CEO and co-founder.",
+          "Now a startup mentor at Plug and Play Tech Center (agtech & climate tech); earlier led corporate development and investments at Cognitive Pilot."
+        ],
+        "starter": "What's the story behind EI UP, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Marianna",
+    "email_hash": "86544dd9d0d53e7c86111890907a617f1385019f3ebef13c81bb68f4783e24c8",
+    "matches": [
+      {
+        "name": "Candice Sun",
+        "role": "VP",
+        "hook": "Candice invests in exactly the kind of company Marianna is building.",
+        "bullets": [
+          "VP at Citi, based in Ireland.",
+          "Self-identified as an investor on the Web Summit guest list, open to meeting founders."
+        ],
+        "starter": "What's the story behind Citi, how did it get started?"
+      },
+      {
+        "name": "Jamie Kingsley",
+        "role": "COO",
+        "hook": "Jamie's agency work could be useful for what Marianna is building.",
+        "bullets": [
+          "COO at Genius PR, based in UK.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Genius PR, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Nazar",
+    "email_hash": "ea0fa47fc0e245e6834171fd57759a772a2e2e879977646e29562386ac5c7766",
+    "matches": [
+      {
+        "name": "Lisa Mereshko",
+        "role": "Co-founder",
+        "hook": "Nazar invests in exactly the kind of company Lisa is building.",
+        "bullets": [
+          "Co-founder of psy., a global tech PR & comms agency focused on LLM/AI visibility, getting brands cited by AI answer engines like ChatGPT and Claude.",
+          "Co-hosting the AI & Deep Tech Startup Pitch Competition at Web Summit on November 10, with a jury of VCs from Nebius, SOSV, and Flourish Ventures."
+        ],
+        "starter": "What's the story behind psy.agency, how did it get started?"
+      },
+      {
+        "name": "Richard Oastler",
+        "role": "Founder & CEO",
+        "hook": "Nazar invests in exactly the kind of company Richard is building.",
+        "bullets": [
+          "Founder & CEO of KPI Tree, building Canopy, a business-context layer that gives AI agents warehouse and org data they can act on, not just describe.",
+          "Previously Chief Data Officer at Planet and Head of Data Engineering at Dojo, where he built a platform processing over £50bn in card transactions."
+        ],
+        "starter": "What's the story behind KPI Tree, how did it get started?"
+      },
+      {
+        "name": "Alfiya Kayumova",
+        "role": "CEO & Co-founder",
+        "hook": "Nazar invests in exactly the kind of company Alfiya is building.",
+        "bullets": [
+          "Currently building EI UP; previously founded, scaled, and exited Green Growth as CEO and co-founder.",
+          "Now a startup mentor at Plug and Play Tech Center (agtech & climate tech); earlier led corporate development and investments at Cognitive Pilot."
+        ],
+        "starter": "What's the story behind EI UP, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Alina",
+    "email_hash": "2a5da852768c944a1643a1f4617d3a8a1061c56f1c69affe3f14d492d8c39e10",
+    "matches": [
+      {
+        "name": "Dan Morehead",
+        "role": "Founder, Managing Partner",
+        "hook": "Dan invests in exactly the kind of company Alina is building.",
+        "bullets": [
+          "Founded Pantera Capital in 2003, the first US investment firm to launch dedicated Bitcoin, blockchain, and digital-asset venture funds.",
+          "Also a board member at Figure and former Chairman of Bitstamp (2014-2018); earlier co-founded and ran Atriax, a $100M electronic FX platform."
+        ],
+        "starter": "What's the story behind Pantera Capital, how did it get started?"
+      },
+      {
+        "name": "Said Tezel",
+        "role": "Founder",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Founding Engineer at Cardamon (YC W25), an AI compliance platform that recently partnered with Nubank (140M+ customers) on global regulatory compliance.",
+          "Spent 6 years at Revolut as a software engineer and data analyst before that; also ran Pamukk as Managing Director for several years."
+        ],
+        "starter": "What's the story behind Pamukk, how did it get started?"
+      },
+      {
+        "name": "Patrice Morgan",
+        "role": "Founder",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Runs Morgan Media / Bermuda Born, hosting seminars on living and relocating to Bermuda, alongside a background in reinsurance and corporate operations (Aflac, Peak Capital, Catalina Re).",
+          "Based in Bermuda; experience spans reinsurance support, compliance administration, and client relationship management across the UK and Bermuda."
+        ],
+        "starter": "What's the story behind Morgan Media Bermuda Born, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Elen",
+    "email_hash": "353c4bb2c3c7ec54fc207a6108002b0aea947c7779180dba6f32aa46efeb6d7e",
+    "matches": [
+      {
+        "name": "Oleksandr Skichko",
+        "role": "CEO",
+        "hook": "Oleksandr invests in exactly the kind of company Elen is building.",
+        "bullets": [
+          "CEO at CLT REZULT, based in UKRAINE / PORTUGAL.",
+          "Self-identified as an investor on the Web Summit guest list, open to meeting founders."
+        ],
+        "starter": "What's the story behind CLT REZULT, how did it get started?"
+      },
+      {
+        "name": "Luciano Carreño",
+        "role": "Founder",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Founder at Lendoor, based in Buenos Aires, Argentina.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Lendoor, how did it get started?"
+      },
+      {
+        "name": "Fabián Díaz",
+        "role": "Co-founder & CTO",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Co-founder & CTO at Lendoor, based in Buenos Aires, Argentina.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Lendoor, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Alex",
+    "email_hash": "3da2862ae7ffe43479106a37c5c61fcc3ea956035122b3beefe9a6ccd9a3e213",
+    "matches": [
+      {
+        "name": "Gabriel Cunha",
+        "role": "Founding Partner",
+        "hook": "Gabriel invests in exactly the kind of company Alex is building.",
+        "bullets": [
+          "Founding Partner at Owner Invest, based in Brazil.",
+          "Self-identified as an investor on the Web Summit guest list, open to meeting founders."
+        ],
+        "starter": "What's the story behind Owner Invest, how did it get started?"
+      },
+      {
+        "name": "Luciano Carreño",
+        "role": "Founder",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Founder at Lendoor, based in Buenos Aires, Argentina.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Lendoor, how did it get started?"
+      },
+      {
+        "name": "Fabián Díaz",
+        "role": "Co-founder & CTO",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Co-founder & CTO at Lendoor, based in Buenos Aires, Argentina.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Lendoor, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Nikita",
+    "email_hash": "b51d52c09252dbb6c33b67344b40538bd528bcc0982372ecb8e8d93dc0c31ea1",
+    "matches": [
+      {
+        "name": "Nazar Golodzhun",
+        "role": "GM / Investor",
+        "hook": "Nazar invests in exactly the kind of company Nikita is building.",
+        "bullets": [
+          "GM / Investor at ASKEP, Gold.Dev, axtiran.group, based in Warsaw, Poland.",
+          "Self-identified as an investor on the Web Summit guest list, open to meeting founders."
+        ],
+        "starter": "What's the story behind ASKEP, Gold.Dev, axtiran.group, how did it get started?"
+      },
+      {
+        "name": "Luciano Carreño",
+        "role": "Founder",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Founder at Lendoor, based in Buenos Aires, Argentina.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Lendoor, how did it get started?"
+      },
+      {
+        "name": "Fabián Díaz",
+        "role": "Co-founder & CTO",
+        "hook": "Building in overlapping territory, worth comparing notes.",
+        "bullets": [
+          "Co-founder & CTO at Lendoor, based in Buenos Aires, Argentina.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Lendoor, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Leandro",
+    "email_hash": "d9be3432a8706f8da8f0fb89307a590794a933775e8c4e9f4fcf685988da342d",
+    "matches": [
+      {
+        "name": "Luciano Carreño",
+        "role": "Founder",
+        "hook": "Leandro invests in exactly the kind of company Luciano is building.",
+        "bullets": [
+          "Founder at Lendoor, based in Buenos Aires, Argentina.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Lendoor, how did it get started?"
+      },
+      {
+        "name": "Fabián Díaz",
+        "role": "Co-founder & CTO",
+        "hook": "Leandro invests in exactly the kind of company Fabián is building.",
+        "bullets": [
+          "Co-founder & CTO at Lendoor, based in Buenos Aires, Argentina.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Lendoor, how did it get started?"
+      },
+      {
+        "name": "Elen Furmanets",
+        "role": "COO",
+        "hook": "Leandro invests in exactly the kind of company Elen is building.",
+        "bullets": [
+          "COO at Banxe, based in Berlin.",
+          "Came to Web Summit Lisbon as an executive."
+        ],
+        "starter": "What's the story behind Banxe, how did it get started?"
+      }
+    ]
+  },
+  {
+    "first_name": "Raphaela",
+    "email_hash": "986e79ae4e9c592248497284cce77b4977f5bd09d2e4a3346424276de88f38ff",
+    "matches": [
+      {
+        "name": "Dan Morehead",
+        "role": "Founder, Managing Partner",
+        "hook": "Dan invests in exactly the kind of company Raphaela is building.",
+        "bullets": [
+          "Founded Pantera Capital in 2003, the first US investment firm to launch dedicated Bitcoin, blockchain, and digital-asset venture funds.",
+          "Also a board member at Figure and former Chairman of Bitstamp (2014-2018); earlier co-founded and ran Atriax, a $100M electronic FX platform."
+        ],
+        "starter": "What's the story behind Pantera Capital, how did it get started?"
+      },
+      {
+        "name": "Patrice Morgan",
+        "role": "Founder",
+        "hook": "Both building at the intersection of culture, travel, and brand, worth comparing notes.",
+        "bullets": [
+          "Runs Morgan Media / Bermuda Born, hosting seminars on living and relocating to Bermuda, alongside a background in reinsurance and corporate operations (Aflac, Peak Capital, Catalina Re).",
+          "Based in Bermuda; experience spans reinsurance support, compliance administration, and client relationship management across the UK and Bermuda."
+        ],
+        "starter": "What's the story behind Morgan Media Bermuda Born, how did it get started?"
+      },
+      {
+        "name": "Dana Glick",
+        "role": "Founder",
+        "hook": "Both building in the urban/civic tech space, worth comparing notes.",
+        "bullets": [
+          "Founder at Space App, based in Lisbon, Portugal.",
+          "Came to Web Summit Lisbon as a founder."
+        ],
+        "starter": "What's the story behind Space App, how did it get started?"
+      }
+    ]
+  }
+];
 
 // The event co-host, pinned above every attendee's personal matches.
 const FEATURED_MATCHES = [
@@ -549,13 +2466,21 @@ function normalize(s) {
   return (s || '').trim().toLowerCase();
 }
 
-function findAttendee(firstName, email) {
+async function sha256Hex(s) {
+  var enc = new TextEncoder().encode(s);
+  var digest = await crypto.subtle.digest('SHA-256', enc);
+  return Array.from(new Uint8Array(digest)).map(function(b) {
+    return b.toString(16).padStart(2, '0');
+  }).join('');
+}
+
+async function findAttendee(firstName, email) {
   var fn = normalize(firstName);
-  var em = normalize(email);
+  var emHash = await sha256Hex(normalize(email));
   return ATTENDEES.find(function(a) {
     var nameMatches = normalize(a.first_name) === fn ||
       (a.aliases || []).some(function(alias) { return normalize(alias) === fn; });
-    return nameMatches && normalize(a.email) === em;
+    return nameMatches && a.email_hash === emHash;
   });
 }
 
@@ -595,7 +2520,7 @@ function hideError() {
   document.getElementById('error-msg').classList.remove('show');
 }
 
-document.getElementById('login-btn').addEventListener('click', function() {
+document.getElementById('login-btn').addEventListener('click', async function() {
   hideError();
   var fn = document.getElementById('first-name').value;
   var em = document.getElementById('email').value;
@@ -607,7 +2532,7 @@ document.getElementById('login-btn').addEventListener('click', function() {
     showError('Matches open on ' + EVENT.opensLabel + '. Please come back then.');
     return;
   }
-  var attendee = findAttendee(fn, em);
+  var attendee = await findAttendee(fn, em);
   if (!attendee) {
     showError("We couldn't find you on the guest list. Double-check your first name and the email you used when you applied.");
     return;
