@@ -53,33 +53,6 @@
     }
     .brand-logo img { height: 20px; }
 
-    .hero-banner {
-      display: block;
-      width: 100%;
-      max-width: 340px;
-      margin: 0 auto 36px;
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 24px 56px rgba(20,14,8,0.28), 0 2px 0 rgba(255,255,255,0.4) inset;
-      border: 1px solid rgba(14,14,14,0.08);
-      position: relative;
-    }
-    .hero-banner::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06);
-      pointer-events: none;
-    }
-    .hero-banner img {
-      display: block;
-      width: 100%;
-      height: auto;
-      transition: transform .35s ease;
-    }
-    .hero-banner:hover img { transform: scale(1.025); }
-
     .product-kicker {
       display: flex;
       align-items: center;
@@ -410,7 +383,6 @@
     @media (min-width: 1025px) {
       .wrap { max-width: 760px; padding: 116px 24px 100px; }
       .brand-logo { margin-bottom: 32px; }
-      .hero-banner { max-width: 380px; margin-bottom: 40px; }
       .login-card { padding: 40px 38px; }
       .match-card { padding: 26px 30px; transition: box-shadow .15s ease, transform .15s ease; }
       .match-card:hover { box-shadow: 0 4px 16px rgba(14,14,14,0.06); transform: translateY(-1px); }
@@ -421,7 +393,6 @@
     @media (max-width: 600px) {
       .wrap { padding: 70px 16px 56px; }
       .brand-logo { margin-bottom: 20px; }
-      .hero-banner { max-width: 260px; margin-bottom: 26px; }
       h1 { font-size: clamp(26px, 8vw, 34px); }
       .sub { font-size: 14.5px; margin-bottom: 26px; }
       .login-card { padding: 24px 18px; }
@@ -446,10 +417,6 @@
 <body>
 <yk-header><a href="/">Yorkseed</a> <a href="/hubs.html">Hubs</a> <a href="/events.html">Events</a> <a href="/investors">Investor list</a> <a href="/contact.html">Contact</a></yk-header>
 <div class="wrap">
-
-  <a class="hero-banner" href="https://luma.com/q2bwacoi" target="_blank" rel="noopener" aria-label="Founder Night Out event page on Luma">
-    <img src="/intro/img/founder-night-out-lisbon-hero.jpg" width="1080" height="1080" alt="Founder Night Out — Yorkseed x Web Summit Lisbon, Tuesday November 10th, 8pm">
-  </a>
 
   <div id="login-view" class="active">
     <div class="product-kicker">Yorkseed Event In-Person Match</div>
