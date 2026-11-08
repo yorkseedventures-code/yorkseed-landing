@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title id="pagetitle">Imène Ben Daoud, Hub Director, Yorkseed Paris · Yorkseed</title>
+<meta id="metadesc" name="description" content="Imène Ben Daoud (Hub Director, Yorkseed Paris) at Yorkseed.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#F7F4EE">
+<link id="canon" rel="canonical" href="https://yorkseed.co/team/imene-ben-daoud">
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="Yorkseed">
+<meta property="og:title" content="Imène Ben Daoud, Hub Director, Yorkseed Paris · Yorkseed">
+<meta property="og:description" content="Imène Ben Daoud (Hub Director, Yorkseed Paris) at Yorkseed.">
+<meta property="og:url" content="https://yorkseed.co/team/imene-ben-daoud">
+<meta property="og:image" content="https://yorkseed.co/team/img/imene-ben-daoud-og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Imène Ben Daoud, Hub Director, Yorkseed Paris">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Imène Ben Daoud, Hub Director, Yorkseed Paris · Yorkseed">
+<meta name="twitter:description" content="Imène Ben Daoud (Hub Director, Yorkseed Paris) at Yorkseed.">
+<meta name="twitter:image" content="https://yorkseed.co/team/img/imene-ben-daoud-og.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Source+Serif+4:wght@400;600&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/team/person.css">
+<script src="/assets/ys-ref.js" defer></script>
+</head>
+<body>
+<main class="page">
+  <header class="top">
+    <a class="brand" href="https://yorkseed.co"><img src="/assets/brand/yorkseed-logo.png" alt="Yorkseed"></a>
+    <button class="share" id="share" type="button" hidden>
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 10V2.5M5 5.5l3-3 3 3M3.5 8.5v4.5h9V8.5" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Share
+    </button>
+  </header>
+
+  <div id="profile" class="grid" hidden>
+   <aside class="left">
+    <section class="hero">
+      <div class="avatar"><img id="photo" alt="" hidden><div id="ini" class="ini" hidden></div></div>
+      <div id="eyebrow" class="eyebrow"></div>
+      <h1 id="name"></h1>
+      <div id="role" class="role" hidden></div>
+      <p id="bio" class="bio" hidden></p>
+    </section>
+
+    <button class="save" id="save" type="button">
+      <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="7" cy="6" r="3" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M1.8 15.5c.6-2.8 2.7-4.3 5.2-4.3s4.6 1.5 5.2 4.3M14 6.5v5M11.5 9h5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      Save contact
+    </button>
+   </aside>
+
+   <div class="right">
+    <nav id="links" class="mine" aria-label="Links"></nav>
+
+    <section class="more" aria-label="More from Yorkseed">
+      <h2>More from Yorkseed</h2>
+      <div id="stdlinks"></div>
+    </section>
+
+    <p class="about"><a href="https://yorkseed.co">Yorkseed</a> is a global capital network and platform serving founders, investors and allocators. <a href="https://thevalois.com" target="_blank" rel="noopener">Valois</a> is its private capital layer.</p>
+
+    <footer class="foot">
+      <span id="footline"></span>
+      <a href="https://yorkseed.co/team-login.html">Is this your page? Sign in</a>
+    </footer>
+   </div>
+  </div>
+
+  <div id="notfound" class="notfound" hidden>
+    <h1>We couldn't find that page</h1>
+    <p>This profile may have moved. <a href="/team/">See the Yorkseed team</a>.</p>
+  </div>
+</main>
+<div id="toast" class="toast" role="status"></div>
+
+<script>
+(function () {
+  var API = "https://yorkseed-backend-production.up.railway.app";
+
+  var STANDARD_LINKS = [
+    { t: "Yorkseed House Lisbon", s: "Our home base during Web Summit Lisbon", url: "https://yorkseedhouse.com" },
+    { t: "Yorkseed Events", s: "See what's next and RSVP", url: "https://luma.com/yorkseed" },
+    { t: "Yorkseed Delegations", s: "Join a founder or investor trip to a major event", url: "https://yorkseed.co/delegation/" },
+    { t: "30 days free on Yorkseed Connect", s: "The members' platform for deals and introductions", url: "https://app.yorkseed.co/eventoffer" },
+    { t: "Host an event with Yorkseed", s: "Bring your event to our network", url: "https://yorkseed.co/host-with-yorkseed.html" },
+    { t: "Request an event partnership", s: "Partner with Yorkseed on your next event", url: "https://yorkseed.co/event-partner-request" },
+    { t: "Monthly deal flow", s: "Curated deals from our Core members", url: "https://tally.so/r/vGX1YA" },
+    { t: "KoiCard", s: "Free scan-and-save business cards", url: "https://koicard.app/landing" }
+  ];
+
+  var CURRENT_NAME = "";
+  var ARROW = '<svg class="arr" viewBox="0 0 12 12" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  var ICONS = {
+    mail: '<path d="M2.5 4.5h13v9h-13zM2.8 4.8L9 10l6.2-5.2" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>',
+    cal: '<path d="M3 5h12v10H3zM3 8h12M6 3v3.5M12 3v3.5" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>',
+    work: '<path d="M2.5 6h13v8.5h-13zM6.5 6V4h5v2M2.5 10h13" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>',
+    phone: '<path d="M5 2.5h3l1 3.5-2 1.2a8 8 0 0 0 3.8 3.8L12 9l3.5 1v3a2 2 0 0 1-2.2 2C7.6 14.5 3.5 10.4 3 4.7A2 2 0 0 1 5 2.5z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>',
+    chat: '<path d="M9 2.8a6.2 6.2 0 0 0-5.4 9.3L2.8 15.2l3.2-.8A6.2 6.2 0 1 0 9 2.8z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M6.8 6.6c.2 1.9 2.3 4 4.4 4.4l.8-1-1.2-.7-.6.5c-.7-.3-1.4-1-1.7-1.7l.5-.6-.7-1.2z" fill="currentColor"/>',
+    web: '<circle cx="9" cy="9" r="6.5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M2.5 9h13M9 2.5c2 2 2.8 4.2 2.8 6.5S11 13.5 9 15.5C7 13.5 6.2 11.3 6.2 9S7 4.5 9 2.5z" fill="none" stroke="currentColor" stroke-width="1.3"/>'
+  };
+
+  function esc(s) {
+    return String(s || "").replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+  function initials(name) {
+    return (name || "").trim().split(/\s+/).map(function (p) { return p[0]; }).slice(0, 2).join("").toUpperCase();
+  }
+  function toast(msg) {
+    var t = document.getElementById("toast"); t.textContent = msg; t.classList.add("on");
+    setTimeout(function () { t.classList.remove("on"); }, 1800);
+  }
+
+  // Work out an icon and a short subtitle from the URL.
+  function describe(url) {
+    var u = String(url || "");
+    if (/^mailto:/i.test(u)) return { ic: "mail", s: u.replace(/^mailto:/i, "").split("?")[0] };
+    if (/^tel:\+/i.test(u)) {
+      // Phone numbers with a country code open a WhatsApp chat.
+      var num = u.replace(/^tel:/i, "");
+      var first = (CURRENT_NAME || "").trim().split(/\s+/)[0];
+      var text = "Hi" + (first ? " " + first : "") + ", I found you through Yorkseed.";
+      return { ic: "chat", s: "WhatsApp · " + num, href: "https://wa.me/" + num.replace(/\D/g, "") + "?text=" + encodeURIComponent(text) };
+    }
+    if (/^tel:/i.test(u)) return { ic: "phone", s: u.replace(/^tel:/i, "") };
+    var host = "";
+    try { host = new URL(u).hostname.replace(/^www\./, ""); } catch (e) {}
+    if (/linkedin\.com$/.test(host)) return { ic: "work", s: "linkedin.com" };
+    if (/(calendly\.com|cal\.com|savvycal\.com)$/.test(host) || /calendar\.google|zcal\.co/.test(u)) return { ic: "cal", s: host || "Book a time" };
+    return { ic: "web", s: host };
+  }
+
+  function personalLink(l) {
+    var d = describe(l.url);
+    var a = document.createElement("a");
+    a.className = "btn"; a.href = d.href || l.url;
+    if (!/^(mailto|tel):/i.test(a.href)) { a.target = "_blank"; a.rel = "noopener"; }
+    a.innerHTML = '<span class="ic"><svg viewBox="0 0 18 18" aria-hidden="true">' + ICONS[d.ic] + '</svg></span>' +
+      '<span class="tx"><div class="t">' + esc(l.label) + '</div>' + (d.s ? '<div class="s">' + esc(d.s) + '</div>' : '') + '</span>' + ARROW;
+    return a;
+  }
+
+  function standardLink(l) {
+    var a = document.createElement("a");
+    a.href = l.url; a.target = "_blank"; a.rel = "noopener";
+    a.innerHTML = '<span class="tx"><div class="t">' + esc(l.t) + '</div>' + (l.s ? '<div class="s">' + esc(l.s) + '</div>' : '') + '</span>' + ARROW;
+    return a;
+  }
+
+  // vCard so people can save the contact straight to their phone.
+  function vcardEscape(s) { return String(s || "").replace(/\\/g, "\\\\").replace(/\n/g, "\\n").replace(/([,;])/g, "\\$1"); }
+  function buildVCard(m, pageUrl, photoB64) {
+    var parts = (m.name || "").trim().split(/\s+/);
+    var last = parts.length > 1 ? parts.slice(1).join(" ") : "";
+    var lines = [
+      "BEGIN:VCARD", "VERSION:3.0",
+      "FN:" + vcardEscape(m.name),
+      "N:" + vcardEscape(last) + ";" + vcardEscape(parts[0] || "") + ";;;",
+      "ORG:Yorkseed"
+    ];
+    if (m.role) lines.push("TITLE:" + vcardEscape(m.role));
+    if (m.city) lines.push("ADR;TYPE=WORK:;;;" + vcardEscape(m.city) + ";;;");
+    (m.links || []).forEach(function (l) {
+      if (/^mailto:/i.test(l.url)) lines.push("EMAIL;TYPE=WORK:" + l.url.replace(/^mailto:/i, "").split("?")[0]);
+      else if (/^tel:/i.test(l.url)) lines.push("TEL;TYPE=CELL:" + l.url.replace(/^tel:/i, ""));
+      else lines.push("URL:" + l.url);
+    });
+    // placeholder cards /team/a to /team/z are reassigned later, so the Yorkseed website is saved instead of their own page
+    lines.push("URL:" + (/\/team\/[a-z]\/?(\?.*)?$/i.test(String(pageUrl)) ? "https://yorkseed.co" : pageUrl));
+    if (m.contactNote) lines.push("NOTE:" + vcardEscape(m.contactNote));
+    if (photoB64) lines.push("PHOTO;ENCODING=b;TYPE=JPEG:" + photoB64);
+    lines.push("END:VCARD");
+    return lines.join("\r\n");
+  }
+
+  var slug = new URLSearchParams(window.location.search).get("u") ||
+    window.location.pathname.replace(/^\/team\//, "").replace(/\/$/, "");
+
+  // "More from Yorkseed" is edited in Connect → Admin → Team & Links.
+  // STANDARD_LINKS above is only the fallback if that list can't be loaded.
+  var stdEl = document.getElementById("stdlinks");
+  function renderStd(list) {
+    stdEl.innerHTML = "";
+    list.forEach(function (l) { stdEl.appendChild(standardLink(l)); });
+    stdEl.parentNode.hidden = !list.length;
+  }
+  fetch(API + "/api/team/promo-links")
+    .then(function (r) { if (!r.ok) throw new Error(); return r.json(); })
+    .then(function (d) {
+      renderStd((d.links || []).map(function (l) { return { t: l.title, s: l.subtitle, url: l.url }; }));
+    })
+    .catch(function () { renderStd(STANDARD_LINKS); });
+
+  if (!slug) { document.getElementById("notfound").hidden = false; return; }
+
+  fetch(API + "/api/team/" + encodeURIComponent(slug))
+    .then(function (r) { if (!r.ok) throw new Error("not found"); return r.json(); })
+    .then(function (data) {
+      var m = (data && data.member) || data;
+      if (!m || !m.name) throw new Error("not found");
+      var pageUrl = "https://yorkseed.co/team/" + slug;
+      var photoUrl = API + "/api/team/" + encodeURIComponent(slug) + "/photo";
+      var cat = m.category || "Team";
+      CURRENT_NAME = m.name;
+
+      document.getElementById("pagetitle").textContent = m.name + (m.role ? ", " + m.role : "") + " · Yorkseed";
+      document.getElementById("metadesc").setAttribute("content", m.name + (m.role ? " (" + m.role + ")" : "") + " at Yorkseed.");
+      document.getElementById("canon").setAttribute("href", pageUrl);
+
+      document.getElementById("eyebrow").textContent = [cat, m.city].filter(Boolean).join(" · ");
+      document.getElementById("name").textContent = m.name;
+      if (m.role) { var r = document.getElementById("role"); r.textContent = m.role; r.hidden = false; }
+      if (m.bio) { var b = document.getElementById("bio"); b.textContent = m.bio; b.hidden = false; }
+
+      var ini = document.getElementById("ini");
+      ini.textContent = initials(m.name);
+      if (m.hasPhoto) {
+        var img = document.getElementById("photo");
+        img.onerror = function () { img.hidden = true; ini.hidden = false; };
+        img.src = photoUrl; img.alt = m.name; img.hidden = false;
+      } else { ini.hidden = false; }
+
+      var linksEl = document.getElementById("links");
+      (m.links || []).forEach(function (l) { linksEl.appendChild(personalLink(l)); });
+
+      document.getElementById("footline").textContent = "A Yorkseed " + cat;
+
+      document.getElementById("save").addEventListener("click", function () {
+        var done = function (b64) {
+          var blob = new Blob([buildVCard(m, pageUrl, b64)], { type: "text/vcard;charset=utf-8" });
+          var a = document.createElement("a");
+          a.href = URL.createObjectURL(blob);
+          a.download = (m.name || "contact").replace(/[^\w\- ]+/g, "").trim().replace(/\s+/g, "-") + ".vcf";
+          document.body.appendChild(a); a.click(); a.remove();
+          setTimeout(function () { URL.revokeObjectURL(a.href); }, 4000);
+        };
+        if (!m.hasPhoto) return done("");
+        fetch(photoUrl).then(function (r) { return r.blob(); }).then(function (bl) {
+          var fr = new FileReader();
+          fr.onload = function () { done(String(fr.result).split(",")[1] || ""); };
+          fr.onerror = function () { done(""); };
+          fr.readAsDataURL(bl);
+        }).catch(function () { done(""); });
+      });
+
+      var shareBtn = document.getElementById("share");
+      shareBtn.hidden = false;
+      shareBtn.addEventListener("click", function () {
+        if (navigator.share) {
+          navigator.share({ title: m.name + " · Yorkseed", url: pageUrl }).catch(function () {});
+        } else if (navigator.clipboard) {
+          navigator.clipboard.writeText(pageUrl).then(function () { toast("Link copied"); });
+        }
+      });
+
+      document.getElementById("profile").hidden = false;
+    })
+    .catch(function () { document.getElementById("notfound").hidden = false; });
+})();
+</script>
+</body>
+</html>
