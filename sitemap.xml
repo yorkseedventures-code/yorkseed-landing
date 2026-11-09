@@ -106,6 +106,12 @@
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://yorkseed.co/delegation/lisbon-2026/anna-fedulow/</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
 
   <url>
     <loc>https://yorkseed.co/delegation/lisbon-2026/nora-jurics-feher/</loc>
