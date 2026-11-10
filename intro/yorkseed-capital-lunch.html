@@ -7,32 +7,42 @@
   <title id="page-title">Yorkseed Event In-Person Match</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,600;1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --red:   #c8372d;
-      --gold:  #b08d57;
-      --gold-soft: #d9c08a;
-      --ink:   #0e0e0e;
-      --ink2:  #2c2c2c;
-      --ink3:  #5c5450;
-      --ink4:  #8c8178;
-      --off:   #f6f1e7;
-      --card:  #fffdf9;
+      --azul:  #1c5c82;
+      --azul-deep: #0f3c58;
+      --terracotta: #c1512f;
+      --terracotta-soft: #e0a483;
+      --limestone-ink:   #1a2226;
+      --ink2:  #2e3639;
+      --ink3:  #5d6b70;
+      --ink4:  #8b969a;
+      --off:   #f4f0e6;
+      --card:  #fffdf8;
       --white: #fff;
-      --border:  #e8ddc9;
-      --border2: #d8cab0;
+      --border:  #ddd9ca;
+      --border2: #c9c3ae;
       --sans:  'DM Sans', sans-serif;
-      --serif: 'Playfair Display', Georgia, serif;
+      --serif: 'Fraunces', 'Playfair Display', Georgia, serif;
       --mono:  'DM Mono', monospace;
+      /* backward-compat aliases so existing rules keep working */
+      --red:   var(--terracotta);
+      --gold:  var(--azul);
+      --gold-soft: var(--terracotta-soft);
+      --ink:   var(--limestone-ink);
     }
 
     body {
       font-family: var(--sans);
       background:
-        radial-gradient(900px 480px at 50% -80px, rgba(176,141,87,0.16), transparent 68%),
+        linear-gradient(180deg, rgba(28,92,130,0.05), transparent 180px),
+        var(--off);
+      background-image:
+        linear-gradient(180deg, rgba(28,92,130,0.05), transparent 180px),
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64'><g fill='none' stroke='%231c5c82' stroke-opacity='0.055' stroke-width='1.2'><path d='M0 32a32 32 0 0 1 32-32'/><path d='M32 64a32 32 0 0 1 32-32'/><path d='M0 0a32 32 0 0 1 32 32'/><path d='M32 32a32 32 0 0 1 32 32'/></g></svg>"),
         var(--off);
       color: var(--ink);
       line-height: 1.5;
@@ -69,8 +79,18 @@
       content: "";
       width: 3px;
       height: 12px;
-      background: var(--red);
+      background: var(--terracotta);
       flex: none;
+    }
+
+    .tile-band {
+      height: 13px;
+      width: 112px;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28'><rect width='28' height='28' fill='%231c5c82'/><path d='M0 14a14 14 0 0 1 14-14' fill='none' stroke='white' stroke-width='2.4'/><path d='M14 28a14 14 0 0 1 14-14' fill='none' stroke='white' stroke-width='2.4'/></svg>");
+      background-repeat: repeat-x;
+      background-size: 28px 13px;
+      border-radius: 2px;
+      margin-bottom: 22px;
     }
 
     .eyebrow {
@@ -317,20 +337,94 @@
       text-align: center;
     }
 
+    .info-section { margin-bottom: 30px; }
+    .info-section .why-label { margin-bottom: 14px; }
+
+    .menu-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 26px 28px;
+      box-shadow: 0 10px 26px rgba(15,60,88,0.06);
+    }
+    .menu-course {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .menu-course:last-child { border-bottom: none; }
+    .menu-course-label {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--azul);
+      font-weight: 500;
+      white-space: nowrap;
+      flex: none;
+      padding-top: 2px;
+    }
+    .menu-course-name {
+      font-family: var(--serif);
+      font-size: 16.5px;
+      font-weight: 500;
+      color: var(--ink);
+      text-align: right;
+    }
+    .menu-tbd {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      color: var(--ink4);
+      margin-top: 14px;
+    }
+
+    .guest-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 26px rgba(15,60,88,0.06);
+    }
+    .guest-cell {
+      background: var(--card);
+      padding: 14px 16px;
+      min-width: 0;
+    }
+    .guest-name {
+      font-family: var(--serif);
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 2px;
+      overflow-wrap: break-word;
+    }
+    .guest-company {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--ink3);
+      overflow-wrap: break-word;
+    }
+
     .bonus-card {
-      background: linear-gradient(165deg, #1a1512, var(--ink) 60%);
-      border: 1px solid rgba(176,141,87,0.25);
+      background: linear-gradient(165deg, var(--azul-deep), #0a2638 70%);
+      border: 1px solid rgba(225,164,131,0.28);
       border-radius: 14px;
       padding: 30px 28px;
       margin: 30px 0 8px;
-      box-shadow: 0 18px 44px rgba(20,14,8,0.22);
+      box-shadow: 0 18px 44px rgba(10,20,28,0.28);
     }
     .bonus-eyebrow {
       font-family: var(--mono);
       font-size: 11px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--terracotta-soft);
       font-weight: 500;
       margin-bottom: 8px;
     }
@@ -368,7 +462,7 @@
       color: rgba(255,255,255,.45);
       margin-top: 14px;
     }
-    .bonus-note a { color: var(--gold); text-decoration: underline; }
+    .bonus-note a { color: var(--terracotta-soft); text-decoration: underline; }
 
     #login-view, #results-view { display: none; }
     #login-view.active, #results-view.active { display: block; }
@@ -408,6 +502,10 @@
       .bonus-body { font-size: 14px; }
       .bonus-cta { width: 100%; text-align: center; }
       .event-detail { font-size: 12px; }
+      .guest-grid { grid-template-columns: 1fr; }
+      .menu-card { padding: 20px 18px; }
+      .menu-course { flex-direction: column; gap: 2px; padding: 11px 0; }
+      .menu-course-name { text-align: left; }
     }
   </style>
   <script src="/assets/site-chrome.js" defer></script>
@@ -419,6 +517,7 @@
 <div class="wrap">
 
   <div id="login-view" class="active">
+    <div class="tile-band"></div>
     <div class="product-kicker">Yorkseed Event In-Person Match</div>
     <div class="eyebrow" id="login-event-name"></div>
     <h1>Find out who to meet.</h1>
@@ -440,6 +539,7 @@
   </div>
 
   <div id="results-view">
+    <div class="tile-band"></div>
     <div class="results-header">
       <div>
         <div class="product-kicker">Yorkseed Event In-Person Match</div>
@@ -459,6 +559,16 @@
     </div>
 
     <div id="match-list"></div>
+
+    <div class="info-section">
+      <div class="why-label">On the menu</div>
+      <div class="menu-card" id="menu-card"></div>
+    </div>
+
+    <div class="info-section">
+      <div class="why-label">Who's joining</div>
+      <div class="guest-grid" id="guest-grid"></div>
+    </div>
 
     <div class="bonus-card">
       <div class="bonus-eyebrow">Complimentary Bonus</div>
@@ -527,6 +637,53 @@ function renderFeatured() {
       linkHtml;
     list.appendChild(card);
   });
+}
+
+// Placeholder menu, update with the final selections closer to the date.
+const MENU = [
+  { label: "Starter", name: "To be confirmed" },
+  { label: "Main", name: "To be confirmed" },
+  { label: "Dessert", name: "To be confirmed" },
+  { label: "To drink", name: "To be confirmed" }
+];
+
+function renderMenu() {
+  var card = document.getElementById('menu-card');
+  card.innerHTML = MENU.map(function(c) {
+    return '<div class="menu-course">' +
+      '<div class="menu-course-label">' + c.label + '</div>' +
+      '<div class="menu-course-name">' + c.name + '</div>' +
+      '</div>';
+  }).join('');
+  card.innerHTML += '<div class="menu-tbd">Final menu confirmed closer to the day.</div>';
+}
+
+// Full guest list, shown to every attendee once they are in.
+const GUEST_LIST = [
+  { name: "Jessica Wong", company: "Yorkseed" },
+  { name: "Peter Humphreys", company: "Yorkseed / Blacklion Consulting" },
+  { name: "Oksana Neven", company: "Bodywell" },
+  { name: "Marko Göls", company: "ONONO AI" },
+  { name: "Hannes Harborth", company: "DSR.agency" },
+  { name: "Angelica (Angie) Pinzon", company: "Luvo" },
+  { name: "Anya Lazarevych", company: "Furnish'd" },
+  { name: "Marianna Modenova", company: "Furnish'd" },
+  { name: "Alexey Vorobey", company: "AIstats" },
+  { name: "Kevin Krüger", company: "LNKSTR" },
+  { name: "Pedro Guerra Alves", company: "PGA Consultoria" },
+  { name: "Nicole Reznic", company: "Mark3t" },
+  { name: "Ahmet Şüküroğlu", company: "Zuzzuu" },
+  { name: "Seif Khemaissia", company: "BrandPilot AI" }
+];
+
+function renderGuests() {
+  var grid = document.getElementById('guest-grid');
+  grid.innerHTML = GUEST_LIST.map(function(g) {
+    return '<div class="guest-cell">' +
+      '<div class="guest-name">' + g.name + '</div>' +
+      '<div class="guest-company">' + g.company + '</div>' +
+      '</div>';
+  }).join('');
 }
 
 function applyEventConfig() {
@@ -630,6 +787,8 @@ document.getElementById('login-btn').addEventListener('click', async function() 
   }
   renderFeatured();
   renderMatches(attendee);
+  renderMenu();
+  renderGuests();
   document.getElementById('login-view').classList.remove('active');
   document.getElementById('results-view').classList.add('active');
 });
