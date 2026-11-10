@@ -1,0 +1,652 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title id="page-title">Yorkseed Event In-Person Match</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,600;1,500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red:   #c8372d;
+      --gold:  #b08d57;
+      --gold-soft: #d9c08a;
+      --ink:   #0e0e0e;
+      --ink2:  #2c2c2c;
+      --ink3:  #5c5450;
+      --ink4:  #8c8178;
+      --off:   #f6f1e7;
+      --card:  #fffdf9;
+      --white: #fff;
+      --border:  #e8ddc9;
+      --border2: #d8cab0;
+      --sans:  'DM Sans', sans-serif;
+      --serif: 'Playfair Display', Georgia, serif;
+      --mono:  'DM Mono', monospace;
+    }
+
+    body {
+      font-family: var(--sans);
+      background:
+        radial-gradient(900px 480px at 50% -80px, rgba(176,141,87,0.16), transparent 68%),
+        var(--off);
+      color: var(--ink);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+
+    .wrap {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 88px 20px 80px;
+    }
+
+    .brand-logo {
+      display: block;
+      margin-bottom: 28px;
+    }
+    .brand-logo img { height: 20px; }
+
+    .product-kicker {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+    .product-kicker::before {
+      content: "";
+      width: 3px;
+      height: 12px;
+      background: var(--red);
+      flex: none;
+    }
+
+    .eyebrow {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--ink3);
+      font-weight: 400;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(28px, 6vw, 40px);
+      font-weight: 600;
+      line-height: 1.15;
+      margin-bottom: 12px;
+      color: var(--ink);
+    }
+
+    .sub {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--ink3);
+      max-width: 48ch;
+      line-height: 1.55;
+      margin-bottom: 32px;
+    }
+
+    .event-detail {
+      font-size: 13px;
+      color: var(--ink3);
+      margin-bottom: 6px;
+    }
+    .event-detail a {
+      color: var(--ink2);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .venue-address {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--ink4);
+      margin-bottom: 4px;
+    }
+    .onsite-contact {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--ink4);
+      margin-bottom: 24px;
+    }
+
+    .login-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 40px 36px;
+      max-width: 420px;
+      box-shadow: 0 18px 44px rgba(32,24,16,0.1);
+    }
+
+    .field { margin-bottom: 18px; }
+    label {
+      display: block;
+      font-family: var(--mono);
+      font-size: 11.5px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--ink3);
+      margin-bottom: 6px;
+    }
+    input[type="text"], input[type="email"] {
+      width: 100%;
+      font-family: var(--sans);
+      font-size: 14.5px;
+      font-weight: 300;
+      color: var(--ink);
+      background: var(--off);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 10px 12px;
+      outline: none;
+      transition: border-color .15s;
+    }
+    input:focus { border-color: var(--gold); }
+
+    button.primary {
+      width: 100%;
+      background: var(--ink);
+      color: var(--white);
+      font-family: var(--sans);
+      font-size: 15px;
+      font-weight: 500;
+      border: none;
+      border-radius: 3px;
+      padding: 13px 20px;
+      margin-top: 6px;
+    }
+    button.primary:hover { background: #1e1e1e; cursor: pointer; }
+
+    .error-msg {
+      font-size: 13.5px;
+      color: var(--red);
+      font-weight: 400;
+      margin-bottom: 14px;
+      display: none;
+    }
+    .error-msg.show { display: block; }
+
+    .results-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .logout {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--ink3);
+      text-decoration: underline;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+    }
+    .logout:hover { color: var(--ink); }
+
+    .match-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      border-radius: 10px;
+      padding: 24px 26px;
+      margin-bottom: 18px;
+      box-shadow: 0 10px 26px rgba(32,24,16,0.07);
+    }
+    .match-index {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--red);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .match-name {
+      font-family: var(--serif);
+      font-size: 21px;
+      font-weight: 600;
+      margin: 0 0 2px;
+      color: var(--ink);
+    }
+    .match-role {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 14px;
+    }
+    .match-hook {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 15.5px;
+      font-weight: 500;
+      color: var(--ink2);
+      line-height: 1.45;
+      margin: 0 0 16px;
+    }
+    .why-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink4);
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    ul.bullets {
+      margin: 0 0 16px;
+      padding-left: 18px;
+    }
+    ul.bullets li {
+      font-size: 14.5px;
+      font-weight: 300;
+      line-height: 1.55;
+      margin-bottom: 5px;
+      color: var(--ink2);
+    }
+    .starter {
+      background: var(--off);
+      border: 1px dashed var(--border2);
+      border-radius: 8px;
+      padding: 13px 16px;
+      font-size: 14px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--ink2);
+    }
+    .starter b {
+      font-style: normal;
+      font-weight: 600;
+      color: var(--red);
+    }
+
+    .featured-section {
+      margin-bottom: 30px;
+    }
+    .featured-section .why-label {
+      margin-bottom: 14px;
+    }
+    .featured-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--red);
+      border-radius: 10px;
+      padding: 24px 26px;
+      margin-bottom: 16px;
+      position: relative;
+      box-shadow: 0 10px 26px rgba(32,24,16,0.07);
+    }
+    .featured-badge {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--white);
+      background: var(--red);
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 2px;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+    .featured-card .match-name { font-size: 20px; }
+    .featured-card .match-role { color: var(--red); }
+
+    .footer-note {
+      margin-top: 36px;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--ink4);
+      text-align: center;
+    }
+
+    .bonus-card {
+      background: linear-gradient(165deg, #1a1512, var(--ink) 60%);
+      border: 1px solid rgba(176,141,87,0.25);
+      border-radius: 14px;
+      padding: 30px 28px;
+      margin: 30px 0 8px;
+      box-shadow: 0 18px 44px rgba(20,14,8,0.22);
+    }
+    .bonus-eyebrow {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .bonus-title {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--white);
+      margin: 0 0 10px;
+      line-height: 1.25;
+    }
+    .bonus-body {
+      font-size: 14.5px;
+      font-weight: 300;
+      line-height: 1.6;
+      color: rgba(255,255,255,.72);
+      margin: 0 0 18px;
+      max-width: 58ch;
+    }
+    .bonus-cta {
+      display: inline-block;
+      background: var(--red);
+      color: #fff;
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 11px 20px;
+      border-radius: 7px;
+      text-decoration: none;
+    }
+    .bonus-cta:hover { opacity: .88; }
+    .bonus-note {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      color: rgba(255,255,255,.45);
+      margin-top: 14px;
+    }
+    .bonus-note a { color: var(--gold); text-decoration: underline; }
+
+    #login-view, #results-view { display: none; }
+    #login-view.active, #results-view.active { display: block; }
+
+    @media (min-width: 601px) and (max-width: 1024px) {
+      .wrap { max-width: 680px; padding: 104px 32px 90px; }
+      .login-card { padding: 40px 36px; }
+      .match-card { padding: 26px 28px; }
+      .bonus-card { padding: 32px 30px; }
+    }
+
+    @media (min-width: 1025px) {
+      .wrap { max-width: 760px; padding: 116px 24px 100px; }
+      .brand-logo { margin-bottom: 32px; }
+      .login-card { padding: 40px 38px; }
+      .match-card { padding: 26px 30px; transition: box-shadow .15s ease, transform .15s ease; }
+      .match-card:hover { box-shadow: 0 4px 16px rgba(14,14,14,0.06); transform: translateY(-1px); }
+      .bonus-card { padding: 36px 38px; }
+      input[type="text"], input[type="email"] { font-size: 15px; }
+    }
+
+    @media (max-width: 600px) {
+      .wrap { padding: 70px 16px 56px; }
+      .brand-logo { margin-bottom: 20px; }
+      h1 { font-size: clamp(26px, 8vw, 34px); }
+      .sub { font-size: 14.5px; margin-bottom: 26px; }
+      .login-card { padding: 24px 18px; }
+      .field { margin-bottom: 15px; }
+      .results-header { flex-direction: column; align-items: flex-start; margin-bottom: 20px; }
+      .logout { font-size: 12.5px; }
+      .match-card { padding: 18px 16px; margin-bottom: 14px; }
+      .match-name { font-size: 19px; }
+      ul.bullets li { font-size: 14px; }
+      .starter { font-size: 13.5px; padding: 11px 12px; }
+      .bonus-card { padding: 22px 18px; margin: 22px 0 6px; }
+      .bonus-title { font-size: 20px; }
+      .bonus-body { font-size: 14px; }
+      .bonus-cta { width: 100%; text-align: center; }
+      .event-detail { font-size: 12px; }
+    }
+  </style>
+  <script src="/assets/site-chrome.js" defer></script>
+  <style>yk-header:not(:defined){display:block;min-height:73px}</style>
+  <script src="/assets/ys-ref.js" defer></script>
+</head>
+<body>
+<yk-header><a href="/">Yorkseed</a> <a href="/hubs.html">Hubs</a> <a href="/events.html">Events</a> <a href="/investors">Investor list</a> <a href="/contact.html">Contact</a></yk-header>
+<div class="wrap">
+
+  <div id="login-view" class="active">
+    <div class="product-kicker">Yorkseed Event In-Person Match</div>
+    <div class="eyebrow" id="login-event-name"></div>
+    <h1>Find out who to meet.</h1>
+    <p class="event-detail" id="login-event-detail"></p>
+    <p class="sub">Enter the first name and email you registered with. Your curated matches will be shown once we confirm you're on the guest list.</p>
+
+    <div class="login-card">
+      <div class="error-msg" id="error-msg"></div>
+      <div class="field">
+        <label for="first-name">First name</label>
+        <input type="text" id="first-name" placeholder="e.g. Jessica" autocomplete="given-name">
+      </div>
+      <div class="field">
+        <label for="email">Email address</label>
+        <input type="email" id="email" placeholder="you@company.com" autocomplete="email">
+      </div>
+      <button class="primary" id="login-btn">See my matches</button>
+    </div>
+  </div>
+
+  <div id="results-view">
+    <div class="results-header">
+      <div>
+        <div class="product-kicker">Yorkseed Event In-Person Match</div>
+        <div class="eyebrow" id="results-eyebrow"></div>
+        <h1 id="results-heading" style="font-size: clamp(26px,5vw,36px);">Hi there.</h1>
+      </div>
+      <button class="logout" id="logout-btn">Not you? Switch account</button>
+    </div>
+    <p class="event-detail" id="results-event-detail"></p>
+    <p class="venue-address" id="results-venue-address"></p>
+    <p class="onsite-contact" id="results-host-label"></p>
+    <p class="sub" id="results-sub">Based on what you shared in your RSVP, here's who we think you should meet.</p>
+
+    <div class="featured-section">
+      <div class="why-label">Your event co-host</div>
+      <div id="featured-list"></div>
+    </div>
+
+    <div id="match-list"></div>
+
+    <div class="bonus-card">
+      <div class="bonus-eyebrow">Complimentary Bonus</div>
+      <h3 class="bonus-title">1 Month of Yorkseed Connect</h3>
+      <p class="bonus-body">Yorkseed Connect is our venture relationship platform designed to help founders and investors build stronger connections beyond events through verified profiles, warm introductions, opportunity discovery, and access to Yorkseed's global network.</p>
+      <p class="bonus-body">All approved founders and investors attending this event will be eligible to receive a special code for complimentary access to Yorkseed Connect.</p>
+      <a class="bonus-cta" href="https://app.yorkseed.co/eventoffer?utm_source=luma" target="_blank" rel="noopener">Claim 1 month free</a>
+      <div class="bonus-note">Space is limited and registration is required &middot; <a href="https://app.yorkseed.co/eventoffer?utm_source=luma" target="_blank" rel="noopener">app.yorkseed.co/eventoffer</a></div>
+    </div>
+
+    <div class="footer-note" id="footer-note"></div>
+  </div>
+
+</div>
+<yk-footer></yk-footer>
+
+<script>
+const EVENT = {
+  slug:          "yorkseed-capital-lunch",
+  name:          "Yorkseed Capital Lunch",
+  city:          "Lisbon",
+  dateLabel:     "Nov 10, 2026",
+  timeLabel:     "12:00 PM to 2:30 PM",
+  onsiteContact: "",
+  venueName:     "Shared with confirmed guests closer to the date",
+  venueAddress:  "Lisbon, Portugal",
+  venueMapUrl:   "https://luma.com/lj25z4k3",
+  opensAt:       "",
+  opensLabel:    ""
+};
+
+// Hand-picked guest list for the Yorkseed Capital Lunch (ten approved
+// guests), with matches chosen by hand rather than algorithmically, given
+// the small list. Peter Humphreys and Angelica (Angie) Pinzon reuse their
+// enriched bios from the Executive Lunch build.
+const ATTENDEES = [{"first_name": "Peter", "email_hash": "b60977c0b4800e7b0d1546c22bebd3f95275e280c77ed1bb72642ed48326578e", "matches": [{"name": "Marko Göls", "role": "Co-Founder & CBO at ONONO AI", "hook": "Marko's ONONO AI just closed a six-figure angel round and is actively building relationships with VCs and early adopters, exactly the kind of partnership-building Blacklion specializes in.", "bullets": ["Co-Founder & Chief Business Officer at ONONO AI AG (Zurich-registered, Vienna-based), building what the company calls Progressive AI: a \"digital subject\" that runs in a continuous cognitive loop and keeps updating its own world model, instead of a static model that goes rigid after training.", "Co-founded with CEO Kaiyue Li, a collaborator of three years; the two previously worked together at Digitalsunray Media, where Göls was CEO and Li was Lead AI Architect. ONONO has raised a high six-figure angel round.", "Based in Vienna, with a Business Informatics degree from the University of Vienna. Building relationships with VCs and early adopters for ONONO's next stage."], "starter": "What does a Progressive AI actually get right that a standard LLM agent can't?"}, {"name": "Oksana Neven", "role": "Founder & CEO at Bodywell SARL", "hook": "Oksana already said yes to getting more involved with Yorkseed and to the Hong Kong AFF delegation. Worth connecting her into the wider network directly.", "bullets": ["Founder & CEO at Bodywell SARL, a Switzerland-based wellness company (bodywell.io).", "Identifies as both a founder and an investor. Based in Switzerland, came to Web Summit Lisbon through the Yorkseed network.", "Said yes to getting more involved with Yorkseed and to joining the Yorkseed Delegation to the Asian Financial Forum 2026 in Hong Kong."], "starter": "What's the story behind Bodywell, and what are you building toward next?"}, {"name": "Pedro Guerra Alves", "role": "CEO & Founder at PGA Consultoria", "hook": "Pedro's PGA Consultoria and his own yes to the AFF delegation make him a natural Yorkseed partnership contact in Lisbon.", "bullets": ["CEO & Founder at PGA Consultoria, a Lisbon-based consulting firm (pgaconsultoria.com).", "Registered on an Investor Admission ticket, based in Lisbon's Chiado. Said yes to getting more involved with Yorkseed and to the Hong Kong AFF delegation."], "starter": "What kind of deals or founders are you looking to connect with through Yorkseed?"}, {"name": "Alexey Vorobey", "role": "Partner at Scalewell", "hook": "Alexey sits on both sides of the table as an investor and founder. Useful for Peter to know given how broad Yorkseed's partnership remit is.", "bullets": ["Partner at Scalewell (scalewell.app), active as both an investor and a founder.", "Based in Warsaw. Found the Capital Lunch through Yorkseed's own event listings."], "starter": "What does Scalewell look for in a deal, and what are you building yourself?"}]}, {"first_name": "Oksana", "email_hash": "b1e94aec4d6b9b33d22708fab17de6da9472845b63053aa30a0d57e078821a19", "matches": [{"name": "Peter Humphreys", "role": "Growth & Partnerships Lead at Yorkseed", "hook": "Peter leads partnerships at Yorkseed directly, a good first contact now that you've said yes to getting more involved.", "bullets": ["Growth & Partnerships Lead at Yorkseed, traveling with Jessica to Web Summit and representing Yorkseed House.", "Also Founder of Blacklion Consulting, a grant-writing and administration consultancy that has helped clients win $21.5M+ in SBIR, social-services, education and wildlife-trade-fighting grants.", "Based in New York."], "starter": "What kind of partnerships are you building for Yorkseed right now?"}, {"name": "Angelica (Angie) Pinzon", "role": "Co-Founder at Luvo", "hook": "Angelica's building Luvo and actively expanding her own dealflow network. Worth comparing notes as a fellow founder-investor.", "bullets": ["Co-Founder at Luvo, a stealth-mode investment manager bridging traditional savings and on-chain yield, launched earlier this year.", "Previously Director of Partnerships at Turtle.xyz (DeFi liquidity distribution protocol that raised over $11M) and ran Alegria, a creative studio helping traditional industries, including yachting and fitness, adopt blockchain and digital tools.", "Based in Lisbon, constantly traveling between tech and crypto events worldwide (Davos, ETH Denver, Consensus Hong Kong this year alone). Looking to expand her dealflow network."], "starter": "What kind of deals are you seeing the most of right now?"}, {"name": "Pedro Guerra Alves", "role": "CEO & Founder at PGA Consultoria", "hook": "Pedro's PGA Consultoria looks at exactly this kind of founder-investor crossover.", "bullets": ["CEO & Founder at PGA Consultoria, a Lisbon-based consulting firm (pgaconsultoria.com).", "Registered on an Investor Admission ticket, based in Lisbon's Chiado. Said yes to getting more involved with Yorkseed and to the Hong Kong AFF delegation."], "starter": "What kind of deals or founders are you looking to connect with through Yorkseed?"}, {"name": "Marianna Modenova", "role": "CEO & Co-Founder at Furnish'd", "hook": "Marianna's building a consumer product company too (Furnish'd). Good founder-to-founder conversation on scaling.", "bullets": ["CEO & Co-Founder at Furnish'd Ltd (furnishd.ai), building AI-powered furnishing and interior-design tools, alongside co-founder Anya Lazarevych.", "Based in the UK. Came to the Capital Lunch through Jessica's network."], "starter": "What's the story behind Furnish'd, how did it get started?"}]}, {"first_name": "Marko", "email_hash": "29989435e7f4178120cfaf09ce22ede45804066ed185984f792d7703d90120cd", "matches": [{"name": "Angelica (Angie) Pinzon", "role": "Co-Founder at Luvo", "hook": "Angelica's building Luvo and is actively expanding her dealflow network, worth having ONONO on her radar.", "bullets": ["Co-Founder at Luvo, a stealth-mode investment manager bridging traditional savings and on-chain yield, launched earlier this year.", "Previously Director of Partnerships at Turtle.xyz (DeFi liquidity distribution protocol that raised over $11M) and ran Alegria, a creative studio helping traditional industries, including yachting and fitness, adopt blockchain and digital tools.", "Based in Lisbon, constantly traveling between tech and crypto events worldwide (Davos, ETH Denver, Consensus Hong Kong this year alone). Looking to expand her dealflow network."], "starter": "What kind of deals are you seeing the most of right now?"}, {"name": "Alexey Vorobey", "role": "Partner at Scalewell", "hook": "Alexey invests as well as builds. A useful second opinion on ONONO's round from someone who sees both sides.", "bullets": ["Partner at Scalewell (scalewell.app), active as both an investor and a founder.", "Based in Warsaw. Found the Capital Lunch through Yorkseed's own event listings."], "starter": "What does Scalewell look for in a deal, and what are you building yourself?"}, {"name": "Pedro Guerra Alves", "role": "CEO & Founder at PGA Consultoria", "hook": "Pedro's PGA Consultoria connects investors with the right opportunities. Worth knowing as ONONO keeps building investor relationships.", "bullets": ["CEO & Founder at PGA Consultoria, a Lisbon-based consulting firm (pgaconsultoria.com).", "Registered on an Investor Admission ticket, based in Lisbon's Chiado. Said yes to getting more involved with Yorkseed and to the Hong Kong AFF delegation."], "starter": "What kind of deals or founders are you looking to connect with through Yorkseed?"}, {"name": "Peter Humphreys", "role": "Growth & Partnerships Lead at Yorkseed", "hook": "Peter's partnerships role at Yorkseed could open doors ONONO hasn't reached yet.", "bullets": ["Growth & Partnerships Lead at Yorkseed, traveling with Jessica to Web Summit and representing Yorkseed House.", "Also Founder of Blacklion Consulting, a grant-writing and administration consultancy that has helped clients win $21.5M+ in SBIR, social-services, education and wildlife-trade-fighting grants.", "Based in New York."], "starter": "What kind of partnerships are you building for Yorkseed right now?"}]}, {"first_name": "Hannes", "email_hash": "93b8209520b4484aa587895c3d9b840a0d9c3326c96055f5db0a1c1bb0f6d60d", "matches": [{"name": "Peter Humphreys", "role": "Growth & Partnerships Lead at Yorkseed", "hook": "Peter's partnership and grant-writing background is useful for any founder early in the conversation about funding.", "bullets": ["Growth & Partnerships Lead at Yorkseed, traveling with Jessica to Web Summit and representing Yorkseed House.", "Also Founder of Blacklion Consulting, a grant-writing and administration consultancy that has helped clients win $21.5M+ in SBIR, social-services, education and wildlife-trade-fighting grants.", "Based in New York."], "starter": "What kind of partnerships are you building for Yorkseed right now?"}, {"name": "Kevin Krüger", "role": "Co-Founder at LNKSTR", "hook": "Kevin's also building a company from Berlin. A natural founder-to-founder conversation.", "bullets": ["Co-Founder at LNKSTR (lnkstr.co), based in Berlin.", "Came in through Yorkseed's WhatsApp community."], "starter": "What's LNKSTR building, and what's the hardest part of it right now?"}, {"name": "Marko Göls", "role": "Co-Founder & CBO at ONONO AI", "hook": "Marko's just been through his own early fundraising round with ONONO. Worth hearing what he learned.", "bullets": ["Co-Founder & Chief Business Officer at ONONO AI AG (Zurich-registered, Vienna-based), building what the company calls Progressive AI: a \"digital subject\" that runs in a continuous cognitive loop and keeps updating its own world model, instead of a static model that goes rigid after training.", "Co-founded with CEO Kaiyue Li, a collaborator of three years; the two previously worked together at Digitalsunray Media, where Göls was CEO and Li was Lead AI Architect. ONONO has raised a high six-figure angel round.", "Based in Vienna, with a Business Informatics degree from the University of Vienna. Building relationships with VCs and early adopters for ONONO's next stage."], "starter": "What does a Progressive AI actually get right that a standard LLM agent can't?"}, {"name": "Angelica (Angie) Pinzon", "role": "Co-Founder at Luvo", "hook": "Angelica's actively expanding her own dealflow network, worth a conversation even early on.", "bullets": ["Co-Founder at Luvo, a stealth-mode investment manager bridging traditional savings and on-chain yield, launched earlier this year.", "Previously Director of Partnerships at Turtle.xyz (DeFi liquidity distribution protocol that raised over $11M) and ran Alegria, a creative studio helping traditional industries, including yachting and fitness, adopt blockchain and digital tools.", "Based in Lisbon, constantly traveling between tech and crypto events worldwide (Davos, ETH Denver, Consensus Hong Kong this year alone). Looking to expand her dealflow network."], "starter": "What kind of deals are you seeing the most of right now?"}]}, {"first_name": "Angelica", "email_hash": "69bc9b93500a7f82e06e7e617318eebab85e2ca0a047c5cb7d388987abef7059", "matches": [{"name": "Marko Göls", "role": "Co-Founder & CBO at ONONO AI", "hook": "Marko's ONONO AI just raised a six-figure angel round and is building toward its next stage. Fresh dealflow worth knowing.", "bullets": ["Co-Founder & Chief Business Officer at ONONO AI AG (Zurich-registered, Vienna-based), building what the company calls Progressive AI: a \"digital subject\" that runs in a continuous cognitive loop and keeps updating its own world model, instead of a static model that goes rigid after training.", "Co-founded with CEO Kaiyue Li, a collaborator of three years; the two previously worked together at Digitalsunray Media, where Göls was CEO and Li was Lead AI Architect. ONONO has raised a high six-figure angel round.", "Based in Vienna, with a Business Informatics degree from the University of Vienna. Building relationships with VCs and early adopters for ONONO's next stage."], "starter": "What does a Progressive AI actually get right that a standard LLM agent can't?"}, {"name": "Marianna Modenova", "role": "CEO & Co-Founder at Furnish'd", "hook": "Marianna's building Furnish'd with her co-founder Anya. Worth an introduction as she grows the company.", "bullets": ["CEO & Co-Founder at Furnish'd Ltd (furnishd.ai), building AI-powered furnishing and interior-design tools, alongside co-founder Anya Lazarevych.", "Based in the UK. Came to the Capital Lunch through Jessica's network."], "starter": "What's the story behind Furnish'd, how did it get started?"}, {"name": "Oksana Neven", "role": "Founder & CEO at Bodywell SARL", "hook": "Oksana's a founder and investor herself, building Bodywell in Switzerland. A genuine peer on sourcing and running a consumer business.", "bullets": ["Founder & CEO at Bodywell SARL, a Switzerland-based wellness company (bodywell.io).", "Identifies as both a founder and an investor. Based in Switzerland, came to Web Summit Lisbon through the Yorkseed network.", "Said yes to getting more involved with Yorkseed and to joining the Yorkseed Delegation to the Asian Financial Forum 2026 in Hong Kong."], "starter": "What's the story behind Bodywell, and what are you building toward next?"}, {"name": "Pedro Guerra Alves", "role": "CEO & Founder at PGA Consultoria", "hook": "Pedro's PGA Consultoria works the investor side too. Worth comparing notes on dealflow in the Lisbon market.", "bullets": ["CEO & Founder at PGA Consultoria, a Lisbon-based consulting firm (pgaconsultoria.com).", "Registered on an Investor Admission ticket, based in Lisbon's Chiado. Said yes to getting more involved with Yorkseed and to the Hong Kong AFF delegation."], "starter": "What kind of deals or founders are you looking to connect with through Yorkseed?"}]}, {"first_name": "Anya", "email_hash": "eb7abfe14f050cb9533613db1cb7a27ef6e188c4b5fa12c5ca458fad24440e0f", "matches": [{"name": "Angelica (Angie) Pinzon", "role": "Co-Founder at Luvo", "hook": "Angelica's actively expanding her dealflow network and invests in early-stage companies like Furnish'd.", "bullets": ["Co-Founder at Luvo, a stealth-mode investment manager bridging traditional savings and on-chain yield, launched earlier this year.", "Previously Director of Partnerships at Turtle.xyz (DeFi liquidity distribution protocol that raised over $11M) and ran Alegria, a creative studio helping traditional industries, including yachting and fitness, adopt blockchain and digital tools.", "Based in Lisbon, constantly traveling between tech and crypto events worldwide (Davos, ETH Denver, Consensus Hong Kong this year alone). Looking to expand her dealflow network."], "starter": "What kind of deals are you seeing the most of right now?"}, {"name": "Marko Göls", "role": "Co-Founder & CBO at ONONO AI", "hook": "Marko's another deep-tech founder who just closed his own angel round. Worth trading notes on fundraising.", "bullets": ["Co-Founder & Chief Business Officer at ONONO AI AG (Zurich-registered, Vienna-based), building what the company calls Progressive AI: a \"digital subject\" that runs in a continuous cognitive loop and keeps updating its own world model, instead of a static model that goes rigid after training.", "Co-founded with CEO Kaiyue Li, a collaborator of three years; the two previously worked together at Digitalsunray Media, where Göls was CEO and Li was Lead AI Architect. ONONO has raised a high six-figure angel round.", "Based in Vienna, with a Business Informatics degree from the University of Vienna. Building relationships with VCs and early adopters for ONONO's next stage."], "starter": "What does a Progressive AI actually get right that a standard LLM agent can't?"}, {"name": "Peter Humphreys", "role": "Growth & Partnerships Lead at Yorkseed", "hook": "Peter's partnerships role at Yorkseed could be useful as Furnish'd grows.", "bullets": ["Growth & Partnerships Lead at Yorkseed, traveling with Jessica to Web Summit and representing Yorkseed House.", "Also Founder of Blacklion Consulting, a grant-writing and administration consultancy that has helped clients win $21.5M+ in SBIR, social-services, education and wildlife-trade-fighting grants.", "Based in New York."], "starter": "What kind of partnerships are you building for Yorkseed right now?"}, {"name": "Alexey Vorobey", "role": "Partner at Scalewell", "hook": "Alexey invests as well as builds, a useful read on how Furnish'd is positioned for investors.", "bullets": ["Partner at Scalewell (scalewell.app), active as both an investor and a founder.", "Based in Warsaw. Found the Capital Lunch through Yorkseed's own event listings."], "starter": "What does Scalewell look for in a deal, and what are you building yourself?"}]}, {"first_name": "Marianna", "email_hash": "86544dd9d0d53e7c86111890907a617f1385019f3ebef13c81bb68f4783e24c8", "matches": [{"name": "Angelica (Angie) Pinzon", "role": "Co-Founder at Luvo", "hook": "Angelica's actively expanding her dealflow network and invests in early-stage companies like Furnish'd.", "bullets": ["Co-Founder at Luvo, a stealth-mode investment manager bridging traditional savings and on-chain yield, launched earlier this year.", "Previously Director of Partnerships at Turtle.xyz (DeFi liquidity distribution protocol that raised over $11M) and ran Alegria, a creative studio helping traditional industries, including yachting and fitness, adopt blockchain and digital tools.", "Based in Lisbon, constantly traveling between tech and crypto events worldwide (Davos, ETH Denver, Consensus Hong Kong this year alone). Looking to expand her dealflow network."], "starter": "What kind of deals are you seeing the most of right now?"}, {"name": "Pedro Guerra Alves", "role": "CEO & Founder at PGA Consultoria", "hook": "Pedro's PGA Consultoria works directly with investors looking for the right opportunities.", "bullets": ["CEO & Founder at PGA Consultoria, a Lisbon-based consulting firm (pgaconsultoria.com).", "Registered on an Investor Admission ticket, based in Lisbon's Chiado. Said yes to getting more involved with Yorkseed and to the Hong Kong AFF delegation."], "starter": "What kind of deals or founders are you looking to connect with through Yorkseed?"}, {"name": "Peter Humphreys", "role": "Growth & Partnerships Lead at Yorkseed", "hook": "Peter's partnerships role at Yorkseed is a direct line into the wider network as Furnish'd grows.", "bullets": ["Growth & Partnerships Lead at Yorkseed, traveling with Jessica to Web Summit and representing Yorkseed House.", "Also Founder of Blacklion Consulting, a grant-writing and administration consultancy that has helped clients win $21.5M+ in SBIR, social-services, education and wildlife-trade-fighting grants.", "Based in New York."], "starter": "What kind of partnerships are you building for Yorkseed right now?"}, {"name": "Oksana Neven", "role": "Founder & CEO at Bodywell SARL", "hook": "Oksana's building her own consumer-facing company (Bodywell). Good founder-to-founder conversation.", "bullets": ["Founder & CEO at Bodywell SARL, a Switzerland-based wellness company (bodywell.io).", "Identifies as both a founder and an investor. Based in Switzerland, came to Web Summit Lisbon through the Yorkseed network.", "Said yes to getting more involved with Yorkseed and to joining the Yorkseed Delegation to the Asian Financial Forum 2026 in Hong Kong."], "starter": "What's the story behind Bodywell, and what are you building toward next?"}]}, {"first_name": "Alexey", "email_hash": "d90ec32cad9e75f7c44322683fbc220e5e30d482d5a6bf61f9d7b1ab4907b228", "matches": [{"name": "Marko Göls", "role": "Co-Founder & CBO at ONONO AI", "hook": "Marko's ONONO AI is a live deal worth evaluating, fresh off its own angel round.", "bullets": ["Co-Founder & Chief Business Officer at ONONO AI AG (Zurich-registered, Vienna-based), building what the company calls Progressive AI: a \"digital subject\" that runs in a continuous cognitive loop and keeps updating its own world model, instead of a static model that goes rigid after training.", "Co-founded with CEO Kaiyue Li, a collaborator of three years; the two previously worked together at Digitalsunray Media, where Göls was CEO and Li was Lead AI Architect. ONONO has raised a high six-figure angel round.", "Based in Vienna, with a Business Informatics degree from the University of Vienna. Building relationships with VCs and early adopters for ONONO's next stage."], "starter": "What does a Progressive AI actually get right that a standard LLM agent can't?"}, {"name": "Anya Lazarevych", "role": "Co-Founder at Furnish'd", "hook": "Anya and Marianna's Furnish'd is another early-stage company worth a look.", "bullets": ["Co-Founder at Furnish'd (furnishd.ai), building AI-powered furnishing and interior-design tools.", "Based in the United Kingdom. Registered alongside her co-founder Marianna Modenova, who invited her."], "starter": "What's the hardest part of getting AI to actually understand a room?"}, {"name": "Pedro Guerra Alves", "role": "CEO & Founder at PGA Consultoria", "hook": "Pedro's a fellow investor in the same Lisbon ecosystem. Worth comparing notes on dealflow.", "bullets": ["CEO & Founder at PGA Consultoria, a Lisbon-based consulting firm (pgaconsultoria.com).", "Registered on an Investor Admission ticket, based in Lisbon's Chiado. Said yes to getting more involved with Yorkseed and to the Hong Kong AFF delegation."], "starter": "What kind of deals or founders are you looking to connect with through Yorkseed?"}, {"name": "Angelica (Angie) Pinzon", "role": "Co-Founder at Luvo", "hook": "Angelica's building Luvo and expanding her own dealflow network. A genuine peer.", "bullets": ["Co-Founder at Luvo, a stealth-mode investment manager bridging traditional savings and on-chain yield, launched earlier this year.", "Previously Director of Partnerships at Turtle.xyz (DeFi liquidity distribution protocol that raised over $11M) and ran Alegria, a creative studio helping traditional industries, including yachting and fitness, adopt blockchain and digital tools.", "Based in Lisbon, constantly traveling between tech and crypto events worldwide (Davos, ETH Denver, Consensus Hong Kong this year alone). Looking to expand her dealflow network."], "starter": "What kind of deals are you seeing the most of right now?"}]}, {"first_name": "Kevin", "email_hash": "48303c57144041e4f841a73e46bfc3d03ed4299ab64f595ca9f5d61e4a35decd", "matches": [{"name": "Peter Humphreys", "role": "Growth & Partnerships Lead at Yorkseed", "hook": "Peter's partnerships and grant-writing background at Yorkseed is useful for any founder.", "bullets": ["Growth & Partnerships Lead at Yorkseed, traveling with Jessica to Web Summit and representing Yorkseed House.", "Also Founder of Blacklion Consulting, a grant-writing and administration consultancy that has helped clients win $21.5M+ in SBIR, social-services, education and wildlife-trade-fighting grants.", "Based in New York."], "starter": "What kind of partnerships are you building for Yorkseed right now?"}, {"name": "Alexey Vorobey", "role": "Partner at Scalewell", "hook": "Alexey invests as well as builds, worth a conversation about LNKSTR.", "bullets": ["Partner at Scalewell (scalewell.app), active as both an investor and a founder.", "Based in Warsaw. Found the Capital Lunch through Yorkseed's own event listings."], "starter": "What does Scalewell look for in a deal, and what are you building yourself?"}, {"name": "Angelica (Angie) Pinzon", "role": "Co-Founder at Luvo", "hook": "Angelica's actively expanding her dealflow network, worth having LNKSTR on her radar.", "bullets": ["Co-Founder at Luvo, a stealth-mode investment manager bridging traditional savings and on-chain yield, launched earlier this year.", "Previously Director of Partnerships at Turtle.xyz (DeFi liquidity distribution protocol that raised over $11M) and ran Alegria, a creative studio helping traditional industries, including yachting and fitness, adopt blockchain and digital tools.", "Based in Lisbon, constantly traveling between tech and crypto events worldwide (Davos, ETH Denver, Consensus Hong Kong this year alone). Looking to expand her dealflow network."], "starter": "What kind of deals are you seeing the most of right now?"}, {"name": "Marko Göls", "role": "Co-Founder & CBO at ONONO AI", "hook": "Marko's just been through his own early fundraising round. Worth hearing how he approached it.", "bullets": ["Co-Founder & Chief Business Officer at ONONO AI AG (Zurich-registered, Vienna-based), building what the company calls Progressive AI: a \"digital subject\" that runs in a continuous cognitive loop and keeps updating its own world model, instead of a static model that goes rigid after training.", "Co-founded with CEO Kaiyue Li, a collaborator of three years; the two previously worked together at Digitalsunray Media, where Göls was CEO and Li was Lead AI Architect. ONONO has raised a high six-figure angel round.", "Based in Vienna, with a Business Informatics degree from the University of Vienna. Building relationships with VCs and early adopters for ONONO's next stage."], "starter": "What does a Progressive AI actually get right that a standard LLM agent can't?"}]}, {"first_name": "Pedro", "email_hash": "0466969780623d6827cd5cb2c8fcdcfb68eb3bb82bfbdb3960c38a5ffe904ee1", "matches": [{"name": "Marko Göls", "role": "Co-Founder & CBO at ONONO AI", "hook": "Marko's ONONO AI just closed a six-figure angel round and is still building out its investor relationships.", "bullets": ["Co-Founder & Chief Business Officer at ONONO AI AG (Zurich-registered, Vienna-based), building what the company calls Progressive AI: a \"digital subject\" that runs in a continuous cognitive loop and keeps updating its own world model, instead of a static model that goes rigid after training.", "Co-founded with CEO Kaiyue Li, a collaborator of three years; the two previously worked together at Digitalsunray Media, where Göls was CEO and Li was Lead AI Architect. ONONO has raised a high six-figure angel round.", "Based in Vienna, with a Business Informatics degree from the University of Vienna. Building relationships with VCs and early adopters for ONONO's next stage."], "starter": "What does a Progressive AI actually get right that a standard LLM agent can't?"}, {"name": "Marianna Modenova", "role": "CEO & Co-Founder at Furnish'd", "hook": "Marianna's building Furnish'd with her co-founder Anya. Early-stage, worth a look.", "bullets": ["CEO & Co-Founder at Furnish'd Ltd (furnishd.ai), building AI-powered furnishing and interior-design tools, alongside co-founder Anya Lazarevych.", "Based in the UK. Came to the Capital Lunch through Jessica's network."], "starter": "What's the story behind Furnish'd, how did it get started?"}, {"name": "Oksana Neven", "role": "Founder & CEO at Bodywell SARL", "hook": "Oksana's a founder and investor herself, building Bodywell in Switzerland.", "bullets": ["Founder & CEO at Bodywell SARL, a Switzerland-based wellness company (bodywell.io).", "Identifies as both a founder and an investor. Based in Switzerland, came to Web Summit Lisbon through the Yorkseed network.", "Said yes to getting more involved with Yorkseed and to joining the Yorkseed Delegation to the Asian Financial Forum 2026 in Hong Kong."], "starter": "What's the story behind Bodywell, and what are you building toward next?"}, {"name": "Angelica (Angie) Pinzon", "role": "Co-Founder at Luvo", "hook": "Angelica's a fellow investor actively expanding her dealflow network. Worth comparing notes.", "bullets": ["Co-Founder at Luvo, a stealth-mode investment manager bridging traditional savings and on-chain yield, launched earlier this year.", "Previously Director of Partnerships at Turtle.xyz (DeFi liquidity distribution protocol that raised over $11M) and ran Alegria, a creative studio helping traditional industries, including yachting and fitness, adopt blockchain and digital tools.", "Based in Lisbon, constantly traveling between tech and crypto events worldwide (Davos, ETH Denver, Consensus Hong Kong this year alone). Looking to expand her dealflow network."], "starter": "What kind of deals are you seeing the most of right now?"}]}];
+
+// No fixed co-host for this event yet.
+const FEATURED_MATCHES = [];
+
+function renderFeatured() {
+  var section = document.querySelector('.featured-section');
+  var list = document.getElementById('featured-list');
+  if (!FEATURED_MATCHES.length) {
+    section.style.display = 'none';
+    return;
+  }
+  section.style.display = '';
+  list.innerHTML = '';
+  FEATURED_MATCHES.forEach(function(m) {
+    var card = document.createElement('div');
+    card.className = 'featured-card';
+    var bullets = m.bullets.map(function(b) {
+      return '<li>' + b.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</li>';
+    }).join('');
+    var hookHtml = m.hook ? '<div class="match-hook">' + m.hook.replace(/&/g,'&amp;').replace(/</g,'&lt;') + '</div>' : '';
+    var linkHtml = m.linkedin ? '<div class="why-label" style="margin-top:14px;"><a href="' + m.linkedin + '" target="_blank" rel="noopener" style="color: var(--red); text-decoration: underline;">View on LinkedIn</a></div>' : '';
+    card.innerHTML =
+      '<div class="featured-badge">Co-host</div>' +
+      '<div class="match-name">' + m.name + '</div>' +
+      '<div class="match-role">' + m.role + '</div>' +
+      hookHtml +
+      '<div class="why-label">Why we think you should meet</div>' +
+      '<ul class="bullets">' + bullets + '</ul>' +
+      '<div class="starter"><b>Conversation starter:</b> &ldquo;' + m.starter.replace(/&/g,'&amp;').replace(/</g,'&lt;') + '&rdquo;</div>' +
+      linkHtml;
+    list.appendChild(card);
+  });
+}
+
+function applyEventConfig() {
+  document.getElementById('page-title').textContent = 'Yorkseed Event In-Person Match - ' + EVENT.name;
+  document.getElementById('login-event-name').textContent = EVENT.name;
+  var loginDetail = EVENT.city + ' · ' + EVENT.dateLabel + ' · ' + EVENT.timeLabel;
+  document.getElementById('login-event-detail').textContent = loginDetail;
+  if (EVENT.opensAt && Date.now() < Date.parse(EVENT.opensAt) && location.search.indexOf('preview=1') < 0) {
+    var subEl0 = document.querySelector('.login-card') && document.querySelector('.login-card').previousElementSibling;
+    if (subEl0 && subEl0.classList.contains('sub')) subEl0.textContent = 'Your matches open on ' + EVENT.opensLabel + ', the day of the event. Come back then, enter the first name and email you registered with, and we will show you who to meet.';
+  }
+  var resultsDetailHtml = EVENT.dateLabel + ' &middot; ' + EVENT.timeLabel + ' &middot; ' + (EVENT.venueMapUrl ? '<a href="' + EVENT.venueMapUrl + '" target="_blank" rel="noopener">' + EVENT.venueName + '</a>' : EVENT.venueName);
+  document.getElementById('results-event-detail').innerHTML = resultsDetailHtml;
+  document.getElementById('results-venue-address').textContent = EVENT.venueAddress;
+  if (!EVENT.venueAddress) document.getElementById('results-venue-address').style.display = 'none';
+  var contactEl = document.getElementById('results-host-label');
+  if (EVENT.onsiteContact) {
+    contactEl.textContent = EVENT.onsiteContact;
+    contactEl.style.display = '';
+  } else {
+    contactEl.style.display = 'none';
+  }
+  document.getElementById('footer-note').textContent = 'See you at the ' + EVENT.name + '.';
+}
+applyEventConfig();
+
+function normalize(s) {
+  return (s || '').trim().toLowerCase();
+}
+
+async function sha256Hex(s) {
+  var enc = new TextEncoder().encode(s);
+  var digest = await crypto.subtle.digest('SHA-256', enc);
+  return Array.from(new Uint8Array(digest)).map(function(b) {
+    return b.toString(16).padStart(2, '0');
+  }).join('');
+}
+
+async function findAttendee(firstName, email) {
+  var fn = normalize(firstName);
+  var emHash = await sha256Hex(normalize(email));
+  return ATTENDEES.find(function(a) {
+    var nameMatches = normalize(a.first_name) === fn ||
+      (a.aliases || []).some(function(alias) { return normalize(alias) === fn; });
+    return nameMatches && a.email_hash === emHash;
+  });
+}
+
+function renderMatches(attendee) {
+  document.getElementById('results-heading').textContent = 'Hi ' + attendee.first_name + '.';
+  document.getElementById('results-eyebrow').textContent = attendee.matches.length + ' people curated for you';
+  var subEl = document.getElementById('results-sub');
+  var baseSub = "Based on what you shared in your RSVP, here's who we think you should meet.";
+  subEl.textContent = attendee.bio ? (baseSub + ' ' + attendee.bio) : baseSub;
+  var list = document.getElementById('match-list');
+  list.innerHTML = '';
+  attendee.matches.forEach(function(m, i) {
+    var card = document.createElement('div');
+    card.className = 'match-card';
+    var bullets = m.bullets.map(function(b) {
+      return '<li>' + b.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</li>';
+    }).join('');
+    var hookHtml = m.hook ? '<div class="match-hook">' + m.hook.replace(/&/g,'&amp;').replace(/</g,'&lt;') + '</div>' : '';
+    card.innerHTML =
+      '<div class="match-index">MATCH ' + (i+1) + ' OF ' + attendee.matches.length + '</div>' +
+      '<div class="match-name">' + m.name + '</div>' +
+      '<div class="match-role">' + m.role + '</div>' +
+      hookHtml +
+      '<div class="why-label">Why we think you should meet</div>' +
+      '<ul class="bullets">' + bullets + '</ul>' +
+      '<div class="starter"><b>Conversation starter:</b> &ldquo;' + m.starter.replace(/&/g,'&amp;').replace(/</g,'&lt;') + '&rdquo;</div>';
+    list.appendChild(card);
+  });
+}
+
+function showError(msg) {
+  var el = document.getElementById('error-msg');
+  el.textContent = msg;
+  el.classList.add('show');
+}
+function hideError() {
+  document.getElementById('error-msg').classList.remove('show');
+}
+
+document.getElementById('login-btn').addEventListener('click', async function() {
+  hideError();
+  var fn = document.getElementById('first-name').value;
+  var em = document.getElementById('email').value;
+  if (!fn.trim() || !em.trim()) {
+    showError('Please enter both your first name and email.');
+    return;
+  }
+  if (EVENT.opensAt && Date.now() < Date.parse(EVENT.opensAt) && location.search.indexOf('preview=1') < 0) {
+    showError('Matches open on ' + EVENT.opensLabel + '. Please come back then.');
+    return;
+  }
+  var attendee = await findAttendee(fn, em);
+  if (!attendee) {
+    showError("We couldn't find you on the guest list. Double-check your first name and the email you used when you applied.");
+    return;
+  }
+  renderFeatured();
+  renderMatches(attendee);
+  document.getElementById('login-view').classList.remove('active');
+  document.getElementById('results-view').classList.add('active');
+});
+
+document.getElementById('logout-btn').addEventListener('click', function() {
+  document.getElementById('results-view').classList.remove('active');
+  document.getElementById('login-view').classList.add('active');
+  document.getElementById('first-name').value = '';
+  document.getElementById('email').value = '';
+  hideError();
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter' && document.getElementById('login-view').classList.contains('active')) {
+    document.getElementById('login-btn').click();
+  }
+});
+</script>
+</body>
+</html>
