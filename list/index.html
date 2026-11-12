@@ -1658,6 +1658,10 @@ input::placeholder,textarea::placeholder{font-size:13.5px;color:var(--soft);opac
 <div class="toast" id="toast" hidden role="status"></div>
 
 <script>
+/* Event views show a shareable /e/<slug>/ address (a real page with its own title, description and cover, so WhatsApp/LinkedIn previews work).
+   APP_PATH is where this app lives; hash-only URLs and bare-path URLs always resolve against it, never against /e/<slug>/. */
+const APP_PATH=/^\/e\//.test(location.pathname)?"/":location.pathname;
+(function(){["pushState","replaceState"].forEach(m=>{const o=history[m];history[m]=function(st,t,u){if(typeof u==="string"&&u.charAt(0)==="#")u=APP_PATH+location.search+u;return o.call(this,st,t,u);};});})();
 var LIVE_BANNERS=[],DB=null,USER=null,ADMIN={events:[],banners:[],orgs:[]};
 
 const IMGPOS={yvr:"66% 50%",sea:"45% 50%",muc:"52% 50%",tlv:"55% 50%",can:"46% 50%",la:"40% 50%",mad:"45% 50%",dub:"35% 50%",sel:"62% 50%",kul:"68% 50%",zrh:"34% 50%",atx:"62% 50%",mtl:"40% 50%",mil:"45% 50%",hkg:"45% 50%",bos:"40% 50%",mex:"55% 50%",sf:"28% 50%",nyc:"40% 40%",ldn:"55% 40%",lis:"50% 50%",mia:"30% 50%"};
@@ -1858,6 +1862,8 @@ function heartBtn(e,cls){return`<button class="${cls}" type="button" data-save="
 // ---------- views ----------
 // ---------- shareable event links (#e/<slug>) ----------
 function evSlug(e){return ((e.title||"event").toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,70)||"event")+"-"+e.date;}
+function evStatic(e){const n=Date.now()-5*36e5,t=new Date(n).toISOString().slice(0,10),z=new Date(n+120*864e5).toISOString().slice(0,10);return !!(e.fj&&e.date>=t&&e.date<=z);}
+function evPath(e){return evStatic(e)?"/e/"+evSlug(e)+"/":"#e/"+evSlug(e);}
 function evUrl(e){const n=Date.now()-5*36e5,t=new Date(n).toISOString().slice(0,10),z=new Date(n+120*864e5).toISOString().slice(0,10);return e.fj&&e.date>=t&&e.date<=z?"https://list.yorkseed.co/e/"+evSlug(e)+"/":"https://list.yorkseed.co/#e/"+evSlug(e);}
 const HUB_LL={jc:[40.72,-74.04],nyc:[40.71,-74.01],sf:[37.77,-122.42],atx:[30.27,-97.74],bos:[42.36,-71.06],chi:[41.88,-87.63],la:[34.05,-118.24],mia:[25.76,-80.19],dc:[38.91,-77.04],mtl:[45.5,-73.57],tor:[43.65,-79.38],ams:[52.37,4.9],bcn:[41.39,2.17],ber:[52.52,13.4],can:[43.55,7.02],cph:[55.68,12.57],dub:[53.35,-6.26],hel:[60.17,24.94],lis:[38.72,-9.14],ldn:[51.51,-0.13],mil:[45.46,9.19],muc:[48.14,11.58],par:[48.86,2.35],sto:[59.33,18.07],zrh:[47.38,8.54],dav:[46.80,9.84],bue:[-34.6,-58.38],mex:[19.43,-99.13],sao:[-23.55,-46.63],tlv:[32.09,34.78],dxb:[25.2,55.27],hkg:[22.32,114.17],kul:[3.14,101.69],sgp:[1.35,103.82],syd:[-33.87,151.21],sea:[47.61,-122.33],tyo:[35.68,139.69],blr:[12.97,77.59],mad:[40.42,-3.7],yvr:[49.28,-123.12],den:[39.74,-104.99],tpe:[25.03,121.57],sel:[37.57,126.98],bkk:[13.76,100.5],jkt:[-6.21,106.85],nbo:[-1.29,36.82],los:[6.52,3.38],mel:[-37.81,144.96],phl:[39.95,-75.17],waw:[52.23,21.01],bom:[19.08,72.88],riy:[24.71,46.68],doh:[25.29,51.53],hou:[29.76,-95.37],dal:[32.78,-96.8],atl:[33.75,-84.39],sdg:[32.72,-117.16],slc:[40.76,-111.89],rdu:[35.85,-78.75],nsh:[36.16,-86.78],man:[53.48,-2.24],edi:[55.95,-3.19],osl:[59.91,10.75],vie:[48.21,16.37],prg:[50.08,14.44],bru:[50.85,4.35],ist:[41.01,28.98],cpt:[-33.92,18.42],jnb:[-26.2,28.05],cai:[30.04,31.24],sha:[31.23,121.47],szx:[22.54,114.06],mnl:[14.6,120.98],sgn:[10.82,106.63],akl:[-36.85,174.76],bog:[4.71,-74.07],mde:[6.24,-75.58],scl:[-33.45,-70.67],lim:[-12.05,-77.04],del:[28.61,77.21],hyd:[17.39,78.49],lvs:[36.17,-115.14],pdx:[45.52,-122.68],pnq:[18.52,73.86],maa:[13.08,80.27],bud:[47.5,19.04],iev:[50.45,30.52],beg:[44.79,20.45],sat:[29.42,-98.49],yyj:[48.43,-123.37],gift:[23.16,72.68]};
 /* Open the visitor's own city on landing: the geo-city edge function sets ys_geo (lat|lon|country) from Netlify's
@@ -1868,8 +1874,8 @@ function nearHub(){try{const m=document.cookie.match(/(?:^|; )ys_geo=([^;]+)/);i
 function evBySlug(s){return EVENTS.find(x=>evSlug(x)===s);}
 let PENDING_EV=null;
 function openFromHash(){const m=(location.hash||"").match(/^#e\/(.+)$/);if(!m)return false;const s=decodeURIComponent(m[1]);const e=evBySlug(s);if(e){PENDING_EV=null;if(st.view!=="event"||st.evId!==e.id){const was=NAV_SILENT;NAV_SILENT=NAV_SILENT||!(history.state&&history.state.ys);try{goEvent(e.id);}finally{NAV_SILENT=was;}}return true;}PENDING_EV=s;return false;}
-function setEvHash(e){try{history.replaceState(null,"","#e/"+evSlug(e));}catch(err){}}
-function clearEvHash(){try{if(/^#e\//.test(location.hash))history.replaceState(null,"",location.pathname+location.search);}catch(err){}}
+function setEvHash(e){try{history.replaceState(null,"",evPath(e));}catch(err){}}
+function clearEvHash(){try{if(/^#e\//.test(location.hash)||/^\/e\//.test(location.pathname))history.replaceState(null,"",APP_PATH+location.search);}catch(err){}}
 window.addEventListener("hashchange",()=>{if(openFromHash())return;const h=location.hash;if(h&&h!==listHash()||st.view!=="city"){const was=NAV_SILENT;NAV_SILENT=true;try{openListFromHash(h);}finally{NAV_SILENT=was;}}});
 // ---------- add to calendar ----------
 function calTimes(e){const pad=n=>String(n).padStart(2,"0");const z=t=>{const d=new Date(t);return d.getUTCFullYear()+pad(d.getUTCMonth()+1)+pad(d.getUTCDate())+"T"+pad(d.getUTCHours())+pad(d.getUTCMinutes())+"00Z";};
@@ -1903,7 +1909,7 @@ function shareEv(e,btn){const h=hubById(e.hub),d=dParts(e.date),url=evUrl(e),P=w
 let NAV_SILENT=false,NAV_DEPTH=0;
 function navKey(){return st.view+"|"+(st.view==="city"?st.hub+"|"+(st.week||"")+"|"+(st.day||""):"")+"|"+(st.view==="event"?st.evId:"");}
 function navState(){return{ys:1,view:st.view,hub:st.hub,evId:st.evId,week:st.week||null,day:st.day||null};}
-function navUrl(){const e=st.view==="event"&&EVENTS.find(x=>x.id===st.evId);if(e)return "#e/"+evSlug(e);if(st.view==="city"&&!st.savedOnly)return listHash();return location.pathname+location.search;}
+function navUrl(){const e=st.view==="event"&&EVENTS.find(x=>x.id===st.evId);if(e)return evPath(e);if(st.view==="city"&&!st.savedOnly)return listHash();return APP_PATH+location.search;}
 /* shareable list links: #<city>, #events, #w/<week>, #w/<week>/<YYYY-MM-DD> */
 /* readable list links: #web-summit-lisbon, #web-summit-lisbon/2026-11-09, #lisbon, #events (old #w/<id> and #<hub id> still open) */
 function nslug(t){return String(t||"").toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g,"").replace(/&/g," and ").replace(/\b(19|20)\d\d\b/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"");}
@@ -2584,8 +2590,8 @@ function dbText(){const v=SLOTS[BK.kind];const ed=v.scope?WEEKS.find(w=>w.hub===
 const GOALS=[["one","One event"],["week","A Tech Week, conference or launch"],["year","My brand, all year"]];
 const GOALMAP={one:["feat","ev"],week:["side","1m"],year:["home","12m"]};
 function openBook(kind,hub){BK.dbOnly=kind==="dealbook";if(BK.dbOnly)kind="home";BK.kind=kind&&SLOTS[kind]&&!SLOTS[kind].retired?kind:kind==="list"?"side":"home";BK.goal="";BK.db=false;BK.sheet=false;BK.pulse=BK.kind==="pulse";BK.pulseWeeks=1;BK.pulseStart="";BK.hs=["",""];BK.hub=hub&&hub!=="all"?hub:(st.hub!=="all"?st.hub:"nyc");BK.pulseHub=BK.hub;BK.img="";drawBook();$("#book").hidden=false;setBookHash();}
-function setBookHash(){try{if($("#book").hidden)return;const h=BK.dbOnly?"#book/dealbook":"#book/"+BK.kind+(BK.hub&&BK.hub!=="all"?"/"+BK.hub:"");if(location.hash!==h)history.replaceState(null,"",location.pathname+location.search+h);}catch(e){}}
-function closeBook(){$("#book").hidden=true;try{if(/^#book\//.test(location.hash))history.replaceState(null,"",location.pathname+location.search);}catch(e){}}
+function setBookHash(){try{if($("#book").hidden)return;const h=BK.dbOnly?"#book/dealbook":"#book/"+BK.kind+(BK.hub&&BK.hub!=="all"?"/"+BK.hub:"");if(location.hash!==h)history.replaceState(null,"",APP_PATH+location.search+h);}catch(e){}}
+function closeBook(){$("#book").hidden=true;try{if(/^#book\//.test(location.hash))history.replaceState(null,"",APP_PATH+location.search);}catch(e){}}
 function monthOpts(){const out=[];for(let i=1;i<=6;i++){const d=new Date(Date.UTC(2026,9+i,1));out.push([d.toISOString().slice(0,7),new Intl.DateTimeFormat("en-US",{month:"long",year:"numeric",timeZone:"UTC"}).format(d)]);}return out;}
 function pulseField(){
   if(BK.kind==="pulse")BK.pulseHub=BK.hub;if(!BK.pulseHub)BK.pulseHub=BK.hub;const mons=pulseMondays(8);if(!mons.includes(BK.pulseStart))BK.pulseStart=mons[0];
@@ -2789,7 +2795,7 @@ if(window.YS_STATIC){const J=f=>fetch(String(window.YS_STATIC).replace(/^1$/,"")
 document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest("[data-ysall]");if(!b)return;e.preventDefault();window.__ysAll=!window.__ysAll;renderUpcoming();});
 loadSelfAds();
 (function adReturn(){const m=location.search.match(/[?&]ad=([a-f0-9]{24})/);if(!m)return;
-  try{history.replaceState(history.state,"",location.pathname+location.hash);}catch(e){}
+  try{history.replaceState(history.state,"",APP_PATH+location.hash);}catch(e){}
   let n=0;const poll=()=>fetch(ADS_API+"/status/"+m[1]).then(r=>r.json()).then(x=>{
     const dt=v=>v?new Intl.DateTimeFormat("en-US",{month:"long",day:"numeric",year:"numeric"}).format(new Date(v)):"";
     if(x.status==="paid"){toast("Payment received. We are setting up your booking now and will email you when it is in place.");return;}
