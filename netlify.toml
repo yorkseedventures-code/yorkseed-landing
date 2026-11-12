@@ -9,3 +9,6 @@
 
 [build.environment]
   PYTHON_VERSION = "3.11"
+
+[images]
+  remote_images = ["https://images\\.lumacdn\\.com/.*", "https://images\\.unsplash\\.com/.*", "https://secure-content\\.meetupstatic\\.com/.*", "https://secure\\.meetupstatic\\.com/.*", "https://img\\.evbuc\\.com/.*", "https://cdn\\.prod\\.website-files\\.com/.*", "https://images\\.aitinkerers\\.org/.*"]

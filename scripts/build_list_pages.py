@@ -6,6 +6,7 @@ Writes <repo>/list/<city>/index.html, <repo>/list/<week>/index.html, <repo>/list
 Re-run weekly (after build_site.py) so pages stay fresh."""
 import sys, json, re, os, html, hashlib, base64, datetime as dt
 from zoneinfo import ZoneInfo
+import urllib.parse
 from urllib.parse import urlsplit, urlunsplit, parse_qsl, urlencode
 
 REPO = sys.argv[1] if len(sys.argv) > 1 else "."
@@ -155,6 +156,10 @@ h2{font:400 26px/1.2 var(--serif);margin:40px 0 6px}h2 em{color:var(--red)}
 
 def page(path, title, desc, canon, body, ld, img=None, index=True):
     og = (img if img.startswith("http") else LISTHOST + img) if img else SITE + "/og-image.png"
+    if og.startswith("http") and "yorkseed.co" not in og.split("/")[2]:
+        # WhatsApp/iMessage reject many hotlinked CDN images (webp/avif, odd sizes): proxy via Netlify Image CDN as 1200x630 JPEG
+        og = LISTHOST + "/.netlify/images?url=" + urllib.parse.quote(og, safe="") + "&w=1200&h=630&fit=cover&fm=jpg&q=75"
+    ogx = '<meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/>' if "/.netlify/images" in og else ""
     doc = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -165,7 +170,7 @@ def page(path, title, desc, canon, body, ld, img=None, index=True):
 <meta name="robots" content="{'index, follow, max-snippet:-1, max-image-preview:large' if index else 'noindex, follow'}"/>
 <link rel="canonical" href="{canon}"/>
 <meta property="og:type" content="website"/><meta property="og:url" content="{canon}"/><meta property="og:site_name" content="The Yorkseed List"/>
-<meta property="og:title" content="{e_(title)}"/><meta property="og:description" content="{e_(desc)}"/><meta property="og:image" content="{og}"/>
+<meta property="og:title" content="{e_(title)}"/><meta property="og:description" content="{e_(desc)}"/><meta property="og:image" content="{og}"/>{ogx}
 <meta name="twitter:card" content="summary_large_image"/><meta name="twitter:site" content="@yorkseed"/>
 <meta name="twitter:title" content="{e_(title)}"/><meta name="twitter:description" content="{e_(desc)}"/><meta name="twitter:image" content="{og}"/>
 <link rel="alternate" type="application/json" title="The Yorkseed List event feed" href="/list/feed.json"/>
