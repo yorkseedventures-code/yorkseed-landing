@@ -91076,5 +91076,19 @@
   "desc": "Free networking evening for founders, investors and tech professionals at Momentos Wine & Cheese.",
   "type": "Social",
   "src": "side-events-guide"
+ },
+ {
+  "title": "Sword and Tea: Practice & Ceremony",
+  "hub": "lis",
+  "date": "2026-11-13",
+  "start": "10:30",
+  "end": "13:30",
+  "venue": "Jisei Dojo Lisbon, R. Prof. Vítor Fontes 15-B, Lisboa",
+  "host": "Sword and Tea x Yorkseed Global Venture Network (with Jisei Dojo)",
+  "link": "https://luma.com/a9t49wvi",
+  "desc": "A three-hour break from Web Summit: Tao Qigong, an introduction to Japanese sword practice and a Japanese tea ceremony. Optional ramen and networking at 1:30 PM.",
+  "type": "Workshops",
+  "yorkseed": true,
+  "src": "manual"
  }
 ]
