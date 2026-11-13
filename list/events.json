@@ -91222,5 +91222,19 @@
   "type": "Investor Events",
   "src": "manual",
   "yorkseed": true
+ },
+ {
+  "title": "Valois x Yorkseed Nightcap (Lisbon Edition)",
+  "hub": "lis",
+  "date": "2026-11-11",
+  "start": null,
+  "end": null,
+  "venue": "Address after approval",
+  "host": "Valois by Yorkseed, Yorkseed Global Capital Network, Jessica Sophia Wong",
+  "link": "https://luma.com/58oaeogx",
+  "desc": "An invitation-only evening during Web Summit Lisbon where capital allocators, investors and founders from the Valois and Yorkseed networks meet for informal conversation, without pitches or presentations.",
+  "type": "Investor Events",
+  "src": "manual",
+  "yorkseed": true
  }
 ]
