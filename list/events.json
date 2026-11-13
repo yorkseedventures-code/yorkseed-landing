@@ -91194,5 +91194,19 @@
   "desc": "",
   "type": "Social",
   "src": "notaname"
+ },
+ {
+  "title": "WET SUMMIT Lisbon: Investor Unconference & Pop-up Members Club",
+  "hub": "lis",
+  "date": "2026-11-11",
+  "start": "12:00",
+  "end": "19:00",
+  "venue": "Garagem da Vizinha by WOTELS, Rua Pedro Nunes 10, Saldanha",
+  "host": "Struc Ventures, Yorkseed + friends",
+  "link": "https://luma.com/oe66d3mh",
+  "desc": "Invitation-only, investor-only unconference and one-day pop-up members club, an independent alternative to Web Summit. Topic market, three discussion rounds, read-outs and an after-work party from 18:00. Verified investors only.",
+  "type": "Investor Events",
+  "src": "manual",
+  "yorkseed": true
  }
 ]
