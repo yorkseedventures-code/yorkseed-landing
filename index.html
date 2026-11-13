@@ -1517,6 +1517,7 @@ body { font-size: 15px; }
 .spot b{font-weight:600;color:#D4AA85;letter-spacing:.12em;text-transform:uppercase;font-size:11px;margin-right:10px}
 .spot u{text-decoration:none;border-bottom:1px solid rgba(255,255,255,.5);margin-left:8px;white-space:nowrap}
 .spot:hover u{border-color:#fff}
+.spot-rot{background:#6e0d17}.spot-rot .spot{transition:opacity .35s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.spot-rot .spot.out{opacity:0}@media(max-width:600px){.spot-rot .spot{padding-left:14px;padding-right:14px}}
 @media(max-width:600px){.spot{font-size:12.5px;padding:10px 16px}.spot .spot-x{display:none}}
 html.fso [data-fo]{display:none!important}
 html:not(.fso) [data-so]{display:none!important}
@@ -1525,7 +1526,7 @@ html:not(.fso) [data-so]{display:none!important}
 <script src="/assets/ys-ref.js" defer></script>
 <style id="ft-fix">@media(max-width:640px){footer .base{padding-bottom:84px}}</style></head>
 <body>
-<a class="spot" href="/press-releases/wet-summit-lisbon-2026-valois-by-yorkseed"><b>Just in</b>A storm cancelled Web Summit's Day 2. Investors built their own summit in 24 hours<u>Read the story &rarr;</u></a>
+<div id="spotRot" class="spot-rot"><a class="spot" href="/press-releases/wet-summit-lisbon-2026-valois-by-yorkseed"><b>Just in</b>A storm cancelled Web Summit's Day 2. Investors built their own summit in 24 hours<u>Read the story &rarr;</u></a></div>
 <header class="nav">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Yorkseed home"><img src="/assets/home/logo.png" alt="Yorkseed" width="944" height="304"></a>
@@ -2228,6 +2229,20 @@ html:not(.fso) [data-so]{display:none!important}
 document.querySelectorAll('.roles [data-role]').forEach(function(b){b.addEventListener('click',function(){
   var t=document.querySelector('#fsw [data-r="'+b.dataset.role+'"]'); if(t && t.getAttribute('aria-selected')!=='true') t.click();
 });});
+</script>
+<script>
+(function(){var box=document.getElementById("spotRot");if(!box||!window.fetch)return;
+fetch("/press-releases.json").then(function(r){return r.json()}).then(function(d){
+var L=(d.releases||[]).slice().sort(function(a,b){return a.date<b.date?1:-1}).slice(0,5);if(L.length<2)return;
+var i=0,t=null,a=box.querySelector(".spot");
+function esc(x){return String(x).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function show(n){var r=L[n];a.href="/press-releases/"+r.slug;a.innerHTML="<b>"+esc(n===0?"Just in":(r.category||"News"))+"</b>"+esc(r.strip||r.title)+"<u>Read &rarr;</u>";}
+function go(){a.classList.add("out");setTimeout(function(){i=(i+1)%L.length;show(i);a.classList.remove("out");},350);}
+show(0);
+if(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+function start(){t=setInterval(go,6000)}function stop(){clearInterval(t)}
+box.addEventListener("mouseenter",stop);box.addEventListener("mouseleave",start);box.addEventListener("focusin",stop);box.addEventListener("focusout",start);start();
+}).catch(function(){});})();
 </script>
 </body>
 </html>
