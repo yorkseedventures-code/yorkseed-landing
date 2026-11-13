@@ -91208,5 +91208,19 @@
   "type": "Investor Events",
   "src": "manual",
   "yorkseed": true
+ },
+ {
+  "title": "Valois in Lisbon: The Allocator Table",
+  "hub": "lis",
+  "date": "2026-11-11",
+  "start": "17:00",
+  "end": "20:00",
+  "venue": "Private venue, shared with approved guests",
+  "host": "Valois by Yorkseed, Yorkseed Global Venture Network, Jessica Sophia Wong",
+  "link": "https://luma.com/k0zamjmi",
+  "desc": "An invitation-only evening for about 45 private capital allocators and leaders in Lisbon during Web Summit week: conversation and introductions, no stage or panels. Part of Yorkseed House at Web Summit Lisbon 2026.",
+  "type": "Investor Events",
+  "src": "manual",
+  "yorkseed": true
  }
 ]
