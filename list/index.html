@@ -131,7 +131,7 @@ h2{font-size:clamp(28px,4vw,40px)}
 .cities{padding-block:56px 0}
 .cities::before{content:"";display:block}
 .cityrow{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(150px,1fr);gap:14px;overflow-x:auto;padding-bottom:10px;scroll-snap-type:x mandatory;scrollbar-width:thin}
-.city{position:relative;aspect-ratio:3/4;max-width:100%;overflow:hidden;border:0;padding:0;cursor:pointer;scroll-snap-align:start;color:#F7F4EE;text-align:left;background:var(--night)}
+.city{display:block;position:relative;aspect-ratio:3/4;max-width:100%;overflow:hidden;border:0;padding:0;cursor:pointer;scroll-snap-align:start;color:#F7F4EE;text-align:left;text-decoration:none;background:var(--night)}
 .city img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
 .city:hover img{transform:scale(1.04)}
 .city::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(16,14,12,.85),transparent 55%)}
@@ -315,7 +315,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 
 /* scalable lists */
 .wlist{border-top:1px solid var(--line)}
-.wrow{display:grid;grid-template-columns:150px minmax(0,1fr) 120px 28px;gap:18px;align-items:baseline;width:100%;padding:16px 0;border:0;border-bottom:1px solid var(--line);background:none;text-align:left;cursor:pointer}
+.wrow{display:grid;grid-template-columns:150px minmax(0,1fr) 120px 28px;gap:18px;align-items:baseline;width:100%;padding:16px 0;border:0;border-bottom:1px solid var(--line);background:none;text-align:left;text-decoration:none;color:inherit;cursor:pointer}
 .wrow:hover .wn{color:var(--accent)}
 .wrow .wd{font-family:var(--f-label);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-variant-numeric:tabular-nums}
 .wrow .wn{font-family:var(--f-display);font-weight:500;font-size:24px;line-height:1.1}
@@ -791,7 +791,7 @@ footer{margin-top:0}
 .railbox{display:grid;gap:0}
 .railbox h4{font-family:var(--f-label);font-weight:500;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);padding-bottom:10px;border-bottom:1px solid var(--ink)}
 .railbox>.link{margin-top:10px;justify-self:start}
-.ritem{display:grid;grid-template-columns:54px minmax(0,1fr);gap:12px;align-items:baseline;border:0;border-bottom:1px solid var(--line);background:none;padding:11px 0;text-align:left;cursor:pointer;width:100%}
+.ritem{display:grid;grid-template-columns:54px minmax(0,1fr);gap:12px;align-items:baseline;border:0;border-bottom:1px solid var(--line);background:none;padding:11px 0;text-align:left;text-decoration:none;color:inherit;cursor:pointer;width:100%}
 .ritem:hover .rt{color:var(--accent)}
 .ritem .rd{font-family:var(--f-label);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .ritem .rd b{font-family:var(--f-display);font-style:italic;font-weight:400;font-size:20px;letter-spacing:0;color:var(--accent)}
@@ -799,8 +799,8 @@ footer{margin-top:0}
 .ritem .rt{font-family:var(--f-display);font-weight:500;font-size:17px;line-height:1.2}
 .ritem .rt small{display:block;font-family:var(--f-body);font-weight:400;font-size:13.5px;color:var(--muted);margin-top:2px}
 .rcities{display:grid;grid-template-columns:1fr 1fr;column-gap:16px}
-.rcities button{display:flex;justify-content:space-between;border:0;border-bottom:1px solid var(--line);background:none;padding:9px 0;cursor:pointer;font-size:15px;text-align:left}
-.rcities button:hover{color:var(--accent)}
+.rcities a{display:flex;justify-content:space-between;border:0;border-bottom:1px solid var(--line);background:none;padding:9px 0;cursor:pointer;font-size:15px;text-align:left;text-decoration:none;color:inherit}
+.rcities a:hover{color:var(--accent)}
 .rcities span{color:var(--soft)}
 
 /* local coming up + submit + sponsors */
@@ -1119,7 +1119,7 @@ select:hover{border-color:var(--ink)}
   .ritem{padding:7px 0;grid-template-columns:42px minmax(0,1fr);gap:8px}
   .ritem .rd{font-size:9px}.ritem .rd b{font-size:17px}
   .ritem .rt{font-size:14.5px}.ritem .rt small{font-size:12px}
-  .rcities button{padding:7px 0;font-size:13.5px}
+  .rcities a{padding:7px 0;font-size:13.5px}
   .submitbox{padding:12px}.submitbox p{font-size:13px;margin-bottom:8px}
   .submitbox .mini input{padding:9px;font-size:16px}
   .rail .stile,.stile{grid-template-columns:64px minmax(0,1fr);padding:8px;column-gap:10px}
@@ -1205,7 +1205,7 @@ select:hover{border-color:var(--ink)}
   .upfoot .btn,.cta3 .btn{font-size:10px}
   .railbox h4{font-size:9px}
   .ritem .rt{font-size:13.5px}.ritem .rt small{font-size:11.5px}.ritem .rd b{font-size:15px}
-  .rcities button{font-size:13px;padding:6px 0}
+  .rcities a{font-size:13px;padding:6px 0}
   .submitbox p{font-size:12.5px}
   .fbanner h3,.fbanner.slim h3{font-size:14px}
   .stile h4{font-size:13.5px!important}
@@ -1970,7 +1970,7 @@ function renderHome(){
 function hubCount(id){return upcoming().filter(e=>e.hub===id).length;}
 function renderCityRow(){
   const t=Date.now();
-  $("#cityRow").innerHTML=[...HUBS].filter(h=>h.id!=="virtual").sort((a,b)=>hubCount(b.id)-hubCount(a.id)).slice(0,8).map(h=>{const n=hubCount(h.id);return h.img?`<button class="city" type="button" data-city="${h.id}"><img src="${IMG[h.img]}" alt="" style="object-position:${IMGPOS[h.img]||"50% 50%"}"><span class="clk">${fT(t,h.tz)}</span><span><b>${h.name}</b>${n} event${n===1?"":"s"}</span></button>`:`<button class="city noimg" type="button" data-city="${h.id}"><span class="clk">${h.id==="virtual"?"Online":fT(t,h.tz)}</span><i>${h.code}</i><span><b>${h.name}</b>${n} event${n===1?"":"s"}</span></button>`}).join("");
+  $("#cityRow").innerHTML=[...HUBS].filter(h=>h.id!=="virtual").sort((a,b)=>hubCount(b.id)-hubCount(a.id)).slice(0,8).map(h=>{const n=hubCount(h.id);return h.img?`<a class="city" href="#${hubSlug(h)}" data-city="${h.id}"><img src="${IMG[h.img]}" alt="" style="object-position:${IMGPOS[h.img]||"50% 50%"}"><span class="clk">${fT(t,h.tz)}</span><span><b>${h.name}</b>${n} event${n===1?"":"s"}</span></a>`:`<a class="city noimg" href="#${hubSlug(h)}" data-city="${h.id}"><span class="clk">${h.id==="virtual"?"Online":fT(t,h.tz)}</span><i>${h.code}</i><span><b>${h.name}</b>${n} event${n===1?"":"s"}</span></a>`}).join("");
   renderMap();
 }
 const REGIONS=[["world","World"],["na","North America"],["eu","Europe"],["mea","Middle East & Asia"],["latam","Latin America"],["oc","Australia"]];
@@ -2049,7 +2049,7 @@ function renderWeeks(){
   const ws=[...WEEKS].filter(w=>w.end>=today&&weekOk(w)&&(cnt[w.id]||0)>0).sort((a,b)=>(soon(b)-soon(a))||(soon(a)?(cnt[b.id]||0)-(cnt[a.id]||0):a.start.localeCompare(b.start)));
   const show=st.allWeeks?ws:[...ws.slice(0,6),...ws.slice(6).filter(w=>w.ys)];
   $("#weekGrid").innerHTML=show.map(w=>{const n=upcoming().filter(e=>e.week===w.id).length;const live=today>=w.start&&today<=w.end;
-    return`<button class="wrow" type="button" data-weekgo="${w.id}"><span class="wd">${range(w.start,w.end)}${live?'<span class="badge b-now live">This week</span>':""}</span><span class="wn">${esc(w.name)}<small>${hubById(w.hub).name} · Yorkseed Master Side Event List${w.ys?" "+ysProgramsHtml(w,true):""}</small></span><span class="wc">${n} event${n===1?"":"s"}</span><span class="ar">→</span></button>`}).join("");
+    return`<a class="wrow" href="#${weekSlug(w)}" data-weekgo="${w.id}"><span class="wd">${range(w.start,w.end)}${live?'<span class="badge b-now live">This week</span>':""}</span><span class="wn">${esc(w.name)}<small>${hubById(w.hub).name} · Yorkseed Master Side Event List${w.ys?" "+ysProgramsHtml(w,true):""}</small></span><span class="wc">${n} event${n===1?"":"s"}</span><span class="ar">→</span></a>`}).join("");
   const mb=$("#moreWeeks");mb.parentElement.hidden=ws.length<=6;mb.textContent=st.allWeeks?"Show fewer":`All ${ws.length} conference weeks`;
 }
 
@@ -2196,9 +2196,9 @@ function renderUpcoming(){
   const ysAllL=list.filter(e=>e.place==="spotlight"),ys=window.__ysAll?ysAllL:ysAllL.slice(0,4);
   $("#railYs").innerHTML=ys.map(e=>{const d=dParts(e.date);return`<button class="ritem" type="button" data-ev="${e.id}"><span class="rd">${d.mon} <b>${d.day}</b></span><span class="rt">${esc(e.title)}<small>${hubById(e.hub).name}</small></span></button>`}).join("")+(ysAllL.length>4?`<button class="link ysmore" type="button" data-ysall="1">${window.__ysAll?"Show fewer":"See all "+ysAllL.length+" Yorkseed events"} ${window.__ysAll?"↑":"→"}</button>`:"");
   const today=addDays(0);const ws0=[...WEEKS].filter(w=>w.end>=today&&weekOk(w)).sort((a,b)=>a.start.localeCompare(b.start));const ws=[...ws0.slice(0,3),...ws0.slice(3).filter(w=>w.ys).slice(0,1)];
-  $("#railWeeks").innerHTML=ws.map(w=>{const live=today>=w.start;const n=upcoming().filter(e=>e.week===w.id).length;return`<button class="ritem" type="button" data-weekgo="${w.id}"><span class="rd">${live?'<em>Now</em>':range(w.start,w.end).split(/[–-]/)[0]}</span><span class="rt">${esc(w.name)}<small>${hubById(w.hub).name} · ${n} event${n===1?"":"s"}${w.ys?" "+ysProgramsHtml(w,2):""}</small></span></button>`}).join("");
+  $("#railWeeks").innerHTML=ws.map(w=>{const live=today>=w.start;const n=upcoming().filter(e=>e.week===w.id).length;return`<a class="ritem" href="#${weekSlug(w)}" data-weekgo="${w.id}"><span class="rd">${live?'<em>Now</em>':range(w.start,w.end).split(/[–-]/)[0]}</span><span class="rt">${esc(w.name)}<small>${hubById(w.hub).name} · ${n} event${n===1?"":"s"}${w.ys?" "+ysProgramsHtml(w,2):""}</small></span></a>`}).join("");
   const tc=[...HUBS].filter(h=>h.id!=="virtual").sort((a,b)=>hubCount(b.id)-hubCount(a.id)).slice(0,6);
-  $("#railCities").innerHTML=`<div class="rcities">${tc.map(h=>`<button type="button" data-city="${h.id}">${h.name}<span>${hubCount(h.id)}</span></button>`).join("")}</div>`;
+  $("#railCities").innerHTML=`<div class="rcities">${tc.map(h=>`<a href="#${hubSlug(h)}" data-city="${h.id}">${h.name}<span>${hubCount(h.id)}</span></a>`).join("")}</div>`;
 }
 
 // event
@@ -2327,7 +2327,8 @@ $("#prevBtn").onclick=()=>{if(step>1){step=step===4?2:step-1;paneShow();}};
 // ---------- events ----------
 function scrollToId(id){if(st.view!=="home"&&!["submit","pricing","partner"].includes(id))show("home");requestAnimationFrame(()=>document.getElementById(id).scrollIntoView({behavior:"smooth",block:"start"}));}
 document.addEventListener("click",ev=>{
-  const t=ev.target.closest("button,article,[data-ev],.hubdot");if(!t)return;
+  const t=ev.target.closest("button,article,[data-ev],.hubdot,a[data-city],a[data-weekgo],a[data-go]");if(!t)return;
+  if(t.tagName==="A")ev.preventDefault();
   if(t.dataset.chat){openChat();return;}
   if(t.dataset.promo){let f=$("#footEmail");if(f&&f.offsetParent===null){show("home");f=$("#footEmail");}if(f){f.scrollIntoView({behavior:"smooth",block:"center"});setTimeout(()=>f.focus({preventScroll:true}),450);}return;}
   if(t.dataset.book){openBook(t.dataset.book,t.dataset.bcity);return;}
