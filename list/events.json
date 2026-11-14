@@ -91695,5 +91695,47 @@
   "type": "Meetups",
   "src": "slush-side",
   "week": "slush"
+ },
+ {
+  "title": "The Investment Case of Critical Raw Materials",
+  "hub": "hel",
+  "date": "2026-11-18",
+  "start": "09:00",
+  "end": "13:30",
+  "venue": "ODDspace, Vallila",
+  "host": "MiXi",
+  "link": "https://luma.com/w9rzqtnr",
+  "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
+  "type": "Workshops",
+  "src": "slush-side",
+  "week": "slush"
+ },
+ {
+  "title": "Welcome to the Future of Women's Health: Eir Accelerator Kick-Off with Jessica Federer",
+  "hub": "hel",
+  "date": "2026-11-18",
+  "start": "17:00",
+  "end": null,
+  "venue": "Innovestor Offices, Helsinki",
+  "host": "Innovestor Group x Eir Accelerator",
+  "link": "https://luma.com/g17mglzp",
+  "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
+  "type": "Meetups",
+  "src": "slush-side",
+  "week": "slush"
+ },
+ {
+  "title": "Nordic Fund Day, Helsinki (Finland)",
+  "hub": "hel",
+  "date": "2026-11-18",
+  "start": "17:00",
+  "end": null,
+  "venue": "Epicenter Helsinki",
+  "host": "Nordic Edge",
+  "link": "https://luma.com/mtp4c5rk",
+  "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
+  "type": "Meetups",
+  "src": "slush-side",
+  "week": "slush"
  }
 ]
