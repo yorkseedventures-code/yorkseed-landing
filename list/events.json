@@ -47566,7 +47566,8 @@
   "host": "Maria 01 Calendar",
   "link": "https://luma.com/3zd6gumb",
   "desc": "Details and registration on the event page.",
-  "src": "luma-cal"
+  "src": "luma-cal",
+  "week": "slush"
  },
  {
   "title": "Resilience by Design: Deeptech for Critical Infrastructure",
@@ -47766,7 +47767,8 @@
   "host": "Maria 01 Calendar",
   "link": "https://luma.com/2u3gufv5",
   "desc": "Details and registration on the event page.",
-  "src": "luma-cal"
+  "src": "luma-cal",
+  "week": "slush"
  },
  {
   "title": "ATDC SBIR 101: Understanding, Planning and Writing",
@@ -48341,7 +48343,8 @@
   "link": "https://www.startupinfinland.com/events/2026/why-startup-founders-choose-finland",
   "type": "Meetups",
   "desc": "Details and registration on the event page.",
-  "src": "foundercal"
+  "src": "foundercal",
+  "week": "slush"
  },
  {
   "title": "Coffee with Enhans at Microsoft Ignite",
@@ -48364,7 +48367,8 @@
   "venue": "Hotel St. George Helsinki, Hotel St. George Helsinki, Yrjönkatu 13 C, 00120 Helsinki, Finland",
   "host": "Rockstart",
   "link": "https://amplifyeurope.com/",
-  "desc": "A European Breakfast. A European Conversation. Before Investor Day opens, we invite investors, LPs and ecosystem leaders to begin Slush week at the Amplify Europe Breakfast. This is the sixth stop. Copenhagen, Malmö, Barcelona, Oslo, Lisbon — now Helsinki."
+  "desc": "A European Breakfast. A European Conversation. Before Investor Day opens, we invite investors, LPs and ecosystem leaders to begin Slush week at the Amplify Europe Breakfast. This is the sixth stop. Copenhagen, Malmö, Barcelona, Oslo, Lisbon — now Helsinki.",
+  "week": "slush"
  },
  {
   "title": "B2B Executive Sales Network │ Oslo",
@@ -48413,7 +48417,8 @@
   "venue": "Helsinki",
   "host": "FiBAN events",
   "link": "https://next.brella.io/event-welcome/DECOIxBORDERLAND2026/tickets",
-  "desc": "Registration:https://next.brella.io/event-welcome/DECOIxBORDERLAND2026/tickets"
+  "desc": "Registration:https://next.brella.io/event-welcome/DECOIxBORDERLAND2026/tickets",
+  "week": "slush"
  },
  {
   "title": "Home — MLOps World",
@@ -48642,7 +48647,8 @@
   "link": "https://maps.app.goo.gl/7EWheHCWJVELLLHt6",
   "type": "Meetups",
   "desc": "Details and registration on the event page.",
-  "src": "foundercal"
+  "src": "foundercal",
+  "week": "slush"
  },
  {
   "title": "Helsinki Beyond Growth: Lessons in Building a Business That Lasts",
@@ -48655,7 +48661,8 @@
   "link": "https://whatwhen.events/events/beyond-growth-lessons-in-building-a-business-that-lasts-2026-11-17",
   "type": "Meetups",
   "desc": "Details and registration on the event page.",
-  "src": "foundercal"
+  "src": "foundercal",
+  "week": "slush"
  },
  {
   "title": "From Breakthrough to Business",
@@ -48740,7 +48747,8 @@
   "link": "https://slush.org/event-info",
   "type": "Meetups",
   "desc": "Details and registration on the event page.",
-  "src": "foundercal"
+  "src": "foundercal",
+  "week": "slush"
  },
  {
   "title": "Pitch Practice SYLVAN",
@@ -48922,7 +48930,8 @@
   "venue": "Tavastia, Tavastia, Urho Kekkosen katu 4, 00100 Helsinki, Finland",
   "host": "Parastoo Jalili",
   "link": "https://tapahtumat.businesslahti.fi/attend/bMrPd?t%5BkRVex%5D=",
-  "desc": "Eventilla"
+  "desc": "Eventilla",
+  "week": "slush"
  },
  {
   "title": "Chicago Innovation Awards - Chicago Innovation",
@@ -48945,7 +48954,8 @@
   "host": "Maria Ostashova & Kaius Karjalainen",
   "link": "https://luma.com/4v2n4qay",
   "desc": "Details and registration on the event page.",
-  "src": "luma"
+  "src": "luma",
+  "week": "slush"
  },
  {
   "title": "Agentic + AI Observability Meetup Seattle",
@@ -49459,7 +49469,8 @@
   "host": "Joey Bayer",
   "link": "https://luma.com/epicenter-fr3b",
   "desc": "Details and registration on the event page.",
-  "src": "luma"
+  "src": "luma",
+  "week": "slush"
  },
  {
   "title": "AI Safety Weekly: Alignment from Token Zero",
@@ -49883,7 +49894,8 @@
   "venue": "Helsinki",
   "host": "Zero",
   "link": "https://dust.tt:443/",
-  "desc": "Dust connects your company knowledge, tools, and teams so you can create, share, and run agents across real workflows. Use different models for different tasks, with people in control."
+  "desc": "Dust connects your company knowledge, tools, and teams so you can create, share, and run agents across real workflows. Use different models for different tasks, with people in control.",
+  "week": "slush"
  },
  {
   "title": "BOOST",
@@ -49918,7 +49930,8 @@
   "host": "Zechen Ma & Antonia Eneh",
   "link": "https://luma.com/uareguey",
   "desc": "Details and registration on the event page.",
-  "src": "luma"
+  "src": "luma",
+  "week": "slush"
  },
  {
   "title": "Funded Founder's Marketing Workshop: How to Scale to Series B and Beyond",
@@ -49941,7 +49954,8 @@
   "venue": "Messukeskus (Helsinki Expo and Convention Centre), Messuaukio 1, 00520 Helsinki",
   "host": "Slush",
   "link": "https://slush.org/",
-  "desc": "Slush is the world’s most founder-focused startup event, held annually in Helsinki. Join top founders, investors, and media at Slush 2026 on Nov 18–19."
+  "desc": "Slush is the world’s most founder-focused startup event, held annually in Helsinki. Join top founders, investors, and media at Slush 2026 on Nov 18–19.",
+  "week": "slush"
  },
  {
   "title": "The AI Buildout Bottlenecks",
@@ -50390,7 +50404,8 @@
   "link": "https://luma.com/lxxdc3is",
   "type": "Conferences",
   "desc": "Details and registration on the event page.",
-  "src": "foundercal"
+  "src": "foundercal",
+  "week": "slush"
  },
  {
   "title": "Networking Cake",
@@ -50782,7 +50797,8 @@
   "host": "Mobile marketing events by web2wave",
   "link": "https://luma.com/jxtnmsla",
   "desc": "Details and registration on the event page.",
-  "src": "luma-cal"
+  "src": "luma-cal",
+  "week": "slush"
  },
  {
   "title": "Women in AI: Thanksgiving Founders Table",
@@ -50905,7 +50921,8 @@
   "link": "https://luma.com/l4n22f5c",
   "type": "Communal Dining",
   "desc": "Details and registration on the event page.",
-  "src": "foundercal"
+  "src": "foundercal",
+  "week": "slush"
  },
  {
   "title": "Venture Night@Slush 2026 – The Ultimate Startup & Investor Experience!",
@@ -50918,7 +50935,8 @@
   "link": "https://luma.com/VentureNight_Helsinki",
   "type": "Pitch",
   "desc": "Details and registration on the event page.",
-  "src": "foundercal"
+  "src": "foundercal",
+  "week": "slush"
  },
  {
   "title": "Founders in the making: From research to startup",
@@ -51180,7 +51198,8 @@
   "link": "https://luma.com/best-slush-event",
   "type": "Meetups",
   "desc": "Details and registration on the event page.",
-  "src": "foundercal"
+  "src": "foundercal",
+  "week": "slush"
  },
  {
   "title": "Barcelona Entrepreneurs Meet-up",
@@ -51352,7 +51371,8 @@
   "link": "https://maps.app.goo.gl/hAMmUng2vio7c3j39",
   "type": "Conferences",
   "desc": "Details and registration on the event page.",
-  "src": "foundercal"
+  "src": "foundercal",
+  "week": "slush"
  },
  {
   "title": "OpenCoffee Club Austin - Northside",
@@ -51378,7 +51398,8 @@
   "link": "https://luma.com/a2wac5ei",
   "type": "Meetups",
   "desc": "Details and registration on the event page.",
-  "src": "foundercal"
+  "src": "foundercal",
+  "week": "slush"
  },
  {
   "title": "FUSE San Francisco",
@@ -68020,7 +68041,8 @@
   "host": "Slush",
   "link": "https://slush.org/",
   "type": "Conferences",
-  "desc": "The founder and investor gathering in Helsinki, November 18 and 19, with Day 0 on November 17 and hundreds of community side events across the city all week."
+  "desc": "The founder and investor gathering in Helsinki, November 18 and 19, with Day 0 on November 17 and hundreds of community side events across the city all week.",
+  "week": "slush"
  },
  {
   "title": "Microsoft Ignite 2026",
@@ -77093,7 +77115,8 @@
   "host": "FiBAN events",
   "link": "https://luma.com/balticseaunicorns26",
   "desc": "Details and registration on the event page.",
-  "src": "luma-cal"
+  "src": "luma-cal",
+  "week": "slush"
  },
  {
   "title": "Creative Angels Workshop",
@@ -83139,7 +83162,8 @@
   "link": "https://andsimple.co/events/simplifying-ai-for-family-offices-simple-helsinki",
   "desc": "Details and registration on the event page.",
   "src": "manual",
-  "noTime": true
+  "noTime": true,
+  "week": "slush"
  },
  {
   "title": "Asia-Pacific Family Enterprise & Alternative Investments Summit",
@@ -89631,7 +89655,8 @@
   "link": "https://luma.com/mosckz9m",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Conferences",
-  "src": "luma"
+  "src": "luma",
+  "week": "slush"
  },
  {
   "title": "Finland Education & Innovation Experience",
@@ -89644,7 +89669,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/46fc6712-6f8f-4c46-b1fc-4c6714b90177",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Workshops",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Nordic Supercomputing Summit 2026",
@@ -89657,7 +89683,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/c27a5222-55cc-4fd3-bc3b-8cdf3a7d4ef2",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Conferences",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Solid Ground: A morning with Ninepine",
@@ -89670,7 +89697,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/5544a60f-1f22-4f7a-9576-17fdf13479ad",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Workshops",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Hard2Scale startup/investor/corporate networking breakfast",
@@ -89683,7 +89711,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/ea807708-9ebe-4d30-9ffc-d45e74d3bc00",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Communal Dining",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "The Resilience Edge",
@@ -89696,7 +89725,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/bd0645f9-c391-4b41-a3e3-79211458c5e4",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Workshops",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Vantaan Energia/High Tech cluster startup scouting forum",
@@ -89709,7 +89739,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/bdc2d9c0-ef6b-49a2-b473-118c36efa41a",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Conferences",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Deals on Wheels: Speeddating & Networking Event",
@@ -89722,7 +89753,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/3f46fbb5-e8e0-4c58-b013-0c524ab6e2ba",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Workshops",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Comms Summit 2026",
@@ -89735,7 +89767,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/a8715fbc-76b0-44f0-8a15-631852124b94",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Conferences",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Hot Dogs & Startups Vol. 4",
@@ -89748,7 +89781,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/17bedecd-fee9-49bb-af5d-f563ed590832",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Workshops",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Bubbles & Connections",
@@ -89761,7 +89795,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/9f602e78-8f20-4703-8b2b-6de5b3600a80",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Social",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Ugly Duckling Ventures Cold Water Dipping & Sauna Event for Investors 2026",
@@ -89774,7 +89809,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/48623bca-fa95-4c3b-9395-4d2f06892607",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Investor Events",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Marketing Meetup",
@@ -89787,7 +89823,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/9cb8f441-c752-468e-8406-e3a6c5701ced",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Meetups",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Is Ageing Good Business?",
@@ -89800,7 +89837,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/012f721e-e7d5-4e87-835e-97e6fb35171d",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Workshops",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "The Foundry After Hours",
@@ -89813,7 +89851,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/06c60410-9c6f-47de-8900-f4e44364ba88",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Social",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "17Tech Investor Demo Day: Defence Tech Dealflow",
@@ -89826,7 +89865,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/9fd8e51c-7439-44c2-b312-8bb2561603c9",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Pitch",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Flight Club by AI Score",
@@ -89839,7 +89879,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/845699be-bb49-4bd5-9ea0-8cc50b700dd0",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Social",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Nordea Investor Dinner",
@@ -89852,7 +89893,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/b671a4f7-0f8b-4519-ae32-10cc5ae5a1d4",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Communal Dining",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Norwegian Tech Warm-Up 2026",
@@ -89865,7 +89907,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/f4e3ed3d-24e8-4b73-a891-0bab8fc48ed6",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Workshops",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Blue Lake Family Office Drinks",
@@ -89878,7 +89921,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/39ce9bc1-95bc-4985-84e8-2a0c608118c3",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Investor Events",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "The State of European Deep Tech 2027",
@@ -89891,7 +89935,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/e445a3fa-2163-49c1-b2de-1c2dbf66b45f",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Workshops",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Unifying Your Media Stack with GenMedia",
@@ -89904,7 +89949,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/a813156c-d198-45f0-b452-b6f76a85b9d9",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Workshops",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "EWVC Investor Breakfast",
@@ -89917,7 +89963,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/3536996e-a302-40e5-a380-8d88514de4ca",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Communal Dining",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Y Science",
@@ -89930,7 +89977,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/83c37132-93d7-41ef-bfb5-69d3c2b5fde9",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Workshops",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Next from Tampere: Industrial Tech & Energy",
@@ -89943,7 +89991,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/e77b17cf-d187-4caf-8d3b-81bde816a324",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Workshops",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Czech Startup Pitch Session",
@@ -89956,7 +90005,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/7dc27c70-a426-442b-9731-2ebe8494551e",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Pitch",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Monetising AI: Designing pricing for value",
@@ -89969,7 +90019,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/d6e6d639-d5e3-47c0-860c-b9dd84a11a36",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Workshops",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Scaling from Germany: Founder Lessons",
@@ -89982,7 +90033,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/cfdec394-a6c1-4a4f-86a8-860ec6ee861d",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Workshops",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Swiss Hour 1: Showcasing Swiss Startups",
@@ -89995,7 +90047,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/34a5e5c2-1dba-4777-a056-5599185d7ab3",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Workshops",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Happiness Lounge: Scaling the Clean Transition",
@@ -90008,7 +90061,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/d2bc70ff-79c3-4ff9-a708-3868b12efa73",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Workshops",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Irish Founders meet Global Investors",
@@ -90021,7 +90075,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/eb946c95-e69d-4c4b-ba94-8df39174f3f7",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Investor Events",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Scaling Unicorns from Elsewhere by Endeavor & The Recursive",
@@ -90034,7 +90089,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/29c702ae-75a7-45fe-a092-5882c7c91550",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Workshops",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Look to Norway",
@@ -90047,7 +90103,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/67ff55ac-2027-4edd-a1c4-52016a144398",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Workshops",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Spain Innovation Ecosystem: Next European Tech Powerhouse",
@@ -90060,7 +90117,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/13f17d21-176f-40d2-8c42-03e028ea023e",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Workshops",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Next Stop Asia: Scaling your I&T Business through Hong Kong",
@@ -90073,7 +90131,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/d4259960-a1ec-44f5-a0ce-0363940f825a",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Workshops",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Next from Tampere: Semiconductors & Advanced Manufacturing",
@@ -90086,7 +90145,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/76dbf918-d3e1-407c-9aed-d6d3017ef374",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Workshops",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Swiss Hour 2: Showcasing Swiss Startups",
@@ -90099,7 +90159,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/887c71e9-69b2-4d7e-aa52-46d9bdceffa6",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Workshops",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Accelerating AI Growth by Google DeepMind",
@@ -90112,7 +90173,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/34de4b7d-e54e-4ce1-89a8-dea94a1e951d",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Workshops",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Counsel After Hours, hosted by Dottir",
@@ -90125,7 +90187,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/dbde1c9d-8291-4945-9205-8edc773498df",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Social",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Fintech & Impact: Innovation is our Identity",
@@ -90138,7 +90201,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/8ff1351a-204f-4d04-8f47-cbd78a854d20",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Workshops",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Automotive Tech Evening",
@@ -90151,7 +90215,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/1e0e2662-9b91-40d8-b836-ede6dca09f1c",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Workshops",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Scaling the EEA: The art and chaos of becoming a Unicorn",
@@ -90164,7 +90229,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/a9ae34bb-3758-4814-9370-25e354e0e09d",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Workshops",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Building agents is easy. Running them in production isn't.",
@@ -90177,7 +90243,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/f028cd6f-bb30-4ddb-b547-886729158b38",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Social",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Sifted AI 100: Europe's Next Wave",
@@ -90190,7 +90257,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/1609abba-323c-42da-91e3-6ef58a9f5602",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Workshops",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Corporate Venturing and Open Innovation Reception by Emerald",
@@ -90203,7 +90271,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/0f48fc8f-c2bf-47e6-9d5d-f0929810346b",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Social",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Polish Networking Night",
@@ -90216,7 +90285,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/1df8b955-903a-49d7-bc67-718fcd981eff",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Social",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "A-CH SO! Raclette Evening",
@@ -90229,7 +90299,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/5641fc92-e2d9-4ddd-b611-c0c5e59b1fe7",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Communal Dining",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "A Private Dinner: Capital, technology and distribution for the Founder Upgrade",
@@ -90242,7 +90313,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/337bce1a-17a6-463f-9436-e9b154e3307d",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Communal Dining",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Concrete connections",
@@ -90255,7 +90327,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/3262ee88-cb08-4f1d-bc62-ee4578e717da",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Social",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Barcelona Uncorked",
@@ -90268,7 +90341,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/cd73b2d4-45fc-40f7-97c9-3b56be36ca0c",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Social",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "From Lab to Deal: Fixing the Cyber Deep Tech Gap",
@@ -90281,7 +90355,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/ce9c96c5-286d-4899-94a3-022a3ec211c1",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Workshops",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Plans, Pilots & Coffee",
@@ -90294,7 +90369,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/9f9e3945-4440-4066-92e2-4662e25cde9a",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Workshops",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Family Office Breakfast",
@@ -90307,7 +90383,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/6249da3c-3980-4342-9625-605403e1f11e",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Communal Dining",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Finnish Textile & Fashion x Paloceras: How to Fund the Next Big Brand",
@@ -90320,7 +90397,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/6a7ae4a8-df97-4193-8945-05e8e083ce4e",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Investor Events",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "The Industrial Renaissance Summit",
@@ -90333,7 +90411,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/a3e4e018-3506-4dd4-b4d5-87a033172e50",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Conferences",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Next from Tampere: Health & Life Science",
@@ -90346,7 +90425,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/581a5361-d322-4409-9296-afbdab5bd47e",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Workshops",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Your U.S. Expansion, Funded: $500k+ Grant and Access to VCs",
@@ -90359,7 +90439,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/143598f3-7a5d-4527-bbe2-6d459c599114",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Investor Events",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "The second founding moment: building the company behind the product",
@@ -90372,7 +90453,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/82a79866-0ddd-4648-b201-7ead3645dd24",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Workshops",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "How to Scale Faster: From Startup to Industrial Impact",
@@ -90385,7 +90467,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/362e5fc0-48ec-43c3-91d8-b3d85393a66f",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Workshops",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "AI is Rewriting Healthcare Investment",
@@ -90398,7 +90481,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/b4bdda6e-091c-4f85-a9bf-ccdb916f728c",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Workshops",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Swiss Hour 3: Showcasing Swiss Startups",
@@ -90411,7 +90495,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/34890a95-4e0e-4817-bf85-109d291b82b1",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Workshops",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Next from Tampere: AI & Physical AI",
@@ -90424,7 +90509,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/56477e27-06b5-47a0-bd9e-27a8c186fe88",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Workshops",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Built in El Salvador. Scaling in Europe",
@@ -90437,7 +90523,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/3cbcaca8-6f99-4e80-b273-ee2fe6f48573",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Workshops",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "The Highs and Lows of Startup Entrepreneurship",
@@ -90450,7 +90537,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/aa0b7335-4606-43cf-8c3f-1ab3d74c3993",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Workshops",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Closing the Gap in Europe: From Ambition to Ownership",
@@ -90463,7 +90551,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/007e6976-db9e-47bc-b772-d9da5b22eca3",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Workshops",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Swiss Hour 4: Showcasing Swiss Startups",
@@ -90476,7 +90565,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/e7581e2d-17b5-46df-bc8c-2ab480f8063b",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Workshops",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "The CEE Investor Circle",
@@ -90489,7 +90579,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/0e879931-0ba5-4e2c-ae66-7b9802df3532",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Investor Events",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Thailand VIBE",
@@ -90502,7 +90593,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/6c824555-a00d-4f97-9e98-3781c0482fca",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Workshops",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Music Tech Meetup & Chill @Musopia",
@@ -90515,7 +90607,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/3b6256f1-8b2d-4adc-ba09-984746e8d0ec",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Meetups",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Alpine Afterwork",
@@ -90528,7 +90621,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/39ab10ce-1926-4386-837c-ec41461d0155",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Investor Events",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Global Conversations: Pre-Davos Dinner",
@@ -90541,7 +90635,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/0006dd61-3de4-4519-9efb-af6dacd0982b",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Communal Dining",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Music meets Finance Dinner, hosted by twelve x twelve",
@@ -90554,7 +90649,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/d0591ba9-b21b-4e99-aebe-ac01f08e4dd4",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Communal Dining",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Global Conversations: Davos Nightcap",
@@ -90567,7 +90663,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/f7a994ef-9e93-49b8-b7f5-cebb31573b1d",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Social",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "K-Startup Day",
@@ -90580,7 +90677,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/91e3a3dd-1b18-461b-84a4-2e14d64d92b1",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Workshops",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Hot Sauna, Cool Pitch: Sauna Pitching",
@@ -90593,7 +90691,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/fe625fe3-573d-44f8-9411-c82db8402ae2",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Pitch",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Hardware Meetup Europe: After Party",
@@ -90606,7 +90705,8 @@
   "link": "https://platform.slush.org/public/slush26/activities/d0efd8ec-e7b6-47b7-84dc-932c64627ac5",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Social",
-  "src": "slush"
+  "src": "slush",
+  "week": "slush"
  },
  {
   "title": "Futures Readiness in Engineering & Manufacturing: Are you ready?",
@@ -90619,7 +90719,8 @@
   "link": "https://luma.com/206fewet",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Workshops",
-  "src": "luma"
+  "src": "luma",
+  "week": "slush"
  },
  {
   "title": "Reset & Refresh the Way of the Polar Bears: Morning Ice Bath & Coffee",
@@ -90632,7 +90733,8 @@
   "link": "https://luma.com/af3gldg9",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Social",
-  "src": "luma"
+  "src": "luma",
+  "week": "slush"
  },
  {
   "title": "A Breakfast Conversation on Bioeconomy, Blue Bio, Fungi & Capital",
@@ -90645,7 +90747,8 @@
   "link": "https://luma.com/2pe95xdc",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Communal Dining",
-  "src": "luma"
+  "src": "luma",
+  "week": "slush"
  },
  {
   "title": "Pitch and Pancakes: Are you ready for the US?",
@@ -90658,7 +90761,8 @@
   "link": "https://luma.com/xyv4042y",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Pitch",
-  "src": "luma"
+  "src": "luma",
+  "week": "slush"
  },
  {
   "title": "Funding Europe's Dynamism: LP/GP Breakfast & Deep Tech Panel",
@@ -90671,7 +90775,8 @@
   "link": "https://luma.com/q7ogz6mc",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Communal Dining",
-  "src": "luma"
+  "src": "luma",
+  "week": "slush"
  },
  {
   "title": "Energy & AI Talkoot Breakfast",
@@ -90684,7 +90789,8 @@
   "link": "https://luma.com/y4vkk2zo",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Communal Dining",
-  "src": "luma"
+  "src": "luma",
+  "week": "slush"
  },
  {
   "title": "LP Trust Breakfast by Vestberry & EUVC",
@@ -90697,7 +90803,8 @@
   "link": "https://luma.com/z3fbnlgu",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Communal Dining",
-  "src": "luma"
+  "src": "luma",
+  "week": "slush"
  },
  {
   "title": "Inkef & Prosus CrossFit WOD",
@@ -90710,7 +90817,8 @@
   "link": "https://luma.com/v2kxoj7l",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Social",
-  "src": "luma"
+  "src": "luma",
+  "week": "slush"
  },
  {
   "title": "Techstars presents: Hard Reset",
@@ -90723,7 +90831,8 @@
   "link": "https://luma.com/ujalpouq",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Workshops",
-  "src": "luma"
+  "src": "luma",
+  "week": "slush"
  },
  {
   "title": "German x Finnish Beer Together 2026",
@@ -90736,7 +90845,8 @@
   "link": "https://www.eventbrite.fi/e/german-x-finnish-beer-together-2026-tickets-1999658468308",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Social",
-  "src": "web"
+  "src": "web",
+  "week": "slush"
  },
  {
   "title": "Valleytop International Business Conference",
@@ -90749,7 +90859,8 @@
   "link": "https://www.eventbrite.com/e/valleytop-international-business-conference-tickets-1998471333556",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Conferences",
-  "src": "web"
+  "src": "web",
+  "week": "slush"
  },
  {
   "title": "Slush Networking Event @ Bier Bier: Disconnect like it's 1996",
@@ -90762,7 +90873,8 @@
   "link": "https://www.eventbrite.co.uk/e/slush-networking-event-bier-bier-disconnect-like-its-1996-tickets-2003417730362",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Social",
-  "src": "web"
+  "src": "web",
+  "week": "slush"
  },
  {
   "title": "Saunominication",
@@ -90775,7 +90887,8 @@
   "link": "https://luma.com/jqjmmfny",
   "desc": "Slush Helsinki 2026 side event. Registration on the event page.",
   "type": "Social",
-  "src": "web"
+  "src": "web",
+  "week": "slush"
  },
  {
   "title": "FoodTech Ecosystem Breakfast powered by iFood",
