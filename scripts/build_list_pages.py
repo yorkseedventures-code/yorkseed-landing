@@ -466,9 +466,22 @@ for e in events:
 print(len(events), "event pages")
 
 canon = LIST + "cities/"
+# NOTE: this must build its own body. It used to fall through to whatever
+# `body` was left holding by the very last iteration of the "one page per
+# event" loop above, which silently overwrote this page with a random
+# individual event's content on every run (only this file's <head>/<title>/
+# JSON-LD were ever actually about cities).
+cities_body = f"""<div class="crumb"><a href="https://yorkseed.co/">Yorkseed</a> / <a href="/">The List</a> / Cities</div>
+<div class="hero"><div><h1>Startup and <em>tech events</em>, by city</h1>
+<p class="lede">Every startup, founder, investor and tech event worth going to, across {len(hubs)-1} cities and online. Picked by Yorkseed, updated continuously.</p>
+<p class="meta">{total} upcoming event{'s' if total != 1 else ''} · Updated {TODAY.strftime('%B')} {TODAY.day}, {TODAY.year}</p>
+<div class="cta"><a class="btn r" href="/#events">Open the interactive List</a><a class="btn" href="/#submit">List your event free</a></div></div></div>
+<h2>Browse by city</h2>
+{city_grid()}
+<div class="band"><p>The best events in your city, every Monday. One short email, free.</p><a class="btn r" href="https://pulse.yorkseed.co/subscribe?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_cities" target="_blank" rel="noopener">Subscribe</a></div>"""
 page(f"{REPO}/list/cities/index.html", f"Startup & Tech Events in {len(hubs)-1} Cities | The Yorkseed List",
      f"{total} upcoming startup, tech, founder and investor events in New York, San Francisco, London, Singapore, Lisbon and {len(hubs)-6} more cities, plus conference side events.",
-     canon, body, [ORG, {"@type":"CollectionPage","@id":canon,"url":canon,"name":"Startup events by city","publisher":{"@id":ORG["@id"]},"dateModified":TODAY.isoformat(),
+     canon, cities_body, [ORG, {"@type":"CollectionPage","@id":canon,"url":canon,"name":"Startup events by city","publisher":{"@id":ORG["@id"]},"dateModified":TODAY.isoformat(),
       "hasPart":[{"@type":"CollectionPage","name":f"Startup events in {h['name']}","url":f"{LIST}{h['slug']}/"} for h in city_order]}])
 written.insert(0, (canon, True, "daily", "0.9"))
 
