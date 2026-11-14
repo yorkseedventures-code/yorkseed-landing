@@ -105,6 +105,7 @@ body{overflow-wrap:anywhere}
   <nav class="nav" id="nav" aria-label="Sections">
     <button data-go="today">Today <span class="n" id="nToday" hidden></span></button>
     <button data-go="inbox">Inbox <span class="n" id="nInbox" hidden></span></button>
+    <button data-go="hubjoins">Hub joins <span class="n" id="nHubJoin" hidden></span></button>
     <button data-go="partners">Partners <span class="n" id="nPartners" hidden></span></button>
     <button data-go="delegation">Delegation <span class="n" id="nDeleg" hidden></span></button>
     <button data-go="events">Yorkseed events</button>
@@ -154,6 +155,14 @@ body{overflow-wrap:anywhere}
   <div class="tabs" id="chTabs"><button data-ct="pending" class="on">Pending</button><button data-ct="approved">Approved</button><button data-ct="rejected">Rejected</button></div>
   <div id="chList"><div class="hint">Loading...</div></div>
   <div class="hint">People who ask to change or remove an event on the List. Approve applies it on the List right away and emails them that it is live. Reject leaves the event as it is.</div>
+</div>
+
+<div class="card" id="hubjoins" data-sec="hubjoins">
+  <h2>Hub join requests <span id="hjCount"></span></h2>
+  <div class="tabs" id="hjTabs"><button data-hjt="pending" class="on">Pending</button><button data-hjt="approved">Approved</button><button data-hjt="rejected">Rejected</button></div>
+  <div class="acts" style="margin:10px 0"><button type="button" id="hjVcardBtn">Download as contacts (vCard)</button><span class="hint" id="hjVcardMsg" style="display:inline"></span></div>
+  <div id="hjList"><div class="hint">Loading...</div></div>
+  <div class="hint">People who ask to join a hub on yorkseed.co/join.html. You get an email for each one. Approve or reject to sort them, then use "Download as contacts" any time to get everyone in the tab you're on as one .vcf file you can import into Contacts.</div>
 </div>
 
 <div class="card" id="organizers" data-sec="organizers">
@@ -423,6 +432,42 @@ document.addEventListener('click',function(ev){
   else if(t.id==='trustAdd'){var em=$('trustEmail').value.trim();if(!em)return;t.disabled=true;trust(em).then(function(){$('trustEmail').value=''}).catch(function(e){alert(e.message)}).then(function(){t.disabled=false})}
   else if(id=t.dataset.subDel){if(t.dataset.sure===id){subApi('/'+id,{method:'DELETE'}).then(loadSubs)}else{t.dataset.sure=id;t.textContent='Tap again';setTimeout(function(){t.textContent='Delete';delete t.dataset.sure},3000)}}
 });
+
+var HJ='https://yorkseed-backend-production.up.railway.app/api/hub-join-requests',hjs=[],hjTab='pending';
+function hjApi(path,opt){var keep=API;API=HJ;try{return api(path,opt)}finally{API=keep}}
+function loadHubJoins(){
+  if(!key()){$('hjList').innerHTML='<div class="hint">Enter your key to see hub join requests.</div>';return}
+  hjApi('').then(function(j){hjs=j.requests||[];var n=j.pending||0;$('hjCount').innerHTML=n?'<span class="pill">'+n+' new</span>':'';badge('nHubJoin',n);renderHubJoins()})
+    .catch(function(err){$('hjList').innerHTML='<div class="hint">'+esc(err.message)+'</div>'});
+}
+function renderHubJoins(){
+  var rows=hjs.filter(function(x){return x.status===hjTab});
+  $('hjList').innerHTML=rows.length?rows.map(function(x){
+    var name=[x.firstName,x.lastName].filter(Boolean).join(' ');
+    var hub=x.conference?esc(x.conference)+' (conference)':esc(x.hub||x.basedCity);
+    var acts=x.status==='pending'?'<button class="ok" data-hj-ok="'+x.id+'">Approve</button><button data-hj-no="'+x.id+'">Reject</button>':x.status==='approved'?'<button data-hj-no="'+x.id+'">Move to rejected</button>':'<button data-hj-ok="'+x.id+'">Approve</button>';
+    return '<div class="sub-it"><b>'+esc(name)+'</b><div class="meta">'+hub+(x.role?' · '+esc(x.role):'')+(x.company?' · '+esc(x.company):'')+'</div>'
+      +'<div class="meta">'+[x.whatsapp?'WhatsApp: '+esc(x.whatsapp):'',x.email?esc(x.email):'',x.profileLink?'<a href="'+esc(x.profileLink)+'" target="_blank" rel="noopener">profile</a>':''].filter(Boolean).join(' · ')+'</div>'
+      +(x.about?'<div class="desc">'+esc(x.about)+'</div>':'')
+      +'<div class="acts">'+acts+'<button data-hj-del="'+x.id+'">Delete</button></div></div>';
+  }).join(''):'<div class="hint">'+(hjTab==='pending'?'No new requests.':'Nothing here.')+'</div>';
+}
+document.addEventListener('click',function(ev){
+  var t=ev.target,id;if(!t.dataset)return;
+  if(t.dataset.hjt){hjTab=t.dataset.hjt;[].forEach.call(document.querySelectorAll('#hjTabs button'),function(b){b.className=b.dataset.hjt===hjTab?'on':''});renderHubJoins()}
+  else if(id=t.dataset.hjOk){t.disabled=true;hjApi('/'+id,{method:'PUT',body:{status:'approved'}}).then(loadHubJoins).catch(function(e){alert(e.message)})}
+  else if(id=t.dataset.hjNo){t.disabled=true;hjApi('/'+id,{method:'PUT',body:{status:'rejected'}}).then(loadHubJoins).catch(function(e){alert(e.message)})}
+  else if(id=t.dataset.hjDel){if(t.dataset.sure===id){hjApi('/'+id,{method:'DELETE'}).then(loadHubJoins)}else{t.dataset.sure=id;t.textContent='Tap again';setTimeout(function(){t.textContent='Delete';delete t.dataset.sure},3000)}}
+  else if(t.id==='hjVcardBtn'){
+    var m=$('hjVcardMsg');if(!key()){m.textContent='Enter your key first';m.style.color='#b91c1c';return}
+    t.disabled=true;m.textContent='Preparing…';m.style.color='#52525b';
+    fetch(HJ+'/vcards?status='+encodeURIComponent(hjTab),{headers:{'x-events-key':key()}})
+      .then(function(r){if(!r.ok)throw new Error('Could not download that.');return r.blob()})
+      .then(function(b){var u=URL.createObjectURL(b);var a=document.createElement('a');a.href=u;a.download='yorkseed-hub-join-'+hjTab+'.vcf';document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(u)},4000);m.textContent='Downloaded ✓';m.style.color='#15803d'})
+      .catch(function(e){m.textContent=e.message;m.style.color='#b91c1c'}).then(function(){t.disabled=false});
+  }
+});
+
 var HUBS_ALL=[{"id":"nyc","name":"New York"},{"id":"sf","name":"Bay Area"},{"id":"atx","name":"Austin"},{"id":"bos","name":"Boston"},{"id":"chi","name":"Chicago"},{"id":"la","name":"Los Angeles"},{"id":"mia","name":"Miami"},{"id":"dc","name":"Washington D.C."},{"id":"mtl","name":"Montreal"},{"id":"tor","name":"Toronto"},{"id":"ams","name":"Amsterdam"},{"id":"bcn","name":"Barcelona"},{"id":"ber","name":"Berlin"},{"id":"can","name":"Cannes"},{"id":"cph","name":"Copenhagen"},{"id":"dub","name":"Dublin"},{"id":"hel","name":"Helsinki"},{"id":"lis","name":"Lisbon"},{"id":"ldn","name":"London"},{"id":"mil","name":"Milan"},{"id":"muc","name":"Munich"},{"id":"par","name":"Paris"},{"id":"sto","name":"Stockholm"},{"id":"zrh","name":"Zurich"},{"id":"dav","name":"Davos"},{"id":"bue","name":"Buenos Aires"},{"id":"mex","name":"Mexico City"},{"id":"sao","name":"São Paulo & Rio"},{"id":"tlv","name":"Tel Aviv"},{"id":"dxb","name":"UAE"},{"id":"hkg","name":"Hong Kong"},{"id":"kul","name":"Kuala Lumpur"},{"id":"sgp","name":"Singapore"},{"id":"syd","name":"Sydney"},{"id":"virtual","name":"Virtual"},{"id":"sea","name":"Seattle"},{"id":"tyo","name":"Tokyo"},{"id":"blr","name":"Bengaluru"},{"id":"mad","name":"Madrid"},{"id":"yvr","name":"Vancouver"},{"id":"den","name":"Denver & Boulder"},{"id":"tpe","name":"Taipei"},{"id":"sel","name":"Seoul"},{"id":"bkk","name":"Bangkok"},{"id":"jkt","name":"Jakarta"},{"id":"nbo","name":"Nairobi"},{"id":"los","name":"Lagos"},{"id":"mel","name":"Melbourne"},{"id":"phl","name":"Philadelphia"},{"id":"waw","name":"Warsaw"},{"id":"bom","name":"Mumbai"},{"id":"riy","name":"Riyadh"},{"id":"doh","name":"Doha"},{"id":"hou","name":"Houston"},{"id":"dal","name":"Dallas"},{"id":"atl","name":"Atlanta"},{"id":"sdg","name":"San Diego"},{"id":"slc","name":"Salt Lake City"},{"id":"rdu","name":"Raleigh-Durham"},{"id":"nsh","name":"Nashville"},{"id":"man","name":"Manchester"},{"id":"edi","name":"Edinburgh"},{"id":"osl","name":"Oslo"},{"id":"vie","name":"Vienna"},{"id":"prg","name":"Prague"},{"id":"bru","name":"Brussels"},{"id":"ist","name":"Istanbul"},{"id":"cpt","name":"Cape Town"},{"id":"jnb","name":"Johannesburg"},{"id":"cai","name":"Cairo"},{"id":"sha","name":"Shanghai"},{"id":"szx","name":"Shenzhen"},{"id":"mnl","name":"Manila"},{"id":"sgn","name":"Ho Chi Minh City"},{"id":"akl","name":"Auckland"},{"id":"bog","name":"Bogotá"},{"id":"mde","name":"Medellín"},{"id":"scl","name":"Santiago"},{"id":"lim","name":"Lima"},{"id":"del","name":"New Delhi"},{"id":"hyd","name":"Hyderabad"},{"id":"lvs","name":"Las Vegas"},{"id":"pdx","name":"Portland"},{"id":"pnq","name":"Pune"},{"id":"maa","name":"Chennai"},{"id":"bud","name":"Budapest"},{"id":"iev","name":"Kyiv"},{"id":"beg","name":"Belgrade"},{"id":"sat","name":"San Antonio"},{"id":"yyj","name":"Victoria, BC"},{"id":"gift","name":"GIFT City"},{"id":"jc","name":"Jersey City"}];
 var PT='https://yorkseed-backend-production.up.railway.app/api/partner-requests',pts=[],ptTab='todo',HUBMAP=null;
 function ptApi(path,opt){var keep=API;API=PT;try{return api(path,opt)}finally{API=keep}}
@@ -490,7 +535,7 @@ function loadAds(){
 document.addEventListener('click',function(ev){var t=ev.target,id;if(!t.dataset)return;
   if(id=t.dataset.adDown){if(t.dataset.sure!==id){t.dataset.sure=id;t.textContent='Tap again to take down';return}adsApi('/'+id,{method:'PUT',body:{status:'taken_down'}}).then(loadAds)}
   else if(id=t.dataset.adUp){adsApi('/'+id,{method:'PUT',body:{status:'live'}}).then(loadAds)}});
-$('key').addEventListener('change',function(){try{localStorage.setItem('ys_events_key',key())}catch(e){}load();loadSubs();loadAds();loadTrust();loadPartners();loadDeleg()});
+$('key').addEventListener('change',function(){try{localStorage.setItem('ys_events_key',key())}catch(e){}load();loadSubs();loadAds();loadTrust();loadPartners();loadDeleg();loadHubJoins()});
 function load(){
   if(!key()){$('list').innerHTML='<div class="hint">Enter your key to see events.</div>';$('delStatus').textContent='Enter your key to use this switch.';return}
   api('').then(function(j){
@@ -507,7 +552,7 @@ document.addEventListener('click',function(ev){
   else if(id=t.dataset&&t.dataset.hide){var e2=cache.find(function(x){return x.id===id});e2.hidden=!e2.hidden;api('/'+id,{method:'PUT',body:e2}).then(load)}
   else if(id=t.dataset&&t.dataset.del){if(t.dataset.sure===id){api('/'+id,{method:'DELETE'}).then(load)}else{t.dataset.sure=id;t.textContent='Tap again';setTimeout(function(){t.textContent='Delete';delete t.dataset.sure},3000)}}
 });
-load();loadSubs();loadAds();loadTrust();loadPartners();
+load();loadSubs();loadAds();loadTrust();loadPartners();loadHubJoins();
 /* Delegation applications */
 var DG='https://yorkseed-backend-production.up.railway.app/api/delegation-applications',dgs=[],dgTab='pending',dgLinks={},dgDraft={};
 function dgApi(path,opt){var keep=API;API=DG;try{return api(path,opt)}finally{API=keep}}
@@ -658,7 +703,7 @@ document.addEventListener('click',function(ev){var t=ev.target;
 });
 
 loadDeleg();
-var SECS={today:1,delegation:1,inbox:1,events:1,ads:1,organizers:1,partners:1,team:1,tools:1,submissions:'inbox'};
+var SECS={today:1,delegation:1,inbox:1,hubjoins:1,events:1,ads:1,organizers:1,partners:1,team:1,tools:1,submissions:'inbox'};
 function showSec(s){s=SECS[s]===1?s:(SECS[s]||'today');[].forEach.call(document.querySelectorAll('[data-sec]'),function(c){c.hidden=c.dataset.sec!==s});
   [].forEach.call(document.querySelectorAll('#nav button'),function(b){b.className=b.dataset.go===s?'on':''});
   try{history.replaceState(null,'','#'+s)}catch(e){}window.scrollTo(0,0)}

@@ -616,6 +616,21 @@ function toggleDrawer(){var h=document.getElementById('hamBtn');var d=document.g
       subject:(conf?'Conference hub request: '+confName:'Hub join request: '+val('hub'))+' | '+val('firstName')+' '+val('lastName')+' ('+role+')',
       from_name:'Yorkseed Hub Join',replyto:val('email')};
     row.forEach(function(p){data[p[0]]=p[1]||'-';});
+    // Also save this as a durable record in the Event Manager backend, so it can be reviewed and
+    // downloaded as a contact later. Fire-and-forget: never blocks or affects the Web3Forms flow below.
+    try{
+      fetch('https://yorkseed-backend-production.up.railway.app/api/hub-join-requests/submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
+        hubType:conf?'Conference hub':'City hub',
+        firstName:val('firstName'),lastName:val('lastName'),email:val('email'),
+        countryCode:'+'+cc,phone:num,whatsapp:full,whatsappLink:wa,
+        profileLink:val('linkedin')?normUrl(val('linkedin')):'',profileType:val('linkedin')?profileType(val('linkedin')):'',
+        role:role,company:conf?val('confCompany'):val('company'),companySite:val('companySite')?normUrl(val('companySite')):'',
+        title:conf?'':val('jobTitle'),about:conf?'':val('about'),
+        hub:conf?'':val('hub'),basedCity:conf?'':val('basedCity'),conference:conf?confName:'',datesInTown:conf?val('dates'):'',
+        cityConnection:conf?'':((form.querySelector('[name="tie"]:checked')||{}).value||''),visitFrequency:conf?'':val('freq'),
+        referredBy:conf?'':val('referrer')
+      })}).catch(function(){});
+    }catch(e){}
     fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
       .then(function(r){return r.json();})
       .then(function(res){if(res.success){form.style.display='none';document.querySelector('.steps-strip').style.display='none';document.getElementById('successState').style.display='block';window.scrollTo({top:document.querySelector('.page-body').offsetTop-80,behavior:'smooth'});}else{throw new Error();}})
