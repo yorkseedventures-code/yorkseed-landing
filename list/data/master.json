@@ -935,6 +935,13 @@
    "start": "2027-01-30",
    "end": "2027-02-04",
    "re": "."
+  },
+  {
+   "id": "paritw",
+   "name": "Paris AI & Data Week",
+   "hub": "par",
+   "start": "2026-11-16",
+   "end": "2026-11-20"
   }
  ],
  "img": {

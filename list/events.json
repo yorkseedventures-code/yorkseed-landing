@@ -47865,7 +47865,8 @@
   "host": "Association for Competitive Technology (ACT)",
   "link": "https://luma.com/actonline-ys4o",
   "desc": "Details and registration on the event page.",
-  "src": "luma-cal"
+  "src": "luma-cal",
+  "week": "paritw"
  },
  {
   "title": "Quantum: from Promise to Practice",
@@ -48118,7 +48119,8 @@
   "link": "https://www.meetup.com/ai-first/events/317075066",
   "type": "Hackathons",
   "desc": "Details and registration on the event page.",
-  "src": "foundercal"
+  "src": "foundercal",
+  "week": "paritw"
  },
  {
   "title": "Boston AI Build Night - Nov-16",
@@ -48330,7 +48332,8 @@
   "link": "https://lafrenchtech-paris-saclay.fr/details-evenement/votre-entreprise-a-lheure-de-lia-subir-ou-prendre-une-longueur-davance",
   "type": "Workshops",
   "desc": "Details and registration on the event page.",
-  "src": "foundercal"
+  "src": "foundercal",
+  "week": "paritw"
  },
  {
   "title": "Why startup founders choose Finland?",
@@ -49372,7 +49375,8 @@
   "host": "Startup Valley",
   "link": "https://luma.com/16iry9ef",
   "desc": "Details and registration on the event page.",
-  "src": "luma-cal"
+  "src": "luma-cal",
+  "week": "paritw"
  },
  {
   "title": "AI Founders Supper Club (Hosted by The AI Furnace)",
@@ -51283,7 +51287,8 @@
   "link": "https://www.maddyness.com/evenement/la-journe-nationale-du-rebond-entrepreneurial",
   "type": "Conferences",
   "desc": "Details and registration on the event page.",
-  "src": "foundercal"
+  "src": "foundercal",
+  "week": "paritw"
  },
  {
   "title": "Fête des Startups - Inria Startup Studio",
@@ -51296,7 +51301,8 @@
   "link": "https://lafrenchtech-paris-saclay.fr/details-evenement/fete-des-startups-inria-startup-studio",
   "type": "Meetups",
   "desc": "Details and registration on the event page.",
-  "src": "foundercal"
+  "src": "foundercal",
+  "week": "paritw"
  },
  {
   "title": "Osez l’innovation : brisez le plafond de verre de la Tech !",
@@ -51309,7 +51315,8 @@
   "link": "https://lafrenchtech-paris-saclay.fr/details-evenement/osez-linnovation-brisez-le-plafond-de-verre-de-la-tech",
   "type": "Meetups",
   "desc": "Details and registration on the event page.",
-  "src": "foundercal"
+  "src": "foundercal",
+  "week": "paritw"
  },
  {
   "title": "Startup Grind Madrid · Noviembre",
@@ -51743,7 +51750,8 @@
   "link": "https://startups.aws.com/events/awsstartupdayaiedition",
   "type": "Conferences",
   "desc": "Details and registration on the event page.",
-  "src": "foundercal"
+  "src": "foundercal",
+  "week": "paritw"
  },
  {
   "title": "EWA Grow Demo Day 2026 | Mujeres que están transformando el futuro de la alimentación",
@@ -52344,7 +52352,8 @@
   "link": "https://events.databricks.com/FY27Q4-SD-AIBuildersMeetupbyDatabricksxOpenAI",
   "type": "Meetups",
   "desc": "Details and registration on the event page.",
-  "src": "foundercal"
+  "src": "foundercal",
+  "week": "paritw"
  },
  {
   "title": "AI Builders Miami - Nov 19",
@@ -52562,7 +52571,8 @@
   "host": "Raphael Levy & Women In Robotics - France",
   "link": "https://luma.com/foxglove-women-in-robotics-paris",
   "desc": "Details and registration on the event page.",
-  "src": "luma"
+  "src": "luma",
+  "week": "paritw"
  },
  {
   "title": "a third space",
@@ -52636,7 +52646,8 @@
   "link": "https://luma.com/30gsoejo",
   "type": "Meetups",
   "desc": "Details and registration on the event page.",
-  "src": "foundercal"
+  "src": "foundercal",
+  "week": "paritw"
  },
  {
   "title": "Solana Padel Match",
@@ -52771,7 +52782,8 @@
   "link": "https://devitjobs.fr/en/events/InnovHer-2026-Paris",
   "type": "Hackathons",
   "desc": "Details and registration on the event page.",
-  "src": "foundercal"
+  "src": "foundercal",
+  "week": "paritw"
  },
  {
   "title": "ESSCA Women's Network Paris: Entrepreneurs' Lunch #15",
@@ -52784,7 +52796,8 @@
   "link": "https://www.essca-alumni.com/en/agenda/essca-women-s-network-paris-entrepreneurs-lunch-15-1627",
   "type": "Communal Dining",
   "desc": "Details and registration on the event page.",
-  "src": "foundercal"
+  "src": "foundercal",
+  "week": "paritw"
  },
  {
   "title": "Singularity 2.0",
@@ -53007,7 +53020,8 @@
   "link": "https://luma.com/edth-nov-2026-paris",
   "type": "Hackathons",
   "desc": "Details and registration on the event page.",
-  "src": "foundercal"
+  "src": "foundercal",
+  "week": "paritw"
  },
  {
   "title": "UC LAUNCH Demo Day",
@@ -77175,7 +77189,8 @@
   "link": "https://www.forward-data-conference.com/",
   "desc": "A one-day conference for data engineers and data leaders on the modern data stack and AI.",
   "start": "08:30",
-  "type": "Conferences"
+  "type": "Conferences",
+  "week": "paritw"
  },
  {
   "title": "Tech Show Paris 2026",
@@ -77185,7 +77200,8 @@
   "host": "CloserStill Media",
   "link": "https://www.techshowparis.fr/",
   "desc": "Five IT shows under one roof, November 18 and 19: cloud, cyber, DevOps, data centres and AI, with a startup zone.",
-  "type": "Conferences"
+  "type": "Conferences",
+  "week": "paritw"
  },
  {
   "title": "Data & AI Leaders Summit Paris",
@@ -77195,7 +77211,8 @@
   "host": "CloserStill Media",
   "link": "https://www.techshowparis.fr/data-ai-leaders-summit",
   "desc": "A summit for data and AI leaders inside Tech Show Paris, November 18 and 19.",
-  "type": "Conferences"
+  "type": "Conferences",
+  "week": "paritw"
  },
  {
   "title": "APIDays Paris 2026",
@@ -77226,7 +77243,8 @@
   "link": "https://schoolofpo.com/",
   "desc": "A one-day conference for product managers and product leaders.",
   "start": "09:00",
-  "type": "Conferences"
+  "type": "Conferences",
+  "week": "paritw"
  },
  {
   "title": "OVHcloud Summit 2026",
@@ -77236,7 +77254,8 @@
   "host": "OVHcloud",
   "link": "https://summit.ovhcloud.com/fr/",
   "desc": "OVHcloud's annual summit on European cloud, sovereignty and AI infrastructure. Check the exact day on the site.",
-  "type": "Conferences"
+  "type": "Conferences",
+  "week": "paritw"
  },
  {
   "title": "GreenTech Forum 2026",
@@ -77277,7 +77296,8 @@
   "host": "Red Bull",
   "link": "https://redbull.com/fr-fr/events/red-bull-wings-cup-france/red-bull-wings-cup-france-university-league",
   "desc": "Red Bull's student startup competition comes to Station F.",
-  "start": "11:00"
+  "start": "11:00",
+  "week": "paritw"
  },
  {
   "title": "Red Hat Summit: Connect Paris 2026",
@@ -77307,7 +77327,8 @@
   "host": "Dell Technologies",
   "link": "https://events.dell.com/event/forum-fr-2026/summary",
   "type": "Conferences",
-  "desc": "Dell's one-day forum on AI, data centres and infrastructure for IT leaders."
+  "desc": "Dell's one-day forum on AI, data centres and infrastructure for IT leaders.",
+  "week": "paritw"
  },
  {
   "title": "DevFest Paris 2026",
@@ -77347,7 +77368,8 @@
   "host": "Infopro Digital",
   "link": "https://www.argusfactory.com/",
   "type": "Conferences",
-  "desc": "A conference on how AI is changing insurance: CRM, fraud detection and claims."
+  "desc": "A conference on how AI is changing insurance: CRM, fraud detection and claims.",
+  "week": "paritw"
  },
  {
   "title": "GenerationAI Conference Paris",
@@ -77417,7 +77439,8 @@
   "host": "CloserStill Media",
   "link": "https://www.techshowparis.fr/cloud-ai-infrastructure",
   "type": "Conferences",
-  "desc": "Part of Tech Show Paris, November 18 and 19, on cloud and AI infrastructure."
+  "desc": "Part of Tech Show Paris, November 18 and 19, on cloud and AI infrastructure.",
+  "week": "paritw"
  },
  {
   "title": "DevSunday",
@@ -77593,7 +77616,8 @@
   "host": "Paris Startup Founders Investors Networking Masterminds",
   "link": "https://www.meetup.com/paris-startup-founders-investors-networking-masterminds/events/jzxrbvyjcpbwb/",
   "desc": "Details and registration on the event page.",
-  "src": "meetup"
+  "src": "meetup",
+  "week": "paritw"
  },
  {
   "title": "Free Startup Fundraising Office Hours Expert AMA with Angel Investor Scott Fox!",
