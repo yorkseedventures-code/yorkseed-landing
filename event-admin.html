@@ -462,8 +462,17 @@ document.addEventListener('click',function(ev){
     var m=$('hjVcardMsg');if(!key()){m.textContent='Enter your key first';m.style.color='#b91c1c';return}
     t.disabled=true;m.textContent='Preparing…';m.style.color='#52525b';
     fetch(HJ+'/vcards?status='+encodeURIComponent(hjTab),{headers:{'x-events-key':key()}})
-      .then(function(r){if(!r.ok)throw new Error('Could not download that.');return r.blob()})
-      .then(function(b){var u=URL.createObjectURL(b);var a=document.createElement('a');a.href=u;a.download='yorkseed-hub-join-'+hjTab+'.vcf';document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(u)},4000);m.textContent='Downloaded ✓';m.style.color='#15803d'})
+      .then(function(r){if(!r.ok)throw new Error('Could not download that.');return r.text()})
+      .then(function(txt){
+        if(!txt.trim()){m.textContent='Nothing in this tab yet';m.style.color='#b45309';return}
+        var b64=btoa(unescape(encodeURIComponent(txt)));
+        var dataUri='data:text/vcard;charset=utf-8;base64,'+b64;
+        // iOS Safari ignores blob+download; a data: URI it opens straight into "Add Contacts".
+        var isIOS=/iP(hone|ad|od)/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+        if(isIOS){window.location.href=dataUri}
+        else{var a=document.createElement('a');a.href=dataUri;a.download='yorkseed-hub-join-'+hjTab+'.vcf';document.body.appendChild(a);a.click();a.remove()}
+        m.textContent='Downloaded ✓';m.style.color='#15803d'
+      })
       .catch(function(e){m.textContent=e.message;m.style.color='#b91c1c'}).then(function(){t.disabled=false});
   }
 });
