@@ -462,18 +462,22 @@ function buildVCard(x){
   return lines.join('\r\n');
 }
 function downloadVCard(txt,fname){
-  var b64=btoa(unescape(encodeURIComponent(txt)));
-  var dataUri='data:text/vcard;charset=utf-8;base64,'+b64;
-  // iOS Safari only shows its "Add to Contacts" sheet for a real <a> tap, not for a location.href=
-  // assignment, and it ignores (or breaks on) the download attribute - so tap a plain anchor with no
-  // download attribute on iOS, and keep the normal download-a-file anchor everywhere else.
+  // iOS Safari blocks top-level navigation to data: URIs outright (that's a security restriction,
+  // not something any anchor trick works around), and it also ignores/breaks on the download
+  // attribute with a blob: URL. The combination that actually works on iOS: a real blob: URL
+  // (never data:) tapped via a plain <a> with NO download attribute - Safari then recognizes the
+  // text/vcard type and shows its "Add to Contacts" sheet. Desktop/Android keep the normal
+  // blob + download-attribute anchor.
+  var blob=new Blob([txt],{type:'text/vcard;charset=utf-8'});
+  var blobUrl=URL.createObjectURL(blob);
   var isIOS=/iP(hone|ad|od)/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
   var a=document.createElement('a');
-  a.href=dataUri;
+  a.href=blobUrl;
   if(!isIOS)a.download=fname;
   document.body.appendChild(a);
   a.click();
   a.remove();
+  setTimeout(function(){try{URL.revokeObjectURL(blobUrl)}catch(e){}},30000);
 }
 function loadHubLinks(){
   if(!key())return;
