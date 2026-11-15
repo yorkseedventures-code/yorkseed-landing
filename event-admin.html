@@ -160,9 +160,19 @@ body{overflow-wrap:anywhere}
 <div class="card" id="hubjoins" data-sec="hubjoins">
   <h2>Hub join requests <span id="hjCount"></span></h2>
   <div class="tabs" id="hjTabs"><button data-hjt="pending" class="on">Pending</button><button data-hjt="approved">Approved</button><button data-hjt="rejected">Rejected</button></div>
-  <div class="acts" style="margin:10px 0"><button type="button" id="hjVcardBtn">Download as contacts (vCard)</button><span class="hint" id="hjVcardMsg" style="display:inline"></span></div>
+  <div class="acts" style="margin:10px 0"><button type="button" id="hjVcardBtn">Download as contacts (vCard)</button><button type="button" id="hjLinksToggle">Manage invite links</button><span class="hint" id="hjVcardMsg" style="display:inline"></span></div>
+  <div id="hjLinksBox" hidden style="margin:0 0 14px;padding:10px;border:1px solid #e4e4e7;border-radius:8px;background:#fafafa">
+    <div id="hjLinksList"><div class="hint">Loading...</div></div>
+    <div class="acts" style="margin:8px 0 4px">
+      <input id="hjLinkHub" placeholder="Hub or conference name (exact match)" style="width:240px">
+      <input id="hjLinkUrl" placeholder="https://chat.whatsapp.com/..." style="width:260px">
+      <button type="button" id="hjLinkSave">Save link</button>
+      <span class="hint" id="hjLinkMsg"></span>
+    </div>
+    <div class="hint">Approving a request looks up the invite link by the person's hub (or conference) name and emails it to them automatically. The name here must match exactly what shows under their request.</div>
+  </div>
   <div id="hjList"><div class="hint">Loading...</div></div>
-  <div class="hint">People who ask to join a hub on yorkseed.co/join.html. You get an email for each one. Approve or reject to sort them, then use "Download as contacts" any time to get everyone in the tab you're on as one .vcf file you can import into Contacts.</div>
+  <div class="hint">People who ask to join a hub on yorkseed.co/join.html. You get an email for each one. Approve emails them their hub's WhatsApp invite link automatically (if one is on file — see "Manage invite links"), or reject to sort them. "Download as contacts" gets everyone in the tab you're on as one .vcf file you can import into Contacts; "Save contact" on a row does just that one.</div>
 </div>
 
 <div class="card" id="organizers" data-sec="organizers">
@@ -433,8 +443,42 @@ document.addEventListener('click',function(ev){
   else if(id=t.dataset.subDel){if(t.dataset.sure===id){subApi('/'+id,{method:'DELETE'}).then(loadSubs)}else{t.dataset.sure=id;t.textContent='Tap again';setTimeout(function(){t.textContent='Delete';delete t.dataset.sure},3000)}}
 });
 
-var HJ='https://yorkseed-backend-production.up.railway.app/api/hub-join-requests',hjs=[],hjTab='pending';
+var HJ='https://yorkseed-backend-production.up.railway.app/api/hub-join-requests',hjs=[],hjTab='pending',hjLinks=[];
 function hjApi(path,opt){var keep=API;API=HJ;try{return api(path,opt)}finally{API=keep}}
+function vescape(v){return String(v||'').replace(/\\/g,'\\\\').replace(/\n/g,'\\n').replace(/[,;]/g,function(m){return '\\'+m})}
+function buildVCard(x){
+  var fn=[x.firstName,x.lastName].filter(Boolean).join(' ');
+  var lines=['BEGIN:VCARD','VERSION:3.0','N:'+vescape(x.lastName)+';'+vescape(x.firstName)+';;;','FN:'+vescape(fn||'Yorkseed hub request')];
+  if(x.company)lines.push('ORG:'+vescape(x.company));
+  if(x.title)lines.push('TITLE:'+vescape(x.title));
+  var tel=x.whatsapp||[x.countryCode,x.phone].filter(Boolean).join('');
+  if(tel)lines.push('TEL;TYPE=CELL:'+vescape(tel));
+  if(x.email)lines.push('EMAIL:'+vescape(x.email));
+  if(x.profileLink)lines.push('URL:'+vescape(x.profileLink));
+  if(x.companySite)lines.push('URL:'+vescape(x.companySite));
+  var noteBits=[x.hub?('Yorkseed '+x.hub+' hub'):(x.conference?('Yorkseed '+x.conference+' conference hub'):''),x.role,x.about,x.basedCity?('Based in '+x.basedCity):'',x.visitFrequency].filter(Boolean);
+  if(noteBits.length)lines.push('NOTE:'+vescape(noteBits.join(' — ')));
+  lines.push('END:VCARD');
+  return lines.join('\r\n');
+}
+function downloadVCard(txt,fname){
+  var b64=btoa(unescape(encodeURIComponent(txt)));
+  var dataUri='data:text/vcard;charset=utf-8;base64,'+b64;
+  var isIOS=/iP(hone|ad|od)/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+  if(isIOS){window.location.href=dataUri}
+  else{var a=document.createElement('a');a.href=dataUri;a.download=fname;document.body.appendChild(a);a.click();a.remove()}
+}
+function loadHubLinks(){
+  if(!key())return;
+  $('hjLinksList').innerHTML='<div class="hint">Loading...</div>';
+  hjApi('/invite-links').then(function(j){
+    hjLinks=j.links||[];
+    $('hjLinksList').innerHTML=hjLinks.length?hjLinks.map(function(l){
+      return '<div class="sub-it"><b>'+esc(l.hub)+'</b><div class="meta"><a href="'+esc(l.link)+'" target="_blank" rel="noopener">'+esc(l.link)+'</a></div>'
+        +'<div class="acts"><button data-hjl-edit="'+esc(l.hub)+'">Edit</button><button data-hjl-del="'+esc(l.hub)+'">Delete</button></div></div>';
+    }).join(''):'<div class="hint">No invite links saved yet.</div>';
+  }).catch(function(e){$('hjLinksList').innerHTML='<div class="hint">'+esc(e.message)+'</div>'});
+}
 function loadHubJoins(){
   if(!key()){$('hjList').innerHTML='<div class="hint">Enter your key to see hub join requests.</div>';return}
   hjApi('').then(function(j){hjs=j.requests||[];var n=j.pending||0;$('hjCount').innerHTML=n?'<span class="pill">'+n+' new</span>':'';badge('nHubJoin',n);renderHubJoins()})
@@ -449,15 +493,51 @@ function renderHubJoins(){
     return '<div class="sub-it"><b>'+esc(name)+'</b><div class="meta">'+hub+(x.role?' · '+esc(x.role):'')+(x.company?' · '+esc(x.company):'')+'</div>'
       +'<div class="meta">'+[x.whatsapp?'WhatsApp: '+esc(x.whatsapp):'',x.email?esc(x.email):'',x.profileLink?'<a href="'+esc(x.profileLink)+'" target="_blank" rel="noopener">profile</a>':''].filter(Boolean).join(' · ')+'</div>'
       +(x.about?'<div class="desc">'+esc(x.about)+'</div>':'')
-      +'<div class="acts">'+acts+'<button data-hj-del="'+x.id+'">Delete</button></div></div>';
+      +'<div class="acts">'+acts+'<button data-hj-vcard="'+x.id+'">Save contact</button><button data-hj-del="'+x.id+'">Delete</button></div></div>';
   }).join(''):'<div class="hint">'+(hjTab==='pending'?'No new requests.':'Nothing here.')+'</div>';
 }
 document.addEventListener('click',function(ev){
   var t=ev.target,id;if(!t.dataset)return;
   if(t.dataset.hjt){hjTab=t.dataset.hjt;[].forEach.call(document.querySelectorAll('#hjTabs button'),function(b){b.className=b.dataset.hjt===hjTab?'on':''});renderHubJoins()}
-  else if(id=t.dataset.hjOk){t.disabled=true;hjApi('/'+id,{method:'PUT',body:{status:'approved'}}).then(loadHubJoins).catch(function(e){alert(e.message)})}
+  else if(id=t.dataset.hjOk){
+    t.disabled=true;
+    var req0=hjs.find(function(x){return x.id===id});
+    hjApi('/'+id,{method:'PUT',body:{status:'approved'}}).then(function(j){
+      loadHubJoins();
+      if(j&&j.needsLink){
+        var hub=(req0&&(req0.conference||req0.hub))||'';
+        $('hjLinksBox').hidden=false;$('hjLinkHub').value=hub;$('hjLinkUrl').value='';
+        $('hjLinkMsg').textContent='No invite link on file for "'+hub+'" yet — add one and save, then approve again to email it.';
+        $('hjLinkMsg').style.color='#b45309';
+        loadHubLinks();
+      }
+    }).catch(function(e){alert(e.message)})
+  }
   else if(id=t.dataset.hjNo){t.disabled=true;hjApi('/'+id,{method:'PUT',body:{status:'rejected'}}).then(loadHubJoins).catch(function(e){alert(e.message)})}
   else if(id=t.dataset.hjDel){if(t.dataset.sure===id){hjApi('/'+id,{method:'DELETE'}).then(loadHubJoins)}else{t.dataset.sure=id;t.textContent='Tap again';setTimeout(function(){t.textContent='Delete';delete t.dataset.sure},3000)}}
+  else if(id=t.dataset.hjVcard){
+    var req=hjs.find(function(x){return x.id===id});
+    if(!req){alert('Could not find that request.');return}
+    var fname='yorkseed-'+(req.firstName||'contact').toLowerCase().replace(/[^a-z0-9]+/g,'-')+'.vcf';
+    downloadVCard(buildVCard(req),fname);
+  }
+  else if(t.id==='hjLinksToggle'){$('hjLinksBox').hidden=!$('hjLinksBox').hidden;if(!$('hjLinksBox').hidden)loadHubLinks()}
+  else if(t.id==='hjLinkSave'){
+    var hub=$('hjLinkHub').value.trim(),lnk=$('hjLinkUrl').value.trim(),m=$('hjLinkMsg');
+    if(!hub||!lnk){m.textContent='Add both the hub name and the link';m.style.color='#b91c1c';return}
+    t.disabled=true;m.textContent='Saving…';m.style.color='#52525b';
+    hjApi('/invite-links',{method:'PUT',body:{hub:hub,link:lnk}}).then(function(){
+      m.textContent='Saved ✓';m.style.color='#15803d';$('hjLinkHub').value='';$('hjLinkUrl').value='';loadHubLinks();
+    }).catch(function(e){m.textContent=e.message;m.style.color='#b91c1c'}).then(function(){t.disabled=false});
+  }
+  else if(id=t.dataset.hjlEdit){
+    var l=hjLinks.find(function(x){return x.hub===id});
+    if(l){$('hjLinkHub').value=l.hub;$('hjLinkUrl').value=l.link}
+  }
+  else if(id=t.dataset.hjlDel){
+    if(t.dataset.sure===id){hjApi('/invite-links/'+encodeURIComponent(id),{method:'DELETE'}).then(loadHubLinks)}
+    else{t.dataset.sure=id;t.textContent='Tap again';setTimeout(function(){t.textContent='Delete';delete t.dataset.sure},3000)}
+  }
   else if(t.id==='hjVcardBtn'){
     var m=$('hjVcardMsg');if(!key()){m.textContent='Enter your key first';m.style.color='#b91c1c';return}
     t.disabled=true;m.textContent='Preparing…';m.style.color='#52525b';
