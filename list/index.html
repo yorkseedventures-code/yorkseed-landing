@@ -712,6 +712,7 @@ section.block{padding-block:88px 0}
 .srail .sad.empty .dim{font-family:var(--f-label);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
 .srail .sad.empty .foot{display:flex;align-items:center;justify-content:space-between;gap:10px}
 .srail .sad.empty .foot .btn{padding:9px 12px}
+.sinadv{grid-column:1/-1;justify-self:end;background:none;border:0;padding:2px 0 0;font-family:var(--f-label);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent,#B3261E);cursor:pointer}.sinadv:hover{text-decoration:underline}
 .sidein{padding:14px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-items:start;text-align:left}
 .sicard{display:flex;flex-direction:column;min-width:0;border:1px solid var(--ink);background:var(--surface,#fff);color:inherit;text-decoration:none}
 .sicard .lab{display:block;font-family:var(--f-label);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding:5px 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -2553,7 +2554,7 @@ function renderCityBanners(){
     const tiles=bks.map(bk=>`<${bk.url?`a href="${esc(refLink(bk.url,"sponsor"))}" target="_blank" rel="noopener sponsored"`:"div"} class="sicard${bk.nolabel?" nolab":""}"${bk.adId?` data-adid="${bk.adId}"`:""}>${bk.nolabel?"":`<span class="lab">${bk.live?"Sponsored":"Preview"} · ${esc(bk.brand)}</span>`}${bk.img?`<img src="${esc(bk.img)}" alt="${esc(bk.brand)}">`:`<b>${esc(bk.headline||bk.brand)}</b>`}</${bk.url?"a":"div"}>`);
     if(bks.length<3)tiles.push(`<a href="${esc(refLink("https://yorkseed.co/connect?ref=list","par"))}" target="_blank" rel="noopener" class="sicard nolab"><img src="${IMG.connectpromo}" alt="Yorkseed Connect: curated intros, deal memo generator, fund diligence, investor match and who's in town"></a>`);
     if(tiles.length%2)tiles.push(`<div class="sicard siempty"><span class="lab">From Yorkseed</span><div class="ei"><b>Hosting an <em>event?</em></b><span class="dim">List it free</span><button class="btn btn-line btn-sm" type="button" data-chat="1">List it</button></div></div>`);
-    const pairs=[];for(let i=0;i<tiles.length;i+=2)pairs.push(`<div class="sidein">${tiles.slice(i,i+2).join("")}</div>`);
+    const pairs=[];for(let i=0;i<tiles.length;i+=2)pairs.push(`<div class="sidein">${tiles.slice(i,i+2).join("")}<button class="sinadv" type="button" data-book="side" data-bcity="${hub}" aria-label="Sponsor this slot">Sponsor this slot →</button></div>`);
     [2,24].forEach((at,k)=>{if(pairs[k]&&rows.length>at)rows[at].insertAdjacentHTML("afterend",pairs[k]);});watchAds($("#rows"));}
   if(st.mode==="list"){$("#rows").querySelectorAll(".fbanner").forEach(x=>x.remove());const rows=$("#rows").querySelectorAll(".crow");const lh=hub==="all"?"nyc":hub;if(rows.length>6)rows[5].insertAdjacentHTML("afterend",bannerHtml("list",lh,null,true));if(rows.length>22)rows[21].insertAdjacentHTML("afterend",bannerHtml("list",lh,null,true,hub==="all"?"hostys":"cohost"));
     /* Lisbon / Web Summit: flagship Soirée box scattered through the list until Nov 9; Yorkseed House box at the top of each day Nov 9-13 */
