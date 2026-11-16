@@ -5,25 +5,12 @@
   "camel": "SlushHelsinki",
   "name": "Slush Helsinki",
   "year": "2026",
-  "n": 153,
+  "n": 176,
   "city": "Helsinki",
   "start": "2026-11-16",
   "end": "2026-11-20",
   "photo": "/list/img/881d5f16be.jpg",
   "custom": false
- },
- {
-  "id": "lisws",
-  "hash": "web-summit-lisbon",
-  "camel": "WebSummitLisbon",
-  "name": "Web Summit Lisbon",
-  "year": "2026",
-  "n": 508,
-  "city": "Lisbon",
-  "start": "2026-11-02",
-  "end": "2026-11-16",
-  "photo": "/list/img/f994797fa5.jpg",
-  "custom": true
  },
  {
   "id": "wef",
@@ -57,7 +44,7 @@
   "camel": "DeepTechWeekTLV",
   "name": "DeepTech Week TLV",
   "year": "2026",
-  "n": 35,
+  "n": 31,
   "city": "Tel Aviv",
   "start": "2026-11-15",
   "end": "2026-11-19",
@@ -140,6 +127,32 @@
   "start": "2027-01-30",
   "end": "2027-02-04",
   "photo": null,
+  "custom": false
+ },
+ {
+  "id": "paritw",
+  "hash": "paris-ai-and-data-week",
+  "camel": "ParisAiAndDataWeek",
+  "name": "Paris AI & Data Week",
+  "year": "2026",
+  "n": 24,
+  "city": "Paris",
+  "start": "2026-11-16",
+  "end": "2026-11-20",
+  "photo": "/list/img/b0fa7899fe.jpg",
+  "custom": false
+ },
+ {
+  "id": "sff26",
+  "hash": "singapore-fintech-festival",
+  "camel": "SingaporeFintechFestival",
+  "name": "Singapore FinTech Festival",
+  "year": "2026",
+  "n": 18,
+  "city": "Singapore",
+  "start": "2026-11-16",
+  "end": "2026-11-20",
+  "photo": "/list/img/449c1c4cf0.jpg",
   "custom": false
  }
 ]

@@ -942,6 +942,13 @@
    "hub": "par",
    "start": "2026-11-16",
    "end": "2026-11-20"
+  },
+  {
+   "id": "sff26",
+   "name": "Singapore FinTech Festival",
+   "hub": "sgp",
+   "start": "2026-11-16",
+   "end": "2026-11-20"
   }
  ],
  "img": {
