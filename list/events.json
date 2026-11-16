@@ -91902,5 +91902,60 @@
   "host": "Expand North Star",
   "link": "https://expandnorthstar.com/northstar-by-night",
   "desc": "An elegant seaside networking gathering on Palm Jumeirah, part of Expand North Star's evening programme."
+ },
+ {
+  "title": "Founders Drinks (Black Mangroves)",
+  "hub": "sgp",
+  "date": "2026-11-18",
+  "start": "17:00",
+  "end": "18:00",
+  "venue": "Central Singapore (venue shared with confirmed guests)",
+  "host": "Black Mangroves",
+  "link": "https://luma.com/gb9pae7a",
+  "desc": "An invite-only founders drinks gathering during Singapore FinTech Festival week, featured in SFF's own side-events listing."
+ },
+ {
+  "title": "Lightspeed Faction x OpenFX x Lorum: Evening Reception",
+  "hub": "sgp",
+  "date": "2026-11-18",
+  "start": "18:00",
+  "end": "22:00",
+  "venue": "Mandala Club, The Parlour (Level 3), 31 Bukit Pasoh Road, Singapore",
+  "host": "OpenFX Events, Lorum",
+  "link": "https://luma.com/dwwes6xx",
+  "desc": "An invite-only evening reception for people building in digital assets and global finance, during Singapore FinTech Festival week."
+ },
+ {
+  "title": "After Dark with PhotonPay",
+  "hub": "sgp",
+  "date": "2026-11-18",
+  "start": "18:30",
+  "end": "21:30",
+  "venue": "SKAI Bar, Level 70, Swiss\u00f4tel The Stamford, Singapore",
+  "host": "PhotonPay, Money in Motion",
+  "link": "https://luma.com/9i0z5sou",
+  "desc": "An invite-only rooftop networking evening during Singapore FinTech Festival week, limited spots with host approval."
+ },
+ {
+  "title": "Founder Myths: Coffee & Networking",
+  "hub": "sgp",
+  "date": "2026-11-17",
+  "start": "16:00",
+  "end": "18:00",
+  "venue": "Guoco Tower, Singapore",
+  "host": "Qapita, Airwallex for Startups, January Capital",
+  "link": "https://luma.com/d506j6tq",
+  "desc": "A coffee and networking session for founders flying in for Singapore FinTech Festival, co-hosted by Qapita, Airwallex and January Capital."
+ },
+ {
+  "title": "Japan Fintech Pitch Event (SFF 2026 Japan Pavilion)",
+  "hub": "sgp",
+  "date": "2026-11-18",
+  "start": "14:00",
+  "end": "15:00",
+  "venue": "Singapore EXPO, Hall 5, Booth 5G19 (Japan Pavilion)",
+  "host": "SFF 2026 Japan Pavilion",
+  "link": "https://luma.com/utkvr9jp",
+  "desc": "A startup pitch event at the Japan Pavilion during Singapore FinTech Festival 2026."
  }
 ]

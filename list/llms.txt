@@ -1,6 +1,6 @@
 # The Yorkseed List
 
-> The Yorkseed List (https://list.yorkseed.co/) is a free global calendar of startup, tech, founder and investor events in 50+ cities and around the major tech weeks and conferences, run by Yorkseed. 2099 upcoming events as of 2026-11-16. Updated continuously. Anyone can list an event for free.
+> The Yorkseed List (https://list.yorkseed.co/) is a free global calendar of startup, tech, founder and investor events in 50+ cities and around the major tech weeks and conferences, run by Yorkseed. 2104 upcoming events as of 2026-11-16. Updated continuously. Anyone can list an event for free.
 
 ## Startup and tech events by city
 
@@ -14,9 +14,9 @@
 - [Startup events in Atlanta](https://list.yorkseed.co/atlanta/): 63 upcoming
 - [Startup events in Paris](https://list.yorkseed.co/paris/): 57 upcoming
 - [Startup events in Sydney](https://list.yorkseed.co/sydney/): 52 upcoming
+- [Startup events in Singapore](https://list.yorkseed.co/singapore/): 48 upcoming
 - [Startup events in Tel Aviv](https://list.yorkseed.co/tel-aviv/): 44 upcoming
 - [Startup events in Austin](https://list.yorkseed.co/austin/): 43 upcoming
-- [Startup events in Singapore](https://list.yorkseed.co/singapore/): 43 upcoming
 - [Startup events in Zurich](https://list.yorkseed.co/zurich/): 43 upcoming
 - [Startup events in UAE](https://list.yorkseed.co/dubai-uae/): 42 upcoming
 - [Startup events in Amsterdam](https://list.yorkseed.co/amsterdam/): 39 upcoming
@@ -112,7 +112,7 @@
 - [JPM Healthcare Week 2027 side events](https://list.yorkseed.co/jpm-healthcare-week-2027-side-events/): Bay Area, 2027-01-10 to 2027-01-15, 12 events
 - [Web Summit Qatar 2027 side events](https://list.yorkseed.co/web-summit-qatar-2027-side-events/): Doha, 2027-01-30 to 2027-02-04, 1 events
 - [Paris AI & Data Week 2026 side events](https://list.yorkseed.co/paris-ai-and-data-week-2026-side-events/): Paris, 2026-11-16 to 2026-11-20, 24 events
-- [Singapore FinTech Festival 2026 side events](https://list.yorkseed.co/singapore-fintech-festival-2026-side-events/): Singapore, 2026-11-16 to 2026-11-20, 18 events
+- [Singapore FinTech Festival 2026 side events](https://list.yorkseed.co/singapore-fintech-festival-2026-side-events/): Singapore, 2026-11-16 to 2026-11-20, 23 events
 - [Toronto Blockchain Week 2026 side events](https://list.yorkseed.co/toronto-blockchain-week-2026-side-events/): Toronto, 2026-11-23 to 2026-11-26, 2 events
 
 ## Machine-readable data
