@@ -1,30 +1,65 @@
 {
- "date": "2026-10-24",
+ "date": "2026-11-16",
  "report": [
   {
    "links_import": [
     {
-     "url": "https://luma.com/94pg9889",
-     "title": "Deployment Room Penthouse Edition - Seed-Series B Founder & Investor Mixer",
-     "skipped": "could not read the page"
-    },
-    {
-     "url": "https://luma.com/founders-v1ld",
-     "title": "Founder/VC Dinner",
-     "skipped": "could not read the page"
-    },
-    {
-     "url": "https://luma.com/kzfhv7fe",
-     "title": "PMAI: Vibe Coding Workshop",
-     "skipped": "could not read the page"
-    },
-    {
      "url": "https://luma.com/6mvjcoys",
      "title": "Building A $100M+ Company - Leveraging Relationships As Growth Capital",
      "skipped": "could not read the page"
+    },
+    {
+     "url": "https://www.eventbrite.com/e/slush-2026-funding-events-tickets-2004705473035",
+     "added": "Slush 2026 Funding Events",
+     "date": "2026-11-18"
+    },
+    {
+     "url": "https://luma.com/xepwm55s",
+     "skipped": "already on the List"
+    },
+    {
+     "url": "https://luma.com/ujalpouq",
+     "skipped": "already on the List"
+    },
+    {
+     "url": "https://luma.com/9im9xii5",
+     "title": "Venture Clienting Mixer: SLUSH Edition",
+     "skipped": "page date 2026-11-18 is not 2026-11-19"
+    },
+    {
+     "url": "https://luma.com/mtp4c5rk",
+     "skipped": "already on the List"
+    },
+    {
+     "url": "https://luma.com/4v2n4qay",
+     "skipped": "already on the List"
+    },
+    {
+     "url": "https://luma.com/angellaunchdec2",
+     "added": "Silicon Valley Healthtech & AI Investing Summit",
+     "date": "2026-12-02"
+    },
+    {
+     "url": "https://luma.com/angellaunchdec2b",
+     "added": "Backyard Capital VIP Investor Dinner",
+     "date": "2026-12-02"
+    },
+    {
+     "url": "https://luma.com/angellaunchjan13",
+     "added": "Silicon Valley Healthtech Summit",
+     "date": "2027-01-13"
+    },
+    {
+     "url": "https://luma.com/nh6wxkgb",
+     "title": "KOREAN Venture Companies Expanding to Global_Slush FINLAND",
+     "skipped": "page date 2026-11-19 is not 2026-11-18"
+    },
+    {
+     "url": "https://luma.com/slushlp",
+     "skipped": "already on the List"
     }
    ],
-   "added": 0
+   "added": 4
   },
   {
    "source": "luma place nashville",
@@ -35,464 +70,1114 @@
    "source": "place:nyc",
    "hub": "nyc",
    "pages": 5,
-   "seen": 80,
-   "added": 0
+   "seen": 77,
+   "added": 15
   },
   {
    "source": "place:sf",
    "hub": "sf",
    "pages": 4,
-   "seen": 62,
-   "added": 0
+   "seen": 66,
+   "added": 22
   },
   {
    "source": "place:london",
    "hub": "ldn",
    "pages": 4,
-   "seen": 52,
-   "added": 0
+   "seen": 64,
+   "added": 20
   },
   {
    "source": "place:paris",
    "hub": "par",
-   "pages": 2,
-   "seen": 21,
-   "added": 0
+   "pages": 3,
+   "seen": 49,
+   "added": 21
   },
   {
    "source": "place:berlin",
    "hub": "ber",
-   "pages": 3,
-   "seen": 44,
-   "added": 0
+   "pages": 4,
+   "seen": 56,
+   "added": 15
   },
   {
    "source": "place:munich",
    "hub": "muc",
    "pages": 2,
-   "seen": 11,
-   "added": 0
+   "seen": 22,
+   "added": 3
   },
   {
    "source": "place:amsterdam",
    "hub": "ams",
    "pages": 3,
-   "seen": 29,
-   "added": 0
+   "seen": 48,
+   "added": 4
   },
   {
    "source": "place:barcelona",
    "hub": "bcn",
    "pages": 3,
-   "seen": 27,
-   "added": 0
+   "seen": 41,
+   "added": 4
   },
   {
    "source": "place:madrid",
    "hub": "mad",
-   "pages": 2,
-   "seen": 17,
-   "added": 0
+   "pages": 3,
+   "seen": 35,
+   "added": 1
   },
   {
    "source": "place:lisbon",
    "hub": "lis",
-   "pages": 3,
-   "seen": 32,
-   "added": 0
+   "pages": 2,
+   "seen": 24,
+   "added": 5
   },
   {
    "source": "place:milan",
    "hub": "mil",
    "pages": 2,
-   "seen": 13,
-   "added": 0
+   "seen": 17,
+   "added": 1
   },
   {
    "source": "place:zurich",
    "hub": "zrh",
    "pages": 2,
-   "seen": 19,
-   "added": 0
+   "seen": 23,
+   "added": 10
   },
   {
    "source": "place:stockholm",
    "hub": "sto",
    "pages": 2,
    "seen": 21,
-   "added": 0
+   "added": 6
   },
   {
    "source": "place:copenhagen",
    "hub": "cph",
    "pages": 2,
-   "seen": 16,
-   "added": 0
+   "seen": 17,
+   "added": 5
   },
   {
    "source": "place:helsinki",
    "hub": "hel",
-   "pages": 2,
-   "seen": 21,
-   "added": 0
+   "pages": 3,
+   "seen": 44,
+   "added": 15
   },
   {
    "source": "place:dublin",
    "hub": "dub",
    "pages": 2,
-   "seen": 9,
-   "added": 0
+   "seen": 15,
+   "added": 4
   },
   {
    "source": "place:warsaw",
    "hub": "waw",
-   "pages": 2,
-   "seen": 23,
-   "added": 0
+   "pages": 3,
+   "seen": 26,
+   "added": 5
   },
   {
    "source": "place:toronto",
    "hub": "tor",
    "pages": 3,
-   "seen": 35,
-   "added": 0
+   "seen": 28,
+   "added": 2
   },
   {
    "source": "place:montreal",
    "hub": "mtl",
    "pages": 2,
-   "seen": 18,
-   "added": 0
+   "seen": 17,
+   "added": 2
   },
   {
    "source": "place:vancouver",
    "hub": "yvr",
-   "pages": 3,
-   "seen": 26,
-   "added": 0
+   "pages": 2,
+   "seen": 25,
+   "added": 4
   },
   {
    "source": "place:la",
    "hub": "la",
    "pages": 3,
-   "seen": 40,
+   "seen": 37,
    "added": 0
   },
   {
    "source": "place:boston",
    "hub": "bos",
-   "pages": 3,
-   "seen": 43,
-   "added": 0
+   "pages": 2,
+   "seen": 15,
+   "added": 5
   },
   {
    "source": "place:chicago",
    "hub": "chi",
    "pages": 2,
-   "seen": 17,
-   "added": 0
+   "seen": 15,
+   "added": 3
   },
   {
    "source": "place:miami",
    "hub": "mia",
    "pages": 2,
-   "seen": 12,
+   "seen": 22,
    "added": 0
   },
   {
    "source": "place:austin",
    "hub": "atx",
    "pages": 2,
-   "seen": 18,
-   "added": 0
+   "seen": 24,
+   "added": 4
   },
   {
    "source": "place:seattle",
    "hub": "sea",
-   "pages": 3,
-   "seen": 26,
-   "added": 0
+   "pages": 2,
+   "seen": 19,
+   "added": 4
   },
   {
    "source": "place:dc",
    "hub": "dc",
    "pages": 2,
-   "seen": 19,
-   "added": 0
+   "seen": 22,
+   "added": 2
   },
   {
    "source": "place:denver",
    "hub": "den",
    "pages": 2,
    "seen": 10,
-   "added": 0
+   "added": 3
   },
   {
    "source": "place:philadelphia",
    "hub": "phl",
    "pages": 2,
-   "seen": 20,
+   "seen": 13,
    "added": 0
   },
   {
    "source": "place:mexico-city",
    "hub": "mex",
-   "pages": 4,
-   "seen": 51,
-   "added": 0
+   "pages": 2,
+   "seen": 13,
+   "added": 2
   },
   {
    "source": "place:buenos-aires",
    "hub": "bue",
    "pages": 2,
-   "seen": 12,
-   "added": 0
+   "seen": 13,
+   "added": 2
   },
   {
    "source": "place:tel-aviv",
    "hub": "tlv",
    "pages": 2,
-   "seen": 24,
-   "added": 0
+   "seen": 17,
+   "added": 9
   },
   {
    "source": "place:dubai",
    "hub": "dxb",
    "pages": 2,
-   "seen": 12,
-   "added": 0
+   "seen": 13,
+   "added": 3
   },
   {
    "source": "place:singapore",
    "hub": "sgp",
-   "pages": 3,
-   "seen": 28,
-   "added": 0
+   "pages": 2,
+   "seen": 21,
+   "added": 6
   },
   {
    "source": "place:tokyo",
    "hub": "tyo",
    "pages": 3,
    "seen": 36,
-   "added": 0
+   "added": 5
   },
   {
    "source": "place:seoul",
    "hub": "sel",
    "pages": 2,
-   "seen": 12,
-   "added": 0
+   "seen": 15,
+   "added": 6
   },
   {
    "source": "place:taipei",
    "hub": "tpe",
    "pages": 2,
-   "seen": 11,
-   "added": 0
+   "seen": 9,
+   "added": 2
   },
   {
    "source": "place:bangkok",
    "hub": "bkk",
    "pages": 2,
-   "seen": 12,
-   "added": 0
+   "seen": 22,
+   "added": 4
   },
   {
    "source": "place:jakarta",
    "hub": "jkt",
    "pages": 2,
    "seen": 4,
-   "added": 0
+   "added": 2
   },
   {
    "source": "place:kuala-lumpur",
    "hub": "kul",
    "pages": 2,
-   "seen": 11,
-   "added": 0
+   "seen": 10,
+   "added": 3
   },
   {
    "source": "place:bengaluru",
    "hub": "blr",
    "pages": 2,
-   "seen": 22,
-   "added": 0
+   "seen": 20,
+   "added": 8
   },
   {
    "source": "place:mumbai",
    "hub": "bom",
    "pages": 2,
-   "seen": 19,
-   "added": 0
+   "seen": 11,
+   "added": 3
   },
   {
    "source": "place:sydney",
    "hub": "syd",
-   "pages": 2,
-   "seen": 12,
-   "added": 0
+   "pages": 3,
+   "seen": 29,
+   "added": 11
   },
   {
    "source": "place:melbourne",
    "hub": "mel",
    "pages": 2,
-   "seen": 15,
-   "added": 0
+   "seen": 12,
+   "added": 5
   },
   {
    "source": "place:nairobi",
    "hub": "nbo",
    "pages": 2,
-   "seen": 6,
+   "seen": 4,
    "added": 0
   },
   {
    "source": "place:lagos",
    "hub": "los",
    "pages": 2,
-   "seen": 11,
-   "added": 0
+   "seen": 10,
+   "added": 2
   },
   {
    "source": "place:houston",
    "hub": "hou",
    "pages": 2,
-   "seen": 11,
-   "added": 0
+   "seen": 6,
+   "added": 1
   },
   {
    "source": "place:dallas",
    "hub": "dal",
    "pages": 2,
-   "seen": 11,
-   "added": 0
+   "seen": 8,
+   "added": 4
   },
   {
    "source": "place:atlanta",
    "hub": "atl",
    "pages": 2,
-   "seen": 15,
-   "added": 0
+   "seen": 16,
+   "added": 2
   },
   {
    "source": "place:salt-lake-city",
    "hub": "slc",
    "pages": 2,
-   "seen": 14,
-   "added": 0
+   "seen": 5,
+   "added": 1
   },
   {
    "source": "place:raleigh",
    "hub": "rdu",
    "pages": 2,
-   "seen": 7,
-   "added": 0
+   "seen": 9,
+   "added": 1
   },
   {
    "source": "place:oslo",
    "hub": "osl",
    "pages": 2,
-   "seen": 8,
-   "added": 0
+   "seen": 15,
+   "added": 4
   },
   {
    "source": "place:vienna",
    "hub": "vie",
    "pages": 2,
-   "seen": 11,
-   "added": 0
+   "seen": 16,
+   "added": 1
   },
   {
    "source": "place:prague",
    "hub": "prg",
    "pages": 2,
-   "seen": 15,
-   "added": 0
+   "seen": 13,
+   "added": 3
   },
   {
    "source": "place:brussels",
    "hub": "bru",
    "pages": 2,
-   "seen": 16,
-   "added": 0
+   "seen": 17,
+   "added": 1
   },
   {
    "source": "place:istanbul",
    "hub": "ist",
    "pages": 2,
-   "seen": 13,
-   "added": 0
+   "seen": 10,
+   "added": 3
   },
   {
    "source": "place:manila",
    "hub": "mnl",
    "pages": 2,
-   "seen": 6,
-   "added": 0
+   "seen": 9,
+   "added": 2
   },
   {
    "source": "place:ho-chi-minh-city",
    "hub": "sgn",
    "pages": 2,
-   "seen": 7,
+   "seen": 5,
    "added": 0
   },
   {
    "source": "place:auckland",
    "hub": "akl",
    "pages": 2,
-   "seen": 7,
+   "seen": 3,
    "added": 0
   },
   {
    "source": "place:bogota",
    "hub": "bog",
    "pages": 2,
-   "seen": 8,
-   "added": 0
+   "seen": 7,
+   "added": 1
   },
   {
    "source": "place:medellin",
    "hub": "mde",
    "pages": 2,
-   "seen": 3,
+   "seen": 4,
    "added": 0
   },
   {
    "source": "place:new-delhi",
    "hub": "del",
    "pages": 2,
-   "seen": 12,
-   "added": 0
+   "seen": 4,
+   "added": 2
   },
   {
    "source": "place:hongkong",
    "hub": "hkg",
    "pages": 2,
-   "seen": 12,
-   "added": 0
+   "seen": 10,
+   "added": 4
   },
   {
    "source": "place:saopaulo",
    "hub": "sao",
    "pages": 2,
-   "seen": 10,
+   "seen": 11,
+   "added": 2
+  },
+  {
+   "source": "geo:jc",
+   "hub": "jc",
+   "pages": 12,
+   "seen": 287,
+   "added": 68
+  },
+  {
+   "source": "geo:nyc",
+   "hub": "nyc",
+   "pages": 12,
+   "seen": 287,
    "added": 0
   },
   {
+   "source": "geo:sf",
+   "hub": "sf",
+   "pages": 12,
+   "seen": 282,
+   "added": 111
+  },
+  {
+   "source": "geo:atx",
+   "hub": "atx",
+   "pages": 10,
+   "seen": 205,
+   "added": 39
+  },
+  {
+   "source": "geo:bos",
+   "hub": "bos",
+   "pages": 10,
+   "seen": 193,
+   "added": 59
+  },
+  {
+   "source": "geo:chi",
+   "hub": "chi",
+   "pages": 10,
+   "seen": 199,
+   "added": 35
+  },
+  {
+   "source": "geo:la",
+   "hub": "la",
+   "pages": 12,
+   "seen": 279,
+   "added": 38
+  },
+  {
+   "source": "geo:mia",
+   "hub": "mia",
+   "pages": 9,
+   "seen": 185,
+   "added": 29
+  },
+  {
+   "source": "geo:dc",
+   "hub": "dc",
+   "pages": 12,
+   "seen": 239,
+   "added": 42
+  },
+  {
+   "source": "geo:mtl",
+   "hub": "mtl",
+   "pages": 7,
+   "seen": 126,
+   "added": 25
+  },
+  {
+   "source": "geo:tor",
+   "hub": "tor",
+   "pages": 12,
+   "seen": 290,
+   "added": 56
+  },
+  {
+   "source": "geo:ams",
+   "hub": "ams",
+   "pages": 12,
+   "seen": 276,
+   "added": 39
+  },
+  {
+   "source": "geo:bcn",
+   "hub": "bcn",
+   "pages": 12,
+   "seen": 266,
+   "added": 34
+  },
+  {
+   "source": "geo:ber",
+   "hub": "ber",
+   "pages": 12,
+   "seen": 273,
+   "added": 48
+  },
+  {
+   "source": "geo:can",
+   "hub": "can",
+   "pages": 2,
+   "seen": 13,
+   "added": 1
+  },
+  {
+   "source": "geo:cph",
+   "hub": "cph",
+   "pages": 7,
+   "seen": 121,
+   "added": 21
+  },
+  {
+   "source": "geo:dub",
+   "hub": "dub",
+   "pages": 4,
+   "seen": 63,
+   "added": 13
+  },
+  {
+   "source": "geo:hel",
+   "hub": "hel",
+   "pages": 12,
+   "seen": 232,
+   "added": 47
+  },
+  {
+   "source": "geo:lis",
+   "hub": "lis",
+   "pages": 8,
+   "seen": 144,
+   "added": 21
+  },
+  {
+   "source": "geo:ldn",
+   "hub": "ldn",
+   "pages": 12,
+   "seen": 286,
+   "added": 88
+  },
+  {
+   "source": "geo:mil",
+   "hub": "mil",
+   "pages": 7,
+   "seen": 113,
+   "added": 18
+  },
+  {
+   "source": "geo:muc",
+   "hub": "muc",
+   "pages": 9,
+   "seen": 172,
+   "added": 43
+  },
+  {
+   "source": "geo:par",
+   "hub": "par",
+   "pages": 12,
+   "seen": 269,
+   "added": 40
+  },
+  {
+   "source": "geo:sto",
+   "hub": "sto",
+   "pages": 8,
+   "seen": 137,
+   "added": 26
+  },
+  {
+   "source": "geo:zrh",
+   "hub": "zrh",
+   "pages": 8,
+   "seen": 158,
+   "added": 50
+  },
+  {
+   "source": "geo:dav",
+   "hub": "dav",
+   "pages": 2,
+   "seen": 18,
+   "added": 1
+  },
+  {
+   "source": "geo:bue",
+   "hub": "bue",
+   "pages": 4,
+   "seen": 64,
+   "added": 9
+  },
+  {
+   "source": "geo:mex",
+   "hub": "mex",
+   "pages": 7,
+   "seen": 123,
+   "added": 8
+  },
+  {
+   "source": "geo:sao",
+   "hub": "sao",
+   "pages": 8,
+   "seen": 142,
+   "added": 30
+  },
+  {
+   "source": "geo:tlv",
+   "hub": "tlv",
+   "pages": 6,
+   "seen": 99,
+   "added": 31
+  },
+  {
+   "source": "geo:dxb",
+   "hub": "dxb",
+   "pages": 9,
+   "seen": 186,
+   "added": 28
+  },
+  {
+   "source": "geo:hkg",
+   "hub": "hkg",
+   "pages": 6,
+   "seen": 103,
+   "added": 27
+  },
+  {
+   "source": "geo:kul",
+   "hub": "kul",
+   "pages": 5,
+   "seen": 67,
+   "added": 14
+  },
+  {
+   "source": "geo:sgp",
+   "hub": "sgp",
+   "pages": 12,
+   "seen": 286,
+   "added": 94
+  },
+  {
+   "source": "geo:syd",
+   "hub": "syd",
+   "pages": 9,
+   "seen": 173,
+   "added": 42
+  },
+  {
+   "source": "geo:sea",
+   "hub": "sea",
+   "pages": 10,
+   "seen": 210,
+   "added": 50
+  },
+  {
+   "source": "geo:tyo",
+   "hub": "tyo",
+   "pages": 12,
+   "seen": 281,
+   "added": 38
+  },
+  {
+   "source": "geo:blr",
+   "hub": "blr",
+   "pages": 8,
+   "seen": 146,
+   "added": 66
+  },
+  {
+   "source": "geo:mad",
+   "hub": "mad",
+   "pages": 10,
+   "seen": 184,
+   "added": 24
+  },
+  {
+   "source": "geo:yvr",
+   "hub": "yvr",
+   "pages": 10,
+   "seen": 199,
+   "added": 50
+  },
+  {
+   "source": "geo:den",
+   "hub": "den",
+   "pages": 5,
+   "seen": 79,
+   "added": 10
+  },
+  {
+   "source": "geo:tpe",
+   "hub": "tpe",
+   "pages": 5,
+   "seen": 91,
+   "added": 19
+  },
+  {
+   "source": "geo:sel",
+   "hub": "sel",
+   "pages": 5,
+   "seen": 68,
+   "added": 24
+  },
+  {
+   "source": "geo:bkk",
+   "hub": "bkk",
+   "pages": 6,
+   "seen": 105,
+   "added": 21
+  },
+  {
+   "source": "geo:jkt",
+   "hub": "jkt",
+   "pages": 3,
+   "seen": 24,
+   "added": 9
+  },
+  {
+   "source": "geo:nbo",
+   "hub": "nbo",
+   "pages": 3,
+   "seen": 32,
+   "added": 8
+  },
+  {
+   "source": "geo:los",
+   "hub": "los",
+   "pages": 5,
+   "seen": 70,
+   "added": 12
+  },
+  {
+   "source": "geo:mel",
+   "hub": "mel",
+   "pages": 7,
+   "seen": 118,
+   "added": 27
+  },
+  {
+   "source": "geo:phl",
+   "hub": "phl",
+   "pages": 6,
+   "seen": 112,
+   "added": 16
+  },
+  {
+   "source": "geo:waw",
+   "hub": "waw",
+   "pages": 5,
+   "seen": 83,
+   "added": 25
+  },
+  {
+   "source": "geo:bom",
+   "hub": "bom",
+   "pages": 4,
+   "seen": 49,
+   "added": 9
+  },
+  {
+   "source": "geo:riy",
+   "hub": "riy",
+   "pages": 2,
+   "seen": 13,
+   "added": 2
+  },
+  {
+   "source": "geo:doh",
+   "hub": "doh",
+   "pages": 2,
+   "seen": 6,
+   "added": 0
+  },
+  {
+   "source": "geo:hou",
+   "hub": "hou",
+   "pages": 5,
+   "seen": 93,
+   "added": 17
+  },
+  {
+   "source": "geo:dal",
+   "hub": "dal",
+   "pages": 6,
+   "seen": 95,
+   "added": 17
+  },
+  {
+   "source": "geo:atl",
+   "hub": "atl",
+   "pages": 7,
+   "seen": 137,
+   "added": 23
+  },
+  {
+   "source": "geo:sdg",
+   "hub": "sdg",
+   "pages": 6,
+   "seen": 100,
+   "added": 13
+  },
+  {
+   "source": "geo:slc",
+   "hub": "slc",
+   "pages": 4,
+   "seen": 70,
+   "added": 12
+  },
+  {
+   "source": "geo:rdu",
+   "hub": "rdu",
+   "pages": 3,
+   "seen": 42,
+   "added": 4
+  },
+  {
+   "source": "geo:nsh",
+   "hub": "nsh",
+   "pages": 3,
+   "seen": 28,
+   "added": 8
+  },
+  {
+   "source": "geo:man",
+   "hub": "man",
+   "pages": 5,
+   "seen": 97,
+   "added": 20
+  },
+  {
+   "source": "geo:edi",
+   "hub": "edi",
+   "pages": 3,
+   "seen": 45,
+   "added": 5
+  },
+  {
+   "source": "geo:osl",
+   "hub": "osl",
+   "pages": 5,
+   "seen": 62,
+   "added": 13
+  },
+  {
+   "source": "geo:vie",
+   "hub": "vie",
+   "pages": 7,
+   "seen": 120,
+   "added": 22
+  },
+  {
+   "source": "geo:prg",
+   "hub": "prg",
+   "pages": 5,
+   "seen": 75,
+   "added": 11
+  },
+  {
+   "source": "geo:bru",
+   "hub": "bru",
+   "pages": 8,
+   "seen": 153,
+   "added": 31
+  },
+  {
+   "source": "geo:ist",
+   "hub": "ist",
+   "pages": 4,
+   "seen": 54,
+   "added": 7
+  },
+  {
+   "source": "geo:cpt",
+   "hub": "cpt",
+   "pages": 3,
+   "seen": 30,
+   "added": 9
+  },
+  {
+   "source": "geo:jnb",
+   "hub": "jnb",
+   "pages": 2,
+   "seen": 10,
+   "added": 2
+  },
+  {
+   "source": "geo:cai",
+   "hub": "cai",
+   "pages": 2,
+   "seen": 9,
+   "added": 1
+  },
+  {
+   "source": "geo:sha",
+   "hub": "sha",
+   "pages": 2,
+   "seen": 7,
+   "added": 3
+  },
+  {
+   "source": "geo:szx",
+   "hub": "szx",
+   "pages": 6,
+   "seen": 103,
+   "added": 0
+  },
+  {
+   "source": "geo:mnl",
+   "hub": "mnl",
+   "pages": 4,
+   "seen": 50,
+   "added": 8
+  },
+  {
+   "source": "geo:sgn",
+   "hub": "sgn",
+   "pages": 3,
+   "seen": 38,
+   "added": 4
+  },
+  {
+   "source": "geo:akl",
+   "hub": "akl",
+   "pages": 2,
+   "seen": 14,
+   "added": 2
+  },
+  {
+   "source": "geo:bog",
+   "hub": "bog",
+   "pages": 4,
+   "seen": 47,
+   "added": 4
+  },
+  {
+   "source": "geo:mde",
+   "hub": "mde",
+   "pages": 2,
+   "seen": 20,
+   "added": 2
+  },
+  {
+   "source": "geo:scl",
+   "hub": "scl",
+   "pages": 5,
+   "seen": 99,
+   "added": 19
+  },
+  {
+   "source": "geo:lim",
+   "hub": "lim",
+   "pages": 3,
+   "seen": 50,
+   "added": 4
+  },
+  {
+   "source": "geo:del",
+   "hub": "del",
+   "pages": 5,
+   "seen": 80,
+   "added": 34
+  },
+  {
+   "source": "geo:hyd",
+   "hub": "hyd",
+   "pages": 3,
+   "seen": 32,
+   "added": 12
+  },
+  {
+   "source": "geo:lvs",
+   "hub": "lvs",
+   "pages": 8,
+   "seen": 158,
+   "added": 42
+  },
+  {
+   "source": "geo:pdx",
+   "hub": "pdx",
+   "pages": 3,
+   "seen": 41,
+   "added": 4
+  },
+  {
+   "source": "geo:pnq",
+   "hub": "pnq",
+   "pages": 2,
+   "seen": 25,
+   "added": 5
+  },
+  {
+   "source": "geo:maa",
+   "hub": "maa",
+   "pages": 3,
+   "seen": 28,
+   "added": 5
+  },
+  {
+   "source": "geo:bud",
+   "hub": "bud",
+   "pages": 3,
+   "seen": 38,
+   "added": 9
+  },
+  {
+   "source": "geo:iev",
+   "hub": "iev",
+   "pages": 2,
+   "seen": 3,
+   "added": 0
+  },
+  {
+   "source": "geo:beg",
+   "hub": "beg",
+   "pages": 3,
+   "seen": 26,
+   "added": 3
+  },
+  {
+   "source": "geo:sat",
+   "hub": "sat",
+   "pages": 2,
+   "seen": 17,
+   "added": 1
+  },
+  {
+   "source": "geo:yyj",
+   "hub": "yyj",
+   "pages": 2,
+   "seen": 19,
+   "added": 3
+  },
+  {
+   "source": "geo:gift",
+   "hub": "gift",
+   "pages": 2,
+   "seen": 7,
+   "added": 3
+  },
+  {
    "source": "luma calendars",
-   "known": 432,
-   "added": 55
+   "known": 1843,
+   "added": 415
   },
   {
    "source": "foundercal",
-   "read": 3513,
-   "added": 1783
+   "read": 3390,
+   "added": 1274
+  },
+  {
+   "source": "confs.tech",
+   "added": 12
   },
   {
    "source": "techmeetups.io",
    "hub": "den",
-   "found": 67,
+   "found": 70,
+   "added": 24
+  },
+  {
+   "source": "meetup groups",
+   "groups": 731,
+   "added": 372
+  },
+  {
+   "source": "ical feeds",
    "added": 0
   }
  ]
