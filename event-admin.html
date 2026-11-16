@@ -262,6 +262,11 @@ body{overflow-wrap:anywhere}
   </div>
   <label>Date and time shown on the site</label><input id="date" placeholder="Wed, Nov 12, 2026 &middot; 7:00-9:00 PM EST"/>
   <div class="row2">
+    <div><label>Start time (local to the event's city)</label><input id="startTime" type="time"/></div>
+    <div><label>End time (optional)</label><input id="endTime" type="time"/></div>
+  </div>
+  <div class="hint" style="margin-top:-6px">Powers sorting and the time shown on The List (list.yorkseed.co). The text above is just what's shown on this page; fill in both so the event lands in its real time slot on The List instead of floating to the top of the day untimed.</div>
+  <div class="row2">
     <div><label>City</label><input id="city"/></div>
     <div><label>Entry</label><input id="spots" placeholder="Free · RSVP"/></div>
   </div>
@@ -300,7 +305,7 @@ function api(path,opt){
   if(opt.body&&typeof opt.body!=='string'){opt.body=JSON.stringify(opt.body);opt.headers['content-type']='application/json'}
   return fetch(API+path,opt).then(function(r){return r.json().catch(function(){return {}}).then(function(j){if(!r.ok){if(r.status===401){try{localStorage.removeItem('ys_events_key')}catch(e){}$('keyCard').style.display='block'}throw new Error(j.message||'Something went wrong')}return j})})
 }
-var F=['series','slug','title','dateISO','type','date','city','spots','location','description','coverImage','lumaUrl','promoCode'];
+var F=['series','slug','title','dateISO','startTime','endTime','type','date','city','spots','location','description','coverImage','lumaUrl','promoCode'];
 var extra={country:'',venue:''};
 function syncVirtual(){var v=$('location').value.trim();$('locType').value=/^(virtual|online)/i.test(v)?'virtual':/^location to be announced/i.test(v)?'tba':'in'}
 function fill(e){F.forEach(function(f){$(f).value=e[f]||(f==='type'?'passport':'')});$('hosts').value=(e.hosts||[]).join(', ');extra={country:e.country||'',venue:e.venue||''};syncVirtual();if(typeof coverPrev==='function')coverPrev()}
