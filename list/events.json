@@ -91957,5 +91957,27 @@
   "host": "SFF 2026 Japan Pavilion",
   "link": "https://luma.com/utkvr9jp",
   "desc": "A startup pitch event at the Japan Pavilion during Singapore FinTech Festival 2026."
+ },
+ {
+  "title": "AWS x NVIDIA Pitch Contest and Fireside Chat",
+  "hub": "lvs",
+  "date": "2026-11-30",
+  "start": "17:30",
+  "end": "19:00",
+  "venue": "Startup Plaza, AWS re:Invent, Las Vegas, NV",
+  "host": "AWS Startups, NVIDIA",
+  "link": "https://aws.amazon.com/aws-startups/startups-at-aws-reinvent-2026/",
+  "desc": "A fireside chat with NVIDIA's VP of Startup Ecosystem, followed by live startup pitches and a networking happy hour at Startup Plaza."
+ },
+ {
+  "title": "AMPED Startup Party",
+  "hub": "lvs",
+  "date": "2026-12-02",
+  "start": "19:00",
+  "end": "22:00",
+  "venue": "Area15, Las Vegas, NV",
+  "host": "AWS Startups",
+  "link": "https://aws.amazon.com/aws-startups/startups-at-aws-reinvent-2026/",
+  "desc": "An evening party for founders and industry leaders to network during AWS re:Invent 2026, RSVP through the attendee portal."
  }
 ]
