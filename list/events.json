@@ -91792,5 +91792,27 @@
   "host": "Angel Launch (Zahava Stroud)",
   "link": "https://luma.com/angellaunchjan13",
   "desc": "Colocated with the Silicon Valley AI & Tech Investing Summit. Details and registration on the event page."
+ },
+ {
+  "title": "Digital Asset Summit Toronto (Toronto Blockchain Week)",
+  "hub": "tor",
+  "date": "2026-11-24",
+  "start": "09:00",
+  "end": "17:00",
+  "venue": "Toronto's Financial District, Toronto, Canada",
+  "host": "Web3TO",
+  "link": "https://luma.com/blockchainweekto",
+  "desc": "Day 1 of Toronto Blockchain Week. Details and registration on the event page."
+ },
+ {
+  "title": "Build the Future Canada (Toronto Blockchain Week)",
+  "hub": "tor",
+  "date": "2026-11-25",
+  "start": "09:00",
+  "end": "17:00",
+  "venue": "Toronto, Canada",
+  "host": "Web3TO",
+  "link": "https://luma.com/blockchainweekto",
+  "desc": "Day 2 of Toronto Blockchain Week. Details and registration on the event page."
  }
 ]

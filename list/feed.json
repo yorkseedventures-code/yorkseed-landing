@@ -12031,6 +12031,19 @@
    "list_page": "https://list.yorkseed.co/copenhagen/"
   },
   {
+   "title": "Digital Asset Summit Toronto (Toronto Blockchain Week)",
+   "city": "Toronto",
+   "country": "Canada",
+   "start": "2026-11-24T09:00:00-05:00",
+   "end": "2026-11-24T17:00:00-05:00",
+   "host": "Web3TO",
+   "type": null,
+   "conference_week": "Toronto Blockchain Week",
+   "description": "Day 1 of Toronto Blockchain Week. Details and registration on the event page.",
+   "register_url": "https://luma.com/blockchainweekto?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/toronto/"
+  },
+  {
    "title": "FoundHER Summit: Build x Lead x Fund 2026",
    "city": "Sydney",
    "country": "Australia",
@@ -12640,6 +12653,19 @@
    "description": "Details and registration on the event page.",
    "register_url": "https://luma.com/5f1b1d7r?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/milan/"
+  },
+  {
+   "title": "Build the Future Canada (Toronto Blockchain Week)",
+   "city": "Toronto",
+   "country": "Canada",
+   "start": "2026-11-25T09:00:00-05:00",
+   "end": "2026-11-25T17:00:00-05:00",
+   "host": "Web3TO",
+   "type": null,
+   "conference_week": "Toronto Blockchain Week",
+   "description": "Day 2 of Toronto Blockchain Week. Details and registration on the event page.",
+   "register_url": "https://luma.com/blockchainweekto?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/toronto/"
   },
   {
    "title": "Investor Days 2026",

@@ -154,5 +154,18 @@
   "end": "2026-11-20",
   "photo": "/list/img/449c1c4cf0.jpg",
   "custom": false
+ },
+ {
+  "id": "tbw",
+  "hash": "toronto-blockchain-week",
+  "camel": "TorontoBlockchainWeek",
+  "name": "Toronto Blockchain Week",
+  "year": "2026",
+  "n": 2,
+  "city": "Toronto",
+  "start": "2026-11-23",
+  "end": "2026-11-26",
+  "photo": "/list/img/8ead333017.jpg",
+  "custom": false
  }
 ]

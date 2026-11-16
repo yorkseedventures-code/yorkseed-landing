@@ -949,6 +949,14 @@
    "hub": "sgp",
    "start": "2026-11-16",
    "end": "2026-11-20"
+  },
+  {
+   "id": "tbw",
+   "name": "Toronto Blockchain Week",
+   "hub": "tor",
+   "start": "2026-11-23",
+   "end": "2026-11-26",
+   "re": "blockchain|web3|crypto|digital asset|defi|token"
   }
  ],
  "img": {

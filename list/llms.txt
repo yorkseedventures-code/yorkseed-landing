@@ -1,6 +1,6 @@
 # The Yorkseed List
 
-> The Yorkseed List (https://list.yorkseed.co/) is a free global calendar of startup, tech, founder and investor events in 50+ cities and around the major tech weeks and conferences, run by Yorkseed. 2089 upcoming events as of 2026-11-16. Updated continuously. Anyone can list an event for free.
+> The Yorkseed List (https://list.yorkseed.co/) is a free global calendar of startup, tech, founder and investor events in 50+ cities and around the major tech weeks and conferences, run by Yorkseed. 2091 upcoming events as of 2026-11-16. Updated continuously. Anyone can list an event for free.
 
 ## Startup and tech events by city
 
@@ -24,8 +24,8 @@
 - [Startup events in Boston](https://list.yorkseed.co/boston/): 34 upcoming
 - [Startup events in UAE](https://list.yorkseed.co/dubai-uae/): 34 upcoming
 - [Startup events in Seattle](https://list.yorkseed.co/seattle/): 32 upcoming
+- [Startup events in Toronto](https://list.yorkseed.co/toronto/): 32 upcoming
 - [Startup events in Barcelona](https://list.yorkseed.co/barcelona/): 30 upcoming
-- [Startup events in Toronto](https://list.yorkseed.co/toronto/): 30 upcoming
 - [Startup events in Bengaluru](https://list.yorkseed.co/bengaluru/): 29 upcoming
 - [Startup events in Munich](https://list.yorkseed.co/munich/): 29 upcoming
 - [Startup events in Chicago](https://list.yorkseed.co/chicago/): 28 upcoming
@@ -113,6 +113,7 @@
 - [Web Summit Qatar 2027 side events](https://list.yorkseed.co/web-summit-qatar-2027-side-events/): Doha, 2027-01-30 to 2027-02-04, 1 events
 - [Paris AI & Data Week 2026 side events](https://list.yorkseed.co/paris-ai-and-data-week-2026-side-events/): Paris, 2026-11-16 to 2026-11-20, 24 events
 - [Singapore FinTech Festival 2026 side events](https://list.yorkseed.co/singapore-fintech-festival-2026-side-events/): Singapore, 2026-11-16 to 2026-11-20, 18 events
+- [Toronto Blockchain Week 2026 side events](https://list.yorkseed.co/toronto-blockchain-week-2026-side-events/): Toronto, 2026-11-23 to 2026-11-26, 2 events
 
 ## Machine-readable data
 
