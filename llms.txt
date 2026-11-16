@@ -148,7 +148,7 @@ Yorkseed publishes a dedicated guide for each hub city and conference activation
 - New York City: https://yorkseed.co/nyc-startup-communities
 - San Antonio: https://yorkseed.co/san-antonio-startup-communities
 - Toronto: https://yorkseed.co/toronto-startup-communities
-- Victoria, BC: https://yorkseed.co/victoria-bc-startup-communities
+- Vancouver: https://yorkseed.co/vancouver-startup-communities
 - Washington, D.C.: https://yorkseed.co/dc-startup-communities
 - the Bay Area: https://yorkseed.co/bay-area-startup-communities
 
