@@ -309,7 +309,10 @@ def import_luma_calendars():
     # grow the calendar list from Luma events already on the List: each event names the calendar that hosts it (up to 500 lookups a run)
     sp = f"{REPO}/list/data/luma-event-cals.json"; done = load(sp, {})
     slugs = [m.group(1) for e in events + master["events"] for m in [re.match(r"https?://(?:www\.)?(?:lu\.ma|luma\.com)/([A-Za-z0-9_-]+)/?$", e.get("link") or "")] if m]
+    fails = 0
     for slug in [s for s in dict.fromkeys(slugs) if s not in done][:500]:
+        if fails >= 5:                              # api.lu.ma looks down; don't burn the whole run retrying it slug by slug
+            print(f"luma calendars: api.lu.ma failed {fails} times in a row, giving up on slug lookups for the rest of this run"); break
         try:
             r = urlopen(Request(f"https://api.lu.ma/url?url={slug}", headers={**UA, "Accept": "application/json"}), timeout=20)
             d = (json.loads(r.read().decode("utf-8", "ignore")).get("data") or {}); cal = d.get("calendar") or {}
@@ -317,7 +320,9 @@ def import_luma_calendars():
             done[slug] = cal.get("api_id") or ""
             if cal.get("api_id") and (cal.get("name") or "").strip().lower() != "personal" and TECH.search(ev.get("name") or ""):
                 known.setdefault(cal["api_id"], {"name": cal.get("name") or "", "first": TODAY}); known[cal["api_id"]]["last"] = TODAY
+            fails = 0
         except Exception as ex:
+            fails += 1
             if getattr(ex, "code", 0) in (429, 403): time.sleep(30)
             else: done[slug] = ""
         time.sleep(0.35)
@@ -331,14 +336,19 @@ def import_luma_calendars():
     trusted = {x["id"]: x for x in load(f"{REPO}/list/data/sources.json", []) if x.get("type") == "luma_calendar" and x.get("id")}
     for k, x in trusted.items(): known.setdefault(k, {"name": x.get("name", ""), "first": TODAY}); known[k]["last"] = TODAY
     order = list(trusted) + [k for k in sorted(known, key=lambda k: known[k].get("last", ""), reverse=True) if k not in trusted][:600]
+    cal_fails = 0
     for cid in order:
+        if cal_fails >= 5:                           # api.lu.ma looks down; don't burn the whole run retrying it calendar by calendar
+            print(f"luma calendars: api.lu.ma failed {cal_fails} times in a row, giving up on calendars for the rest of this run"); break
         cursor, pages, kept = None, 0, 0
         allin = bool(trusted.get(cid, {}).get("all"))
         while pages < int(trusted.get(cid, {}).get("max_pages", 6)):
             q = f"https://api.lu.ma/calendar/get-items?calendar_api_id={cid}&period=future&pagination_limit=25" + (f"&pagination_cursor={cursor}" if cursor else "")
             try:
                 r = urlopen(Request(q, headers={**UA, "Accept": "application/json"}), timeout=20); d = json.loads(r.read().decode("utf-8", "ignore"))
+                cal_fails = 0
             except Exception as ex:
+                cal_fails += 1
                 if getattr(ex, "code", 0) in (429, 403): time.sleep(30); failed += 1
                 break
             pages += 1
@@ -597,17 +607,23 @@ def import_techmeetups():
     canon = lambda u: re.sub(r'^https?://(www\.)?lu\.ma/', 'https://luma.com/', (u or '').split("?")[0].rstrip("/"))
     seen_l = {canon(e.get("link")) for e in events + master["events"] if e.get("link")}
     seen_t = {(norm(e.get("title")), e.get("date")) for e in events + master["events"]}
-    calls = [0]
+    calls = [0]; fails = [0]; dead = [False]        # circuit breaker: if the API is down, give up on this source fast
     def search(lat, lng, d0, d1):
+        if dead[0]: return None                     # already gave up this run; skip without hitting the network again
         if calls[0] and calls[0] % 55 == 0: time.sleep(62)                 # stay under 60 requests a minute
         calls[0] += 1
         q = f"https://techmeetups.io/api/v1/events/search?lat={lat}&lng={lng}&radius_km=45&limit=50&date_from={d0}&date_to={d1}"
         for _ in range(3):
             try:
-                r = urlopen(Request(q, headers={**UA, "Accept": "application/json"}), timeout=25); return json.loads(r.read().decode("utf-8", "ignore"))
+                r = urlopen(Request(q, headers={**UA, "Accept": "application/json"}), timeout=25)
+                d = json.loads(r.read().decode("utf-8", "ignore")); fails[0] = 0; return d
             except Exception as ex:
                 if getattr(ex, "code", 0) == 429: time.sleep(65); continue
-                print(f"techmeetups: {ex}"); return None
+                print(f"techmeetups: {ex}"); break
+        fails[0] += 1
+        if fails[0] >= 3 and not dead[0]:
+            dead[0] = True
+            print(f"techmeetups: API failed {fails[0]} calls in a row, giving up on this source for the rest of this run")
         return None
     def window(lat, lng, d0, d1, out):                                     # the API returns at most 50, so split busy ranges in half
         d = search(lat, lng, d0.isoformat(), d1.isoformat())
@@ -701,16 +717,21 @@ def import_sources():
     for hid, (la, lo) in coords.items():
         if hid != "virtual" and any(h["id"] == hid for h in hubs):   # every city: the coordinate feed finds far more than the named city page
             feeds.append((f"geo:{hid}", f"latitude={la}&longitude={lo}", hid, 12))
+    feed_fails = 0
     for name, qs, place_hub, max_pages in feeds:
+        if feed_fails >= 5:                           # api.lu.ma/discover looks down; don't burn the whole run retrying every feed
+            print(f"source {name}: api.lu.ma failed {feed_fails} times in a row, giving up on the rest of this source"); break
         time.sleep(1.5)
         cursor, pages, kept, seen_n, retries, seen_cur = None, 0, 0, 0, 0, set()
         while pages < max_pages:
             q = f"https://api.lu.ma/discover/get-paginated-events?{qs}&pagination_limit=25" + (f"&pagination_cursor={cursor}" if cursor else "")
             try:
                 r = urlopen(Request(q, headers={**UA, "Accept": "application/json"}), timeout=20); d = json.loads(r.read().decode("utf-8", "ignore"))
+                feed_fails = 0
             except Exception as ex:
                 code = getattr(ex, "code", 0)
                 if code in (429, 403) and retries < 3: retries += 1; time.sleep(20 * retries); continue
+                feed_fails += 1
                 print(f"source {name}: stopped ({ex})"); break
             pages += 1
             if pages <= 2: print(f"  {name} page {pages}: {len(d.get('entries') or [])} entries, has_more={d.get('has_more')}, cursor={'yes' if d.get('next_cursor') else 'no'}")
