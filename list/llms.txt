@@ -1,11 +1,11 @@
 # The Yorkseed List
 
-> The Yorkseed List (https://list.yorkseed.co/) is a free global calendar of startup, tech, founder and investor events in 50+ cities and around the major tech weeks and conferences, run by Yorkseed. 2084 upcoming events as of 2026-11-16. Updated continuously. Anyone can list an event for free.
+> The Yorkseed List (https://list.yorkseed.co/) is a free global calendar of startup, tech, founder and investor events in 50+ cities and around the major tech weeks and conferences, run by Yorkseed. 2089 upcoming events as of 2026-11-16. Updated continuously. Anyone can list an event for free.
 
 ## Startup and tech events by city
 
-- [Startup events in Bay Area](https://list.yorkseed.co/san-francisco-bay-area/): 216 upcoming
-- [Startup events in Helsinki](https://list.yorkseed.co/helsinki/): 184 upcoming
+- [Startup events in Bay Area](https://list.yorkseed.co/san-francisco-bay-area/): 219 upcoming
+- [Startup events in Helsinki](https://list.yorkseed.co/helsinki/): 186 upcoming
 - [Startup events in New York](https://list.yorkseed.co/new-york/): 107 upcoming
 - [Startup events in Las Vegas](https://list.yorkseed.co/las-vegas/): 105 upcoming
 - [Startup events in London](https://list.yorkseed.co/london/): 97 upcoming
@@ -99,7 +99,7 @@
 
 ## Conference and tech week side events
 
-- [Slush Helsinki 2026 side events](https://list.yorkseed.co/slush-helsinki-2026-side-events/): Helsinki, 2026-11-16 to 2026-11-20, 176 events
+- [Slush Helsinki 2026 side events](https://list.yorkseed.co/slush-helsinki-2026-side-events/): Helsinki, 2026-11-16 to 2026-11-20, 178 events
 - [Web Summit Lisbon 2026 side events](https://list.yorkseed.co/web-summit-lisbon-2026-side-events/): Lisbon, 2026-11-02 to 2026-11-16, 0 events
 - [WEF Davos 2027 side events](https://list.yorkseed.co/wef-davos-2027-side-events/): Davos, 2027-01-17 to 2027-01-22, 8 events
 - [Asian Financial Forum 2027 side events](https://list.yorkseed.co/asian-financial-forum-2027-side-events/): Hong Kong, 2027-01-25 to 2027-01-28, 3 events
@@ -109,7 +109,7 @@
 - [AWS re:Invent 2026 side events](https://list.yorkseed.co/aws-re-invent-2026-side-events/): Las Vegas, 2026-11-29 to 2026-12-04, 49 events
 - [GITEX & Expand North Star 2026 side events](https://list.yorkseed.co/gitex-and-expand-north-star-2026-side-events/): UAE, 2026-12-06 to 2026-12-11, 9 events
 - [CES 2027 side events](https://list.yorkseed.co/ces-2027-side-events/): Las Vegas, 2027-01-04 to 2027-01-09, 3 events
-- [JPM Healthcare Week 2027 side events](https://list.yorkseed.co/jpm-healthcare-week-2027-side-events/): Bay Area, 2027-01-10 to 2027-01-15, 11 events
+- [JPM Healthcare Week 2027 side events](https://list.yorkseed.co/jpm-healthcare-week-2027-side-events/): Bay Area, 2027-01-10 to 2027-01-15, 12 events
 - [Web Summit Qatar 2027 side events](https://list.yorkseed.co/web-summit-qatar-2027-side-events/): Doha, 2027-01-30 to 2027-02-04, 1 events
 - [Paris AI & Data Week 2026 side events](https://list.yorkseed.co/paris-ai-and-data-week-2026-side-events/): Paris, 2026-11-16 to 2026-11-20, 24 events
 - [Singapore FinTech Festival 2026 side events](https://list.yorkseed.co/singapore-fintech-festival-2026-side-events/): Singapore, 2026-11-16 to 2026-11-20, 18 events

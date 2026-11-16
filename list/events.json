@@ -91737,5 +91737,60 @@
   "type": "Meetups",
   "src": "slush-side",
   "week": "slush"
+ },
+ {
+  "title": "Slush 2026 Funding Events",
+  "hub": "hel",
+  "date": "2026-11-18",
+  "start": "10:00",
+  "end": null,
+  "venue": "Keilaranta 1, 02150 Helsinki, Finland",
+  "host": "CHINAMFA Singapore team",
+  "link": "https://www.eventbrite.com/e/slush-2026-funding-events-tickets-2004705473035",
+  "desc": "Details and registration on the event page."
+ },
+ {
+  "title": "Venture Clienting Mixer: SLUSH Edition",
+  "hub": "hel",
+  "date": "2026-11-19",
+  "start": null,
+  "end": null,
+  "venue": "Helsinki, Finland (venue TBD)",
+  "host": "Start2 Group x GlassDollar",
+  "link": "https://luma.com/9im9xii5",
+  "desc": "Invite-only side event hosted by Start2 Group and GlassDollar, on the final evening of Slush."
+ },
+ {
+  "title": "Silicon Valley Healthtech & AI Investing Summit",
+  "hub": "sf",
+  "date": "2026-12-02",
+  "start": "13:00",
+  "end": "17:30",
+  "venue": "2490 Middlefield Rd, Palo Alto, CA 94301",
+  "host": "Angel Launch (Zahava Stroud)",
+  "link": "https://luma.com/angellaunchdec2",
+  "desc": "Details and registration on the event page."
+ },
+ {
+  "title": "Backyard Capital VIP Investor Dinner",
+  "hub": "sf",
+  "date": "2026-12-02",
+  "start": "18:00",
+  "end": "20:30",
+  "venue": "Private home, Palo Alto, CA",
+  "host": "Angel Launch (Zahava Stroud)",
+  "link": "https://luma.com/angellaunchdec2b",
+  "desc": "Details and registration on the event page."
+ },
+ {
+  "title": "Silicon Valley Healthtech Summit",
+  "hub": "sf",
+  "date": "2027-01-13",
+  "start": "09:00",
+  "end": "16:00",
+  "venue": "San Francisco, CA",
+  "host": "Angel Launch (Zahava Stroud)",
+  "link": "https://luma.com/angellaunchjan13",
+  "desc": "Colocated with the Silicon Valley AI & Tech Investing Summit. Details and registration on the event page."
  }
 ]
