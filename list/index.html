@@ -1296,7 +1296,9 @@ input::placeholder,textarea::placeholder{font-size:13.5px;color:var(--soft);opac
 /* compact city picker (replaces long native dropdowns) */
 .cpick{position:relative;display:inline-block;min-width:0}
 .cpick>select{position:absolute!important;opacity:0;pointer-events:none;width:1px!important;height:1px!important}
-.cpbtn{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;border:1px solid var(--ink);background:var(--surface);padding:8px 12px;font-family:var(--f-body);font-size:15px;color:var(--ink);cursor:pointer;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cpbtn{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;border:1px solid var(--ink);background:var(--surface);padding:8px 12px;font-family:var(--f-body);font-size:15px;color:var(--ink);cursor:pointer;text-align:left}
+.cpbtn .lbl{flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.newtag{display:inline-block;margin:8px 0 0;font-family:var(--f-label);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);border-radius:20px;padding:4px 11px}
 .cpbtn::after{content:"";flex:0 0 auto;width:10px;height:6px;background:no-repeat center/10px 6px url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23B3261E' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E")}
 .cppop{position:absolute;top:calc(100% + 4px);right:0;z-index:35;width:min(280px,calc(100vw - 32px));background:var(--surface);border:1px solid var(--ink);box-shadow:0 16px 30px -14px rgba(30,27,24,.35);display:grid}
 .cppop.left{left:0;right:auto}
@@ -1465,6 +1467,7 @@ input::placeholder,textarea::placeholder{font-size:13.5px;color:var(--soft);opac
     <img id="cityImg" alt="">
     <div class="wrap">
       <h1 id="cityTitle">Events in New York</h1>
+      <span class="newtag" id="cityNewTag" hidden>New · added by the community</span>
       <p id="cityLede">Conferences, side events, meetups, and more.</p>
       <div class="clock" id="cityClock"></div>
       <button class="btn btn-sm btn-share" id="cityShare" type="button"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M12 3v13"/><path d="M7 8l5-5 5 5"/></svg><span id="cityShareLbl">Share this list</span></button>
@@ -1605,6 +1608,8 @@ input::placeholder,textarea::placeholder{font-size:13.5px;color:var(--soft);opac
   </section>
 </div>
 </main>
+
+
 
 
 
@@ -1826,7 +1831,7 @@ const MORE=[["sf", "2026-10-20", "17:00", "21:00", "SGLang Meetup with LinkedIn 
 {const sf=EVENTS.find(e=>/luma\.com\/vc-hack-nyc/.test(e.link||""));if(sf){sf.place="featured";sf.sample=true;}}
 {const intro=EVENTS.find(e=>e.link==="https://luma.com/lv9l1t41");if(intro){intro.start="17:00";intro.end="19:30";intro.venue="New York, NY";intro.type="Investor Events";}}
 // Cities added through submissions: a new city opens once its first event is accepted.
-function makeHub(name,country,tz){const id="c-"+name.toLowerCase().normalize("NFD").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");return{id,name,country:country||"",tz,img:"",code:name.replace(/[^A-Za-z]/g,"").slice(0,3).toUpperCase(),lede:`Founder, investor and venture events in ${name}. New on the List, added by the community.`,isNew:true};}
+function makeHub(name,country,tz){const id="c-"+name.toLowerCase().normalize("NFD").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");return{id,name,country:country||"",tz,img:"",code:name.replace(/[^A-Za-z]/g,"").slice(0,3).toUpperCase(),lede:`Founder, investor and venture events in ${name}.`,isNew:true};}
 try{const nh=JSON.parse(localStorage.getItem("yl-newhubs")||"[]");if(Array.isArray(nh))nh.forEach(h=>{if(h&&h.id&&!HUBS.some(x=>x.id===h.id))HUBS.push(h);});}catch(e){}
 try{const s=JSON.parse(localStorage.getItem("yl-subs2")||"[]");if(Array.isArray(s))EVENTS=EVENTS.concat(s.filter(e=>HUBS.some(h=>h.id===e.hub)));}catch(e){}
 let saved=new Set();try{saved=new Set(JSON.parse(localStorage.getItem("yl-saved")||"[]"));}catch(e){}
@@ -2101,7 +2106,7 @@ function renderCity(){
   const sig=JSON.stringify([st.hub,st.type,st.topic,st.q,st.date,st.week,st.day,st.savedOnly]);if(sig!==st.sig){st.sig=sig;st.limit=PAGE;}
   const h=st.hub==="all"?null:hubById(st.hub),w=st.week?weekById(st.week):null;
   {const himg=!h?IMG.cityhero:h.img?IMG[h.img]:"";$("#cityImg").hidden=!himg;if(himg){$("#cityImg").src=himg;$("#cityImg").style.objectPosition=(h&&IMGPOS[h.img])||"50% 50%";}document.querySelector(".cityhero").classList.toggle("plain",!himg);}
-  if(h&&h.isNew){}
+  $("#cityNewTag").hidden=!(h&&h.isNew);
   $("#cityTitle").innerHTML=w?`${esc(w.name)}<br><em style="font-size:.62em">Yorkseed Master Side Event List</em>`:h?`Events in<br><em>${h.name}</em>`:"Events<br><em>Worldwide</em>";
   $("#cityLede").textContent=w?`${range(w.start,w.end)} in ${hubById(w.hub).name}. ${w.about||"Side events, dinners and meetups around the main conference."}`:h?h.lede:"Every Yorkseed city in one list, shown in each city's local time.";
   const base=upcoming().filter(e=>!h||e.hub===h.id),wk7=base.filter(e=>e.date<=addDays(6)).length;
@@ -2740,7 +2745,8 @@ function makePicker(sel,alignLeft){
   if(!sel||sel.dataset.pk)return;sel.dataset.pk=1;
   const w=document.createElement("span");w.className="cpick";sel.parentNode.insertBefore(w,sel);w.appendChild(sel);
   const b=document.createElement("button");b.type="button";b.className="cpbtn";b.setAttribute("aria-haspopup","listbox");w.appendChild(b);
-  const lab=()=>{const o=sel.options[sel.selectedIndex];b.textContent=o?o.text.replace(/\s*\(\d+\)$/,""):"Choose";};
+  const lblEl=document.createElement("span");lblEl.className="lbl";b.appendChild(lblEl);
+  const lab=()=>{const o=sel.options[sel.selectedIndex];lblEl.textContent=o?o.text.replace(/\s*\(\d+\)$/,""):"Choose";};
   new MutationObserver(lab).observe(sel,{childList:true});lab();setInterval(lab,700);
   let pop=null;
   const close=()=>{if(pop){removeEventListener("resize",pop._fit);pop.remove();pop=null;b.setAttribute("aria-expanded","false");}};
