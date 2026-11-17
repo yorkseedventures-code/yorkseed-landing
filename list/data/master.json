@@ -745,6 +745,38 @@
       "country": "United Kingdom",
       "region": "",
       "img": "bris"
+    },
+    {
+      "id": "bham",
+      "name": "Birmingham",
+      "tz": "Europe/London",
+      "country": "United Kingdom",
+      "region": "",
+      "img": ""
+    },
+    {
+      "id": "lds",
+      "name": "Leeds",
+      "tz": "Europe/London",
+      "country": "United Kingdom",
+      "region": "",
+      "img": ""
+    },
+    {
+      "id": "gla",
+      "name": "Glasgow",
+      "tz": "Europe/London",
+      "country": "United Kingdom",
+      "region": "",
+      "img": ""
+    },
+    {
+      "id": "cam",
+      "name": "Cambridge",
+      "tz": "Europe/London",
+      "country": "United Kingdom",
+      "region": "",
+      "img": ""
     }
   ],
   "weeks": [

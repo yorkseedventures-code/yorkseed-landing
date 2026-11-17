@@ -565,6 +565,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://list.yorkseed.co/birmingham/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/glasgow/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://list.yorkseed.co/slush-helsinki-2026-side-events/</loc>
     <lastmod>2026-11-17</lastmod>
     <changefreq>daily</changefreq>
@@ -14221,6 +14233,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://list.yorkseed.co/e/birmingham-evening-drinks-meet-people-in-tech-2026-11-20/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://list.yorkseed.co/e/ai-in-biotech-how-ai-reframes-current-trends-in-healthcare-2026-11-20/</loc>
     <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
@@ -22399,6 +22417,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://list.yorkseed.co/e/birmingham-evening-drinks-meet-people-in-tech-2026-11-27/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://list.yorkseed.co/e/outre-mer-french-tech-night-2026-2026-11-27/</loc>
     <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
@@ -29071,6 +29095,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://list.yorkseed.co/e/birmingham-evening-drinks-meet-people-in-tech-2026-12-04/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://list.yorkseed.co/e/female-founders-court-3-2026-12-04/</loc>
     <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
@@ -32827,6 +32857,30 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://list.yorkseed.co/e/echai-birmingham-startup-mixer-2026-12-10/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/echai-leeds-startup-mixer-2026-12-10/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/echai-glasgow-startup-mixer-2026-12-10/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/echai-cambridge-startup-mixer-2026-12-10/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://list.yorkseed.co/e/december-3h-chill-out-swap-edition-2026-12-10/</loc>
     <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
@@ -33392,6 +33446,12 @@
   </url>
   <url>
     <loc>https://list.yorkseed.co/e/bristol-tech-mixer-and-social-2026-12-11/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/birmingham-evening-drinks-meet-people-in-tech-2026-12-11/</loc>
     <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -34964,6 +35024,12 @@
   </url>
   <url>
     <loc>https://list.yorkseed.co/e/cursor-hackathon-vienna-2026-12-18/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/glasgow-founders-coffee-club-2026-12-18/</loc>
     <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>

@@ -96133,5 +96133,104 @@
     "host": "eChai Ventures",
     "link": "https://echai.ventures/events/echai-bristol-startup-mixer-dec-10-2026",
     "desc": "An evening of founders meeting founders — quick intros, then open conversation. Free, open founder network."
+  },
+  {
+    "title": "Birmingham Evening Drinks: Meet People in Tech",
+    "hub": "bham",
+    "date": "2026-11-20",
+    "start": "18:00",
+    "end": "21:00",
+    "venue": "Bacchus Bar, Burlington Arcade, New Street, Birmingham",
+    "host": "",
+    "link": "https://createwith.com/event/birmingham-evening-drinks-meet-people-in-tech-developers-pms-designers--nov-2026",
+    "desc": "Weekly casual drinks for Birmingham's tech scene — developers, PMs, designers. Ask staff for the 'Social Meetup'."
+  },
+  {
+    "title": "Birmingham Evening Drinks: Meet People in Tech",
+    "hub": "bham",
+    "date": "2026-11-27",
+    "start": "18:00",
+    "end": "21:00",
+    "venue": "Bacchus Bar, Burlington Arcade, New Street, Birmingham",
+    "host": "",
+    "link": "https://createwith.com/event/birmingham-evening-drinks-meet-people-in-tech-developers-pms-designers--nov-2026",
+    "desc": "Weekly casual drinks for Birmingham's tech scene — developers, PMs, designers. Ask staff for the 'Social Meetup'."
+  },
+  {
+    "title": "Birmingham Evening Drinks: Meet People in Tech",
+    "hub": "bham",
+    "date": "2026-12-04",
+    "start": "18:00",
+    "end": "21:00",
+    "venue": "Bacchus Bar, Burlington Arcade, New Street, Birmingham",
+    "host": "",
+    "link": "https://createwith.com/event/birmingham-evening-drinks-meet-people-in-tech-developers-pms-designers--nov-2026",
+    "desc": "Weekly casual drinks for Birmingham's tech scene — developers, PMs, designers. Ask staff for the 'Social Meetup'."
+  },
+  {
+    "title": "Birmingham Evening Drinks: Meet People in Tech",
+    "hub": "bham",
+    "date": "2026-12-11",
+    "start": "18:00",
+    "end": "21:00",
+    "venue": "Bacchus Bar, Burlington Arcade, New Street, Birmingham",
+    "host": "",
+    "link": "https://createwith.com/event/birmingham-evening-drinks-meet-people-in-tech-developers-pms-designers--nov-2026",
+    "desc": "Weekly casual drinks for Birmingham's tech scene — developers, PMs, designers. Ask staff for the 'Social Meetup'."
+  },
+  {
+    "title": "eChai Birmingham Startup Mixer",
+    "hub": "bham",
+    "date": "2026-12-10",
+    "start": "18:00",
+    "end": "20:00",
+    "venue": "Venue TBC",
+    "host": "eChai Ventures",
+    "link": "https://echai.ventures/events/echai-birmingham-startup-mixer-dec-10-2026",
+    "desc": "An evening of founders meeting founders — quick intros, then open conversation. Free, open founder network."
+  },
+  {
+    "title": "eChai Leeds Startup Mixer",
+    "hub": "lds",
+    "date": "2026-12-10",
+    "start": "18:00",
+    "end": "20:00",
+    "venue": "Venue TBC",
+    "host": "eChai Ventures",
+    "link": "https://echai.ventures/events/echai-leeds-startup-mixer-dec-10-2026",
+    "desc": "An evening of founders meeting founders — quick intros, then open conversation. Free, open founder network."
+  },
+  {
+    "title": "Glasgow Founders Coffee Club",
+    "hub": "gla",
+    "date": "2026-12-18",
+    "start": "11:00",
+    "end": "12:00",
+    "venue": "Clockwise Glasgow, Savoy Tower, 77 Renfrew Street, Glasgow",
+    "host": "",
+    "link": "https://createwith.com/event/glasgow-founders-coffee-club-inc-coworking-glasgow-dec-2026",
+    "desc": "Informal coffee meetup and coworking session for Glasgow founders."
+  },
+  {
+    "title": "eChai Glasgow Startup Mixer",
+    "hub": "gla",
+    "date": "2026-12-10",
+    "start": "18:00",
+    "end": "20:00",
+    "venue": "Venue TBC",
+    "host": "eChai Ventures",
+    "link": "https://echai.ventures/events/echai-glasgow-startup-mixer-dec-10-2026",
+    "desc": "An evening of founders meeting founders — quick intros, then open conversation. Free, open founder network."
+  },
+  {
+    "title": "eChai Cambridge Startup Mixer",
+    "hub": "cam",
+    "date": "2026-12-10",
+    "start": "18:00",
+    "end": "20:00",
+    "venue": "Venue TBC",
+    "host": "eChai Ventures",
+    "link": "https://echai.ventures/events/echai-cambridge-startup-mixer-dec-10-2026",
+    "desc": "An evening of founders meeting founders — quick intros, then open conversation. Free, open founder network."
   }
 ]
