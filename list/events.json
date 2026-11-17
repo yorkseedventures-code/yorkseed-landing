@@ -96232,5 +96232,27 @@
     "host": "eChai Ventures",
     "link": "https://echai.ventures/events/echai-cambridge-startup-mixer-dec-10-2026",
     "desc": "An evening of founders meeting founders — quick intros, then open conversation. Free, open founder network."
+  },
+  {
+    "title": "eChai Liverpool Startup Mixer",
+    "hub": "lpl",
+    "date": "2026-12-10",
+    "start": "18:00",
+    "end": "20:00",
+    "venue": "Venue TBC",
+    "host": "eChai Ventures",
+    "link": "https://echai.ventures/events/echai-liverpool-startup-mixer-dec-10-2026",
+    "desc": "An evening of founders meeting founders — quick intros, then open conversation. Free, open founder network."
+  },
+  {
+    "title": "KQ CLICK Drop-in: Business Support Session",
+    "hub": "lpl",
+    "date": "2026-12-02",
+    "start": "12:00",
+    "end": "14:00",
+    "venue": "Central Tech, 31 Russell Street, Liverpool",
+    "host": "KQ Liverpool",
+    "link": "https://www.kqliverpool.co.uk/kq-events",
+    "desc": "Drop-in business support session for Liverpool founders and small business owners, also available online."
   }
 ]

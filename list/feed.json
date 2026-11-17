@@ -54736,6 +54736,19 @@
    "list_page": "https://list.yorkseed.co/austin/"
   },
   {
+   "title": "KQ CLICK Drop-in: Business Support Session",
+   "city": "Liverpool",
+   "country": "United Kingdom",
+   "start": "2026-12-02T12:00:00+00:00",
+   "end": "2026-12-02T14:00:00+00:00",
+   "host": "KQ Liverpool",
+   "type": null,
+   "conference_week": null,
+   "description": "Drop-in business support session for Liverpool founders and small business owners, also available online.",
+   "register_url": "https://www.kqliverpool.co.uk/kq-events?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/liverpool/"
+  },
+  {
    "title": "AI in Finance Lab: San Francisco",
    "city": "Bay Area",
    "country": "United States",
@@ -69359,6 +69372,19 @@
    "description": "An evening of founders meeting founders — quick intros, then open conversation. Free, open founder network.",
    "register_url": "https://echai.ventures/events/echai-cambridge-startup-mixer-dec-10-2026?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/cambridge/"
+  },
+  {
+   "title": "eChai Liverpool Startup Mixer",
+   "city": "Liverpool",
+   "country": "United Kingdom",
+   "start": "2026-12-10T18:00:00+00:00",
+   "end": "2026-12-10T20:00:00+00:00",
+   "host": "eChai Ventures",
+   "type": null,
+   "conference_week": null,
+   "description": "An evening of founders meeting founders — quick intros, then open conversation. Free, open founder network.",
+   "register_url": "https://echai.ventures/events/echai-liverpool-startup-mixer-dec-10-2026?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/liverpool/"
   },
   {
    "title": "December 3H: Chill Out Swap Edition!",
