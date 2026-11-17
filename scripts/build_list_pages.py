@@ -265,9 +265,9 @@ for h in hubs.values():
     evs = by_hub.get(h["id"], []); n = len(evs); camp = "list_" + h["slug"]
     city = h["name"]; online = h["id"] == "virtual"; short = SHORT.get(h["id"])
     hw = [w for w in weeks if w["hub"] == h["id"]]
-    title = (f"Online Startup & Tech Events, {TODAY.strftime('%b %Y')} | The Yorkseed List" if online else
-             (f"{short} Tech Events & Startup Events, {TODAY.strftime('%b %Y')} | The Yorkseed List" if short else
-              f"{city} Tech Events & Startup Events, {TODAY.strftime('%b %Y')} | The Yorkseed List"))
+    title = (f"Online Tech, Startup & Venture Events, {TODAY.strftime('%b %Y')} | The Yorkseed List" if online else
+             (f"{short} Tech, Startup & Venture Events, {TODAY.strftime('%b %Y')} | The Yorkseed List" if short else
+              f"{city} Tech, Startup & Venture Events, {TODAY.strftime('%b %Y')} | The Yorkseed List"))
     if len(title) > 70: title = title.replace(" | The Yorkseed List", " | Yorkseed")
     where_ = 'online' if online else 'in ' + city
     desc = ((f"{n} upcoming {short or city} tech events: startup, founder and investor events {where_}, including" if not online else
