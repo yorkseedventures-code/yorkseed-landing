@@ -4,7 +4,7 @@ Reads list/data/master.json (+ new events in list/events.json). Runs daily via .
 Writes <repo>/list/<city>/index.html, <repo>/list/<week>/index.html, <repo>/list/cities/index.html,
 <repo>/list/feed.json, <repo>/list/llms.txt, sitemap entries, and a static city index inside <repo>/list/index.html.
 Re-run weekly (after build_site.py) so pages stay fresh."""
-import sys, json, re, os, html, hashlib, base64, datetime as dt
+import sys, json, re, os, html, hashlib, base64, datetime as dt, calendar as calmod
 from zoneinfo import ZoneInfo
 import urllib.parse
 from urllib.parse import urlsplit, urlunsplit, parse_qsl, urlencode
@@ -135,23 +135,38 @@ h1{font:400 clamp(32px,5vw,52px)/1.08 var(--serif);margin:0 0 14px;letter-spacin
 .adslot.live{display:block;text-align:center;border-style:solid;padding:10px}
 .adslot.live img{max-width:100%;height:auto;display:block;margin:0 auto}
 .adslot.live a.adv{display:block;margin-top:6px;font:400 11px var(--mono);color:var(--ink4)}
-.hero{display:grid;grid-template-columns:1.25fr 1fr;gap:32px;align-items:center;padding-bottom:28px;border-bottom:1px solid var(--line)}
+.hero{display:grid;grid-template-columns:1.25fr 1fr;gap:28px;align-items:center;padding-bottom:22px;border-bottom:1px solid var(--line)}
 .hero img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;display:block}
 .cta{display:flex;flex-wrap:wrap;gap:10px}.btn{display:inline-block;padding:12px 18px;font:500 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border:1px solid var(--ink)}
 .btn.r{background:var(--red);border-color:var(--red);color:#fff}.btn:hover{opacity:.85}
-h2{font:400 26px/1.2 var(--serif);margin:40px 0 6px}h2 em{color:var(--red)}
-.weeks{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 0}.weeks a{font:400 12px var(--mono);padding:7px 11px;border:1px solid var(--line);background:#fff;text-decoration:none}.weeks a:hover{border-color:var(--red);color:var(--red)}
-.day{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--ink);margin:30px 0 0;padding-bottom:6px}
-.day h3{font:400 21px var(--serif);margin:0}.day span{font:400 11px var(--mono);letter-spacing:.1em;color:var(--ink3);text-transform:uppercase}
-.ev{display:grid;grid-template-columns:96px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
-.ev time{font:400 15px var(--serif)}.ev .pic{float:right;width:132px;height:88px;object-fit:cover;margin:0 0 8px 14px;background:#eee}@media(max-width:720px){.ev .pic{width:96px;height:64px}}.ev h4{font:400 18px/1.3 var(--serif);margin:0 0 3px}.ev h4 a{text-decoration:none}.ev h4 a:hover{color:var(--red)}
-.ev .s{font-size:13px;color:var(--ink3)}.ev .rg{color:var(--red);text-decoration:none}.ev p{font-size:14px;color:var(--ink2);margin:6px 0 0}.ev .ys{color:var(--red);font:400 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;margin-left:6px}
-.empty{padding:28px;background:#fff;border:1px solid var(--line);margin-top:20px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;margin-top:14px}
-.grid a{display:flex;justify-content:space-between;padding:10px 12px;background:#fff;border:1px solid var(--line);text-decoration:none;font-size:14px}.grid a:hover{border-color:var(--red)}.grid small{color:var(--ink4);font-family:var(--mono)}
-.faq details{border-bottom:1px solid var(--line);padding:14px 0}.faq summary{cursor:pointer;font:400 18px var(--serif)}.faq p{color:var(--ink2);margin:8px 0 0}
-.band{background:#fff;border:1px solid var(--line);padding:24px;margin:44px 0 60px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}.band p{margin:0;max-width:52ch;color:var(--ink2)}
-@media(max-width:720px){.hero{grid-template-columns:1fr}.hero img{aspect-ratio:16/9;max-height:220px}.ev{grid-template-columns:72px 1fr;gap:12px}}
+h2{font:400 24px/1.2 var(--serif);margin:30px 0 5px}h2 em{color:var(--red)}
+.weeks{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0 0}.weeks a{font:400 12px var(--mono);padding:6px 10px;border:1px solid var(--line);background:#fff;text-decoration:none}.weeks a:hover{border-color:var(--red);color:var(--red)}
+.viewtabs{display:flex;gap:6px;margin:10px 0 2px}
+.vtab{font:500 11px var(--mono);letter-spacing:.09em;text-transform:uppercase;padding:7px 15px;border:1px solid var(--line);background:#fff;color:var(--ink3);cursor:pointer;border-radius:0}
+.vtab.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.vtab:hover:not(.active){border-color:var(--ink3)}
+.day{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--ink);margin:20px 0 0;padding-bottom:5px}
+.day h3{font:400 19px var(--serif);margin:0}.day span{font:400 11px var(--mono);letter-spacing:.1em;color:var(--ink3);text-transform:uppercase}
+.ev{display:grid;grid-template-columns:88px 1fr;gap:14px;padding:11px 0;border-bottom:1px solid var(--line)}
+.ev time{font:400 14px var(--serif)}.ev .pic{float:right;width:120px;height:80px;object-fit:cover;margin:0 0 6px 14px;background:#eee}@media(max-width:720px){.ev .pic{width:88px;height:58px}}.ev h4{font:400 17px/1.3 var(--serif);margin:0 0 2px}.ev h4 a{text-decoration:none}.ev h4 a:hover{color:var(--red)}
+.ev .s{font-size:12.5px;color:var(--ink3)}.ev .rg{color:var(--red);text-decoration:none}.ev p{font-size:13.5px;color:var(--ink2);margin:4px 0 0}.ev .ys{color:var(--red);font:400 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;margin-left:6px}
+.empty{padding:24px;background:#fff;border:1px solid var(--line);margin-top:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:7px;margin-top:12px}
+.grid a{display:flex;justify-content:space-between;padding:9px 11px;background:#fff;border:1px solid var(--line);text-decoration:none;font-size:13.5px}.grid a:hover{border-color:var(--red)}.grid small{color:var(--ink4);font-family:var(--mono)}
+.faq details{border-bottom:1px solid var(--line);padding:12px 0}.faq summary{cursor:pointer;font:400 17px var(--serif)}.faq p{color:var(--ink2);margin:7px 0 0}
+.band{background:#fff;border:1px solid var(--line);padding:20px 22px;margin:34px 0 46px;display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center}.band p{margin:0;max-width:52ch;color:var(--ink2)}
+.calgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:8px}
+.cal-month{background:#fff;border:1px solid var(--line);padding:13px}
+.cal-mh{font:400 15px var(--serif);margin-bottom:8px}
+.cal-dow{display:grid;grid-template-columns:repeat(7,1fr);font:400 9px var(--mono);color:var(--ink4);text-transform:uppercase;letter-spacing:.05em;text-align:center;margin-bottom:3px}
+.cal-days{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}
+.cal-day{aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;font-size:11.5px;color:var(--ink3);text-decoration:none}
+.cal-day .c{font:400 8px var(--mono);color:var(--red)}
+.cal-day.out{color:transparent;pointer-events:none}
+.cal-day.has{background:var(--paper);color:var(--ink);font-weight:500}
+.cal-day.has:hover{outline:1px solid var(--red);color:var(--red)}
+.cal-day.today .n{text-decoration:underline;text-decoration-color:var(--red);text-underline-offset:2px}
+@media(max-width:720px){.hero{grid-template-columns:1fr}.hero img{aspect-ratio:16/9;max-height:220px}.ev{grid-template-columns:64px 1fr;gap:10px}}
 """
 
 def page(path, title, desc, canon, body, ld, img=None, index=True):
@@ -191,10 +206,55 @@ def page(path, title, desc, canon, body, ld, img=None, index=True):
 </main>
 <p class="w" style="font:400 11px var(--mono);color:var(--ink4);margin:24px auto 0">© Yorkseed. The Yorkseed List is curated by Yorkseed; automated copying or republishing is not permitted.</p>
 <yk-footer><a href="https://yorkseed.co/">Home</a> <a href="/">The List</a> <a href="https://yorkseed.co/events.html">Events</a></yk-footer>
+<script>
+document.addEventListener('click',function(ev){{
+  var t=ev.target.closest('.vtab');
+  if(t){{
+    document.querySelectorAll('.vtab').forEach(function(b){{b.classList.toggle('active',b===t)}});
+    var v=t.dataset.view,lv=document.getElementById('listview'),cv=document.getElementById('calview');
+    if(lv) lv.style.display=(v==='list')?'':'none';
+    if(cv) cv.style.display=(v==='cal')?'':'none';
+    return;
+  }}
+  var d=ev.target.closest('[data-jump]');
+  if(d){{
+    ev.preventDefault();
+    document.querySelectorAll('.vtab').forEach(function(b){{b.classList.toggle('active',b.dataset.view==='list')}});
+    var lv=document.getElementById('listview'),cv=document.getElementById('calview');
+    if(lv) lv.style.display=''; if(cv) cv.style.display='none';
+    var target=document.getElementById('d-'+d.dataset.jump);
+    if(target) target.scrollIntoView({{behavior:'smooth',block:'start'}});
+  }}
+}});
+</script>
 </body>
 </html>
 """
     os.makedirs(os.path.dirname(path), exist_ok=True); open(path, "w").write(doc)
+
+def calendar_html(evs):
+    """Month-grid calendar view: one box per month spanned by evs, days with events are clickable and jump to that day in the list view."""
+    if not evs: return ""
+    by_date = {}
+    for e in evs: by_date[e["date"]] = by_date.get(e["date"], 0) + 1
+    dmin, dmax = min(by_date), max(by_date)
+    cur = dt.date.fromisoformat(dmin).replace(day=1); last = dt.date.fromisoformat(dmax).replace(day=1)
+    cal = calmod.Calendar(firstweekday=6)  # weeks start Sunday
+    out = ['<div class="calgrid">']
+    while cur <= last:
+        out.append(f'<div class="cal-month"><div class="cal-mh">{e_(cur.strftime("%B %Y"))}</div>'
+                    '<div class="cal-dow">' + "".join(f'<span>{d}</span>' for d in ["S","M","T","W","T","F","S"]) + '</div><div class="cal-days">')
+        for day in cal.itermonthdates(cur.year, cur.month):
+            in_month = day.month == cur.month; dstr = day.isoformat(); n = by_date.get(dstr, 0)
+            cls = "cal-day" + ("" if in_month else " out") + (" has" if (n and in_month) else "") + (" today" if day == TODAY else "")
+            if n and in_month:
+                out.append(f'<a href="#d-{dstr}" class="{cls}" data-jump="{dstr}" aria-label="{e_(dlabel(dstr))}, {n} event{"s" if n>1 else ""}"><span class="n">{day.day}</span><span class="c">{n}</span></a>')
+            else:
+                out.append(f'<span class="{cls}"><span class="n">{day.day if in_month else ""}</span></span>')
+        out.append('</div></div>')
+        cur = cur.replace(year=cur.year + 1, month=1) if cur.month == 12 else cur.replace(month=cur.month + 1)
+    out.append('</div>')
+    return "\n".join(out)
 
 def rows(evs, camp, show_city=False):
     out, cur = [], None
@@ -286,7 +346,11 @@ for h in hubs.values():
 {adslot('city', h['id'], city, 'Top of '+(short or city)+' events page, above the list: seen by everyone looking for events here.', 'US$249/month')}
 {weeks_html}
 <h2>Upcoming events {'online' if online else 'in <em>'+e_(city)+'</em>'}</h2>
+{'<div class="viewtabs"><button type="button" class="vtab active" data-view="list">List</button><button type="button" class="vtab" data-view="cal">Calendar</button></div>' if evs else ''}
+<div id="listview">
 {rows(evs, camp) if evs else f'<div class="empty">No events are listed {"online" if online else "in "+e_(city)} yet. Hosting one? <a href="/#submit" style="color:var(--red)">List it free</a> and it will appear here within a day.</div>'}
+</div>
+{f'<div id="calview" style="display:none">{calendar_html(evs)}</div>' if evs else ''}
 {local_block(h["id"], n)}
 <h2>Questions</h2>
 {fh}
@@ -370,7 +434,11 @@ for w in weeks:
 <h2>All {e_(w['name'])} side events, <em>by day</em></h2>
 {f'<p class="lede" style="font-size:14px">{typeline}</p>' if typeline else ''}
 {daynav}
+{'<div class="viewtabs"><button type="button" class="vtab active" data-view="list">List</button><button type="button" class="vtab" data-view="cal">Calendar</button></div>' if evs else ''}
+<div id="listview">
 {rows(evs, camp) if evs else '<div class="empty">Side events will appear here as they are announced.</div>'}
+</div>
+{f'<div id="calview" style="display:none">{calendar_html(evs)}</div>' if evs else ''}
 <h2>Questions about {e_(w['name'])} side events</h2>{fh}
 {f'<p style="margin-top:24px">{links}</p>' if links else ''}
 {f'<h2>Other conference weeks</h2><p>{others}</p>' if others else ''}
