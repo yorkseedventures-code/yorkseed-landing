@@ -1297,7 +1297,7 @@ input::placeholder,textarea::placeholder{font-size:13.5px;color:var(--soft);opac
 .cpick{position:relative;display:inline-block;min-width:0}
 .cpick>select{position:absolute!important;opacity:0;pointer-events:none;width:1px!important;height:1px!important}
 .cpbtn{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;border:1px solid var(--ink);background:var(--surface);padding:8px 12px;font-family:var(--f-body);font-size:15px;color:var(--ink);cursor:pointer;text-align:left}
-.cpbtn .lbl{flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cpbtn .lbl{flex:1 1 auto;min-width:0;white-space:normal;word-break:break-word;line-height:1.25}
 .newtag{display:inline-block;margin:8px 0 0;font-family:var(--f-label);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);border-radius:20px;padding:4px 11px}
 .cpbtn::after{content:"";flex:0 0 auto;width:10px;height:6px;background:no-repeat center/10px 6px url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23B3261E' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E")}
 .cppop{position:absolute;top:calc(100% + 4px);right:0;z-index:35;width:min(280px,calc(100vw - 32px));background:var(--surface);border:1px solid var(--ink);box-shadow:0 16px 30px -14px rgba(30,27,24,.35);display:grid}
@@ -1608,6 +1608,7 @@ input::placeholder,textarea::placeholder{font-size:13.5px;color:var(--soft);opac
   </section>
 </div>
 </main>
+
 
 
 
