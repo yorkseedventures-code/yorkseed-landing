@@ -96254,5 +96254,27 @@
     "host": "KQ Liverpool",
     "link": "https://www.kqliverpool.co.uk/kq-events",
     "desc": "Drop-in business support session for Liverpool founders and small business owners, also available online."
+  },
+  {
+    "title": "Leeds Digital Health Event",
+    "hub": "lds",
+    "date": "2027-01-28",
+    "start": "17:30",
+    "end": "20:30",
+    "venue": "CGI, 1 Whitehall Quay, Leeds",
+    "host": "",
+    "link": "https://createwith.com/event/leeds-leeds-digital-health-event-jan-2027",
+    "desc": "Networking event for Leeds' digital health and healthtech community."
+  },
+  {
+    "title": "Bristol Founders Coffee Club",
+    "hub": "bris",
+    "date": "2026-11-25",
+    "start": "10:00",
+    "end": "11:00",
+    "venue": "Venue shared on approval, Bristol",
+    "host": "",
+    "link": "https://createwith.com/event/bristol-founders-coffee-club-including-coworking-bristol-nov-2026",
+    "desc": "Informal coffee meetup and coworking session for Bristol founders. Address shared with approved registrants."
   }
 ]

@@ -1,6 +1,6 @@
 # The Yorkseed List
 
-> The Yorkseed List (https://list.yorkseed.co/) is a free global calendar of startup, tech, founder and investor events in 50+ cities and around the major tech weeks and conferences, run by Yorkseed. 6419 upcoming events as of 2026-11-17. Updated continuously. Anyone can list an event for free.
+> The Yorkseed List (https://list.yorkseed.co/) is a free global calendar of startup, tech, founder and investor events in 50+ cities and around the major tech weeks and conferences, run by Yorkseed. 6421 upcoming events as of 2026-11-17. Updated continuously. Anyone can list an event for free.
 
 ## Startup and tech events by city
 
@@ -79,7 +79,7 @@
 - [Startup events in Nashville](https://list.yorkseed.co/nashville/): 11 upcoming
 - [Startup events in Jersey City](https://list.yorkseed.co/jersey-city/): 10 upcoming
 - [Startup events in Raleigh-Durham](https://list.yorkseed.co/raleigh-durham/): 10 upcoming
-- [Startup events in Bristol](https://list.yorkseed.co/bristol/): 8 upcoming
+- [Startup events in Bristol](https://list.yorkseed.co/bristol/): 9 upcoming
 - [Startup events in Lima](https://list.yorkseed.co/lima/): 8 upcoming
 - [Startup events in Ho Chi Minh City](https://list.yorkseed.co/ho-chi-minh-city/): 7 upcoming
 - [Startup events in Auckland](https://list.yorkseed.co/auckland/): 6 upcoming
@@ -98,9 +98,9 @@
 - [Startup events in Cannes](https://list.yorkseed.co/cannes/): 2 upcoming
 - [Startup events in Doha](https://list.yorkseed.co/doha/): 2 upcoming
 - [Startup events in Glasgow](https://list.yorkseed.co/glasgow/): 2 upcoming
+- [Startup events in Leeds](https://list.yorkseed.co/leeds/): 2 upcoming
 - [Startup events in Liverpool](https://list.yorkseed.co/liverpool/): 2 upcoming
 - [Startup events in Cambridge](https://list.yorkseed.co/cambridge/): 1 upcoming
-- [Startup events in Leeds](https://list.yorkseed.co/leeds/): 1 upcoming
 - [Startup events in Online](https://list.yorkseed.co/online/): 1 upcoming
 
 ## Conference and tech week side events
