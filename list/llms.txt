@@ -1,6 +1,6 @@
 # The Yorkseed List
 
-> The Yorkseed List (https://list.yorkseed.co/) is a free global calendar of startup, tech, founder and investor events in 50+ cities and around the major tech weeks and conferences, run by Yorkseed. 6385 upcoming events as of 2026-11-17. Updated continuously. Anyone can list an event for free.
+> The Yorkseed List (https://list.yorkseed.co/) is a free global calendar of startup, tech, founder and investor events in 50+ cities and around the major tech weeks and conferences, run by Yorkseed. 6387 upcoming events as of 2026-11-17. Updated continuously. Anyone can list an event for free.
 
 ## Startup and tech events by city
 
@@ -46,8 +46,8 @@
 - [Startup events in Santiago](https://list.yorkseed.co/santiago/): 52 upcoming
 - [Startup events in Seoul](https://list.yorkseed.co/seoul/): 49 upcoming
 - [Startup events in Mumbai](https://list.yorkseed.co/mumbai/): 48 upcoming
+- [Startup events in Taipei](https://list.yorkseed.co/taipei/): 48 upcoming
 - [Startup events in Kuala Lumpur](https://list.yorkseed.co/kuala-lumpur/): 47 upcoming
-- [Startup events in Taipei](https://list.yorkseed.co/taipei/): 47 upcoming
 - [Startup events in Milan](https://list.yorkseed.co/milan/): 45 upcoming
 - [Startup events in São Paulo & Rio](https://list.yorkseed.co/sao-paulo-rio/): 45 upcoming
 - [Startup events in Portland](https://list.yorkseed.co/portland/): 41 upcoming
@@ -79,8 +79,8 @@
 - [Startup events in Edinburgh](https://list.yorkseed.co/edinburgh/): 10 upcoming
 - [Startup events in Jersey City](https://list.yorkseed.co/jersey-city/): 10 upcoming
 - [Startup events in Raleigh-Durham](https://list.yorkseed.co/raleigh-durham/): 10 upcoming
+- [Startup events in Ho Chi Minh City](https://list.yorkseed.co/ho-chi-minh-city/): 7 upcoming
 - [Startup events in Lima](https://list.yorkseed.co/lima/): 7 upcoming
-- [Startup events in Ho Chi Minh City](https://list.yorkseed.co/ho-chi-minh-city/): 6 upcoming
 - [Startup events in Auckland](https://list.yorkseed.co/auckland/): 5 upcoming
 - [Startup events in Bogotá](https://list.yorkseed.co/bogot/): 5 upcoming
 - [Startup events in GIFT City](https://list.yorkseed.co/gift-city/): 5 upcoming
