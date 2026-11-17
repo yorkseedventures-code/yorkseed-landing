@@ -768,7 +768,7 @@
       "tz": "Europe/London",
       "country": "United Kingdom",
       "region": "",
-      "img": ""
+      "img": "gla"
     },
     {
       "id": "cam",
@@ -1068,7 +1068,8 @@
     "edi": "/list/img/d3a7d9643b.jpg",
     "waw": "/list/img/a59728cbaa.jpg",
     "bris": "/list/img/48bba41243.jpg",
-    "lpl": "/list/img/818f20b731.jpg"
+    "lpl": "/list/img/818f20b731.jpg",
+    "gla": "/list/img/d54cccf1af.jpg"
   },
   "events": [
     {
