@@ -1643,6 +1643,7 @@ input::placeholder,textarea::placeholder{font-size:13.5px;color:var(--soft);opac
 
 
 
+
 <p id="ysSeoCities" style="max-width:1200px;margin:0 auto;padding:16px 20px;font:400 11px 'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase"><a href="/cities/" style="color:#888;text-decoration:none">Browse startup events by city →</a></p>
 <footer class="foot ysfoot">
   <div class="fwrap">
@@ -1948,8 +1949,8 @@ function listShareUrl(){const P=window.YS_PATHS||{h:{},w:{}},L="https://list.yor
   if(st.hub&&st.hub!=="all"){const hs=P.h&&P.h[st.hub];return hs?L+hs+"/":L+"#"+st.hub;}
   return L+"#events";}
 function shareList(ev){const url=listShareUrl(),w=st.week&&weekById(st.week),h=st.hub&&st.hub!=="all"?hubById(st.hub):null;
-  const title=w?`${w.name} side events${st.day?" · "+dParts(st.day).long:""} · The Yorkseed List`:h?`Startup & tech events in ${h.name} · The Yorkseed List`:"The Yorkseed List: startup & tech events worldwide";
-  const msg=w?`Every ${w.name} side event, sorted by role: ${url}`:h?`Startup & tech events in ${h.name}: ${url}`:`The Yorkseed List, startup & tech events worldwide: ${url}`;
+  const title=w?`${w.name} side events${st.day?" · "+dParts(st.day).long:""} · The Yorkseed List`:h?`Tech, startup & venture events in ${h.name} · The Yorkseed List`:"The Yorkseed List: tech, startup & venture events worldwide";
+  const msg=w?`Every ${w.name} side event, sorted by role: ${url}`:h?`Tech, startup & venture events in ${h.name}: ${url}`:`The Yorkseed List, tech, startup & venture events worldwide: ${url}`;
   shareMenu((ev&&ev.currentTarget)||$("#cityShare"),msg,url,title);}
 function show(view,prevKey){
   if(prevKey===undefined)prevKey=navKey();
