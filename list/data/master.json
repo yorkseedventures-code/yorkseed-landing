@@ -737,6 +737,14 @@
       "country": "United States",
       "region": "",
       "img": ""
+    },
+    {
+      "id": "bris",
+      "name": "Bristol",
+      "tz": "Europe/London",
+      "country": "United Kingdom",
+      "region": "",
+      "img": "bris"
     }
   ],
   "weeks": [
@@ -1018,7 +1026,8 @@
     "man": "/list/img/3977418966.jpg",
     "nbo": "/list/img/4eed28a681.jpg",
     "edi": "/list/img/d3a7d9643b.jpg",
-    "waw": "/list/img/a59728cbaa.jpg"
+    "waw": "/list/img/a59728cbaa.jpg",
+    "bris": "/list/img/48bba41243.jpg"
   },
   "events": [
     {
