@@ -95913,5 +95913,137 @@
     "host": "Founders Coffee Club",
     "link": "https://luma.com/ox2ynfhc",
     "desc": "Founders Coffee Club’s monthly coworking coffee meetup, with a festive edition for December."
+  },
+  {
+    "title": "eChai Doha Startup Mixer",
+    "hub": "doh",
+    "date": "2026-12-10",
+    "start": "18:00",
+    "end": "20:00",
+    "venue": "Venue TBC",
+    "host": "eChai Ventures",
+    "link": "https://echai.ventures/events/echai-doha-startup-mixer-dec-10-2026",
+    "desc": "An evening of founders meeting founders — quick intros, then open conversation. Free, open founder network."
+  },
+  {
+    "title": "eChai Johannesburg Startup Mixer",
+    "hub": "jnb",
+    "date": "2026-12-10",
+    "start": "18:00",
+    "end": "20:00",
+    "venue": "Venue TBC",
+    "host": "eChai Ventures",
+    "link": "https://echai.ventures/events/echai-johannesburg-startup-mixer-dec-10-2026",
+    "desc": "An evening of founders meeting founders — quick intros, then open conversation. Free, open founder network."
+  },
+  {
+    "title": "eChai Cairo Startup Mixer",
+    "hub": "cai",
+    "date": "2026-12-10",
+    "start": "18:00",
+    "end": "20:00",
+    "venue": "Venue TBC",
+    "host": "eChai Ventures",
+    "link": "https://echai.ventures/events/echai-cairo-startup-mixer-dec-10-2026",
+    "desc": "An evening of founders meeting founders — quick intros, then open conversation. Free, open founder network."
+  },
+  {
+    "title": "eChai Medellín Startup Mixer",
+    "hub": "mde",
+    "date": "2026-12-10",
+    "start": "18:00",
+    "end": "20:00",
+    "venue": "Venue TBC",
+    "host": "eChai Ventures",
+    "link": "https://echai.ventures/events/echai-medellin-startup-mixer-dec-10-2026",
+    "desc": "An evening of founders meeting founders — quick intros, then open conversation. Free, open founder network."
+  },
+  {
+    "title": "eChai Kyiv Startup Mixer",
+    "hub": "iev",
+    "date": "2026-12-10",
+    "start": "18:00",
+    "end": "20:00",
+    "venue": "Venue TBC",
+    "host": "eChai Ventures",
+    "link": "https://echai.ventures/events/echai-kyiv-startup-mixer-dec-10-2026",
+    "desc": "An evening of founders meeting founders — quick intros, then open conversation. Free, open founder network."
+  },
+  {
+    "title": "eChai Shanghai Startup Mixer",
+    "hub": "sha",
+    "date": "2026-12-10",
+    "start": "18:00",
+    "end": "20:00",
+    "venue": "Venue TBC",
+    "host": "eChai Ventures",
+    "link": "https://echai.ventures/events/echai-shanghai-startup-mixer-dec-10-2026",
+    "desc": "An evening of founders meeting founders — quick intros, then open conversation. Free, open founder network."
+  },
+  {
+    "title": "eChai Shenzhen Startup Mixer",
+    "hub": "szx",
+    "date": "2026-12-10",
+    "start": "18:00",
+    "end": "20:00",
+    "venue": "Venue TBC",
+    "host": "eChai Ventures",
+    "link": "https://echai.ventures/events/echai-shenzhen-startup-mixer-dec-10-2026",
+    "desc": "An evening of founders meeting founders — quick intros, then open conversation. Free, open founder network."
+  },
+  {
+    "title": "eChai San Antonio Startup Mixer",
+    "hub": "sat",
+    "date": "2026-12-10",
+    "start": "18:00",
+    "end": "20:00",
+    "venue": "Venue TBC",
+    "host": "eChai Ventures",
+    "link": "https://echai.ventures/events/echai-san-antonio-startup-mixer-dec-10-2026",
+    "desc": "An evening of founders meeting founders — quick intros, then open conversation. Free, open founder network."
+  },
+  {
+    "title": "eChai Riyadh Startup Mixer",
+    "hub": "riy",
+    "date": "2026-12-10",
+    "start": "18:00",
+    "end": "20:00",
+    "venue": "Venue TBC",
+    "host": "eChai Ventures",
+    "link": "https://echai.ventures/events/echai-riyadh-startup-mixer-dec-10-2026",
+    "desc": "An evening of founders meeting founders — quick intros, then open conversation. Free, open founder network."
+  },
+  {
+    "title": "eChai Auckland Startup Mixer",
+    "hub": "akl",
+    "date": "2026-12-10",
+    "start": "18:00",
+    "end": "20:00",
+    "venue": "Venue TBC",
+    "host": "eChai Ventures",
+    "link": "https://echai.ventures/events/echai-auckland-startup-mixer-dec-10-2026",
+    "desc": "An evening of founders meeting founders — quick intros, then open conversation. Free, open founder network."
+  },
+  {
+    "title": "eChai Bogotá Startup Mixer",
+    "hub": "bog",
+    "date": "2026-12-10",
+    "start": "18:00",
+    "end": "20:00",
+    "venue": "Venue TBC",
+    "host": "eChai Ventures",
+    "link": "https://echai.ventures/events/echai-bogota-startup-mixer-dec-10-2026",
+    "desc": "An evening of founders meeting founders — quick intros, then open conversation. Free, open founder network."
+  },
+  {
+    "title": "eChai Lima Startup Mixer",
+    "hub": "lim",
+    "date": "2026-12-10",
+    "start": "18:00",
+    "end": "20:00",
+    "venue": "Venue TBC",
+    "host": "eChai Ventures",
+    "link": "https://echai.ventures/events/echai-lima-startup-mixer-dec-10-2026",
+    "desc": "An evening of founders meeting founders — quick intros, then open conversation. Free, open founder network."
   }
 ]

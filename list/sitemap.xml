@@ -319,6 +319,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://list.yorkseed.co/doha/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://list.yorkseed.co/houston/</loc>
     <lastmod>2026-11-17</lastmod>
     <changefreq>daily</changefreq>
@@ -32702,6 +32708,78 @@
   </url>
   <url>
     <loc>https://list.yorkseed.co/e/echai-taipei-startup-mixer-2026-12-10/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/echai-doha-startup-mixer-2026-12-10/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/echai-johannesburg-startup-mixer-2026-12-10/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/echai-cairo-startup-mixer-2026-12-10/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/echai-medellin-startup-mixer-2026-12-10/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/echai-kyiv-startup-mixer-2026-12-10/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/echai-shanghai-startup-mixer-2026-12-10/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/echai-shenzhen-startup-mixer-2026-12-10/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/echai-san-antonio-startup-mixer-2026-12-10/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/echai-riyadh-startup-mixer-2026-12-10/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/echai-auckland-startup-mixer-2026-12-10/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/echai-bogota-startup-mixer-2026-12-10/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/echai-lima-startup-mixer-2026-12-10/</loc>
     <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>

@@ -1,6 +1,6 @@
 # The Yorkseed List
 
-> The Yorkseed List (https://list.yorkseed.co/) is a free global calendar of startup, tech, founder and investor events in 50+ cities and around the major tech weeks and conferences, run by Yorkseed. 6388 upcoming events as of 2026-11-17. Updated continuously. Anyone can list an event for free.
+> The Yorkseed List (https://list.yorkseed.co/) is a free global calendar of startup, tech, founder and investor events in 50+ cities and around the major tech weeks and conferences, run by Yorkseed. 6400 upcoming events as of 2026-11-17. Updated continuously. Anyone can list an event for free.
 
 ## Startup and tech events by city
 
@@ -79,22 +79,22 @@
 - [Startup events in Nashville](https://list.yorkseed.co/nashville/): 11 upcoming
 - [Startup events in Jersey City](https://list.yorkseed.co/jersey-city/): 10 upcoming
 - [Startup events in Raleigh-Durham](https://list.yorkseed.co/raleigh-durham/): 10 upcoming
+- [Startup events in Lima](https://list.yorkseed.co/lima/): 8 upcoming
 - [Startup events in Ho Chi Minh City](https://list.yorkseed.co/ho-chi-minh-city/): 7 upcoming
-- [Startup events in Lima](https://list.yorkseed.co/lima/): 7 upcoming
-- [Startup events in Auckland](https://list.yorkseed.co/auckland/): 5 upcoming
-- [Startup events in Bogotá](https://list.yorkseed.co/bogot/): 5 upcoming
+- [Startup events in Auckland](https://list.yorkseed.co/auckland/): 6 upcoming
+- [Startup events in Bogotá](https://list.yorkseed.co/bogot/): 6 upcoming
+- [Startup events in Riyadh](https://list.yorkseed.co/riyadh/): 6 upcoming
 - [Startup events in GIFT City](https://list.yorkseed.co/gift-city/): 5 upcoming
-- [Startup events in Riyadh](https://list.yorkseed.co/riyadh/): 5 upcoming
+- [Startup events in Cairo](https://list.yorkseed.co/cairo/): 4 upcoming
+- [Startup events in San Antonio](https://list.yorkseed.co/san-antonio/): 4 upcoming
+- [Startup events in Shanghai](https://list.yorkseed.co/shanghai/): 4 upcoming
+- [Startup events in Shenzhen](https://list.yorkseed.co/shenzhen/): 4 upcoming
 - [Startup events in Victoria, BC](https://list.yorkseed.co/victoria-bc/): 4 upcoming
-- [Startup events in Cairo](https://list.yorkseed.co/cairo/): 3 upcoming
-- [Startup events in San Antonio](https://list.yorkseed.co/san-antonio/): 3 upcoming
-- [Startup events in Shanghai](https://list.yorkseed.co/shanghai/): 3 upcoming
-- [Startup events in Shenzhen](https://list.yorkseed.co/shenzhen/): 3 upcoming
+- [Startup events in Johannesburg](https://list.yorkseed.co/johannesburg/): 3 upcoming
+- [Startup events in Kyiv](https://list.yorkseed.co/kyiv/): 3 upcoming
+- [Startup events in Medellín](https://list.yorkseed.co/medell-n/): 3 upcoming
 - [Startup events in Cannes](https://list.yorkseed.co/cannes/): 2 upcoming
-- [Startup events in Johannesburg](https://list.yorkseed.co/johannesburg/): 2 upcoming
-- [Startup events in Kyiv](https://list.yorkseed.co/kyiv/): 2 upcoming
-- [Startup events in Medellín](https://list.yorkseed.co/medell-n/): 2 upcoming
-- [Startup events in Doha](https://list.yorkseed.co/doha/): 1 upcoming
+- [Startup events in Doha](https://list.yorkseed.co/doha/): 2 upcoming
 - [Startup events in Online](https://list.yorkseed.co/online/): 1 upcoming
 
 ## Conference and tech week side events
