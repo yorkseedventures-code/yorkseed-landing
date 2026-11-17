@@ -752,7 +752,7 @@
       "tz": "Europe/London",
       "country": "United Kingdom",
       "region": "",
-      "img": ""
+      "img": "bham"
     },
     {
       "id": "lds",
@@ -1069,7 +1069,8 @@
     "waw": "/list/img/a59728cbaa.jpg",
     "bris": "/list/img/48bba41243.jpg",
     "lpl": "/list/img/818f20b731.jpg",
-    "gla": "/list/img/d54cccf1af.jpg"
+    "gla": "/list/img/d54cccf1af.jpg",
+    "bham": "/list/img/6e2454b2b8.jpg"
   },
   "events": [
     {
