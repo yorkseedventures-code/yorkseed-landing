@@ -3114,11 +3114,9 @@ const VENTURE_BACKGROUND = ["Hall Wang","Shawn Yang","Ken Chester","Linda","Alis
   var founders = names.filter(function(n){ return NOT_FOUNDERS.indexOf(n) === -1 && INVESTORS.indexOf(n) === -1; }).length;
   var stat = function(n, t){ return '<div class="room-stat"><div class="room-num">' + n + '</div><div class="room-txt">' + t + '</div></div>'; };
   var el = document.getElementById('room');
-  el.innerHTML = '<div class="room-label">Who\'s in the room</div><div class="room-stats">' +
-    stat(names.length, 'curated guests') +
-    stat(founders, 'founders and operators, seed to Series A+') +
+  el.innerHTML = '<div class="room-label">Joining us tonight</div><div class="room-stats">' +
     stat(inv, 'investors: VCs, family offices and angels') +
-    stat(vb, 'more with venture or investing backgrounds') + '</div>';
+    stat(vb, 'founders and operators with venture or investing backgrounds') + '</div>';
   el.style.display = 'block';
 })();
 
