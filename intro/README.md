@@ -6,25 +6,26 @@ Guests enter their first name and RSVP email and see 3 curated matches.
 **Standard format (from Fall Venture Evening NYC, Nov 19 2026). Use it for every new event, starting with Dec 8.**
 Start from `intro/_template/event-match-template.html`: copy it to `intro/<event-slug>.html`, then fill in `EVENT`, `ATTENDEES`, `FUND_BY_MATCH` and `NOT_FOUNDERS`, and replace `EVENT-SLUG` in the utm links.
 
-## Page sections, in order (after login)
+## Page sections
 
-1. **"N curated Yorkseed matches"** label, then "Hi {first name}." and "Not you? Switch account".
-2. **Event details**: date, time, venue name (linked to Google Maps), street address, on-site host.
-3. **About tonight's host: Yorkseed**: these three paragraphs, word for word:
+**Before sign-in:** "Find out who to meet." form, then one **Yorkseed Connect** box ("Know who to meet, all year"): Matches and warm intros; Investor List and Allocator List (24,000+ investors, 1,600+ allocators); Connection Intelligence; Deal Room and monthly deal flow. Button "Start free for 30 days" -> `/eventoffer` (code WS202630). No "tonight" wording here.
+
+**After sign-in, in this order (matches first, guests open this at the event):**
+1. "N curated Yorkseed matches", "Hi {first name}.", "Not you? Switch account".
+2. Event details: date, time, venue (Google Maps link), street address, on-site host. Then "Based on what you shared in your RSVP, here's who we think you should meet."
+3. **Match cards** (3 per guest): name, role, italic hook, **4 personalized bullets** (who they are; what they build/invest in or want tonight; why they fit *this* guest; what they can do for each other), conversation starter, then buttons:
+   - "Run Connection Intelligence on {first name}" on every card.
+   - "Run Fund Diligence on {fund}" when the match is in `FUND_BY_MATCH` (VCs, venture scouts, deal partners, fund managers).
+   - Deal Memo: founder viewer + investor match -> "Pressure-test your pitch before meeting {name}"; investor viewer + founder match -> "Evaluate {company} with Deal Memo". No Deal Memo button on founder-founder or investor-investor cards.
+4. **One Connect box, "1 month of Yorkseed Connect, free"** (replaces the old Complimentary Bonus box), version chosen by `NOT_FOUNDERS`:
+   - Founders: list your company in the Deal Room*, monthly curated deal flow to opted-in investors. "Claim 1 month free" -> `/eventoffer`. Then Deal Memo (pressure-test your narrative) and Investor List.
+   - Investors: share your deals and get ours, add portfolio companies and open deals*, opt in to monthly deal flow. "Claim 1 month free". Then Deal Memo (scoring, signals, diligence questions, IC memo, fund criteria) and Allocator List.
+   - Italic footnote: *Listing deals is available to Core members. Code WS202630 gives you 30 days free on any plan, including Core. Already a member? List my company / Add a deal (-> `/submit-deal`).
+5. **About tonight's host: Yorkseed**, these three paragraphs word for word:
    - Yorkseed is a global capital network and venture infrastructure platform connecting founders, investors, fund managers, capital allocators and ecosystem leaders, from early stage to IPO. With 50+ city hubs across five continents, we bring together curated gatherings, global delegations and strategic relationships that turn connections into meaningful opportunities.
    - Beyond events, **Yorkseed Connect** is our intelligent dealmaking platform for investor discovery, warm introductions, fund diligence, strategic partnerships and sharing deal flow. **Valois by Yorkseed** is our dedicated capital circle connecting family offices, LPs, GPs and institutional investors to exchange investment opportunities, share deal flow and explore co-investments. Across our ecosystem, we focus on quality over quantity, bringing the right people together and creating opportunities that extend well beyond the room.
-   - **Next Stop: Hong Kong | January 26–27, 2027.** Following our Lisbon delegation, Yorkseed is heading to the Asian Financial Forum (AFF) as an Official Community Partner. ... (update this paragraph when the next delegation changes)
-   - Links row: yorkseed.co · Yorkseed Connect · Valois · Join AFF Delegation (`https://yorkseed.co/hong-kong-delegation`).
-4. **Deal Room box** (one of two versions, chosen by `NOT_FOUNDERS`):
-   - Founders: "Put your company in the Deal Room": list your company as a deal in the Yorkseed Connect Deal Room*; monthly curated deal flow goes to investors who opted in. Button "List my company" -> `/submit-deal`. Then Deal Memo (pressure-test your narrative) and Investor List (getting ready to raise).
-   - Investors: "Share your deals and get ours": add portfolio companies and open deals*; opt in to monthly deal flow. Button "Add a deal" -> `/submit-deal`. Then Deal Memo (scoring, signals, diligence questions, IC memo, your fund's criteria) and Allocator List (raising a fund).
-   - Italic footnote under the button: *Listing deals is available to Core members. Claim your free month of Yorkseed Connect below.
-5. **Match cards** (3 per guest), each with:
-   - Name, role, one-line hook (italic).
-   - **4 bullets, personalized, from LinkedIn + RSVP**: (1) who they are, (2) what they're building or investing in / what they want tonight, (3) why they fit *this* guest, (4) what the two can do for each other.
-   - Conversation starter.
-   - Buttons: "Run Connection Intelligence on {first name}" (every card); "Run Fund Diligence on {fund}" (when the match is in `FUND_BY_MATCH`: VCs, venture scouts, deal partners, fund managers); Deal Memo ("Pressure-test your pitch before meeting {name}" for founder viewers, "Evaluate {company} with Deal Memo" for investor viewers looking at a founder).
-6. **Complimentary Bonus: 1 Month of Yorkseed Connect** -> `https://app.yorkseed.co/eventoffer` (general Yorkseed event offer, code WS202630).
+   - **Next Stop: Hong Kong | January 26–27, 2027.** (update when the next delegation changes)
+   - Links: yorkseed.co · Yorkseed Connect · Valois · Join AFF Delegation (`https://yorkseed.co/hong-kong-delegation`).
 
 ## Writing rules
 

@@ -285,6 +285,10 @@
     .memo-body { font-size: 15px; font-weight: 300; line-height: 1.6; color: rgba(255,255,255,.85); margin-bottom: 16px; }
     .memo-cta { display: inline-block; background: var(--gold); color: #fff; font-family: var(--sans); font-size: 14px; font-weight: 500; padding: 11px 18px; border-radius: 3px; text-decoration: none; }
     .memo-cta:hover { opacity: .9; }
+    .cx-feats { margin: 0 0 20px; }
+    .cx-feats div { padding: 12px 0; border-top: 1px solid rgba(255,255,255,.12); }
+    .cx-feats dt { font-family: var(--sans); font-size: 15px; font-weight: 500; color: #fff; margin-bottom: 4px; }
+    .cx-feats dd { margin: 0; font-size: 14px; font-weight: 300; line-height: 1.55; color: rgba(255,255,255,.75); }
 
     .footer-note {
       margin-top: 36px;
@@ -454,6 +458,20 @@
       </div>
       <button class="primary" id="login-btn">See my matches</button>
     </div>
+
+    <div class="memo-card show" style="margin-top:28px">
+      <div class="memo-eyebrow">Yorkseed Connect</div>
+      <h3 class="memo-title">Know who to meet, all year</h3>
+      <p class="memo-body">The match list our guests get at every Yorkseed event is what Yorkseed Connect does every day, for founders and investors.</p>
+      <dl class="cx-feats">
+        <div><dt>Matches and warm intros</dt><dd>Get matched with the right founders and investors, with the reasons why, and request intros through the network.</dd></div>
+        <div><dt>Investor List and Allocator List</dt><dd>24,000+ active investors, each with recent deals, for founders getting ready to raise. 1,600+ LPs, family offices, foundations and endowments for fund managers raising a fund.</dd></div>
+        <div><dt>Connection Intelligence</dt><dd>Read up on anyone in a minute: their focus, recent deals and a good way to open.</dd></div>
+        <div><dt>Deal Room and monthly deal flow</dt><dd>List your company or portfolio deals, and investors who opt in get curated deal flow every month.</dd></div>
+      </dl>
+      <a class="memo-cta" href="https://app.yorkseed.co/eventoffer?utm_source=EVENT-SLUG&utm_medium=public-page" target="_blank" rel="noopener">Start free for 30 days &rarr;</a>
+      <p class="memo-body" style="margin:10px 0 0;font-size:13px;font-style:italic;color:rgba(255,255,255,.6)">Code WS202630 is applied for you. Listing deals is available to Core members.</p>
+    </div>
   </div>
 
   <div id="results-view">
@@ -470,6 +488,26 @@
     <p class="onsite-contact" id="results-host-label"></p>
     <p class="sub" id="results-sub">Based on what you shared in your RSVP, here's who we think you should meet.</p>
 
+    <div id="match-list"></div>
+
+    <div class="memo-card" id="memo-card">
+      <div class="memo-eyebrow">Complimentary for guests</div>
+      <h3 class="memo-title">1 month of Yorkseed Connect, free</h3>
+      <p class="memo-body">Keep the conversations going after tonight. List your company as a deal in the Yorkseed Connect Deal Room*. Every month, Yorkseed sends curated deal flow to the investors who have opted in, so your company keeps reaching investors long after this event.</p>
+      <a class="memo-cta" href="https://app.yorkseed.co/eventoffer?utm_source=EVENT-SLUG&utm_medium=match-page" target="_blank" rel="noopener">Claim 1 month free &rarr;</a>
+      <p class="memo-body" style="margin:10px 0 0;font-size:13px;font-style:italic;color:rgba(255,255,255,.6)">*Listing deals is available to Core members. Code WS202630 gives you 30 days free on any plan, including Core. Already a member? <a href="https://app.yorkseed.co/submit-deal?utm_source=EVENT-SLUG&utm_medium=match-page" target="_blank" rel="noopener" style="color:var(--gold)">List my company</a>.</p>
+      <p class="memo-body" style="margin:18px 0 0;font-size:14px">Pressure-test your narrative with <a href="https://app.yorkseed.co/deal-memo?utm_source=EVENT-SLUG&utm_medium=match-page" target="_blank" rel="noopener" style="color:var(--gold)">Deal Memo</a>. Getting ready to raise? Start your research on the <a href="https://app.yorkseed.co/investor-list?utm_source=EVENT-SLUG&utm_medium=match-page" target="_blank" rel="noopener" style="color:var(--gold)">Investor List</a> of active funds that have deployed capital in the last 15 months.</p>
+    </div>
+
+    <div class="memo-card" id="memo-card-investor">
+      <div class="memo-eyebrow">Complimentary for guests</div>
+      <h3 class="memo-title">1 month of Yorkseed Connect, free</h3>
+      <p class="memo-body">Share your deals and get ours. Add your portfolio companies and open deals to the Yorkseed Connect Deal Room*. Every month, Yorkseed sends curated deal flow to investors who have opted in. Opt in to receive it, and the deals you add reach the rest of the network too.</p>
+      <a class="memo-cta" href="https://app.yorkseed.co/eventoffer?utm_source=EVENT-SLUG&utm_medium=match-page-investor" target="_blank" rel="noopener">Claim 1 month free &rarr;</a>
+      <p class="memo-body" style="margin:10px 0 0;font-size:13px;font-style:italic;color:rgba(255,255,255,.6)">*Listing deals is available to Core members. Code WS202630 gives you 30 days free on any plan, including Core. Already a member? <a href="https://app.yorkseed.co/submit-deal?utm_source=EVENT-SLUG&utm_medium=match-page-investor" target="_blank" rel="noopener" style="color:var(--gold)">Add a deal</a>.</p>
+      <p class="memo-body" style="margin:18px 0 0;font-size:14px"><a href="https://app.yorkseed.co/deal-memo?utm_source=EVENT-SLUG&utm_medium=match-page-investor" target="_blank" rel="noopener" style="color:var(--gold)">Deal Memo</a> gives you direct scoring, signals and diligence questions on the founders you meet, writes a sharper IC memo for committee, and can reflect your fund's own criteria. Raising a fund? The <a href="https://app.yorkseed.co/allocator-list?utm_source=EVENT-SLUG&utm_medium=match-page-investor" target="_blank" rel="noopener" style="color:var(--gold)">Allocator List</a> shows the LPs that back fund managers.</p>
+    </div>
+
     <div class="about-card">
       <div class="about-eyebrow">About tonight's host</div>
       <h3 class="about-title">Yorkseed</h3>
@@ -482,35 +520,6 @@
         <a href="https://thevalois.com" target="_blank" rel="noopener">Valois</a><span>&middot;</span>
         <a href="https://yorkseed.co/hong-kong-delegation" target="_blank" rel="noopener">Join AFF Delegation</a>
       </div>
-    </div>
-
-    <div class="memo-card" id="memo-card">
-      <div class="memo-eyebrow">Yorkseed Connect Deal Room</div>
-      <h3 class="memo-title">Put your company in the Deal Room</h3>
-      <p class="memo-body">List your company as a deal in the Yorkseed Connect Deal Room*. Every month, Yorkseed sends curated deal flow to the investors who have opted in to receive it, so your company keeps reaching investors long after tonight.</p>
-      <a class="memo-cta" href="https://app.yorkseed.co/submit-deal?utm_source=EVENT-SLUG&utm_medium=match-page" target="_blank" rel="noopener">List my company &rarr;</a>
-      <p class="memo-body" style="margin:10px 0 0;font-size:13px;font-style:italic;color:rgba(255,255,255,.6)">*Listing deals is available to Core members. Claim your free month of Yorkseed Connect below.</p>
-      <p class="memo-body" style="margin:18px 0 0;font-size:14px">Before you list it, pressure-test your narrative with <a href="https://app.yorkseed.co/deal-memo?utm_source=EVENT-SLUG&utm_medium=match-page" target="_blank" rel="noopener" style="color:var(--gold)">Deal Memo</a>. Getting ready to raise? Start your research on the <a href="https://app.yorkseed.co/investor-list?utm_source=EVENT-SLUG&utm_medium=match-page" target="_blank" rel="noopener" style="color:var(--gold)">Investor List</a> of active funds that have deployed capital in the last 15 months.</p>
-    </div>
-
-    <div class="memo-card" id="memo-card-investor">
-      <div class="memo-eyebrow">Yorkseed Connect Deal Room</div>
-      <h3 class="memo-title">Share your deals and get ours</h3>
-      <p class="memo-body">Add your portfolio companies and open deals to the Yorkseed Connect Deal Room*. Every month, Yorkseed sends curated deal flow to investors who have opted in. Opt in to receive it, and the deals you add reach the rest of the network too.</p>
-      <a class="memo-cta" href="https://app.yorkseed.co/submit-deal?utm_source=EVENT-SLUG&utm_medium=match-page-investor" target="_blank" rel="noopener">Add a deal &rarr;</a>
-      <p class="memo-body" style="margin:10px 0 0;font-size:13px;font-style:italic;color:rgba(255,255,255,.6)">*Listing deals is available to Core members. Claim your free month of Yorkseed Connect below.</p>
-      <p class="memo-body" style="margin:18px 0 0;font-size:14px">Meeting founders tonight? <a href="https://app.yorkseed.co/deal-memo?utm_source=EVENT-SLUG&utm_medium=match-page-investor" target="_blank" rel="noopener" style="color:var(--gold)">Deal Memo</a> gives you direct scoring, signals and diligence questions, writes a sharper IC memo for committee, and can reflect your fund's own criteria. Raising a fund? The <a href="https://app.yorkseed.co/allocator-list?utm_source=EVENT-SLUG&utm_medium=match-page-investor" target="_blank" rel="noopener" style="color:var(--gold)">Allocator List</a> shows the LPs that back fund managers.</p>
-    </div>
-
-    <div id="match-list"></div>
-
-    <div class="bonus-card">
-      <div class="bonus-eyebrow">Complimentary Bonus</div>
-      <h3 class="bonus-title">1 Month of Yorkseed Connect</h3>
-      <p class="bonus-body">Yorkseed Connect is our venture relationship platform designed to help founders and investors build stronger connections beyond events through verified profiles, warm introductions, opportunity discovery, and access to Yorkseed's global network.</p>
-      <p class="bonus-body">All approved founders and investors attending this event will be eligible to receive a special code for complimentary access to Yorkseed Connect.</p>
-      <a class="bonus-cta" href="https://app.yorkseed.co/eventoffer?utm_source=luma" target="_blank" rel="noopener">Claim 1 month free</a>
-      <div class="bonus-note">Space is limited and registration is required &middot; <a href="https://app.yorkseed.co/eventoffer?utm_source=luma" target="_blank" rel="noopener">app.yorkseed.co/eventoffer</a></div>
     </div>
 
     <div class="footer-note" id="footer-note"></div>
@@ -533,16 +542,8 @@ const EVENT = {
 };
 
 const ATTENDEES = [
-  // One object per guest. Login matches first_name (or any alias) + email.
-  // {
-  //   "name": "Full Name", "first_name": "First", "aliases": ["Nickname"], "email": "x@y.com",
-  //   "role": "Title | Company",
-  //   "matches": [
-  //     { "name": "Match Name", "role": "Title | Company", "hook": "One line on why.",
-  //       "bullets": ["Who they are (LinkedIn)", "What they do / want tonight (RSVP)", "Why they fit THIS guest", "What they can do for each other"],
-  //       "starter": "A specific opening question?" }
-  //   ]
-  // }
+  // { "name": "Full Name", "first_name": "First", "aliases": ["Nickname"], "email": "x@y.com", "role": "Title | Company",
+  //   "matches": [ { "name": "", "role": "Title | Company", "hook": "", "bullets": ["who","what","why this guest","what for each other"], "starter": "" } ] }
 ];
 
 function applyEventConfig() {
@@ -584,12 +585,13 @@ const FUND_BY_MATCH = {
 };
 
 // Guests who are investors, scouts or advisors rather than startup founders: no Deal Memo prompt
-const NOT_FOUNDERS = [ /* names of investors, scouts and advisors: they get the investor top box */ ];
+const NOT_FOUNDERS = [ /* investors, scouts and advisors: investor version of the Connect box */ ];
 
 function esc(t) { return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
 function dealMemoButton(viewerIsFounder, m) {
   var base = 'https://app.yorkseed.co/deal-memo?utm_source=EVENT-SLUG&utm_medium=match-card';
   if (viewerIsFounder) {
+    if (NOT_FOUNDERS.indexOf(m.name) === -1) return '';
     return '<a class="ci-link dm-link" href="' + base + '" target="_blank" rel="noopener">Pressure-test your pitch before meeting ' + esc(m.name.split(' ')[0]) + ' &rarr;</a>';
   }
   if (NOT_FOUNDERS.indexOf(m.name) !== -1) return '';
