@@ -293,8 +293,9 @@
     .room { margin: 22px 0 22px; }
     .room-label { font-family: var(--mono); font-size: 11.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink4); margin-bottom: 10px; }
     .room-stats { display: flex; flex-wrap: wrap; gap: 8px; }
-    .room-stat { background: var(--white); border: 1px solid var(--border); border-radius: 3px; padding: 10px 12px; flex: 1 1 140px; }
+    .room-stat { background: var(--white); border: 1px solid var(--border); border-radius: 3px; padding: 12px 14px; flex: 1 1 100%; }
     .room-num { font-family: var(--serif); font-size: 24px; color: var(--ink); line-height: 1.1; }
+    .room-sub { font-size: 12.5px; color: var(--ink4); line-height: 1.5; margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border); }
     .room-txt { font-size: 13px; color: var(--ink3); line-height: 1.35; margin-top: 2px; }
     .memo-card { display: none; background: var(--ink); color: #fff; border-radius: 3px; padding: 22px 24px; margin-bottom: 18px; }
     .memo-card.show { display: block; }
@@ -3106,16 +3107,25 @@ function dealMemoButton(viewerIsFounder, m) {
 
 // Room composition on the sign-in screen, computed from the guest list so it stays current
 const INVESTORS = ["Mersin Capollari","Noel Guinane","Moshe Neuman","Troy Turner","Dan Seto","Nathaniel Norman","Les Moore","DJ Patel","Mark Murin","Joe Metheny","Savitri Lazarus","Brandon Kaplan","Leonid Tarasov","Rob Colorina"];
+const INVESTOR_TYPE = {"Troy Turner":"fo","DJ Patel":"fo","Mersin Capollari":"fo","Joe Metheny":"fo","Rob Colorina":"fo","Dan Seto":"vc","Nathaniel Norman":"vc","Mark Murin":"vc","Moshe Neuman":"angel","Savitri Lazarus":"angel","Brandon Kaplan":"angel","Leonid Tarasov":"other","Noel Guinane":"other","Les Moore":"other"};
 const VENTURE_BACKGROUND = ["Hall Wang","Shawn Yang","Ken Chester","Linda","Alisha Outridge","Jay Cruz"];
 (function renderRoom() {
   var names = []; ATTENDEES.forEach(function(a){ if (names.indexOf(a.name) === -1) names.push(a.name); });
   var inv = names.filter(function(n){ return INVESTORS.indexOf(n) !== -1; }).length;
   var vb = names.filter(function(n){ return VENTURE_BACKGROUND.indexOf(n) !== -1; }).length;
   var founders = names.filter(function(n){ return NOT_FOUNDERS.indexOf(n) === -1 && INVESTORS.indexOf(n) === -1; }).length;
-  var stat = function(n, t){ return '<div class="room-stat"><div class="room-num">' + n + '</div><div class="room-txt">' + t + '</div></div>'; };
+  var c = {fo:0, vc:0, angel:0, other:0};
+  names.forEach(function(n){ if (INVESTOR_TYPE[n]) c[INVESTOR_TYPE[n]]++; });
+  var parts = [];
+  if (c.fo) parts.push(c.fo + (c.fo === 1 ? ' family office' : ' family offices'));
+  if (c.vc) parts.push(c.vc + (c.vc === 1 ? ' VC' : ' VCs and fund managers'));
+  if (c.angel) parts.push(c.angel + ' angels and deal partners');
+  if (c.other) parts.push(c.other + ' in venture debt, scouting and real estate');
+  var breakdown = parts.join('<br>');
+  var stat = function(n, t, sub){ return '<div class="room-stat"><div class="room-num">' + n + '</div><div class="room-txt">' + t + '</div>' + (sub ? '<div class="room-sub">' + sub + '</div>' : '') + '</div>'; };
   var el = document.getElementById('room');
   el.innerHTML = '<div class="room-label">Joining us tonight</div><div class="room-stats">' +
-    stat(inv, 'investors: VCs, family offices and angels') +
+    stat(inv, 'investors', breakdown) +
     stat(vb, 'founders and operators with venture or investing backgrounds') + '</div>';
   el.style.display = 'block';
 })();
