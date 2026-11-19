@@ -320,6 +320,48 @@
     }
     .bonus-note a { color: var(--gold); text-decoration: underline; }
 
+    .about-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--red);
+      border-radius: 3px;
+      padding: 22px 24px;
+      margin-bottom: 24px;
+    }
+    .about-eyebrow {
+      font-family: var(--mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--red);
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .about-title {
+      font-family: var(--serif);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 0 0 10px;
+    }
+    .about-body {
+      font-size: 14.5px;
+      font-weight: 300;
+      line-height: 1.6;
+      color: var(--ink2);
+      margin: 0 0 10px;
+      max-width: 60ch;
+    }
+    .about-body:last-child { margin-bottom: 0; }
+    .about-links {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--ink3);
+      margin-top: 4px;
+    }
+    .about-links a { color: var(--ink2); text-decoration: underline; text-underline-offset: 2px; }
+    .about-links span { color: var(--border2); margin: 0 6px; }
+
     #login-view, #results-view { display: none; }
     #login-view.active, #results-view.active { display: block; }
 
@@ -403,6 +445,18 @@
     <p class="onsite-contact" id="results-host-label"></p>
     <p class="sub" id="results-sub">Based on what you shared in your RSVP, here's who we think you should meet.</p>
 
+    <div class="about-card">
+      <div class="about-eyebrow">About tonight's host</div>
+      <h3 class="about-title">Yorkseed</h3>
+      <p class="about-body">Yorkseed is a global capital network connecting founders, investors, allocators and ecosystem leaders, at every stage from early stage to IPO. We've never believed in maximizing headcount in a room &mdash; we believe in maximizing the right conversations, which is why every Yorkseed gathering comes with a curated match list like the one below.</p>
+      <p class="about-body">Beyond tonight, <b>Yorkseed Connect</b> is our platform for warm intros, fund diligence and deal flow, and <b>Valois</b> is our private membership for family offices, LPs, GPs and institutional investors.</p>
+      <div class="about-links">
+        <a href="https://yorkseed.co" target="_blank" rel="noopener">yorkseed.co</a><span>&middot;</span>
+        <a href="https://app.yorkseed.co" target="_blank" rel="noopener">Yorkseed Connect</a><span>&middot;</span>
+        <a href="https://thevalois.com" target="_blank" rel="noopener">Valois</a>
+      </div>
+    </div>
+
     <div id="match-list"></div>
 
     <div class="bonus-card">
@@ -423,14 +477,14 @@
 <script>
 const EVENT = {
   slug:          "founders-x-capitals-nyc",
-  name:          "Founders × Capitals NYC",
+  name:          "Fall Venture Evening",
   city:          "New York",
-  dateLabel:     "Friday, October 23, 2026",
+  dateLabel:     "Thursday, November 19, 2026",
   timeLabel:     "5:00 - 7:30 PM EST",
-  onsiteContact: "Jessica and Kimberly are your on-site hosts",
-  venueName:     "Everything's Jake NYC Bar & Lounge",
-  venueAddress:  "New York, NY",
-  venueMapUrl:   "https://www.google.com/maps/search/?api=1&query=40.7341957%2C-73.9916951&query_place_id=ChIJM0VMwFVZwokRwkNE8e6JcTY"
+  onsiteContact: "Kimberly Neer (NYC Hub Director of Yorkseed) is your on-site host",
+  venueName:     "The Westbury",
+  venueAddress:  "20 W 38th St, New York, NY 10018",
+  venueMapUrl:   "https://www.google.com/maps/search/?api=1&query=40.7512301%2C-73.9838982&query_place_id=ChIJ25G0-TFZwokRv0wTrz3oM2U"
 };
 
 const ATTENDEES = [
