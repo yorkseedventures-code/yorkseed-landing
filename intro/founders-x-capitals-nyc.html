@@ -3059,7 +3059,7 @@ function renderAlso(attendee, viewerIsFounder) {
   var ci = 'https://app.yorkseed.co/connection-intelligence?utm_source=fall-venture-evening&utm_medium=also';
   var html = '<div class="also-label">Also worth meeting</div>';
   list.forEach(function(p) {
-    html += '<div class="also-row"><div class="also-name">' + esc(p.name) + '</div><div class="also-desc">' + esc(p.desc) + '</div><div class="also-why">' + esc(p.why) + '</div><a class="also-ci" href="' + ci + '" target="_blank" rel="noopener">Connection Intelligence on ' + esc(p.name.split(' ')[0]) + '&nbsp;&rarr;</a></div>';
+    html += '<div class="also-row"><div class="also-name">' + esc(p.name) + '</div><div class="also-desc">' + esc(p.desc) + '</div><div class="also-why">' + esc(p.why) + '</div><a class="also-ci" href="' + ci + '" target="_blank" rel="noopener">Connection Intelligence on ' + esc(p.name.split(' ')[0]) + '&nbsp;&rarr;</a>' + (FUND_BY_MATCH[p.name] ? '<br><a class="also-ci" href="https://app.yorkseed.co/fund-diligence?utm_source=fall-venture-evening&utm_medium=also" target="_blank" rel="noopener">Fund Diligence on ' + esc(FUND_BY_MATCH[p.name]) + '&nbsp;&rarr;</a>' : '') + '</div>';
   });
   html += '<div class="also-more">Want more matches like these? Yorkseed Connect finds them for you all year. <a href="https://app.yorkseed.co/eventoffer?utm_source=fall-venture-evening&utm_medium=also" target="_blank" rel="noopener">Claim 1 month free&nbsp;&rarr;</a></div>';
   box.innerHTML = html; box.style.display = 'block';
