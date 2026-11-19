@@ -17,6 +17,7 @@ Start from `intro/_template/event-match-template.html`: copy it to `intro/<event
    - "Run Connection Intelligence on {first name}" on every card.
    - "Run Fund Diligence on {fund}" when the match is in `FUND_BY_MATCH` (VCs, venture scouts, deal partners, fund managers).
    - Deal Memo: founder viewer + investor match -> "Pressure-test your pitch before meeting {name}"; investor viewer + founder match -> "Evaluate {company} with Deal Memo". No Deal Memo button on founder-founder or investor-investor cards.
+3b. **"Also worth meeting"**: 2 extra people per guest, each with a one-line description, a one-line reason and a Connection Intelligence link, then "Want more matches like these? Yorkseed Connect finds them for you all year. Claim 1 month free." Keep 3 full matches; pick extras by shared sector, skip anyone already on 6+ lists so the busiest investors aren't crowded, and skip people who already know each other.
 4. **One Connect box, "1 month of Yorkseed Connect, free"** (replaces the old Complimentary Bonus box), version chosen by `NOT_FOUNDERS`:
    - Founders: list your company in the Deal Room*, monthly curated deal flow to opted-in investors. "Claim 1 month free" -> `/eventoffer`. Then Deal Memo (pressure-test your narrative) and Investor List.
    - Investors: share your deals and get ours, add portfolio companies and open deals*, opt in to monthly deal flow. "Claim 1 month free". Then Deal Memo (scoring, signals, diligence questions, IC memo, fund criteria) and Allocator List.
