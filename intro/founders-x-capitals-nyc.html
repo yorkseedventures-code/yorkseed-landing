@@ -277,6 +277,7 @@
     .ci-link:hover { background: var(--ink); color: #fff; }
     .fd-link { margin-top: 8px; border-color: var(--gold); color: var(--ink); background: #fbf7ef; }
     .fd-link:hover { background: var(--gold); color: #fff; }
+    .dm-link { margin-top: 8px; }
     .memo-card { display: none; background: var(--ink); color: #fff; border-radius: 3px; padding: 22px 24px; margin-bottom: 18px; }
     .memo-card.show { display: block; }
     .memo-eyebrow { font-family: var(--mono); font-size: 11.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
@@ -488,6 +489,15 @@
       <h3 class="memo-title">Create your Deal Memo</h3>
       <p class="memo-body">Pressure-test your own narrative before tonight's investor conversations. Deal Memo analyzes your company the way an investor would, so you walk in knowing what lands, where the gaps are and which questions are coming.</p>
       <a class="memo-cta" href="https://app.yorkseed.co/deal-memo?utm_source=fall-venture-evening&utm_medium=match-page" target="_blank" rel="noopener">Create my Deal Memo &rarr;</a>
+      <p class="memo-body" style="margin:18px 0 0;font-size:14px">Getting ready to raise? Start your research on the <a href="https://app.yorkseed.co/investor-list?utm_source=fall-venture-evening&utm_medium=match-page" target="_blank" rel="noopener" style="color:var(--gold)">Investor List</a> of active funds that have deployed capital in the last 15 months.</p>
+    </div>
+
+    <div class="memo-card" id="memo-card-investor">
+      <div class="memo-eyebrow">For tonight's investors</div>
+      <h3 class="memo-title">Evaluate the deals you meet</h3>
+      <p class="memo-body">Deal Memo gives you direct scoring, signals and diligence questions on any company you meet tonight, and can turn it into a sharper IC memo for committee review. Add your fund's evaluation criteria (stage, check size, sectors, thesis, red flags) so every memo reflects what your fund prioritizes. Your criteria are saved on your device.</p>
+      <a class="memo-cta" href="https://app.yorkseed.co/deal-memo?utm_source=fall-venture-evening&utm_medium=match-page-investor" target="_blank" rel="noopener">Open Deal Memo &rarr;</a>
+      <p class="memo-body" style="margin:18px 0 0;font-size:14px">Raising a fund? The <a href="https://app.yorkseed.co/allocator-list?utm_source=fall-venture-evening&utm_medium=match-page-investor" target="_blank" rel="noopener" style="color:var(--gold)">Allocator List</a> shows the LPs that back fund managers.</p>
     </div>
 
     <div id="match-list"></div>
@@ -2912,8 +2922,21 @@ const FUND_BY_MATCH = {
 // Guests who are investors, scouts or advisors rather than startup founders: no Deal Memo prompt
 const NOT_FOUNDERS = ["Dan Seto","Leonid Tarasov","Nathaniel Norman","Joe Metheny","DJ Patel","Troy Turner","Mark Murin","Les Moore","Mersin Capollari","Noel Guinane","Moshe Neuman","Hall Wang","Jyrki Rehumaki"];
 
+function esc(t) { return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
+function dealMemoButton(viewerIsFounder, m) {
+  var base = 'https://app.yorkseed.co/deal-memo?utm_source=fall-venture-evening&utm_medium=match-card';
+  if (viewerIsFounder) {
+    return '<a class="ci-link dm-link" href="' + base + '" target="_blank" rel="noopener">Pressure-test your pitch before meeting ' + esc(m.name.split(' ')[0]) + ' &rarr;</a>';
+  }
+  if (NOT_FOUNDERS.indexOf(m.name) !== -1) return '';
+  var company = (m.role.split('|')[1] || m.name).trim();
+  return '<a class="ci-link dm-link" href="' + base + '-investor" target="_blank" rel="noopener">Evaluate ' + esc(company) + ' with Deal Memo &rarr;</a>';
+}
+
 function renderMatches(attendee) {
-  document.getElementById('memo-card').classList.toggle('show', NOT_FOUNDERS.indexOf(attendee.name) === -1);
+  var viewerIsFounder = NOT_FOUNDERS.indexOf(attendee.name) === -1;
+  document.getElementById('memo-card').classList.toggle('show', viewerIsFounder);
+  document.getElementById('memo-card-investor').classList.toggle('show', !viewerIsFounder);
   document.getElementById('results-heading').textContent = 'Hi ' + attendee.first_name + '.';
   document.getElementById('results-eyebrow').textContent = attendee.matches.length + ' curated Yorkseed matches';
   var subEl = document.getElementById('results-sub');
@@ -2937,7 +2960,8 @@ function renderMatches(attendee) {
       '<ul class="bullets">' + bullets + '</ul>' +
       '<div class="starter"><b>Conversation starter:</b> &ldquo;' + m.starter.replace(/&/g,'&amp;').replace(/</g,'&lt;') + '&rdquo;</div>' +
       '<a class="ci-link" href="https://app.yorkseed.co/connection-intelligence?utm_source=fall-venture-evening&utm_medium=match-card" target="_blank" rel="noopener">Run Connection Intelligence on ' + m.name.split(' ')[0].replace(/&/g,'&amp;').replace(/</g,'&lt;') + ' &rarr;</a>' +
-      (FUND_BY_MATCH[m.name] ? '<a class="ci-link fd-link" href="https://app.yorkseed.co/fund-diligence?utm_source=fall-venture-evening&utm_medium=match-card" target="_blank" rel="noopener">Run Fund Diligence on ' + FUND_BY_MATCH[m.name].replace(/&/g,'&amp;') + ' &rarr;</a>' : '');
+      (FUND_BY_MATCH[m.name] ? '<a class="ci-link fd-link" href="https://app.yorkseed.co/fund-diligence?utm_source=fall-venture-evening&utm_medium=match-card" target="_blank" rel="noopener">Run Fund Diligence on ' + FUND_BY_MATCH[m.name].replace(/&/g,'&amp;') + ' &rarr;</a>' : '') +
+      dealMemoButton(viewerIsFounder, m);
     list.appendChild(card);
   });
 }
