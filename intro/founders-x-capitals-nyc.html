@@ -489,192 +489,534 @@ const EVENT = {
 
 const ATTENDEES = [
   {
-    "name": "Jessica Wong",
-    "first_name": "Jessica",
-    "email": "jess.sophia@gmail.com",
-    "role": "Founder & Venture Partner, Yorkseed / VNTR Capital",
+    "name": "Fatima Khan",
+    "first_name": "Fatima",
+    "email": "fatima@ola.law",
+    "role": "Attorney / Founder | Ola Law",
+    "matches": [
+      {
+        "name": "Rhishikesh Thakur",
+        "role": "Founder | Enable Engineering / BecauseFuture",
+        "hook": "A founder actively trying to crack the US market tonight.",
+        "bullets": [
+          "Rhishikesh founded Enable Engineering / BecauseFuture, an industrial testing and inspection company that's raised $30K and has a live product. He said directly that his goal tonight is to enter the US market.",
+          "Could help with: Fatima's whole offer is GTM legal support for founders entering the US. Rhishikesh is about as direct a fit for that as anyone in the room."
+        ],
+        "starter": "What's the first legal wall you've hit trying to bring your product into the US market?"
+      },
+      {
+        "name": "Joris",
+        "role": "Principal | Digital Asset Solutions Group (DASG)",
+        "hook": "Building regulated digital-asset products that need exactly her kind of legal cover.",
+        "bullets": [
+          "Joris is a Principal at DASG, working on RWA tokenization, stablecoins and payments, and on-chain private credit — all areas where US regulatory structuring is make-or-break.",
+          "Could help with: Joris explicitly said he can offer go-to-market experience for regulated digital-asset products but still needs legal counsel to execute a US launch. That's Fatima's lane exactly."
+        ],
+        "starter": "What's the biggest regulatory question mark on your US go-to-market plan for RWA tokenization right now?"
+      },
+      {
+        "name": "Hannah Mays",
+        "role": "Founder | Altiora Ventures",
+        "hook": "Running a live equity raise that will need real legal structuring.",
+        "bullets": [
+          "Hannah is working a $5.5M equity raise for luxury residential development on Florida's Gulf Coast, on top of a past $2.5M raise in Dallas — real, recurring capital-raising activity.",
+          "Could help with: active equity raises need securities counsel for structuring and compliance. It's a looser fit than the first two, but a live raise is a live need."
+        ],
+        "starter": "Who's currently handling the legal side of your equity raise, and where are the gaps?"
+      }
+    ]
+  },
+  {
+    "name": "Moshe Cohen",
+    "first_name": "Moshe",
+    "email": "moshe@cohen-cpas.com",
+    "role": "Founder | Cohen & Co",
+    "matches": [
+      {
+        "name": "Bryan Lugassy",
+        "role": "CEO | Blueberries.",
+        "hook": "A fintech founder at exactly the stage Moshe wants to meet.",
+        "bullets": [
+          "Bryan is CEO of Blueberries., a fintech company at seed stage that's raised about $500K and is actively hunting investors.",
+          "Could help with: Moshe's whole ask tonight is to connect with other founders, and Bryan's fintech focus mirrors Moshe's own Cohen & Co. background — an easy, direct peer conversation."
+        ],
+        "starter": "What's the fintech thesis Blueberries is building around, and where are you stuck on distribution?"
+      },
+      {
+        "name": "Sayeeka Farnaz",
+        "role": "Founder | Qlogue",
+        "hook": "Another financial-services founder building at early stage.",
+        "bullets": [
+          "Sayeeka founded Qlogue, a financial-services startup at early stage that's explicitly looking for investors tonight.",
+          "Could help with: same sector lane as Moshe's fintech background, and she's open to any useful connection — a natural intro to make if Moshe knows relevant capital."
+        ],
+        "starter": "What part of financial services is Qlogue actually automating or improving?"
+      },
+      {
+        "name": "Olena",
+        "role": "Founder | Spicora AI",
+        "hook": "A founder blending fintech into a bigger climate pitch.",
+        "bullets": [
+          "Olena founded Spicora AI, which sits across Clean Energy and FinTech, at early stage, looking for both networking and funding.",
+          "Could help with: the fintech half of her pitch overlaps with Moshe's world, giving him a natural angle to engage even though the climate half is outside his lane."
+        ],
+        "starter": "How does the fintech piece of Spicora actually plug into the clean energy side?"
+      }
+    ]
+  },
+  {
+    "name": "Chad McClennan",
+    "first_name": "Chad",
+    "email": "cmcclennan@koiosmedical.com",
+    "role": "President & CEO | Koios Medical",
+    "matches": [
+      {
+        "name": "Dan -",
+        "role": "Managing Director | ThinkStern Ventures",
+        "hook": "A VC whose stated focus is literally Chad's stage and sector.",
+        "bullets": [
+          "Dan is Managing Director at ThinkStern Ventures, investing in healthcare and deeptech at Series A and beyond — exactly Chad's stage.",
+          "Could help with: Chad is Series A and beyond with $40M raised in Medtech/AI/SaaS and wants growth-stage investors. Dan's mandate matches almost word for word."
+        ],
+        "starter": "What's ThinkStern's bar for a Series A+ healthcare/AI company right now, and where does Koios Medical clear it or miss it?"
+      },
+      {
+        "name": "Leonid Tarasov",
+        "role": "CEO | Klotho Capital",
+        "hook": "A venture-debt GP looking for exactly Chad's profile.",
+        "bullets": [
+          "Leonid runs Klotho Capital, a $100M venture-debt allocator whose stated ask tonight was 'post-round A founders.'",
+          "Could help with: Chad is Series A and beyond with real revenue traction — precisely the profile venture debt is built for, and a non-dilutive option Chad may not have fully explored."
+        ],
+        "starter": "At what revenue or growth threshold does Klotho start writing venture debt checks?"
+      },
+      {
+        "name": "Troy Turner",
+        "role": "Investor | Single Family Office",
+        "hook": "A family office open to AI, healthcare and deep tech capital.",
+        "bullets": [
+          "Troy represents a Single Family Office investing across AI, Finance, Healthcare and Deep Tech — broad enough to cover Chad's Medtech/AI/SaaS mix.",
+          "Could help with: family office capital that isn't fund-cycle-constrained could be a flexible growth partner alongside institutional Series A+ investors."
+        ],
+        "starter": "What's drawn your family office to healthcare and deep tech specifically, versus the more obvious AI plays?"
+      }
+    ]
+  },
+  {
+    "name": "Joris",
+    "first_name": "Joris",
+    "email": "jmagenti@digitalassetsg.com",
+    "role": "Principal | Digital Asset Solutions Group (DASG)",
     "matches": [
       {
         "name": "DJ Patel",
-        "role": "Head of Directs | UV Multi-Family Office",
-        "hook": "Most active capital in the room tonight.",
+        "role": "Head of Direct Investing | uv",
+        "hook": "A family-office investor already deployed across fintech and AI infra.",
         "bullets": [
-          "DJ is Head of Directs at UV, a multi-family office writing angel and direct checks across AI, healthtech, and fintech. He came tonight specifically primed for warm founder introductions, and he's the kind of capital relationship that compounds.",
-          "Could help with: DJ's MFO mandate and direct investment focus make him a natural first call for Yorkseed founders in his sectors. Getting him into the Yorkseed Capital Circle is a real conversation to have tonight."
+          "DJ heads direct investing at uv, a family office/LP investing in healthtech, fintech and AI infra, actively looking for deal flow.",
+          "Could help with: Joris is hunting investors active in fintech, stablecoins/payments and RWA tokenization — DJ's mandate overlaps directly, and he said he wants exactly this kind of deal flow."
         ],
-        "starter": "What deal thesis is UV most aggressively pursuing in directs right now, and what's the founder profile that gets you most excited?"
+        "starter": "Has uv looked at RWA tokenization or on-chain private credit as a direct-investment category yet?"
       },
+      {
+        "name": "Mersin Capollari",
+        "role": "MD | Kurv",
+        "hook": "A financial-services operator who wants to build exactly these relationships.",
+        "bullets": [
+          "Mersin is MD at Kurv in financial services, and said explicitly she wants to build relationships and facilitate introductions for others.",
+          "Could help with: Joris is looking for both investors and go-to-market partners in regulated digital assets — Mersin's connector instinct and financial-services base make her a useful bridge."
+        ],
+        "starter": "Who in your financial-services network would be most useful for me to meet on the regulated digital-asset side?"
+      },
+      {
+        "name": "Bryan Lugassy",
+        "role": "CEO | Blueberries.",
+        "hook": "A fintech founder in overlapping payments territory.",
+        "bullets": [
+          "Bryan runs Blueberries., a fintech company at seed stage, raised ~$500K, actively looking for investors in fintech.",
+          "Could help with: direct fintech/payments sector overlap with Joris's stablecoins and payments focus — worth comparing notes on who's actually investing in this space right now."
+        ],
+        "starter": "Who have you found actually writing checks into fintech/payments infrastructure this year?"
+      }
+    ]
+  },
+  {
+    "name": "Kirill Lopatin",
+    "first_name": "Kirill",
+    "email": "kirill@xaid.ai",
+    "role": "CEO & Founder | xAID",
+    "matches": [
+      {
+        "name": "Dan -",
+        "role": "Managing Director | ThinkStern Ventures",
+        "hook": "A VC who explicitly covers healthcare and deeptech.",
+        "bullets": [
+          "Dan is Managing Director at ThinkStern Ventures, focused on healthcare and deeptech investing at Series A and beyond.",
+          "Could help with: Kirill's ask tonight was specifically 'medtech VCs' — Dan's sector focus is a direct hit even if his typical stage runs later than xAID's growth round."
+        ],
+        "starter": "What does ThinkStern look for in a medtech company before Series A, if you ever get in that early?"
+      },
+      {
+        "name": "Troy Turner",
+        "role": "Investor | Single Family Office",
+        "hook": "A family office covering healthcare and deep tech.",
+        "bullets": [
+          "Troy represents a Single Family Office active in AI, Finance, Healthcare and Deep Tech.",
+          "Could help with: xAID is at growth stage in MedTech having raised $2.5M — flexible family-office capital is a real option alongside Kirill's VC search."
+        ],
+        "starter": "Is your family office more comfortable leading a medtech round or co-investing alongside a lead VC?"
+      },
+      {
+        "name": "Chad McClennan",
+        "role": "President & CEO | Koios Medical",
+        "hook": "A fellow medtech founder several stages ahead.",
+        "bullets": [
+          "Chad is President & CEO of Koios Medical, Series A and beyond in Medtech/AI/SaaS, having raised $40M.",
+          "Could help with: less a capital match than a network one — Chad's investor relationships and fundraising scar tissue in the same vertical could be genuinely useful to Kirill."
+        ],
+        "starter": "Who were the investors that actually understood medtech risk when you were raising your first institutional round?"
+      }
+    ]
+  },
+  {
+    "name": "Christian Michel Weinberg",
+    "first_name": "Christian",
+    "email": "c.michel@motion-ise.com",
+    "role": "Co-Founder & CEO | Motion!",
+    "matches": [
+      {
+        "name": "Nathaniel Norman",
+        "role": "Principal | Aurelian Labs",
+        "hook": "A VC whose exact coverage area is AI infrastructure.",
+        "bullets": [
+          "Nathaniel is a Principal at Aurelian Labs, investing in deeptech, AI infrastructure and fintech at seed and early stage.",
+          "Could help with: Motion! is building deep tech / AI infrastructure for B2B AI enterprise — squarely inside Nathaniel's stated mandate and stage."
+        ],
+        "starter": "What's the biggest unsolved infrastructure gap you keep seeing in B2B AI deployments right now?"
+      },
+      {
+        "name": "Hall Wang",
+        "role": "Engagement Manager | Strategy&",
+        "hook": "An ecosystem leader who explicitly helps AI founders with connections.",
+        "bullets": [
+          "Hall is an Engagement Manager at Strategy&, and said his offer tonight is helping founders with insights and connections in AI.",
+          "Could help with: Christian wants to meet AI tech leaders and gauge his network's depth — Hall's whole role tonight is making exactly those connections."
+        ],
+        "starter": "What's the strongest AI network you can open up for a B2B infrastructure startup?"
+      },
+      {
+        "name": "Ken Chester",
+        "role": "Co-founder | Anthropilot",
+        "hook": "A fellow early-stage AI founder building adjacent infrastructure.",
+        "bullets": [
+          "Ken co-founded Anthropilot, a Physical AI company at seed stage, and said he's looking to meet different people across fields.",
+          "Could help with: both are early-stage AI builders hungry to meet other AI founders and VCs — a natural peer conversation and possible referral exchange."
+        ],
+        "starter": "Where does physical AI run into the same infrastructure bottlenecks that B2B AI enterprise does?"
+      }
+    ]
+  },
+  {
+    "name": "Ken Chester",
+    "first_name": "Ken",
+    "email": "kenchester2@gmail.com",
+    "role": "Co-founder | Anthropilot",
+    "matches": [
+      {
+        "name": "David Pietrocola",
+        "role": "CEO | Cohesive Robotics",
+        "hook": "A fellow Physical AI founder at the same stage.",
+        "bullets": [
+          "David is CEO of Cohesive Robotics, a Physical AI company at seed stage that's raised $450K and is actively courting investors.",
+          "Could help with: Ken's ask tonight was 'potential partners' and meeting different people — a same-sector, same-stage peer is exactly the kind of partner conversation he's after."
+        ],
+        "starter": "What's the hardest part of being Physical AI right now when most seed capital still defaults to pure software?"
+      },
+      {
+        "name": "Scott Prisco",
+        "role": "CEO | Priscotty & P2",
+        "hook": "Another Physical AI founder hunting the same investor pool.",
+        "bullets": [
+          "Scott is CEO of Priscotty & P2, Physical AI at seed/growth stage, having raised $200K+, specifically looking for investors in physical AI.",
+          "Could help with: direct sector overlap plus a shared investor target list — worth comparing notes on who's actually writing physical-AI checks."
+        ],
+        "starter": "Who have you found who's actually writing checks into physical AI this year?"
+      },
+      {
+        "name": "Christian Michel Weinberg",
+        "role": "Co-Founder & CEO | Motion!",
+        "hook": "An AI-infrastructure founder adjacent to physical AI.",
+        "bullets": [
+          "Christian co-founded Motion!, building deep tech and AI infrastructure for B2B enterprise, early stage.",
+          "Could help with: adjacency between AI infrastructure and physical AI means overlapping technical and investor conversations — a useful cross-pollination for Ken's 'meet different people' goal."
+        ],
+        "starter": "Does your AI infrastructure stack have any application in robotics or physical systems?"
+      }
+    ]
+  },
+  {
+    "name": "Shabina Yasmin",
+    "first_name": "Shabina",
+    "email": "shabinay@hivetekcorp.com",
+    "role": "COO | Hivetek Corporation",
+    "matches": [
+      {
+        "name": "Nathaniel Norman",
+        "role": "Principal | Aurelian Labs",
+        "hook": "A VC covering AI infrastructure, adjacent to cloud.",
+        "bullets": [
+          "Nathaniel is a Principal at Aurelian Labs, investing in deeptech, AI infrastructure and fintech at seed/early stage.",
+          "Could help with: Shabina's ask tonight was investor insight for Hivetek's cloud technology business — Nathaniel's infrastructure lens is the closest fit in the room."
+        ],
+        "starter": "How do you evaluate a cloud-technology company's defensibility versus the big hyperscalers?"
+      },
+      {
+        "name": "Hall Wang",
+        "role": "Engagement Manager | Strategy&",
+        "hook": "An AI ecosystem leader offering insight and connections.",
+        "bullets": [
+          "Hall works in AI at Strategy& and said his offer tonight is helping founders with insights and connections.",
+          "Could help with: exactly the kind of 'investor insight' conversation Shabina asked for, even from someone who isn't writing checks himself."
+        ],
+        "starter": "What's the biggest blind spot you see cloud-tech founders have when they talk to investors?"
+      },
+      {
+        "name": "Mark Murin",
+        "role": "Investor | Design Creations",
+        "hook": "An AI-sector investor also networking tonight.",
+        "bullets": [
+          "Mark is an investor at Design Creations, AI-focused, at growth stage.",
+          "Could help with: another AI-adjacent investor conversation that could sharpen how Shabina frames Hivetek's pitch before she talks to bigger checks."
+        ],
+        "starter": "What's the first thing you look for when an AI-adjacent cloud company pitches you?"
+      }
+    ]
+  },
+  {
+    "name": "Mersin Capollari",
+    "first_name": "Mersin",
+    "email": "mersin.capollari@kurvinvest.com",
+    "role": "MD | Kurv",
+    "matches": [
+      {
+        "name": "Joris",
+        "role": "Principal | Digital Asset Solutions Group (DASG)",
+        "hook": "A fintech builder who also wants to build relationships and facilitate intros.",
+        "bullets": [
+          "Joris is a Principal at DASG working on RWA tokenization, stablecoins/payments, and on-chain private credit — financial services at its core.",
+          "Could help with: Mersin's own ask tonight was to build relationships and facilitate introductions for others — Joris is explicitly looking for exactly that kind of connector."
+        ],
+        "starter": "Who in your network would most want an intro to a financial-services connector like you?"
+      },
+      {
+        "name": "DJ Patel",
+        "role": "Head of Direct Investing | uv",
+        "hook": "A fellow LP-type investor in financial services.",
+        "bullets": [
+          "DJ heads direct investing at uv, a family office/LP investing in fintech, healthtech and AI infra.",
+          "Could help with: peer-level conversation between two LP/financial-services people — useful for comparing deal flow and who's actively investing right now."
+        ],
+        "starter": "What's the deal flow quality looking like in direct fintech investing this year?"
+      },
+      {
+        "name": "Bryan Lugassy",
+        "role": "CEO | Blueberries.",
+        "hook": "A fintech founder in Mersin's core sector.",
+        "bullets": [
+          "Bryan is CEO of Blueberries., fintech, seed stage, raised ~$500K, hunting investors.",
+          "Could help with: Kurv's financial-services focus overlaps directly with Blueberries' fintech work — a natural one to facilitate an intro around, which is literally what Mersin said she wants to do."
+        ],
+        "starter": "What's the fintech thesis behind Blueberries, and who's currently in your cap table?"
+      }
+    ]
+  },
+  {
+    "name": "Bryan Lugassy",
+    "first_name": "Bryan",
+    "email": "bryan.lugassy@blueberries.app",
+    "role": "CEO | Blueberries.",
+    "matches": [
       {
         "name": "Noel Guinane",
-        "role": "Managing Partner | Blood & Treasure LLC",
-        "hook": "Angel and VC investor here to meet credible founders.",
+        "role": "Managing Partner | Blood & Treasure, LLC",
+        "hook": "An angel/VC explicitly hunting credible fintech founders.",
         "bullets": [
-          "Noel runs Blood & Treasure, an investment firm focused on HR, logistics, and adjacent sectors. He came tonight specifically looking for founders with real traction, and he has the experience to tell the difference fast.",
-          "Could help with: Noel's investment focus and network are a strong fit for several founders in the room tonight. Connecting him to the right two or three people from your list is a high-leverage move."
+          "Noel is Managing Partner at Blood & Treasure, LLC, an angel/VC investor in fintech and neurotech who said he's here to find credible startup founders.",
+          "Could help with: Bryan's ask was investment/VC fintech — Noel's stated search for credible founders in fintech is a direct, immediate match."
         ],
-        "starter": "What makes a founder credible to you before you've seen their deck?"
+        "starter": "What makes a fintech founder credible to you before you've even seen the deck?"
       },
       {
-        "name": "Andres Fernandez Vilches",
-        "role": "Angel Investor | Mithril Capital LLC",
-        "hook": "The quiet capital in the room worth waking up.",
+        "name": "Joe Metheny",
+        "role": "Investor | Family Office",
+        "hook": "A VC/family-office investor in AI/ML fintech at seed stage.",
         "bullets": [
-          "Andres is an angel investor at Mithril Capital with a track record backing early-stage companies. He came tonight because the founder-capital mix was right, and he's the kind of investor who moves fast when the thesis clicks.",
-          "Could help with: Andres is exactly the check-writing profile several Yorkseed founders in the room need to meet. A warm intro from you tonight is worth more than a cold LinkedIn request next week."
+          "Joe invests through a family office across VC and family-office capital, focused on AI/ML and fintech at early/seed stage.",
+          "Could help with: exact stage and sector match for Blueberries' seed-stage fintech raise."
         ],
-        "starter": "What's the company or sector you're most bullish on right now that most investors are still sleeping on?"
+        "starter": "What's the typical check size your family office writes into seed-stage fintech?"
+      },
+      {
+        "name": "Nathaniel Norman",
+        "role": "Principal | Aurelian Labs",
+        "hook": "A VC covering fintech at seed/early stage.",
+        "bullets": [
+          "Nathaniel is a Principal at Aurelian Labs, investing in fintech, deeptech and AI infrastructure at seed and early stage.",
+          "Could help with: another direct stage-and-sector fit for Bryan's fundraise, worth comparing against Noel and Joe."
+        ],
+        "starter": "What's Aurelian's typical entry point for a fintech seed round?"
       }
     ]
   },
   {
-    "name": "Andrew Probasco",
-    "first_name": "Andrew",
-    "email": "asprobasco@gmail.com",
-    "role": "Director of Strategy & Research, Born Global Community",
+    "name": "Hannah Mays",
+    "first_name": "Hannah",
+    "email": "hannah.mays@altioragroupco.com",
+    "role": "Founder | Altiora Ventures",
     "matches": [
       {
-        "name": "Mark Nguyen",
-        "role": "Founder | The Well Network",
-        "hook": "Two community builders in the same room is not a coincidence.",
+        "name": "Les Moore",
+        "role": "Licensed Salesperson & Media Liaison | Sotheby's",
+        "hook": "A VC/LP/GP explicitly in real-estate tech.",
         "bullets": [
-          "Mark founded The Well Network, a curated professional community platform focused on meaningful connections between founders, operators, and investors. He thinks seriously about what it takes to build networks that actually work.",
-          "Could help with: Born Global and The Well Network are building adjacent infrastructure for high-trust professional communities. This is a peer conversation worth having, not just a business card exchange."
+          "Les works at Sotheby's as a licensed salesperson and media liaison, with VC/LP/GP investor type and a stated sector of real-estate tech.",
+          "Could help with: direct sector match for Hannah's multifamily and luxury residential development work, plus Sotheby's own UHNW client base."
         ],
-        "starter": "What's the thing most community platforms get wrong that you built The Well specifically to fix?"
+        "starter": "What does Sotheby's client base look for in a real-estate development deal versus a straight asset purchase?"
+      },
+      {
+        "name": "Troy Turner",
+        "role": "Investor | Single Family Office",
+        "hook": "Family-office capital, which Hannah named directly.",
+        "bullets": [
+          "Troy represents a Single Family Office active across AI, Finance, Healthcare and Deep Tech.",
+          "Could help with: Hannah explicitly said she's looking for 'family offices... interested in real estate investments' — Troy is exactly that capital type, even if real estate isn't his named sector."
+        ],
+        "starter": "Has your family office allocated to real estate development before, or would this be a new category?"
       },
       {
         "name": "DJ Patel",
-        "role": "Head of Directs | UV Multi-Family Office",
-        "hook": "A capital connection that could plug directly into Born Global's ecosystem.",
+        "role": "Head of Direct Investing | uv",
+        "hook": "A family-office/LP investor, though outside real estate.",
         "bullets": [
-          "DJ leads direct investments for UV, a multi-family office backing founders in AI, healthtech, and fintech. He's here to find deal flow and meet founders worth tracking, which makes him a natural fit for what Born Global is building.",
-          "Could help with: DJ's investor network and deal flow mandate are a strong match for Born Global's founder base. Introducing him to the community now is the kind of relationship that pays off over multiple cycles."
+          "DJ heads direct investing at uv, a family office/LP focused on healthtech, fintech and AI infra.",
+          "Could help with: investor-type fit (family office/LP) rather than sector fit — a looser connection, but family offices often have real-estate sleeves even when it's not their headline focus."
         ],
-        "starter": "How does a multi-family office decide which startup communities are worth showing up for versus which ones are noise?"
-      },
-      {
-        "name": "Jon Parks",
-        "role": "CEO | daRosario LLC",
-        "hook": "The event architect in the room who actually delivers.",
-        "bullets": [
-          "Jon is the CEO of daRosario LLC and has built a reputation as one of the more operationally serious event architects in New York. He thinks about events as business infrastructure, not just experiences.",
-          "Could help with: If Born Global is expanding its event programming or looking for production partners with real teeth, Jon is the conversation to have. His network and execution track record are both worth knowing."
-        ],
-        "starter": "What's the event format you think the NYC professional community needs most right now that no one is doing well?"
+        "starter": "Does uv ever allocate outside its core sectors into real estate when the right operator shows up?"
       }
     ]
   },
   {
-    "name": "Kimberly Neer",
-    "first_name": "Kimberly",
-    "email": "neerkim@gmail.com",
-    "role": "Founder, PeridotOS | GTM Advisor",
+    "name": "Alisha Outridge",
+    "first_name": "Alisha",
+    "email": "alishaoutridge@gmail.com",
+    "role": "Founder, CEO & Chief Product Officer | Byte&Chord",
     "matches": [
+      {
+        "name": "Kris Turkal",
+        "role": "Founder | Civic Politics Co.",
+        "hook": "A civic-tech founder in Alisha's own stated sector.",
+        "bullets": [
+          "Kris founded Civic Politics Co., a civic-tech company at early stage, and said he's looking for an investor passionate about civic tech.",
+          "Could help with: Alisha's own sector is Education & Civic Government Services — a direct match, and she's explicitly looking to connect on deals or partnerships for her 2027 launch."
+        ],
+        "starter": "What's the core problem Civic Politics Co. is solving in civic engagement right now?"
+      },
+      {
+        "name": "Moshe Neuman",
+        "role": "CEO | Valued",
+        "hook": "A fellow angel/family-office investor type.",
+        "bullets": [
+          "Moshe runs Valued, investing as an angel and through family offices in AI at early/seed stage.",
+          "Could help with: shared investor-type overlap (angels/family offices) makes for an easy conversation about co-investment or deal-sharing for Alisha's 2027 plans."
+        ],
+        "starter": "Would you ever co-invest alongside a family-office-backed operator-investor like yourself?"
+      },
+      {
+        "name": "Savitri Lazarus",
+        "role": "Founder / Investor | The Sangray / Boardy",
+        "hook": "A fellow self-described super-connector.",
+        "bullets": [
+          "Savitri is both a founder and investor, running The Sangray and Boardy, and describes herself as a community super-connector and event host.",
+          "Could help with: two super-connectors in the room is a real opportunity to trade networks and figure out mutual partnership angles for 2027."
+        ],
+        "starter": "Who in your network is doing the most interesting work at the intersection of community and capital right now?"
+      }
+    ]
+  },
+  {
+    "name": "Zohair Nasimi",
+    "first_name": "Zohair",
+    "email": "zai@hivetekcorp.com",
+    "role": "CEO | HiveTek Corp",
+    "matches": [
+      {
+        "name": "Nathaniel Norman",
+        "role": "Principal | Aurelian Labs",
+        "hook": "An AI-infrastructure VC adjacent to cloud computing.",
+        "bullets": [
+          "Nathaniel is a Principal at Aurelian Labs, covering deeptech, AI infrastructure and fintech at seed/early stage.",
+          "Could help with: Zohair's HiveTek Corp is in cloud computing at seed stage — close enough to AI infra that Nathaniel's lens is directly useful."
+        ],
+        "starter": "Where does cloud infrastructure intersect with the AI infra bets you're making right now?"
+      },
       {
         "name": "DJ Patel",
-        "role": "Head of Directs | UV Multi-Family Office",
-        "hook": "Exactly the capital profile your GTM story is built for.",
+        "role": "Head of Direct Investing | uv",
+        "hook": "A fintech/AI-infra/healthtech investor open to deal flow.",
         "bullets": [
-          "DJ runs direct investments for UV, a multi-family office with an active mandate in AI and infrastructure. He's here specifically looking for founders with real traction and a clear go-to-market thesis, which is your lane.",
-          "Could help with: PeridotOS and your GTM advisory work sit squarely in sectors DJ tracks. Tonight is the right moment to get in front of him before he fills out his deal pipeline elsewhere."
+          "DJ heads direct investing at uv, a family office/LP across fintech, healthtech and AI infra.",
+          "Could help with: broad enough mandate to cover a cloud computing company at seed stage looking to build its network and raise."
         ],
-        "starter": "What's the GTM motion you see most AI infrastructure startups getting wrong right now?"
+        "starter": "What would make a cloud-infrastructure company stand out in your direct-investment pipeline?"
       },
       {
-        "name": "Noel Guinane",
-        "role": "Managing Partner | Blood & Treasure LLC",
-        "hook": "An investor who specifically came to find founders worth backing.",
+        "name": "Mark Murin",
+        "role": "Investor | Design Creations",
+        "hook": "An AI-sector investor looking for the same kind of contacts.",
         "bullets": [
-          "Noel is a managing partner at Blood & Treasure with a portfolio that spans HR tech and logistics. He doesn't show up to events without intent, and tonight he's here to meet founders who've done the work.",
-          "Could help with: Noel's network and check-writing scope are a solid fit for PeridotOS. A direct conversation with him tonight is a faster path than any warm intro you'd get through LinkedIn."
+          "Mark is an investor at Design Creations, focused on AI at growth stage.",
+          "Could help with: a useful secondary conversation for Zohair's stated goal of meeting investors and building his network."
         ],
-        "starter": "What's the problem you built PeridotOS specifically to solve, and what does the first 90-day customer story look like?"
-      },
-      {
-        "name": "Vaibhav Sharma",
-        "role": "Co-Founder & CEO | Aquon AI",
-        "hook": "An AI founder building in a space adjacent to yours.",
-        "bullets": [
-          "Vaibhav is co-founding Aquon AI, an early-stage AI company navigating the same distribution and positioning challenges every AI startup faces right now. He's a founder working through the exact GTM questions you advise on.",
-          "Could help with: Your GTM advisory perspective is precisely what Vaibhav is working through at Aquon. This is a peer conversation that could turn into a client relationship, or at minimum a sharp exchange about what's actually working."
-        ],
-        "starter": "Where are you in your GTM motion at Aquon, and what's the distribution assumption you're least confident about?"
+        "starter": "What AI-adjacent infrastructure plays are you most interested in right now?"
       }
     ]
   },
   {
-    "name": "Jon Parks",
-    "first_name": "Jon",
-    "email": "jon@darosario.com",
-    "role": "CEO, daRosario LLC | Event Architect",
+    "name": "David Pietrocola",
+    "first_name": "David",
+    "email": "david@cohesiverobotics.com",
+    "role": "CEO | Cohesive Robotics",
     "matches": [
       {
-        "name": "Andrew Probasco",
-        "role": "Director of Strategy & Research | Born Global Community",
-        "hook": "A community builder who needs serious event production behind him.",
+        "name": "Troy Turner",
+        "role": "Investor | Single Family Office",
+        "hook": "A family office covering AI and deep tech.",
         "bullets": [
-          "Andrew runs strategy and research for Born Global Community, a global founder and operator network with an active event calendar. He's thinking about how to scale Born Global's programming and build events that actually convert into community.",
-          "Could help with: Your production experience and event architecture expertise are exactly what a growing community like Born Global needs to take its events to the next level. This is a natural business conversation."
+          "Troy represents a Single Family Office active across AI, Finance, Healthcare and Deep Tech.",
+          "Could help with: David's ask was 'investors deploying capital in physical AI' — deep tech/AI family-office capital is a real option alongside institutional VC."
         ],
-        "starter": "What's the biggest operational gap you're seeing in Born Global's events right now that good production could actually solve?"
+        "starter": "Has your family office looked seriously at physical AI and robotics as a category yet?"
       },
       {
-        "name": "Mark Nguyen",
-        "role": "Founder | The Well Network",
-        "hook": "Building the infrastructure for the kind of events you produce.",
+        "name": "Moshe Neuman",
+        "role": "CEO | Valued",
+        "hook": "An AI-focused angel/family-office investor at seed stage.",
         "bullets": [
-          "Mark founded The Well Network to create a curated professional community where the right people find each other. Events are central to how The Well operates, and he cares deeply about the experience being worth showing up for.",
-          "Could help with: Mark is building the community layer that great event production plugs into. A conversation about how daRosario and The Well might collaborate is worth having sooner rather than later."
+          "Moshe runs Valued, an angel/family-office investor in AI at early/seed stage.",
+          "Could help with: Cohesive Robotics is seed stage with $450K raised — right in Moshe's stated sweet spot, even if physical AI is more specific than his usual AI focus."
         ],
-        "starter": "What does a community event need to accomplish for you to consider it a success beyond headcount?"
+        "starter": "What gets you most excited about a hardware-heavy AI company versus a pure-software one?"
       },
       {
-        "name": "Jessica Wong",
-        "role": "Founder & Venture Partner | Yorkseed / VNTR Capital",
-        "hook": "The host who built this event is worth knowing well.",
+        "name": "Scott Prisco",
+        "role": "CEO | Priscotty & P2",
+        "hook": "A fellow Physical AI founder, for peer lead-sharing.",
         "bullets": [
-          "Jessica founded Yorkseed, a venture firm and global community running events and capital introductions across New York, Paris, and beyond. Tonight's event is one node in a much larger programming calendar she's building.",
-          "Could help with: Yorkseed's event cadence and global reach are a strong production partnership opportunity. Introducing yourself tonight with that lens is the right move."
+          "Scott runs Priscotty & P2, Physical AI at seed/growth stage, raised $200K+, also hunting physical-AI-focused investors.",
+          "Could help with: not a capital match, but a direct peer who's compiling the same investor list — worth trading notes with."
         ],
-        "starter": "What does Yorkseed's event calendar look like for 2027, and where is production support most valuable to you right now?"
-      }
-    ]
-  },
-  {
-    "name": "Daniel Fischer",
-    "first_name": "Daniel",
-    "email": "danielrf314@gmail.com",
-    "role": "Director of AI, M Securities | Quant Researcher",
-    "matches": [
-      {
-        "name": "Noam Raguan",
-        "role": "Founder | Thrive",
-        "hook": "A stablecoin fintech founder building in your direct lane.",
-        "bullets": [
-          "Noam is building Thrive, a stablecoin-native fintech platform at the intersection of digital assets and consumer finance. He's navigating the regulatory, technical, and market structure questions that matter most to anyone working in quantitative finance today.",
-          "Could help with: Your quant research background at M Securities and your AI work are directly relevant to what Thrive is building. This is a rare peer conversation between someone on the infrastructure side and someone building on top of it."
-        ],
-        "starter": "How are you thinking about Thrive's relationship with traditional market structure players as stablecoin rails mature?"
-      },
-      {
-        "name": "Sebastian Felipe",
-        "role": "CEO | Redwood North",
-        "hook": "GPU infrastructure and quantitative finance are closer than they look.",
-        "bullets": [
-          "Sebastian is building Redwood North in the GPU compute and DePIN space, which means he's living in the infrastructure layer that AI and high-frequency finance depend on. He understands the hardware economics most investors are still trying to model.",
-          "Could help with: Your work on AI applications at M Securities gives you a unique lens on how GPU infrastructure pricing affects model deployment decisions. Sebastian is the right person to pressure-test your assumptions with."
-        ],
-        "starter": "How is DePIN changing the cost curve for GPU compute, and what does that mean for the economics of AI at financial firms?"
-      },
-      {
-        "name": "Vaibhav Sharma",
-        "role": "Co-Founder & CEO | Aquon AI",
-        "hook": "An early AI company navigating the deployment questions you're solving from the inside.",
-        "bullets": [
-          "Vaibhav is co-founding Aquon AI and working through the same AI application and deployment challenges that occupy your role at M Securities, just from the founder side of the table. He's building in the space you're deploying in.",
-          "Could help with: Your perspective on how institutional capital approaches AI tooling is exactly the signal Vaibhav needs to calibrate his product roadmap. This is a conversation where both sides leave with something."
-        ],
-        "starter": "What's the AI capability that would make the biggest difference for your quantitative research work if you had it off the shelf today?"
+        "starter": "Which investors have you actually found who understand physical AI's capital intensity?"
       }
     ]
   },
@@ -682,151 +1024,455 @@ const ATTENDEES = [
     "name": "Noel Guinane",
     "first_name": "Noel",
     "email": "noel@bloodandtreasure.com",
-    "role": "Managing Partner, Blood & Treasure LLC",
+    "role": "Managing Partner | Blood & Treasure, LLC",
     "matches": [
       {
-        "name": "Vaibhav Sharma",
-        "role": "Co-Founder & CEO | Aquon AI",
-        "hook": "An early AI company worth a serious look tonight.",
+        "name": "Bryan Lugassy",
+        "role": "CEO | Blueberries.",
+        "hook": "A fintech founder at seed stage.",
         "bullets": [
-          "Vaibhav is co-founding Aquon AI, an early-stage company building in AI infrastructure. He's a technical founder with clear conviction about the problem and the presence to make the case for it in a conversation.",
-          "Could help with: Aquon sits squarely in the AI sector you track. If the thesis holds up in the next 15 minutes of conversation, this is the kind of company that's worth adding to your pipeline before others find it."
+          "Bryan is CEO of Blueberries., a seed-stage fintech company that's raised ~$500K and is actively looking for investors.",
+          "Could help with: Noel's own focus includes fintech, and he said he's here to find credible startup founders — Bryan is a direct match."
         ],
-        "starter": "What problem is Aquon solving that the big AI platforms aren't going to solve for you in the next 18 months?"
+        "starter": "What traction do you have at Blueberries that would make a fintech investor take you seriously today?"
       },
       {
-        "name": "Diallo Molina",
-        "role": "Founder | Anamis",
-        "hook": "A B2B SaaS founder with the profile you came here to find.",
+        "name": "Kirill Lopatin",
+        "role": "CEO & Founder | xAID",
+        "hook": "A medtech founder, adjacent to Noel's neurotech angle.",
         "bullets": [
-          "Diallo is building Anamis, a B2B SaaS platform focused on enterprise workflow. He's done the work of identifying a real pain point and building something customers actually use, and he's at the stage where the right capital relationship changes everything.",
-          "Could help with: B2B SaaS at this stage with real customer validation is the deal type your mandate is built for. Tonight is the right moment to get the pitch before Diallo has a term sheet conversation elsewhere."
+          "Kirill is CEO & Founder of xAID, a growth-stage MedTech company that's raised $2.5M.",
+          "Could help with: neurotech and medtech sit close enough together that this is a reasonable, if softer, fit for Noel's search for credible founders."
         ],
-        "starter": "What does Anamis's best current customer use the product to do, and what does their workflow look like before and after?"
+        "starter": "How much of xAID's work touches the nervous system or neuro-adjacent diagnostics?"
       },
       {
-        "name": "Kimberly Neer",
-        "role": "Founder, PeridotOS | GTM Advisor",
-        "hook": "A founder and advisor who knows exactly what go-to-market actually costs.",
+        "name": "Noritoshi Hirakawa",
+        "role": "Founder | TODAY IS THE DAY INC",
+        "hook": "A mental-health founder, a stretch adjacency to neurotech.",
         "bullets": [
-          "Kimberly is building PeridotOS and advising on GTM for a portfolio of early-stage companies. She's seen enough distribution failures to know what separates founders who figure it out from founders who don't.",
-          "Could help with: Kimberly's GTM expertise is the practical complement to your investment thesis, and PeridotOS itself may be worth putting on your radar. Either way, this is a high-value conversation."
+          "Noritoshi founded TODAY IS THE DAY INC, a mental-health company at seed stage that's raised $100K.",
+          "Could help with: this is an honest stretch — mental health and neurotech are adjacent but not identical — worth a conversation more than a direct pitch."
         ],
-        "starter": "What's the GTM mistake you see most seed-stage founders make that kills otherwise fundable companies?"
+        "starter": "Is there a clinical or neuro component to what you're building, or is it purely behavioral?"
       }
     ]
   },
   {
-    "name": "Mark Nguyen",
-    "first_name": "Mark",
-    "email": "mark@followthewell.com",
-    "role": "Founder, The Well Network",
+    "name": "Scott Prisco",
+    "first_name": "Scott",
+    "email": "scottyprisco@gmail.com",
+    "role": "CEO | Priscotty & P2",
     "matches": [
       {
-        "name": "Andrew Probasco",
-        "role": "Director of Strategy & Research | Born Global Community",
-        "hook": "Building in the same category at a different scale.",
+        "name": "Troy Turner",
+        "role": "Investor | Single Family Office",
+        "hook": "A family office open to AI and deep-tech capital.",
         "bullets": [
-          "Andrew runs strategy and research at Born Global Community, a global professional network built around founders and operators. He's living in the same questions about community design, engagement, and monetization that occupy your work at The Well.",
-          "Could help with: Born Global's global reach and The Well's curation model are naturally complementary. A candid peer conversation about what's working and what isn't in community building is the best version of tonight."
+          "Troy represents a Single Family Office active across AI, Finance, Healthcare and Deep Tech.",
+          "Could help with: Scott's ask was investors interested in physical AI for strategic partnerships — family-office capital is a real option alongside VC."
         ],
-        "starter": "What's the single hardest thing about keeping a professional community genuinely valuable as it scales?"
+        "starter": "What would it take for your family office to get comfortable with a physical-AI capital intensity profile?"
+      },
+      {
+        "name": "David Pietrocola",
+        "role": "CEO | Cohesive Robotics",
+        "hook": "A fellow Physical AI founder at the same seed stage.",
+        "bullets": [
+          "David is CEO of Cohesive Robotics, Physical AI, seed stage, raised $450K.",
+          "Could help with: direct peer in the exact same niche, hunting the same investor pool — worth comparing notes and possibly sharing leads."
+        ],
+        "starter": "Who's on your investor list for physical AI that I should be talking to too?"
+      },
+      {
+        "name": "Ken Chester",
+        "role": "Co-founder | Anthropilot",
+        "hook": "A fellow Physical AI founder at a similar stage.",
+        "bullets": [
+          "Ken co-founded Anthropilot, Physical AI, seed stage.",
+          "Could help with: another same-sector peer for strategic-partnership conversations, which is explicitly part of what Scott came for."
+        ],
+        "starter": "Is there any overlap between what Anthropilot and Priscotty & P2 are each building?"
+      }
+    ]
+  },
+  {
+    "name": "Moshe Neuman",
+    "first_name": "Moshe",
+    "email": "moshe@valued.ventures",
+    "role": "CEO | Valued",
+    "matches": [
+      {
+        "name": "Shawn Yang",
+        "role": "Founder | SparkLift",
+        "hook": "An AI founder explicitly hunting angels and pre-seed capital.",
+        "bullets": [
+          "Shawn founded SparkLift, an agentic-AI/design company at early stage, bootstrapped, and said directly he's seeking angels or pre-seed investors.",
+          "Could help with: Moshe's stated want is 'great founders' in AI at early/seed stage — Shawn is a near-perfect, explicit match for his angel profile."
+        ],
+        "starter": "What's the core agentic-AI product SparkLift is shipping, and where are you in GTM?"
+      },
+      {
+        "name": "Christian Michel Weinberg",
+        "role": "Co-Founder & CEO | Motion!",
+        "hook": "An AI-infrastructure founder at early/seed stage.",
+        "bullets": [
+          "Christian co-founded Motion!, deep tech / AI infrastructure for B2B enterprise, early stage.",
+          "Could help with: right stage and right sector for Moshe's AI-focused angel and family-office checks."
+        ],
+        "starter": "What's the hardest technical problem Motion! has had to solve in AI infrastructure so far?"
+      },
+      {
+        "name": "Kevin Ghim",
+        "role": "CEO | Summoner",
+        "hook": "An AI founder at seed stage.",
+        "bullets": [
+          "Kevin is CEO of Summoner, AI and supply chain, seed stage, raised $100K.",
+          "Could help with: another AI founder at Moshe's target stage, worth a quick conversation to see if the fit is tighter than it looks on paper."
+        ],
+        "starter": "How does AI actually change the supply-chain problem Summoner is solving?"
+      }
+    ]
+  },
+  {
+    "name": "Maba Ba",
+    "first_name": "Maba",
+    "email": "abdoumaba@gmail.com",
+    "role": "Founder | Flying Whale Wine",
+    "matches": [
+      {
+        "name": "Jon Parks",
+        "role": "CEO | daRosario LLC / CELF Funding LLC",
+        "hook": "A fellow growth-stage CPG/food founder.",
+        "bullets": [
+          "Jon is CEO of daRosario LLC / CELF Funding LLC, building in CPG — specifically affordable luxury food — at growth stage.",
+          "Could help with: Jon's own ask was to meet 'foodies' — Maba's Flying Whale Wine business is a direct consumer-goods/beverage match."
+        ],
+        "starter": "What's been the hardest part of scaling distribution for an affordable-luxury food brand?"
+      },
+      {
+        "name": "Alicia Angel",
+        "role": "Founder/CEO | Glam Pod",
+        "hook": "A consumer-sector founder also hunting category investors.",
+        "bullets": [
+          "Alicia founded Glam Pod, a beauty-tech company at early stage, looking to meet consumer investors.",
+          "Could help with: shared consumer-goods orientation, even across different sub-categories — worth comparing notes on which investors actually write consumer checks."
+        ],
+        "starter": "Who have you found that's actually writing checks into consumer brands this year?"
+      },
+      {
+        "name": "Randi Seiff",
+        "role": "CEO & Founder | NOBL Collective",
+        "hook": "A luxury-consumer-goods founder scaling a similar story.",
+        "bullets": [
+          "Randi is CEO & Founder of NOBL Collective, working in Luxury + Circularity + Tech at seed stage, raised $250K.",
+          "Could help with: both are building premium consumer-goods stories and looking for partners to scale — a natural peer conversation."
+        ],
+        "starter": "How are you thinking about the luxury-versus-mass-market tension as you scale?"
+      }
+    ]
+  },
+  {
+    "name": "Kimberly Neer",
+    "first_name": "Kimberly",
+    "email": "neerkim@gmail.com",
+    "role": "Founder | PeridotOS",
+    "matches": [
+      {
+        "name": "Shena Nicole",
+        "role": "Founder | SYNTHOS",
+        "hook": "A fellow early-stage founder wanting to connect with founders.",
+        "bullets": [
+          "Shena founded SYNTHOS, a SaaS/AI company at early stage, explicitly looking to connect with other founders and investors.",
+          "Could help with: Kimberly's own ask was simply 'connection' with founders — Shena's stated goal matches exactly, with an offer of her own cross-industry connections."
+        ],
+        "starter": "What's the hardest part of building SYNTHOS that other early-stage founders don't see coming?"
+      },
+      {
+        "name": "James Flanagan",
+        "role": "Founder & CEO | Pillar & Co",
+        "hook": "An early-stage founder with the same networking goal.",
+        "bullets": [
+          "James founded Pillar & Co, business infrastructure and data/analytics, early stage, explicitly looking to learn from founders and expand his network.",
+          "Could help with: shared stage and shared goal of building out a founder network — an easy, low-stakes connection for Kimberly."
+        ],
+        "starter": "What's the one lesson from building Pillar & Co you wish someone had told you earlier?"
+      },
+      {
+        "name": "Shawn Yang",
+        "role": "Founder | SparkLift",
+        "hook": "An early-stage tech founder with an open networking goal.",
+        "bullets": [
+          "Shawn founded SparkLift, agentic AI/design, early stage, bootstrapped.",
+          "Could help with: another same-stage peer actively building out a network — worth a quick intro even without a sharper reason than shared stage."
+        ],
+        "starter": "What's SparkLift building that most people in the room haven't heard of yet?"
+      }
+    ]
+  },
+  {
+    "name": "Jon Parks",
+    "first_name": "Jon",
+    "email": "jon@darosario.com",
+    "role": "CEO | daRosario LLC / CELF Funding LLC",
+    "matches": [
+      {
+        "name": "Maba Ba",
+        "role": "Founder | Flying Whale Wine",
+        "hook": "A fellow growth-stage consumer-goods/CPG founder.",
+        "bullets": [
+          "Maba founded Flying Whale Wine, a consumer-goods company at growth stage raising a friends-and-family round.",
+          "Could help with: Jon's own stated goal was to meet 'foodies' — Maba's wine business is a direct match in both category and growth stage."
+        ],
+        "starter": "What's been the biggest lesson scaling a consumer beverage brand that applies to food too?"
+      },
+      {
+        "name": "Troy Turner",
+        "role": "Investor | Single Family Office",
+        "hook": "Family-office capital, matching Jon's own fundraising lane.",
+        "bullets": [
+          "Troy represents a Single Family Office across AI, Finance, Healthcare and Deep Tech.",
+          "Could help with: Jon's own listed investor type is Family Offices, meaning he's likely raising from exactly this kind of capital — worth comparing notes or making a direct connection."
+        ],
+        "starter": "What would make a CPG food company interesting to a family office like yours?"
+      },
+      {
+        "name": "DJ Patel",
+        "role": "Head of Direct Investing | uv",
+        "hook": "A family-office/LP investor outside the CPG sector.",
+        "bullets": [
+          "DJ heads direct investing at uv, a family office/LP focused on fintech, healthtech and AI infra.",
+          "Could help with: investor-type overlap rather than sector overlap — a looser fit, but worth a conversation since family offices often diversify beyond their headline sectors."
+        ],
+        "starter": "Does uv ever look at consumer/CPG deals outside its core sectors?"
+      }
+    ]
+  },
+  {
+    "name": "Linda",
+    "first_name": "Linda",
+    "email": "linda.chen.wen.shpr@gmail.com",
+    "role": "Founder | StarLogic AI",
+    "matches": [
+      {
+        "name": "Noritoshi Hirakawa",
+        "role": "Founder | TODAY IS THE DAY INC",
+        "hook": "A direct sector match in mental health.",
+        "bullets": [
+          "Noritoshi founded TODAY IS THE DAY INC, a mental-health company at seed stage that's raised $100K.",
+          "Could help with: Linda's StarLogic AI sits across AI spirituality and mental health — Noritoshi's mental-health focus is the closest real overlap at the event."
+        ],
+        "starter": "How does your approach to mental health differ from the more clinical tools out there?"
+      },
+      {
+        "name": "Moshe Neuman",
+        "role": "CEO | Valued",
+        "hook": "An AI-focused angel investor at Linda's stage.",
+        "bullets": [
+          "Moshe runs Valued, an angel/family-office investor in AI at early/seed stage.",
+          "Could help with: Linda's ask was 'consumer tech investors' — Moshe's AI angel focus is the closest fit on the capital side."
+        ],
+        "starter": "Would an AI spirituality and wellness product fit your investment thesis, or is it too far outside AI infra?"
+      },
+      {
+        "name": "Shena Nicole",
+        "role": "Founder | SYNTHOS",
+        "hook": "A fellow early-stage AI founder.",
+        "bullets": [
+          "Shena founded SYNTHOS, SaaS/AI, early stage.",
+          "Could help with: a useful peer conversation between two early-stage AI builders, even without a tight sector overlap."
+        ],
+        "starter": "What's the AI stack behind SYNTHOS, and is any of it transferable to a wellness product?"
+      }
+    ]
+  },
+  {
+    "name": "James Flanagan",
+    "first_name": "James",
+    "email": "james.k.flanagan@gmail.com",
+    "role": "Founder & CEO | Pillar & Co",
+    "matches": [
+      {
+        "name": "Kabir Samtani",
+        "role": "Founder & CEO | Kosa",
+        "hook": "A fellow early-stage B2B infrastructure founder.",
+        "bullets": [
+          "Kabir is Founder & CEO of Kosa, building an agentic system of record at seed stage, raised $1.5M pre-seed.",
+          "Could help with: James's Pillar & Co is business infrastructure and data/analytics — direct overlap with Kabir's agentic system-of-record product, both solving B2B data problems."
+        ],
+        "starter": "How much of what Kosa does overlaps with the sales-process-out-of-a-founder's-head problem you're solving?"
+      },
+      {
+        "name": "Nathaniel Norman",
+        "role": "Principal | Aurelian Labs",
+        "hook": "A VC who explicitly backs early-stage B2B infra.",
+        "bullets": [
+          "Nathaniel is a Principal at Aurelian Labs, investing in fintech, deeptech and AI infrastructure at seed/early stage.",
+          "Could help with: James's stated ask was investors backing early-stage B2B — Nathaniel's mandate is a direct match."
+        ],
+        "starter": "What's Aurelian's bar for backing an early B2B infrastructure company pre-traction?"
+      },
+      {
+        "name": "Shena Nicole",
+        "role": "Founder | SYNTHOS",
+        "hook": "A fellow early-stage SaaS/AI founder.",
+        "bullets": [
+          "Shena founded SYNTHOS, SaaS/AI, early stage.",
+          "Could help with: shared stage and B2B-SaaS orientation make for an easy peer conversation and possible referral exchange."
+        ],
+        "starter": "What's the biggest unlock you've found for early B2B SaaS distribution?"
+      }
+    ]
+  },
+  {
+    "name": "Alicia Angel",
+    "first_name": "Alicia",
+    "email": "alicia@glampodbeauty.com",
+    "role": "Founder/CEO | Glam Pod",
+    "matches": [
+      {
+        "name": "Maba Ba",
+        "role": "Founder | Flying Whale Wine",
+        "hook": "A consumer-goods founder in a related category.",
+        "bullets": [
+          "Maba founded Flying Whale Wine, consumer goods, growth stage.",
+          "Could help with: Alicia's ask was to meet investors in beauty/consumer — Maba's consumer-goods fundraising experience is a useful peer reference."
+        ],
+        "starter": "Who have you found actually invests seriously in consumer brands, beauty or otherwise?"
       },
       {
         "name": "Jon Parks",
-        "role": "CEO | daRosario LLC",
-        "hook": "An event architect who builds the kind of rooms your community needs.",
+        "role": "CEO | daRosario LLC / CELF Funding LLC",
+        "hook": "A CPG founder hunting similar capital.",
         "bullets": [
-          "Jon runs daRosario LLC and has built a track record producing events that hold together operationally and feel right in the room. He thinks about events as a service, not just an experience.",
-          "Could help with: The Well's event programming is part of how you build and retain community. Jon's production expertise is the infrastructure that makes those events actually work. This is a practical partnership conversation."
+          "Jon is CEO of daRosario LLC / CELF Funding LLC, CPG food, growth stage.",
+          "Could help with: consumer-goods overlap and shared investor search — worth comparing notes on who's writing checks in the category."
         ],
-        "starter": "What's the event format The Well has tried that surprised you in how well it worked for community building?"
+        "starter": "What's your pitch angle for consumer investors who don't usually touch CPG?"
       },
       {
-        "name": "Jessica Wong",
-        "role": "Founder & Venture Partner | Yorkseed / VNTR Capital",
-        "hook": "The founder in the room who already built what you're building.",
+        "name": "Randi Seiff",
+        "role": "CEO & Founder | NOBL Collective",
+        "hook": "A luxury-consumer founder with a similar ask.",
         "bullets": [
-          "Jessica founded Yorkseed, a venture firm and founder-investor community running curated events and capital introductions across multiple cities. She's already navigated the early-stage community-to-capital conversion problem that The Well is working on.",
-          "Could help with: A real conversation with Jessica about how Yorkseed monetized and scaled its community is worth more than six months of trial and error. This is the most valuable peer conversation in the room for you tonight."
+          "Randi founded NOBL Collective, Luxury + Circularity + Tech, seed stage, raised $250K.",
+          "Could help with: both are early-to-growth consumer founders chasing the right investors — a natural peer fit, if softer than the first two."
         ],
-        "starter": "What was the inflection point where Yorkseed's community started producing real capital relationships, not just warm introductions?"
+        "starter": "How are you positioning NOBL to consumer investors who might also be interested in beauty tech?"
       }
     ]
   },
   {
-    "name": "Sebastian Felipe",
-    "first_name": "Sebastian",
-    "email": "sebastianrfelipe@gmail.com",
-    "role": "CEO, Redwood North | GPU & DePIN",
+    "name": "Kris Turkal",
+    "first_name": "Kris",
+    "email": "kristurkal@gmail.com",
+    "role": "Founder | Civic Politics Co.",
     "matches": [
       {
-        "name": "DJ Patel",
-        "role": "Head of Directs | UV Multi-Family Office",
-        "hook": "The capital in this room most likely to understand GPU infrastructure.",
+        "name": "Alisha Outridge",
+        "role": "Founder, CEO & Chief Product Officer | Byte&Chord",
+        "hook": "The closest real sector match at the event.",
         "bullets": [
-          "DJ runs direct investments at UV, a multi-family office with an active AI and infrastructure mandate. He's here tonight looking for founders in sectors he tracks, and GPU compute and DePIN are both on his radar.",
-          "Could help with: Redwood North's infrastructure positioning is exactly the kind of technical bet a sophisticated MFO like UV tracks closely. Getting in front of DJ tonight is a faster path to a term sheet conversation than almost any cold outbound."
+          "Alisha is Founder/CEO of Byte&Chord, whose stated sector is Education & Civic Government Services.",
+          "Could help with: Kris's ask was an investor passionate about civic tech — no one at the event is a dedicated civic-tech investor, but Alisha's sector overlap makes her the strongest available fit."
         ],
-        "starter": "What's UV's thesis on DePIN specifically, and how do you think about the risk profile versus centralized GPU providers?"
+        "starter": "How does Byte&Chord's work in civic government services intersect with grassroots civic tech?"
       },
       {
-        "name": "Daniel Fischer",
-        "role": "Director of AI | M Securities",
-        "hook": "Someone who deploys AI at scale and feels every GPU cost decision.",
+        "name": "Moshe Cohen",
+        "role": "Founder | Cohen & Co",
+        "hook": "An ecosystem leader open to connecting with any founder.",
         "bullets": [
-          "Daniel is Director of AI at M Securities and a quant researcher, which means he lives on the demand side of the GPU compute equation. He understands exactly what enterprise AI buyers need from infrastructure providers and what makes them switch.",
-          "Could help with: Daniel is the customer profile Redwood North is building for. A direct conversation about his pain points with current GPU providers is market research and a sales conversation at the same time."
+          "Moshe founded Cohen & Co and came tonight explicitly wanting to connect with other founders.",
+          "Could help with: an honest general-networking stretch, not a sector match — Moshe's openness to meeting founders is the main value here."
         ],
-        "starter": "What does your current GPU compute stack look like at M Securities, and what would have to be true for you to consider a DePIN alternative?"
+        "starter": "What's the biggest challenge in trying to get an investor excited about civic tech specifically?"
       },
       {
-        "name": "Andres Fernandez Vilches",
-        "role": "Angel Investor | Mithril Capital LLC",
-        "hook": "An angel investor who moves when the technical thesis clicks.",
+        "name": "James Flanagan",
+        "role": "Founder & CEO | Pillar & Co",
+        "hook": "An early-stage founder open to broadening his network.",
         "bullets": [
-          "Andres is an angel investor at Mithril Capital with experience backing early-stage technical companies. He came tonight because the founder-capital mix was right, and he makes decisions fast when the founder knows what they're building.",
-          "Could help with: Redwood North's technical depth and infrastructure positioning are the kind of bet Andres evaluates seriously. Making the case for your company in a direct conversation tonight is worth doing."
+          "James founded Pillar & Co, business infrastructure and data/analytics, early stage.",
+          "Could help with: another honest stretch — no direct sector tie, but a fellow early-stage founder genuinely trying to expand his network is a reasonable fallback connection."
         ],
-        "starter": "What's the GPU compute market assumption most investors are making that you think is going to be wrong in 24 months?"
+        "starter": "Has anyone in your network ever shown interest in civic or government-facing products?"
       }
     ]
   },
   {
-    "name": "Noam Raguan",
-    "first_name": "Noam",
-    "email": "noam@use-thrive.com",
-    "role": "Founder, Thrive | Stablecoin Fintech",
+    "name": "Kabir Samtani",
+    "first_name": "Kabir",
+    "email": "kabir@getkosa.ai",
+    "role": "Founder & CEO | Kosa",
     "matches": [
       {
-        "name": "DJ Patel",
-        "role": "Head of Directs | UV Multi-Family Office",
-        "hook": "A fintech-active MFO with a direct check mandate.",
+        "name": "Nathaniel Norman",
+        "role": "Principal | Aurelian Labs",
+        "hook": "A VC who explicitly backs early-stage AI infrastructure.",
         "bullets": [
-          "DJ leads direct investments at UV with an active fintech mandate. Multi-family offices are increasingly relevant to stablecoin-native fintech because they operate at the intersection of traditional finance and digital assets. He's the right conversation to have tonight.",
-          "Could help with: DJ's fintech investment focus and MFO relationships are directly relevant to Thrive's distribution and capital strategy. A conversation tonight could open a check or a customer introduction."
+          "Nathaniel is a Principal at Aurelian Labs, investing in AI infrastructure, deeptech and fintech at seed/early stage.",
+          "Could help with: Kosa's agentic system of record is squarely AI infrastructure — Kabir's ask was investors interested in the product, and Nathaniel's mandate matches directly."
         ],
-        "starter": "How is UV thinking about stablecoin-based fintech products for the family office clients you serve?"
+        "starter": "What's Aurelian's take on agentic systems of record as a category right now?"
       },
       {
-        "name": "Daniel Fischer",
-        "role": "Director of AI | M Securities",
-        "hook": "A quantitative finance mind who operates inside the system Thrive is disrupting.",
+        "name": "James Flanagan",
+        "role": "Founder & CEO | Pillar & Co",
+        "hook": "A fellow early-stage B2B/data infrastructure founder.",
         "bullets": [
-          "Daniel runs AI and quant research at M Securities, which puts him inside the traditional financial infrastructure layer that stablecoin fintech is trying to move around or through. He understands what institutional finance needs and where the friction actually is.",
-          "Could help with: Daniel's institutional finance perspective is the fastest way to pressure-test Thrive's product assumptions. A candid conversation with him about what stablecoin rails can and can't do for institutional players is worth more than most investor meetings."
+          "James founded Pillar & Co, business infrastructure and data/analytics, early stage.",
+          "Could help with: Kabir also wants to meet founders building in similar spaces — James is a direct, if informal, peer overlap."
         ],
-        "starter": "From the inside of a securities firm, what's the workflow that stablecoin settlement would most immediately improve if the regulatory path were clear?"
+        "starter": "How much of what you've built for sales infrastructure maps onto an agentic system of record?"
       },
       {
-        "name": "Zheng (Sharon) Zhang",
-        "role": "Lawyer | THC Lawyers",
-        "hook": "The fintech lawyer in the room who has already navigated your regulatory stack.",
+        "name": "Shena Nicole",
+        "role": "Founder | SYNTHOS",
+        "hook": "A fellow early-stage SaaS/AI founder.",
         "bullets": [
-          "Sharon is a startup and fintech lawyer at THC Lawyers with direct experience advising companies operating in digital assets and regulated financial products. She knows exactly where the legal exposure is in stablecoin-native products.",
-          "Could help with: Thrive's regulatory structure is as important as its product design. Sharon has seen the landmines and can tell you which ones are real versus which ones are just legal noise. This is a conversation that saves you expensive surprises."
+          "Shena founded SYNTHOS, SaaS/AI, early stage.",
+          "Could help with: shared agentic-AI adjacency and stage, a reasonable peer conversation for Kabir's founder-networking ask."
         ],
-        "starter": "What's the regulatory question stablecoin fintech founders ask you most, and what's the answer most of them don't want to hear?"
+        "starter": "Is there any overlap between what SYNTHOS automates and what an agentic system of record would track?"
+      }
+    ]
+  },
+  {
+    "name": "Randi Seiff",
+    "first_name": "Randi",
+    "email": "randi@nobl-collective.com",
+    "role": "CEO & Founder | NOBL Collective",
+    "matches": [
+      {
+        "name": "Savitri Lazarus",
+        "role": "Founder / Investor | The Sangray / Boardy",
+        "hook": "A luxury-sector founder who's also an active angel/VC investor.",
+        "bullets": [
+          "Savitri runs The Sangray and Boardy, Luxury Experiential Hospitality, and is herself an angel/VC investor and self-described super-connector.",
+          "Could help with: Randi's ask was the right investors for strategic partnerships — Savitri is both a luxury-sector peer and an active investor, a rare double fit."
+        ],
+        "starter": "Where do you see the strongest overlap between luxury hospitality and luxury consumer product brands?"
+      },
+      {
+        "name": "Alicia Angel",
+        "role": "Founder/CEO | Glam Pod",
+        "hook": "A consumer/luxury-adjacent founder with a similar investor search.",
+        "bullets": [
+          "Alicia founded Glam Pod, beauty tech, early stage, looking for consumer investors.",
+          "Could help with: shared consumer/luxury positioning, worth comparing investor target lists."
+        ],
+        "starter": "Who have you found that actually understands the luxury-consumer investment thesis?"
+      },
+      {
+        "name": "Les Moore",
+        "role": "Licensed Salesperson & Media Liaison | Sotheby's",
+        "hook": "A Sotheby's-world luxury-brand connection.",
+        "bullets": [
+          "Les works at Sotheby's, real-estate tech sector, VC/LP/GP investor type.",
+          "Could help with: a softer, brand-level fit — Sotheby's luxury clientele overlaps with NOBL's positioning even outside real estate specifically."
+        ],
+        "starter": "Does Sotheby's ever get approached by luxury consumer brands looking for the right investor introductions?"
       }
     ]
   },
@@ -834,75 +1480,531 @@ const ATTENDEES = [
     "name": "Jared Lerner",
     "first_name": "Jared",
     "email": "jared@nappr.io",
-    "role": "ZzZEO, Nappr | On-Demand Hospitality",
+    "role": "Founder | Nappr",
     "matches": [
       {
-        "name": "Andres Fernandez Vilches",
-        "role": "Angel Investor | Mithril Capital LLC",
-        "hook": "An angel who writes checks when the consumer thesis is sharp.",
+        "name": "Savitri Lazarus",
+        "role": "Founder / Investor | The Sangray / Boardy",
+        "hook": "A direct sector match in hospitality.",
         "bullets": [
-          "Andres is an angel investor at Mithril Capital and has backed early-stage consumer and marketplace companies before. He came tonight because the deal flow is live, and on-demand consumer services are a space he knows how to evaluate.",
-          "Could help with: Nappr's on-demand hospitality model is a clear consumer marketplace play. Getting Andres's read on the unit economics and expansion thesis tonight is both a pitch practice and a potential check conversation."
+          "Savitri runs The Sangray, Luxury Experiential Hospitality, and is an active angel/VC investor.",
+          "Could help with: Jared's Nappr is Travel/Hospitality and Health & Wellness — direct sector overlap, and Savitri is herself an investor who could write a check or make the intro."
         ],
-        "starter": "What does a consumer marketplace business need to show you at Nappr's stage before you'd put capital to work?"
+        "starter": "What's missing from most travel/hospitality products that a luxury hospitality operator like you would actually pay for?"
       },
       {
-        "name": "DJ Patel",
-        "role": "Head of Directs | UV Multi-Family Office",
-        "hook": "MFO capital with a direct consumer and hospitality mandate.",
+        "name": "Noritoshi Hirakawa",
+        "role": "Founder | TODAY IS THE DAY INC",
+        "hook": "A mental-health founder overlapping Jared's wellness angle.",
         "bullets": [
-          "DJ runs direct investments at UV with a portfolio that spans consumer, healthtech, and fintech. He writes direct checks for the MFO and is specifically here tonight looking for founders at a stage where his capital has real impact.",
-          "Could help with: Nappr's hospitality-meets-consumer-tech positioning is in DJ's wheelhouse. A direct conversation about your traction and unit economics tonight is the fastest path to getting into his deal pipeline."
+          "Noritoshi founded TODAY IS THE DAY INC, mental health, seed stage.",
+          "Could help with: wellness-sector overlap between Nappr's health-and-wellness angle and Noritoshi's mental-health focus."
         ],
-        "starter": "What's the demand signal that made you most confident that Nappr had real market pull beyond the initial launch users?"
+        "starter": "Is there a wellness or rest component to what you're building that overlaps with sleep/travel recovery?"
       },
       {
-        "name": "Jon Parks",
-        "role": "CEO | daRosario LLC",
-        "hook": "An event and hospitality operator who knows your customer well.",
+        "name": "Shawn Yang",
+        "role": "Founder | SparkLift",
+        "hook": "A fellow early-stage founder hunting the same investor type.",
         "bullets": [
-          "Jon runs daRosario LLC and has spent years working in the event and hospitality space at a production level. He knows the buyers, the operators, and the friction points in hospitality from the inside.",
-          "Could help with: Jon's hospitality network and operator relationships are exactly the distribution channel Nappr needs to understand better. This is a conversation where his network becomes your market research."
+          "Shawn founded SparkLift, early stage, bootstrapped, explicitly looking for angels or pre-seed investors.",
+          "Could help with: Jared's own ask was early-stage angel investors — a direct peer to trade notes with on who's actually writing those checks."
         ],
-        "starter": "Where do you see the biggest friction in on-demand hospitality services that the existing players are leaving on the table?"
+        "starter": "Who have you found who's actually closing angel checks right now versus just taking meetings?"
       }
     ]
   },
   {
-    "name": "Vaibhav Sharma",
-    "first_name": "Vaibhav",
-    "email": "vaibhav.sharma112@gmail.com",
-    "role": "Co-Founder & CEO, Aquon AI",
+    "name": "Noritoshi Hirakawa",
+    "first_name": "Noritoshi",
+    "email": "bobomencho@gmail.com",
+    "role": "Founder | TODAY IS THE DAY INC",
     "matches": [
       {
-        "name": "DJ Patel",
-        "role": "Head of Directs | UV Multi-Family Office",
-        "hook": "The most relevant capital in the room for an AI founder tonight.",
+        "name": "Linda",
+        "role": "Founder | StarLogic AI",
+        "hook": "A direct sector match in mental health / wellness tech.",
         "bullets": [
-          "DJ runs direct investments at UV, a multi-family office with an active AI infrastructure mandate. He's here tonight specifically looking for founders in his sectors and writing checks when the thesis aligns. AI is at the top of his deal pipeline.",
-          "Could help with: Aquon AI's positioning in the AI infrastructure space is exactly what DJ tracks at UV. Getting in front of him tonight with a clear 60-second thesis is the right move."
+          "Linda founded StarLogic AI, spanning AI spirituality, mental health and spiritual tech.",
+          "Could help with: Noritoshi's own sector is mental health — direct overlap, and both are building at the intersection of tech and wellbeing."
         ],
-        "starter": "What problem is Aquon solving in AI infrastructure that existing cloud providers can't commoditize in the next two years?"
+        "starter": "How are you thinking about where AI should and shouldn't be involved in mental-health support?"
+      },
+      {
+        "name": "Jared Lerner",
+        "role": "Founder | Nappr",
+        "hook": "A wellness-sector founder.",
+        "bullets": [
+          "Jared founded Nappr, which spans Travel/Hospitality and Health & Wellness.",
+          "Could help with: sector overlap on the wellness side, worth a conversation even without a direct capital connection."
+        ],
+        "starter": "Is there a rest or recovery angle to what you're building that could connect with travel/hospitality?"
       },
       {
         "name": "Noel Guinane",
-        "role": "Managing Partner | Blood & Treasure LLC",
-        "hook": "An investor who came specifically to meet fundable founders.",
+        "role": "Managing Partner | Blood & Treasure, LLC",
+        "hook": "A neurotech-adjacent angel investor.",
         "bullets": [
-          "Noel is a managing partner and active investor who showed up tonight with deal flow on his mind. He evaluates founders quickly and moves when the combination of product, founder, and market makes sense together.",
-          "Could help with: Noel's investment track record and network make him a high-value conversation for any early-stage AI company. A direct conversation tonight is worth more than three months of warm intro attempts."
+          "Noel is Managing Partner at Blood & Treasure, LLC, an angel/VC investor whose sectors include neurotech.",
+          "Could help with: an honest adjacency-based stretch — neurotech isn't identical to mental health, but it's the closest capital conversation available."
         ],
-        "starter": "What does Aquon's ideal first institutional round look like, and what traction milestone triggers it for you?"
+        "starter": "Does Blood & Treasure's neurotech thesis extend to behavioral or mental-health-adjacent products?"
+      }
+    ]
+  },
+  {
+    "name": "Shawn Yang",
+    "first_name": "Shawn",
+    "email": "shawnyangbusiness@gmail.com",
+    "role": "Founder | SparkLift",
+    "matches": [
+      {
+        "name": "Moshe Neuman",
+        "role": "CEO | Valued",
+        "hook": "An angel/family-office AI investor at exactly his target stage.",
+        "bullets": [
+          "Moshe runs Valued, an angel and family-office investor in AI at early/seed stage.",
+          "Could help with: Shawn's explicit ask was 'angels or preseed investors' — Moshe is a direct, named-stage match."
+        ],
+        "starter": "What's the one thing that would make you say yes to a bootstrapped AI founder on the spot?"
+      },
+      {
+        "name": "Kevin Ghim",
+        "role": "CEO | Summoner",
+        "hook": "A fellow AI founder at seed stage.",
+        "bullets": [
+          "Kevin is CEO of Summoner, AI and supply chain, seed stage, raised $100K.",
+          "Could help with: another AI founder at a comparable stage — useful for comparing fundraising notes and possibly sharing investor leads."
+        ],
+        "starter": "Who's on your investor list that I should be talking to as well?"
       },
       {
         "name": "Kimberly Neer",
-        "role": "Founder, PeridotOS | GTM Advisor",
-        "hook": "A GTM advisor who has solved the distribution problem you're about to face.",
+        "role": "Founder | PeridotOS",
+        "hook": "An early-stage peer with an open networking goal.",
         "bullets": [
-          "Kimberly advises early-stage AI and tech companies on go-to-market strategy and is building PeridotOS in parallel. She's navigating the same founder challenges you are while advising companies on the distribution questions that come right after product-market fit.",
-          "Could help with: Aquon's GTM strategy will determine whether the product gets into the right hands fast enough to matter. Kimberly's perspective on what's working and what isn't for AI startups at your stage is exactly the conversation to have tonight."
+          "Kimberly founded PeridotOS, early stage, looking to connect with founders.",
+          "Could help with: shared stage and an open 'meet founders' goal on both sides makes this an easy, low-friction connection."
         ],
-        "starter": "What's the first customer segment Aquon is going after, and what does your path to a dozen reference customers look like?"
+        "starter": "What's the hardest part of building PeridotOS that other early-stage founders don't see coming?"
+      }
+    ]
+  },
+  {
+    "name": "Kevin Ghim",
+    "first_name": "Kevin",
+    "email": "kevin@summoner.org",
+    "role": "CEO | Summoner",
+    "matches": [
+      {
+        "name": "Raimond",
+        "role": "Founder | SourceSmart",
+        "hook": "A direct sector match in supply chain.",
+        "bullets": [
+          "Raimond founded SourceSmart, a supply-chain company at early stage.",
+          "Could help with: Kevin's Summoner is AI applied to supply chain — direct overlap with Raimond's supply-chain focus, worth comparing notes on the operator side."
+        ],
+        "starter": "Where does AI actually move the needle in supply chain versus where it's just hype?"
+      },
+      {
+        "name": "Moshe Neuman",
+        "role": "CEO | Valued",
+        "hook": "An AI-focused angel at Kevin's stage.",
+        "bullets": [
+          "Moshe runs Valued, an angel/family-office AI investor at early/seed stage.",
+          "Could help with: Kevin's ask was to meet investors — Moshe's AI focus and seed-stage sweet spot are a direct match."
+        ],
+        "starter": "What AI-in-supply-chain pitches have actually gotten you excited versus just curious?"
+      },
+      {
+        "name": "Shawn Yang",
+        "role": "Founder | SparkLift",
+        "hook": "A fellow AI founder at early stage.",
+        "bullets": [
+          "Shawn founded SparkLift, agentic AI/design, early stage.",
+          "Could help with: shared AI-founder stage, a useful peer conversation and possible lead-sharing opportunity."
+        ],
+        "starter": "What's agentic AI actually doing for SparkLift's product today versus the roadmap?"
+      }
+    ]
+  },
+  {
+    "name": "Frank Yu",
+    "first_name": "Frank",
+    "email": "frankyu@gmail.com",
+    "role": "Founder | Blackchamber AI",
+    "matches": [
+      {
+        "name": "Hall Wang",
+        "role": "Engagement Manager | Strategy&",
+        "hook": "An AI ecosystem leader explicitly interested in defense tech.",
+        "bullets": [
+          "Hall works in AI at Strategy& and said he specifically wants to help innovators in Health Tech or Defense Tech.",
+          "Could help with: Frank's Blackchamber AI is in cybersecurity and personal AI — defense-adjacent enough to be a direct hit on Hall's stated interest."
+        ],
+        "starter": "What's the overlap you're seeing between commercial cybersecurity AI and defense-tech applications?"
+      },
+      {
+        "name": "Moshe Neuman",
+        "role": "CEO | Valued",
+        "hook": "An AI-focused angel investor at Frank's stage.",
+        "bullets": [
+          "Moshe runs Valued, an angel/family-office AI investor at early/seed stage.",
+          "Could help with: Frank's ask was angels, partners and cofounders — Moshe's AI angel focus and stage are a direct match."
+        ],
+        "starter": "Does personal-AI-plus-cybersecurity fit cleanly into your AI thesis, or is it too niche?"
+      },
+      {
+        "name": "Troy Turner",
+        "role": "Investor | Single Family Office",
+        "hook": "A family office covering AI and deep tech.",
+        "bullets": [
+          "Troy represents a Single Family Office active across AI, Finance, Healthcare and Deep Tech.",
+          "Could help with: broad deep-tech/AI mandate that could extend to cyber/defense-adjacent plays, worth testing."
+        ],
+        "starter": "Has your family office ever looked at cybersecurity or defense-adjacent AI specifically?"
+      }
+    ]
+  },
+  {
+    "name": "David Rothman",
+    "first_name": "David",
+    "email": "mrdavidrothman@gmail.com",
+    "role": "CEO | The Tour Card",
+    "matches": [
+      {
+        "name": "Troy Turner",
+        "role": "Investor | Single Family Office",
+        "hook": "Family-office capital matching David's explicit 'lead investor' ask.",
+        "bullets": [
+          "Troy represents a Single Family Office across AI, Finance, Healthcare and Deep Tech — typically UHNW capital.",
+          "Could help with: David named his need directly as a lead investor for a UHNW/entertainment business, and family offices are exactly the kind of flexible capital that leads rounds like this."
+        ],
+        "starter": "Would your family office consider leading a round in a UHNW-focused entertainment business?"
+      },
+      {
+        "name": "Les Moore",
+        "role": "Licensed Salesperson & Media Liaison | Sotheby's",
+        "hook": "A Sotheby's connection whose clientele is UHNW.",
+        "bullets": [
+          "Les works at Sotheby's with a real-estate-tech sector focus and VC/LP/GP investor type.",
+          "Could help with: Sotheby's UHNW client base overlaps directly with The Tour Card's UHNW/entertainment audience — a useful warm network even outside real estate specifically."
+        ],
+        "starter": "Does Sotheby's ever connect its UHNW clients to entertainment or lifestyle ventures like this one?"
+      },
+      {
+        "name": "Savitri Lazarus",
+        "role": "Founder / Investor | The Sangray / Boardy",
+        "hook": "A luxury/UHNW hospitality investor and super-connector.",
+        "bullets": [
+          "Savitri runs The Sangray and Boardy, Luxury Experiential Hospitality, and is an active angel/VC investor.",
+          "Could help with: luxury/UHNW overlap plus Savitri's own description of being closer to investors and partners than to other founders — a strong connector fit."
+        ],
+        "starter": "Who in your network is actively looking to back UHNW-focused entertainment or lifestyle plays?"
+      }
+    ]
+  },
+  {
+    "name": "Troy Turner",
+    "first_name": "Troy",
+    "email": "trottturner@me.com",
+    "role": "Investor | Single Family Office",
+    "matches": [
+      {
+        "name": "Chad McClennan",
+        "role": "President & CEO | Koios Medical",
+        "hook": "A growth-stage medtech/AI founder matching Troy's stated interests.",
+        "bullets": [
+          "Chad is President & CEO of Koios Medical, Series A and beyond, Medtech/AI/SaaS, raised $40M.",
+          "Could help with: Troy's stated interests include AI and Healthcare — Chad's company sits directly in both, at a stage mature enough for family-office capital."
+        ],
+        "starter": "What would make a family office a more attractive capital partner than another institutional Series A+ check?"
+      },
+      {
+        "name": "Kirill Lopatin",
+        "role": "CEO & Founder | xAID",
+        "hook": "A growth-stage medtech founder.",
+        "bullets": [
+          "Kirill is CEO & Founder of xAID, MedTech, growth stage, raised $2.5M.",
+          "Could help with: direct healthcare overlap with Troy's stated sector interests, at an earlier and more flexible stage for family-office capital."
+        ],
+        "starter": "What stage is xAID at where family-office capital would be most useful versus a traditional VC round?"
+      },
+      {
+        "name": "Christian Michel Weinberg",
+        "role": "Co-Founder & CEO | Motion!",
+        "hook": "A deep-tech/AI-infrastructure founder.",
+        "bullets": [
+          "Christian co-founded Motion!, deep tech and AI infrastructure for B2B enterprise, early stage.",
+          "Could help with: matches Troy's named interest in deep tech and AI directly, even at an earlier stage than his usual check size."
+        ],
+        "starter": "Is Motion! raising right now, and what would an early family-office check look like in your round?"
+      }
+    ]
+  },
+  {
+    "name": "Troy Turner",
+    "first_name": "Troy",
+    "email": "troytturner@me.com",
+    "role": "Investor | Single Family Office",
+    "matches": [
+      {
+        "name": "Chad McClennan",
+        "role": "President & CEO | Koios Medical",
+        "hook": "A growth-stage medtech/AI founder matching Troy's stated interests.",
+        "bullets": [
+          "Chad is President & CEO of Koios Medical, Series A and beyond, Medtech/AI/SaaS, raised $40M.",
+          "Could help with: Troy's stated interests include AI and Healthcare — Chad's company sits directly in both, at a stage mature enough for family-office capital."
+        ],
+        "starter": "What would make a family office a more attractive capital partner than another institutional Series A+ check?"
+      },
+      {
+        "name": "Kirill Lopatin",
+        "role": "CEO & Founder | xAID",
+        "hook": "A growth-stage medtech founder.",
+        "bullets": [
+          "Kirill is CEO & Founder of xAID, MedTech, growth stage, raised $2.5M.",
+          "Could help with: direct healthcare overlap with Troy's stated sector interests, at an earlier and more flexible stage for family-office capital."
+        ],
+        "starter": "What stage is xAID at where family-office capital would be most useful versus a traditional VC round?"
+      },
+      {
+        "name": "Christian Michel Weinberg",
+        "role": "Co-Founder & CEO | Motion!",
+        "hook": "A deep-tech/AI-infrastructure founder.",
+        "bullets": [
+          "Christian co-founded Motion!, deep tech and AI infrastructure for B2B enterprise, early stage.",
+          "Could help with: matches Troy's named interest in deep tech and AI directly, even at an earlier stage than his usual check size."
+        ],
+        "starter": "Is Motion! raising right now, and what would an early family-office check look like in your round?"
+      }
+    ]
+  },
+  {
+    "name": "Raimond",
+    "first_name": "Raimond",
+    "email": "raimond@sourcesmart.ai",
+    "role": "Founder | SourceSmart",
+    "matches": [
+      {
+        "name": "Abhishek Bajaj",
+        "role": "Co-Founder | My Manufacturing Lab",
+        "hook": "A direct supply-chain sector match.",
+        "bullets": [
+          "Abhishek co-founded My Manufacturing Lab, a fashion supply-chain platform at growth stage, bootstrapped to $800K.",
+          "Could help with: Raimond's SourceSmart is also supply chain — direct sector overlap and a peer who's also actively courting investors."
+        ],
+        "starter": "What's been the hardest part of scaling a supply-chain platform from bootstrapped to outside capital?"
+      },
+      {
+        "name": "Kevin Ghim",
+        "role": "CEO | Summoner",
+        "hook": "An AI/supply-chain founder.",
+        "bullets": [
+          "Kevin is CEO of Summoner, AI applied to supply chain, seed stage, raised $100K.",
+          "Could help with: direct sector overlap, and a useful comparison point on how AI is or isn't changing the supply-chain problem."
+        ],
+        "starter": "Where has AI actually made your supply-chain product better versus just more complex?"
+      },
+      {
+        "name": "Rhishikesh Thakur",
+        "role": "Founder | Enable Engineering / BecauseFuture",
+        "hook": "An adjacent industrial-operations founder.",
+        "bullets": [
+          "Rhishikesh founded Enable Engineering / BecauseFuture, industrial testing and inspection, seed stage.",
+          "Could help with: industrial/operations adjacency to supply chain, worth a conversation on where the two businesses might eventually intersect."
+        ],
+        "starter": "Does industrial testing and inspection ever feed directly into a supply-chain workflow like yours?"
+      }
+    ]
+  },
+  {
+    "name": "Olena",
+    "first_name": "Olena",
+    "email": "o.tsuberaa@gmail.com",
+    "role": "Founder | Spicora AI",
+    "matches": [
+      {
+        "name": "DJ Patel",
+        "role": "Head of Direct Investing | uv",
+        "hook": "A fintech/AI-infra investor matching her fintech half.",
+        "bullets": [
+          "DJ heads direct investing at uv, a family office/LP across fintech, healthtech and AI infra.",
+          "Could help with: Olena's Spicora AI spans Clean Energy and FinTech — DJ's fintech mandate covers half of her pitch directly."
+        ],
+        "starter": "Would a clean-energy/fintech hybrid fit inside uv's fintech thesis, or is the clean-energy half a dealbreaker?"
+      },
+      {
+        "name": "Moshe Cohen",
+        "role": "Founder | Cohen & Co",
+        "hook": "A fintech-focused ecosystem leader open to connecting with founders.",
+        "bullets": [
+          "Moshe founded Cohen & Co, fintech, and said he's here to connect with other founders.",
+          "Could help with: fintech overlap plus Moshe's general openness to founder conversations — an easy, low-friction intro."
+        ],
+        "starter": "What's your read on where fintech and climate tech are actually converging right now?"
+      },
+      {
+        "name": "Bryan Lugassy",
+        "role": "CEO | Blueberries.",
+        "hook": "A fintech founder in a similar fundraising position.",
+        "bullets": [
+          "Bryan is CEO of Blueberries., fintech, seed stage, raised ~$500K.",
+          "Could help with: peer-to-peer fintech overlap, worth comparing notes on who's actually investing in fintech-adjacent sectors."
+        ],
+        "starter": "Who have you found investing seriously in fintech right now that I should know about?"
+      }
+    ]
+  },
+  {
+    "name": "IFT Network",
+    "first_name": "IFT",
+    "email": "jay.cruz@iftnetwork.com",
+    "role": "CEO/Founder | IFT Network",
+    "matches": [
+      {
+        "name": "Jyrki Rehumaki",
+        "role": "Partner | BCaster",
+        "hook": "A direct mediatech sector match.",
+        "bullets": [
+          "Jyrki is a Partner at BCaster, a mediatech company at seed stage that's raised $7M, and is himself an angel-type investor.",
+          "Could help with: IFT Network's focus is Entertainment & Media — BCaster's mediatech business is a direct sector overlap, and Jyrki's angel investor type adds a capital angle too."
+        ],
+        "starter": "How is BCaster's mediatech approach different from traditional entertainment-media distribution?"
+      },
+      {
+        "name": "David Rothman",
+        "role": "CEO | The Tour Card",
+        "hook": "An entertainment-sector founder.",
+        "bullets": [
+          "David is CEO of The Tour Card, UHNW and Entertainment, seed stage, raised $500K.",
+          "Could help with: direct entertainment-sector overlap, worth a conversation on where UHNW entertainment and media/entertainment connections intersect."
+        ],
+        "starter": "Is there a media or content angle to The Tour Card that could plug into entertainment distribution?"
+      },
+      {
+        "name": "Savitri Lazarus",
+        "role": "Founder / Investor | The Sangray / Boardy",
+        "hook": "An events and community super-connector.",
+        "bullets": [
+          "Savitri runs The Sangray and Boardy and describes herself as a community super-connector and event host.",
+          "Could help with: a softer fit via the events/media adjacency of her hospitality and community work."
+        ],
+        "starter": "Who in the events and hospitality world would be most interested in an entertainment/media connection?"
+      }
+    ]
+  },
+  {
+    "name": "Dan -",
+    "first_name": "Dan",
+    "email": "dan@adamkstern.com",
+    "role": "Managing Director | ThinkStern Ventures",
+    "matches": [
+      {
+        "name": "Chad McClennan",
+        "role": "President & CEO | Koios Medical",
+        "hook": "A Series A+ medtech/AI founder matching his exact mandate.",
+        "bullets": [
+          "Chad is President & CEO of Koios Medical, Medtech/AI/SaaS, Series A and beyond, raised $40M.",
+          "Could help with: Dan's focus is healthcare and deeptech at Series A and beyond — Chad's company and stage match almost exactly."
+        ],
+        "starter": "What's the next milestone that would make Koios Medical a clear fit for a new lead at this stage?"
+      },
+      {
+        "name": "Kirill Lopatin",
+        "role": "CEO & Founder | xAID",
+        "hook": "A growth-stage medtech founder.",
+        "bullets": [
+          "Kirill is CEO & Founder of xAID, MedTech, growth stage, raised $2.5M.",
+          "Could help with: direct healthcare overlap, even if the stage runs a bit earlier than Dan's typical Series A+ focus."
+        ],
+        "starter": "What would it take for xAID to be ready for a Series A+ conversation with a fund like yours?"
+      },
+      {
+        "name": "Christian Michel Weinberg",
+        "role": "Co-Founder & CEO | Motion!",
+        "hook": "A deep-tech/AI-infrastructure founder, earlier stage.",
+        "bullets": [
+          "Christian co-founded Motion!, deep tech/AI infrastructure, early stage.",
+          "Could help with: deeptech overlap with Dan's mandate, more of an early scouting conversation than a near-term fit."
+        ],
+        "starter": "Is Motion! on a path toward the kind of deeptech infrastructure thesis ThinkStern looks for at Series A?"
+      }
+    ]
+  },
+  {
+    "name": "Nathaniel Norman",
+    "first_name": "Nathaniel",
+    "email": "nate.norman677@gmail.com",
+    "role": "Principal | Aurelian Labs",
+    "matches": [
+      {
+        "name": "Troy Turner",
+        "role": "Investor | Single Family Office",
+        "hook": "Exactly the family office Nathaniel said he wants to meet.",
+        "bullets": [
+          "Troy represents a Single Family Office active across AI, Finance, Healthcare and Deep Tech.",
+          "Could help with: Nathaniel's own stated who_to_meet was 'family offices' — Troy is a direct, named match for that ask."
+        ],
+        "starter": "What's the typical check size and structure your family office uses when co-investing alongside a VC like Aurelian?"
+      },
+      {
+        "name": "DJ Patel",
+        "role": "Head of Direct Investing | uv",
+        "hook": "A fellow family-office/LP investor.",
+        "bullets": [
+          "DJ heads direct investing at uv, a family office/LP across fintech, healthtech and AI infra.",
+          "Could help with: direct match to Nathaniel's stated want, and overlapping sector focus in fintech/AI infra makes for a natural co-investment conversation."
+        ],
+        "starter": "Does uv ever co-invest alongside early-stage VCs like Aurelian on fintech/AI infra deals?"
+      },
+      {
+        "name": "Joe Metheny",
+        "role": "Investor | Family Office",
+        "hook": "Another family-office investor.",
+        "bullets": [
+          "Joe invests through a family office, VC and family-office capital, AI/ML and fintech, early/seed stage.",
+          "Could help with: a third direct match to Nathaniel's stated family-office networking goal, with overlapping sector interest in AI/ML and fintech."
+        ],
+        "starter": "How does your family office typically split check size between direct deals and fund commitments?"
+      }
+    ]
+  },
+  {
+    "name": "Les Moore",
+    "first_name": "Les",
+    "email": "lesmoorenyc@gmail.com",
+    "role": "Licensed Salesperson & Media Liaison | Sotheby's",
+    "matches": [
+      {
+        "name": "Hannah Mays",
+        "role": "Founder | Altiora Ventures",
+        "hook": "A direct real-estate-investment sector match.",
+        "bullets": [
+          "Hannah founded Altiora Ventures, real estate investment/multifamily/luxury residential development, growth stage.",
+          "Could help with: Les's own sector is real-estate tech — direct overlap with Hannah's active capital raises, and Sotheby's own UHNW network is a real asset for her."
+        ],
+        "starter": "What's Sotheby's typical profile for a client interested in backing a residential development deal?"
+      },
+      {
+        "name": "David Rothman",
+        "role": "CEO | The Tour Card",
+        "hook": "A UHNW/entertainment founder.",
+        "bullets": [
+          "David is CEO of The Tour Card, UHNW and Entertainment, seed stage, raised $500K.",
+          "Could help with: Sotheby's UHNW clientele overlaps directly with David's target market, even outside real estate specifically."
+        ],
+        "starter": "Does Sotheby's client base ever look at entertainment or lifestyle ventures outside pure real estate?"
+      },
+      {
+        "name": "Randi Seiff",
+        "role": "CEO & Founder | NOBL Collective",
+        "hook": "A luxury-sector founder.",
+        "bullets": [
+          "Randi founded NOBL Collective, Luxury + Circularity + Tech, seed stage, raised $250K.",
+          "Could help with: a brand-level luxury overlap with Sotheby's world, a softer fit than the first two but worth a conversation."
+        ],
+        "starter": "Would Sotheby's luxury clientele have any appetite for a circularity-focused consumer brand?"
       }
     ]
   },
@@ -910,730 +2012,493 @@ const ATTENDEES = [
     "name": "DJ Patel",
     "first_name": "DJ",
     "email": "djpatelemail@gmail.com",
-    "role": "Head of Directs, UV Multi-Family Office",
+    "role": "Head of Direct Investing | uv",
     "matches": [
       {
-        "name": "Ajay Jadhav",
-        "role": "CEO | Clouds Inc.",
-        "hook": "$30M raised in AI for sustainability. Looking for a lead investor tonight.",
+        "name": "Nathaniel Norman",
+        "role": "Principal | Aurelian Labs",
+        "hook": "An investor peer wanting to meet exactly people like DJ.",
         "bullets": [
-          "Ajay is the CEO of Clouds Inc., an AI platform for sustainability and well-being applications that has raised $30M to date. He came to this event specifically to find his lead investor for the next round, which means he's ready to have the real conversation tonight.",
-          "Could help with: Clouds Inc.'s AI infrastructure and sustainability positioning are directly in UV's thesis, and a $30M raised company at this stage with traction is the kind of deal that benefits from an MFO lead. This is a high-priority conversation."
+          "Nathaniel is a Principal at Aurelian Labs, investing in fintech, deeptech and AI infrastructure at seed/early stage, and said he wants to meet others active in startup investing.",
+          "Could help with: DJ's ask was investing partners and deal flow — Nathaniel's stated networking goal and sector overlap make this a direct fit both ways."
         ],
-        "starter": "What does Clouds Inc.'s ideal lead investor bring to the table beyond the check, and what does your round timeline look like?"
+        "starter": "What's the deal flow quality you're seeing in fintech/AI infra right now compared to a year ago?"
+      },
+      {
+        "name": "Joe Metheny",
+        "role": "Investor | Family Office",
+        "hook": "A fellow family-office/VC investor in fintech.",
+        "bullets": [
+          "Joe invests through a family office, VC and family-office capital, AI/ML and fintech, early/seed stage.",
+          "Could help with: direct family-office peer overlap, useful for comparing deal flow and possibly co-investing."
+        ],
+        "starter": "Does your family office co-invest with other direct-investing teams like uv on fintech deals?"
+      },
+      {
+        "name": "Troy Turner",
+        "role": "Investor | Single Family Office",
+        "hook": "Another family office, a direct peer match.",
+        "bullets": [
+          "Troy represents a Single Family Office across AI, Finance, Healthcare and Deep Tech.",
+          "Could help with: DJ explicitly said he wants investing partners — Troy is a direct family-office peer for exactly that kind of relationship."
+        ],
+        "starter": "Has your family office ever looked at direct fintech or healthtech deals the way uv does?"
+      }
+    ]
+  },
+  {
+    "name": "Mark Murin",
+    "first_name": "Mark",
+    "email": "murin.mark@yahoo.com",
+    "role": "Investor | Design Creations",
+    "matches": [
+      {
+        "name": "Moshe Neuman",
+        "role": "CEO | Valued",
+        "hook": "An AI-focused investor matching Mark's stated want.",
+        "bullets": [
+          "Moshe runs Valued, an angel/family-office AI investor at early/seed stage.",
+          "Could help with: Mark's stated who_to_meet was literally 'AI Investors' — Moshe is a direct match."
+        ],
+        "starter": "What AI deals have you backed recently that you're most excited about?"
+      },
+      {
+        "name": "Nathaniel Norman",
+        "role": "Principal | Aurelian Labs",
+        "hook": "An AI-infrastructure VC.",
+        "bullets": [
+          "Nathaniel is a Principal at Aurelian Labs, investing in AI infrastructure, deeptech and fintech.",
+          "Could help with: another direct hit on Mark's stated want to meet AI investors, from a slightly different angle (infrastructure vs. applications)."
+        ],
+        "starter": "Where do you draw the line between an AI infrastructure bet and an AI application bet?"
+      },
+      {
+        "name": "Joe Metheny",
+        "role": "Investor | Family Office",
+        "hook": "An AI/ML-focused VC and family office.",
+        "bullets": [
+          "Joe invests through a family office, VC and family-office capital, AI/ML and fintech, early/seed stage.",
+          "Could help with: a third direct match for Mark's AI-investor networking goal, with fintech overlap as a bonus angle."
+        ],
+        "starter": "What's your read on AI/ML deal quality at seed stage right now versus six months ago?"
+      }
+    ]
+  },
+  {
+    "name": "Shena Nicole",
+    "first_name": "Shena",
+    "email": "hello@shenanicole.com",
+    "role": "Founder | SYNTHOS",
+    "matches": [
+      {
+        "name": "James Flanagan",
+        "role": "Founder & CEO | Pillar & Co",
+        "hook": "A fellow early-stage B2B/SaaS founder.",
+        "bullets": [
+          "James founded Pillar & Co, business infrastructure and data/analytics, early stage.",
+          "Could help with: Shena's SYNTHOS is SaaS/AI at the same stage — direct peer overlap, and both explicitly want to connect with founders and investors."
+        ],
+        "starter": "What's the hardest part of selling B2B SaaS right now that most early-stage founders underestimate?"
       },
       {
         "name": "Kimberly Neer",
-        "role": "Founder, PeridotOS | GTM Advisor",
-        "hook": "A founder and GTM advisor worth adding to your deal pipeline.",
+        "role": "Founder | PeridotOS",
+        "hook": "An early-stage peer with an identical networking goal.",
         "bullets": [
-          "Kimberly is building PeridotOS and advising AI startups on go-to-market strategy. She has the kind of operator credibility that makes her both a potential investment and a useful window into what's working in AI distribution right now.",
-          "Could help with: PeridotOS may be worth evaluating as a direct investment, and Kimberly's advisory network gives you a live signal on which AI companies are executing versus which ones are struggling with distribution."
+          "Kimberly founded PeridotOS, early stage, explicitly looking to connect with founders.",
+          "Could help with: shared stage and shared goal of connecting with other founders — an easy, natural intro."
         ],
-        "starter": "What's the AI product category where you're seeing the most genuine enterprise pull right now, versus the most hype?"
+        "starter": "What's PeridotOS actually building, and where are you stuck right now?"
       },
       {
-        "name": "Sebastian Felipe",
-        "role": "CEO | Redwood North",
-        "hook": "GPU infrastructure and DePIN at the early stage you invest in.",
+        "name": "Moshe Neuman",
+        "role": "CEO | Valued",
+        "hook": "An AI-focused angel investor at Shena's stage.",
         "bullets": [
-          "Sebastian is building Redwood North in the GPU compute and DePIN space. He's a technical founder with a sharp read on the infrastructure economics that most AI investors are still trying to understand from the outside.",
-          "Could help with: GPU infrastructure is foundational to every AI thesis in your portfolio. Sebastian's perspective on how DePIN changes the cost curve is the kind of market intelligence worth getting directly from the operator building in it."
+          "Moshe runs Valued, an angel/family-office AI investor at early/seed stage.",
+          "Could help with: Shena also wants to meet investors for guidance — Moshe's AI angel focus and stage fit directly."
         ],
-        "starter": "How is Redwood North's DePIN model different from centralized GPU providers in terms of the customer value proposition, not just the cost structure?"
+        "starter": "What do you look for in an early-stage SaaS/AI founder before you'll take a second meeting?"
       }
     ]
   },
   {
-    "name": "Nova Phoenix",
-    "first_name": "Nova",
-    "email": "novap@lyfeblood.com",
-    "role": "Founder & CEO, LyfebloodDAO",
+    "name": "Jyrki Rehumaki",
+    "first_name": "Jyrki",
+    "email": "jyrki@bcaster.com",
+    "role": "Partner | BCaster",
     "matches": [
       {
-        "name": "Zheng (Sharon) Zhang",
-        "role": "Lawyer | THC Lawyers",
-        "hook": "The startup and fintech lawyer in the room who has handled DAO structures.",
+        "name": "IFT Network",
+        "role": "CEO/Founder | IFT Network",
+        "hook": "A direct mediatech/entertainment sector match.",
         "bullets": [
-          "Sharon is a startup and fintech lawyer at THC Lawyers with direct experience in digital assets, token structures, and the legal frameworks that DAO-based organizations operate under. She's seen the structural mistakes that cost founders time and money.",
-          "Could help with: LyfebloodDAO's legal structure is as important as its technical architecture. Sharon can tell you where the real exposure is and what governance structures hold up when things get complicated."
+          "IFT Network is an Ecosystem Leader focused on Entertainment & Media, angel investor type, seed stage.",
+          "Could help with: Jyrki's BCaster is mediatech — direct sector overlap with IFT's entertainment/media focus, and both operate with an angel-investor lens too."
         ],
-        "starter": "What's the legal question DAO founders ask you most that most of them don't have a good answer to?"
+        "starter": "What kind of entertainment/media connections is IFT Network most actively building right now?"
       },
       {
-        "name": "Andrew Probasco",
-        "role": "Director of Strategy & Research | Born Global Community",
-        "hook": "A global community builder who understands decentralized membership models.",
+        "name": "David Rothman",
+        "role": "CEO | The Tour Card",
+        "hook": "An entertainment-sector founder.",
         "bullets": [
-          "Andrew runs strategy and research at Born Global Community, a global founder and operator network that has thought seriously about how decentralized or distributed community models work at scale. He brings the global network perspective that LyfebloodDAO's growth needs.",
-          "Could help with: Born Global's international community infrastructure and LyfebloodDAO's decentralized governance model are natural points of intersection. Andrew is the right person to think through how global expansion works for a DAO."
+          "David is CEO of The Tour Card, UHNW and Entertainment, seed stage, raised $500K.",
+          "Could help with: entertainment-sector overlap with BCaster's mediatech business, worth comparing notes on distribution and audience."
         ],
-        "starter": "How does Born Global think about community governance across geographies, and what breaks down at scale?"
-      },
-      {
-        "name": "Andres Fernandez Vilches",
-        "role": "Angel Investor | Mithril Capital LLC",
-        "hook": "An angel investor who evaluates early-stage companies on founder and thesis, not just traction.",
-        "bullets": [
-          "Andres is an angel investor at Mithril Capital with a track record backing founders at the earliest stages. He's open to non-obvious bets when the founder has genuine conviction and the market thesis is specific.",
-          "Could help with: LyfebloodDAO's capital needs at this stage match the kind of check Andres writes. A direct conversation about your model and the problem you're solving is the fastest way to find out if there's a fit."
-        ],
-        "starter": "What does LyfebloodDAO do that a traditional Web3 community platform can't, and who is the ideal member you're building for?"
-      }
-    ]
-  },
-  {
-    "name": "Peter Humphreys",
-    "first_name": "Peter",
-    "email": "petergonz@icloud.com",
-    "role": "Grant Consultant & Growth Lead, Blacklion Consulting / Yorkseed",
-    "matches": [
-      {
-        "name": "Ajay Jadhav",
-        "role": "CEO | Clouds Inc.",
-        "hook": "An AI sustainability company sitting on top of significant grant eligibility.",
-        "bullets": [
-          "Ajay is building Clouds Inc., an AI platform for sustainability and well-being applications. AI for sustainability is one of the most actively funded categories in both federal and private grant programs right now, and Clouds Inc.'s stage and focus make it a natural candidate.",
-          "Could help with: Grant capital for Clouds Inc. would be non-dilutive and additive to whatever Ajay raises in equity. A conversation tonight about which programs are relevant is a fast, high-leverage win for both of you."
-        ],
-        "starter": "What does Clouds Inc.'s sustainability impact look like in measurable terms, and which government or foundation programs have you already explored?"
-      },
-      {
-        "name": "Jill Jahns",
-        "role": "Director of Public Health & Navigation | Legacy Community Health",
-        "hook": "A public health organization that runs on grant capital you can help secure.",
-        "bullets": [
-          "Jill runs public health and navigation programs at Legacy Community Health, a federally qualified health center with deep community roots and active grant needs. Public health organizations like Legacy operate inside the grant ecosystem you work in every day.",
-          "Could help with: Jill's programs at Legacy are exactly the type of mission-driven work that aligns with federal and foundation grant priorities. A direct conversation about current funding gaps is a practical starting point."
-        ],
-        "starter": "What's the program at Legacy that's most underfunded right now relative to its impact, and what does the grant landscape look like for it?"
-      },
-      {
-        "name": "Diallo Molina",
-        "role": "Founder | Anamis",
-        "hook": "A B2B SaaS founder who may not know what non-dilutive capital is available to them.",
-        "bullets": [
-          "Diallo is building Anamis, a B2B SaaS platform, and at this stage most founders are so focused on equity fundraising that they leave grant capital on the table. SBIR, state programs, and sector-specific grants are often available to early-stage software companies that meet the criteria.",
-          "Could help with: A quick conversation about whether Anamis qualifies for any non-dilutive funding is a high-upside, low-effort exchange for both of you. If the fit is there, you make him aware of real money he wasn't going to find on his own."
-        ],
-        "starter": "What's the mission or social impact angle of what Anamis is building, if any, and have you ever looked at grant funding as part of your capital strategy?"
-      }
-    ]
-  },
-  {
-    "name": "Zheng (Sharon) Zhang",
-    "first_name": "Sharon",
-    "email": "szhang@thclawyers.com",
-    "aliases": [
-      "Sharon"
-    ],
-    "role": "Lawyer, THC Lawyers | Startup & Fintech",
-    "matches": [
-      {
-        "name": "Noam Raguan",
-        "role": "Founder | Thrive",
-        "hook": "A stablecoin fintech founder who needs exactly the legal expertise you have.",
-        "bullets": [
-          "Noam is building Thrive, a stablecoin-native fintech platform navigating the intersection of digital assets and consumer finance. The regulatory and structural legal questions in that space are material to whether the company survives its first compliance review.",
-          "Could help with: Your fintech and digital asset legal expertise is directly applicable to what Noam is building at Thrive. This is a conversation that could turn into a client relationship, and getting there tonight is faster than any LinkedIn outreach."
-        ],
-        "starter": "What's the most common legal mistake stablecoin fintech founders make before they've hired their first counsel?"
-      },
-      {
-        "name": "Nova Phoenix",
-        "role": "Founder & CEO | LyfebloodDAO",
-        "hook": "A DAO founder operating in territory where the legal structure is everything.",
-        "bullets": [
-          "Nova is building LyfebloodDAO, a Web3 community and ownership platform where the governance and token structure have real legal implications. Most DAO founders underinvest in legal structure until there's a problem.",
-          "Could help with: LyfebloodDAO's structure, token design, and member agreements all need legal architecture that holds up. Your startup and fintech practice is the right background to help Nova get that right from the start."
-        ],
-        "starter": "What's the governance or token structure decision DAO founders most often make without legal input that comes back to hurt them?"
-      },
-      {
-        "name": "Sebastian Felipe",
-        "role": "CEO | Redwood North",
-        "hook": "A DePIN startup operating in a regulatory space that's still being written.",
-        "bullets": [
-          "Sebastian is building Redwood North in GPU compute and DePIN, a sector where regulatory frameworks are actively forming and the early legal decisions about how the network is structured will matter enormously as it scales.",
-          "Could help with: Your startup legal expertise and understanding of digital infrastructure regulation is exactly what a DePIN company at Redwood North's stage needs. This is a new client conversation that starts with a 10-minute chat tonight."
-        ],
-        "starter": "How does THC Lawyers approach the legal structuring of decentralized infrastructure networks, and what do you see as the biggest open regulatory question in DePIN right now?"
-      }
-    ]
-  },
-  {
-    "name": "Ajay Jadhav",
-    "first_name": "Ajay",
-    "email": "ajay.jadhav@cloudsinc.com",
-    "role": "CEO, Clouds Inc. | AI for Sustainability",
-    "matches": [
-      {
-        "name": "DJ Patel",
-        "role": "Head of Directs | UV Multi-Family Office",
-        "hook": "The most likely lead investor in this room tonight.",
-        "bullets": [
-          "DJ runs direct investments for UV, a multi-family office with an active AI mandate and a team that writes checks fast when the company and founder are right. He came tonight specifically looking for AI founders at the stage and traction level you're at.",
-          "Could help with: You came tonight looking for a lead investor. DJ is the person in this room with the mandate, the capital, and the decision authority to have that conversation tonight rather than next quarter."
-        ],
-        "starter": "What does Clouds Inc.'s lead investor look like in terms of sector expertise and value-add beyond the check?"
-      },
-      {
-        "name": "Andres Fernandez Vilches",
-        "role": "Angel Investor | Mithril Capital LLC",
-        "hook": "An angel with the thesis and timing to write a check in your round.",
-        "bullets": [
-          "Andres is an angel investor at Mithril Capital who backs early-stage technical companies when the founder is sharp and the market is real. He's here tonight with capital to deploy, and AI for sustainability is a thesis that's getting more attention, not less.",
-          "Could help with: Andres is the kind of angel that fills rounds and brings a network with him. A conversation tonight about Clouds Inc.'s mission and traction could move fast if the thesis resonates."
-        ],
-        "starter": "What's the sustainability impact metric that Clouds Inc. is most proud of, and how does it translate into a business model that scales?"
-      },
-      {
-        "name": "Peter Humphreys",
-        "role": "Grant Consultant & Growth Lead | Blacklion Consulting / Yorkseed",
-        "hook": "Non-dilutive capital you probably haven't fully explored yet.",
-        "bullets": [
-          "Peter runs grant consulting at Blacklion Consulting and works with Yorkseed, specifically focused on helping companies find the non-dilutive funding that most founders leave on the table. AI for sustainability is one of the most actively funded categories in federal programs right now.",
-          "Could help with: Clouds Inc. is almost certainly eligible for federal and foundation grant programs that could extend your runway without dilution. A 10-minute conversation with Peter tonight could surface real money you weren't going to find on your own."
-        ],
-        "starter": "Have you explored SBIR or DOE clean tech programs for Clouds Inc., and what does your grant strategy look like right now?"
-      }
-    ]
-  },
-  {
-    "name": "Raquel de Lavandeyra",
-    "first_name": "Raquel",
-    "email": "altcal@icloud.com",
-    "role": "CEO-Founder, AltCal | Consumer Tech",
-    "matches": [
-      {
-        "name": "Andres Fernandez Vilches",
-        "role": "Angel Investor | Mithril Capital LLC",
-        "hook": "An angel investor active in consumer tech at your stage.",
-        "bullets": [
-          "Andres is an angel investor at Mithril Capital who writes early-stage checks and has a track record in consumer and marketplace companies. He came tonight with deal flow on his mind and consumer tech is a space he evaluates seriously.",
-          "Could help with: AltCal's consumer tech positioning and your stage match what Andres backs. A direct 10-minute conversation about AltCal tonight is a faster path to a check conversation than any warm intro chain."
-        ],
-        "starter": "What does AltCal do for a consumer that they can't do with existing calendar or productivity tools, and who is the person you built it for first?"
-      },
-      {
-        "name": "Kimberly Neer",
-        "role": "Founder, PeridotOS | GTM Advisor",
-        "hook": "A GTM advisor who has figured out consumer distribution the hard way.",
-        "bullets": [
-          "Kimberly advises consumer and AI startups on go-to-market strategy and is a founder herself, which means she's solving the same distribution puzzle you are. She knows what early consumer acquisition actually costs and what conversion rates are realistic.",
-          "Could help with: AltCal's consumer GTM strategy is the thing that will determine whether the product gets to scale. Kimberly's direct experience with consumer distribution is exactly the perspective worth getting before your next growth push."
-        ],
-        "starter": "What's the consumer acquisition channel that's been most surprising for AltCal, positive or negative, since you launched?"
-      },
-      {
-        "name": "DJ Patel",
-        "role": "Head of Directs | UV Multi-Family Office",
-        "hook": "MFO capital with a consumer and tech mandate.",
-        "bullets": [
-          "DJ runs direct investments at UV and has backed consumer tech plays before. Multi-family offices at this stage are looking for companies where the consumer behavior is clear and the unit economics are starting to show.",
-          "Could help with: AltCal's consumer tech positioning is in DJ's investment scope. Getting in front of him tonight with a clear retention and engagement story is the right move."
-        ],
-        "starter": "What does AltCal's retention curve look like, and what's the behavior that tells you a user is actually committed to the product?"
-      }
-    ]
-  },
-  {
-    "name": "Jill Jahns",
-    "first_name": "Jill",
-    "email": "jilljahns@gmail.com",
-    "role": "Director of Public Health & Navigation, Legacy Community Health",
-    "matches": [
-      {
-        "name": "Peter Humphreys",
-        "role": "Grant Consultant & Growth Lead | Blacklion Consulting / Yorkseed",
-        "hook": "A grant consultant who works specifically in your funding lane.",
-        "bullets": [
-          "Peter runs grant consulting at Blacklion Consulting and focuses on helping mission-driven organizations find and secure non-dilutive funding. Public health and community health programs are among the most actively funded categories in his network.",
-          "Could help with: Legacy Community Health's programs have genuine grant eligibility that a specialist can unlock faster than an internal team working alone. A direct conversation with Peter tonight about current funding gaps is a practical, high-upside exchange."
-        ],
-        "starter": "What's the program or service line at Legacy where additional grant funding would have the most immediate impact on patient outcomes?"
-      },
-      {
-        "name": "Andrew Probasco",
-        "role": "Director of Strategy & Research | Born Global Community",
-        "hook": "A global community network with real community health intersection points.",
-        "bullets": [
-          "Andrew runs strategy and research at Born Global Community, a global founder and operator network with programs that touch health, technology, and community development across multiple cities. He thinks about community impact at scale.",
-          "Could help with: Born Global's community programs and Legacy Community Health's navigation work have genuine intersection, particularly around health access and community-level outcomes. Andrew is worth knowing for both partnership and network reasons."
-        ],
-        "starter": "Where does Born Global's programming intersect with community health access, and what would a meaningful partnership look like for you?"
-      },
-      {
-        "name": "Ajay Jadhav",
-        "role": "CEO | Clouds Inc.",
-        "hook": "An AI company building for health and well-being outcomes.",
-        "bullets": [
-          "Ajay is building Clouds Inc., an AI platform explicitly focused on sustainability and well-being applications. His company sits at the intersection of AI technology and the kind of health impact outcomes that Legacy Community Health cares about.",
-          "Could help with: Clouds Inc.'s well-being AI capabilities may have direct application in Legacy's patient navigation and community health programs. This is an early-stage partnership conversation worth having while the product is still being shaped."
-        ],
-        "starter": "What does well-being mean in the context of Clouds Inc.'s AI platform, and which health outcomes are you specifically trying to improve?"
-      }
-    ]
-  },
-  {
-    "name": "Diallo Molina",
-    "first_name": "Diallo",
-    "email": "molinadiallo@gmail.com",
-    "role": "Founder, Anamis | B2B SaaS",
-    "matches": [
-      {
-        "name": "Noel Guinane",
-        "role": "Managing Partner | Blood & Treasure LLC",
-        "hook": "An investor with a B2B mandate who came specifically to find founders.",
-        "bullets": [
-          "Noel is a managing partner and active investor with a portfolio that spans enterprise software and operational tech. He came tonight to meet founders who have done the work, and B2B SaaS with real customer validation is exactly what he looks for.",
-          "Could help with: Anamis is at the stage where the right investor relationship changes everything. Noel's direct investment experience and network are worth a real conversation tonight rather than a follow-up email next week."
-        ],
-        "starter": "What does Anamis's best current enterprise customer use the product to do, and what does their workflow look like 90 days after onboarding?"
-      },
-      {
-        "name": "Kimberly Neer",
-        "role": "Founder, PeridotOS | GTM Advisor",
-        "hook": "A GTM advisor who has navigated the B2B distribution problem you're in.",
-        "bullets": [
-          "Kimberly advises B2B and AI startups on go-to-market and is building PeridotOS herself. She's living through the same enterprise sales and distribution challenges you're working through at Anamis, which makes her advice specific rather than theoretical.",
-          "Could help with: Anamis's B2B GTM motion is the make-or-break for whether the product reaches the customers that matter. Kimberly's direct experience with enterprise distribution is exactly the perspective worth getting while your sales model is still being refined."
-        ],
-        "starter": "What's the enterprise GTM assumption you went into Anamis with that you've had to revise most significantly since launch?"
-      },
-      {
-        "name": "Andres Fernandez Vilches",
-        "role": "Angel Investor | Mithril Capital LLC",
-        "hook": "An angel investor who writes early B2B SaaS checks.",
-        "bullets": [
-          "Andres is an angel investor at Mithril Capital with experience backing early-stage software companies. He evaluates founders on the strength of their conviction and the specificity of their customer understanding, and he makes decisions without a 12-week process.",
-          "Could help with: Anamis is at exactly the stage where an angel check from the right investor opens the next door. A direct conversation with Andres tonight about your customer traction and expansion plan is the fastest path to finding out if there's a fit."
-        ],
-        "starter": "What's the enterprise pain point Anamis is solving, and what does the ROI story look like for a customer six months in?"
-      }
-    ]
-  },
-  {
-    "name": "Tatyana Jones",
-    "first_name": "Tatyana",
-    "email": "tatyana.jones@defi-snacks.com",
-    "role": "Founder & CEO, DEFI Snacks | CPG",
-    "matches": [
-      {
-        "name": "Andres Fernandez Vilches",
-        "role": "Angel Investor | Mithril Capital LLC",
-        "hook": "An angel investor who backs consumer brands when the founder is exceptional.",
-        "bullets": [
-          "Andres is an angel investor at Mithril Capital with a portfolio that spans consumer and early-stage companies. He evaluates consumer brands on founder quality and the clarity of the distribution thesis, and CPG is a space where he's made bets before.",
-          "Could help with: DEFI Snacks is at the stage where the right angel capital and network unlocks the retail and distribution relationships that matter. Andres is worth the conversation tonight to find out if the thesis clicks."
-        ],
-        "starter": "What's the distribution strategy for DEFI Snacks, and what does the path from DTC to retail look like for you?"
-      },
-      {
-        "name": "DJ Patel",
-        "role": "Head of Directs | UV Multi-Family Office",
-        "hook": "An MFO that writes direct consumer checks.",
-        "bullets": [
-          "DJ runs direct investments at UV and evaluates consumer brands that have genuine product-market fit and a clear path to retail or channel scale. Multi-family offices can be patient capital for CPG companies that take longer to mature.",
-          "Could help with: DJ's MFO mandate and consumer investment experience make him a realistic capital conversation for DEFI Snacks. Getting his read on your traction and growth plan tonight is worth doing."
-        ],
-        "starter": "What's DEFI Snacks' best retail or sales channel right now, and what does the unit economics look like at current scale?"
-      },
-      {
-        "name": "Jon Parks",
-        "role": "CEO | daRosario LLC",
-        "hook": "An event producer with deep CPG and brand activation relationships.",
-        "bullets": [
-          "Jon runs daRosario LLC and has produced events across the consumer, hospitality, and brand activation space. His production network includes the kind of brand and retail relationships that CPG founders spend years building.",
-          "Could help with: DEFI Snacks' brand visibility and consumer activation strategy is the kind of work Jon's network is built to accelerate. A conversation about what distribution and event partnerships look like for a CPG brand at your stage is worth having."
-        ],
-        "starter": "What does DEFI Snacks' ideal brand activation look like, and have you explored event-based sampling or retail pop-up formats?"
-      }
-    ]
-  },
-  {
-    "name": "Andres Fernandez Vilches",
-    "first_name": "Andres",
-    "email": "andres@fernandezvilches.com",
-    "role": "Angel Investor, Mithril Capital LLC",
-    "matches": [
-      {
-        "name": "Ajay Jadhav",
-        "role": "CEO | Clouds Inc.",
-        "hook": "$30M raised in AI and sustainability. Looking for a lead tonight.",
-        "bullets": [
-          "Ajay is the CEO of Clouds Inc., an AI for sustainability platform that has raised $30M and is actively looking for a lead investor for its next round. He has the traction, the team, and the conviction, and he came tonight to have the right conversations.",
-          "Could help with: Clouds Inc. is the kind of AI company that fits an angel's deal pipeline as either a co-investment or a direct check alongside a lead. A real 15-minute conversation with Ajay tonight is worth doing before someone else leads this round."
-        ],
-        "starter": "What does Clouds Inc.'s ideal lead investor look like, and what does your next 18 months look like if you close this round on your terms?"
-      },
-      {
-        "name": "Diallo Molina",
-        "role": "Founder | Anamis",
-        "hook": "A B2B SaaS founder at exactly the stage where the right angel matters.",
-        "bullets": [
-          "Diallo is building Anamis, a B2B SaaS platform with real customer traction. He's at the stage where one well-networked angel investor changes the trajectory, and he came tonight to find the people worth knowing.",
-          "Could help with: Anamis's enterprise traction and B2B model are exactly the early-stage bet you evaluate. A direct conversation tonight about the customer story and expansion plan is the right first step."
-        ],
-        "starter": "What's the enterprise problem Anamis solves, and what does your best customer look like six months into using the product?"
-      },
-      {
-        "name": "Tatyana Jones",
-        "role": "Founder & CEO | DEFI Snacks",
-        "hook": "A CPG founder building a brand with a real consumer thesis.",
-        "bullets": [
-          "Tatyana is the founder of DEFI Snacks, a consumer CPG brand with a clear product vision and a growing customer base. Consumer brands at this stage are the kind of bet that requires an investor who understands that CPG timelines and tech timelines are different.",
-          "Could help with: DEFI Snacks' brand story and distribution progress make it a realistic early-stage CPG investment. A direct conversation with Tatyana about her growth plan and capital needs tonight is worth the 10 minutes."
-        ],
-        "starter": "What's the DEFI Snacks customer who buys repeatedly and tells their friends, and what does reaching more of that person look like?"
-      }
-    ]
-  },
-  {
-    "name": "Daniel Stern",
-    "first_name": "Daniel",
-    "email": "dbstern4@gmail.com",
-    "role": "CEO, Journeyman Software | B2B SaaS",
-    "matches": [
-      {
-        "name": "Noel Guinane",
-        "role": "Managing Partner | Blood & Treasure LLC",
-        "hook": "An investor who came specifically to meet B2B SaaS founders doing the work.",
-        "bullets": [
-          "Noel is a managing partner at Blood & Treasure with a portfolio that spans enterprise software and operational tech. He doesn't show up to events without intent, and a Salesforce-native MVP with deep domain expertise is exactly the kind of early-stage story he evaluates.",
-          "Could help with: Journeyman Software is at seed stage with a real MVP, which is the profile Noel's investment mandate is built for. A direct conversation tonight about your customer validation and the moat you're building is the fastest path to a term sheet conversation."
-        ],
-        "starter": "What's the concentrated market Journeyman is targeting, and what does the competitive dynamic look like for a Salesforce-native B2B SaaS at this stage?"
-      },
-      {
-        "name": "Andres Fernandez Vilches",
-        "role": "Angel Investor | Mithril Capital LLC",
-        "hook": "An angel who moves fast when the founder-market fit is obvious.",
-        "bullets": [
-          "Andres is an angel investor at Mithril Capital who backs early-stage technical founders when the problem is real and the founder has genuine domain expertise. B2B SaaS with a defensible market and a founder who built the product themselves is a profile he knows how to evaluate.",
-          "Could help with: Journeyman Software's Salesforce-native positioning and your co-founder setup are the kind of early signals Andres looks for before a product fully scales. A 10-minute conversation tonight about your customer thesis could move fast."
-        ],
-        "starter": "What's the durable competitive advantage in Journeyman's market, and why are you and your co-founder the right team to own it?"
-      },
-      {
-        "name": "Kimberly Neer",
-        "role": "Founder, PeridotOS | GTM Advisor",
-        "hook": "A GTM advisor who has navigated enterprise B2B distribution from both sides.",
-        "bullets": [
-          "Kimberly advises enterprise and AI startups on go-to-market strategy and is building PeridotOS herself. She's worked through the same Salesforce ecosystem and enterprise sales questions that Journeyman is navigating at the MVP stage.",
-          "Could help with: Journeyman's GTM strategy inside the Salesforce ecosystem is the distribution question that determines whether the product reaches its first 20 customers or stalls. Kimberly's direct enterprise GTM experience is exactly the perspective worth getting before you scale."
-        ],
-        "starter": "What's your strategy for getting the first 10 enterprise customers on Journeyman, and have you started working the Salesforce AppExchange or ISV channel?"
-      }
-    ]
-  },
-  {
-    "name": "Stony Grunow",
-    "first_name": "Stony",
-    "email": "stony@breadwinner.com",
-    "role": "Founder, Kipper | AI Data Migrations",
-    "matches": [
-      {
-        "name": "Daniel Fischer",
-        "role": "Director of AI | M Securities",
-        "hook": "An AI and quant operator living inside the data migration problem you solve.",
-        "bullets": [
-          "Daniel runs AI and quantitative research at M Securities, which means he operates institutional data infrastructure at scale and deals with the exact migration, integration, and quality issues that Kipper is built to eliminate. He is your customer, or close to it.",
-          "Could help with: A direct conversation with Daniel about the data migration pain points at M Securities is your best possible market research and sales qualification call. If Kipper solves his problem, you'll know in 15 minutes."
-        ],
-        "starter": "What does data migration at M Securities actually cost you in time and engineering resources, and what does a failed migration look like in practice?"
-      },
-      {
-        "name": "DJ Patel",
-        "role": "Head of Directs | UV Multi-Family Office",
-        "hook": "An AI infrastructure investor looking for the companies building the essential layer.",
-        "bullets": [
-          "DJ runs direct investments at UV with an active AI infrastructure mandate. Data migration is exactly the kind of technical infrastructure problem that sophisticated investors understand is both unglamorous and enormously valuable once the product works.",
-          "Could help with: Kipper's AI-powered data migration positioning is the kind of technical infrastructure bet DJ evaluates. Getting your thesis in front of him tonight with the right customer evidence is a real investment conversation."
-        ],
-        "starter": "What's Kipper's best customer story, and what does the before-and-after migration timeline look like for them?"
-      },
-      {
-        "name": "Andres Fernandez Vilches",
-        "role": "Angel Investor | Mithril Capital LLC",
-        "hook": "An early-stage technical company is exactly what Andres backs.",
-        "bullets": [
-          "Andres is an angel investor at Mithril Capital who backs technical founders with a specific problem and real customer validation. AI infrastructure tools that solve painful enterprise problems are the kind of bet he evaluates seriously.",
-          "Could help with: Kipper's AI data migration tool sits squarely in the enterprise infrastructure space Andres understands. A direct conversation tonight about your customer traction and the scope of the problem is the fastest path to a real capital conversation."
-        ],
-        "starter": "What makes Kipper's AI approach to data migrations materially better than what an enterprise team does manually or with existing ETL tools?"
-      }
-    ]
-  },
-  {
-    "name": "Tim Stonelake",
-    "first_name": "Tim",
-    "email": "tim@breathesea.com",
-    "role": "CEO, Halite | Wellness Hardware",
-    "matches": [
-      {
-        "name": "Andres Fernandez Vilches",
-        "role": "Angel Investor | Mithril Capital LLC",
-        "hook": "The person who put you in the room - make sure the conversation goes deeper than a hello.",
-        "bullets": [
-          "Andres is an angel at Mithril Capital writing early checks across consumer, deep tech, and fintech. He's the reason you're here tonight, which means the rapport is already established and the introduction is already warm.",
-          "Could help with: An angel who moves fast when the founder-market fit is clear is exactly what a capital-efficient hardware founder with a validated MVP needs next. Halite's wellness thesis and your traction to date puts you in a strong position to have a serious funding conversation with Andres tonight."
-        ],
-        "starter": "You've seen a lot of hardware bets - what's the signal that tells you a wellness hardware founder has actually solved the distribution problem, not just the product problem?"
-      },
-      {
-        "name": "DJ Patel",
-        "role": "Head of Directs | UV Multi-Family Office",
-        "hook": "Patient capital with a healthtech mandate - and he came tonight to write checks.",
-        "bullets": [
-          "DJ is Head of Directs at UV, a multi-family office writing angel and direct checks across AI, healthtech, and fintech. He came tonight specifically primed for warm founder introductions, and MFO capital tends to be patient and conviction-driven.",
-          "Could help with: Halite is a wellness hardware company with a validated MVP and early traction - exactly the profile a healthtech-focused MFO evaluates at the direct investment level. UV's mandate and patience as capital makes DJ a meaningful first institutional conversation for a founder at your stage."
-        ],
-        "starter": "What does a wellness hardware company need to show a healthtech-focused multi-family office to get from a warm intro to a term sheet conversation?"
-      },
-      {
-        "name": "Kimberly Neer",
-        "role": "Founder, PeridotOS | GTM Advisor",
-        "hook": "She referred you tonight - make sure the conversation earns that endorsement.",
-        "bullets": [
-          "Kimberly is a founder and GTM advisor who has navigated enterprise and consumer distribution from both sides of the table. She referred you to this room, which means she already sees something worth backing with her reputation.",
-          "Could help with: Consumer hardware has a notoriously hard distribution problem - the product is only half the story. Kimberly's GTM background and network makes her one of the most valuable conversations in the room for a wellness hardware founder trying to crack the channel and positioning questions that hardware companies almost always underestimate."
-        ],
-        "starter": "What's the consumer hardware GTM mistake you see most often, and what did the founders who got it right do differently in year one?"
-      }
-    ]
-  },
-  {
-    "name": "Heather",
-    "first_name": "Heather",
-    "email": "flower.leex@gmail.com",
-    "role": "Founder, Savaho / Fresh Clean Laundry | Laundromat Operating System",
-    "matches": [
-      {
-        "name": "Kimberly Neer",
-        "role": "Founder, PeridotOS | GTM Advisor",
-        "hook": "She referred you tonight - make sure the conversation earns that endorsement.",
-        "bullets": [
-          "Kimberly is a founder and GTM advisor building PeridotOS herself, and she's the reason you're in the room tonight. She already sees something in what you're building, so the introduction is warm before you say a word.",
-          "Could help with: Selling software into laundromats means reaching owner-operators who are busy, hands-on and wary of new tools. Kimberly's go-to-market background makes her the right person to pressure-test who you sell to first, how you reach them, and how you price an operating system for a traditional small business."
-        ],
-        "starter": "When you're selling a new operating system into a traditional small-business category like laundromats, what's the first channel you'd test, and what would tell you it's working?"
-      },
-      {
-        "name": "Andres Fernandez Vilches",
-        "role": "Angel Investor | Mithril Capital LLC",
-        "hook": "An angel who writes early checks - the right first capital conversation for you.",
-        "bullets": [
-          "Andres is an angel investor at Mithril Capital writing early checks across consumer, deep tech and fintech. He backs founders with a specific problem and an MVP in hand, which is where you are now.",
-          "Could help with: You haven't raised yet and you came to meet investors. Andres is the person in the room to tell you what an angel needs to see from a vertical software company before a first check, and whether a laundromat operating system is the kind of bet he'd take."
-        ],
-        "starter": "For a founder who hasn't raised yet but has an MVP, what's the one proof point that would get you to a second conversation?"
+        "starter": "Is there a media or broadcast angle to The Tour Card that could intersect with mediatech?"
       },
       {
         "name": "Noel Guinane",
-        "role": "Managing Partner | Blood & Treasure LLC",
-        "hook": "An investor with a B2B mandate who came specifically to find founders.",
+        "role": "Managing Partner | Blood & Treasure, LLC",
+        "hook": "A fellow angel investor, for peer networking.",
         "bullets": [
-          "Noel is a managing partner at Blood & Treasure with a portfolio that spans enterprise software and operational tech. He came tonight to meet founders who are doing the work, and software that runs a real-world operation is squarely in that lane.",
-          "Could help with: A laundromat operating system is operational tech for an under-digitized industry. Noel can tell you how investors size a vertical software market like this one, and what traction would make it fundable."
+          "Noel is Managing Partner at Blood & Treasure, LLC, an angel/VC investor.",
+          "Could help with: Jyrki's own ask was 'investor and peers' — Noel is a direct angel-investor peer to compare notes with."
         ],
-        "starter": "How do you think about vertical software for a fragmented, owner-operated industry like laundromats, and what would you want to see first: more locations, more revenue per location, or both?"
+        "starter": "What's your read on angel-check activity in mediatech and adjacent sectors right now?"
       }
     ]
   },
   {
-    "name": "Michael Zung",
-    "first_name": "Mike",
-    "aliases": [
-      "Michael"
-    ],
-    "email": "mzung@kolby.co",
-    "role": "Managing Director, Kolby | Head of GTM, CustomersAI | 2x Founder, 2x Exit",
+    "name": "Leonid Tarasov",
+    "first_name": "Leonid",
+    "email": "ltarasov@klotho-capital.com",
+    "role": "CEO | Klotho Capital",
     "matches": [
       {
-        "name": "Mark Nguyen",
-        "role": "Founder | The Well Network",
-        "hook": "He invited you tonight - start with the person who knows why you're in this room.",
+        "name": "Chad McClennan",
+        "role": "President & CEO | Koios Medical",
+        "hook": "Exactly the post-round-A founder profile Leonid named.",
         "bullets": [
-          "Mark founded The Well Network, a curated community built so the right founders, operators and investors find each other. He's the one who invited you, so he already has a view on who in this room you should meet.",
-          "Could help with: You came looking for the right partner for the business. Mark knows the room better than anyone you'll meet tonight, and he can point you straight to the two or three people worth your time."
+          "Chad is President & CEO of Koios Medical, Series A and beyond, with $40M raised.",
+          "Could help with: Leonid's stated want was literally 'post-round A founders' — Chad is a direct, named match for Klotho's venture-debt thesis."
         ],
-        "starter": "You know this room - who are the two people here you'd put in front of a growth-stage eCommerce and AI business looking for the right partner?"
+        "starter": "At what revenue point would Koios Medical be ready to consider venture debt alongside equity?"
       },
       {
-        "name": "Tatyana Jones",
-        "role": "Founder & CEO | DEFI Snacks",
-        "hook": "A CPG founder building exactly the kind of brand you've scaled and sold.",
+        "name": "Dan -",
+        "role": "Managing Director | ThinkStern Ventures",
+        "hook": "A fellow VC in healthcare/deeptech, for co-investment and referrals.",
         "bullets": [
-          "Tatyana is the founder and CEO of DEFI Snacks, a consumer CPG brand. You built Bloomist into a DTC brand and sold it, and you now run GTM for CustomersAI, which helps brands turn site visitors into known customers.",
-          "Could help with: This one works both ways. You can tell her what actually moved the needle in DTC growth and retention, and she's the kind of growing consumer brand a partnership could be built around."
+          "Dan is Managing Director at ThinkStern Ventures, healthcare and deeptech, Series A and beyond.",
+          "Could help with: a peer-level conversation more than a portfolio fit — Dan's Series A+ healthcare/deeptech portfolio companies are exactly who Leonid wants referred to him."
         ],
-        "starter": "Where are most of your sales coming from right now - your own site, retail or marketplaces - and which one are you trying to grow next?"
+        "starter": "Which of your Series A+ portfolio companies might be ready for venture debt alongside their next raise?"
       },
       {
-        "name": "DJ Patel",
-        "role": "Head of Directs | UV Multi-Family Office",
-        "hook": "Patient capital with an AI mandate - worth knowing for a growth-stage business.",
+        "name": "Kirill Lopatin",
+        "role": "CEO & Founder | xAID",
+        "hook": "A growth-stage medtech founder, though not clearly post-Series A.",
         "bullets": [
-          "DJ runs direct investments at UV, a multi-family office writing direct checks across AI, consumer, healthtech and fintech. He came tonight looking for founders at a stage where his capital makes a real difference.",
-          "Could help with: You've raised $5M+ before and you're building at growth stage in eCommerce and AI. A multi-family office can be a longer-term capital partner than a fund, and DJ can tell you what UV looks for in a direct deal."
+          "Kirill is CEO & Founder of xAID, MedTech, growth stage, raised $2.5M.",
+          "Could help with: a softer fit than Chad — xAID isn't clearly post-Series A yet, but it's close enough in stage to be worth a conversation."
         ],
-        "starter": "When UV does a direct deal in an AI or eCommerce company, what makes it a long-term partnership rather than just a check?"
+        "starter": "How close is xAID to a Series A, and would venture debt make sense alongside it?"
       }
     ]
   },
   {
-    "name": "Roberto Guzman",
-    "first_name": "Roberto",
-    "email": "grupoguzman@gmail.com",
-    "role": "Founder & CEO, Zazonix | Vertical AI for Food & Restaurants",
+    "name": "Hall Wang",
+    "first_name": "Hall",
+    "email": "hall.wang@pwc.com",
+    "role": "Engagement Manager | Strategy&",
     "matches": [
       {
-        "name": "Andres Fernandez Vilches",
-        "role": "Angel Investor | Mithril Capital LLC",
-        "hook": "An angel who writes early checks - the pre-seed conversation you came for.",
+        "name": "Frank Yu",
+        "role": "Founder | Blackchamber AI",
+        "hook": "A cybersecurity/defense-adjacent AI founder matching Hall's stated interest.",
         "bullets": [
-          "Andres is an angel investor at Mithril Capital writing early checks across consumer, deep tech and fintech. He backs founders with a specific problem and a product taking shape, which is where Zazonix is now.",
-          "Could help with: You're bootstrapped and preparing your first restaurant pilots. Andres can tell you what an angel needs to see from a consumer AI platform before a first check, and which pilot results would make that conversation easy."
+          "Frank founded Blackchamber AI, cybersecurity and personal AI, early stage.",
+          "Could help with: Hall said directly he wants to help innovators in Health Tech or Defense Tech — Frank's cybersecurity focus is a direct hit on the defense-tech side."
         ],
-        "starter": "For a consumer AI platform about to run its first restaurant pilots, what result from those pilots would get you to a second meeting?"
+        "starter": "How close is Blackchamber AI's work to actual defense-tech applications versus commercial cybersecurity?"
       },
       {
-        "name": "Tatyana Jones",
-        "role": "Founder & CEO | DEFI Snacks",
-        "hook": "A food founder who has already been through the early-customer grind.",
+        "name": "Chad McClennan",
+        "role": "President & CEO | Koios Medical",
+        "hook": "A medtech/AI founder matching Hall's Health Tech interest.",
         "bullets": [
-          "Tatyana founded DEFI Snacks, a consumer CPG brand, so she knows first-hand how food products win their first customers and retail partners.",
-          "Could help with: Zazonix needs food places and diners on board at the same time. Tatyana can share what actually convinced shops and restaurants to say yes early on, and you can offer your tech and marketing experience in return."
+          "Chad is President & CEO of Koios Medical, Medtech/AI/SaaS, Series A and beyond, raised $40M.",
+          "Could help with: direct match to the Health Tech half of Hall's stated interest, at a stage mature enough to actually use his connections."
         ],
-        "starter": "When you were landing your first food and retail partners, what made a small business owner say yes to something new?"
+        "starter": "What kind of strategic insight or connections would move the needle for Koios Medical right now?"
       },
       {
-        "name": "Michael Zung",
-        "role": "Head of GTM, CustomersAI | 2x Founder, 2x Exit",
-        "hook": "A two-time founder who has launched and sold consumer brands.",
+        "name": "Kirill Lopatin",
+        "role": "CEO & Founder | xAID",
+        "hook": "A medtech founder matching the same Health Tech interest.",
         "bullets": [
-          "Mike built the DTC brand Bloomist and sold it, and now runs go-to-market for CustomersAI, which helps brands turn website visitors into known customers.",
-          "Could help with: Early customer acquisition is the hard part of launching a consumer platform. Mike can help you think through how to win your first diners in North Hudson and how to turn restaurant pilots into a repeatable channel."
+          "Kirill is CEO & Founder of xAID, MedTech, growth stage, raised $2.5M.",
+          "Could help with: another direct Health Tech match for Hall's stated offer of insights and connections."
         ],
-        "starter": "If you were launching a consumer food platform in one neighborhood with no ad budget, what are the first three things you'd do to get diners?"
+        "starter": "What's the biggest connection gap xAID has right now that strategic insight could help close?"
       }
     ]
   },
   {
-    "name": "Rob Colorina",
-    "first_name": "Rob",
-    "aliases": [
-      "Robert"
-    ],
-    "email": "rocolorina@hotmail.com",
-    "role": "Director / Advisor, American Industrial Acquisition Co. (AIAC Group)",
+    "name": "Sayeeka Farnaz",
+    "first_name": "Sayeeka",
+    "email": "sayeeka.farnaz@gmail.com",
+    "role": "Founder | Qlogue",
     "matches": [
       {
-        "name": "Tim Stonelake",
-        "role": "CEO | Halite",
-        "hook": "A hardware founder - the kind of company AIAC knows how to build and scale.",
+        "name": "Noel Guinane",
+        "role": "Managing Partner | Blood & Treasure, LLC",
+        "hook": "An angel/VC investor in fintech.",
         "bullets": [
-          "Tim is building Halite, a wellness hardware company. Physical products live or die on manufacturing, supply chain and margins, which is exactly where AIAC operates across its industrial portfolio.",
-          "Could help with: Your board seats and manufacturing background make you a rare conversation for a hardware founder. You can pressure-test his path from prototype to production, and see whether it's a fit for AIAC's technology side."
+          "Noel is Managing Partner at Blood & Treasure, LLC, an angel/VC investor in fintech and neurotech.",
+          "Could help with: Sayeeka's Qlogue is financial services at early stage — direct sector match with Noel's fintech focus and his stated search for credible founders."
         ],
-        "starter": "Where does Halite make its hardware today, and what has to be true about margins before you scale production?"
+        "starter": "What would make Qlogue stand out to you versus the other fintech pitches you see?"
       },
       {
-        "name": "Ajay Jadhav",
-        "role": "CEO | Clouds Inc.",
-        "hook": "A founder who came tonight to find a lead investor for his next round.",
+        "name": "Joe Metheny",
+        "role": "Investor | Family Office",
+        "hook": "A fintech-focused VC/family office.",
         "bullets": [
-          "Ajay is the CEO of Clouds Inc., an AI platform for sustainability and well-being that has raised $30M to date. He came specifically to find his lead investor, so he's ready for a real conversation.",
-          "Could help with: Sustainability and AI meet industrial companies in practice. With AIAC's presence in over 20 countries and your work with multinationals like Siemens and Suez, you can tell quickly whether Clouds has an industrial angle worth pursuing."
+          "Joe invests through a family office, VC and family-office capital, AI/ML and fintech, early/seed stage.",
+          "Could help with: another direct fintech-sector match at Sayeeka's exact stage."
         ],
-        "starter": "Which industries are buying Clouds today, and where would a manufacturing or industrial partner change your growth curve?"
+        "starter": "What's your bar for an early-stage financial-services company before you'll engage seriously?"
       },
       {
-        "name": "Sebastian Felipe",
-        "role": "CEO | Redwood North",
-        "hook": "Infrastructure, not apps - GPU compute is hardware economics at heart.",
+        "name": "Bryan Lugassy",
+        "role": "CEO | Blueberries.",
+        "hook": "A fintech founder in a similar fundraising position.",
         "bullets": [
-          "Sebastian is building Redwood North in GPU compute and DePIN, the physical infrastructure AI depends on. It is capital-intensive and hardware-driven, closer to industrial investing than most AI deals in the room.",
-          "Could help with: You've seen corporate, growth and turnaround situations across industrial and technology companies. You're well placed to judge his capital plan and how he finances hardware ahead of revenue."
+          "Bryan is CEO of Blueberries., fintech, seed stage, raised ~$500K.",
+          "Could help with: peer-level fintech overlap, worth comparing fundraising notes and investor leads."
         ],
-        "starter": "How are you financing the GPU hardware itself - equity, debt or partners - and what does a good unit of compute return?"
+        "starter": "Who have you found actually investing in financial-services startups at our stage?"
       }
     ]
   },
   {
-    "name": "Christina Wong",
-    "first_name": "Christina",
-    "email": "christina.junyi@hotmail.com",
-    "role": "Founder, Lumen Studio | Helping Asian Brands Enter North America",
+    "name": "Joe Metheny",
+    "first_name": "Joe",
+    "email": "joemetheny@gmail.com",
+    "role": "Investor | Family Office",
     "matches": [
       {
-        "name": "DJ Patel",
-        "role": "Head of Directs | UV Multi-Family Office",
-        "hook": "The family office you said you wanted to meet.",
+        "name": "Bryan Lugassy",
+        "role": "CEO | Blueberries.",
+        "hook": "A fintech founder at exactly his stated stage.",
         "bullets": [
-          "DJ runs direct investments at UV, a multi-family office writing angel and direct checks. He's here tonight to meet founders and build relationships early, before a round is on the table.",
-          "Could help with: You want to meet family offices and VCs. DJ can tell you how a family office looks at an early, pre-raise company, and what would put Lumen Studio on his radar."
+          "Bryan is CEO of Blueberries., fintech, seed stage, raised ~$500K, actively looking for investors.",
+          "Could help with: Joe's focus is AI/ML and fintech at early/seed stage — Bryan matches both sector and stage directly."
         ],
-        "starter": "When you meet a founder who hasn't raised yet, what makes you keep the conversation going?"
+        "starter": "What traction does Blueberries have that would make a family-office check worth writing today?"
       },
       {
-        "name": "Andrew Probasco",
-        "role": "Director of Strategy & Research | Born Global Community",
-        "hook": "A network built around founders who expand across borders.",
+        "name": "Kevin Ghim",
+        "role": "CEO | Summoner",
+        "hook": "An AI founder at seed stage.",
         "bullets": [
-          "Andrew runs strategy and research at Born Global Community, a global network of founders and operators. Cross-border growth is the whole point of what you do for Asian brands.",
-          "Could help with: Lumen Studio helps Asian brands build credibility and partnerships in North America. Andrew can point you to founders in his community expanding into the US, and partners worth knowing."
+          "Kevin is CEO of Summoner, AI and supply chain, seed stage, raised $100K.",
+          "Could help with: direct AI/stage match for Joe's mandate, with an added supply-chain angle worth exploring."
         ],
-        "starter": "Which founders in Born Global are trying to break into the US market right now?"
+        "starter": "How does AI actually change the supply-chain problem Summoner's solving, versus just automating it?"
+      },
+      {
+        "name": "Shawn Yang",
+        "role": "Founder | SparkLift",
+        "hook": "An AI founder at early stage.",
+        "bullets": [
+          "Shawn founded SparkLift, agentic AI/design, early stage, bootstrapped.",
+          "Could help with: another AI/stage match, worth a conversation even though SparkLift is earlier than Joe's typical seed focus."
+        ],
+        "starter": "What's the agentic-AI thesis behind SparkLift, and how far along is the product?"
+      }
+    ]
+  },
+  {
+    "name": "Savitri Lazarus",
+    "first_name": "Savitri",
+    "email": "savitri.lazarus@brodskyegroup.com",
+    "role": "Founder / Investor | The Sangray / Boardy",
+    "matches": [
+      {
+        "name": "Jared Lerner",
+        "role": "Founder | Nappr",
+        "hook": "A direct sector match in hospitality.",
+        "bullets": [
+          "Jared founded Nappr, Travel/Hospitality and Health & Wellness, seed stage, raised $95K F&F.",
+          "Could help with: Savitri's own sector is Luxury Experiential Hospitality — direct overlap with Jared's travel/hospitality focus, and she's an active angel/VC investor who could actually write a check."
+        ],
+        "starter": "What's missing from most hospitality products that a luxury-experience operator like you would actually pay for?"
+      },
+      {
+        "name": "Randi Seiff",
+        "role": "CEO & Founder | NOBL Collective",
+        "hook": "A luxury-sector founder.",
+        "bullets": [
+          "Randi founded NOBL Collective, Luxury + Circularity + Tech, seed stage, raised $250K.",
+          "Could help with: direct luxury-sector overlap, and Savitri's superconnector instinct makes her a natural bridge to the right partners."
+        ],
+        "starter": "Where do luxury hospitality and luxury consumer product overlap most in your experience?"
+      },
+      {
+        "name": "David Rothman",
+        "role": "CEO | The Tour Card",
+        "hook": "A UHNW/entertainment founder.",
+        "bullets": [
+          "David is CEO of The Tour Card, UHNW and Entertainment, seed stage, raised $500K.",
+          "Could help with: luxury/UHNW overlap with Savitri's own experiential hospitality world."
+        ],
+        "starter": "Does your UHNW client base overlap with the entertainment space The Tour Card is building for?"
+      }
+    ]
+  },
+  {
+    "name": "Alina Kuderska",
+    "first_name": "Alina",
+    "email": "kuderskaalina@gmail.com",
+    "role": "Founder | Sparkies",
+    "matches": [
+      {
+        "name": "Moshe Neuman",
+        "role": "CEO | Valued",
+        "hook": "A broad angel investor open on sector.",
+        "bullets": [
+          "Moshe runs Valued, an angel/family-office investor explicitly looking for 'great founders,' open on sector.",
+          "Could help with: no dedicated accessibility-tech investor attended, so this is the most honest available fit — Moshe's open mandate is the closest thing to a real angel conversation."
+        ],
+        "starter": "What would it take for an adaptive-design company to fit inside your investment thesis?"
+      },
+      {
+        "name": "Shena Nicole",
+        "role": "Founder | SYNTHOS",
+        "hook": "An early-stage peer offering cross-industry connections.",
+        "bullets": [
+          "Shena founded SYNTHOS, SaaS/AI, early stage, and explicitly offered to make connections across industries.",
+          "Could help with: Shena's stated offer of cross-industry connections is a genuinely useful resource for Alina even without a direct sector tie."
+        ],
+        "starter": "Who in your network might actually care about adaptive design for people with disabilities?"
+      },
+      {
+        "name": "Kimberly Neer",
+        "role": "Founder | PeridotOS",
+        "hook": "An early-stage peer with an open founder-networking goal.",
+        "bullets": [
+          "Kimberly founded PeridotOS, early stage, looking to connect with founders.",
+          "Could help with: an honest networking stretch — no accessibility-tech specialist was at the event, so this is peer support rather than a sector match."
+        ],
+        "starter": "What's been the hardest part of building Sparkies that other early-stage founders could relate to?"
+      }
+    ]
+  },
+  {
+    "name": "Abhishek Bajaj",
+    "first_name": "Abhishek",
+    "email": "abajaj@samshek.com",
+    "role": "Co-Founder | My Manufacturing Lab",
+    "matches": [
+      {
+        "name": "Raimond",
+        "role": "Founder | SourceSmart",
+        "hook": "The best available sector match in supply chain.",
+        "bullets": [
+          "Raimond founded SourceSmart, a supply-chain company at early stage, also hunting operators and angel investors.",
+          "Could help with: My Manufacturing Lab's fashion supply chain and SourceSmart's supply-chain focus overlap directly — the strongest real fit at the event."
+        ],
+        "starter": "Where does your supply-chain platform run into the same bottlenecks fashion manufacturing does?"
+      },
+      {
+        "name": "Troy Turner",
+        "role": "Investor | Single Family Office",
+        "hook": "Broad family-office capital, an honest stretch.",
+        "bullets": [
+          "Troy represents a Single Family Office across AI, Finance, Healthcare and Deep Tech.",
+          "Could help with: no manufacturing-specific investor attended, so this is a general-capital stretch rather than a sector match."
+        ],
+        "starter": "Would your family office ever consider a manufacturing/supply-chain deal outside your usual sectors?"
+      },
+      {
+        "name": "Hannah Mays",
+        "role": "Founder | Altiora Ventures",
+        "hook": "A growth-stage peer also actively raising.",
+        "bullets": [
+          "Hannah founded Altiora Ventures, real estate investment, growth stage.",
+          "Could help with: an honest networking stretch — no manufacturing-focused investor was present, so this is peer-to-peer fundraising-notes territory rather than a sector fit."
+        ],
+        "starter": "What's worked best for you in positioning a growth-stage company to family offices?"
+      }
+    ]
+  },
+  {
+    "name": "Rhishikesh Thakur",
+    "first_name": "Rhishikesh",
+    "email": "rhishikesh.thakur@gmail.com",
+    "role": "Founder | Enable Engineering / BecauseFuture",
+    "matches": [
+      {
+        "name": "Fatima Khan",
+        "role": "Attorney / Founder | Ola Law",
+        "hook": "Exactly the legal help he needs to enter the US market.",
+        "bullets": [
+          "Fatima is an Attorney/Founder at Ola Law, offering GTM Legal USA support.",
+          "Could help with: Rhishikesh said directly he wants to enter the US market — Fatima's whole offer tonight is legal support for exactly that."
+        ],
+        "starter": "What's the first legal step to get Enable Engineering compliant for a US market entry?"
+      },
+      {
+        "name": "Raimond",
+        "role": "Founder | SourceSmart",
+        "hook": "An industrial/supply-chain operations peer.",
+        "bullets": [
+          "Raimond founded SourceSmart, supply chain, early stage.",
+          "Could help with: industrial-operations adjacency to supply chain, worth a conversation on where the businesses might intersect."
+        ],
+        "starter": "Does industrial testing and inspection ever factor into your supply-chain operations?"
+      },
+      {
+        "name": "Abhishek Bajaj",
+        "role": "Co-Founder | My Manufacturing Lab",
+        "hook": "A manufacturing/industrial-adjacent founder.",
+        "bullets": [
+          "Abhishek co-founded My Manufacturing Lab, fashion supply chain, growth stage, bootstrapped to $800K.",
+          "Could help with: both are scaling physical-goods businesses and could compare notes on US market entry and manufacturing operations."
+        ],
+        "starter": "How did you handle US market entry for My Manufacturing Lab, and what would you do differently?"
+      }
+    ]
+  },
+  {
+    "name": "Yogesh B",
+    "first_name": "Yogesh",
+    "email": "dpy992yr9b@privaterelay.appleid.com",
+    "role": "Founder | TrackSubs",
+    "matches": [
+      {
+        "name": "Moshe Neuman",
+        "role": "CEO | Valued",
+        "hook": "Exactly the investor profile Yogesh described.",
+        "bullets": [
+          "Moshe runs Valued, an angel/family-office investor whose own stated want is 'great founders.'",
+          "Could help with: Yogesh's ask was 'the right vision and passion for investing in promising founders' — Moshe's own words are almost identical."
+        ],
+        "starter": "What's the one quality that makes you say yes to a founder before you've even seen the numbers?"
       },
       {
         "name": "Noel Guinane",
-        "role": "Managing Partner | Blood & Treasure LLC",
-        "hook": "An investor who can tell you fast what a VC wants to see.",
+        "role": "Managing Partner | Blood & Treasure, LLC",
+        "hook": "A fintech-focused angel/VC investor.",
         "bullets": [
-          "Noel is managing partner at Blood & Treasure, an investment firm. He's here to meet founders with real traction and gives direct feedback.",
-          "Could help with: You haven't raised yet. Noel can tell you what traction a services or marketing business needs to show before investors take a first meeting."
+          "Noel is Managing Partner at Blood & Treasure, LLC, an angel/VC investor in fintech.",
+          "Could help with: direct sector overlap with Yogesh's Finance-sector TrackSubs, and Noel's explicit search for credible founders."
         ],
-        "starter": "For a marketing and partnerships business, what traction would make you take a second meeting?"
-      }
-    ]
-  },
-  {
-    "name": "Surajit Mondal",
-    "first_name": "Surajit",
-    "email": "mondal.sura@gmail.com",
-    "role": "Founder, Next-Gen Chem | ClimateTech & BioTech/Pharma Chemistry",
-    "matches": [
-      {
-        "name": "Rob Colorina",
-        "role": "Director / Advisor | AIAC Group",
-        "hook": "An investor whose group owns pharma manufacturing - investor and customer in one conversation.",
-        "bullets": [
-          "Rob is a director at AIAC Group, which makes principal investments in manufacturing and technology companies in over 20 countries, including pharmaceutical manufacturing. He sits on several portfolio boards and has worked with Merck, Siemens and Suez.",
-          "Could help with: You want pharma customer intros and investors who understand chemistry. Rob can tell you how an industrial and pharma owner would buy or invest in a process-chemistry platform, and who in his portfolio might pilot it."
-        ],
-        "starter": "Inside AIAC's pharma and industrial companies, where does process chemistry cost the most time or money today?"
+        "starter": "What traction would make a finance-focused app like TrackSubs credible to you?"
       },
       {
-        "name": "DJ Patel",
-        "role": "Head of Directs | UV Multi-Family Office",
-        "hook": "Direct checks with a healthtech mandate - the closest fit to biotech capital in the room.",
+        "name": "Joe Metheny",
+        "role": "Investor | Family Office",
+        "hook": "A fintech-focused VC/family office.",
         "bullets": [
-          "DJ runs direct investments at UV, a multi-family office writing angel and direct checks across AI, healthtech and fintech. Family office capital tends to be patient, which suits science-heavy companies.",
-          "Could help with: You're early and looking for pre-seed money in biotech and climate. DJ can tell you whether a chemistry platform fits UV's direct mandate and which proof points a family office looks for before a first check."
+          "Joe invests through a family office, VC and family-office capital, AI/ML and fintech, early/seed stage.",
+          "Could help with: another direct fintech-sector match at Yogesh's exact stage."
         ],
-        "starter": "What would a chemistry company serving pharma need to show you to fit UV's healthtech direct mandate?"
-      },
-      {
-        "name": "Andres Fernandez Vilches",
-        "role": "Angel Investor | Mithril Capital LLC",
-        "hook": "An angel who writes early checks, including in deep tech.",
-        "bullets": [
-          "Andres is an angel investor at Mithril Capital writing early checks across consumer, deep tech and fintech. Deep tech is his lane, and he backs founders with a working product.",
-          "Could help with: You have a product and haven't raised yet. Andres can give you a straight answer on how an angel sizes a deep-tech chemistry company at pre-seed and what makes the first check easier."
-        ],
-        "starter": "For a deep-tech chemistry founder raising a first round, what do you need to see: a paying customer, a pilot, or the IP?"
+        "starter": "What's your bar for a finance app with a live product but no funding yet?"
       }
     ]
   }
