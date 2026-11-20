@@ -8,7 +8,7 @@ Start from `intro/_template/event-match-template.html`: copy it to `intro/<event
 
 ## Page sections
 
-**Before sign-in:** "Find out who to meet." form, then one **Yorkseed Connect** box ("Know who to meet, all year"): Matches and warm intros; Investor List and Allocator List (24,000+ investors, 1,600+ allocators); Connection Intelligence; Deal Room and monthly deal flow. Button "Start free for 30 days" -> `/eventoffer` (code WS202630). No "tonight" wording here.
+**Before sign-in:** "Joining us tonight" room stats (investors with breakdown; founders and operators with venture or investing backgrounds, with "Plus N other founders"), then this italic note word for word: *Our matches are meant to start genuine conversations rather than pair people on paper, so treat them as a starting point and meet as many people as you can.* Then the "Find out who to meet." form, then one **Yorkseed Connect** box ("Know who to meet, all year"): Matches and warm intros; Investor List and Allocator List (24,000+ investors, 1,600+ allocators); Connection Intelligence; Deal Room and monthly deal flow. Button "Start free for 30 days" -> `/eventoffer` (code WS202630). No "tonight" wording here.
 
 **After sign-in, in this order (host box, then matches; guests open this at the event):**
 1. "N curated Yorkseed matches", "Hi {first name}.", "Not you? Switch account".

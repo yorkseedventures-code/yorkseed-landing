@@ -296,6 +296,7 @@
     .room-stat { background: var(--white); border: 1px solid var(--border); border-radius: 3px; padding: 12px 14px; flex: 1 1 100%; }
     .room-num { font-family: var(--serif); font-size: 24px; color: var(--ink); line-height: 1.1; }
     .room-sub { font-size: 12.5px; color: var(--ink4); line-height: 1.5; margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border); }
+    .room-note { font-size: 13.5px; font-style: italic; color: var(--ink3); line-height: 1.5; margin: 12px 0 0; }
     .room-txt { font-size: 13px; color: var(--ink3); line-height: 1.35; margin-top: 2px; }
     .memo-card { display: none; background: var(--ink); color: #fff; border-radius: 3px; padding: 22px 24px; margin-bottom: 18px; }
     .memo-card.show { display: block; }
@@ -3163,6 +3164,7 @@ const VENTURE_BACKGROUND = ["Hall Wang","Shawn Yang","Ken Chester","Linda","Alis
   var inv = names.filter(function(n){ return INVESTORS.indexOf(n) !== -1; }).length;
   var vb = names.filter(function(n){ return VENTURE_BACKGROUND.indexOf(n) !== -1; }).length;
   var founders = names.filter(function(n){ return NOT_FOUNDERS.indexOf(n) === -1 && INVESTORS.indexOf(n) === -1; }).length;
+  var otherFounders = names.filter(function(n){ return NOT_FOUNDERS.indexOf(n) === -1 && INVESTORS.indexOf(n) === -1 && VENTURE_BACKGROUND.indexOf(n) === -1; }).length;
   var c = {fo:0, vc:0, angel:0, other:0};
   names.forEach(function(n){ if (INVESTOR_TYPE[n]) c[INVESTOR_TYPE[n]]++; });
   var parts = [];
@@ -3175,7 +3177,8 @@ const VENTURE_BACKGROUND = ["Hall Wang","Shawn Yang","Ken Chester","Linda","Alis
   var el = document.getElementById('room');
   el.innerHTML = '<div class="room-label">Joining us tonight</div><div class="room-stats">' +
     stat(inv, 'investors', breakdown) +
-    stat(vb, 'founders and operators with venture or investing backgrounds') + '</div>';
+    stat(vb, 'founders and operators with venture or investing backgrounds', 'Plus ' + otherFounders + ' other founders') + '</div>' +
+    '<p class="room-note">Our matches are meant to start genuine conversations rather than pair people on paper, so treat them as a starting point and meet as many people as you can.</p>';
   el.style.display = 'block';
 })();
 
