@@ -391,6 +391,7 @@ body{font-family:var(--sans);font-weight:400}
 .dbpages{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
 @media(max-width:860px){.dbpages{grid-template-columns:1fr;max-width:340px;margin:0 auto}}
 .dbp{margin:0}
+.dbp-real a{display:block;border-radius:4px;overflow:hidden;box-shadow:0 18px 40px -22px rgba(61,7,13,.45);transition:transform .2s}.dbp-real a:hover{transform:translateY(-3px)}.dbp-real img{display:block;width:100%;height:auto}
 .dbp-in{aspect-ratio:3/4;background:#fff;border:1px solid var(--line);box-shadow:0 18px 40px -22px rgba(61,7,13,.35);padding:22px 22px 18px;display:flex;flex-direction:column;position:relative;overflow:hidden}
 .dbp figcaption{font-size:12px;letter-spacing:.06em;color:var(--ink2);margin-top:14px;text-align:center}
 .dbp-cover .dbp-in{background:var(--oxblood-deep);color:#fff;border:0;justify-content:space-between;padding:30px 26px}
@@ -866,48 +867,22 @@ details.opt{border:1px solid rgba(12,12,12,.15);background:#fff;padding:0 16px;m
     <div class="label">A look inside</div>
     <h2 class="big">What the <em>Deal Book</em> looks like</h2>
     <p class="lede">Every delegate gets a page in the Yorkseed Hong Kong Delegation Deal Book: what you're building or investing in, who you are, and a QR code and link to connect. Profiles are due January 15, and introduction requests open for 20 days from January 18.</p>
-    <p class="seelive"><a class="btn btn-ink" href="/delegation/lisbon-2026/book/">See a real Deal Book: Lisbon</a> <a class="alink" href="/delegation/">All delegations</a></p>
+    <p class="seelive"><a class="btn btn-ink" href="/delegation/lisbon-2026/book/">Flip through the full Lisbon Deal Book</a> <a class="alink" href="/delegation/">All delegations</a></p>
     <div class="dbpages">
-      <figure class="dbp dbp-cover">
-        <div class="dbp-in">
-          <small>Yorkseed</small>
-          <h3>Delegation<br><em>Deal Book</em></h3>
-          <div class="dbp-sub">Hong Kong<br>Asian Financial Forum</div>
-          <div class="dbp-date">January 25 to 28, 2027</div>
-        </div>
+      <figure class="dbp dbp-real">
+        <a href="/delegation/lisbon-2026/book/" aria-label="Open the Lisbon Deal Book: The cover"><img src="/delegation/lisbon-2026/book/preview/01.jpg" alt="The cover from the Yorkseed Lisbon Delegation Deal Book" width="760" height="1075" loading="lazy" decoding="async"></a>
         <figcaption>The cover</figcaption>
       </figure>
-      <figure class="dbp">
-        <div class="dbp-in">
-          <div class="dbp-top"><span>Founder company</span><span>Yorkseed Hong Kong</span></div>
-          <h3>Kestrel Fold</h3>
-          <p class="dbp-tag">Climate risk modelling for Asian lenders</p>
-          <div class="dbp-lines"><i></i><i></i><i></i><i class="s"></i></div>
-          <div class="dbp-people">
-            <div><svg class="av" viewBox="0 0 44 44" aria-hidden="true"><rect width="44" height="44" fill="#E9D9C6"/><path d="M6 44c1-9 7-13 16-13s15 4 16 13z" fill="#2b2430"/><rect x="19" y="26" width="6" height="6" fill="#E8B894"/><ellipse cx="22" cy="21" rx="8" ry="9.5" fill="#E8B894"/><path d="M10 22c0-9 5-14 12-14s12 5 12 14v12h-5V24H15v10h-5z" fill="#2a1a16"/></svg><span>Amara Voss<br><small>Co-founder and CEO</small></span></div>
-            <div><svg class="av" viewBox="0 0 44 44" aria-hidden="true"><rect width="44" height="44" fill="#CFD8E3"/><path d="M6 44c1-9 7-13 16-13s15 4 16 13z" fill="#2b2430"/><rect x="19" y="26" width="6" height="6" fill="#C98F6B"/><ellipse cx="22" cy="21" rx="8" ry="9.5" fill="#C98F6B"/><path d="M11 21c0-8 5-12 11-12s11 4 11 12c-4-3-8-4-11-4s-7 1-11 4z" fill="#14100e"/></svg><span>Daniel Okafor<br><small>Head of Partnerships</small></span></div>
-          </div>
-          <div class="dbp-chips"><span>Climate fintech</span><span>Seed</span><span>Raising $2M</span></div>
-          <div class="dbp-foot"><div class="qr"><svg viewBox="0 0 21 21" shape-rendering="crispEdges" aria-hidden="true"><path fill="currentColor" d="M0 0h7v7H0zM14 0h7v7h-7zM0 14h7v7H0zM1 1v5h5V1zM15 1v5h5V1zM1 15v5h5v-5zM2 2h3v3H2zM16 2h3v3h-3zM2 16h3v3H2zM8 0h2v2H8zM11 1h2v2h-2zM8 4h3v2H8zM12 5h1v2h-1zM8 8h2v2H8zM11 8h3v1h-3zM15 8h2v2h-2zM18 9h3v2h-3zM0 8h3v2H0zM4 8h2v3H4zM0 12h2v2H0zM5 12h3v2H5zM9 11h2v3H9zM12 12h2v2h-2zM16 12h3v2h-3zM8 15h3v2H8zM12 15h2v3h-2zM15 16h2v2h-2zM18 15h3v3h-3zM9 18h2v3H9zM15 19h4v2h-4zM12 19h2v2h-2z"/></svg></div><span>kestrelfold.example<br><small>Find us at AFF, January 26 to 27</small></span></div>
-        </div>
-        <figcaption>A founder company</figcaption>
+      <figure class="dbp dbp-real">
+        <a href="/delegation/lisbon-2026/book/" aria-label="Open the Lisbon Deal Book: An investor page"><img src="/delegation/lisbon-2026/book/preview/14.jpg" alt="An investor page from the Yorkseed Lisbon Delegation Deal Book" width="760" height="1075" loading="lazy" decoding="async"></a>
+        <figcaption>An investor page</figcaption>
       </figure>
-      <figure class="dbp">
-        <div class="dbp-in">
-          <div class="dbp-top"><span>Investor</span><span>Yorkseed Hong Kong</span></div>
-          <h3>Marrow &amp; Vale Capital</h3>
-          <p class="dbp-tag">Early-stage funds for Asia-Pacific fintech</p>
-          <div class="dbp-lines"><i></i><i></i><i></i><i class="s"></i></div>
-          <div class="dbp-people">
-            <div><svg class="av" viewBox="0 0 44 44" aria-hidden="true"><rect width="44" height="44" fill="#E4D3D6"/><path d="M6 44c1-9 7-13 16-13s15 4 16 13z" fill="#2b2430"/><rect x="19" y="26" width="6" height="6" fill="#F0C9A8"/><ellipse cx="22" cy="21" rx="8" ry="9.5" fill="#F0C9A8"/><path d="M10 22c0-9 5-14 12-14s12 5 12 14v8h-5v-6H15v6h-5z" fill="#6b3b28"/></svg><span>Priya Lindqvist<br><small>Partner</small></span></div>
-          </div>
-          <div class="dbp-chips"><span>Fintech</span><span>Seed to A</span><span>$250K to $1M</span><span>APAC</span></div>
-          <div class="dbp-foot"><div class="qr"><svg viewBox="0 0 21 21" shape-rendering="crispEdges" aria-hidden="true"><path fill="currentColor" d="M0 0h7v7H0zM14 0h7v7h-7zM0 14h7v7H0zM1 1v5h5V1zM15 1v5h5V1zM1 15v5h5v-5zM2 2h3v3H2zM16 2h3v3h-3zM2 16h3v3H2zM8 0h2v2H8zM11 1h2v2h-2zM8 4h3v2H8zM12 5h1v2h-1zM8 8h2v2H8zM11 8h3v1h-3zM15 8h2v2h-2zM18 9h3v2h-3zM0 8h3v2H0zM4 8h2v3H4zM0 12h2v2H0zM5 12h3v2H5zM9 11h2v3H9zM12 12h2v2h-2zM16 12h3v2h-3zM8 15h3v2H8zM12 15h2v3h-2zM15 16h2v2h-2zM18 15h3v3h-3zM9 18h2v3H9zM15 19h4v2h-4zM12 19h2v2h-2z"/></svg></div><span>marrowvale.example<br><small>Find us at AFF, January 26 to 27</small></span></div>
-        </div>
-        <figcaption>An investor</figcaption>
+      <figure class="dbp dbp-real">
+        <a href="/delegation/lisbon-2026/book/" aria-label="Open the Lisbon Deal Book: A founder page"><img src="/delegation/lisbon-2026/book/preview/20.jpg" alt="A founder page from the Yorkseed Lisbon Delegation Deal Book" width="760" height="1075" loading="lazy" decoding="async"></a>
+        <figcaption>A founder page</figcaption>
       </figure>
     </div>
-    <p class="note">Sample layout. All companies, people and details shown are fictional, and the final design may change. For a real one, see the Lisbon Deal Book from our previous delegation. The standard Deal Book page is included free with your place.</p>
+    <p class="note">These are real pages from the Yorkseed Lisbon Delegation Deal Book, from our previous delegation at Web Summit. The Hong Kong Deal Book follows the same format. The standard Deal Book page is included free with your place.</p>
   </div>
 </section>
 <section class="gallery" id="photos">
