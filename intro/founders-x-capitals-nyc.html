@@ -3164,7 +3164,6 @@ const VENTURE_BACKGROUND = ["Hall Wang","Shawn Yang","Ken Chester","Linda","Alis
   var inv = names.filter(function(n){ return INVESTORS.indexOf(n) !== -1; }).length;
   var vb = names.filter(function(n){ return VENTURE_BACKGROUND.indexOf(n) !== -1; }).length;
   var founders = names.filter(function(n){ return NOT_FOUNDERS.indexOf(n) === -1 && INVESTORS.indexOf(n) === -1; }).length;
-  var otherFounders = names.filter(function(n){ return NOT_FOUNDERS.indexOf(n) === -1 && INVESTORS.indexOf(n) === -1 && VENTURE_BACKGROUND.indexOf(n) === -1; }).length;
   var c = {fo:0, vc:0, angel:0, other:0};
   names.forEach(function(n){ if (INVESTOR_TYPE[n]) c[INVESTOR_TYPE[n]]++; });
   var parts = [];
@@ -3177,7 +3176,7 @@ const VENTURE_BACKGROUND = ["Hall Wang","Shawn Yang","Ken Chester","Linda","Alis
   var el = document.getElementById('room');
   el.innerHTML = '<div class="room-label">Joining us tonight</div><div class="room-stats">' +
     stat(inv, 'investors', breakdown) +
-    stat(vb, 'founders and operators with venture or investing backgrounds', 'Plus ' + otherFounders + ' other founders') + '</div>' +
+    stat(vb, 'founders and operators with venture or investing backgrounds', 'Plus other founders') + '</div>' +
     '<p class="room-note">Our matches are meant to start genuine conversations rather than pair people on paper, so treat them as a starting point and meet as many people as you can.</p>';
   el.style.display = 'block';
 })();
