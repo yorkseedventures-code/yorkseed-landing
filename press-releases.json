@@ -1,6 +1,16 @@
 {
   "releases": [
     {
+      "slug": "yorkseed-wraps-lisbon-2026-web-summit-week",
+      "title": "Yorkseed Wraps Web Summit Lisbon 2026: Delegation, a Week of Programming, and an Investor Pop-Up Built in 24 Hours",
+      "dateline": "LISBON",
+      "date": "2026-11-20",
+      "category": "Event Recap",
+      "summary": "Yorkseed closes Web Summit Lisbon week with its Lisbon Delegation and Deal Book, the Yorkseed House programme, co-hosting WET SUMMIT with Valois, and a next stop at the Asian Financial Forum in Hong Kong.",
+      "featured": false,
+      "strip": "Yorkseed wraps Web Summit Lisbon: delegation, Deal Book and a week of programming"
+    },
+    {
       "slug": "wet-summit-lisbon-2026-valois-by-yorkseed",
       "title": "Storm-Cancelled Conference Day Becomes Investor Pop-Up: WET SUMMIT Lisbon 2026 × Valois by Yorkseed Convenes Allocators in Under 24 Hours",
       "dateline": "LISBON",
