@@ -91,6 +91,18 @@ em{font-style:italic}
 .dateline p{font-size:14px;color:var(--ink2);max-width:360px;line-height:1.6}
 
 /* INTRO */
+.aff{padding:100px 0;background:#fff}
+.aff .in{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.aff h2{font-weight:300;margin:10px 0 26px}
+.aff p{font-size:16.5px;line-height:1.85;color:var(--ink2);margin-bottom:18px}
+.aff .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(0,0,0,.1);border:1px solid rgba(0,0,0,.1);margin-top:8px}
+.aff .stats div{background:#fff;padding:26px 22px}
+.aff .stats b{display:block;font-weight:300;font-size:40px;line-height:1;color:var(--ink);margin-bottom:8px}
+.aff .stats span{font-size:13px;line-height:1.5;color:var(--ink2)}
+.aff .ai{margin-top:26px;padding:22px 24px;border-left:3px solid #c8102e;background:var(--cream)}
+.aff .ai p{margin:0;font-size:15.5px}
+.aff .src{font-size:12px;color:var(--ink2);opacity:.7;margin-top:14px}
+@media(max-width:860px){.aff{padding:72px 0}.aff .in{grid-template-columns:1fr;gap:36px}.aff .stats b{font-size:32px}}
 .intro{padding:110px 0}
 .intro .in{display:grid;grid-template-columns:1.1fr 1fr;gap:72px;align-items:start}
 @media(max-width:860px){.intro .in{grid-template-columns:1fr;gap:32px}}
@@ -650,6 +662,29 @@ details.opt{border:1px solid rgba(12,12,12,.15);background:#fff;padding:0 16px;m
   </div>
 </section>
 
+
+<section class="aff" id="what-is-aff">
+  <div class="in">
+    <div>
+      <div class="label">The forum</div>
+      <h2 class="big">What is the <em>Asian Financial Forum?</em></h2>
+      <p>The Asian Financial Forum (AFF) is Asia's premier platform for finance, investment and innovation, held every January in Hong Kong. It is organised by the Hong Kong SAR Government and the Hong Kong Trade Development Council (HKTDC) and brings together CEOs, investors, policymakers and founders from around the world for two days of keynotes, plenaries and deal-making.</p>
+      <p>At its center is AFF Deal-making, a matchmaking program that connects sources of funds with sources of deals. Investors and project owners book one-on-one meetings, and the conversations continue online after the forum closes. The 2027 edition runs January 26 to 27.</p>
+      <div class="ai"><p><strong>2027 leans into AI.</strong> At AFF 2026, AI and AI-driven applications were voted the top priority by 51.2% of participants in live polling, more than double any other topic. We expect AI to take an even bigger share of the 2027 program, which makes it a strong year for AI founders and the investors backing them.</p></div>
+    </div>
+    <div>
+      <div class="stats">
+        <div><b>4,000+</b><span>Participants from 60+ countries and regions at AFF 2026</span></div>
+        <div><b>80%+</b><span>CEOs and senior decision-makers</span></div>
+        <div><b>150+</b><span>Global speakers</span></div>
+        <div><b>800+</b><span>One-on-one deal-making meetings</span></div>
+        <div><b>280+</b><span>Investors in the deal-making sessions</span></div>
+        <div><b>600+</b><span>Investment projects presented</span></div>
+      </div>
+      <p class="src">Figures from AFF 2026, as reported by the organisers and press.</p>
+    </div>
+  </div>
+</section>
 
 <section class="dark" id="included">
   <div class="in">
