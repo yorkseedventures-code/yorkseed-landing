@@ -1005,6 +1005,13 @@
       "start": "2026-11-23",
       "end": "2026-11-26",
       "re": "blockchain|web3|crypto|digital asset|defi|token"
+    },
+    {
+      "id": "artbaselmia",
+      "name": "Miami Art Week",
+      "hub": "mia",
+      "start": "2026-11-30",
+      "end": "2026-12-06"
     }
   ],
   "img": {
