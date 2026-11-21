@@ -707,7 +707,7 @@ function dgCsv(){
 function dgCounts2(){
   var st={pending:'Pending',approved:'Conditional (unpaid)',paid:'Confirmed',declined:'Declined'};
   [].forEach.call(document.querySelectorAll('#dgTabs button'),function(b){var k=b.dataset.dg;if(!st[k])return;var n=dgs.filter(function(x){return dgTabOf(x)===k&&dgInProg(x)}).length;b.textContent=st[k]+(n?' '+n:'')});
-  var pl={all:'All events','lisbon-2026':'Lisbon 2026','hong-kong':'Hong Kong 2027'};
+  var pl={all:'All events','lisbon-2026':'Lisbon 2026 (closed)','hong-kong':'Hong Kong 2027'};
   [].forEach.call(document.querySelectorAll('#dgProg button'),function(b){var k=b.dataset.dgp,n=dgs.filter(function(x){return x.status!=='declined'&&(k==='all'||dgPg(x)===k)}).length;b.textContent=pl[k]+' ('+n+')'});
 }
 function renderDeleg(){
@@ -733,7 +733,7 @@ function renderDeleg(){
       +(x.invoice?'<div class="meta">Invoice '+esc(x.invoice.number)+(x.invoice.emailedAt?' emailed '+esc(new Date(x.invoice.emailedAt).toLocaleString()):x.invoice.emailError?' · not emailed: '+esc(x.invoice.emailError):'')+'</div>':'')+((x.status==='approved'||x.status==='paid')?'<label class="meta" style="display:flex;gap:6px;align-items:center;margin-top:6px"><input type="checkbox" style="width:auto" data-dg-luma="'+x.id+'"'+(x.luma?' checked':'')+'> Added to the Luma guest list</label>':'')+((x.status==='approved'||x.status==='paid')?'<label class="meta" style="display:flex;gap:6px;align-items:center;margin-top:6px"><input type="checkbox" style="width:auto" data-dg-comp="'+x.id+'"'+(x.comped?' checked':'')+'> Comped (free place)</label>':'')+((x.status==='pending'||x.status==='approved'||x.status==='paid')?dgConnect(x):'')
       +'<details style="margin-top:8px"><summary style="cursor:pointer;font-size:13px">All answers</summary>'+det+'</details>'+draft
       +'<div class="acts">'+acts+'</div></div>';
-  }).join(''):'<div class="hint">No '+({pending:'pending',approved:'conditional (unpaid)',paid:'confirmed',declined:'declined'}[dgTab]||dgTab)+' applications'+(dgProg==='all'?'':' for '+(dgProg==='hong-kong'?'Hong Kong 2027':'Lisbon 2026'))+'.</div>';
+  }).join(''):'<div class="hint">No '+({pending:'pending',approved:'conditional (unpaid)',paid:'confirmed',declined:'declined'}[dgTab]||dgTab)+' applications'+(dgProg==='all'?'':' for '+(dgProg==='hong-kong'?'Hong Kong 2027':'Lisbon 2026 (closed)'))+'.</div>';
 }
 document.addEventListener('click',function(ev){
   var t=ev.target,id;if(!t.dataset)return;
@@ -745,7 +745,7 @@ document.addEventListener('click',function(ev){
   else if(id=t.dataset.dgInv){t.disabled=true;dgApi('/'+id+'/send-invoice',{method:'POST'}).then(function(j){alert(j.ok?'Invoice sent.':'Not sent: '+j.error);loadDeleg()}).catch(function(e){alert(e.message);t.disabled=false})}
   else if(id=t.dataset.dgCopy){var d=dgDraft[id];try{navigator.clipboard.writeText(d.subject+'\n\n'+d.body);t.textContent='Copied'}catch(e){alert('Select and copy the text above.')}}
   else if(id=t.dataset.dgDel){if(t.dataset.sure===id){dgApi('/'+id,{method:'DELETE'}).then(loadDeleg)}else{t.dataset.sure=id;t.textContent='Tap again';setTimeout(function(){t.textContent='Delete';delete t.dataset.sure},3000)}}
-  else if(t.id==='dgAdd'){var f=dgParse($('dgPaste').value);if(!f['Email']){$('dgAddMsg').textContent='Could not find an email in that text.';return}t.disabled=true;dgApi('',{method:'POST',body:{fields:f,program:/hong/i.test(f['Form']||'')?'hong-kong':'lisbon-2026'}}).then(function(){$('dgPaste').value='';$('dgAddMsg').textContent='Added.';loadDeleg()}).catch(function(e){$('dgAddMsg').textContent=e.message}).then(function(){t.disabled=false})}
+  else if(t.id==='dgAdd'){var f=dgParse($('dgPaste').value);if(!f['Email']){$('dgAddMsg').textContent='Could not find an email in that text.';return}t.disabled=true;dgApi('',{method:'POST',body:{fields:f,program:/lisbon/i.test(f['Form']||'')?'lisbon-2026':'hong-kong'}}).then(function(){$('dgPaste').value='';$('dgAddMsg').textContent='Added.';loadDeleg()}).catch(function(e){$('dgAddMsg').textContent=e.message}).then(function(){t.disabled=false})}
 });
 document.addEventListener('change',function(ev){var t=ev.target,id=t.dataset&&t.dataset.dgSel;if(id){var b=$('dgB'+id);if(b&&!b.dataset.dgHk&&/payment link|confirmation/.test(b.textContent))b.textContent=t.value==='comp'?'Approve and email confirmation':'Approve and email payment link'}id=t.dataset&&t.dataset.dgLuma;if(id)dgApi('/'+id,{method:'PUT',body:{luma:t.checked}}).catch(function(e){alert(e.message)});id=t.dataset&&t.dataset.dgDb;if(id)dgApi('/'+id,{method:'PUT',body:{dealBookChoice:t.value}}).then(loadDeleg).catch(function(e){alert(e.message)});id=t.dataset&&t.dataset.dgNoc;if(id)dgApi('/'+id,{method:'PUT',body:{noConnect:t.checked}}).then(loadDeleg).catch(function(e){alert(e.message)});id=t.dataset&&t.dataset.dgComp;if(id)dgApi('/'+id,{method:'PUT',body:{comped:t.checked}}).then(loadDeleg).catch(function(e){alert(e.message)})});
 function dgParseLuma(txt){
