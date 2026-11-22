@@ -1662,6 +1662,7 @@ input::placeholder,textarea::placeholder{font-size:13.5px;color:var(--soft);opac
 
 
 
+
 <p id="ysSeoCities" style="max-width:1200px;margin:0 auto;padding:16px 20px;font:400 11px 'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase"><a href="/cities/" style="color:#888;text-decoration:none">Browse startup events by city →</a></p>
 <footer class="foot ysfoot">
   <div class="fwrap">
@@ -2843,6 +2844,15 @@ if(window.YS_STATIC){const J=f=>fetch(String(window.YS_STATIC).replace(/^1$/,"")
   J("events.json").then(a=>{a=Array.isArray(a)?a:(a&&a.events)||[];const seen=new Set(EVENTS.map(e=>(e.link||e.title)+"|"+e.date));let n=0;
     a.forEach((d,i)=>{if(!d||!d.hub||!d.date||!HUBS.some(h=>h.id===d.hub))return;const k=(d.link||d.title)+"|"+d.date;if(seen.has(k))return;seen.add(k);const ev=dbEvent((d.title||"e").slice(0,1)+i,d);ev.fj=1;EVENTS.push(ev);n++;});if(n)rerenderAll();applyChanges();});
   J("banners.json").then(a=>{a=Array.isArray(a)?a:(a&&a.banners)||[];if(a.length){LIVE_BANNERS=a.map(b=>({...b,live:true}));rerenderAll();}});}
+(function(){const MGR_API="https://yorkseed-backend-production.up.railway.app/api/site-events/public";
+  const MGR_ALIAS={"queens":"nyc","bay area":"sf","san francisco":"sf","lisboa":"lis","lisbon":"lis","new york":"nyc","new york city":"nyc","jersey city":"jc","paris":"par","singapore":"sgp"};
+  function mgrHub(city){const c=String(city||"").trim().toLowerCase();if(!c)return "virtual";const byName=HUBS.find(h=>h.name.toLowerCase()===c);return byName?byName.id:(MGR_ALIAS[c]||"virtual");}
+  function mgrHost(m){if(m.series==="valois")return "Valois";if(m.type==="expert")return "Yorkseed Expert Series";if(m.type==="community")return (m.hosts&&m.hosts[0])||"";return "Yorkseed";}
+  fetch(MGR_API,{cache:"no-store"}).then(r=>r.ok?r.json():{events:[]}).then(x=>{const a=(x&&x.events)||[];const seen=new Set(EVENTS.map(e=>(e.link||e.title)+"|"+e.date));let n=0;
+    a.forEach((m,i)=>{if(!m||!m.dateISO||!m.title)return;const link=m.lumaUrl||"";const k=(link||m.title)+"|"+m.dateISO;if(seen.has(k))return;seen.add(k);
+      const d={hub:mgrHub(m.city),date:m.dateISO,start:m.startTime||null,end:m.endTime||null,host:mgrHost(m),venue:m.venue||m.location||"",link,desc:m.description||"",type:m.type||"",
+        yorkseed:["passport","expert","summit","house"].includes(m.type),img:/^https:\/\//.test(m.coverImage||"")?m.coverImage:""};
+      const ev=dbEvent("mg"+i,d);ev.fj=1;EVENTS.push(ev);n++;});if(n)rerenderAll();applyChanges();}).catch(()=>{});})();
 document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest("[data-ysall]");if(!b)return;e.preventDefault();window.__ysAll=!window.__ysAll;renderUpcoming();});
 loadSelfAds();
 (function adReturn(){const m=location.search.match(/[?&]ad=([a-f0-9]{24})/);if(!m)return;

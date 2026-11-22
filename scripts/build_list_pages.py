@@ -50,6 +50,44 @@ for p in pulse:
                       and (not w.get("re") or re.search(w["re"], (p.get("title") or "") + " " + (p.get("link") or ""), re.I))), None),
         "place": "spotlight" if k in ("Y", "X") else None})
 
+# Live feed from the Event Manager (yorkseed.co/event-admin.html), backed by the yorkseed-backend Railway
+# service's SiteEvent model. These are added, edited and removed through that page -- not through this repo --
+# so pull the current public list on every build instead of expecting someone to copy them into events.json by hand.
+try:
+    import urllib.request
+    _mgr_req = urllib.request.Request(
+        "https://yorkseed-backend-production.up.railway.app/api/site-events/public",
+        headers={"User-Agent": "Mozilla/5.0 (compatible; YorkseedListBuilder/1.0)"})
+    with urllib.request.urlopen(_mgr_req, timeout=20) as _mgr_resp:
+        manager_events = json.loads(_mgr_resp.read().decode("utf-8")).get("events", [])
+except Exception:
+    manager_events = []
+_HUB_BY_NAME = {h["name"].strip().lower(): h["id"] for h in data["hubs"]}
+_MGR_CITY_ALIAS = {"queens": "nyc", "bay area": "sf", "san francisco": "sf", "lisboa": "lis", "lisbon": "lis",
+                    "new york": "nyc", "new york city": "nyc", "jersey city": "jc", "paris": "par", "singapore": "sgp"}
+_MGR_YS_TYPES = ("passport", "expert", "summit", "house")
+def _mgr_hub(city):
+    c = str(city or "").strip().lower()
+    return _HUB_BY_NAME.get(c) or _MGR_CITY_ALIAS.get(c) or "virtual"
+def _mgr_host(m):
+    if m.get("series") == "valois": return "Valois"
+    if m.get("type") == "expert": return "Yorkseed Expert Series"
+    if m.get("type") == "community": return ((m.get("hosts") or [None])[0]) or ""
+    return "Yorkseed"
+for m in manager_events:
+    if not (isinstance(m, dict) and m.get("dateISO") and m.get("title")): continue
+    link = m.get("lumaUrl") or ""
+    key = (link or m["title"], m["dateISO"])
+    if key in seen: continue
+    seen.add(key)
+    hub = _mgr_hub(m.get("city"))
+    data["events"].append({"title": m["title"], "hub": hub, "date": m["dateISO"], "start": m.get("startTime") or None,
+        "end": m.get("endTime") or None, "host": _mgr_host(m), "venue": m.get("venue") or m.get("location") or "",
+        "link": link, "desc": m.get("description") or "", "type": m.get("type", ""),
+        "week": next((w["id"] for w in data["weeks"] if w["hub"] == hub and w["start"] <= m["dateISO"] <= w["end"]
+                      and (not w.get("re") or re.search(w["re"], m["title"] + " " + link, re.I))), None),
+        "place": "spotlight" if m.get("type") in _MGR_YS_TYPES else None})
+
 SITE = "https://yorkseed.co"; LISTHOST = "https://list.yorkseed.co"; LIST = LISTHOST + "/"
 TODAY = dt.datetime.now(ZoneInfo("America/New_York")).date(); HORIZON = TODAY + dt.timedelta(days=120)
 e_ = lambda s: html.escape(str(s or ""), quote=True)
