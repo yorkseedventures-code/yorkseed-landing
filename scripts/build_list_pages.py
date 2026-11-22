@@ -205,6 +205,19 @@ for e in events:
     _seen_etd[k] = e
     _deduped.append(e)
 events = _deduped
+# A handful of source feeds (mostly Miami Art Week venue listings) put the admission/price text in the
+# description field instead of an actual description, e.g. an event whose entire "About this event" ends up
+# reading just "Free" or "~$24". That's not a description, so clear it here, in one place, rather than patching
+# every downstream use (the static page body, its JSON-LD, window.YS_EVENT) separately -- they all read e["desc"]
+# and fall back to the existing generic line on their own once it's empty.
+_PRICEY_EXACT = {"free", "ticketed", "rsvp", "tables", "table", "vip", "invite only", "resy", "public",
+    "free, rsvp", "public, rsvp", "vip rsvp", "ticketed / rsvp", "ticketed, rsvp", "walk-up w/ card",
+    "waitlist / door", "book via airbnb", "free, no rsvp", "free w/ rsvp", "free rsvp", "approval",
+    "apply to attend", "choose your ticket", "sold out, waitlist"}
+_PRICEY_PRICE = re.compile(r"^(day (ticket|pass)\s+)?(from\s+)?~?\$[\d,.]+(\s*[-–]\s*~?\$?[\d,.]+)?\+?(\s*general|,\s*approval)?$", re.I)
+for e in events:
+    d = (e.get("desc") or "").strip()
+    if d and (d.lower() in _PRICEY_EXACT or _PRICEY_PRICE.match(d)): e["desc"] = ""
 events.sort(key=lambda e: (e["date"], e["start"] or "99"))
 for e in events: e.setdefault("week", None); e.setdefault("place", None)
 # imported events join a conference week by city and date, same rule as the List app
@@ -618,6 +631,36 @@ for w in weeks:
     HYDRATE_PATHS.append(f"{REPO}/list/{w['slug']}/index.html")
     written.append((canon, n >= 2, "daily", "0.9" if X else "0.8"))
 
+# ---- archive pages for conference weeks that have ended ----
+# Weeks fall out of `weeks` (filtered to end >= TODAY) the moment their dates pass, but their on-disk page is
+# never touched again -- its title/body stay frozen from the last day it was still upcoming, including a stale
+# "(N) events" count that often reads as "(0)" once every listed event's own date has also passed. Overwrite
+# each one (that already exists on disk -- never create a page for a week that was never published) with a
+# short, honest "this edition has ended" notice plus a live link to the city's current page, instead of leaving
+# a dead-looking page with a zero count sitting on a URL that search engines and old links still point to.
+for w in data["weeks"]:
+    if w["hub"] not in hubs or dt.date.fromisoformat(w["end"]) >= TODAY: continue
+    w = dict(w); w["slug"] = slugify(w["name"]) + "-" + w["start"][:4] + "-side-events"
+    wpath = f"{REPO}/list/{w['slug']}/index.html"
+    if not os.path.exists(wpath): continue
+    h = hubs[w["hub"]]; s, en = dt.date.fromisoformat(w["start"]), dt.date.fromisoformat(w["end"])
+    rng = f"{s.strftime('%B')} {s.day} to {en.strftime('%B') + ' ' if en.month != s.month else ''}{en.day}, {en.year}"
+    title = f"{w['name']} {s.year} Side Events (concluded) | Yorkseed List"
+    desc = f"{w['name']} {s.year} ({rng}) has concluded. See what's happening now in {h['name']} on The Yorkseed List."
+    canon = f"{LIST}{w['slug']}/"
+    img = WEEK_OG.get(w["id"]) or IMGPATH.get(h["img"] or h["id"])
+    body = f"""<div class="crumb"><a href="https://yorkseed.co/">Yorkseed</a> / <a href="/">The List</a> / <a href="/{h['slug']}/">{e_(h['name'])}</a> / {e_(w['name'])}</div>
+<div class="hero"><div><h1>{e_(w['name'])} {s.year} <em>has concluded</em></h1>
+<p class="lede">This edition ran {rng} in {e_(h['name'])}. The side-event list for it is no longer being updated, but founder, investor and startup events keep happening in {e_(h['name'])} year-round.</p>
+<div class="cta"><a class="btn r" href="/{h['slug']}/">See what's on in {e_(h['name'])} now</a><a class="btn" href="/#submit">List your event free</a></div></div>
+{f'<img src="{img}" alt="{e_(h["name"])}, {e_(w["name"])} side events" width="800" height="600">' if img else ''}</div>
+<h2>More from The Yorkseed List</h2>
+<p><a href="/{h['slug']}/" style="color:var(--red)">All startup events in {e_(h['name'])}</a> · <a href="/cities/" style="color:var(--red)">Browse every city</a></p>{city_grid()}"""
+    ld = [ORG, {"@type": "CollectionPage", "@id": canon, "url": canon, "name": title, "description": desc, "publisher": {"@id": ORG["@id"]}, "dateModified": TODAY.isoformat()},
+          {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "The List", "item": LIST}, {"@type": "ListItem", "position": 2, "name": h["name"], "item": f"{LIST}{h['slug']}/"}, {"@type": "ListItem", "position": 3, "name": w["name"], "item": canon}]}]
+    page(wpath, title, desc, canon, body, ld, img, index=False)
+    HYDRATE_PATHS.append(wpath)
+
 # ---- cities index ----
 total = len(events)
 body = f"""<div class="crumb"><a href="https://yorkseed.co/">Yorkseed</a> / <a href="/">The List</a> / Cities</div>
@@ -673,7 +716,12 @@ for e in events:
     # Only append the " | context" suffix when the plain title has room for it -- never truncate the
     # event's own title itself (that used to cut titles like "X: AgeTech | Senior Care" off mid-word).
     if len(title) > 70: title = e["title"]
-    desc = (e["desc"] or f"{e['title']}: {ctx.lower()} on {nice}{', hosted by ' + e['host'] if e['host'] else ''}.")[:155]
+    # A thin scraped desc (or none at all) used to BE the whole meta description, which is how most event pages
+    # ended up with a ~40-character snippet instead of the ~150 search engines actually render. Always start
+    # from the full contextual sentence (title + week/city + date + host), then fold in the real desc after it
+    # when there's room, instead of using one or the other alone.
+    _ctx_sentence = f"{e['title']}: {ctx[:1].lower() + ctx[1:]} on {nice}{', hosted by ' + e['host'] if e['host'] else ''}."
+    desc = (_ctx_sentence + (" " + e["desc"] if e["desc"] and e["desc"] not in _ctx_sentence else ""))[:155]
     canon = f"{LIST}e/{e['slug']}/"; img = e.get("cover") or PHOTOS.get(e["link"]) or IMGPATH.get(h["img"] or h["id"])
     same = [x for x in (w["events"] if w else by_hub.get(e["hub"], [])) if x["date"] == e["date"] and x is not e][:12]
     # "spotlight" also covers delegation-marked third-party conferences (e.g. HKTDC's Asian Financial Forum),
