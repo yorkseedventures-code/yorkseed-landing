@@ -18,7 +18,7 @@
 - [Startup events in Bengaluru](https://list.yorkseed.co/bengaluru/): 100 upcoming
 - [Startup events in Atlanta](https://list.yorkseed.co/atlanta/): 95 upcoming
 - [Startup events in Barcelona](https://list.yorkseed.co/barcelona/): 94 upcoming
-- [Startup events in Amsterdam](https://list.yorkseed.co/amsterdam/): 91 upcoming
+- [Startup events in Amsterdam](https://list.yorkseed.co/amsterdam/): 89 upcoming
 - [Startup events in Munich](https://list.yorkseed.co/munich/): 88 upcoming
 - [Startup events in Tokyo](https://list.yorkseed.co/tokyo/): 85 upcoming
 - [Startup events in Toronto](https://list.yorkseed.co/toronto/): 82 upcoming
@@ -30,14 +30,14 @@
 - [Startup events in Seattle](https://list.yorkseed.co/seattle/): 68 upcoming
 - [Startup events in Vienna](https://list.yorkseed.co/vienna/): 66 upcoming
 - [Startup events in Stockholm](https://list.yorkseed.co/stockholm/): 59 upcoming
-- [Startup events in Tel Aviv](https://list.yorkseed.co/tel-aviv/): 57 upcoming
+- [Startup events in Tel Aviv](https://list.yorkseed.co/tel-aviv/): 58 upcoming
 - [Startup events in Brussels](https://list.yorkseed.co/brussels/): 54 upcoming
 - [Startup events in Helsinki](https://list.yorkseed.co/helsinki/): 52 upcoming
 - [Startup events in Los Angeles](https://list.yorkseed.co/los-angeles/): 52 upcoming
 - [Startup events in Copenhagen](https://list.yorkseed.co/copenhagen/): 51 upcoming
 - [Startup events in Washington D.C.](https://list.yorkseed.co/washington-dc/): 49 upcoming
 - [Startup events in Madrid](https://list.yorkseed.co/madrid/): 42 upcoming
-- [Startup events in Warsaw](https://list.yorkseed.co/warsaw/): 41 upcoming
+- [Startup events in Warsaw](https://list.yorkseed.co/warsaw/): 42 upcoming
 - [Startup events in Lisbon](https://list.yorkseed.co/lisbon/): 40 upcoming
 - [Startup events in San Diego](https://list.yorkseed.co/san-diego/): 39 upcoming
 - [Startup events in Hong Kong](https://list.yorkseed.co/hong-kong/): 36 upcoming

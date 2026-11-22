@@ -891,8 +891,8 @@
   },
   {
    "title": "DevOpsDays Warsaw",
-   "city": "Amsterdam",
-   "country": "Netherlands",
+   "city": "Warsaw",
+   "country": "Poland",
    "start": "2026-11-23T00:00:00+01:00",
    "end": null,
    "host": "DevOpsDays Amsterdam 2025",
@@ -900,7 +900,7 @@
    "conference_week": null,
    "description": "Details and registration on the event page.",
    "register_url": "https://devopsdays.org/events/2026-warsaw?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
-   "list_page": "https://list.yorkseed.co/amsterdam/"
+   "list_page": "https://list.yorkseed.co/warsaw/"
   },
   {
    "title": "Talk - Beyond Patent Filing: IP Strategy and GBA Essentials for Startup Founders",
@@ -45377,16 +45377,16 @@
   },
   {
    "title": "DevOpsDays Tel Aviv",
-   "city": "Amsterdam",
-   "country": "Netherlands",
-   "start": "2026-12-22T00:00:00+01:00",
+   "city": "Tel Aviv",
+   "country": "Israel",
+   "start": "2026-12-22T00:00:00+02:00",
    "end": null,
    "host": "DevOpsDays Amsterdam 2025",
    "type": "Conferences",
    "conference_week": null,
    "description": "Details and registration on the event page.",
    "register_url": "https://devopsdays.org/events/2026-tel-aviv?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
-   "list_page": "https://list.yorkseed.co/amsterdam/"
+   "list_page": "https://list.yorkseed.co/tel-aviv/"
   },
   {
    "title": "Startup Pitch Events Dubai: 5 Founders on Stage",
