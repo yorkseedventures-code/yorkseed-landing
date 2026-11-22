@@ -416,6 +416,10 @@ def city_grid(exclude=None):
     return '<div class="grid">' + "".join(f'<a href="/{h["slug"]}/">{e_(h["name"] if h["id"]!="virtual" else "Online")}<small>{len(by_hub.get(h["id"],[]))}</small></a>' for h in city_order if h["id"] != exclude) + "</div>"
 ORG = {"@type":"Organization","@id":SITE+"/#organization","name":"Yorkseed","url":SITE}
 written = []
+# city/week/day/event/cities-index pages get the full interactive app grafted onto them in a post-processing
+# pass near the end of this script (search "hydrate static pages"), so they boot the same experience as
+# list/index.html on a fresh load/refresh/shared link instead of staying a plain, non-interactive page.
+HYDRATE_PATHS = []
 
 def faq(city, n, hid):
     where = "online" if hid == "virtual" else f"in {city}"
@@ -496,6 +500,7 @@ for h in hubs.values():
           {"@type":"ItemList","name":f"Upcoming startup events {'online' if online else 'in '+city}","numberOfItems":n,"itemListElement":[{"@type":"ListItem","position":i+1,"item":event_ld(e, camp)} for i, e in enumerate(evs[:100])]},
           fld]
     page(f"{REPO}/list/{h['slug']}/index.html", title, desc, canon, body, ld, img, index=n >= 2)
+    HYDRATE_PATHS.append(f"{REPO}/list/{h['slug']}/index.html")
     written.append((canon, n >= 2, "daily" if n else "weekly", "0.8"))
 
 # ---- conference week pages ----
@@ -585,6 +590,7 @@ for w in weeks:
           {"@type":"ItemList","name":f"{w['name']} {s.year} side events","numberOfItems":n,"itemListElement":[{"@type":"ListItem","position":i+1,"item":ev_ld(e)} for i, e in enumerate(evs[:250])]},
           {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q, a in qs]}]
     page(f"{REPO}/list/{w['slug']}/index.html", title, desc, canon, body, ld, img, index=n >= 2)
+    HYDRATE_PATHS.append(f"{REPO}/list/{w['slug']}/index.html")
     written.append((canon, n >= 2, "daily", "0.9" if X else "0.8"))
 
 # ---- cities index ----
@@ -624,6 +630,7 @@ for w in weeks:
               {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"The List","item":LIST},{"@type":"ListItem","position":2,"name":f"{w['name']} side events","item":f"{LIST}{w['slug']}/"},{"@type":"ListItem","position":3,"name":nice,"item":canon}]},
               {"@type":"ItemList","numberOfItems":n,"itemListElement":[{"@type":"ListItem","position":k+1,"url":f"{LIST}e/{e['slug']}/","name":e["title"]} for k, e in enumerate(evs)]}]
         page(f"{REPO}/list/{w['slug']}/{d}/index.html", title, desc, canon, body, ld, WEEK_OG.get(w["id"]) or IMGPATH.get(h["img"] or h["id"]), index=n >= 2)
+        HYDRATE_PATHS.append(f"{REPO}/list/{w['slug']}/{d}/index.html")
         written.append((canon, n >= 2, "daily", "0.8"))
 
 # ---- one page per event: /e/<slug>/ ----
@@ -669,6 +676,7 @@ for e in events:
     ld = [ORG, eld, {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"The List","item":LIST},
           {"@type":"ListItem","position":2,"name":(w["name"] + " side events") if w else h["name"],"item":f"{LIST}{w['slug'] if w else h['slug']}/"},{"@type":"ListItem","position":3,"name":e["title"],"item":canon}]}]
     page(f"{REPO}/list/e/{e['slug']}/index.html", title, desc, canon, body, ld, img)
+    HYDRATE_PATHS.append(f"{REPO}/list/e/{e['slug']}/index.html")
     written.append((canon, True, "weekly", "0.6"))
 print(len(events), "event pages")
 
@@ -690,6 +698,7 @@ page(f"{REPO}/list/cities/index.html", f"Startup & Tech Events in {len(hubs)-1} 
      f"{total} upcoming startup, tech, founder and investor events in New York, San Francisco, London, Singapore, Lisbon and {len(hubs)-6} more cities, plus conference side events.",
      canon, cities_body, [ORG, {"@type":"CollectionPage","@id":canon,"url":canon,"name":"Startup events by city","publisher":{"@id":ORG["@id"]},"dateModified":TODAY.isoformat(),
       "hasPart":[{"@type":"CollectionPage","name":f"Startup events in {h['name']}","url":f"{LIST}{h['slug']}/"} for h in city_order]}])
+HYDRATE_PATHS.append(f"{REPO}/list/cities/index.html")
 written.insert(0, (canon, True, "daily", "0.9"))
 
 # ---- machine-readable feed + llms.txt for AI systems ----
@@ -800,6 +809,30 @@ li = li.replace("</head>", '<script id="ysPaths">window.YS_PATHS=' + json.dumps(
 i = li.find('<footer class="foot ysfoot"')
 li = li[:i] + block + "\n" + li[i:] if i > 0 else li.replace("</body>", block + "</body>")
 open(f"{REPO}/list/index.html","w").write(li)
+
+# ---- hydrate static pages: graft the same interactive app onto every city/week/day/event/cities page ----
+# These pages used to carry their own small, non-interactive HTML. On refresh, a shared link or a search hit
+# they now boot the identical app (header, map, "Add to Calendar"/"Share" that actually work, etc.) straight
+# from their own clean URL -- app.js resolves location.pathname against HUBS/WEEKS/EVENTS at boot (see the
+# "hydrating a static, pre-rendered page" comment in list/assets/app.js) and keeps that URL unchanged.
+# <head> (title, description, canonical, OG/Twitter tags, JSON-LD) stays exactly as page() built it per page --
+# only the <body> and a couple of shared asset tags change, so SEO metadata for that specific page is untouched.
+_shell_body_m = re.search(r"<body>.*</body>", li, re.S)
+if _shell_body_m:
+    SHELL_BODY = _shell_body_m.group(0)
+    _ys_paths_tag = '<script id="ysPaths">window.YS_PATHS=' + json.dumps(paths, separators=(",", ":")) + ';</script>'
+    for hp in HYDRATE_PATHS:
+        if not os.path.exists(hp): continue
+        doc = open(hp).read()
+        # the generic yk-header/yk-footer (site-chrome.js) showed a plain "Apply" nav with no working Add to
+        # Calendar/Share -- the app's own header (in SHELL_BODY) replaces it, so drop the now-unused script.
+        doc = doc.replace('<script src="/assets/site-chrome.js" defer></script>\n', "", 1)
+        doc = doc.replace("</head>", _ys_paths_tag + '\n<link rel="stylesheet" href="/list/assets/app.css">\n</head>', 1)
+        doc = re.sub(r"<body>.*</body>", SHELL_BODY, doc, count=1, flags=re.S)
+        open(hp, "w").write(doc)
+    print(f"{len(HYDRATE_PATHS)} static pages hydrated with the interactive app")
+else:
+    print("WARNING: could not find <body>...</body> in list/index.html -- static pages were NOT hydrated")
 
 # ---- sitemaps: the List has its own on list.yorkseed.co; main sitemap drops list URLs ----
 sm = open(f"{REPO}/sitemap.xml").read()
