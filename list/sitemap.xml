@@ -217,6 +217,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://list.yorkseed.co/online/</loc>
+    <lastmod>2026-11-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://list.yorkseed.co/seattle/</loc>
     <lastmod>2026-11-22</lastmod>
     <changefreq>daily</changefreq>
@@ -3416,6 +3422,12 @@
   </url>
   <url>
     <loc>https://list.yorkseed.co/e/beach-mastermind-3-entrepreneurs-investors-self-employed-2026-11-24/</loc>
+    <lastmod>2026-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/yorkseed-executive-lunch-2026-11-24/</loc>
     <lastmod>2026-11-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -14377,6 +14389,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://list.yorkseed.co/e/yorkseed-delegation-global-founder-showcase-2026-12-03/</loc>
+    <lastmod>2026-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://list.yorkseed.co/e/react-day-berlin-2026-2026-12-04/</loc>
     <lastmod>2026-11-22</lastmod>
     <changefreq>weekly</changefreq>
@@ -17611,6 +17629,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://list.yorkseed.co/e/venture-vitality-health-tech-investor-virtual-roundtable-agetech-senio-2026-12-08/</loc>
+    <lastmod>2026-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://list.yorkseed.co/e/the-ai-summit-new-york-2026-2026-12-09/</loc>
     <lastmod>2026-11-22</lastmod>
     <changefreq>weekly</changefreq>
@@ -18446,6 +18470,12 @@
   </url>
   <url>
     <loc>https://list.yorkseed.co/e/private-wealth-switzerland-forum-2026-12-09/</loc>
+    <lastmod>2026-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/startup-fundraising-2027-what-investors-really-want-2026-12-09-2/</loc>
     <lastmod>2026-11-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -21698,6 +21728,12 @@
   </url>
   <url>
     <loc>https://list.yorkseed.co/e/bitcoin-builders-club-2026-12-21/</loc>
+    <lastmod>2026-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/hot-or-not-is-your-startup-fundable-or-just-interesting-agetech-senior-2026-12-21/</loc>
     <lastmod>2026-11-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
