@@ -23,6 +23,33 @@ for x in extra:
             "week": next((w["id"] for w in data["weeks"] if w["hub"] == x["hub"] and w["start"] <= x["date"] <= w["end"]
                           and (not w.get("re") or re.search(w["re"], (x.get("title") or "") + " " + (x.get("link") or ""), re.I))), None),
             "place": "featured" if x.get("featured") else ("spotlight" if x.get("yorkseed") else None)})
+
+# Yorkseed's own hosted events (dinners, socials, Expert Series, partner events) live only as the inline
+# `PULSE` array in list/index.html's client JS -- they never went through events.json, so the site never
+# built a real /e/<slug>/ page for them and sharing one always fell back to a #e/ link. Pull PULSE in here
+# too so every Yorkseed-hosted event gets the same real, SEO/OG-tagged static page as everything else.
+try:
+    _idx_html = open(f"{REPO}/list/index.html", encoding="utf-8").read()
+    _m = re.search(r"const PULSE=(\[.*?\]);", _idx_html, re.S)
+    pulse = json.loads(_m.group(1)) if _m else []
+except Exception:
+    pulse = []
+_PULSE_HOST = {"Y": "Yorkseed", "X": "Yorkseed Expert Series", "P": "Yorkseed partner", "-": ""}
+_PULSE_DESC = {"Y": "A Yorkseed event. Apply or RSVP on the event page.", "X": "Time, venue and tickets are on the event page.",
+               "P": "Time, venue and tickets are on the event page.", "-": "Time, venue and tickets are on the event page."}
+for p in pulse:
+    if not (isinstance(p, dict) and p.get("hub") and p.get("date")): continue
+    key = (p.get("link") or p.get("title"), p["date"])
+    if key in seen: continue
+    seen.add(key)
+    k = p.get("k", "-")
+    host = "Valois" if k == "Y" and str(p.get("title", "")).startswith("Valois") else _PULSE_HOST.get(k, "")
+    data["events"].append({"title": p.get("title") or "Untitled", "hub": p["hub"], "date": p["date"], "start": None, "end": None,
+        "host": host, "venue": "", "link": p.get("link", ""), "desc": _PULSE_DESC.get(k, ""), "type": "",
+        "week": next((w["id"] for w in data["weeks"] if w["hub"] == p["hub"] and w["start"] <= p["date"] <= w["end"]
+                      and (not w.get("re") or re.search(w["re"], (p.get("title") or "") + " " + (p.get("link") or ""), re.I))), None),
+        "place": "spotlight" if k in ("Y", "X") else None})
+
 SITE = "https://yorkseed.co"; LISTHOST = "https://list.yorkseed.co"; LIST = LISTHOST + "/"
 TODAY = dt.datetime.now(ZoneInfo("America/New_York")).date(); HORIZON = TODAY + dt.timedelta(days=120)
 e_ = lambda s: html.escape(str(s or ""), quote=True)
@@ -105,6 +132,16 @@ def place(e):
     v = re.sub(r'\s*•\s*', ' · ', e["venue"] or "").strip()
     return v if v and not re.search(r'register to see|after rsvp|approval', v, re.I) else ""
 MONTH = TODAY.strftime("%B %Y")
+def desc_html(t, cls="lede"):
+    """Full description as properly-paragraphed HTML (blank lines = new <p>, single newlines = <br>) instead of one run-on block."""
+    if not t: return ""
+    paras = [p for p in re.split(r'\n\s*\n', str(t).strip()) if p.strip()]
+    return "".join(f'<p class="{cls}">{e_(p).replace(chr(10), "<br>")}</p>' for p in paras)
+def desc_snippet(t, n=160):
+    """One-line summary for compact list rows: first paragraph only, collapsed and truncated."""
+    if not t: return ""
+    first = re.sub(r'\s+', ' ', re.split(r'\n\s*\n', str(t).strip())[0]).strip()
+    return (first[:n].rstrip() + "…") if len(first) > n else first
 
 def event_ld(e, camp):
     h = hubs[e["hub"]]; online = e["hub"] == "virtual"
@@ -270,7 +307,7 @@ def rows(evs, camp, show_city=False):
         ys = '<span class="ys">★ Yorkseed</span>' if e["place"] == "spotlight" else ""
         if re.search(r"yorkseed\s+house", e["title"], re.I) or e.get("house"): ys += '<span class="ys" style="color:#E0457B">■ Yorkseed House</span>'
         pic = f'<img class="pic" src="{e_(PHOTOS[e["link"]])}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">' if PHOTOS.get(e["link"]) else ""
-        out.append(f'<article class="ev"><time datetime="{iso(e,"start")}">{t12(e["start"])}</time><div>{pic}<h4>{title}{ys}</h4><div class="s">{e_(" · ".join(bits))}{reg}</div>{f"<p>{e_(e[chr(100)+chr(101)+chr(115)+chr(99)])}</p>" if e["desc"] else ""}</div></article>')
+        out.append(f'<article class="ev"><time datetime="{iso(e,"start")}">{t12(e["start"])}</time><div>{pic}<h4>{title}{ys}</h4><div class="s">{e_(" · ".join(bits))}{reg}</div>{f"<p>{e_(desc_snippet(e['desc']))}</p>" if e["desc"] else ""}</div></article>')
     if cur is not None: out.append("</section>")
     return "\n".join(out)
 
@@ -521,7 +558,7 @@ for e in events:
 <div class="cta">{f'<a class="btn r" href="{e_(ref(e["link"], camp))}" target="_blank" rel="noopener">Register ↗</a>' if e["link"] else ''}<a class="btn" href="/#e/{e['slug']}">Add to calendar · Share</a></div>
 <p style="margin:14px 0 0;font-size:13px;color:var(--ink3)">Hosting this event? <a href="#" data-ys-change data-title="{e_(e['title'])}" data-date="{e['date']}" data-link="{e_(e['link'] or '')}" data-url="{canon}" style="color:var(--red)">Change or remove it</a></p></div>
 {f'<img src="{e_(img)}" alt="{e_(e["title"])}" width="800" height="600" referrerpolicy="no-referrer">' if img else ''}</div>
-{f'<h2>About this <em>event</em></h2><p class="lede">{e_(e["desc"])}</p>' if e["desc"] else ''}
+{f'<h2>About this <em>event</em></h2>{desc_html(e["desc"])}' if e["desc"] else ''}
 {(f'<h2>More {e_(w["name"]) + " side events" if w else "events in " + e_(h["name"])} on <em>{e_(dd.strftime("%B"))} {dd.day}</em></h2>' + rows(same, camp)) if same else ''}
 <div class="band"><p>{f'Every {e_(w["name"])} side event, by day, updated daily.' if w else f'Every upcoming startup and tech event in {e_(h["name"])}.'}</p><a class="btn r" href="/{w['slug'] if w else h['slug']}/">See all</a></div>"""
     eld = event_ld(e, camp); eld["@id"] = canon + "#event"
