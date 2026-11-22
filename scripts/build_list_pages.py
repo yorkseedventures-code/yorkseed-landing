@@ -341,7 +341,8 @@ def rows(evs, camp, show_city=False):
             cur = e["date"]; n = sum(1 for x in evs if x["date"] == cur)
             out.append(f'<section id="d-{cur}"><div class="day"><h3>{e_(dlabel(cur))}</h3><span>{n} event{"s" if n>1 else ""}</span></div>')
         h = hubs[e["hub"]]
-        bits = [x for x in [h["name"] if show_city else "", e["host"], place(e), e["type"]] if x]
+        city = (f'{h["name"]}, {h["country"]}' if h["country"] and h["id"] != "virtual" else h["name"]) if show_city else ""
+        bits = [x for x in [city, e["host"], place(e), e["type"]] if x]
         title = f'<a href="/e/{e["slug"]}/">{e_(e["title"])}</a>'
         reg = f' · <a class="rg" href="{e_(ref(e["link"], camp))}" target="_blank" rel="noopener">Register ↗</a>' if e["link"] else ""
         ys = '<span class="ys">★ Yorkseed</span>' if e["place"] == "spotlight" else ""

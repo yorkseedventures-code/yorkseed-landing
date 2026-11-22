@@ -1664,6 +1664,7 @@ input::placeholder,textarea::placeholder{font-size:13.5px;color:var(--soft);opac
 
 
 
+
 <p id="ysSeoCities" style="max-width:1200px;margin:0 auto;padding:16px 20px;font:400 11px 'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase"><a href="/cities/" style="color:#888;text-decoration:none">Browse startup events by city →</a></p>
 <footer class="foot ysfoot">
   <div class="fwrap">
@@ -2215,7 +2216,7 @@ function renderCal(h,w){
 }
 function ysThumb(e){return evImgTag(e,IMG[e.img]).replace("<img ",'<img style="width:100%;height:100%;object-fit:cover;display:block" ');}
 function ysUpcomingHtml(excludeId){const YS_HOSTS=["Yorkseed","Valois","Yorkseed Expert Series"];const list=upcoming().filter(x=>YS_HOSTS.includes(x.host)&&x.id!==excludeId).sort((a,b)=>(a.date+(a.start||"99")).localeCompare(b.date+(b.start||"99"))).slice(0,8);if(!list.length)return "";
-  return `<div style="margin-top:10px"><b>Upcoming Yorkseed events</b><div style="margin-top:4px">${list.map(x=>{const hh=hubById(x.hub),dd=dParts(x.date);return `<a href="#" data-ev="${x.id}" style="display:flex;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line);text-decoration:none;color:inherit"><span style="flex:none;width:56px;height:56px;overflow:hidden;border-radius:4px;background:var(--line)">${ysThumb(x)}</span><span style="min-width:0"><b style="font-size:14px">${esc(x.title)}</b><div class="note" style="font-size:12.5px;margin-top:2px">${dd.long} · ${esc(hh.name)}</div></span></a>`;}).join("")}</div></div>`;}
+  return `<div style="margin-top:10px"><b>Upcoming Yorkseed events</b><div style="margin-top:4px">${list.map(x=>{const hh=hubById(x.hub),dd=dParts(x.date);const loc=(hh.country&&hh.id!=="virtual")?`${hh.name}, ${hh.country}`:hh.name;return `<a href="#" data-ev="${x.id}" style="display:flex;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line);text-decoration:none;color:inherit"><span style="flex:none;width:56px;height:56px;overflow:hidden;border-radius:4px;background:var(--line)">${ysThumb(x)}</span><span style="min-width:0"><b style="font-size:14px">${esc(x.title)}</b><div class="note" style="font-size:12.5px;margin-top:2px">${dd.long} · ${esc(loc)}</div></span></a>`;}).join("")}</div></div>`;}
 function cardHtml(e){const h=hubById(e.hub),d=dParts(e.date);return`<article class="card" data-ev="${e.id}" tabindex="0">
     <div class="ph">${evImgTag(e,IMG[e.img])}${badge(e.place)}${heartBtn(e,"heart")}</div>
     <div class="body"><h3>${esc(e.title)}</h3>
