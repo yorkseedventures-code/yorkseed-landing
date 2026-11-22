@@ -1907,7 +1907,10 @@ function nearHub(){try{const m=document.cookie.match(/(?:^|; )ys_geo=([^;]+)/);i
   return bd<=500?best:null;}catch(e){return null;}}
 function evBySlug(s){return EVENTS.find(x=>evSlug(x)===s);}
 let PENDING_EV=null;
-function openFromHash(){const m=(location.hash||"").match(/^#e\/(.+)$/);if(!m)return false;const s=decodeURIComponent(m[1]);const e=evBySlug(s);if(e){PENDING_EV=null;if(st.view!=="event"||st.evId!==e.id){const was=NAV_SILENT;NAV_SILENT=NAV_SILENT||!(history.state&&history.state.ys);try{goEvent(e.id);}finally{NAV_SILENT=was;}}return true;}PENDING_EV=s;return false;}
+function openFromHash(){const m=(location.hash||"").match(/^#e\/(.+)$/);if(!m)return false;const s=decodeURIComponent(m[1]);const e=evBySlug(s);if(e){PENDING_EV=null;if(st.view!=="event"||st.evId!==e.id){const was=NAV_SILENT;NAV_SILENT=NAV_SILENT||!(history.state&&history.state.ys);try{goEvent(e.id);}finally{NAV_SILENT=was;}}return true;}
+  /* Not resolved yet (events.json still loading). If the slug's own date falls in the static-build window, a real /e/<slug>/ page already exists on disk — jump straight there instead of sitting on a #e/ URL that strips to a generic preview when shared before the JS data finishes loading. */
+  const dm=s.match(/-(\d{4}-\d{2}-\d{2})$/);if(dm){const n=Date.now()-5*36e5,t=new Date(n).toISOString().slice(0,10),z=new Date(n+120*864e5).toISOString().slice(0,10);if(dm[1]>=t&&dm[1]<=z){location.replace("https://list.yorkseed.co/e/"+s+"/");return true;}}
+  PENDING_EV=s;return false;}
 function setEvHash(e){try{history.replaceState(null,"",evPath(e));}catch(err){}}
 function clearEvHash(){try{if(/^#e\//.test(location.hash)||/^\/e\//.test(location.pathname))history.replaceState(null,"",APP_PATH+location.search);}catch(err){}}
 window.addEventListener("hashchange",()=>{if(openFromHash())return;const h=location.hash;if(h&&h!==listHash()||st.view!=="city"){const was=NAV_SILENT;NAV_SILENT=true;try{openListFromHash(h);}finally{NAV_SILENT=was;}}});
