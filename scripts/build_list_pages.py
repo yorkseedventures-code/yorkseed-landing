@@ -420,6 +420,14 @@ written = []
 # pass near the end of this script (search "hydrate static pages"), so they boot the same experience as
 # list/index.html on a fresh load/refresh/shared link instead of staying a plain, non-interactive page.
 HYDRATE_PATHS = []
+# Per-event-page data for the client-side fallback in app.js's openFromHash(): an event can age out of this
+# script's own data (master.json) and never have reached the live Railway APIs (MGR_API/SUB_API) that app.js
+# fetches at runtime, in which case the client can never find it via evBySlug() no matter how long it waits --
+# previously this silently fell back to the home/list view on refresh/direct visit. Baking each event's own
+# minimal data into its own page (as window.YS_EVENT, set alongside window.YS_PATHS in the hydrate pass below)
+# lets app.js synthesize the event locally from the exact data its own page was built from, instead of relying
+# solely on live data that may no longer include it.
+EVENT_HTML_DATA = {}
 
 def faq(city, n, hid):
     where = "online" if hid == "virtual" else f"in {city}"
@@ -677,8 +685,54 @@ for e in events:
           {"@type":"ListItem","position":2,"name":(w["name"] + " side events") if w else h["name"],"item":f"{LIST}{w['slug'] if w else h['slug']}/"},{"@type":"ListItem","position":3,"name":e["title"],"item":canon}]}]
     page(f"{REPO}/list/e/{e['slug']}/index.html", title, desc, canon, body, ld, img)
     HYDRATE_PATHS.append(f"{REPO}/list/e/{e['slug']}/index.html")
+    EVENT_HTML_DATA[f"{REPO}/list/e/{e['slug']}/index.html"] = {
+        "title": e["title"], "hub": e["hub"], "date": e["date"], "start": e.get("start"), "end": e.get("end"),
+        "link": e.get("link"), "venue": e.get("venue"), "desc": e.get("desc"), "host": e.get("host"), "type": e.get("type"),
+    }
     written.append((canon, True, "weekly", "0.6"))
 print(len(events), "event pages")
+
+# Orphaned event pages: an event can disappear from master.json (its upstream feed aged it out, or dropped it)
+# while its own /e/<slug>/ page -- built on a previous run, when the event was still in master.json -- stays on
+# disk forever (this script only ever adds pages, never removes one no longer backed by current data). Such a
+# page never gets a window.YS_EVENT block from the loop above (it isn't in `events` this run), so recover its
+# event data from the JSON-LD this script itself wrote into the page on the run that built it, and feed that
+# into the same EVENT_HTML_DATA/HYDRATE_PATHS the loop above uses, so it gets hydrated (and gains YS_EVENT) too.
+_slug_to_hub = {h["slug"]: hid for hid, h in hubs.items()}
+_current_event_paths = set(HYDRATE_PATHS)
+_orphan_dir = f"{REPO}/list/e"
+_orphans_recovered = 0
+if os.path.isdir(_orphan_dir):
+    for _slug in sorted(os.listdir(_orphan_dir)):
+        _op = f"{_orphan_dir}/{_slug}/index.html"
+        if _op in _current_event_paths or not os.path.exists(_op): continue
+        try:
+            _doc = open(_op).read()
+            _m = re.search(r'<script type="application/ld\+json">(.*?)</script>', _doc, re.S)
+            if not _m: continue
+            _graph = json.loads(_m.group(1)).get("@graph", [])
+            _ev_ld = next((x for x in _graph if x.get("@type") == "Event"), None)
+            _crumbs = next((x for x in _graph if x.get("@type") == "BreadcrumbList"), None)
+            if not _ev_ld or not _crumbs: continue
+            _city_item = _crumbs.get("itemListElement", [{}])[-2] if len(_crumbs.get("itemListElement", [])) >= 2 else None
+            _hub_slug = urlsplit(_city_item["item"]).path.strip("/") if _city_item and _city_item.get("item") else None
+            _hid = _slug_to_hub.get(_hub_slug)
+            _sd = _ev_ld.get("startDate") or ""
+            if not _hid or not _sd: continue
+            _date = _sd[:10]
+            _start = _sd[11:16] if len(_sd) >= 16 else None
+            EVENT_HTML_DATA[_op] = {
+                "title": _ev_ld.get("name") or "", "hub": _hid, "date": _date, "start": _start, "end": None,
+                "link": (_ev_ld.get("offers") or {}).get("url") or _ev_ld.get("url"),
+                "venue": ((_ev_ld.get("location") or {}).get("name")) or None,
+                "desc": _ev_ld.get("description"), "host": (_ev_ld.get("organizer") or {}).get("name"), "type": None,
+            }
+            HYDRATE_PATHS.append(_op)
+            _orphans_recovered += 1
+        except Exception:
+            continue
+if _orphans_recovered:
+    print(f"{_orphans_recovered} orphaned event pages recovered (event no longer in master.json, re-hydrated from their own JSON-LD)")
 
 canon = LIST + "cities/"
 # NOTE: this must build its own body. It used to fall through to whatever
@@ -827,7 +881,10 @@ if _shell_body_m:
         # the generic yk-header/yk-footer (site-chrome.js) showed a plain "Apply" nav with no working Add to
         # Calendar/Share -- the app's own header (in SHELL_BODY) replaces it, so drop the now-unused script.
         doc = doc.replace('<script src="/assets/site-chrome.js" defer></script>\n', "", 1)
-        doc = doc.replace("</head>", _ys_paths_tag + '\n<link rel="stylesheet" href="/list/assets/app.css">\n</head>', 1)
+        _head_tags = _ys_paths_tag
+        if hp in EVENT_HTML_DATA:
+            _head_tags += '\n<script id="ysEvent">window.YS_EVENT=' + json.dumps(EVENT_HTML_DATA[hp], separators=(",", ":"), ensure_ascii=False) + ';</script>'
+        doc = doc.replace("</head>", _head_tags + '\n<link rel="stylesheet" href="/list/assets/app.css">\n</head>', 1)
         doc = re.sub(r"<body>.*</body>", SHELL_BODY, doc, count=1, flags=re.S)
         open(hp, "w").write(doc)
     print(f"{len(HYDRATE_PATHS)} static pages hydrated with the interactive app")
