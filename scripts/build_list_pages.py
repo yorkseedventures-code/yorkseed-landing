@@ -547,6 +547,7 @@ for e in events:
     desc = (e["desc"] or f"{e['title']}: {ctx.lower()} on {nice}{', hosted by ' + e['host'] if e['host'] else ''}.")[:155]
     canon = f"{LIST}e/{e['slug']}/"; img = PHOTOS.get(e["link"]) or IMGPATH.get(h["img"] or h["id"])
     same = [x for x in (w["events"] if w else by_hub.get(e["hub"], [])) if x["date"] == e["date"] and x is not e][:12]
+    all_yorkseed = sorted([x for x in events if x["place"] == "spotlight" and x is not e], key=lambda x: (x["date"], x["start"] or "99"))[:12]
     crumb2 = f'<a href="/{w["slug"]}/">{e_(w["name"])} side events</a>' if w else f'<a href="/{h["slug"]}/">{e_(h["name"])}</a>'
     ys = '<p class="meta">★ A Yorkseed event</p>' if e["place"] == "spotlight" else ""
     if re.search(r"yorkseed\s+house", e["title"], re.I) or e.get("house"): ys += '<p class="meta" style="color:#E0457B">■ Yorkseed House</p>'
@@ -560,6 +561,7 @@ for e in events:
 {f'<img src="{e_(img)}" alt="{e_(e["title"])}" width="800" height="600" referrerpolicy="no-referrer">' if img else ''}</div>
 {f'<h2>About this <em>event</em></h2>{desc_html(e["desc"])}' if e["desc"] else ''}
 {(f'<h2>More {e_(w["name"]) + " side events" if w else "events in " + e_(h["name"])} on <em>{e_(dd.strftime("%B"))} {dd.day}</em></h2>' + rows(same, camp)) if same else ''}
+{(f'<h2>Upcoming <em>Yorkseed</em> events</h2>' + rows(all_yorkseed, camp, show_city=True)) if all_yorkseed else ''}
 <div class="band"><p>{f'Every {e_(w["name"])} side event, by day, updated daily.' if w else f'Every upcoming startup and tech event in {e_(h["name"])}.'}</p><a class="btn r" href="/{w['slug'] if w else h['slug']}/">See all</a></div>"""
     eld = event_ld(e, camp); eld["@id"] = canon + "#event"
     if w and WEEK_EXTRA.get(w["id"], {}).get("conf"):
