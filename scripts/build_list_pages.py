@@ -146,6 +146,47 @@ def ref(u, camp):
         return urlunsplit((p.scheme, p.netloc, p.path, urlencode(q), p.fragment))
     except Exception: return u
 
+# Community-submitted events approved via the List's own "List your event" form, and approved edits
+# from "Hosting this event? Change or remove it" on every event page -- neither ever flowed into this
+# repo before, so an approved time/venue fix (or a brand-new approved listing) just sat unapplied.
+try:
+    import urllib.request
+    _sub_req = urllib.request.Request(
+        "https://yorkseed-backend-production.up.railway.app/api/list-submissions/public",
+        headers={"User-Agent": "Mozilla/5.0 (compatible; YorkseedListBuilder/1.0)"})
+    with urllib.request.urlopen(_sub_req, timeout=20) as _sub_resp:
+        _sub = json.loads(_sub_resp.read().decode("utf-8"))
+except Exception:
+    _sub = {}
+for s in _sub.get("events", []):
+    if not (isinstance(s, dict) and s.get("hub") in hubs and s.get("date") and s.get("title")): continue
+    link = s.get("link") or ""
+    key = (link or s["title"], s["date"])
+    if key in seen: continue  # already pulled in (this feed also echoes back Event Manager events)
+    seen.add(key)
+    hub = s["hub"]
+    data["events"].append({"title": s["title"], "hub": hub, "date": s["date"], "start": s.get("start") or None,
+        "end": s.get("end") or None, "host": s.get("host") or "", "venue": s.get("venue") or "",
+        "link": link, "desc": s.get("desc") or "", "type": s.get("type", ""),
+        "week": next((w["id"] for w in data["weeks"] if w["hub"] == hub and w["start"] <= s["date"] <= w["end"]
+                      and (not w.get("re") or re.search(w["re"], s["title"] + " " + link, re.I))), None),
+        "place": "featured" if s.get("featured") else ("spotlight" if s.get("yorkseed") else None),
+        "cover": s["img"] if (s.get("img") or "").startswith("http") else ""})
+for ch in _sub.get("changes", []):
+    tl = (ch.get("link") or "").strip(); tt = (ch.get("title") or "").strip(); td = (ch.get("date") or "").strip()
+    matches = ([e for e in data["events"] if (e.get("link") or "").strip() == tl] if tl
+               else [e for e in data["events"] if e.get("title") == tt and e.get("date") == td])
+    if not matches: continue
+    if ch.get("remove"):
+        for e in matches: data["events"].remove(e)
+        continue
+    fields = ch.get("fields") or {}
+    for e in matches:
+        for k in ("title", "date", "start", "end", "venue", "link", "desc"):
+            if fields.get(k): e[k] = fields[k]
+        e["week"] = next((w["id"] for w in data["weeks"] if w["hub"] == e["hub"] and w["start"] <= e["date"] <= w["end"]
+                           and (not w.get("re") or re.search(w["re"], e["title"] + " " + (e.get("link") or ""), re.I))), None)
+
 events = [e for e in data["events"] if e["hub"] in hubs and TODAY <= dt.date.fromisoformat(e["date"]) <= HORIZON]
 events.sort(key=lambda e: (e["date"], e["start"] or "99"))
 for e in events: e.setdefault("week", None); e.setdefault("place", None)
