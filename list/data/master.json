@@ -1019,6 +1019,65 @@
       "hub": "sel",
       "start": "2026-11-25",
       "end": "2026-11-27"
+    },
+    {
+      "id": "adfw",
+      "name": "Abu Dhabi Finance Week",
+      "hub": "dxb",
+      "start": "2026-12-07",
+      "end": "2026-12-10",
+      "re": "abu dhabi finance|\\badfw\\b|\\badgm\\b|abu dhabi global market|milken"
+    },
+    {
+      "id": "nrf",
+      "name": "NRF: Retail's Big Show",
+      "hub": "nyc",
+      "start": "2027-01-10",
+      "end": "2027-01-12"
+    },
+    {
+      "id": "wgs",
+      "name": "World Governments Summit",
+      "hub": "dxb",
+      "start": "2027-02-01",
+      "end": "2027-02-03",
+      "re": "world governments summit|\\bwgs\\b"
+    },
+    {
+      "id": "step",
+      "name": "STEP Conference",
+      "hub": "dxb",
+      "start": "2027-02-03",
+      "end": "2027-02-04",
+      "re": "step conference|dubai internet city"
+    },
+    {
+      "id": "mwc",
+      "name": "MWC Barcelona & 4YFN",
+      "hub": "bcn",
+      "start": "2027-03-01",
+      "end": "2027-03-04"
+    },
+    {
+      "id": "sxsw",
+      "name": "SXSW",
+      "hub": "atx",
+      "start": "2027-03-15",
+      "end": "2027-03-21"
+    },
+    {
+      "id": "shoptalk",
+      "name": "Shoptalk Spring",
+      "hub": "lvs",
+      "start": "2027-03-22",
+      "end": "2027-03-24"
+    },
+    {
+      "id": "leap",
+      "name": "LEAP",
+      "hub": "riy",
+      "start": "2027-04-12",
+      "end": "2027-04-15"
     }
   ],
   "img": {
