@@ -1969,6 +1969,19 @@
    "list_page": "https://list.yorkseed.co/london/"
   },
   {
+   "title": "TEDxKamionek Salon",
+   "city": "Warsaw",
+   "country": "Poland",
+   "start": "2026-11-23T18:00:00+01:00",
+   "end": "2026-11-23T22:00:00+01:00",
+   "host": "TEDxKamionekSalon",
+   "type": "Meetups",
+   "conference_week": null,
+   "description": "🎫 TEDxKamionek Salon\n\n📅 23 November 2026\n📍 Multikino Złote Tarasy – ul. Złota 59, 00-120 Warsaw\n🎟 Limited seats – book your ticket today 🎫\n\n🪪 PLEASE NOTE\n\nPlease register with your full name. Your identity may be verified at check-in when your event ticket is scanned.\n\nIt always answers.\n\nIt always has time.\n\nIt knows what to show you to keep you there a little longer.\n\nTechnology was designed to work. The question is: how does it work on us?\n\nAt TEDxKamionek Salon, we'll talk about a world where algorithms play a growing part in our decisions, our relationships and our everyday choices.",
+   "register_url": "https://luma.com/pe0gguzw?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/warsaw/"
+  },
+  {
    "title": "The Co-Founder Advantage | Toronto Book Launch",
    "city": "Toronto",
    "country": "Canada",
@@ -2253,6 +2266,19 @@
    "description": "Details and registration on the event page.",
    "register_url": "https://www.techsydney.com.au/events/event/20906/edge?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/sydney/"
+  },
+  {
+   "title": "Petit déjeuner : Comment fidéliser à l",
+   "city": "Paris",
+   "country": "France",
+   "start": "2026-11-23",
+   "end": null,
+   "host": "Boonty",
+   "type": "Conferences",
+   "conference_week": null,
+   "description": "Qu’est-ce qui fait qu’un client revient, en 2026 ?\n\nOn en parle le lundi 23 novembre chez HEC Alumni (Paris 8e), pour la 2e édition de notre table ronde sur la fidélisation client.\n\nTrois angles, trois intervenants :\n→ Octavio Ponce, directeur marketing de Carrefour : la fidélité à grande échelle\n→ Delphine Mousseau, administratrice indépendante, ex- Zalando : l’omnicanal et l’e-commerce\n→ Stéphane Boulez, Head of Partnerships France chez MarketPay : le rôle du paiement\n\nLe format : 30 min d’échange, 15 min de questions, puis un petit-déjeuner pour échanger entre participants. Pas de slides.",
+   "register_url": "https://www.hecalumni.fr/share/event/14300?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/paris/"
   },
   {
    "title": "Industry Connect 2026",
@@ -5479,6 +5505,19 @@
    "list_page": "https://list.yorkseed.co/houston/"
   },
   {
+   "title": "Barcelona Founders Forge #2: Meet Your Cofounder IRL",
+   "city": "Barcelona",
+   "country": "Spain",
+   "start": "2026-11-24T19:00:00+01:00",
+   "end": "2026-11-24T21:30:00+01:00",
+   "host": "BCN Founders Forge",
+   "type": "Meetups",
+   "conference_week": null,
+   "description": "🚀 Looking for a cofounder?\nOn Nov 24th, we’re hosting an intimate, in-person cofounder matchmaking session for founders, builders, and people ready to start something new. No company or fully formed idea required - just bring a real skillset to the table and an open mind to finding the right people to build with.\nSpots are limited and curated. \nGrab yours here 👇",
+   "register_url": "https://luma.com/bcno4quk?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/barcelona/"
+  },
+  {
    "title": "Barcelona Entrepreneurs • Tuesday Meetup (terrace open)",
    "city": "Barcelona",
    "country": "Spain",
@@ -6608,6 +6647,19 @@
    "description": "Details and registration on the event page.",
    "register_url": "https://www.meetup.com/atx-startup-network/events/317302121/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/austin/"
+  },
+  {
+   "title": "BNB Bangkok",
+   "city": "Bangkok",
+   "country": "Thailand",
+   "start": "2026-11-25T12:00:00+07:00",
+   "end": "2026-11-25T14:00:00+07:00",
+   "host": "BNB Chain",
+   "type": "Hackathons",
+   "conference_week": null,
+   "description": "BNB Bangkok is a three-day hackathon by BNB Chain for developers, designers and founders at Park Hyatt Bangkok. The event runs November 25 at 12:00 through November 27 at 18:00, Bangkok time (UTC+7). Free to attend; individual application and approval required. CoinEasy is a community partner. Startup Track applications are separate and selection is not guaranteed. Full details: https://luma.com/n5y1y7cu",
+   "register_url": "https://luma.com/n5y1y7cu?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/bangkok/"
   },
   {
    "title": "Founders Lunch | Finance for Growth",
@@ -8389,6 +8441,19 @@
    "description": "Details and registration on the event page.",
    "register_url": "https://www.meetup.com/toronto-cto-group/events/317271868?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/toronto/"
+  },
+  {
+   "title": "Female Founder Pitch Night",
+   "city": "London",
+   "country": "United Kingdom",
+   "start": "2026-11-25T18:00:00+00:00",
+   "end": "2026-11-25T21:00:00+00:00",
+   "host": "Jan McGinley",
+   "type": "Pitch",
+   "conference_week": null,
+   "description": "Female founders get about 2% of venture funding. The answer isn't another panel talking about the problem. On Wednesday 25th November, networkd and Tide are putting six founders on stage at Tide HQ to pitch live to our expert panel who can move the dial, in a room full of people who can actually help them get further. Our judging panel Eda Taskin , Head of UK, Tenity Jackie Naghten , Investor and Board Advisor, Founder to Funded Mat Westergreen-Thorne Pauline Li , Founder and Managing Partner, Madonna Capital Cristina Lasagni , Founder, Futuraya and Angel Investor Come even if you're not…",
+   "register_url": "https://luma.com/82lse1ut?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/london/"
   },
   {
    "title": "Open Code #22",
@@ -13890,6 +13955,19 @@
    "list_page": "https://list.yorkseed.co/seattle/"
   },
   {
+   "title": "BNB Demo Night: Bangkok",
+   "city": "Bangkok",
+   "country": "Thailand",
+   "start": "2026-11-27T14:00:00+07:00",
+   "end": "2026-11-27T20:00:00+07:00",
+   "host": "BNB Chain",
+   "type": "Demo Days",
+   "conference_week": null,
+   "description": "BNB Chain Demo Night is the closing celebration of BNB Hack: Bangkok, featuring live project demos, Startup Track pitches, awards and networking at Park Hyatt Bangkok. The Luma listing shows November 27, 14:00–20:00 Bangkok time, while its program lists an 18:00 end; please confirm the latest schedule with the organizers on the event page. Free registration and approval required for new guests. Approved hackathon participants can attend without registering again. Startup Track applications are separate. https://luma.com/5topfryz",
+   "register_url": "https://luma.com/5topfryz?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/bangkok/"
+  },
+  {
    "title": "Frontier Research Club #33 | Autonomous Research: The Self-Improving Lab (dinner + research discussion at Google Berlin)",
    "city": "Berlin",
    "country": "Germany",
@@ -17060,6 +17138,19 @@
    "description": "Details and registration on the event page.",
    "register_url": "https://luma.com/5gziy00e?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/ho-chi-minh-city/"
+  },
+  {
+   "title": "MADANG Korea Coffee Chat — 커피챗 하자, 마당에서 봐 🐱☕",
+   "city": "Seoul",
+   "country": "South Korea",
+   "start": "2026-11-29T18:00:00+09:00",
+   "end": "2026-11-29T21:00:00+09:00",
+   "host": "Seung Hyun Lee",
+   "type": "Meetups",
+   "conference_week": null,
+   "description": "커피챗 하자, 마당에서 봐 🐱☕ 오든 말든 상관없다냥. 근데 오면 피자도 있고, 난 좀 행복하다냥 🍕 📅 11월 29일 (일) 오후 6-9시 📍 앙트레블 (Cafe en Travel) 서울 강남구 강남대로102길 45 신논현에서 도보 약 5분 마당에서 활동하는 분들과 커피 한 잔 하면서, 편하게 이야기 나누는 자리예요 ☕ 루마에 이름만 남겨 두면 당일 입장이 수월해요. 현장에서 체크인한 뒤에는, 큰 화면 QR로 madang.fun 웨이트리스트 와 텔레그램 소통방( @madangfun )까지 한 번에 안내할 예정이에요. 오든 말든 상관없다냥. 근데 루마에 이름 남겨 두면, 좋은 일이 생길 수도 있다냥 🐾 Come for a coffee chat at MADANG 🐱☕ Sunday, Nov 29, 6-9 PM KST Cafe en Travel (앙트레블), 45 Gangnam-daero 102-gil, Gangnam, Seoul About a 5-minute walk from Sinnonhyeon. A casual coffee chat with the MADANG community. Pizza will be there too 🍕 Sign up…",
+   "register_url": "https://luma.com/madangkr1?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/seoul/"
   },
   {
    "title": "Belgrade Entrepreneurs and Startups Weekly Meetup",
@@ -20286,6 +20377,19 @@
    "list_page": "https://list.yorkseed.co/los-angeles/"
   },
   {
+   "title": "TEDxKamionek Salon",
+   "city": "Warsaw",
+   "country": "Poland",
+   "start": "2026-12-01T17:30:00+01:00",
+   "end": "2026-12-01T21:00:00+01:00",
+   "host": "TEDxKamionek Salon",
+   "type": "Meetups",
+   "conference_week": null,
+   "description": "Artificial intelligence is reshaping digital security, but are we aware of the risks? From cybercrime and online scams to biometric data and digital identity, the threats are evolving faster than ever. Yet AI can also become one of our strongest defenses, helping detect fraud, protect our information, and make the digital world safer.\n\n​How do we protect ourselves in a world where technology can be both the threat and the solution?\n\n​Join us at TEDxKamionek Salon for an evening of fresh perspectives, unexpected insights, and ideas worth spreading.\n\n​Four speakers. Four perspectives. One stage.",
+   "register_url": "https://luma.com/jpq5zjnt?tk=SxHrFT&utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/warsaw/"
+  },
+  {
    "title": "Entrepreneurs Roundtable 220",
    "city": "New York",
    "country": "United States",
@@ -22272,6 +22376,19 @@
    "conference_week": "AWS re:Invent",
    "description": "Details and registration on the event page.",
    "register_url": "https://luma.com/sad3ha3e?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/las-vegas/"
+  },
+  {
+   "title": "Web Agencies Coffee Meetup During AWS re:Invent",
+   "city": "Las Vegas",
+   "country": "United States",
+   "start": "2026-12-02T07:30:00-08:00",
+   "end": "2026-12-02T09:00:00-08:00",
+   "host": "MikeDemo & Boardy Boardman",
+   "type": "Meetups",
+   "conference_week": "AWS re:Invent",
+   "description": "A daily coffee meetup for web agency folks in town for AWS re:Invent. Drop in before the day gets going, grab a coffee, and meet other agency owners, partners, and builders. Come and go as you like. No talks, no pitches, just coffee and conversation. Hosted by Demo (Mike Demopoulos), every morning of re:Invent at Urth Caffé in Wynn Plaza. Demo is a Forbes Agency Council member and leads its Web Hosting & Infrastructure group, writing on partnerships and the hosting industry.",
+   "register_url": "https://luma.com/daklxcxc?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/las-vegas/"
   },
   {
@@ -25005,6 +25122,19 @@
    "list_page": "https://list.yorkseed.co/atlanta/"
   },
   {
+   "title": "A Chief of Staff Mixer on Wellness (Wed Dec 2)",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-12-02T18:30:00-05:00",
+   "end": "2026-12-02T20:30:00-05:00",
+   "host": "David Nebinski",
+   "type": "Meetups",
+   "conference_week": null,
+   "description": "Hi, I am David Nebinski, the Founder of A Chief of Staff . Join this A Chief of Staff Mixer, powered by Offsite. 🎁 Note: if you attend this event, you will qualify for a giveaway gift to be announced in January 2027 🎁 \n\nWhen: Wednesday December 2nd at 6:30 in Flatiron \n\nAgenda: \n6:30 - arrival and mingling \n7:00 - activity \n7:30 - activity \n8:00 - mingling \n\nExcited to see you on Wednesday December 2nd,​​ \nDavid Nebinski who hosts more than monthly events in New York for Chiefs of Staff.",
+   "register_url": "https://luma.com/ceicywft?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
    "title": "Tech Networking Event by Startup Valley in Los Angeles",
    "city": "Los Angeles",
    "country": "United States",
@@ -26097,6 +26227,19 @@
    "list_page": "https://list.yorkseed.co/san-diego/"
   },
   {
+   "title": "Web Agencies Coffee Meetup During AWS re:Invent",
+   "city": "Las Vegas",
+   "country": "United States",
+   "start": "2026-12-03T07:30:00-08:00",
+   "end": "2026-12-03T09:00:00-08:00",
+   "host": "MikeDemo & Boardy Boardman",
+   "type": "Meetups",
+   "conference_week": "AWS re:Invent",
+   "description": "A daily coffee meetup for web agency folks in town for AWS re:Invent. Drop in before the day gets going, grab a coffee, and meet other agency owners, partners, and builders. Come and go as you like. No talks, no pitches, just coffee and conversation. Hosted by Demo (Mike Demopoulos), every morning of re:Invent at Urth Caffé in Wynn Plaza. Demo is a Forbes Agency Council member and leads its Web Hosting & Infrastructure group, writing on partnerships and the hosting industry.",
+   "register_url": "https://luma.com/8coxstzn?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/las-vegas/"
+  },
+  {
    "title": "Arctic Express Hackathon",
    "city": "Helsinki",
    "country": "Finland",
@@ -26277,6 +26420,19 @@
    "description": "Details and registration on the event page.",
    "register_url": "https://aicoding.emerce.nl?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/amsterdam/"
+  },
+  {
+   "title": "HR Leaders Breakfast | Alma x Croissant x Pinpointe",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-12-03T08:30:00-05:00",
+   "end": "2026-12-03T10:00:00-05:00",
+   "host": "Alma & Pinpointe",
+   "type": "Communal Dining",
+   "conference_week": null,
+   "description": "Sleighing the Season: A Holiday Breakfast for HR Leaders Hosted by Alma & Croissant x Pinpointe The season gets busy fast. Before it does, let's slow down over breakfast. Join Alma, Croissant, and Pinpointe for a festive morning made for HR and People leaders. Come for a delicious spread, great company, and a chance to connect with peers navigating the same year-end sprint you are. We'll also be running a holiday charity drive, because the best way to start the season is by giving back. And no one leaves empty-handed. There's a treat waiting for you on the way out. Save your spot by…",
+   "register_url": "https://luma.com/tryalma-tyc2?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
   },
   {
    "title": "Adopt AI Grand Palais",
@@ -29462,6 +29618,19 @@
    "description": "Details and registration on the event page.",
    "register_url": "https://luma.com/shipnrun1204?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
+   "title": "Web Agencies Coffee Meetup During AWS re:Invent",
+   "city": "Las Vegas",
+   "country": "United States",
+   "start": "2026-12-04T07:30:00-08:00",
+   "end": "2026-12-04T09:00:00-08:00",
+   "host": "MikeDemo & Boardy Boardman",
+   "type": "Meetups",
+   "conference_week": "AWS re:Invent",
+   "description": "A daily coffee meetup for web agency folks in town for AWS re:Invent. Drop in before the day gets going, grab a coffee, and meet other agency owners, partners, and builders. Come and go as you like. No talks, no pitches, just coffee and conversation. Hosted by Demo (Mike Demopoulos), every morning of re:Invent at Urth Caffé in Wynn Plaza. Demo is a Forbes Agency Council member and leads its Web Hosting & Infrastructure group, writing on partnerships and the hosting industry.",
+   "register_url": "https://luma.com/pwiq641v?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/las-vegas/"
   },
   {
    "title": "Startup Coffee Social #39",
@@ -35366,6 +35535,19 @@
    "list_page": "https://list.yorkseed.co/new-york/"
   },
   {
+   "title": "NachoTuesday NYC Founder + VC Annual Holiday Happy Hour",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-12-08T17:00:00-05:00",
+   "end": "2026-12-08T20:00:00-05:00",
+   "host": "NachoNacho",
+   "type": null,
+   "conference_week": null,
+   "description": "NachoNacho - The B2B SaaS & AI + Services Marketplace, MongoDB, and B2B NYC will host this exclusive NYC SaaS & AI Founder + Investor Annual Holiday Happy…",
+   "register_url": "https://luma.com/nemdlbvq?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
    "title": "BERLIN QUANTUM BarBQ: Xmas Special",
    "city": "Berlin",
    "country": "Germany",
@@ -36237,19 +36419,6 @@
    "list_page": "https://list.yorkseed.co/barcelona/"
   },
   {
-   "title": "NachoTuesday NYC Founder + VC Annual Holiday Happy Hour",
-   "city": "New York",
-   "country": "United States",
-   "start": "2026-12-08T20:00:00-05:00",
-   "end": null,
-   "host": "NachoNacho",
-   "type": null,
-   "conference_week": null,
-   "description": "NachoNacho - The B2B SaaS & AI + Services Marketplace, MongoDB, and B2B NYC will host this exclusive NYC SaaS & AI Founder + Investor Annual Holiday Happy…",
-   "register_url": "https://luma.com/nemdlbvq?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
-   "list_page": "https://list.yorkseed.co/new-york/"
-  },
-  {
    "title": "NachoTuesday : C-Suite Insights",
    "city": "New York",
    "country": "United States",
@@ -36273,6 +36442,19 @@
    "conference_week": null,
    "description": "Details and registration on the event page.",
    "register_url": "https://luma.com/hfm2dc6y?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
+   "title": "NachoTuesday NYC Founder + VC Annual Holiday Happy Hour",
+   "city": "New York",
+   "country": "United States",
+   "start": "2026-12-08T20:00:00-05:00",
+   "end": "2026-12-08T22:00:00-05:00",
+   "host": "Nacho Nacho",
+   "type": "Meetups",
+   "conference_week": null,
+   "description": "NachoNacho - The B2B SaaS & AI + Services Marketplace, MongoDB, and B2B NYC will host this exclusive NYC SaaS & AI Founder + Investor",
+   "register_url": "https://luma.com/nemdlbvq?tk=YWVdZW&utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/new-york/"
   },
   {
@@ -38850,19 +39032,6 @@
    "list_page": "https://list.yorkseed.co/vienna/"
   },
   {
-   "title": "Techstars NYC Demo Day 2026",
-   "city": "New York",
-   "country": "United States",
-   "start": "2026-12-10T17:00:00-05:00",
-   "end": null,
-   "host": "Techstars",
-   "type": "Demo Days",
-   "conference_week": null,
-   "description": "Connect with founders through Techstars events, Startup Weekend, Startup Week, and programs for every stage.",
-   "register_url": "https://www.techstars.com/events?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
-   "list_page": "https://list.yorkseed.co/new-york/"
-  },
-  {
    "title": "The 3rd Annual Winter Oasis",
    "city": "Boston",
    "country": "United States",
@@ -39134,6 +39303,19 @@
    "description": "Details and registration on the event page.",
    "register_url": "https://www.meetup.com/ai-portland/events/316086856?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/portland/"
+  },
+  {
+   "title": "2026 Consensus Awards Night",
+   "city": "Sydney",
+   "country": "Australia",
+   "start": "2026-12-10T17:00:00+11:00",
+   "end": "2026-12-10T22:00:00+11:00",
+   "host": "Consensus Awards",
+   "type": "Meetups",
+   "conference_week": null,
+   "description": "Consensus Awards 2026 – Celebrating 25 Years of Australian Innovation\n\nJoin Australia's innovation, technology and business community for an evening celebrating 25 years of recognising outstanding achievement, entrepreneurship and commercial success.\n\nThe Consensus Awards 2026 marks a significant milestone: 25 years of identifying, recognising and celebrating innovation across Australia and New Zealand.\n\nTaking place on Thursday 10 December 2026 at AERIAL Function Centre, UTS Sydney, this special event will bring together businesses, entrepreneurs, founders, industry leaders, investors",
+   "register_url": "https://www.consensusawards.au/event-tickets/p/2026-consensus-awards-night?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/sydney/"
   },
   {
    "title": "Romanian tech meets US scale",
@@ -47209,7 +47391,7 @@
    "list_page": "https://list.yorkseed.co/san-francisco-bay-area/"
   },
   {
-   "title": "LONDON",
+   "title": "LONDON AI FORUM",
    "city": "New York",
    "country": "United States",
    "start": "2027-01-11T08:00:00-05:00",
@@ -47218,7 +47400,7 @@
    "type": "Conferences",
    "conference_week": "NRF: Retail's Big Show",
    "description": "The London AI Forum unites founders, researchers, and builders to turn AI theory into real-world impact through expert workshops, collaboration, and networking.",
-   "register_url": "https://londonaiforum.org/register?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "register_url": "http://londonaiforum.org/register?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/new-york/"
   },
   {
@@ -48402,6 +48584,19 @@
    "conference_week": "WEF Davos",
    "description": "Details and registration on the event page.",
    "register_url": "https://luma.com/6292vi15?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/davos/"
+  },
+  {
+   "title": "Investor House : Davos Edition",
+   "city": "Davos",
+   "country": "Switzerland",
+   "start": "2027-01-18T09:00:00+01:00",
+   "end": "2027-01-18T11:00:00+01:00",
+   "host": "Zoe West & Stanley Marchon",
+   "type": "Investor Events",
+   "conference_week": "WEF Davos",
+   "description": null,
+   "register_url": "https://luma.com/6292vi15?tk=kSvvXm&utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/davos/"
   },
   {
