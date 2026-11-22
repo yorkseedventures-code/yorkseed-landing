@@ -692,6 +692,28 @@ for e in events:
     written.append((canon, True, "weekly", "0.6"))
 print(len(events), "event pages")
 
+# Bake the full current event feed into list/assets/app.js as BAKED_EVENTS, so a city/list view has (almost)
+# everything on its very first paint instead of only the hand-curated MORE/MORE2 snapshots until the client's
+# own live-backend fetches resolve a couple of seconds later (see the BEGIN_BAKED_EVENTS comment in app.js for
+# the full rationale). A linkless event is skipped: the client-side merge dedups on link.toLowerCase(), so an
+# empty link would collide across every linkless event (only the first would survive) and, worse, a literal
+# null there -- json.dumps(None) is "null", not a string -- would throw inside that merge's forEach the moment
+# any event's link is missing, silently breaking every OTHER baked event queued after it in the same array.
+def _js_str(s):
+    # U+2028/U+2029 are valid inside a JSON string but are literal line terminators inside a JS string literal --
+    # unescaped, either one throws "Invalid or unexpected token" the moment scraped text happens to contain one.
+    return json.dumps(s or "", ensure_ascii=False).replace("\u2028", "\\u2028").replace("\u2029", "\\u2029")
+_baked = [
+    f'[{_js_str(e["hub"])},{_js_str(e["date"])},{_js_str(e.get("start"))},{_js_str(e.get("end"))},{_js_str(e["title"])},{_js_str(e["link"])},{_js_str(e.get("venue"))},{_js_str(e.get("host"))}]'
+    for e in events if e.get("link")
+]
+_app_js_path = f"{REPO}/list/assets/app.js"
+_app_js = open(_app_js_path).read()
+_baked_js = "const BAKED_EVENTS=[" + ",".join(_baked) + "];"
+_app_js, _n = re.subn(r"const BAKED_EVENTS=\[.*?\];", lambda m: _baked_js, _app_js, count=1, flags=re.S)
+if _n: open(_app_js_path, "w").write(_app_js)
+print(f"{len(_baked)} events baked into app.js's BAKED_EVENTS" + ("" if _n else " -- MARKER NOT FOUND, app.js unchanged"))
+
 # Orphaned event pages: an event can disappear from master.json (its upstream feed aged it out, or dropped it)
 # while its own /e/<slug>/ page -- built on a previous run, when the event was still in master.json -- stays on
 # disk forever (this script only ever adds pages, never removes one no longer backed by current data). Such a
