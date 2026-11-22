@@ -74,6 +74,17 @@ def _mgr_host(m):
     if m.get("type") == "expert": return "Yorkseed Expert Series"
     if m.get("type") == "community": return ((m.get("hosts") or [None])[0]) or ""
     return "Yorkseed"
+def _mgr_venue(m):
+    # The Manager's "location" field is often just the city/country restated ("Paris, France",
+    # "Virtual · Online") rather than a real address -- only use it as the venue when it says more
+    # than that (an actual street address), so the page's own city/country line doesn't get duplicated.
+    loc = re.sub(r"\s+", " ", m.get("location") or "").strip()
+    city = (m.get("city") or "").strip().lower()
+    low = loc.lower()
+    if m.get("venue"): return m["venue"]
+    if not loc or low in ("virtual · online", "virtual, online", "online"): return ""
+    if city and low.startswith(city + ","): return ""
+    return loc
 for m in manager_events:
     if not (isinstance(m, dict) and m.get("dateISO") and m.get("title")): continue
     link = m.get("lumaUrl") or ""
@@ -83,7 +94,7 @@ for m in manager_events:
     hub = _mgr_hub(m.get("city"))
     cov = m.get("coverImage") or ""
     data["events"].append({"title": m["title"], "hub": hub, "date": m["dateISO"], "start": m.get("startTime") or None,
-        "end": m.get("endTime") or None, "host": _mgr_host(m), "venue": m.get("venue") or m.get("location") or "",
+        "end": m.get("endTime") or None, "host": _mgr_host(m), "venue": _mgr_venue(m),
         "link": link, "desc": m.get("description") or "", "type": m.get("type", ""),
         "week": next((w["id"] for w in data["weeks"] if w["hub"] == hub and w["start"] <= m["dateISO"] <= w["end"]
                       and (not w.get("re") or re.search(w["re"], m["title"] + " " + link, re.I))), None),
@@ -582,7 +593,8 @@ for e in events:
     h = hubs[e["hub"]]; w = wk.get(e.get("week")); camp = "list_event"; dd = dt.date.fromisoformat(e["date"])
     nice = dd.strftime("%A, %B ") + str(dd.day) + f", {dd.year}"
     when = nice + (f" · {t12(e['start'])}" if e.get("start") else "") + (f" to {t12(e['end'])}" if e.get("end") else "")
-    where = place(e) or h["name"]
+    city_country = f'{h["name"]}, {h["country"]}' if h["country"] and h["id"] != "virtual" else h["name"]
+    where = place(e) or city_country
     ctx = f"{w['name']} side event" if w else f"Startup event in {h['name']}"
     title = f"{e['title']} | {ctx}"
     # Only append the " | context" suffix when the plain title has room for it -- never truncate the
@@ -598,7 +610,7 @@ for e in events:
     crumb2 = f'<a href="/{w["slug"]}/">{e_(w["name"])} side events</a>' if w else f'<a href="/{h["slug"]}/">{e_(h["name"])}</a>'
     ys = '<p class="meta">★ A Yorkseed event</p>' if e["place"] == "spotlight" else ""
     if re.search(r"yorkseed\s+house", e["title"], re.I) or e.get("house"): ys += '<p class="meta" style="color:#E0457B">■ Yorkseed House</p>'
-    dts = ("".join(f"<p style=\"margin:4px 0\"><b>{k}</b> {e_(v)}</p>" for k, v in [("When", when), ("Where", where + ("" if where == h["name"] else f", {h['name']}")), ("Host", e["host"]), ("Type", e["type"])] if v))
+    dts = ("".join(f"<p style=\"margin:4px 0\"><b>{k}</b> {e_(v)}</p>" for k, v in [("When", when), ("Where", where + ("" if where == city_country else f", {h['name']}")), ("Host", e["host"]), ("Type", e["type"])] if v))
     body = f"""<div class="crumb"><a href="https://yorkseed.co/">Yorkseed</a> / <a href="/">The List</a> / {crumb2}</div>
 {adslot('event', h['id'], h['name'], 'On every event page, right where people decide to go.', 'US$279/month')}
 <div class="hero"><div>{ys}<h1>{e_(e['title'])}</h1>

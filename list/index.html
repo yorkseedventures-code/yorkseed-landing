@@ -1665,6 +1665,8 @@ input::placeholder,textarea::placeholder{font-size:13.5px;color:var(--soft);opac
 
 
 
+
+
 <p id="ysSeoCities" style="max-width:1200px;margin:0 auto;padding:16px 20px;font:400 11px 'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase"><a href="/cities/" style="color:#888;text-decoration:none">Browse startup events by city →</a></p>
 <footer class="foot ysfoot">
   <div class="fwrap">
@@ -2300,7 +2302,7 @@ function mountCover(box,key,id){if(!box)return;
 mountCover(document.querySelector('[data-cover="s"]'),"s","sCover");
 function mailYS(subject,lines){return "mailto:"+YS_INBOX+"?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(lines.filter(x=>x!==null&&x!=="").join("\n"));}
 function refLink(u,camp){try{const x=new URL(u);x.searchParams.set("utm_source","yorkseed");x.searchParams.set("utm_medium","the_list");if(camp)x.searchParams.set("utm_campaign",camp);if(/(^|\.)lu\.?ma(\.com)?$/.test(x.hostname)||/luma\.com$/.test(x.hostname))x.searchParams.set("ref","yorkseed");return x.toString();}catch(e){return u;}}
-function placeText(e,h){let v=(e.venue||"").replace(/\s*•\s*/g," · ").replace(new RegExp("^"+h.name.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+"\\s*[,·]\\s*(Portugal|USA|United States)?\\s*[·,]?\\s*","i"),"").trim();return [h.name,v].filter(Boolean).join(" · ");}
+function placeText(e,h){let v=(e.venue||"").replace(/\s*•\s*/g," · ").replace(new RegExp("^"+h.name.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+"\\s*[,·]\\s*(Portugal|USA|United States)?\\s*[·,]?\\s*","i"),"").trim();const city=(!v&&h.country&&h.id!=="virtual")?`${h.name}, ${h.country}`:h.name;return [city,v].filter(Boolean).join(" · ");}
 function renderEvent(){
   const e=EVENTS.find(x=>x.id===st.evId);if(!e){show("home");return;}
   const h=hubById(e.hub),d=dParts(e.date),wk=e.week?weekById(e.week):null;
@@ -2851,9 +2853,10 @@ if(window.YS_STATIC){const J=f=>fetch(String(window.YS_STATIC).replace(/^1$/,"")
   const MGR_ALIAS={"queens":"nyc","bay area":"sf","san francisco":"sf","lisboa":"lis","lisbon":"lis","new york":"nyc","new york city":"nyc","jersey city":"jc","paris":"par","singapore":"sgp"};
   function mgrHub(city){const c=String(city||"").trim().toLowerCase();if(!c)return "virtual";const byName=HUBS.find(h=>h.name.toLowerCase()===c);return byName?byName.id:(MGR_ALIAS[c]||"virtual");}
   function mgrHost(m){if(m.series==="valois")return "Valois";if(m.type==="expert")return "Yorkseed Expert Series";if(m.type==="community")return (m.hosts&&m.hosts[0])||"";return "Yorkseed";}
+  function mgrVenue(m){if(m.venue)return m.venue;const loc=String(m.location||"").replace(/\s+/g," ").trim();const low=loc.toLowerCase();const city=String(m.city||"").trim().toLowerCase();if(!loc||["virtual · online","virtual, online","online"].includes(low))return "";if(city&&low.startsWith(city+","))return "";return loc;}
   fetch(MGR_API,{cache:"no-store"}).then(r=>r.ok?r.json():{events:[]}).then(x=>{const a=(x&&x.events)||[];const seen=new Set(EVENTS.map(e=>(e.link||e.title)+"|"+e.date));let n=0;
     a.forEach((m,i)=>{if(!m||!m.dateISO||!m.title)return;const link=m.lumaUrl||"";const k=(link||m.title)+"|"+m.dateISO;if(seen.has(k))return;seen.add(k);
-      const d={hub:mgrHub(m.city),date:m.dateISO,start:m.startTime||null,end:m.endTime||null,host:mgrHost(m),venue:m.venue||m.location||"",link,desc:m.description||"",type:m.type||"",
+      const d={hub:mgrHub(m.city),date:m.dateISO,start:m.startTime||null,end:m.endTime||null,host:mgrHost(m),venue:mgrVenue(m),link,desc:m.description||"",type:m.type||"",
         yorkseed:["passport","expert","summit","house"].includes(m.type),img:/^https:\/\//.test(m.coverImage||"")?m.coverImage:""};
       const ev=dbEvent("mg"+i,d);ev.fj=1;EVENTS.push(ev);n++;});if(n)rerenderAll();applyChanges();}).catch(()=>{});})();
 document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest("[data-ysall]");if(!b)return;e.preventDefault();window.__ysAll=!window.__ysAll;renderUpcoming();});
