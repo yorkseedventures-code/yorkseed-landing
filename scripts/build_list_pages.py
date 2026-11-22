@@ -547,7 +547,10 @@ for e in events:
     desc = (e["desc"] or f"{e['title']}: {ctx.lower()} on {nice}{', hosted by ' + e['host'] if e['host'] else ''}.")[:155]
     canon = f"{LIST}e/{e['slug']}/"; img = PHOTOS.get(e["link"]) or IMGPATH.get(h["img"] or h["id"])
     same = [x for x in (w["events"] if w else by_hub.get(e["hub"], [])) if x["date"] == e["date"] and x is not e][:12]
-    all_yorkseed = sorted([x for x in events if x["place"] == "spotlight" and x is not e], key=lambda x: (x["date"], x["start"] or "99"))[:12]
+    # "spotlight" also covers delegation-marked third-party conferences (e.g. HKTDC's Asian Financial Forum),
+    # not just events Yorkseed itself runs -- restrict this list to Yorkseed's own hosted programming.
+    all_yorkseed = sorted([x for x in events if x["host"] in ("Yorkseed", "Valois", "Yorkseed Expert Series") and x is not e],
+                           key=lambda x: (x["date"], x["start"] or "99"))[:12]
     crumb2 = f'<a href="/{w["slug"]}/">{e_(w["name"])} side events</a>' if w else f'<a href="/{h["slug"]}/">{e_(h["name"])}</a>'
     ys = '<p class="meta">★ A Yorkseed event</p>' if e["place"] == "spotlight" else ""
     if re.search(r"yorkseed\s+house", e["title"], re.I) or e.get("house"): ys += '<p class="meta" style="color:#E0457B">■ Yorkseed House</p>'
