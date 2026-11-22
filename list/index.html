@@ -1471,6 +1471,7 @@ input::placeholder,textarea::placeholder{font-size:13.5px;color:var(--soft);opac
       <p id="cityLede">Conferences, side events, meetups, and more.</p>
       <div class="clock" id="cityClock"></div>
       <button class="btn btn-sm btn-share" id="cityShare" type="button"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M12 3v13"/><path d="M7 8l5-5 5 5"/></svg><span id="cityShareLbl">Share this list</span></button>
+      <button class="btn btn-sm btn-line" id="ysCityLink" type="button" data-ysfilter="1" hidden></button>
       <form class="cityform" id="cityForm" hidden><p id="cityFormLbl">The weekly email</p><input id="cEmail" type="email" placeholder="you@company.com" aria-label="Email address"><button class="btn btn-gold" type="submit">Subscribe</button></form>
     </div>
   </section>
@@ -1897,12 +1898,12 @@ function dedupeEvents(list){const nk=t=>String(t||"").toLowerCase().normalize("N
 const upcoming=()=>{const k=EVENTS.length+"|"+(EVENTS[EVENTS.length-1]||{}).id;if(k!==UP_KEY){UP_KEY=k;UP_VAL=dedupeEvents(EVENTS.filter(e=>e.utcEnd>=NOW-36e5));}return UP_VAL;};
 const RANK={week:0,spotlight:1,featured:2};
 
-const st={mode:"list",month:"",day:null,ignoreDate:false,limit:40,sig:"",allWeeks:false,view:"home",hub:"all",type:"all",topic:null,q:"",date:"any",week:null,sort:"date",evId:null,prev:"home"};
+const st={mode:"list",month:"",day:null,ignoreDate:false,limit:40,sig:"",allWeeks:false,view:"home",hub:"all",type:"all",topic:null,q:"",date:"any",week:null,sort:"date",evId:null,prev:"home",ysOnly:false};
 
 function badge(p){return p==="week"?'<span class="badge b-week">Sponsor</span>':p==="spotlight"?'<span class="badge b-spot">★ Yorkseed</span>':p==="featured"?'<span class="badge b-feat">★ Featured</span>':"";}
 function yourTime(e){if(e.noTime)return"";const tz=hubById(e.hub).tz;if(tzOff(e.utc,tz)===tzOff(e.utc,myTz))return"";const s=dKey(e.utc,myTz)!==dKey(e.utc,tz)?(dKey(e.utc,myTz)>dKey(e.utc,tz)?" (+1 day)":" (−1 day)"):"";return`${fE(e,myTz)} your time${s}`;}
 function updSavedN(){const n=upcoming().filter(e=>saved.has(e.id)).length;document.querySelectorAll(".savedn").forEach(x=>x.textContent=n?` (${n})`:"");}
-function showSaved(){const m=document.getElementById("mnav");if(m)m.hidden=true;st.savedOnly=true;st.hub="all";st.type="all";st.topic=null;st.q="";st.week=null;st.day=null;st.date="any";goCity(null,true);}
+function showSaved(){const m=document.getElementById("mnav");if(m)m.hidden=true;st.savedOnly=true;st.hub="all";st.type="all";st.topic=null;st.q="";st.ysOnly=false;st.week=null;st.day=null;st.date="any";goCity(null,true);}
 function heartBtn(e,cls){return`<button class="${cls}" type="button" data-save="${e.id}" aria-pressed="${saved.has(e.id)}" aria-label="Save event"><svg class="ico" style="width:17px;height:17px"><use href="#i-heart"/></svg></button>`;}
 
 // ---------- views ----------
@@ -1970,7 +1971,7 @@ function listHash(){const w=st.week&&weekById(st.week);if(w)return "#"+weekSlug(
 let NAV_SHOWING=false;
 function syncListUrl(){if(NAV_SHOWING||st.view!=="city"||st.savedOnly)return;const u=listHash();if(location.hash!==u){try{history.replaceState(navState(),"",u);}catch(err){}}}
 function openListFromHash(h){h=decodeURIComponent((h||"").replace(/^#/,"")).toLowerCase();
-  const goWeek=(w,day)=>{st.week=w.id;st.topic=null;st.q="";st.date="any";st.type="all";goCity(w.hub);day=day||firstCoreDay(w);if(day){st.day=day;st.mode="list";renderCity();}return true;};
+  const goWeek=(w,day)=>{st.week=w.id;st.topic=null;st.q="";st.ysOnly=false;st.date="any";st.type="all";goCity(w.hub);day=day||firstCoreDay(w);if(day){st.day=day;st.mode="list";renderCity();}return true;};
   let m=h.match(/^w\/([a-z0-9]+)(?:\/(\d{4}-\d{2}-\d{2}))?$/);if(m&&weekById(m[1]))return goWeek(weekById(m[1]),m[2]);
   if(h==="events"){st.week=null;goCity("all");return true;}
   m=h.match(/^([a-z0-9-]+)(?:\/(\d{4}-\d{2}-\d{2}))?$/);if(!m)return false;
@@ -2126,7 +2127,7 @@ function addDays(n){return dKey(NOW+n*864e5,myTz);}
 function filtered(skipType,skipTopic){
   const q=st.q.trim().toLowerCase(),today=addDays(0);
   const inDate=e=>{switch(st.date){case"today":return e.date===today;case"week":return e.date<=addDays(6);case"weekend":{const wd=new Date(e.date+"T12:00:00Z").getUTCDay();return e.date<=addDays(7)&&(wd===0||wd===6);}case"30":return e.date<=addDays(29);case"weeks":return!!e.week;default:return true;}};
-  return upcoming().filter(e=>(!st.savedOnly||saved.has(e.id))&&(st.hub==="all"||e.hub===st.hub)&&(skipType||st.type==="all"||e.type===st.type||(e.cats||[]).includes(st.type))&&(skipTopic||!st.topic||e.tags.includes(st.topic)||(e.sectors||[]).includes(st.topic))&&(!st.week||e.week===st.week)&&(st.ignoreDate||((!st.day||e.date===st.day)&&inDate(e)))&&(!q||[e.title,e.host,e.type,hubById(e.hub).name,...e.tags].join(" ").toLowerCase().includes(q)))
+  return upcoming().filter(e=>(!st.savedOnly||saved.has(e.id))&&(!st.ysOnly||["Yorkseed","Valois","Yorkseed Expert Series"].includes(e.host))&&(st.hub==="all"||e.hub===st.hub)&&(skipType||st.type==="all"||e.type===st.type||(e.cats||[]).includes(st.type))&&(skipTopic||!st.topic||e.tags.includes(st.topic)||(e.sectors||[]).includes(st.topic))&&(!st.week||e.week===st.week)&&(st.ignoreDate||((!st.day||e.date===st.day)&&inDate(e)))&&(!q||[e.title,e.host,e.type,hubById(e.hub).name,...e.tags].join(" ").toLowerCase().includes(q)))
     .sort((a,b)=>a.date.localeCompare(b.date)||((RANK[a.place]??9)-(RANK[b.place]??9))||a.utc-b.utc);
 }
 const DATES=[["any","Any time"],["today","Today"],["week","This week"],["weekend","Weekend"],["30","Next 30 days"]];
@@ -2142,7 +2143,7 @@ function renderRail(){const el=$("#rail");if(!el)return;const hub=st.hub==="all"
   requestAnimationFrame(()=>{el.classList.toggle("nostick",el.offsetHeight>innerHeight-110);watchAds(el);});}
 function renderCity(){
   setTimeout(syncListUrl,0);try{renderRail();}catch(e){}
-  const sig=JSON.stringify([st.hub,st.type,st.topic,st.q,st.date,st.week,st.day,st.savedOnly]);if(sig!==st.sig){st.sig=sig;st.limit=PAGE;}
+  const sig=JSON.stringify([st.hub,st.type,st.topic,st.q,st.date,st.week,st.day,st.savedOnly,st.ysOnly]);if(sig!==st.sig){st.sig=sig;st.limit=PAGE;}
   const h=st.hub==="all"?null:hubById(st.hub),w=st.week?weekById(st.week):null;
   {const himg=!h?IMG.cityhero:h.img?IMG[h.img]:"";$("#cityImg").hidden=!himg;if(himg){$("#cityImg").src=himg;$("#cityImg").style.objectPosition=(h&&IMGPOS[h.img])||"50% 50%";}document.querySelector(".cityhero").classList.toggle("plain",!himg);}
   $("#cityNewTag").hidden=!(h&&h.isNew);
@@ -2151,6 +2152,7 @@ function renderCity(){
   const base=upcoming().filter(e=>!h||e.hub===h.id),wk7=base.filter(e=>e.date<=addDays(6)).length;
   $("#cityClock").textContent=`${base.length} event${base.length===1?"":"s"} · ${wk7} in the next 7 days · `+(h?`Local time ${fT(Date.now(),h.tz)} ${abbr(Date.now(),h.tz)}`:`Your time zone: ${myTz.replace(/_/g," ")}`);
   $("#cityShareLbl").textContent=w?(st.day?"Share this day":"Share this list"):h?`Share ${h.name} events`:"Share this list";$("#cityShare").hidden=!!st.savedOnly;
+  {const ysBtn=$("#ysCityLink");if(ysBtn){const ysN=h?base.filter(e=>["Yorkseed","Valois","Yorkseed Expert Series"].includes(e.host)).length:0;ysBtn.hidden=!h||!ysN||!!w||!!st.savedOnly;ysBtn.textContent=`${ysN} upcoming Yorkseed event${ysN===1?"":"s"} →`;ysBtn.setAttribute("aria-pressed",String(st.ysOnly));}}
   $("#cityFormLbl").textContent=`The weekly ${h?h.name:"Yorkseed"} email · every Monday`;
   $("#sideCities").innerHTML=`<li><button type="button" data-tab="all" aria-pressed="${!h}">All cities<span>${upcoming().length}</span></button></li>`+HUBS.map(x=>({x,n:upcoming().filter(e=>e.hub===x.id).length})).sort((a,b)=>b.n-a.n).map(({x,n})=>`<li><button type="button" data-tab="${x.id}" aria-pressed="${st.hub===x.id}">${x.name}<span>${n}</span></button></li>`).join("");
   const hc={};base.forEach(e=>{hc[e.host]=(hc[e.host]||0)+1});
@@ -2166,7 +2168,7 @@ function renderCity(){
    const sb=filtered(false,true),sc=t=>sb.filter(e=>e.tags.includes(t)||(e.sectors||[]).includes(t)).length;
    $("#fSector").innerHTML=`<option value="">All sectors (${sb.length})</option>`+[...new Set([...SECTORS,"Web3","Investing","Founders"])].filter(t=>t===st.topic||sc(t)>0).map(t=>`<option value="${t}">${t} (${sc(t)})</option>`).join("");$("#fSector").value=st.topic||"";}
   $("#fDate").innerHTML=DATES.map(([v,l])=>`<option value="${v}">${l}</option>`).join("")+(st.date==="weeks"?'<option value="weeks">Conference weeks</option>':"");$("#fDate").value=st.date==="7"?"week":st.date;$("#fDate").hidden=st.mode==="cal";
-  const chips=[];if(w)chips.push(`<span class="weekchip">${esc(w.name)}<button data-clear="week" aria-label="Clear week">×</button></span>`);if(st.savedOnly)chips.push(`<span class="weekchip">★ Saved<button data-clear="savedOnly" aria-label="Show all events">×</button></span>`);if(st.topic)chips.push(`<span class="weekchip">${esc(st.topic)}<button data-clear="topic" aria-label="Clear topic">×</button></span>`);if(st.day)chips.push(`<span class="weekchip">${dParts(st.day).wd} ${dParts(st.day).day} ${dParts(st.day).mon}<button data-clear="day" aria-label="Clear day">×</button></span>`);if(st.date==="weeks")chips.push(`<span class="weekchip">Conference weeks<button data-clear="date" aria-label="Clear">×</button></span>`);
+  const chips=[];if(w)chips.push(`<span class="weekchip">${esc(w.name)}<button data-clear="week" aria-label="Clear week">×</button></span>`);if(st.ysOnly)chips.push(`<span class="weekchip">Yorkseed events<button data-clear="ysfilter" aria-label="Clear Yorkseed filter">×</button></span>`);if(st.savedOnly)chips.push(`<span class="weekchip">★ Saved<button data-clear="savedOnly" aria-label="Show all events">×</button></span>`);if(st.topic)chips.push(`<span class="weekchip">${esc(st.topic)}<button data-clear="topic" aria-label="Clear topic">×</button></span>`);if(st.day)chips.push(`<span class="weekchip">${dParts(st.day).wd} ${dParts(st.day).day} ${dParts(st.day).mon}<button data-clear="day" aria-label="Clear day">×</button></span>`);if(st.date==="weeks")chips.push(`<span class="weekchip">Conference weeks<button data-clear="date" aria-label="Clear">×</button></span>`);
   $("#weekChip").innerHTML=chips.join(" ");
   {const old=$("#ysProg");if(old)old.remove();const pw=w&&w.ys?w:(h?WEEKS.find(x=>x.hub===h.id&&x.ys&&x.end>=addDays(0)):null);if(pw)$("#bCity").insertAdjacentHTML("beforebegin",`<div id="ysProg">${ysProgramsHtml(pw)}</div>`);}{const o=$("#ssMob");if(o)o.remove();if(ssOn())$("#bCity").insertAdjacentHTML("afterend",ssMob());}
   if(st.mode==="cal"){$("#dStrip").hidden=true;setStripVars();renderCal(h,w);$("#bCity").innerHTML=st.hub==="all"?bannerHtml("home"):bannerHtml("city",st.hub);return;}
@@ -2374,7 +2376,7 @@ $("#subForm").addEventListener("submit",async ev=>{
   nb.disabled=false;nb.textContent="Continue";
   if(!res.ok){EVENTS.pop();toast(res.msg||`We couldn't send that just now. Please try again, or email ${YS_INBOX}.`);return;}
   $("#subForm").reset();COVER.s="";mountCover(document.querySelector('[data-cover="s"]'),"s","sCover");$("#sStart").value="18:30";$("#sEnd").value="21:00";syncWeeks();setPlace("free");step=1;paneShow();
-  renderHome();st.hub=e.hub;st.type="all";st.topic=null;st.q="";st.week=null;st.date="any";goCity();
+  renderHome();st.hub=e.hub;st.type="all";st.topic=null;st.q="";st.ysOnly=false;st.week=null;st.date="any";goCity();
   toast(res.dup?"We already have this event. We'll be in touch if anything is missing.":res.live?"Thanks. Your event is live on the List now.":"Received. We review every event within a day, and it goes live on the List once approved. You can preview it here in the meantime.");
 });
 $("#prevBtn").onclick=()=>{if(step>1){step=step===4?2:step-1;paneShow();}};
@@ -2392,11 +2394,11 @@ document.addEventListener("click",ev=>{
   if(t.dataset.save){ev.stopPropagation();const id=t.dataset.save;saved.has(id)?saved.delete(id):saved.add(id);try{localStorage.setItem("yl-saved",JSON.stringify([...saved]))}catch(x){}document.querySelectorAll(`[data-save="${id}"]`).forEach(b=>b.setAttribute("aria-pressed",String(saved.has(id))));toast(saved.has(id)?"Saved. Find it under Saved in the menu.":"Removed from saved.");updSavedN();if(st.savedOnly&&st.view==="city")renderCity();return;}
   if(t.dataset.ev){goEvent(t.dataset.ev);return;}
   if(t.dataset.go==="home"){show("home");return;}
-  if(t.dataset.go==="city"){st.week=null;st.topic=null;st.q="";st.date="any";st.type="all";goCity(t.dataset.hub);return;}
+  if(t.dataset.go==="city"){st.week=null;st.topic=null;st.q="";st.ysOnly=false;st.date="any";st.type="all";goCity(t.dataset.hub);return;}
   if(t.dataset.scroll){scrollToId(t.dataset.scroll);return;}
-  if(t.dataset.city){st.week=null;st.topic=null;st.q="";st.date="any";goCity(t.dataset.city);return;}
-  if(t.dataset.topic){st.topic=t.dataset.topic;st.week=null;st.q="";goCity("all");return;}
-  if(t.dataset.weekgo){st.week=t.dataset.weekgo;st.topic=null;st.q="";st.date="any";st.type="all";goCity(weekById(st.week).hub);{const fd=firstCoreDay(weekById(st.week));if(fd){st.day=fd;st.mode="list";renderCity();}}return;}
+  if(t.dataset.city){st.week=null;st.topic=null;st.q="";st.ysOnly=false;st.date="any";goCity(t.dataset.city);return;}
+  if(t.dataset.topic){st.topic=t.dataset.topic;st.week=null;st.q="";st.ysOnly=false;goCity("all");return;}
+  if(t.dataset.weekgo){st.week=t.dataset.weekgo;st.topic=null;st.q="";st.ysOnly=false;st.date="any";st.type="all";goCity(weekById(st.week).hub);{const fd=firstCoreDay(weekById(st.week));if(fd){st.day=fd;st.mode="list";renderCity();}}return;}
   if(t.dataset.pin){openChat();return;const w=weekById(t.dataset.pin);$("#sHub").value=w.hub;syncWeeks();$("#sWeek").value=w.id;$("#sDate").value=w.start;scrollToId("submit");toast(`Add your side event for ${w.name}. The week is already selected.`);return;}
   if(t.dataset.tier){setPlace(t.dataset.tier);step=1;paneShow();scrollToId("submit");return;}
   if(t.dataset.tab){st.hub=t.dataset.tab;if(st.week&&weekById(st.week).hub!==st.hub)st.week=null;renderCity();return;}
@@ -2407,16 +2409,17 @@ document.addEventListener("click",ev=>{
   if(t.dataset.day){st.day=t.dataset.day;st.mode="list";st.date="any";renderCity();document.getElementById("cq").scrollIntoView({behavior:"smooth",block:"center"});return;}
   if(t.dataset.mon){const [y,m]=st.month.split("-").map(Number);const d=new Date(Date.UTC(y,m-1+(+t.dataset.mon),1));st.month=d.toISOString().slice(0,7);renderCity();return;}
   if(t.dataset.host){st.q=t.dataset.host;renderCity();return;}
+  if(t.dataset.ysfilter){st.ysOnly=true;st.q="";st.type="all";st.topic=null;st.day=null;st.date="any";renderCity();document.getElementById("cq").scrollIntoView({behavior:"smooth",block:"center"});return;}
   if(t.dataset.more){st.limit+=PAGE;renderCity();return;}
-  if(t.dataset.clear){if(t.dataset.clear==="date")st.date="any";else if(t.dataset.clear==="day")st.day=null;else if(t.dataset.clear==="savedOnly")st.savedOnly=false;else st[t.dataset.clear]=t.dataset.clear==="q"?"":null;renderCity();return;}
+  if(t.dataset.clear){if(t.dataset.clear==="date")st.date="any";else if(t.dataset.clear==="day")st.day=null;else if(t.dataset.clear==="savedOnly")st.savedOnly=false;else if(t.dataset.clear==="ysfilter")st.ysOnly=false;else st[t.dataset.clear]=t.dataset.clear==="q"?"":null;renderCity();return;}
 });
 document.addEventListener("keydown",ev=>{if(ev.key==="Enter"&&ev.target.matches("article[data-ev]"))goEvent(ev.target.dataset.ev);if(ev.key==="Escape")$("#modal").hidden=true;});
 $("#cityShare").onclick=shareList;
 $("#backBtn").onclick=()=>{if(NAV_DEPTH>0)history.back();else show(st.prev==="event"?"home":st.prev);};
 $("#fCity").onchange=e=>{st.hub=e.target.value;st.week=null;st.day=null;st.month="";renderCity();};$("#fSector").onchange=e=>{st.topic=e.target.value||null;renderCity();};$("#fType").onchange=e=>{st.type=e.target.value;renderCity();};$("#fDate").onchange=e=>{st.date=e.target.value;st.day=null;renderCity();};
 {const mb=$("#menuBtn"),mn=$("#mnav");const setM=o=>{mn.hidden=!o;mb.setAttribute("aria-expanded",String(o));mb.classList.toggle("on",o);};mb.onclick=()=>setM(mn.hidden);mn.addEventListener("click",e=>{if(e.target.closest("button,a"))setM(false);});addEventListener("resize",()=>{if(innerWidth>980)setM(false);});}
-$("#homeSel").onchange=e=>{const v=e.target.value;setHome(v);st.q="";st.date="any";st.topic=null;st.week=null;st.type="all";goCity(v);};
-$("#hHub").onchange=e=>{st.q=$("#hq").value.trim();st.date="any";st.topic=null;st.week=null;st.type="all";goCity(e.target.value);e.target.value="all";};
+$("#homeSel").onchange=e=>{const v=e.target.value;setHome(v);st.q="";st.ysOnly=false;st.date="any";st.topic=null;st.week=null;st.type="all";goCity(v);};
+$("#hHub").onchange=e=>{st.q=$("#hq").value.trim();st.ysOnly=false;st.date="any";st.topic=null;st.week=null;st.type="all";goCity(e.target.value);e.target.value="all";};
 $("#upElse").onclick=()=>setHome("all");
 $("#railLink").addEventListener("submit",e=>{e.preventDefault();const v=$("#railLinkIn").value.trim();$("#railLinkIn").value="";openChat(v||undefined);});
 $("#cq").addEventListener("input",e=>{st.q=e.target.value;renderCity();});
@@ -2424,7 +2427,7 @@ $("#footSub").addEventListener("submit",e=>{e.preventDefault();const v=$("#footE
 $("#cityForm").addEventListener("submit",e=>{e.preventDefault();const v=$("#cEmail").value.trim();if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){toast("Enter an email address like you@company.com.");return;}$("#cEmail").value="";pulseSub(v,st.hub);});
 function pulseSub(email,hub){const u=new URL("https://pulse.yorkseed.co/subscribe");u.searchParams.set("email",email);u.searchParams.set("utm_source","yorkseed");u.searchParams.set("utm_medium","the_list");u.searchParams.set("utm_campaign","subscribe"+(hub&&hub!=="all"?"_"+hub:""));window.open(u.toString(),"_blank","noopener");toast("Opening Yorkseed Pulse to confirm your subscription.");}
 $("#moreWeeks").onclick=()=>{st.allWeeks=!st.allWeeks;renderWeeks();};
-$("#hSearch").addEventListener("submit",ev=>{ev.preventDefault();st.q=$("#hq").value;st.date=$("#hDate").value==="7"?"week":$("#hDate").value;st.topic=null;st.week=null;st.type="all";goCity($("#hHub").value);});
+$("#hSearch").addEventListener("submit",ev=>{ev.preventDefault();st.q=$("#hq").value;st.ysOnly=false;st.date=$("#hDate").value==="7"?"week":$("#hDate").value;st.topic=null;st.week=null;st.type="all";goCity($("#hHub").value);});
 $("#sHub").onchange=syncWeeks;$("#sNews").onchange=updSum;
 $("#signIn").onclick=()=>toast("Sign in comes with the live site: organizers manage listings and saved events there.");
 $("#inquire").onclick=()=>{
