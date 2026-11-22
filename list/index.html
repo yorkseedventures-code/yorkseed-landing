@@ -2023,6 +2023,8 @@ function renderHome(){
   {const tot=upcoming().length,c=new Set(upcoming().filter(e=>e.hub!=="virtual").map(e=>e.hub)).size;$("#cityN").textContent=c;const _x=0,wk=upcoming().filter(e=>e.date<=addDays(6)).length;$("#heroStat").innerHTML=`<b>${tot}</b> events · <b>${c}</b> cities · <b>${wk}</b> this week`;}
 }
 function hubCount(id){return upcoming().filter(e=>e.hub===id).length;}
+const YS_HOSTS=["Yorkseed","Valois","Yorkseed Expert Series"];
+function ysHubCount(id){return upcoming().filter(e=>e.hub===id&&YS_HOSTS.includes(e.host)).length;}
 function renderCityRow(){
   const t=Date.now();
   $("#cityRow").innerHTML=[...HUBS].filter(h=>h.id!=="virtual").sort((a,b)=>hubCount(b.id)-hubCount(a.id)).slice(0,8).map(h=>{const n=hubCount(h.id);return h.img?`<a class="city" href="#${hubSlug(h)}" data-city="${h.id}"><img src="${IMG[h.img]}" alt="" style="object-position:${IMGPOS[h.img]||"50% 50%"}"><span class="clk">${fT(t,h.tz)}</span><span><b>${h.name}</b>${n} event${n===1?"":"s"}</span></a>`:`<a class="city noimg" href="#${hubSlug(h)}" data-city="${h.id}"><span class="clk">${h.id==="virtual"?"Online":fT(t,h.tz)}</span><i>${h.code}</i><span><b>${h.name}</b>${n} event${n===1?"":"s"}</span></a>`}).join("");
@@ -2157,15 +2159,15 @@ function renderCity(){
   $("#cityShareLbl").textContent=w?(st.day?"Share this day":"Share this list"):h?`Share ${h.name} events`:"Share this list";$("#cityShare").hidden=!!st.savedOnly;
   {const ysBtn=$("#ysCityLink");if(ysBtn){const ysN=upcoming().filter(e=>["Yorkseed","Valois","Yorkseed Expert Series"].includes(e.host)).length;ysBtn.hidden=!ysN||!!w||!!st.savedOnly;ysBtn.textContent=`${ysN} Yorkseed event${ysN===1?"":"s"} →`;ysBtn.setAttribute("aria-pressed",String(st.ysOnly));}}
   $("#cityFormLbl").textContent=`The weekly ${h?h.name:"Yorkseed"} email · every Monday`;
-  $("#sideCities").innerHTML=`<li><button type="button" data-tab="all" aria-pressed="${!h}">All cities<span>${upcoming().length}</span></button></li>`+HUBS.map(x=>({x,n:upcoming().filter(e=>e.hub===x.id).length})).sort((a,b)=>b.n-a.n).map(({x,n})=>`<li><button type="button" data-tab="${x.id}" aria-pressed="${st.hub===x.id}">${x.name}<span>${n}</span></button></li>`).join("");
+  $("#sideCities").innerHTML=`<li><button type="button" data-tab="all" aria-pressed="${!h}">All cities<span>${st.ysOnly?upcoming().filter(e=>YS_HOSTS.includes(e.host)).length:upcoming().length}</span></button></li>`+HUBS.filter(x=>!st.ysOnly||ysHubCount(x.id)>0).map(x=>({x,n:st.ysOnly?ysHubCount(x.id):upcoming().filter(e=>e.hub===x.id).length})).sort((a,b)=>b.n-a.n).map(({x,n})=>`<li><button type="button" data-tab="${x.id}" aria-pressed="${st.hub===x.id}">${x.name}<span>${n}</span></button></li>`).join("");
   const hc={};base.forEach(e=>{hc[e.host]=(hc[e.host]||0)+1});
   $("#sideHosts").parentElement.hidden=Object.keys(hc).filter(k=>k).length<3;$("#sideHosts").innerHTML=Object.entries(hc).filter(([k])=>k).sort((a,b)=>b[1]-a[1]).slice(0,8).map(([k,n])=>`<li><button type="button" data-host="${esc(k)}">${esc(k)}<span>${n}</span></button></li>`).join("");
   document.querySelectorAll(".vtoggle button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.v===st.mode)));
   $("#dChips").hidden=true;
-  $("#cTabs").innerHTML=`<button class="ctab" data-tab="all" aria-pressed="${st.hub==="all"}"><span class="all">All</span>All cities</button>`+[...HUBS].sort((a,b)=>hubCount(b.id)-hubCount(a.id)).map(x=>`<button class="ctab" data-tab="${x.id}" aria-pressed="${st.hub===x.id}">${x.img?`<img src="${IMG[x.img]}" alt="">`:`<span class="all">${x.code}</span>`}${x.name}</button>`).join("");
+  $("#cTabs").innerHTML=`<button class="ctab" data-tab="all" aria-pressed="${st.hub==="all"}"><span class="all">All</span>All cities</button>`+[...HUBS].filter(x=>!st.ysOnly||ysHubCount(x.id)>0).sort((a,b)=>(st.ysOnly?ysHubCount(b.id)-ysHubCount(a.id):hubCount(b.id)-hubCount(a.id))).map(x=>`<button class="ctab" data-tab="${x.id}" aria-pressed="${st.hub===x.id}">${x.img?`<img src="${IMG[x.img]}" alt="">`:`<span class="all">${x.code}</span>`}${x.name}</button>`).join("");
   $("#dChips").innerHTML=DATES.map(([v,l])=>`<button class="dchip" type="button" data-date="${v}" aria-pressed="${st.date===v||(v==="week"&&st.date==="7")}">${l}</button>`).join("");
   if(document.activeElement!==$("#cq"))$("#cq").value=st.q;
-  $("#fCity").innerHTML=`<option value="all">All cities</option>`+[...HUBS].sort((a,b)=>a.name.localeCompare(b.name)).map(x=>`<option value="${x.id}">${x.name}${x.isNew?" · New":""} (${hubCount(x.id)})</option>`).join("");$("#fCity").value=st.hub;
+  $("#fCity").innerHTML=`<option value="all">All cities</option>`+[...HUBS].filter(x=>!st.ysOnly||ysHubCount(x.id)>0).sort((a,b)=>a.name.localeCompare(b.name)).map(x=>`<option value="${x.id}">${x.name}${x.isNew?" · New":""} (${st.ysOnly?ysHubCount(x.id):hubCount(x.id)})</option>`).join("");$("#fCity").value=st.hub;
   {const tb=filtered(true),tc=t=>t==="all"?tb.length:tb.filter(e=>e.type===t||(e.cats||[]).includes(t)).length;
    $("#fType").innerHTML=["all",...TYPES,...CAT_TYPES].filter(t=>t==="all"||t===st.type||tc(t)>0).map(t=>`<option value="${t}">${t==="all"?"All types":t} (${tc(t)})</option>`).join("");$("#fType").value=st.type;
    const sb=filtered(false,true),sc=t=>sb.filter(e=>e.tags.includes(t)||(e.sectors||[]).includes(t)).length;
