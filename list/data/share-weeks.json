@@ -1,18 +1,5 @@
 [
  {
-  "id": "slush",
-  "hash": "slush-helsinki",
-  "camel": "SlushHelsinki",
-  "name": "Slush Helsinki",
-  "year": "2026",
-  "n": 155,
-  "city": "Helsinki",
-  "start": "2026-11-16",
-  "end": "2026-11-20",
-  "photo": "/list/img/881d5f16be.jpg",
-  "custom": false
- },
- {
   "id": "wef",
   "hash": "wef-davos",
   "camel": "WEFDavos",
@@ -36,32 +23,6 @@
   "start": "2027-01-25",
   "end": "2027-01-28",
   "photo": "/list/img/08b82c4e3f.jpg",
-  "custom": false
- },
- {
-  "id": "dtw",
-  "hash": "deeptech-week-tlv",
-  "camel": "DeepTechWeekTLV",
-  "name": "DeepTech Week TLV",
-  "year": "2026",
-  "n": 18,
-  "city": "Tel Aviv",
-  "start": "2026-11-15",
-  "end": "2026-11-19",
-  "photo": "/list/img/0dc7a4cecb.jpg",
-  "custom": false
- },
- {
-  "id": "cltw",
-  "hash": "chile-tech-week",
-  "camel": "ChileTechWeek",
-  "name": "Chile Tech Week",
-  "year": "2026",
-  "n": 39,
-  "city": "Santiago",
-  "start": "2026-11-16",
-  "end": "2026-11-22",
-  "photo": null,
   "custom": false
  },
  {
@@ -130,32 +91,6 @@
   "custom": false
  },
  {
-  "id": "paritw",
-  "hash": "paris-ai-and-data-week",
-  "camel": "ParisAiAndDataWeek",
-  "name": "Paris AI & Data Week",
-  "year": "2026",
-  "n": 47,
-  "city": "Paris",
-  "start": "2026-11-16",
-  "end": "2026-11-20",
-  "photo": "/list/img/b0fa7899fe.jpg",
-  "custom": false
- },
- {
-  "id": "sff26",
-  "hash": "singapore-fintech-festival",
-  "camel": "SingaporeFintechFestival",
-  "name": "Singapore FinTech Festival",
-  "year": "2026",
-  "n": 72,
-  "city": "Singapore",
-  "start": "2026-11-16",
-  "end": "2026-11-20",
-  "photo": "/list/img/449c1c4cf0.jpg",
-  "custom": false
- },
- {
   "id": "tbw",
   "hash": "toronto-blockchain-week",
   "camel": "TorontoBlockchainWeek",
@@ -166,6 +101,123 @@
   "start": "2026-11-23",
   "end": "2026-11-26",
   "photo": "/list/img/8ead333017.jpg",
+  "custom": false
+ },
+ {
+  "id": "artbaselmia",
+  "hash": "miami-art-week",
+  "camel": "MiamiArtWeek",
+  "name": "Miami Art Week",
+  "year": "2026",
+  "n": 244,
+  "city": "Miami",
+  "start": "2026-11-30",
+  "end": "2026-12-06",
+  "photo": "/list/img/9b127ae54d.jpg",
+  "custom": false
+ },
+ {
+  "id": "kfw",
+  "hash": "korea-fintech-week",
+  "camel": "KoreaFintechWeek",
+  "name": "Korea Fintech Week",
+  "year": "2026",
+  "n": 12,
+  "city": "Seoul",
+  "start": "2026-11-25",
+  "end": "2026-11-27",
+  "photo": "/list/img/4ac8f2c4bd.jpg",
+  "custom": false
+ },
+ {
+  "id": "adfw",
+  "hash": "abu-dhabi-finance-week",
+  "camel": "AbuDhabiFinanceWeek",
+  "name": "Abu Dhabi Finance Week",
+  "year": "2026",
+  "n": 3,
+  "city": "UAE",
+  "start": "2026-12-07",
+  "end": "2026-12-10",
+  "photo": "/list/img/381db1fea0.jpg",
+  "custom": false
+ },
+ {
+  "id": "nrf",
+  "hash": "nrf-retail-s-big-show",
+  "camel": "NrfRetailSBigShow",
+  "name": "NRF: Retail's Big Show",
+  "year": "2027",
+  "n": 8,
+  "city": "New York",
+  "start": "2027-01-10",
+  "end": "2027-01-12",
+  "photo": "/list/img/1a1275bd66.jpg",
+  "custom": false
+ },
+ {
+  "id": "wgs",
+  "hash": "world-governments-summit",
+  "camel": "WorldGovernmentsSummit",
+  "name": "World Governments Summit",
+  "year": "2027",
+  "n": 1,
+  "city": "UAE",
+  "start": "2027-02-01",
+  "end": "2027-02-03",
+  "photo": "/list/img/381db1fea0.jpg",
+  "custom": false
+ },
+ {
+  "id": "step",
+  "hash": "step-conference",
+  "camel": "StepConference",
+  "name": "STEP Conference",
+  "year": "2027",
+  "n": 2,
+  "city": "UAE",
+  "start": "2027-02-03",
+  "end": "2027-02-04",
+  "photo": "/list/img/381db1fea0.jpg",
+  "custom": false
+ },
+ {
+  "id": "mwc",
+  "hash": "mwc-barcelona-and-4yfn",
+  "camel": "MwcBarcelonaAnd4yfn",
+  "name": "MWC Barcelona & 4YFN",
+  "year": "2027",
+  "n": 4,
+  "city": "Barcelona",
+  "start": "2027-03-01",
+  "end": "2027-03-04",
+  "photo": "/list/img/16cf32baa1.jpg",
+  "custom": false
+ },
+ {
+  "id": "sxsw",
+  "hash": "sxsw",
+  "camel": "Sxsw",
+  "name": "SXSW",
+  "year": "2027",
+  "n": 7,
+  "city": "Austin",
+  "start": "2027-03-15",
+  "end": "2027-03-21",
+  "photo": "/list/img/0171296419.jpg",
+  "custom": false
+ },
+ {
+  "id": "shoptalk",
+  "hash": "shoptalk-spring",
+  "camel": "ShoptalkSpring",
+  "name": "Shoptalk Spring",
+  "year": "2027",
+  "n": 1,
+  "city": "Las Vegas",
+  "start": "2027-03-22",
+  "end": "2027-03-24",
+  "photo": null,
   "custom": false
  }
 ]
