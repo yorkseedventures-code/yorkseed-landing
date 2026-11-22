@@ -188,6 +188,23 @@ for ch in _sub.get("changes", []):
                            and (not w.get("re") or re.search(w["re"], e["title"] + " " + (e.get("link") or ""), re.I))), None)
 
 events = [e for e in data["events"] if e["hub"] in hubs and TODAY <= dt.date.fromisoformat(e["date"]) <= HORIZON]
+# Several source feeds can carry the exact same real-world event (same hub, same date, same title) under
+# different links/venue text -- without this, both survive the client's link-based dedup (which only catches
+# an identical URL) and the event shows up twice in that city's list. Key on (hub, date, normalized title) and
+# merge: keep the first occurrence but backfill any field it's missing (start/end/venue/desc/host) from the
+# duplicate(s) before dropping them, so we don't throw away a detail only the dropped copy had.
+_seen_etd = {}
+_deduped = []
+for e in events:
+    k = (e["hub"], e["date"], re.sub(r"\s+", " ", (e.get("title") or "").strip().lower()))
+    if k in _seen_etd:
+        keep = _seen_etd[k]
+        for f in ("start", "end", "venue", "desc", "host", "link"):
+            if not keep.get(f) and e.get(f): keep[f] = e[f]
+        continue
+    _seen_etd[k] = e
+    _deduped.append(e)
+events = _deduped
 events.sort(key=lambda e: (e["date"], e["start"] or "99"))
 for e in events: e.setdefault("week", None); e.setdefault("place", None)
 # imported events join a conference week by city and date, same rule as the List app
