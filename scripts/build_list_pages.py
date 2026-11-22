@@ -81,12 +81,14 @@ for m in manager_events:
     if key in seen: continue
     seen.add(key)
     hub = _mgr_hub(m.get("city"))
+    cov = m.get("coverImage") or ""
     data["events"].append({"title": m["title"], "hub": hub, "date": m["dateISO"], "start": m.get("startTime") or None,
         "end": m.get("endTime") or None, "host": _mgr_host(m), "venue": m.get("venue") or m.get("location") or "",
         "link": link, "desc": m.get("description") or "", "type": m.get("type", ""),
         "week": next((w["id"] for w in data["weeks"] if w["hub"] == hub and w["start"] <= m["dateISO"] <= w["end"]
                       and (not w.get("re") or re.search(w["re"], m["title"] + " " + link, re.I))), None),
-        "place": "spotlight" if m.get("type") in _MGR_YS_TYPES else None})
+        "place": "spotlight" if m.get("type") in _MGR_YS_TYPES else None,
+        "cover": cov if cov.startswith("http") else ""})
 
 SITE = "https://yorkseed.co"; LISTHOST = "https://list.yorkseed.co"; LIST = LISTHOST + "/"
 TODAY = dt.datetime.now(ZoneInfo("America/New_York")).date(); HORIZON = TODAY + dt.timedelta(days=120)
@@ -192,7 +194,7 @@ def event_ld(e, camp):
     if online: ld["location"] = {"@type":"VirtualLocation","url":ld["url"]}
     else: ld["location"] = {"@type":"Place","name": place(e) or h["name"],"address":{"@type":"PostalAddress",**({"streetAddress":place(e)} if place(e) else {}),"addressLocality":h["name"],**({"addressCountry":h["country"]} if h["country"] else {})}}
     if e["host"]: ld["organizer"] = {"@type":"Organization","name":e["host"]}
-    if PHOTOS.get(e["link"]): ld["image"] = [PHOTOS[e["link"]]]
+    if e.get("cover") or PHOTOS.get(e["link"]): ld["image"] = [e.get("cover") or PHOTOS[e["link"]]]
     elif IMGPATH.get(h["img"] or h["id"]): _p = IMGPATH[h["img"] or h["id"]]; ld["image"] = [_p if _p.startswith("http") else LISTHOST + _p]
     return ld
 
@@ -344,7 +346,8 @@ def rows(evs, camp, show_city=False):
         reg = f' · <a class="rg" href="{e_(ref(e["link"], camp))}" target="_blank" rel="noopener">Register ↗</a>' if e["link"] else ""
         ys = '<span class="ys">★ Yorkseed</span>' if e["place"] == "spotlight" else ""
         if re.search(r"yorkseed\s+house", e["title"], re.I) or e.get("house"): ys += '<span class="ys" style="color:#E0457B">■ Yorkseed House</span>'
-        pic = f'<img class="pic" src="{e_(PHOTOS[e["link"]])}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">' if PHOTOS.get(e["link"]) else ""
+        picsrc = e.get("cover") or PHOTOS.get(e["link"])
+        pic = f'<img class="pic" src="{e_(picsrc)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">' if picsrc else ""
         out.append(f'<article class="ev"><time datetime="{iso(e,"start")}">{t12(e["start"])}</time><div>{pic}<h4>{title}{ys}</h4><div class="s">{e_(" · ".join(bits))}{reg}</div>{f"<p>{e_(desc_snippet(e['desc']))}</p>" if e["desc"] else ""}</div></article>')
     if cur is not None: out.append("</section>")
     return "\n".join(out)
@@ -581,9 +584,11 @@ for e in events:
     where = place(e) or h["name"]
     ctx = f"{w['name']} side event" if w else f"Startup event in {h['name']}"
     title = f"{e['title']} | {ctx}"
-    if len(title) > 70: title = e["title"][:66].rstrip() + ("…" if len(e["title"]) > 66 else "")
+    # Only append the " | context" suffix when the plain title has room for it -- never truncate the
+    # event's own title itself (that used to cut titles like "X: AgeTech | Senior Care" off mid-word).
+    if len(title) > 70: title = e["title"]
     desc = (e["desc"] or f"{e['title']}: {ctx.lower()} on {nice}{', hosted by ' + e['host'] if e['host'] else ''}.")[:155]
-    canon = f"{LIST}e/{e['slug']}/"; img = PHOTOS.get(e["link"]) or IMGPATH.get(h["img"] or h["id"])
+    canon = f"{LIST}e/{e['slug']}/"; img = e.get("cover") or PHOTOS.get(e["link"]) or IMGPATH.get(h["img"] or h["id"])
     same = [x for x in (w["events"] if w else by_hub.get(e["hub"], [])) if x["date"] == e["date"] and x is not e][:12]
     # "spotlight" also covers delegation-marked third-party conferences (e.g. HKTDC's Asian Financial Forum),
     # not just events Yorkseed itself runs -- restrict this list to Yorkseed's own hosted programming.
