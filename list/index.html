@@ -1667,6 +1667,7 @@ input::placeholder,textarea::placeholder{font-size:13.5px;color:var(--soft);opac
 
 
 
+
 <p id="ysSeoCities" style="max-width:1200px;margin:0 auto;padding:16px 20px;font:400 11px 'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase"><a href="/cities/" style="color:#888;text-decoration:none">Browse startup events by city →</a></p>
 <footer class="foot ysfoot">
   <div class="fwrap">
@@ -1801,7 +1802,7 @@ const hubById=id=>HUBS.find(h=>h.id===id);
 const weekById=id=>WEEKS.find(w=>w.id===id);
 const myTz=Intl.DateTimeFormat().resolvedOptions().timeZone||"UTC";
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-function descHtml(t){if(!t)return "";return String(t).trim().split(/\n\s*\n/).filter(p=>p.trim()).map(p=>`<p class="muted" style="margin:0 0 10px">${esc(p).replace(/\n/g,"<br>")}</p>`).join("");}
+function descHtml(t){if(!t)return "";return String(t).trim().split(/\n\s*\n/).filter(p=>p.trim()).map(p=>`<p class="muted" style="margin:0 0 8px;font-size:13px;line-height:1.5">${esc(p).replace(/\n/g,"<br>")}</p>`).join("");}
 const ico=n=>`<svg class="ico"><use href="#i-${n}"/></svg>`;
 
 function tzOff(ms,tz){const p=new Intl.DateTimeFormat("en-US",{timeZone:tz,hourCycle:"h23",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",second:"2-digit"}).formatToParts(new Date(ms));const g=t=>+p.find(x=>x.type===t).value;return(Date.UTC(g("year"),g("month")-1,g("day"),g("hour")%24,g("minute"),g("second"))-ms)/6e4;}

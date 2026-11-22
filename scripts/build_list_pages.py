@@ -215,7 +215,7 @@ CSS = """
 a{color:inherit}.w{max-width:960px;margin:0 auto;padding:0 20px}
 .crumb{font:400 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink4);margin:40px 0 18px}.crumb a{text-decoration:none}.crumb a:hover{color:var(--red)}
 h1{font:400 clamp(32px,5vw,52px)/1.08 var(--serif);margin:0 0 14px;letter-spacing:-.01em}h1 em{color:var(--red)}
-.lede{font-size:17px;color:var(--ink2);max-width:62ch;margin:0 0 10px}.meta{font:400 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin:0 0 22px}
+.lede{font-size:17px;color:var(--ink2);max-width:62ch;margin:0 0 10px}.desc{font-size:14.5px;line-height:1.5;color:var(--ink2);max-width:62ch;margin:0 0 8px}.meta{font:400 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin:0 0 22px}
 .adslot{margin:18px 0 6px;border:1px dashed var(--line);padding:14px 16px;display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:#fff}
 .adslot b{font:500 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);display:block;margin-bottom:3px}
 .adslot span{font-size:14px;color:var(--ink2)}
@@ -618,7 +618,7 @@ for e in events:
 <div class="cta">{f'<a class="btn r" href="{e_(ref(e["link"], camp))}" target="_blank" rel="noopener">Register ↗</a>' if e["link"] else ''}<a class="btn" href="/#e/{e['slug']}">Add to calendar · Share</a></div>
 <p style="margin:14px 0 0;font-size:13px;color:var(--ink3)">Hosting this event? <a href="#" data-ys-change data-title="{e_(e['title'])}" data-date="{e['date']}" data-link="{e_(e['link'] or '')}" data-url="{canon}" style="color:var(--red)">Change or remove it</a></p></div>
 {f'<img src="{e_(img)}" alt="{e_(e["title"])}" width="800" height="600" referrerpolicy="no-referrer">' if img else ''}</div>
-{f'<h2>About this <em>event</em></h2>{desc_html(e["desc"])}' if e["desc"] else ''}
+{f'<h2>About this <em>event</em></h2>{desc_html(e["desc"], cls="desc")}' if e["desc"] else ''}
 {(f'<h2>More {e_(w["name"]) + " side events" if w else "events in " + e_(h["name"])} on <em>{e_(dd.strftime("%B"))} {dd.day}</em></h2>' + rows(same, camp)) if same else ''}
 {(f'<h2>Upcoming <em>Yorkseed</em> events</h2>' + rows(all_yorkseed, camp, show_city=True)) if all_yorkseed else ''}
 <div class="band"><p>{f'Every {e_(w["name"])} side event, by day, updated daily.' if w else f'Every upcoming startup and tech event in {e_(h["name"])}.'}</p><a class="btn r" href="/{w['slug'] if w else h['slug']}/">See all</a></div>"""
