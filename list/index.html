@@ -1910,8 +1910,10 @@ function nearHub(){try{const m=document.cookie.match(/(?:^|; )ys_geo=([^;]+)/);i
 function evBySlug(s){return EVENTS.find(x=>evSlug(x)===s);}
 let PENDING_EV=null;
 function openFromHash(){const m=(location.hash||"").match(/^#e\/(.+)$/);if(!m)return false;const s=decodeURIComponent(m[1]);const e=evBySlug(s);if(e){PENDING_EV=null;if(st.view!=="event"||st.evId!==e.id){const was=NAV_SILENT;NAV_SILENT=NAV_SILENT||!(history.state&&history.state.ys);try{goEvent(e.id);}finally{NAV_SILENT=was;}}return true;}
-  /* Not resolved yet (events.json still loading). If the slug's own date falls in the static-build window, a real /e/<slug>/ page already exists on disk — jump straight there instead of sitting on a #e/ URL that strips to a generic preview when shared before the JS data finishes loading. */
-  const dm=s.match(/-(\d{4}-\d{2}-\d{2})$/);if(dm){const n=Date.now()-5*36e5,t=new Date(n).toISOString().slice(0,10),z=new Date(n+120*864e5).toISOString().slice(0,10);if(dm[1]>=t&&dm[1]<=z){location.replace("https://list.yorkseed.co/e/"+s+"/");return true;}}
+  /* Not resolved yet (events.json still loading). If the slug's own date falls in the static-build window, a real /e/<slug>/ page already exists on disk — jump straight there instead of sitting on a #e/ URL that strips to a generic preview when shared before the JS data finishes loading.
+     Skip this when we just came FROM that exact static page (its own "Add to calendar · Share" link sends people here on purpose to reach the interactive app) -- otherwise we'd bounce them straight back before the Share button ever mounts. */
+  const cameFromOwnStatic=(()=>{try{return document.referrer&&new URL(document.referrer).pathname===("/e/"+s+"/");}catch(err){return false;}})();
+  const dm=s.match(/-(\d{4}-\d{2}-\d{2})$/);if(dm&&!cameFromOwnStatic){const n=Date.now()-5*36e5,t=new Date(n).toISOString().slice(0,10),z=new Date(n+120*864e5).toISOString().slice(0,10);if(dm[1]>=t&&dm[1]<=z){location.replace("https://list.yorkseed.co/e/"+s+"/");return true;}}
   PENDING_EV=s;return false;}
 function setEvHash(e){try{history.replaceState(null,"",evPath(e));}catch(err){}}
 function clearEvHash(){try{if(/^#e\//.test(location.hash)||/^\/e\//.test(location.pathname))history.replaceState(null,"",APP_PATH+location.search);}catch(err){}}
