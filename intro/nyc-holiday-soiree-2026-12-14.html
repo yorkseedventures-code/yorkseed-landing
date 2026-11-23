@@ -431,11 +431,61 @@
       .event-detail { font-size: 12px; }
     }
   </style>
+
+  <style>
+    .snowfall { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 60; }
+    .snowfall .flake {
+      position: absolute;
+      top: -12px;
+      border-radius: 50%;
+      background: #f7f6f4;
+      box-shadow: 0 0 6px 1px rgba(247,246,244,0.5);
+      animation-name: snow-fall, snow-sway;
+      animation-timing-function: linear, ease-in-out;
+      animation-iteration-count: infinite, infinite;
+      animation-direction: normal, alternate;
+    }
+    @keyframes snow-fall { from { transform: translateY(-5vh); } to { transform: translateY(105vh); } }
+    @keyframes snow-sway { from { margin-left: -14px; } to { margin-left: 14px; } }
+    @media (prefers-reduced-motion: reduce) { .snowfall { display: none; } }
+  </style>
   <script src="/assets/site-chrome.js" defer></script>
   <style>yk-header:not(:defined){display:block;min-height:73px}</style>
   <script src="/assets/ys-ref.js" defer></script>
 </head>
 <body>
+<div class="snowfall" aria-hidden="true">
+    <span class="flake" style="left:10.7%;width:7.2px;height:7.2px;opacity:0.48;animation-duration:14.9s,3.8s;animation-delay:-1.1s,-1.1s;"></span>
+    <span class="flake" style="left:73.4%;width:7.0px;height:7.0px;opacity:0.74;animation-duration:11.7s,4.2s;animation-delay:-5.7s,-5.7s;"></span>
+    <span class="flake" style="left:11.8%;width:4.3px;height:4.3px;opacity:0.75;animation-duration:17.1s,3.8s;animation-delay:-11.6s,-11.6s;"></span>
+    <span class="flake" style="left:63.2%;width:3.9px;height:3.9px;opacity:0.68;animation-duration:14.0s,3.5s;animation-delay:-6.0s,-6.0s;"></span>
+    <span class="flake" style="left:12.3%;width:5.0px;height:5.0px;opacity:0.55;animation-duration:9.7s,5.9s;animation-delay:-14.3s,-14.3s;"></span>
+    <span class="flake" style="left:99.0%;width:5.6px;height:5.6px;opacity:0.41;animation-duration:14.5s,5.1s;animation-delay:-2.3s,-2.3s;"></span>
+    <span class="flake" style="left:58.9%;width:6.8px;height:6.8px;opacity:0.61;animation-duration:10.6s,5.6s;animation-delay:-16.3s,-16.3s;"></span>
+    <span class="flake" style="left:19.4%;width:5.7px;height:5.7px;opacity:0.4;animation-duration:11.0s,4.5s;animation-delay:-3.6s,-3.6s;"></span>
+    <span class="flake" style="left:81.8%;width:3.5px;height:3.5px;opacity:0.41;animation-duration:11.5s,5.2s;animation-delay:-17.5s,-17.5s;"></span>
+    <span class="flake" style="left:52.6%;width:3.6px;height:3.6px;opacity:0.58;animation-duration:13.3s,4.6s;animation-delay:-5.7s,-5.7s;"></span>
+    <span class="flake" style="left:48.5%;width:5.6px;height:5.6px;opacity:0.47;animation-duration:14.4s,4.4s;animation-delay:-16.3s,-16.3s;"></span>
+    <span class="flake" style="left:86.5%;width:8.6px;height:8.6px;opacity:0.64;animation-duration:9.6s,5.1s;animation-delay:-15.4s,-15.4s;"></span>
+    <span class="flake" style="left:1.9%;width:7.2px;height:7.2px;opacity:0.63;animation-duration:17.5s,4.0s;animation-delay:-10.4s,-10.4s;"></span>
+    <span class="flake" style="left:93.9%;width:4.6px;height:4.6px;opacity:0.58;animation-duration:11.7s,4.9s;animation-delay:-14.6s,-14.6s;"></span>
+    <span class="flake" style="left:25.6%;width:5.3px;height:5.3px;opacity:0.64;animation-duration:9.3s,5.9s;animation-delay:-12.4s,-12.4s;"></span>
+    <span class="flake" style="left:28.3%;width:8.6px;height:8.6px;opacity:0.42;animation-duration:12.2s,3.1s;animation-delay:-13.5s,-13.5s;"></span>
+    <span class="flake" style="left:19.9%;width:4.4px;height:4.4px;opacity:0.65;animation-duration:16.9s,3.7s;animation-delay:-13.2s,-13.2s;"></span>
+    <span class="flake" style="left:91.7%;width:4.7px;height:4.7px;opacity:0.65;animation-duration:15.9s,4.7s;animation-delay:-11.4s,-11.4s;"></span>
+    <span class="flake" style="left:94.2%;width:7.5px;height:7.5px;opacity:0.54;animation-duration:13.6s,4.1s;animation-delay:-2.9s,-2.9s;"></span>
+    <span class="flake" style="left:96.0%;width:6.3px;height:6.3px;opacity:0.66;animation-duration:16.0s,5.7s;animation-delay:-12.3s,-12.3s;"></span>
+    <span class="flake" style="left:24.7%;width:8.6px;height:8.6px;opacity:0.4;animation-duration:13.2s,3.8s;animation-delay:-11.9s,-11.9s;"></span>
+    <span class="flake" style="left:20.1%;width:7.2px;height:7.2px;opacity:0.62;animation-duration:10.3s,4.3s;animation-delay:-13.3s,-13.3s;"></span>
+    <span class="flake" style="left:38.1%;width:7.7px;height:7.7px;opacity:0.41;animation-duration:11.3s,4.3s;animation-delay:-11.4s,-11.4s;"></span>
+    <span class="flake" style="left:22.2%;width:3.9px;height:3.9px;opacity:0.46;animation-duration:15.5s,5.0s;animation-delay:-15.4s,-15.4s;"></span>
+    <span class="flake" style="left:64.7%;width:6.9px;height:6.9px;opacity:0.63;animation-duration:12.2s,5.0s;animation-delay:-1.2s,-1.2s;"></span>
+    <span class="flake" style="left:4.6%;width:5.4px;height:5.4px;opacity:0.78;animation-duration:11.4s,5.8s;animation-delay:-9.5s,-9.5s;"></span>
+    <span class="flake" style="left:6.2%;width:7.1px;height:7.1px;opacity:0.78;animation-duration:17.4s,3.3s;animation-delay:-8.2s,-8.2s;"></span>
+    <span class="flake" style="left:42.6%;width:8.9px;height:8.9px;opacity:0.38;animation-duration:16.9s,5.8s;animation-delay:-3.1s,-3.1s;"></span>
+    <span class="flake" style="left:79.4%;width:4.8px;height:4.8px;opacity:0.35;animation-duration:10.2s,4.8s;animation-delay:-11.2s,-11.2s;"></span>
+    <span class="flake" style="left:45.0%;width:7.7px;height:7.7px;opacity:0.84;animation-duration:13.5s,3.9s;animation-delay:-8.5s,-8.5s;"></span>
+</div>
 <yk-header><a href="/">Yorkseed</a> <a href="/hubs.html">Hubs</a> <a href="/events.html">Events</a> <a href="/investors">Investor list</a> <a href="/contact.html">Contact</a></yk-header>
 <div class="wrap">
 
