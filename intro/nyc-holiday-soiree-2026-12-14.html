@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,600;1,500&family=Pacifico&family=Passion+One:wght@700;900&family=Anton&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { overflow-x: hidden; max-width: 100%; }
 
     :root {
       --red:     #c8372d;
@@ -53,6 +54,7 @@
 
     .holiday-hero {
       position: relative;
+      overflow: hidden;
       text-align: center;
       padding: 68px 24px 44px;
     }
@@ -72,7 +74,7 @@
     .wrap {
       max-width: 640px;
       margin: 0 auto;
-      padding: 88px 20px 80px;
+      padding: 40px 20px 80px;
     }
 
     .brand-logo {
@@ -439,14 +441,14 @@
     #login-view.active, #results-view.active { display: block; }
 
     @media (min-width: 601px) and (max-width: 1024px) {
-      .wrap { max-width: 680px; padding: 104px 32px 90px; }
+      .wrap { max-width: 680px; padding: 48px 32px 90px; }
       .login-card { padding: 40px 36px; }
       .match-card { padding: 26px 28px; }
       .bonus-card { padding: 32px 30px; }
     }
 
     @media (min-width: 1025px) {
-      .wrap { max-width: 760px; padding: 116px 24px 100px; }
+      .wrap { max-width: 760px; padding: 56px 24px 100px; }
       .brand-logo { margin-bottom: 32px; }
       .login-card { padding: 40px 38px; }
       .match-card { padding: 26px 30px; transition: box-shadow .15s ease, transform .15s ease; }
@@ -456,7 +458,8 @@
     }
 
     @media (max-width: 600px) {
-      .wrap { padding: 70px 16px 56px; }
+      .wrap { padding: 32px 16px 56px; }
+      .holiday-hero { padding: 48px 20px 36px; }
       .brand-logo { margin-bottom: 20px; }
       h1 { font-size: clamp(26px, 8vw, 34px); }
       .sub { font-size: 14.5px; margin-bottom: 26px; }
@@ -552,7 +555,7 @@
     </div>
     <div class="hero-date">MONDAY, DECEMBER 14<span style="font-size:0.6em;vertical-align:super">TH</span></div>
     <div class="hero-time">6:00&ndash;9:00 PM</div>
-    <div class="hero-venue">Mason Jar NYC &middot; New York City</div>
+    <div class="hero-venue">New York City</div>
   </div>
 </div>
 
