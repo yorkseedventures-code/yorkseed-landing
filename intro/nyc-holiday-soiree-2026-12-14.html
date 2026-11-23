@@ -1,0 +1,680 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title id="page-title">Yorkseed Event In-Person Match</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,600;1,500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red:   #c8372d;
+      --gold:  #b08d57;
+      --ink:   #0e0e0e;
+      --ink2:  #2c2c2c;
+      --ink3:  #555;
+      --ink4:  #888;
+      --off:   #f7f6f4;
+      --white: #fff;
+      --border:  #e3dfd9;
+      --border2: #ccc;
+      --sans:  'DM Sans', sans-serif;
+      --serif: 'Playfair Display', Georgia, serif;
+      --mono:  'DM Mono', monospace;
+    }
+
+    body {
+      font-family: var(--sans);
+      background: var(--off);
+      color: var(--ink);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+
+    .wrap {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 88px 20px 80px;
+    }
+
+    .brand-logo {
+      display: block;
+      margin-bottom: 28px;
+    }
+    .brand-logo img { height: 20px; }
+
+    .product-kicker {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .eyebrow {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--ink3);
+      font-weight: 400;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(28px, 6vw, 40px);
+      font-weight: 600;
+      line-height: 1.15;
+      margin-bottom: 12px;
+      color: var(--ink);
+    }
+
+    .sub {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--ink3);
+      max-width: 48ch;
+      line-height: 1.55;
+      margin-bottom: 32px;
+    }
+
+    .event-detail {
+      font-size: 13px;
+      color: var(--ink3);
+      margin-bottom: 6px;
+    }
+    .event-detail a {
+      color: var(--ink2);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .venue-address {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--ink4);
+      margin-bottom: 4px;
+    }
+    .onsite-contact {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--ink4);
+      margin-bottom: 24px;
+    }
+
+    .login-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 36px 32px;
+      max-width: 420px;
+    }
+
+    .field { margin-bottom: 18px; }
+    label {
+      display: block;
+      font-family: var(--mono);
+      font-size: 11.5px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--ink3);
+      margin-bottom: 6px;
+    }
+    input[type="text"], input[type="email"] {
+      width: 100%;
+      font-family: var(--sans);
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--ink);
+      background: var(--off);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 10px 12px;
+      outline: none;
+      transition: border-color .15s;
+    }
+    input:focus { border-color: var(--gold); }
+
+    button.primary {
+      width: 100%;
+      background: var(--ink);
+      color: var(--white);
+      font-family: var(--sans);
+      font-size: 15px;
+      font-weight: 500;
+      border: none;
+      border-radius: 3px;
+      padding: 13px 20px;
+      margin-top: 6px;
+    }
+    button.primary:hover { background: #1e1e1e; cursor: pointer; }
+
+    .error-msg {
+      font-size: 13.5px;
+      color: var(--red);
+      font-weight: 400;
+      margin-bottom: 14px;
+      display: none;
+    }
+    .error-msg.show { display: block; }
+
+    .results-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .logout {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--ink3);
+      text-decoration: underline;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+    }
+    .logout:hover { color: var(--ink); }
+
+    .match-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      border-radius: 3px;
+      padding: 22px 24px;
+      margin-bottom: 18px;
+    }
+    .match-index {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--red);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .match-name {
+      font-family: var(--serif);
+      font-size: 21px;
+      font-weight: 600;
+      margin: 0 0 2px;
+      color: var(--ink);
+    }
+    .match-role {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 14px;
+    }
+    .match-hook {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 15.5px;
+      font-weight: 500;
+      color: var(--ink2);
+      line-height: 1.45;
+      margin: 0 0 16px;
+    }
+    .why-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink4);
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    ul.bullets {
+      margin: 0 0 16px;
+      padding-left: 18px;
+    }
+    ul.bullets li {
+      font-size: 14.5px;
+      font-weight: 300;
+      line-height: 1.55;
+      margin-bottom: 5px;
+      color: var(--ink2);
+    }
+    .starter {
+      background: var(--off);
+      border: 1px dashed var(--border2);
+      border-radius: 3px;
+      padding: 12px 14px;
+      font-size: 14px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--ink2);
+    }
+    .starter b {
+      font-style: normal;
+      font-weight: 600;
+      color: var(--red);
+    }
+
+    .ci-link {
+      display: block;
+      margin-top: 12px;
+      padding: 11px 14px;
+      border: 1px solid var(--ink);
+      border-radius: 3px;
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink);
+      text-decoration: none;
+      text-align: center;
+    }
+    .ci-link:hover { background: var(--ink); color: #fff; }
+    .fd-link { margin-top: 8px; border-color: var(--gold); color: var(--ink); background: #fbf7ef; }
+    .fd-link:hover { background: var(--gold); color: #fff; }
+    .dm-link { margin-top: 8px; }
+    .memo-card { display: none; background: var(--ink); color: #fff; border-radius: 3px; padding: 22px 24px; margin-bottom: 18px; }
+    .memo-card.show { display: block; }
+    .memo-eyebrow { font-family: var(--mono); font-size: 11.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+    .memo-title { font-family: var(--serif); font-size: 22px; margin-bottom: 10px; }
+    .memo-body { font-size: 15px; font-weight: 300; line-height: 1.6; color: rgba(255,255,255,.85); margin-bottom: 16px; }
+    .memo-cta { display: inline-block; background: var(--gold); color: #fff; font-family: var(--sans); font-size: 14px; font-weight: 500; padding: 11px 18px; border-radius: 3px; text-decoration: none; }
+    .memo-cta:hover { opacity: .9; }
+    .cx-feats { margin: 0 0 20px; }
+    .cx-feats div { padding: 12px 0; border-top: 1px solid rgba(255,255,255,.12); }
+    .cx-feats dt { font-family: var(--sans); font-size: 15px; font-weight: 500; color: #fff; margin-bottom: 4px; }
+    .cx-feats dd { margin: 0; font-size: 14px; font-weight: 300; line-height: 1.55; color: rgba(255,255,255,.75); }
+
+    .footer-note {
+      margin-top: 36px;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--ink4);
+      text-align: center;
+    }
+
+    .bonus-card {
+      background: var(--ink);
+      border-radius: 4px;
+      padding: 28px 26px;
+      margin: 28px 0 8px;
+    }
+    .bonus-eyebrow {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .bonus-title {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--white);
+      margin: 0 0 10px;
+      line-height: 1.25;
+    }
+    .bonus-body {
+      font-size: 14.5px;
+      font-weight: 300;
+      line-height: 1.6;
+      color: rgba(255,255,255,.72);
+      margin: 0 0 18px;
+      max-width: 58ch;
+    }
+    .bonus-cta {
+      display: inline-block;
+      background: var(--red);
+      color: #fff;
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 11px 20px;
+      border-radius: 3px;
+      text-decoration: none;
+    }
+    .bonus-cta:hover { opacity: .88; }
+    .bonus-note {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      color: rgba(255,255,255,.45);
+      margin-top: 14px;
+    }
+    .bonus-note a { color: var(--gold); text-decoration: underline; }
+
+    .about-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--red);
+      border-radius: 3px;
+      padding: 22px 24px;
+      margin-bottom: 24px;
+    }
+    .about-eyebrow {
+      font-family: var(--mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--red);
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .about-title {
+      font-family: var(--serif);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 0 0 10px;
+    }
+    .about-body {
+      font-size: 14.5px;
+      font-weight: 300;
+      line-height: 1.6;
+      color: var(--ink2);
+      margin: 0 0 10px;
+      max-width: 60ch;
+    }
+    .about-body:last-child { margin-bottom: 0; }
+    .about-links {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--ink3);
+      margin-top: 4px;
+    }
+    .about-links a { color: var(--ink2); text-decoration: underline; text-underline-offset: 2px; }
+    .about-links span { color: var(--border2); margin: 0 6px; }
+
+    #login-view, #results-view { display: none; }
+    #login-view.active, #results-view.active { display: block; }
+
+    @media (min-width: 601px) and (max-width: 1024px) {
+      .wrap { max-width: 680px; padding: 104px 32px 90px; }
+      .login-card { padding: 40px 36px; }
+      .match-card { padding: 26px 28px; }
+      .bonus-card { padding: 32px 30px; }
+    }
+
+    @media (min-width: 1025px) {
+      .wrap { max-width: 760px; padding: 116px 24px 100px; }
+      .brand-logo { margin-bottom: 32px; }
+      .login-card { padding: 40px 38px; }
+      .match-card { padding: 26px 30px; transition: box-shadow .15s ease, transform .15s ease; }
+      .match-card:hover { box-shadow: 0 4px 16px rgba(14,14,14,0.06); transform: translateY(-1px); }
+      .bonus-card { padding: 36px 38px; }
+      input[type="text"], input[type="email"] { font-size: 16px; }
+    }
+
+    @media (max-width: 600px) {
+      .wrap { padding: 70px 16px 56px; }
+      .brand-logo { margin-bottom: 20px; }
+      h1 { font-size: clamp(26px, 8vw, 34px); }
+      .sub { font-size: 14.5px; margin-bottom: 26px; }
+      .login-card { padding: 24px 18px; }
+      .field { margin-bottom: 15px; }
+      .results-header { flex-direction: column; align-items: flex-start; margin-bottom: 20px; }
+      .logout { font-size: 12.5px; }
+      .match-card { padding: 18px 16px; margin-bottom: 14px; }
+      .match-name { font-size: 19px; }
+      ul.bullets li { font-size: 14px; }
+      .starter { font-size: 13.5px; padding: 11px 12px; }
+      .bonus-card { padding: 22px 18px; margin: 22px 0 6px; }
+      .bonus-title { font-size: 20px; }
+      .bonus-body { font-size: 14px; }
+      .bonus-cta { width: 100%; text-align: center; }
+      .event-detail { font-size: 12px; }
+    }
+  </style>
+  <script src="/assets/site-chrome.js" defer></script>
+  <style>yk-header:not(:defined){display:block;min-height:73px}</style>
+  <script src="/assets/ys-ref.js" defer></script>
+</head>
+<body>
+<yk-header><a href="/">Yorkseed</a> <a href="/hubs.html">Hubs</a> <a href="/events.html">Events</a> <a href="/investors">Investor list</a> <a href="/contact.html">Contact</a></yk-header>
+<div class="wrap">
+
+  <div id="login-view" class="active">
+    <div class="product-kicker">Yorkseed Event In-Person Match</div>
+    <div class="eyebrow" id="login-event-name"></div>
+    <h1>Find out who to meet.</h1>
+    <p class="event-detail" id="login-event-detail"></p>
+    <p class="sub">Enter the first name and email you registered with. Your curated matches will be shown once we confirm you're on the guest list.</p>
+
+    <div class="login-card">
+      <div class="error-msg" id="error-msg"></div>
+      <div class="field">
+        <label for="first-name">First name</label>
+        <input type="text" id="first-name" placeholder="e.g. Jessica" autocomplete="given-name">
+      </div>
+      <div class="field">
+        <label for="email">Email address</label>
+        <input type="email" id="email" placeholder="you@company.com" autocomplete="email">
+      </div>
+      <button class="primary" id="login-btn">See my matches</button>
+    </div>
+
+    <div class="memo-card show" style="margin-top:28px">
+      <div class="memo-eyebrow">Yorkseed Connect</div>
+      <h3 class="memo-title">Know who to meet, all year</h3>
+      <p class="memo-body">The match list our guests get at every Yorkseed event is what Yorkseed Connect does every day, for founders and investors.</p>
+      <dl class="cx-feats">
+        <div><dt>Matches and warm intros</dt><dd>Get matched with the right founders and investors, with the reasons why, and request intros through the network.</dd></div>
+        <div><dt>Investor List and Allocator List</dt><dd>24,000+ active investors, each with recent deals, for founders getting ready to raise. 1,600+ LPs, family offices, foundations and endowments for fund managers raising a fund.</dd></div>
+        <div><dt>Connection Intelligence</dt><dd>Read up on anyone in a minute: their focus, recent deals and a good way to open.</dd></div>
+        <div><dt>Deal Room and monthly deal flow</dt><dd>List your company or portfolio deals, and investors who opt in get curated deal flow every month.</dd></div>
+      </dl>
+      <a class="memo-cta" href="https://app.yorkseed.co/eventoffer?utm_source=nyc-holiday-soiree-2026-12-14&utm_medium=public-page" target="_blank" rel="noopener">Start free for 30 days &rarr;</a>
+      <p class="memo-body" style="margin:10px 0 0;font-size:13px;font-style:italic;color:rgba(255,255,255,.6)">Code WS202630 is applied for you. Listing deals is available to Core members.</p>
+    </div>
+  </div>
+
+  <div id="results-view">
+    <div class="results-header">
+      <div>
+        <div class="product-kicker">Yorkseed Event In-Person Match</div>
+        <div class="eyebrow" id="results-eyebrow"></div>
+        <h1 id="results-heading" style="font-size: clamp(26px,5vw,36px);">Hi there.</h1>
+      </div>
+      <button class="logout" id="logout-btn">Not you? Switch account</button>
+    </div>
+    <p class="event-detail" id="results-event-detail"></p>
+    <p class="venue-address" id="results-venue-address"></p>
+    <p class="onsite-contact" id="results-host-label"></p>
+    <div class="about-card">
+      <div class="about-eyebrow">About tonight's host</div>
+      <h3 class="about-title">Yorkseed</h3>
+      <p class="about-body">Yorkseed is a global capital network and venture infrastructure platform connecting founders, investors, fund managers, capital allocators and ecosystem leaders, from early stage to IPO. With 50+ city hubs across five continents, we bring together curated gatherings, global delegations and strategic relationships that turn connections into meaningful opportunities.</p>
+      <p class="about-body">Beyond events, <b>Yorkseed Connect</b> is our intelligent dealmaking platform for investor discovery, warm introductions, fund diligence, strategic partnerships and sharing deal flow. <b>Valois by Yorkseed</b> is our dedicated capital circle connecting family offices, LPs, GPs and institutional investors to exchange investment opportunities, share deal flow and explore co-investments. Across our ecosystem, we focus on quality over quantity, bringing the right people together and creating opportunities that extend well beyond the room.</p>
+      <p class="about-body"><b>Next Stop: Hong Kong | January 26&ndash;27, 2027.</b> Following our Lisbon delegation, Yorkseed is heading to the Asian Financial Forum (AFF) as an Official Community Partner. Join our Hong Kong delegation to connect with global investors, founders, family offices and business leaders, with access to AFF&rsquo;s dealmaking platform to discover opportunities and arrange meetings ahead of the forum.</p>
+      <div class="about-links">
+        <a href="https://yorkseed.co" target="_blank" rel="noopener">yorkseed.co</a><span>&middot;</span>
+        <a href="https://app.yorkseed.co" target="_blank" rel="noopener">Yorkseed Connect</a><span>&middot;</span>
+        <a href="https://thevalois.com" target="_blank" rel="noopener">Valois</a><span>&middot;</span>
+        <a href="https://yorkseed.co/hong-kong-delegation" target="_blank" rel="noopener">Join AFF Delegation</a>
+      </div>
+    </div>
+
+    <p class="sub" id="results-sub">Based on what you shared in your RSVP, here's who we think you should meet.</p>
+
+    <div id="match-list"></div>
+
+    <div class="memo-card" id="memo-card">
+      <div class="memo-eyebrow">Complimentary for guests</div>
+      <h3 class="memo-title">1 month of Yorkseed Connect, free</h3>
+      <p class="memo-body">Keep the conversations going after tonight. List your company as a deal in the Yorkseed Connect Deal Room*. Every month, Yorkseed sends curated deal flow to the investors who have opted in, so your company keeps reaching investors long after this event.</p>
+      <a class="memo-cta" href="https://app.yorkseed.co/eventoffer?utm_source=nyc-holiday-soiree-2026-12-14&utm_medium=match-page" target="_blank" rel="noopener">Claim 1 month free &rarr;</a>
+      <p class="memo-body" style="margin:10px 0 0;font-size:13px;font-style:italic;color:rgba(255,255,255,.6)">*Listing deals is available to Core members. Code WS202630 gives you 30 days free on any plan, including Core. Already a member? <a href="https://app.yorkseed.co/submit-deal?utm_source=nyc-holiday-soiree-2026-12-14&utm_medium=match-page" target="_blank" rel="noopener" style="color:var(--gold)">List my company</a>.</p>
+      <p class="memo-body" style="margin:18px 0 0;font-size:14px">Pressure-test your narrative with <a href="https://app.yorkseed.co/deal-memo?utm_source=nyc-holiday-soiree-2026-12-14&utm_medium=match-page" target="_blank" rel="noopener" style="color:var(--gold)">Deal Memo</a>. Getting ready to raise? Start your research on the <a href="https://app.yorkseed.co/investor-list?utm_source=nyc-holiday-soiree-2026-12-14&utm_medium=match-page" target="_blank" rel="noopener" style="color:var(--gold)">Investor List</a> of active funds that have deployed capital in the last 15 months.</p>
+    </div>
+
+    <div class="memo-card" id="memo-card-investor">
+      <div class="memo-eyebrow">Complimentary for guests</div>
+      <h3 class="memo-title">1 month of Yorkseed Connect, free</h3>
+      <p class="memo-body">Share your deals and get ours. Add your portfolio companies and open deals to the Yorkseed Connect Deal Room*. Every month, Yorkseed sends curated deal flow to investors who have opted in. Opt in to receive it, and the deals you add reach the rest of the network too.</p>
+      <a class="memo-cta" href="https://app.yorkseed.co/eventoffer?utm_source=nyc-holiday-soiree-2026-12-14&utm_medium=match-page-investor" target="_blank" rel="noopener">Claim 1 month free &rarr;</a>
+      <p class="memo-body" style="margin:10px 0 0;font-size:13px;font-style:italic;color:rgba(255,255,255,.6)">*Listing deals is available to Core members. Code WS202630 gives you 30 days free on any plan, including Core. Already a member? <a href="https://app.yorkseed.co/submit-deal?utm_source=nyc-holiday-soiree-2026-12-14&utm_medium=match-page-investor" target="_blank" rel="noopener" style="color:var(--gold)">Add a deal</a>.</p>
+      <p class="memo-body" style="margin:18px 0 0;font-size:14px"><a href="https://app.yorkseed.co/deal-memo?utm_source=nyc-holiday-soiree-2026-12-14&utm_medium=match-page-investor" target="_blank" rel="noopener" style="color:var(--gold)">Deal Memo</a> gives you direct scoring, signals and diligence questions on the founders you meet, writes a sharper IC memo for committee, and can reflect your fund's own criteria. Raising a fund? The <a href="https://app.yorkseed.co/allocator-list?utm_source=nyc-holiday-soiree-2026-12-14&utm_medium=match-page-investor" target="_blank" rel="noopener" style="color:var(--gold)">Allocator List</a> shows the LPs that back fund managers.</p>
+    </div>
+
+
+    <div class="footer-note" id="footer-note"></div>
+  </div>
+
+</div>
+<yk-footer></yk-footer>
+
+<script>
+const EVENT = {
+  slug:          "nyc-holiday-soiree-2026-12-14",
+  name:          "Yorkseed NYC | The Holiday Soirée",
+  city:          "New York",
+  dateLabel:     "Monday, December 14, 2026",
+  timeLabel:     "6:00 - 9:00 PM EST",
+  onsiteContact: "Kimberly Neer (NYC Hub Director of Yorkseed) is your on-site host",
+  venueName:     "Mason Jar NYC",
+  venueAddress:  "43 E 30th St, New York, NY 10016",
+  venueMapUrl:   "https://www.google.com/maps/search/?api=1&query=Mason+Jar+NYC%2C+43+E+30th+St%2C+New+York%2C+NY+10016&query_place_id=ChIJ29Qy5adZwokRKW4wwh6-Opw"
+};
+
+const ATTENDEES = [
+  // { "name": "Full Name", "first_name": "First", "aliases": ["Nickname"], "email": "x@y.com", "role": "Title | Company",
+  //   "matches": [ { "name": "", "role": "Title | Company", "hook": "", "bullets": ["who","what","why this guest","what for each other"], "starter": "" } ] }
+];
+
+function applyEventConfig() {
+  document.getElementById('page-title').textContent = 'Yorkseed Event In-Person Match - ' + EVENT.name;
+  document.getElementById('login-event-name').textContent = EVENT.name;
+  var loginDetail = EVENT.city + ' · ' + EVENT.dateLabel + ' · ' + EVENT.timeLabel;
+  document.getElementById('login-event-detail').textContent = loginDetail;
+  var resultsDetailHtml = EVENT.dateLabel + ' &middot; ' + EVENT.timeLabel + ' &middot; <a href="' + EVENT.venueMapUrl + '" target="_blank" rel="noopener">' + EVENT.venueName + '</a>';
+  document.getElementById('results-event-detail').innerHTML = resultsDetailHtml;
+  document.getElementById('results-venue-address').textContent = EVENT.venueAddress;
+  var contactEl = document.getElementById('results-host-label');
+  if (EVENT.onsiteContact) {
+    contactEl.textContent = EVENT.onsiteContact;
+    contactEl.style.display = '';
+  } else {
+    contactEl.style.display = 'none';
+  }
+  document.getElementById('footer-note').textContent = 'See you at the ' + EVENT.name + '.';
+}
+applyEventConfig();
+
+function normalize(s) {
+  return (s || '').trim().toLowerCase();
+}
+
+function findAttendee(firstName, email) {
+  var fn = normalize(firstName);
+  var em = normalize(email);
+  return ATTENDEES.find(function(a) {
+    var nameMatches = normalize(a.first_name) === fn ||
+      (a.aliases || []).some(function(alias) { return normalize(alias) === fn; });
+    return nameMatches && normalize(a.email) === em;
+  });
+}
+
+// Investors with a fund (incl. venture scouts and deal partners): show a Fund Diligence button on their card
+const FUND_BY_MATCH = {
+  // "Investor Name": "Fund name"  (VCs, venture scouts, deal partners, fund managers)
+};
+
+// Guests who are investors, scouts or advisors rather than startup founders: no Deal Memo prompt
+const NOT_FOUNDERS = [ /* investors, scouts and advisors: investor version of the Connect box */ ];
+
+function esc(t) { return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
+function dealMemoButton(viewerIsFounder, m) {
+  var base = 'https://app.yorkseed.co/deal-memo?utm_source=nyc-holiday-soiree-2026-12-14&utm_medium=match-card';
+  if (viewerIsFounder) {
+    if (NOT_FOUNDERS.indexOf(m.name) === -1) return '';
+    return '<a class="ci-link dm-link" href="' + base + '" target="_blank" rel="noopener">Pressure-test your pitch before meeting ' + esc(m.name.split(' ')[0]) + ' &rarr;</a>';
+  }
+  if (NOT_FOUNDERS.indexOf(m.name) !== -1) return '';
+  var company = (m.role.split('|')[1] || m.name).trim();
+  return '<a class="ci-link dm-link" href="' + base + '-investor" target="_blank" rel="noopener">Evaluate ' + esc(company) + ' with Deal Memo &rarr;</a>';
+}
+
+function renderMatches(attendee) {
+  var viewerIsFounder = NOT_FOUNDERS.indexOf(attendee.name) === -1;
+  document.getElementById('memo-card').classList.toggle('show', viewerIsFounder);
+  document.getElementById('memo-card-investor').classList.toggle('show', !viewerIsFounder);
+  document.getElementById('results-heading').textContent = 'Hi ' + attendee.first_name + '.';
+  document.getElementById('results-eyebrow').textContent = attendee.matches.length + ' curated Yorkseed matches';
+  var subEl = document.getElementById('results-sub');
+  var baseSub = "Based on what you shared in your RSVP, here's who we think you should meet.";
+  subEl.textContent = attendee.bio ? (baseSub + ' ' + attendee.bio) : baseSub;
+  var list = document.getElementById('match-list');
+  list.innerHTML = '';
+  attendee.matches.forEach(function(m, i) {
+    var card = document.createElement('div');
+    card.className = 'match-card';
+    var bullets = m.bullets.map(function(b) {
+      return '<li>' + b.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</li>';
+    }).join('');
+    var hookHtml = m.hook ? '<div class="match-hook">' + m.hook.replace(/&/g,'&amp;').replace(/</g,'&lt;') + '</div>' : '';
+    card.innerHTML =
+      '<div class="match-index">MATCH ' + (i+1) + ' OF ' + attendee.matches.length + '</div>' +
+      '<div class="match-name">' + m.name + '</div>' +
+      '<div class="match-role">' + m.role + '</div>' +
+      hookHtml +
+      '<div class="why-label">Why we think you should meet</div>' +
+      '<ul class="bullets">' + bullets + '</ul>' +
+      '<div class="starter"><b>Conversation starter:</b> &ldquo;' + m.starter.replace(/&/g,'&amp;').replace(/</g,'&lt;') + '&rdquo;</div>' +
+      '<a class="ci-link" href="https://app.yorkseed.co/connection-intelligence?utm_source=nyc-holiday-soiree-2026-12-14&utm_medium=match-card" target="_blank" rel="noopener">Run Connection Intelligence on ' + m.name.split(' ')[0].replace(/&/g,'&amp;').replace(/</g,'&lt;') + ' &rarr;</a>' +
+      (FUND_BY_MATCH[m.name] ? '<a class="ci-link fd-link" href="https://app.yorkseed.co/fund-diligence?utm_source=nyc-holiday-soiree-2026-12-14&utm_medium=match-card" target="_blank" rel="noopener">Run Fund Diligence on ' + FUND_BY_MATCH[m.name].replace(/&/g,'&amp;') + ' &rarr;</a>' : '') +
+      dealMemoButton(viewerIsFounder, m);
+    list.appendChild(card);
+  });
+}
+
+function showError(msg) {
+  var el = document.getElementById('error-msg');
+  el.textContent = msg;
+  el.classList.add('show');
+}
+function hideError() {
+  document.getElementById('error-msg').classList.remove('show');
+}
+
+document.getElementById('login-btn').addEventListener('click', function() {
+  hideError();
+  var fn = document.getElementById('first-name').value;
+  var em = document.getElementById('email').value;
+  if (!fn.trim() || !em.trim()) {
+    showError('Please enter both your first name and email.');
+    return;
+  }
+  var attendee = findAttendee(fn, em);
+  if (!attendee) {
+    showError("We couldn't find you on the guest list. Double-check your first name and the email you used when you applied.");
+    return;
+  }
+  if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
+  renderMatches(attendee);
+  document.getElementById('login-view').classList.remove('active');
+  document.getElementById('results-view').classList.add('active');
+  window.scrollTo(0, 0);
+});
+
+document.getElementById('logout-btn').addEventListener('click', function() {
+  document.getElementById('results-view').classList.remove('active');
+  document.getElementById('login-view').classList.add('active');
+  document.getElementById('first-name').value = '';
+  document.getElementById('email').value = '';
+  hideError();
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter' && document.getElementById('login-view').classList.contains('active')) {
+    document.getElementById('login-btn').click();
+  }
+});
+</script>
+</body>
+</html>
