@@ -566,6 +566,7 @@
     <div class="eyebrow" id="login-event-name"></div>
     <h1>Find out who to meet.</h1>
     <p class="event-detail" id="login-event-detail"></p>
+    <p class="sub" style="margin-bottom:14px">Tonight is about celebrating the year and meeting good people, founder, investor, or just along for the night. It doesn't matter who's who. This match is only a starting point, so go enjoy the room.</p>
     <p class="sub">Enter the first name and email you registered with. Your curated matches will be shown once we confirm you're on the guest list.</p>
 
     <div class="login-card">
@@ -645,7 +646,7 @@
       </div>
     </div>
 
-    <p class="sub" id="results-sub">Based on what you shared in your RSVP, here's who we think you should meet.</p>
+    <p class="sub" id="results-sub">Tonight is about celebrating the year and meeting good people, founder, investor, or just along for the night. These three are only a starting point.</p>
 
     <div id="match-list"></div>
 
@@ -752,7 +753,7 @@ function renderMatches(attendee) {
   document.getElementById('results-heading').textContent = 'Hi ' + attendee.first_name + '.';
   document.getElementById('results-eyebrow').textContent = attendee.matches.length + ' curated Yorkseed matches';
   var subEl = document.getElementById('results-sub');
-  var baseSub = "Based on what you shared in your RSVP, here's who we think you should meet.";
+  var baseSub = "Tonight is about celebrating the year and meeting good people, founder, investor, or just along for the night. These three are only a starting point.";
   subEl.textContent = attendee.bio ? (baseSub + ' ' + attendee.bio) : baseSub;
   var list = document.getElementById('match-list');
   list.innerHTML = '';
