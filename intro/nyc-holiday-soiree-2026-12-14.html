@@ -7,23 +7,28 @@
   <title id="page-title">Yorkseed Event In-Person Match</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,600;1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,600;1,500&family=Pacifico&family=Passion+One:wght@700;900&family=Anton&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --red:   #c8372d;
-      --gold:  #b08d57;
-      --pine:  #15291f;
-      --pine2: #1e3b2c;
-      --ink:   #0e0e0e;
-      --ink2:  #2c2c2c;
-      --ink3:  #555;
-      --ink4:  #888;
-      --off:   #f7f6f4;
-      --white: #fff;
+      --red:     #c8372d;
+      --red-lt:  #ef6459;
+      --gold:    #c9a24a;
+      --pine:    #0f2a1e;
+      --pine2:   #163a29;
+      --cream:   #f3ead9;
+      --ink:     #0e0e0e;
+      --ink2:    #2c2c2c;
+      --ink3:    #555;
+      --ink4:    #888;
+      --off:     #f7f6f4;
+      --white:   #fff;
       --border:  #e3dfd9;
       --border2: #ccc;
+      --glass:        rgba(243,234,217,0.07);
+      --glass-strong: rgba(243,234,217,0.11);
+      --glass-border: rgba(243,234,217,0.22);
       --sans:  'DM Sans', sans-serif;
       --serif: 'Playfair Display', Georgia, serif;
       --mono:  'DM Mono', monospace;
@@ -31,19 +36,36 @@
 
     body {
       font-family: var(--sans);
-      background-color: var(--off);
+      background-color: var(--pine);
       background-image:
-        radial-gradient(ellipse 620px 520px at -10% -8%, rgba(200,55,45,0.07), transparent 65%),
-        radial-gradient(ellipse 620px 520px at 110% 0%, rgba(21,41,31,0.07), transparent 65%),
-        radial-gradient(ellipse 700px 600px at 50% 115%, rgba(176,141,87,0.08), transparent 65%);
-      background-attachment: fixed;
-      color: var(--ink);
+        url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22220%22%20height%3D%22260%22%3E%3Cg%20transform%3D%22translate%2874.76655296663247%2C43.18681826339042%29%20scale%280.6103737892159415%29%22%20fill%3D%22%23eef3ea%22%20fill-opacity%3D%220.05%22%3E%3Cpath%20d%3D%22M0%200%20L-14%2020%20L-7%2020%20L-18%2038%20L-9%2038%20L-20%2056%20L20%2056%20L9%2038%20L18%2038%20L7%2020%20L14%2020%20Z%22/%3E%3Crect%20x%3D%22-3%22%20y%3D%2256%22%20width%3D%226%22%20height%3D%2210%22/%3E%3C/g%3E%3Cg%20transform%3D%22translate%28117.17640086133784%2C90.45156172076882%29%20scale%280.3731995699098827%29%22%20fill%3D%22%23eef3ea%22%20fill-opacity%3D%220.08%22%3E%3Cpath%20d%3D%22M0%200%20L-14%2020%20L-7%2020%20L-18%2038%20L-9%2038%20L-20%2056%20L20%2056%20L9%2038%20L18%2038%20L7%2020%20L14%2020%20Z%22/%3E%3Crect%20x%3D%22-3%22%20y%3D%2256%22%20width%3D%226%22%20height%3D%2210%22/%3E%3C/g%3E%3Cg%20transform%3D%22translate%2817.499131688396975%2C105.40205040572489%29%20scale%280.37794216942984754%29%22%20fill%3D%22%23eef3ea%22%20fill-opacity%3D%220.06%22%3E%3Cpath%20d%3D%22M0%200%20L-14%2020%20L-7%2020%20L-18%2038%20L-9%2038%20L-20%2056%20L20%2056%20L9%2038%20L18%2038%20L7%2020%20L14%2020%20Z%22/%3E%3Crect%20x%3D%22-3%22%20y%3D%2256%22%20width%3D%226%22%20height%3D%2210%22/%3E%3C/g%3E%3Cg%20transform%3D%22translate%2894.90383782850279%2C191.90746742784836%29%20scale%280.3995207844598582%29%22%20fill%3D%22%23eef3ea%22%20fill-opacity%3D%220.06%22%3E%3Cpath%20d%3D%22M0%200%20L-14%2020%20L-7%2020%20L-18%2038%20L-9%2038%20L-20%2056%20L20%2056%20L9%2038%20L18%2038%20L7%2020%20L14%2020%20Z%22/%3E%3Crect%20x%3D%22-3%22%20y%3D%2256%22%20width%3D%226%22%20height%3D%2210%22/%3E%3C/g%3E%3Cg%20transform%3D%22translate%28135.48664448111788%2C218.49596734054126%29%20scale%280.5808411794469994%29%22%20fill%3D%22%23eef3ea%22%20fill-opacity%3D%220.07%22%3E%3Cpath%20d%3D%22M0%200%20L-14%2020%20L-7%2020%20L-18%2038%20L-9%2038%20L-20%2056%20L20%2056%20L9%2038%20L18%2038%20L7%2020%20L14%2020%20Z%22/%3E%3Crect%20x%3D%22-3%22%20y%3D%2256%22%20width%3D%226%22%20height%3D%2210%22/%3E%3C/g%3E%3Cg%20transform%3D%22translate%28205.25102111858402%2C20.24818973590638%29%20scale%280.6933873836194718%29%22%20fill%3D%22%23eef3ea%22%20fill-opacity%3D%220.07%22%3E%3Cpath%20d%3D%22M0%200%20L-14%2020%20L-7%2020%20L-18%2038%20L-9%2038%20L-20%2056%20L20%2056%20L9%2038%20L18%2038%20L7%2020%20L14%2020%20Z%22/%3E%3Crect%20x%3D%22-3%22%20y%3D%2256%22%20width%3D%226%22%20height%3D%2210%22/%3E%3C/g%3E%3Cpolygon%20points%3D%2235.3%2C30.9%2036.4%2C33.4%2038.9%2C34.4%2036.4%2C35.5%2035.3%2C38.0%2034.2%2C35.5%2031.7%2C34.4%2034.2%2C33.4%22%20fill%3D%22%23eef3ea%22%20fill-opacity%3D%220.13%22/%3E%3Cpolygon%20points%3D%22171.8%2C176.4%20172.8%2C178.8%20175.2%2C179.7%20172.8%2C180.7%20171.8%2C183.1%20170.8%2C180.7%20168.5%2C179.7%20170.8%2C178.8%22%20fill%3D%22%23eef3ea%22%20fill-opacity%3D%220.11%22/%3E%3Cpolygon%20points%3D%22151.0%2C149.1%20152.4%2C152.2%20155.5%2C153.6%20152.4%2C154.9%20151.0%2C158.1%20149.7%2C154.9%20146.5%2C153.6%20149.7%2C152.2%22%20fill%3D%22%23eef3ea%22%20fill-opacity%3D%220.1%22/%3E%3Cpolygon%20points%3D%2217.4%2C194.1%2018.3%2C196.2%2020.3%2C197.1%2018.3%2C197.9%2017.4%2C200.0%2016.5%2C197.9%2014.4%2C197.1%2016.5%2C196.2%22%20fill%3D%22%23eef3ea%22%20fill-opacity%3D%220.08%22/%3E%3Cpolygon%20points%3D%2242.0%2C59.7%2043.0%2C62.0%2045.3%2C63.0%2043.0%2C64.0%2042.0%2C66.3%2041.0%2C64.0%2038.7%2C63.0%2041.0%2C62.0%22%20fill%3D%22%23eef3ea%22%20fill-opacity%3D%220.1%22/%3E%3Cpolygon%20points%3D%22106.1%2C101.9%20107.1%2C104.2%20109.3%2C105.1%20107.1%2C106.1%20106.1%2C108.3%20105.2%2C106.1%20103.0%2C105.1%20105.2%2C104.2%22%20fill%3D%22%23eef3ea%22%20fill-opacity%3D%220.14%22/%3E%3Cpolygon%20points%3D%22205.6%2C151.4%20206.9%2C154.3%20209.8%2C155.6%20206.9%2C156.8%20205.6%2C159.7%20204.4%2C156.8%20201.5%2C155.6%20204.4%2C154.3%22%20fill%3D%22%23eef3ea%22%20fill-opacity%3D%220.07%22/%3E%3Cpolygon%20points%3D%22149.9%2C228.4%20151.4%2C232.0%20155.1%2C233.5%20151.4%2C235.1%20149.9%2C238.7%20148.4%2C235.1%20144.8%2C233.5%20148.4%2C232.0%22%20fill%3D%22%23eef3ea%22%20fill-opacity%3D%220.08%22/%3E%3Cpolygon%20points%3D%22212.8%2C198.4%20214.1%2C201.3%20217.0%2C202.5%20214.1%2C203.8%20212.8%2C206.7%20211.6%2C203.8%20208.7%2C202.5%20211.6%2C201.3%22%20fill%3D%22%23eef3ea%22%20fill-opacity%3D%220.08%22/%3E%3Cpolygon%20points%3D%22172.9%2C21.4%20174.4%2C24.8%20177.7%2C26.2%20174.4%2C27.6%20172.9%2C31.0%20171.5%2C27.6%20168.1%2C26.2%20171.5%2C24.8%22%20fill%3D%22%23eef3ea%22%20fill-opacity%3D%220.13%22/%3E%3C/svg%3E"),
+        radial-gradient(ellipse 620px 520px at -10% -8%, rgba(200,55,45,0.10), transparent 65%),
+        radial-gradient(ellipse 620px 520px at 110% 10%, rgba(201,162,74,0.08), transparent 65%);
+      background-repeat: repeat, no-repeat, no-repeat;
+      background-position: top left, top left, top left;
+      color: var(--cream);
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
     }
 
     .holly-divider { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 28px 0; }
-    .holly-divider .line { width: 72px; height: 1px; background: var(--border2); }
+    .holly-divider .line { width: 72px; height: 1px; background: rgba(243,234,217,0.3); }
+
+    .holiday-hero {
+      position: relative;
+      text-align: center;
+      padding: 68px 24px 44px;
+    }
+    .holiday-hero .blob { position: absolute; border-radius: 50%; pointer-events: none; }
+    .holiday-hero .blob-a { top: -160px; left: -140px; width: 380px; height: 380px; background: radial-gradient(circle at 45% 45%, rgba(200,55,45,0.22), transparent 70%); }
+    .holiday-hero .blob-b { bottom: -180px; right: -140px; width: 360px; height: 360px; background: radial-gradient(circle at 55% 55%, rgba(201,162,74,0.16), transparent 70%); }
+    .hero-inner { position: relative; max-width: 520px; margin: 0 auto; }
+    .hero-kicker { font-family: var(--mono); font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(243,234,217,0.6); margin-bottom: 14px; }
+    .hero-word { font-family: 'Pacifico', cursive; font-size: clamp(44px, 9vw, 68px); line-height: 1; color: var(--red); transform: rotate(-2deg); text-shadow: 0 2px 0 rgba(0,0,0,0.25); }
+    .hero-sub { font-family: 'Passion One', sans-serif; font-weight: 900; font-size: clamp(26px, 6vw, 38px); letter-spacing: 0.04em; color: var(--cream); margin-top: 2px; }
+    .hero-date { font-family: 'Anton', sans-serif; font-size: clamp(18px, 3.4vw, 22px); letter-spacing: 0.04em; color: var(--cream); }
+    .hero-time { font-family: 'Anton', sans-serif; font-size: clamp(18px, 3.4vw, 22px); letter-spacing: 0.04em; color: var(--red-lt); margin-top: 2px; }
+    .hero-venue { font-family: var(--mono); font-size: 13px; letter-spacing: 0.14em; color: rgba(243,234,217,0.78); text-transform: uppercase; margin-top: 12px; }
 
     a { color: inherit; }
 
@@ -72,7 +94,7 @@
     .eyebrow {
       font-family: var(--mono);
       font-size: 12px;
-      color: var(--ink3);
+      color: rgba(243,234,217,0.65);
       font-weight: 400;
       margin-bottom: 10px;
     }
@@ -83,13 +105,13 @@
       font-weight: 600;
       line-height: 1.15;
       margin-bottom: 12px;
-      color: var(--ink);
+      color: var(--cream);
     }
 
     .sub {
       font-size: 15px;
       font-weight: 300;
-      color: var(--ink3);
+      color: rgba(243,234,217,0.7);
       max-width: 48ch;
       line-height: 1.55;
       margin-bottom: 32px;
@@ -97,35 +119,37 @@
 
     .event-detail {
       font-size: 13px;
-      color: var(--ink3);
+      color: rgba(243,234,217,0.72);
       margin-bottom: 6px;
     }
     .event-detail a {
-      color: var(--ink2);
+      color: var(--cream);
       text-decoration: underline;
       text-underline-offset: 2px;
     }
     .venue-address {
       font-family: var(--mono);
       font-size: 12px;
-      color: var(--ink4);
+      color: rgba(243,234,217,0.55);
       margin-bottom: 4px;
     }
     .onsite-contact {
       font-family: var(--mono);
       font-size: 12px;
-      color: var(--ink4);
+      color: rgba(243,234,217,0.55);
       margin-bottom: 24px;
     }
 
     .login-card {
-      background: var(--white);
-      border: 1px solid var(--border);
+      background: var(--glass);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border: 1px solid var(--glass-border);
       border-top: 4px solid var(--red);
-      border-radius: 4px;
+      border-radius: 6px;
       padding: 36px 32px;
       max-width: 420px;
-      box-shadow: 0 10px 30px rgba(21,41,31,0.08);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
     }
 
     .field { margin-bottom: 18px; }
@@ -136,7 +160,7 @@
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.07em;
-      color: var(--ink3);
+      color: rgba(243,234,217,0.65);
       margin-bottom: 6px;
     }
     input[type="text"], input[type="email"] {
@@ -145,8 +169,8 @@
       font-size: 16px;
       font-weight: 300;
       color: var(--ink);
-      background: var(--off);
-      border: 1px solid var(--border);
+      background: var(--cream);
+      border: 1px solid transparent;
       border-radius: 3px;
       padding: 10px 12px;
       outline: none;
@@ -170,7 +194,7 @@
 
     .error-msg {
       font-size: 13.5px;
-      color: var(--red);
+      color: var(--red-lt);
       font-weight: 400;
       margin-bottom: 14px;
       display: none;
@@ -188,27 +212,29 @@
     .logout {
       font-family: var(--mono);
       font-size: 12px;
-      color: var(--ink3);
+      color: rgba(243,234,217,0.6);
       text-decoration: underline;
       cursor: pointer;
       background: none;
       border: none;
       padding: 0;
     }
-    .logout:hover { color: var(--ink); }
+    .logout:hover { color: var(--cream); }
 
     .match-card {
-      background: var(--white);
-      border: 1px solid var(--border);
+      background: var(--glass);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border: 1px solid var(--glass-border);
       border-left: 3px solid var(--gold);
-      border-radius: 3px;
+      border-radius: 6px;
       padding: 22px 24px;
       margin-bottom: 18px;
     }
     .match-index {
       font-family: var(--mono);
       font-size: 12px;
-      color: var(--red);
+      color: var(--red-lt);
       font-weight: 500;
       letter-spacing: 0.05em;
       text-transform: uppercase;
@@ -219,7 +245,7 @@
       font-size: 21px;
       font-weight: 600;
       margin: 0 0 2px;
-      color: var(--ink);
+      color: var(--cream);
     }
     .match-role {
       font-family: var(--mono);
@@ -233,7 +259,7 @@
       font-style: italic;
       font-size: 15.5px;
       font-weight: 500;
-      color: var(--ink2);
+      color: rgba(243,234,217,0.88);
       line-height: 1.45;
       margin: 0 0 16px;
     }
@@ -242,7 +268,7 @@
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: var(--ink4);
+      color: rgba(243,234,217,0.5);
       font-weight: 500;
       margin-bottom: 8px;
     }
@@ -255,42 +281,42 @@
       font-weight: 300;
       line-height: 1.55;
       margin-bottom: 5px;
-      color: var(--ink2);
+      color: rgba(243,234,217,0.85);
     }
     .starter {
-      background: var(--off);
-      border: 1px dashed var(--border2);
+      background: rgba(0,0,0,0.18);
+      border: 1px dashed rgba(243,234,217,0.3);
       border-radius: 3px;
       padding: 12px 14px;
       font-size: 14px;
       font-weight: 300;
       font-style: italic;
-      color: var(--ink2);
+      color: rgba(243,234,217,0.85);
     }
     .starter b {
       font-style: normal;
       font-weight: 600;
-      color: var(--red);
+      color: var(--red-lt);
     }
 
     .ci-link {
       display: block;
       margin-top: 12px;
       padding: 11px 14px;
-      border: 1px solid var(--pine);
+      border: 1px solid var(--glass-border);
       border-radius: 3px;
       font-family: var(--sans);
       font-size: 14px;
       font-weight: 500;
-      color: var(--pine);
+      color: var(--cream);
       text-decoration: none;
       text-align: center;
     }
-    .ci-link:hover { background: var(--pine); color: #fff; }
-    .fd-link { margin-top: 8px; border-color: var(--gold); color: var(--ink); background: #fbf7ef; }
-    .fd-link:hover { background: var(--gold); color: #fff; }
+    .ci-link:hover { background: var(--cream); color: var(--pine); }
+    .fd-link { margin-top: 8px; border-color: var(--gold); color: var(--cream); background: rgba(201,162,74,0.12); }
+    .fd-link:hover { background: var(--gold); color: var(--pine); }
     .dm-link { margin-top: 8px; }
-    .memo-card { display: none; background: var(--pine); color: #fff; border-radius: 3px; padding: 22px 24px; margin-bottom: 18px; border-top: 3px solid var(--gold); }
+    .memo-card { display: none; background: var(--glass-strong); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); color: var(--cream); border: 1px solid var(--glass-border); border-radius: 6px; padding: 22px 24px; margin-bottom: 18px; border-top: 3px solid var(--gold); }
     .memo-card.show { display: block; }
     .memo-eyebrow { font-family: var(--mono); font-size: 11.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
     .memo-title { font-family: var(--serif); font-size: 22px; margin-bottom: 10px; }
@@ -306,13 +332,16 @@
       margin-top: 36px;
       font-family: var(--mono);
       font-size: 12px;
-      color: var(--ink4);
+      color: rgba(243,234,217,0.5);
       text-align: center;
     }
 
     .bonus-card {
-      background: var(--pine);
-      border-radius: 4px;
+      background: var(--glass-strong);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border: 1px solid var(--glass-border);
+      border-radius: 6px;
       padding: 28px 26px;
       margin: 28px 0 8px;
       border-top: 3px solid var(--red);
@@ -363,10 +392,12 @@
     .bonus-note a { color: var(--gold); text-decoration: underline; }
 
     .about-card {
-      background: var(--white);
-      border: 1px solid var(--border);
+      background: var(--glass);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border: 1px solid var(--glass-border);
       border-left: 3px solid var(--red);
-      border-radius: 3px;
+      border-radius: 6px;
       padding: 22px 24px;
       margin-bottom: 24px;
     }
@@ -375,7 +406,7 @@
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: var(--red);
+      color: var(--red-lt);
       font-weight: 500;
       margin-bottom: 8px;
     }
@@ -383,14 +414,14 @@
       font-family: var(--serif);
       font-size: 20px;
       font-weight: 600;
-      color: var(--ink);
+      color: var(--cream);
       margin: 0 0 10px;
     }
     .about-body {
       font-size: 14.5px;
       font-weight: 300;
       line-height: 1.6;
-      color: var(--ink2);
+      color: rgba(243,234,217,0.82);
       margin: 0 0 10px;
       max-width: 60ch;
     }
@@ -398,11 +429,11 @@
     .about-links {
       font-family: var(--mono);
       font-size: 12px;
-      color: var(--ink3);
+      color: rgba(243,234,217,0.6);
       margin-top: 4px;
     }
-    .about-links a { color: var(--ink2); text-decoration: underline; text-underline-offset: 2px; }
-    .about-links span { color: var(--border2); margin: 0 6px; }
+    .about-links a { color: var(--cream); text-decoration: underline; text-underline-offset: 2px; }
+    .about-links span { color: rgba(243,234,217,0.3); margin: 0 6px; }
 
     #login-view, #results-view { display: none; }
     #login-view.active, #results-view.active { display: block; }
@@ -500,10 +531,34 @@
     <span class="flake" style="left:45.0%;width:7.7px;height:7.7px;opacity:0.84;animation-duration:13.5s,3.9s;animation-delay:-8.5s,-8.5s;"></span>
 </div>
 <yk-header><a href="/">Yorkseed</a> <a href="/hubs.html">Hubs</a> <a href="/events.html">Events</a> <a href="/investors">Investor list</a> <a href="/contact.html">Contact</a></yk-header>
+
+<div class="holiday-hero">
+  <div class="blob blob-a"></div>
+  <div class="blob blob-b"></div>
+  <div class="hero-inner">
+    <div class="hero-kicker">You're invited to</div>
+    <div class="hero-word">Yorkseed</div>
+    <div class="hero-sub">HOLIDAY SOIR&Eacute;E</div>
+    <div class="holly-divider" aria-hidden="true" style="margin:18px 0 14px">
+      <div class="line"></div>
+      <svg width="18" height="18" viewBox="0 0 24 24">
+        <path d="M12 2c1.2 2.4 1.2 4.6 0 6.8C10.8 6.6 10.8 4.4 12 2z" fill="#6f9a74"></path>
+        <path d="M12 2c-1.2 2.4-3.2 3.6-5.6 3.2C7.6 3 9.6 1.8 12 2z" fill="#4c7d53"></path>
+        <path d="M12 2c1.2 2.4 3.2 3.6 5.6 3.2C16.4 3 14.4 1.8 12 2z" fill="#5a8b60"></path>
+        <circle cx="9.6" cy="5.4" r="1.5" fill="#c8372d"></circle>
+        <circle cx="14.4" cy="5.4" r="1.5" fill="#c8372d"></circle>
+      </svg>
+      <div class="line"></div>
+    </div>
+    <div class="hero-date">MONDAY, DECEMBER 14<span style="font-size:0.6em;vertical-align:super">TH</span></div>
+    <div class="hero-time">6:00&ndash;9:00 PM</div>
+    <div class="hero-venue">Mason Jar NYC &middot; New York City</div>
+  </div>
+</div>
+
 <div class="wrap">
 
   <div id="login-view" class="active">
-    <img src="/intro/assets/nyc-holiday-soiree-2026-12-14-poster.jpg" alt="Yorkseed Holiday Soir&eacute;e &mdash; Monday, December 14, 6:00&ndash;9:00 PM, Mason Jar NYC, New York City" style="width:100%;max-width:420px;border-radius:6px;display:block;margin-bottom:32px;">
     <div class="product-kicker">Yorkseed Event In-Person Match</div>
     <div class="eyebrow" id="login-event-name"></div>
     <h1>Find out who to meet.</h1>
