@@ -109,7 +109,7 @@ body{overflow-wrap:anywhere}
     <button data-go="partners">Partners <span class="n" id="nPartners" hidden></span></button>
     <button data-go="delegation">Delegation <span class="n" id="nDeleg" hidden></span></button>
     <button data-go="events">Yorkseed events</button>
-    <button data-go="ads">Sidebar ads <span class="n soft" id="nAds" hidden></span></button>
+    <button data-go="ads">Ads &amp; Pulse spots <span class="n soft" id="nAds" hidden></span></button>
     <button data-go="organizers">Pre-approved <span class="n soft" id="nTrust" hidden></span></button>
     <button data-go="team">Team cards</button>
     <button data-go="tools">Tools</button>
@@ -191,9 +191,9 @@ body{overflow-wrap:anywhere}
 </div>
 
 <div class="card" id="ads" data-sec="ads">
-  <h2>Sidebar ads on The List</h2>
+  <h2>Ads &amp; Pulse spots on The List</h2>
   <div id="adList"><div class="hint">Loading...</div></div>
-  <div class="hint">Sponsors upload their own 300 × 250 graphic and pay by card. Each ad goes live the moment it's paid and comes down by itself when the time is up. Take one down early if you need to (refunds are done in Stripe).</div>
+  <div class="hint">Banner ads (sidebar, city, map, event page, homepage) go live the moment they're paid and come down by themselves when the time is up - take one down early if you need to (refunds are done in Stripe). Featured events, conference spreadsheets and Pulse newsletter spots are marked "Paid · fulfill by hand" instead - do that part yourself (pin the sponsor, add the feature) the same way you'd handle any manual booking.</div>
 </div>
 
 <div class="card" data-sec="events">
@@ -625,8 +625,23 @@ function loadAds(){
   if(!key()){$('adList').innerHTML='<div class="hint">Enter your key to see ads.</div>';return}
   adsApi('').then(function(j){var a=j.ads||[];var now=Date.now();badge('nAds',a.filter(function(x){return x.status==='pending_review'||(x.status==='live'&&new Date(x.endAt).getTime()>now)}).length);
     $('adList').innerHTML=a.length?a.map(function(x){var on=x.status==='live'&&new Date(x.endAt).getTime()>now;
+      // "pulse"/"feat"/"sheet" never go through the live/ended banner lifecycle - they're marked "paid" and
+      // fulfilled by hand (see ListAd.js), so they never get startAt/endAt the way a banner does. Without this
+      // branch they fell into the catch-all "Ended" label below, which reads as "this already ran" even on the
+      // day it was paid for and before anyone did anything with it.
+      var manual=['pulse','feat','sheet'].indexOf(x.kind)!==-1;
+      var statusHtml=on?'<span style="color:var(--green);font-weight:600">Live</span>'
+        :x.status==='pending_review'?'<span style="font-weight:600">Paid, waiting for your approval</span>'
+        :x.status==='taken_down'?'Taken down'
+        :x.status==='paid'?'<span style="font-weight:600">Paid · fulfill by hand</span>'
+        :'Ended';
+      var whenHtml;
+      if(manual&&x.kind==='pulse'&&x.extras&&x.extras.pulse&&x.extras.pulse.weeks&&x.extras.pulse.weeks.length) whenHtml='Pulse week'+(x.extras.pulse.weeks.length>1?'s':'')+' of '+x.extras.pulse.weeks.map(d10).join(', ');
+      else if(manual&&x.kind==='feat'&&x.eventDate) whenHtml='Event on '+d10(x.eventDate+'T12:00:00Z');
+      else if(manual&&x.kind==='sheet'&&x.extras&&x.extras.sheetName) whenHtml=esc(x.extras.sheetName);
+      else whenHtml=d10(x.startAt)+' to '+d10(x.endAt);
       return '<div class="sub-it" style="display:grid;grid-template-columns:120px 1fr;gap:12px"><img src="'+esc(x.img)+'" alt="" style="width:120px;height:100px;object-fit:cover;border:1px solid var(--line)"><div><b>'+esc(x.brand)+'</b>'
-        +'<div class="meta">'+esc(x.hubName||x.hub)+' · '+(on?'<span style="color:var(--green);font-weight:600">Live</span>':(x.status==='pending_review'?'<span style="font-weight:600">Paid, waiting for your approval</span>':esc(x.status==='taken_down'?'Taken down':'Ended')))+' · '+d10(x.startAt)+' to '+d10(x.endAt)+' · $'+(x.amount/100).toLocaleString()+'</div>'
+        +'<div class="meta">'+esc(x.hubName||x.hub)+' · '+statusHtml+' · '+whenHtml+' · $'+(x.amount/100).toLocaleString()+'</div>'
         +'<div class="meta">'+(x.views||0).toLocaleString()+' views · '+(x.clicks||0).toLocaleString()+' clicks'+(x.views?' · '+((x.clicks||0)/x.views*100).toFixed(1)+'% click rate':'')+'</div>'
         +'<div class="meta">'+esc(x.email)+' · <a href="'+esc(x.url)+'" target="_blank" rel="noopener">link</a></div>'
         +'<div class="acts">'+(x.status==='pending_review'?'<button data-ad-up="'+x.id+'">Approve and go live</button>':'')+(on?'<button data-ad-down="'+x.id+'">Take down</button>':(x.status==='taken_down'&&new Date(x.endAt).getTime()>now?'<button data-ad-up="'+x.id+'">Put back up</button>':''))+'</div></div></div>'}).join(''):'<div class="hint">No sidebar ads yet.</div>';
