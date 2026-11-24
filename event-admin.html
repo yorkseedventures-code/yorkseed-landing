@@ -634,6 +634,7 @@ function loadAds(){
         :x.status==='pending_review'?'<span style="font-weight:600">Paid, waiting for your approval</span>'
         :x.status==='taken_down'?'Taken down'
         :x.status==='paid'?'<span style="font-weight:600">Paid · fulfill by hand</span>'
+        :x.status==='fulfilled'?'Fulfilled'
         :'Ended';
       var whenHtml;
       if(manual&&x.kind==='pulse'&&x.extras&&x.extras.pulse&&x.extras.pulse.weeks&&x.extras.pulse.weeks.length) whenHtml='Pulse week'+(x.extras.pulse.weeks.length>1?'s':'')+' of '+x.extras.pulse.weeks.map(d10).join(', ');
@@ -642,14 +643,15 @@ function loadAds(){
       else whenHtml=d10(x.startAt)+' to '+d10(x.endAt);
       return '<div class="sub-it" style="display:grid;grid-template-columns:120px 1fr;gap:12px"><img src="'+esc(x.img)+'" alt="" style="width:120px;height:100px;object-fit:cover;border:1px solid var(--line)"><div><b>'+esc(x.brand)+'</b>'
         +'<div class="meta">'+esc(x.hubName||x.hub)+' · '+statusHtml+' · '+whenHtml+' · $'+(x.amount/100).toLocaleString()+'</div>'
-        +'<div class="meta">'+(x.views||0).toLocaleString()+' views · '+(x.clicks||0).toLocaleString()+' clicks'+(x.views?' · '+((x.clicks||0)/x.views*100).toFixed(1)+'% click rate':'')+'</div>'
+        +(manual?'':'<div class="meta">'+(x.views||0).toLocaleString()+' views · '+(x.clicks||0).toLocaleString()+' clicks'+(x.views?' · '+((x.clicks||0)/x.views*100).toFixed(1)+'% click rate':'')+'</div>')
         +'<div class="meta">'+esc(x.email)+' · <a href="'+esc(x.url)+'" target="_blank" rel="noopener">link</a></div>'
-        +'<div class="acts">'+(x.status==='pending_review'?'<button data-ad-up="'+x.id+'">Approve and go live</button>':'')+(on?'<button data-ad-down="'+x.id+'">Take down</button>':(x.status==='taken_down'&&new Date(x.endAt).getTime()>now?'<button data-ad-up="'+x.id+'">Put back up</button>':''))+'</div></div></div>'}).join(''):'<div class="hint">No sidebar ads yet.</div>';
+        +'<div class="acts">'+(x.status==='pending_review'?'<button data-ad-up="'+x.id+'">Approve and go live</button>':'')+(x.status==='paid'?'<button data-ad-done="'+x.id+'">Mark as done</button>':'')+(on?'<button data-ad-down="'+x.id+'">Take down</button>':(x.status==='taken_down'&&new Date(x.endAt).getTime()>now?'<button data-ad-up="'+x.id+'">Put back up</button>':''))+'</div></div></div>'}).join(''):'<div class="hint">No sidebar ads yet.</div>';
   }).catch(function(err){$('adList').innerHTML='<div class="hint">'+esc(err.message)+'</div>'});
 }
 document.addEventListener('click',function(ev){var t=ev.target,id;if(!t.dataset)return;
   if(id=t.dataset.adDown){if(t.dataset.sure!==id){t.dataset.sure=id;t.textContent='Tap again to take down';return}adsApi('/'+id,{method:'PUT',body:{status:'taken_down'}}).then(loadAds)}
-  else if(id=t.dataset.adUp){adsApi('/'+id,{method:'PUT',body:{status:'live'}}).then(loadAds)}});
+  else if(id=t.dataset.adUp){adsApi('/'+id,{method:'PUT',body:{status:'live'}}).then(loadAds)}
+  else if(id=t.dataset.adDone){adsApi('/'+id,{method:'PUT',body:{status:'fulfilled'}}).then(loadAds)}});
 $('key').addEventListener('change',function(){try{localStorage.setItem('ys_events_key',key())}catch(e){}load();loadSubs();loadAds();loadTrust();loadPartners();loadDeleg();loadHubJoins()});
 function load(){
   if(!key()){$('list').innerHTML='<div class="hint">Enter your key to see events.</div>';$('delStatus').textContent='Enter your key to use this switch.';return}
