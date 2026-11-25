@@ -514,6 +514,7 @@ function ysProgramsHtml(w,compact){
   return`<div class="ysprog"><div class="yshead"><span class="eyebrow">★ Yorkseed at ${esc(w.name)}</span></div><div class="yscards">${w.ys.map(p=>`<div class="yscard"><span class="kind">${esc(p.kind==="House"?"Yorkseed House":"Yorkseed "+p.kind)}</span><h3>${esc(p.title)}</h3><p>${esc(p.blurb)}</p><div class="acts"><a class="btn btn-gold btn-sm" href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.cta)} →</a>${(p.more||[]).map(([l,u])=>`<a class="link" href="${esc(u)}" target="_blank" rel="noopener">${esc(l)} →</a>`).join("")}</div></div>`).join("")}${ev.length?`<div class="yscard evs"><span class="kind">Yorkseed events · ${range(w.start,w.end)}</span>${ev.map((e,i)=>{const d=dParts(e.date);return`<button class="ritem${i>=4?" more":""}" type="button" data-ev="${e.id}"><span class="rd">${d.mon} <b>${d.day}</b></span><span class="rt">${esc(e.title)}</span></button>`}).join("")}${ev.length>4?`<button class="link ysall" type="button" onclick="this.parentElement.classList.add('open');this.remove()">All ${ev.length} Yorkseed events ↓</button>`:""}</div>`:""}</div></div>`;
 }
 const weekOk=w=>!!w.ys||Math.max(upcoming().filter(e=>e.week===w.id).length,((((window.YS_PATHS||{}).w||{})[w.id])||{}).n||0)>=5;
+function wkCols(){return innerWidth<=640?2:innerWidth<=900?3:4;}
 function renderWeeks(){
   const today=dKey(Date.now(),myTz);
   const cnt={};upcoming().forEach(e=>{if(e.week)cnt[e.week]=(cnt[e.week]||0)+1;});
@@ -522,7 +523,11 @@ function renderWeeks(){
   // weeks on now or starting within 10 days come first, biggest first; then the rest by date
   const soonCut=addDays(10),soon=w=>w.start<=soonCut;
   const ws=[...WEEKS].filter(w=>w.end>=today&&weekOk(w)&&(cnt[w.id]||0)>0).sort((a,b)=>(soon(b)-soon(a))||(soon(a)?(cnt[b.id]||0)-(cnt[a.id]||0):a.start.localeCompare(b.start)));
-  const show=st.allWeeks?ws:[...ws.slice(0,6),...ws.slice(6).filter(w=>w.ys)];
+  // never leave empty slots in the card grid: round the collapsed count up to a full row for the current
+  // column count (keep .wkgrid's breakpoints in app.css in sync with wkCols())
+  let show;
+  if(st.allWeeks)show=ws;
+  else{const base=[...ws.slice(0,6),...ws.slice(6).filter(w=>w.ys)].length,cols=wkCols(),full=Math.min(ws.length,Math.ceil(base/cols)*cols);show=ws.slice(0,full);}
   $("#weekGrid").innerHTML=show.map(w=>{const n=cnt[w.id]||0;const live=today>=w.start&&today<=w.end;
     const wh=hubById(w.hub),wi=WIMG[w.id]||(wh&&wh.img&&IMG[wh.img]);
     return`<a class="wkcard${wi?"":" noimg"}" href="${listPathFor(w)||"#"+weekSlug(w)}" data-weekgo="${w.id}">${wi?`<img src="${wi}" alt="" loading="lazy" decoding="async" style="object-position:${WIMG[w.id]?"50% 50%":IMGPOS[wh.img]||"50% 50%"}">`:""}<span class="wk-when${live?" live":""}">${live?"This week":range(w.start,w.end)}</span><span class="wk-body"><b>${esc(w.name)}</b><span>${hubById(w.hub).name} · ${n} event${n===1?"":"s"}${w.ys?" "+ysProgramsHtml(w,true):""}</span></span></a>`}).join("");
@@ -1379,6 +1384,7 @@ $("#dStrip").addEventListener("click",ev=>{const b=ev.target.closest("button[dat
   st.day=b.dataset.dsday||null;st.date="any";st.mode="list";const el=$("#dStrip"),wasStuck=el.getBoundingClientRect().top<=(parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--navh"))||64)+1;
   renderCity();if(wasStuck){const y=$("#dStrip").offsetTop;window.scrollTo({top:Math.max(0,document.querySelector(".listhead").getBoundingClientRect().top+scrollY-(parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--navh"))||64)),behavior:"smooth"});}});
 addEventListener("resize",setStripVars);setStripVars();
+{let wkc=wkCols();addEventListener("resize",()=>{const c=wkCols();if(c!==wkc){wkc=c;if($("#weekGrid"))renderWeeks();}});}
 
 // ---------- live data (db) + owner admin ----------
 const PAYLINKS={side:{"2w":"https://buy.stripe.com/fZufZa8ADfp46bS5Exbo41E","1m":"https://buy.stripe.com/eVq7sE3gj2Ci7fW8QJbo41F","3m":"https://buy.stripe.com/7sY6oAg35el02ZGaYRbo41G","6m":"https://buy.stripe.com/fZu28keZ190G7fW4Atbo41H","12m":"https://buy.stripe.com/aFadR2eZ1gt8cAgaYRbo41I"},sheet:{conf:"https://buy.stripe.com/fZubIU6sva4Kas8aYRbo410"},feat:{ev:"https://buy.stripe.com/dRmaEQ4kn1yeas81ohbo41l","1m":"https://buy.stripe.com/4gM7sE047dgW2ZG0kdbo41m","3m":"https://buy.stripe.com/cNi3cog35el0fMsff7bo41n"},
