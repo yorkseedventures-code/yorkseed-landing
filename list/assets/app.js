@@ -1441,7 +1441,7 @@ function applyChanges(cs){
   cs.forEach(c=>{EVENTS.slice().forEach(e=>{
     /* one link can carry several dates (a recurring Luma page, or an event moved to another day): only the
        listing on the requested date is changed or removed, never every event that shares the link */
-    const same=((c.link&&e.link&&strip(c.link)===strip(e.link))||nt(e.title)===nt(c.title))&&(!c.date||e.date===c.date);if(!same)return;
+    const same=(c.link?(e.link&&strip(c.link)===strip(e.link)):nt(e.title)===nt(c.title))&&(!c.date||e.date===c.date);if(!same)return;
     if(c.remove){const i=EVENTS.indexOf(e);if(i>-1){EVENTS.splice(i,1);n++;}return;}
     const f=c.fields||{};["title","date","start","end","venue","link","desc"].forEach(k=>{if(f[k]){e[k]=f[k];n++;}});
     decorate(e);});});

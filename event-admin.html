@@ -157,6 +157,12 @@ body{overflow-wrap:anywhere}
   <div class="hint">People who ask to change or remove an event on the List. Approve applies it on the List right away and emails them that it is live. Reject leaves the event as it is.</div>
 </div>
 
+<div class="card" id="dupes" data-sec="inbox">
+  <h2>Duplicates on the List <span id="dupCount"></span></h2>
+  <div class="tabs" style="margin-bottom:10px"><button type="button" id="dupScan" class="on">Find duplicates</button><select id="dupHub" style="width:auto;margin-left:8px"><option value="">All cities</option></select></div>
+  <div id="dupList"><div class="hint">Tap "Find duplicates" to scan every upcoming event.</div></div>
+  <div class="hint">The same event listed twice on the same day: same link, or nearly the same name. Remove the copy you don't want; it comes off the List right away (the other copy stays). Undo it under Edit requests → Approved.</div>
+</div>
 <div class="card" id="hubjoins" data-sec="hubjoins">
   <h2>Hub join requests <span id="hjCount"></span></h2>
   <div class="tabs" id="hjTabs"><button data-hjt="pending" class="on">Pending</button><button data-hjt="approved">Approved</button><button data-hjt="rejected">Rejected</button></div>
@@ -955,5 +961,57 @@ if((location.hash||'')==='#team')setTimeout(loadTeamCards,0);
 showSec((location.hash||'#today').slice(1));
 </script>
 <script src="/assets/url-prefill.js" defer></script>
+<script>
+/* Duplicates: scan the List's own data (events.json + master.json + approved submissions), minus removals already approved */
+(function(){
+  var SUBAPI='https://yorkseed-backend-production.up.railway.app/api/list-submissions',EV=[],HUBN={};
+  function e_(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')}
+  var nt=function(t){return String(t||'').toLowerCase().normalize('NFKD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9 ]+/g,' ').replace(/\s+/g,' ').trim()};
+  var STOP={the:1,a:1,an:1,of:1,and:1,at:1,in:1,by:1,for:1,with:1,x:1,to:1,'2026':1,'2027':1,miami:1,art:1,basel:1,week:1};
+  var toks=function(t){return nt(t).split(' ').filter(function(w){return w.length>1&&!STOP[w]})};
+  var canon=function(u){return String(u||'').split('?')[0].split('#')[0].replace(/\/$/,'').toLowerCase().replace('://www.','://')};
+  function similar(a,b){if(a.link&&b.link&&canon(a.link)===canon(b.link))return 'same link';
+    var x=nt(a.title),y=nt(b.title);if(x===y)return 'same name';
+    if(Math.min(x.length,y.length)>=12&&(x.indexOf(y)===0||y.indexOf(x)===0))return 'same name';
+    var A=toks(a.title),B=toks(b.title);if(A.length<2||B.length<2)return '';
+    /* "AI Builders Vienna" vs "AI Builders Barcelona": different cities in the names, different events */
+    var CT=Object.keys(HUBN).map(function(k){return nt(HUBN[k])}),ca=CT.filter(function(c){return (' '+nt(a.title)+' ').indexOf(' '+c+' ')>-1}),cb=CT.filter(function(c){return (' '+nt(b.title)+' ').indexOf(' '+c+' ')>-1});
+    if(ca.length&&cb.length&&!ca.some(function(c){return cb.indexOf(c)>-1}))return '';var inter=A.filter(function(w){return B.indexOf(w)>-1}).length;
+    return inter/Math.min(A.length,B.length)>=0.75&&inter>=2?'similar name':''}
+  function load(){
+    var J=function(u){return fetch(u,{cache:'no-cache'}).then(function(r){return r.ok?r.json():[]}).catch(function(){return []})};
+    return Promise.all([J('/list/events.json'),J('/list/data/master.json'),J(SUBAPI+'/public')]).then(function(r){
+      var a=(Array.isArray(r[0])?r[0]:(r[0].events||[])).map(function(e){e._src='List data';return e});
+      var m=r[1]||{};(m.hubs||[]).forEach(function(h){HUBN[h.id]=h.name});
+      var b=(m.events||[]).map(function(e){e._src='Curated';return e});
+      var c=((r[2]||{}).events||[]).map(function(e){e._src='Submitted';return e});
+      var rm=((r[2]||{}).changes||[]).filter(function(x){return x.remove});
+      var today=new Date(Date.now()-864e5).toISOString().slice(0,10);
+      EV=a.concat(b,c).filter(function(e){return e&&e.hub&&e.date>=today&&!rm.some(function(x){return x.date===e.date&&((x.link&&canon(x.link)===canon(e.link))||nt(x.title)===nt(e.title))})});
+      var sel=$('dupHub');if(sel.options.length<2)Object.keys(HUBN).sort(function(p,q){return HUBN[p].localeCompare(HUBN[q])}).forEach(function(id){var o=document.createElement('option');o.value=id;o.textContent=HUBN[id];sel.appendChild(o)});
+    })}
+  function scan(){
+    var hub=$('dupHub').value,by={},groups=[],seen={};
+    EV.forEach(function(e){if(hub&&e.hub!==hub)return;var k=e.hub+'|'+e.date;(by[k]=by[k]||[]).push(e)});
+    Object.keys(by).sort().forEach(function(k){var arr=by[k];
+      for(var i=0;i<arr.length;i++){if(seen[k+i])continue;var g=[arr[i]],why='';
+        for(var j=i+1;j<arr.length;j++){if(seen[k+j])continue;var w=similar(arr[i],arr[j]);if(w){g.push(arr[j]);seen[k+j]=1;why=why||w}}
+        /* exact copies (same link and same name) are merged by the List itself; show the ones people actually see twice */
+        if(g.length>1&&!(g.every(function(x){return canon(x.link)===canon(g[0].link)&&nt(x.title)===nt(g[0].title)})))groups.push({why:why,items:g})}});
+    $('dupCount').textContent=groups.length?'('+groups.length+')':'';
+    $('dupList').innerHTML=groups.length?groups.slice(0,200).map(function(g,gi){return '<div class="sub-it"><div class="meta" style="margin-bottom:6px"><b>'+e_(HUBN[g.items[0].hub]||g.items[0].hub)+' · '+e_(g.items[0].date)+'</b> · '+e_(g.why)+'</div>'+
+      g.items.map(function(e,ii){return '<div style="display:flex;gap:10px;align-items:center;justify-content:space-between;border-top:1px solid #e7e2d9;padding:8px 0"><span><b>'+e_(e.title)+'</b><br><small style="color:#6b6860">'+e_([e.start,e.venue,e._src].filter(Boolean).join(' · '))+(e.link?' · <a href="'+e_(e.link)+'" target="_blank" rel="noopener">'+e_(String(e.link).replace(/^https?:\/\/(www\.)?/,'').slice(0,40))+'</a>':'')+'</small></span><button type="button" style="width:auto;min-height:34px;padding:0 12px" data-dup="'+gi+'.'+ii+'">Remove this copy</button></div>'}).join('')+'</div>'}).join(''):'<div class="hint">No duplicates found'+(hub?' in this city':'')+'.</div>';
+    $('dupList').groups=groups}
+  $('dupScan').onclick=function(){$('dupList').innerHTML='<div class="hint">Scanning...</div>';(EV.length?Promise.resolve():load()).then(scan)};
+  $('dupHub').onchange=function(){if(EV.length)scan()};
+  $('dupList').addEventListener('click',function(ev){var b=ev.target.closest('[data-dup]');if(!b)return;var p=b.dataset.dup.split('.'),g=$('dupList').groups[+p[0]],e=g.items[+p[1]];
+    var link=e.link&&g.items.filter(function(x){return canon(x.link)===canon(e.link)}).length>1&&g.items.some(function(x){return x!==e&&nt(x.title)!==nt(e.title)})?'':e.link;
+    b.disabled=true;b.textContent='Removing...';
+    fetch(SUBAPI+'/changes/remove',{method:'POST',headers:{'content-type':'application/json','x-events-key':key()},body:JSON.stringify({title:e.title,date:e.date,link:link})})
+      .then(function(r){return r.json().then(function(j){if(!r.ok)throw new Error(j.message||'Failed');})})
+      .then(function(){b.textContent='Removed';b.parentNode.style.opacity=.45;EV.splice(EV.indexOf(e),1)})
+      .catch(function(err){b.disabled=false;b.textContent='Remove this copy';alert(err.message)})});
+})();
+</script>
 </body>
 </html>
