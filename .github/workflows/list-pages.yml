@@ -26,6 +26,8 @@ jobs:
         with:
           python-version: "3.12"
       - name: Import queued events and find event photos
+        env:
+          YS_HORIZON_DAYS: "218"   # import events through June 2027
         run: python3 scripts/list_enrich.py || echo "enrich step skipped"
       - name: Rebuild city and conference pages
         run: python3 scripts/build_list_pages.py
