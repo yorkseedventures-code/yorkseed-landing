@@ -1365,3 +1365,6 @@ input[type=date],input[type=time]{-webkit-appearance:none;appearance:none;displa
 input[type=date]::-webkit-date-and-time-value,input[type=time]::-webkit-date-and-time-value{text-align:left;margin:0}
 .ecard label .opt{font-family:var(--f-body);letter-spacing:0;text-transform:none;font-size:12px;color:var(--muted);margin-left:4px}
 .badge.b-span{border:1px solid var(--line);color:var(--ink2,var(--muted));background:transparent}
+.wkspon{flex-wrap:wrap}
+.wkspon .wkmore{border-style:dashed;padding:5px 9px;font-size:10px}
+.wkspon.on img{position:static!important;inset:auto!important;width:auto!important;height:auto!important;max-height:24px;max-width:120px;object-fit:contain;opacity:1!important;transform:none!important;filter:none!important}

@@ -846,7 +846,9 @@ def _js_str(s):
 _bake_until = (TODAY + dt.timedelta(days=45)).isoformat()
 _baked = [
     f'[{_js_str(e["hub"])},{_js_str(e["date"])},{_js_str(e.get("start"))},{_js_str(e.get("end"))},{_js_str(e["title"])},{_js_str(e["link"])},{_js_str(e.get("venue"))},{_js_str(e.get("host"))}]'
-    for e in events if e.get("link") and e["date"] <= _bake_until
+    # conference-week side events are baked in whatever their date, so a week page (Davos, JPM, CES...) is full
+    # on first paint instead of showing only a handful until the big events.json arrives on a slow phone
+    for e in events if e.get("link") and (e["date"] <= _bake_until or e.get("week"))
 ]
 _app_js_path = f"{REPO}/list/assets/app.js"
 _app_js = open(_app_js_path).read()
