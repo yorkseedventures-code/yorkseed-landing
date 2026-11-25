@@ -645,3 +645,7 @@ https://www.yorkseed.co/list/*        https://list.yorkseed.co/:splat  301!
 /e/founding-member-roundtable-2 /events/founding-member-roundtable-2.html 200
 /e/yorkseed-house-web-summit-lisbon-2026 /events/yorkseed-house-web-summit-lisbon-2026.html 200
 /e/* /event.html 200
+
+# Venture Studio aliases
+/venture-studio  /venturestudio/  301!
+/venture-studio/*  /venturestudio/:splat  301!
