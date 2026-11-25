@@ -11,4 +11,12 @@
   PYTHON_VERSION = "3.11"
 
 [images]
-  remote_images = ["https://images\\.lumacdn\\.com/.*", "https://images\\.unsplash\\.com/.*", "https://secure-content\\.meetupstatic\\.com/.*", "https://secure\\.meetupstatic\\.com/.*", "https://img\\.evbuc\\.com/.*", "https://cdn\\.prod\\.website-files\\.com/.*", "https://images\\.aitinkerers\\.org/.*"]
+  # The List's build script (scripts/build_list_pages.py) proxies every non-yorkseed.co event cover photo
+  # through /.netlify/images for the og:image tag, specifically because WhatsApp/iMessage reject many
+  # hotlinked CDN images (webp/avif, odd sizes) unless they're re-served as a plain 1200x630 JPEG.
+  # Event cover photos are scraped from whatever host each organizer happens to host their event page on
+  # -- currently 170+ distinct hosts and growing with every new event -- so an enumerated allowlist here
+  # silently breaks the share-preview image for any host not yet added (confirmed: only 7 of 170+ actual
+  # source hosts were listed, leaving most events with a broken social-preview image). A single permissive
+  # pattern covers any https source instead of needing a manual update every time a new host shows up.
+  remote_images = ["https://.*"]
