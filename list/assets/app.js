@@ -267,7 +267,14 @@ function nearHub(){try{const m=document.cookie.match(/(?:^|; )ys_geo=([^;]+)/);i
 function evBySlug(s){return EVENTS.find(x=>evSlug(x)===s);}
 let PENDING_EV=null;
 function openFromHash(){const m=(location.hash||"").match(/^#e\/(.+)$/);
-  let s;const pm=/^\/e\//.test(location.pathname)&&!m;const origPmPath=pm&&(location.pathname+location.search);
+  /* pm ("path mode") is for a fresh load/share link landing directly on an event's own /e/<slug>/ URL with no
+     hash. It must NOT fire on a later hashchange while already on that page (e.g. clicking "See all events in
+     Paris", href="#paris", from an open event): without the !location.hash guard, pm stayed true purely because
+     the pathname was still /e/<slug>/, so this function re-resolved to the SAME event, replaceState()'d the
+     #paris hash straight back off the URL, and returned true -- which made the hashchange handler's
+     `if(openFromHash())return;` bail before ever calling openListFromHash("#paris"), so the click silently did
+     nothing. */
+  let s;const pm=/^\/e\//.test(location.pathname)&&!m&&!location.hash;const origPmPath=pm&&(location.pathname+location.search);
   if(m)s=decodeURIComponent(m[1]);else if(pm)s=decodeURIComponent(location.pathname.replace(/^\/e\/|\/$/g,""));else return false;
   let e=evBySlug(s);
   /* The event may be gone from every live source entirely -- aged out of master.json's upstream feed and never
