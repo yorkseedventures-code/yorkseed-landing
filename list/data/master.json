@@ -592,7 +592,7 @@
    "tz": "Asia/Ho_Chi_Minh",
    "country": "Vietnam",
    "region": "",
-   "img": ""
+   "img": "sgn"
   },
   {
    "id": "akl",
@@ -832,7 +832,7 @@
    "tz": "Asia/Tokyo",
    "country": "Japan",
    "region": "",
-   "img": ""
+   "img": "ngo"
   },
   {
    "id": "osa",
@@ -840,7 +840,7 @@
    "tz": "Asia/Tokyo",
    "country": "Japan",
    "region": "",
-   "img": ""
+   "img": "osa"
   },
   {
    "id": "han",
@@ -1401,7 +1401,10 @@
   "mrs": "/list/img/mrs_marseille.jpg",
   "rom": "/list/img/rom_rome.jpg",
   "los": "/list/img/los_lagos.jpg",
-  "maa": "/list/img/maa_chennai.jpg"
+  "maa": "/list/img/maa_chennai.jpg",
+  "osa": "/list/img/osa_osaka.jpg",
+  "ngo": "/list/img/ngo_nagoya.jpg",
+  "sgn": "/list/img/sgn_ho_chi_minh_city.jpg"
  },
  "events": [
   {
