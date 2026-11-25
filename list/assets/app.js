@@ -601,7 +601,7 @@ function renderCity(){
   const spots=st.q?[]:list.filter(e=>e.place==="spotlight"||e.place==="week").slice(0,3);
   $("#bCity").insertAdjacentHTML("afterend","");
   $("#spot").innerHTML=spots.length?`<div class="spotlabel">${w?"Week picks":"From Yorkseed"}</div><div class="spot">${spots.map(cardHtml).join("")}</div>`:"";
-  const shown=list.slice(0,st.limit);
+  const shown=list.slice(0,st.day?Math.max(st.limit,250):st.limit); // one day: show the whole day, so a 5 pm event isn't hidden behind "Show more"
   /* a search with no hits in this city/week/day: show the matches from everywhere instead of an empty list */
   let elsewhere=[];if(!list.length&&st.q.trim()&&!st.savedOnly&&(st.hub!=="all"||st.week||st.day||st.date!=="any"||st.type!=="all"||st.topic)){const keep={hub:st.hub,week:st.week,day:st.day,date:st.date,type:st.type,topic:st.topic,ysOnly:st.ysOnly};Object.assign(st,{hub:"all",week:null,day:null,date:"any",type:"all",topic:null,ysOnly:false});try{elsewhere=filtered();}finally{Object.assign(st,keep);}}
   $("#rows").innerHTML=!list.length&&elsewhere.length?`<div class="empty" style="margin-bottom:14px">No “${esc(st.q.trim())}” events ${st.week?"in this conference week":st.hub!=="all"?"in "+esc(hubById(st.hub).name):"with these filters"}. ${elsewhere.length} match${elsewhere.length===1?"":"es"} elsewhere on the List:</div>`+groupedHtml(elsewhere.slice(0,40)):list.length?groupedHtml(shown):st.savedOnly?`<div class="empty">No saved events yet. Tap the ♡ on any event to save it here.</div>`:`<div class="empty">No events match yet. Try another city or date, or <button class="link" data-scroll="submit">list the first one</button>.</div>`;
