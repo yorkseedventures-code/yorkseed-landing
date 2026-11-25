@@ -89,70 +89,70 @@
    "source": "place:london",
    "hub": "ldn",
    "pages": 4,
-   "seen": 68,
+   "seen": 61,
    "added": 0
   },
   {
    "source": "place:paris",
    "hub": "par",
    "pages": 3,
-   "seen": 36,
+   "seen": 33,
    "added": 0
   },
   {
    "source": "place:berlin",
    "hub": "ber",
    "pages": 4,
-   "seen": 54,
+   "seen": 51,
    "added": 0
   },
   {
    "source": "place:munich",
    "hub": "muc",
    "pages": 2,
-   "seen": 20,
+   "seen": 18,
    "added": 0
   },
   {
    "source": "place:amsterdam",
    "hub": "ams",
    "pages": 3,
-   "seen": 37,
+   "seen": 34,
    "added": 0
   },
   {
    "source": "place:barcelona",
    "hub": "bcn",
    "pages": 3,
-   "seen": 30,
+   "seen": 26,
    "added": 0
   },
   {
    "source": "place:madrid",
    "hub": "mad",
    "pages": 2,
-   "seen": 24,
+   "seen": 20,
    "added": 0
   },
   {
    "source": "place:lisbon",
    "hub": "lis",
    "pages": 2,
-   "seen": 22,
+   "seen": 15,
    "added": 0
   },
   {
    "source": "place:milan",
    "hub": "mil",
    "pages": 2,
-   "seen": 14,
+   "seen": 12,
    "added": 0
   },
   {
    "source": "place:zurich",
    "hub": "zrh",
    "pages": 3,
-   "seen": 27,
+   "seen": 26,
    "added": 0
   },
   {
@@ -166,7 +166,7 @@
    "source": "place:copenhagen",
    "hub": "cph",
    "pages": 2,
-   "seen": 19,
+   "seen": 18,
    "added": 0
   },
   {
@@ -180,14 +180,14 @@
    "source": "place:dublin",
    "hub": "dub",
    "pages": 2,
-   "seen": 12,
+   "seen": 9,
    "added": 0
   },
   {
    "source": "place:warsaw",
    "hub": "waw",
    "pages": 2,
-   "seen": 15,
+   "seen": 12,
    "added": 0
   },
   {
@@ -235,8 +235,8 @@
   {
    "source": "place:miami",
    "hub": "mia",
-   "pages": 3,
-   "seen": 26,
+   "pages": 2,
+   "seen": 25,
    "added": 0
   },
   {
@@ -453,7 +453,7 @@
    "source": "place:brussels",
    "hub": "bru",
    "pages": 2,
-   "seen": 15,
+   "seen": 13,
    "added": 0
   },
   {
@@ -516,14 +516,14 @@
    "source": "place:saopaulo",
    "hub": "sao",
    "pages": 2,
-   "seen": 12,
+   "seen": 11,
    "added": 0
   },
   {
    "source": "place:rio",
    "hub": "sao",
    "pages": 2,
-   "seen": 7,
+   "seen": 6,
    "added": 0
   },
   {
@@ -542,13 +542,13 @@
   },
   {
    "source": "luma calendars",
-   "known": 1911,
-   "added": 7
+   "known": 1923,
+   "added": 37
   },
   {
    "source": "foundercal",
-   "read": 3021,
-   "added": 0
+   "read": 3012,
+   "added": 74
   },
   {
    "source": "confs.tech",
@@ -557,7 +557,7 @@
   {
    "source": "meetup groups",
    "groups": 836,
-   "added": 41
+   "added": 7
   },
   {
    "source": "ical feeds",
@@ -575,28 +575,12 @@
   },
   {
    "rsvp_links": {
-    "fixed": 65,
+    "fixed": 1,
     "removed": [
-     {
-      "title": "programmier.con - Web & AI Edition 2026",
-      "date": "2026-11-25",
-      "link": "https://germantechjobs.de/en/events/programmiercon---Web--AI-Edition-2026-Berlin"
-     },
-     {
-      "title": "Agentiq World Amsterdam 2026",
-      "date": "2026-11-25",
-      "link": "https://www.iamsterdam.com/en/business/calendar/events/all/agentiq-world-amsterdam-2026",
-      "why": "already listed with its RSVP link"
-     },
      {
       "title": "Meeting C++ 2026",
       "date": "2026-11-26",
       "link": "https://germantechjobs.de/en/events/Meeting-C-2026-Berlin"
-     },
-     {
-      "title": "PMF Europe 2026",
-      "date": "2026-11-27",
-      "link": "https://swissdevjobs.ch/events/PMF-Europe-2026-Zurich"
      },
      {
       "title": "React Day Berlin 2026",
@@ -604,9 +588,20 @@
       "link": "https://germantechjobs.de/en/events/React-Day-Berlin-2026-Berlin"
      },
      {
-      "title": "DevFest Ciudad de M\u00e9xico 2026",
-      "date": "2026-12-16",
-      "link": "https://andresospina.co/eventos-ia/evento/devfest-cdmx-2026"
+      "title": "OutGeekWomen x Berlin 2027",
+      "date": "2027-02-18",
+      "link": "https://germantechjobs.de/en/events/OutGeekWomen-x-Berlin-2027-Berlin"
+     },
+     {
+      "title": "The Questions Every Founder Should Ask a Startup Lawyer",
+      "date": "2026-12-02",
+      "link": "https://techevents.au/sydney/events/the-questions-every-founder-should-ask-a-startup-lawyer"
+     },
+     {
+      "title": "Built Fast, Now Build to Scale: A founder roundtable on moving to AWS for scalable and secure technology",
+      "date": "2026-12-10",
+      "link": "https://techevents.au/sydney/events/built-fast-now-build-to-scale-a-founder-roundtable-on-moving-to-aws-for-scalable",
+      "why": "already listed with its RSVP link"
      },
      {
       "title": "Founder Events",
@@ -624,19 +619,9 @@
       "link": "https://innovationbay.com/events-for-tech-founders-and-investors/angel-investor-events"
      },
      {
-      "title": "Hack Winterthur 2027",
-      "date": "2027-02-12",
-      "link": "https://swissdevjobs.ch/events/Hack-Winterthur-2027-Winterthur"
-     },
-     {
-      "title": "R&D Tax Incentive and Government Grant Support Office Hours with Hamish Sinclair",
-      "date": "2026-11-25",
-      "link": "https://techevents.au/sydney/events/r-d-tax-incentive-and-government-grant-support-office-hours-with-hamish-sinclair"
-     },
-     {
-      "title": "The Questions Every Founder Should Ask a Startup Lawyer",
-      "date": "2026-12-02",
-      "link": "https://techevents.au/sydney/events/the-questions-every-founder-should-ask-a-startup-lawyer"
+      "title": "PMF Europe 2026",
+      "date": "2026-11-27",
+      "link": "https://swissdevjobs.ch/events/PMF-Europe-2026-Zurich"
      },
      {
       "title": "\u00abHack Apertus\u00bb Zurich Finals",
@@ -649,401 +634,25 @@
       "link": "https://startupticker.ch/index.php/en/events/open-mic-next-in-health-series"
      },
      {
-      "title": "Voxxed Days Z\u00fcrich",
-      "date": "2027-03-09",
-      "link": "https://dev.events/conferences/voxxed-days-zuerich-gnjtwlsl"
-     },
-     {
-      "title": "World AI Cannes Festival",
-      "date": "2027-02-10",
-      "link": "https://www.maddyness.com/evenement/world-ai-cannes-festival"
-     },
-     {
-      "title": "Be a boss Women Tour Hauts-de-France 2027",
-      "date": "2027-02-11",
-      "link": "https://www.maddyness.com/evenement/be-a-boss-women-tour-hauts-de-france-2027"
-     },
-     {
-      "title": "BusinessOulu How to: Build a Funding Strategy for Growth",
-      "date": "2026-11-26",
-      "link": "https://www.startupjobs.fi/tapahtumat/4699-businessoulu-how-to-build-a-funding-strategy-for-growth"
-     },
-     {
-      "title": "GTM the Smart Way: From Product to Traction",
-      "date": "2026-11-26",
-      "link": "https://www.startupjobs.fi/tapahtumat/5822-gtm-the-smart-way-from-product-to-traction"
-     },
-     {
-      "title": "BusinessOulu How to: Pitch for Impact",
-      "date": "2026-11-30",
-      "link": "https://www.startupjobs.fi/tapahtumat/4700-businessoulu-how-to-pitch-for-impact"
-     },
-     {
-      "title": "Arctic Lion Defence Summit 2026",
-      "date": "2026-12-02",
-      "link": "https://www.startupjobs.fi/tapahtumat/491-arctic-lion-defence-summit-2026"
-     },
-     {
-      "title": "Founder Forward: Customer Acquisition Mini-hack",
-      "date": "2026-12-03",
-      "link": "https://www.startupjobs.fi/tapahtumat/5287-founder-forward-customer-acquisition-mini-hack"
-     },
-     {
-      "title": "AI Share: AIStart Community Event",
-      "date": "2026-12-08",
-      "link": "https://www.startupjobs.fi/tapahtumat/5826-ai-share-aistart-community-event"
-     },
-     {
-      "title": "Monthly AI Meetup @ Helsinki XR Center",
-      "date": "2026-12-09",
-      "link": "https://www.startupjobs.fi/tapahtumat/5289-monthly-ai-meetup-helsinki-xr-center"
-     },
-     {
-      "title": "JYU Venture Capital Pitching Day 2026",
-      "date": "2026-12-11",
-      "link": "https://www.startupjobs.fi/tapahtumat/3388-jyu-venture-capital-pitching-day-2026"
-     },
-     {
-      "title": "ARCTIC Conference 2027",
-      "date": "2027-02-02",
-      "link": "https://www.startupjobs.fi/tapahtumat/492-arctic-conference-2027"
-     },
-     {
-      "title": "Polar Bear Pitching 2027",
-      "date": "2027-02-18",
-      "link": "https://www.startupjobs.fi/tapahtumat/495-polar-bear-pitching-2027"
-     },
-     {
-      "title": "Connect Pitch Meetup / AW | November 2026 2nd Edition",
-      "date": "2026-11-26",
-      "link": "https://startupsevents.com/event/scraped-1ef07667-f2f2-449c-bce1-69a4e92852ac"
-     },
-     {
-      "title": "Fintech Day 2026",
-      "date": "2026-11-26",
-      "link": "https://startupsevents.com/event/scraped-64ad104e-9e50-4df5-b43c-722b39471f46"
-     },
-     {
-      "title": "Norrsken After Work",
-      "date": "2026-11-27",
-      "link": "https://startupsevents.com/event/scraped-c3825dc4-0143-46bd-b073-0d7f18af0597"
-     },
-     {
-      "title": "Connect Creative Tech-X Day (Fall 2026)",
-      "date": "2026-12-04",
-      "link": "https://startupsevents.com/event/scraped-3dfddf7e-9f66-4932-b216-9c687612963d"
-     },
-     {
-      "title": "Fixathon 2026 - Stockholm Edition",
-      "date": "2026-12-04",
-      "link": "https://startupsevents.com/event/scraped-d1b3b4a1-6efb-4ff5-9ad1-d1ca591e4f26"
-     },
-     {
-      "title": "Latitude59 x Kenya 2026",
-      "date": "2026-12-04",
-      "link": "https://www.startupjobs.ke/events/5625-latitude59-x-kenya-2026",
-      "why": "already listed with its RSVP link"
-     },
-     {
-      "title": "M\u00e9xico Tech Summit",
-      "date": "2026-12-08",
-      "link": "https://andresospina.co/eventos-ia/evento/mexico-tech-summit-ciudad-de-mexico"
-     },
-     {
-      "title": "FinTech M\u00e9xico Festival 2026",
-      "date": "2027-02-26",
-      "link": "https://andresospina.co/eventos-ia/evento/fintech-mexico-festival-2026"
-     },
-     {
-      "title": "Miami Design District Art Week openings (Jeffrey Deitch x Urs Fischer, Open Invitational, David Castillo, Spinello, The Moore, etc.)",
-      "date": "2026-11-30",
-      "link": "https://www.miamidesigndistrict.com/calendar/event-category/miami-art-week/"
-     },
-     {
-      "title": "Official Miami Art Week Kickoff Party",
-      "date": "2026-11-30",
-      "link": "https://www.miamiartweek.org/events"
-     },
-     {
-      "title": "arteNXT Contemporary Art Exhibition",
-      "date": "2026-12-01",
-      "link": "https://www.miamiartweek.org/"
-     },
-     {
-      "title": "Capital One x Shelborne: Sound Sessions",
-      "date": "2026-12-01",
-      "link": "https://premierguidemiami.com/events/capital-one-shelborne-by-proper-sound-sessions-dec-1-4-2026"
-     },
-     {
-      "title": "Citi Strata Elite x Mastercard: The Curated Table (J Balvin x Sophie Tea)",
-      "date": "2026-12-01",
-      "link": "https://premierguidemiami.com/events/citi-strata-elite-mastercard-the-curated-table-miami-art-week-2026"
-     },
-     {
-      "title": "Andrew Tess Polaroid Christmas tree",
-      "date": "2026-12-01",
-      "link": "https://www.instagram.com/p/DfuuL1IgkzM/"
-     },
-     {
-      "title": "Chase Sapphire Reserve x Faena Art Grand Opening",
-      "date": "2026-12-01",
-      "link": "https://premierguidemiami.com/events/chase-sapphire-reserve-faena-grand-opening-dec-1-2026"
-     },
-     {
-      "title": "Museum of Graffiti Art Week program (incl. Lucky 7)",
-      "date": "2026-12-02",
-      "link": "https://www.miamiandbeaches.com/event/museum-of-graffiti-2026-art-week/43970",
-      "why": "already listed with its RSVP link"
-     },
-     {
-      "title": "Capital One x The Cultivist: Marcel Dzama 'Who Loves the Moon?'",
-      "date": "2026-12-03",
-      "link": "https://premierguidemiami.com/events/capital-one-the-cultivist-marcel-dzama-who-loves-the-moon-dec-3-4-2026"
-     },
-     {
-      "title": "Miami Art Week Forum / Art Coral Gables panels",
-      "date": "2026-12-03",
-      "link": "https://www.miamiartweek.org/forum-2026-panel-discussion-series"
-     },
-     {
-      "title": "Rochelle Jordan + Hercules & Love Affair (DJ)",
-      "date": "2026-12-03",
-      "link": "https://calendar.zeyzeymiami.com"
-     },
-     {
-      "title": "ARTWEEK Miami Media Festival (Frost Science Planetarium)",
-      "date": "2026-12-05",
-      "link": "https://www.miamiartweek.org/events"
-     },
-     {
-      "title": "Soulection & Friends",
-      "date": "2026-12-05",
-      "link": "https://calendar.zeyzeymiami.com/shows/soulection-friends-05-dec"
-     },
-     {
-      "title": "Piero Atchugarry Gallery: Algorithms for the Future & Enter Blue Opening",
-      "date": "2026-11-29",
-      "link": "https://www.instagram.com/p/Df4xqUeEY_n/"
-     },
-     {
-      "title": "The Art of Storytelling: Preserve Voices Art Week Kickoff",
-      "date": "2026-11-29",
-      "link": "https://www.instagram.com/reel/DgC6sxxB9bE/"
-     },
-     {
-      "title": "Mitrani Art: Inaugural Exhibition",
-      "date": "2026-11-30",
-      "link": "https://www.instagram.com/mitraniart/p/DfknDe8MOk7/"
-     },
-     {
-      "title": "Once the Spectacle Ends: Opening Reception",
-      "date": "2026-12-01",
-      "link": "https://www.instagram.com/p/DgAr_6YKj_7/"
-     },
-     {
-      "title": "LOUD Week (Love of Urban Design)",
-      "date": "2026-12-01",
-      "link": "https://www.miamiandbeaches.com/event/loud-week/27722",
-      "why": "already listed with its RSVP link"
-     },
-     {
-      "title": "Justin Nozuka",
-      "date": "2026-12-01",
-      "link": "https://calendar.zeyzeymiami.com/shows/justin-nozuka-01-dec"
-     },
-     {
-      "title": "Blake's Swirlavision Painting Session",
-      "date": "2026-12-01",
-      "link": "https://www.instagram.com/p/DfZvsMjo1Su/"
-     },
-     {
-      "title": "Historic Hampton House: These Arms of Mine",
-      "date": "2026-12-01",
-      "link": "https://www.miamiandbeaches.com/event/historic-hampton-house-miami-art-week/43202",
-      "why": "already listed with its RSVP link"
-     },
-     {
-      "title": "Littlest Art Fair (El Fresco, Little Havana)",
-      "date": "2026-12-01",
-      "link": "https://www.miamiandbeaches.com/event/littlest-art-fair/43953",
-      "why": "already listed with its RSVP link"
-     },
-     {
-      "title": "Meet the Artists at Trinity Cathedral",
-      "date": "2026-12-01",
-      "link": "https://www.instagram.com/p/Df-5JvYll8U/"
-     },
-     {
-      "title": "Shop.Sip.Glow Art Week Party with N2B4B",
-      "date": "2026-12-02",
-      "link": "https://www.instagram.com/p/Df0s5dSRimd/"
-     },
-     {
-      "title": "The Business of Entertainment Panel",
-      "date": "2026-12-02",
-      "link": "https://www.instagram.com/p/Df2AaZMx9uz/"
-     },
-     {
-      "title": "photoMIAMI After Dark: The Art of Photography",
-      "date": "2026-12-02",
-      "link": "https://www.miamiartweek.org/tickets"
-     },
-     {
-      "title": "Justin Nozuka (second show)",
-      "date": "2026-12-02",
-      "link": "https://calendar.zeyzeymiami.com/shows/justin-nozuka-second-show-02-dec"
-     },
-     {
-      "title": "SG Lewis Presents Forever Days",
-      "date": "2026-12-02",
-      "link": "https://calendar.zeyzeymiami.com/shows/sg-lewis-02-dec"
-     },
-     {
-      "title": "Rio Kosta DJ Set (free entry)",
-      "date": "2026-12-02",
-      "link": "https://calendar.zeyzeymiami.com/shows/rio-kosta-dj-set-free-entry-02-dec"
-     },
-     {
-      "title": "Chase Sapphire Reserve Faena Art Dinner + After-Party",
-      "date": "2026-12-02",
-      "link": "https://premierguidemiami.com/events/chase-sapphire-reserve-faena-art-dinner-after-party-dec-2-2026"
-     },
-     {
-      "title": "FAIRly NEW TO YOU: Art House (Day 1)",
-      "date": "2026-12-03",
-      "link": "https://www.instagram.com/p/DgAuQmtm2OB/"
-     },
-     {
-      "title": "German American Business Chamber Reception at Art Miami",
-      "date": "2026-12-03",
-      "link": "https://www.instagram.com/reel/Df-ab2sKo5f/"
-     },
-     {
-      "title": "ADBASEL 2026",
-      "date": "2026-12-03",
-      "link": "https://www.instagram.com/p/Df-IDlFFFai/"
-     },
-     {
-      "title": "CARLA'S HOME: A Listening Experience by CARLA",
-      "date": "2026-12-03",
-      "link": "https://calendar.zeyzeymiami.com/shows/carla-s-home-a-listening-experience-by-carla-03-dec"
-     },
-     {
-      "title": "arteNXT: Artist Reception and After-Party",
-      "date": "2026-12-04",
-      "link": "https://www.miamiartweek.org/tickets"
-     },
-     {
-      "title": "Brickell Basel",
-      "date": "2026-12-04",
-      "link": "https://www.instagram.com/p/Df30SMvnOfv/"
-     },
-     {
-      "title": "A-Trak & Friends with Mel\u00e9, BNYX & Natasha Diggs",
-      "date": "2026-12-04",
-      "link": "https://calendar.zeyzeymiami.com/shows/a-trak-friends-04-dec"
-     },
-     {
-      "title": "GLD Wynwood Flagship Pop-Up",
-      "date": "2026-12-04",
-      "link": "https://www.instagram.com/p/DfnZMmtFJMd/"
-     },
-     {
-      "title": "Sam Gellaitry + Darius",
-      "date": "2026-12-05",
-      "link": "https://calendar.zeyzeymiami.com/shows/sam-gellaitry-darius-05-dec"
-     },
-     {
-      "title": "AZULUM: Art Week",
-      "date": "2026-12-05",
-      "link": "https://www.instagram.com/reel/Df3BUbzPtAz/"
-     },
-     {
-      "title": "Shintaro Sakamoto",
-      "date": "2026-12-06",
-      "link": "https://calendar.zeyzeymiami.com/shows/shintaro-sakamoto-06-dec"
-     },
-     {
-      "title": "Andrea Bocelli \u2014 Yasalam Classics",
-      "date": "2026-12-02",
-      "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/"
-     },
-     {
-      "title": "Jennifer Lopez with Alex Warren \u2014 Yasalam After-Race Concerts",
-      "date": "2026-12-04",
-      "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/"
-     },
-     {
-      "title": "Imagine Dragons \u2014 Yasalam After-Race Concerts",
-      "date": "2026-12-05",
-      "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/"
-     },
-     {
-      "title": "The Chainsmokers and The Script \u2014 Yasalam After-Race Concerts",
-      "date": "2026-12-06",
-      "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/"
-     },
-     {
-      "title": "Anyma",
-      "date": "2026-12-04",
-      "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/"
-     },
-     {
-      "title": "Shimza \u2014 16/360",
-      "date": "2026-12-04",
-      "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/"
-     },
-     {
-      "title": "Mont Rouge and Moojo \u2014 Bagatelle Rooftop",
-      "date": "2026-12-04",
-      "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/"
-     },
-     {
-      "title": "CamelPhat \u2014 16/360",
-      "date": "2026-12-05",
-      "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/"
-     },
-     {
-      "title": "Gordo \u2014 Bagatelle",
-      "date": "2026-12-05",
-      "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/"
-     },
-     {
-      "title": "Black Coffee \u2014 16/360",
-      "date": "2026-12-06",
-      "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/"
-     },
-     {
-      "title": "Carl Cox \u2014 Bagatelle",
-      "date": "2026-12-06",
-      "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/"
-     },
-     {
-      "title": "Step Conference Dubai",
-      "date": "2027-02-03",
-      "link": "https://dealroom.co/css/dealroom-theme-3da7d8e.css?v=c1e5a66514cc2ee1"
-     },
-     {
-      "title": "OutGeekWomen x Berlin 2027",
-      "date": "2027-02-18",
-      "link": "https://germantechjobs.de/en/events/OutGeekWomen-x-Berlin-2027-Berlin"
-     },
-     {
-      "title": "Built Fast, Now Build to Scale: A founder roundtable on moving to AWS for scalable and secure technology",
-      "date": "2026-12-10",
-      "link": "https://techevents.au/sydney/events/built-fast-now-build-to-scale-a-founder-roundtable-on-moving-to-aws-for-scalable",
-      "why": "already listed with its RSVP link"
-     },
-     {
       "title": "Pitch'n'Bar Economie de proximit\u00e9",
       "date": "2026-12-03",
       "link": "https://startupticker.ch/en/events/pitch-n-bar-economie-de-proximite",
       "why": "already listed with its RSVP link"
      },
      {
+      "title": "Hack Winterthur 2027",
+      "date": "2027-02-12",
+      "link": "https://swissdevjobs.ch/events/Hack-Winterthur-2027-Winterthur"
+     },
+     {
       "title": "Winterkongress 2027",
       "date": "2027-03-05",
       "link": "https://dev.events/conferences/winterkongress-2027-i9xoiizs"
+     },
+     {
+      "title": "Voxxed Days Z\u00fcrich",
+      "date": "2027-03-09",
+      "link": "https://dev.events/conferences/voxxed-days-zuerich-gnjtwlsl"
      },
      {
       "title": "DevOpsDays Zurich 2027",
@@ -1072,6 +681,16 @@
       "date": "2027-05-21",
       "link": "https://www.iamsterdam.com/en/business/calendar/events/all/react-summit-2027",
       "why": "already listed with its RSVP link"
+     },
+     {
+      "title": "World AI Cannes Festival",
+      "date": "2027-02-10",
+      "link": "https://www.maddyness.com/evenement/world-ai-cannes-festival"
+     },
+     {
+      "title": "Be a boss Women Tour Hauts-de-France 2027",
+      "date": "2027-02-11",
+      "link": "https://www.maddyness.com/evenement/be-a-boss-women-tour-hauts-de-france-2027"
      },
      {
       "title": "Be a boss Women Tour Occitanie 2027",
@@ -1168,9 +787,29 @@
       "why": "already listed with its RSVP link"
      },
      {
+      "title": "BusinessOulu How to: Build a Funding Strategy for Growth",
+      "date": "2026-11-26",
+      "link": "https://www.startupjobs.fi/tapahtumat/4699-businessoulu-how-to-build-a-funding-strategy-for-growth"
+     },
+     {
+      "title": "GTM the Smart Way: From Product to Traction",
+      "date": "2026-11-26",
+      "link": "https://www.startupjobs.fi/tapahtumat/5822-gtm-the-smart-way-from-product-to-traction"
+     },
+     {
       "title": "Founders Club: Founders to Founders, Honest Stories",
       "date": "2026-11-27",
       "link": "https://www.startupjobs.fi/tapahtumat/6359-founders-club-founders-to-founders-honest-stories"
+     },
+     {
+      "title": "BusinessOulu How to: Pitch for Impact",
+      "date": "2026-11-30",
+      "link": "https://www.startupjobs.fi/tapahtumat/4700-businessoulu-how-to-pitch-for-impact"
+     },
+     {
+      "title": "Arctic Lion Defence Summit 2026",
+      "date": "2026-12-02",
+      "link": "https://www.startupjobs.fi/tapahtumat/491-arctic-lion-defence-summit-2026"
      },
      {
       "title": "AAIF Community Helsinki #12: Real-World Business AI Hackathon",
@@ -1179,14 +818,75 @@
       "why": "already listed with its RSVP link"
      },
      {
+      "title": "Founder Forward: Customer Acquisition Mini-hack",
+      "date": "2026-12-03",
+      "link": "https://www.startupjobs.fi/tapahtumat/5287-founder-forward-customer-acquisition-mini-hack"
+     },
+     {
+      "title": "AI Share: AIStart Community Event",
+      "date": "2026-12-08",
+      "link": "https://www.startupjobs.fi/tapahtumat/5826-ai-share-aistart-community-event"
+     },
+     {
+      "title": "Monthly AI Meetup @ Helsinki XR Center",
+      "date": "2026-12-09",
+      "link": "https://www.startupjobs.fi/tapahtumat/5289-monthly-ai-meetup-helsinki-xr-center"
+     },
+     {
+      "title": "JYU Venture Capital Pitching Day 2026",
+      "date": "2026-12-11",
+      "link": "https://www.startupjobs.fi/tapahtumat/3388-jyu-venture-capital-pitching-day-2026"
+     },
+     {
       "title": "Kasvupiiri: Myynnill\u00e4 t\u00f6rke\u00e4\u00e4 kilpailuetua!",
       "date": "2026-12-11",
       "link": "https://www.startupjobs.fi/tapahtumat/6362-kasvupiiri-myynnilla-torkeaa-kilpailuetua"
      },
      {
+      "title": "ARCTIC Conference 2027",
+      "date": "2027-02-02",
+      "link": "https://www.startupjobs.fi/tapahtumat/492-arctic-conference-2027"
+     },
+     {
+      "title": "Polar Bear Pitching 2027",
+      "date": "2027-02-18",
+      "link": "https://www.startupjobs.fi/tapahtumat/495-polar-bear-pitching-2027"
+     },
+     {
+      "title": "Connect Pitch Meetup / AW | November 2026 2nd Edition",
+      "date": "2026-11-26",
+      "link": "https://startupsevents.com/event/scraped-1ef07667-f2f2-449c-bce1-69a4e92852ac"
+     },
+     {
+      "title": "Fintech Day 2026",
+      "date": "2026-11-26",
+      "link": "https://startupsevents.com/event/scraped-64ad104e-9e50-4df5-b43c-722b39471f46"
+     },
+     {
+      "title": "Norrsken After Work",
+      "date": "2026-11-27",
+      "link": "https://startupsevents.com/event/scraped-c3825dc4-0143-46bd-b073-0d7f18af0597"
+     },
+     {
+      "title": "Connect Creative Tech-X Day (Fall 2026)",
+      "date": "2026-12-04",
+      "link": "https://startupsevents.com/event/scraped-3dfddf7e-9f66-4932-b216-9c687612963d"
+     },
+     {
+      "title": "Fixathon 2026 - Stockholm Edition",
+      "date": "2026-12-04",
+      "link": "https://startupsevents.com/event/scraped-d1b3b4a1-6efb-4ff5-9ad1-d1ca591e4f26"
+     },
+     {
       "title": "StrictlyVC 2027 Events",
       "date": "2026-12-31",
       "link": "https://techcrunch.com/events/strictlyvc-2027-events"
+     },
+     {
+      "title": "Latitude59 x Kenya 2026",
+      "date": "2026-12-04",
+      "link": "https://www.startupjobs.ke/events/5625-latitude59-x-kenya-2026",
+      "why": "already listed with its RSVP link"
      },
      {
       "title": "HUMANOID ROBOTS CONFERENCE 2027",
@@ -1225,6 +925,21 @@
       "link": "https://www.new-techevents.com/3d-day-nt"
      },
      {
+      "title": "M\u00e9xico Tech Summit",
+      "date": "2026-12-08",
+      "link": "https://andresospina.co/eventos-ia/evento/mexico-tech-summit-ciudad-de-mexico"
+     },
+     {
+      "title": "DevFest 2026 Ciudad de M\u00e9xico",
+      "date": "2026-12-16",
+      "link": "https://andresospina.co/eventos-ia/evento/devfest-cdmx-2026"
+     },
+     {
+      "title": "FinTech M\u00e9xico Festival 2026",
+      "date": "2027-02-26",
+      "link": "https://andresospina.co/eventos-ia/evento/fintech-mexico-festival-2026"
+     },
+     {
       "title": "Talent Land M\u00e9xico 2026",
       "date": "2027-04-07",
       "link": "https://andresospina.co/eventos-ia/evento/talent-land-mexico-2026"
@@ -1243,14 +958,9 @@
       "title": "12\u00b0 Congreso IA, Tecnolog\u00eda y Negocios America Digital M\u00e9xico 2027",
       "date": "2027-06-16",
       "link": "https://andresospina.co/eventos-ia/evento/congreso-america-digital-mexico-2027"
-     },
-     {
-      "title": "Tech.Rocks Summit",
-      "date": "2026-11-30",
-      "link": "https://dev.events/favicon.ico"
      }
     ],
-    "retry": 33
+    "retry": 32
    }
   }
  ]

@@ -217,6 +217,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://list.yorkseed.co/online/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://list.yorkseed.co/seattle/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>daily</changefreq>
@@ -830,6 +836,12 @@
   </url>
   <url>
     <loc>https://list.yorkseed.co/gitex-and-expand-north-star-2026-side-events/2026-12-09/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/gitex-and-expand-north-star-2026-side-events/2026-12-10/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -7201,6 +7213,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://list.yorkseed.co/e/dubai-next-startup-weekly-founder-meetup-2026-11-28/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://list.yorkseed.co/e/pre-devfest-startup-founders-mixer-2026-11-28/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -7316,6 +7334,12 @@
   </url>
   <url>
     <loc>https://list.yorkseed.co/e/startups-entrepreneurs-ai-investors-business-networking-saturday-socia-2026-11-28/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/investors-summit-b2b-networking-entrepreneurs-investors-2026-11-28/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -9577,6 +9601,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://list.yorkseed.co/e/the-builder-series-run-club-2026-12-01/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://list.yorkseed.co/e/founders-masterclass-no-fluff-fundraising-2026-12-01/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -9704,6 +9734,12 @@
   </url>
   <url>
     <loc>https://list.yorkseed.co/e/fair-ai-impact-summit-wu-wien-2026-12-01/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/designing-a-practical-ai-supported-print-on-demand-model-2026-12-01/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -10621,6 +10657,18 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://list.yorkseed.co/e/aws-re-invent-executive-dinner-2026-12-01/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/2026-deep-tech-founders-investors-summit-robotics-world-models-ai-infr-2026-12-01/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://list.yorkseed.co/e/pitch-night-rhino-toastmasters-2026-12-01/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -10856,6 +10904,12 @@
   </url>
   <url>
     <loc>https://list.yorkseed.co/e/ai-startups-entrepreneurs-ecommerce-investors-business-networking-lond-2026-12-01/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/fintech-finance-ai-ecommerce-business-networking-london-canary-wharf-2026-12-01/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -11918,6 +11972,18 @@
   </url>
   <url>
     <loc>https://list.yorkseed.co/e/conversations-for-founders-f4f-2026-12-02/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/kom-igang-med-claude-code-bygg-storre-verktyg-och-automatisera-pa-rikt-2026-12-02/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/ai-for-work-summit-odsc-ai-nyc-2026-12-02/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -13586,6 +13652,18 @@
   </url>
   <url>
     <loc>https://list.yorkseed.co/e/mindstone-zurich-december-ai-meetup-2026-12-02/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/investor-connect-pitch-networking-dubai-2026-12-02/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/ai-tech-startup-pitch-night-dubai-2026-12-02/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -15379,6 +15457,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://list.yorkseed.co/e/partner-event-applied-ai-in-practice-umass-boston-2026-12-03/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://list.yorkseed.co/e/gtm-engineering-discover-an-emerging-career-at-the-intersection-of-ai--2026-12-03/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -15518,6 +15602,12 @@
   </url>
   <url>
     <loc>https://list.yorkseed.co/e/venture-cafe-s-thursday-gathering-at-cic-tokyo-2026-12-03/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/alternative-data-compute-data-center-drinks-2026-12-03/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -16891,12 +16981,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://list.yorkseed.co/e/nachothursday-art-basel-tech-founder-vc-pre-party-2026-12-03/</loc>
-    <lastmod>2026-11-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://list.yorkseed.co/e/the-mix-lab-dj-culture-activation-2026-12-03/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -17287,12 +17371,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://list.yorkseed.co/e/nachothursday-art-basel-saas-ai-founder-vc-pre-party-2026-12-03/</loc>
-    <lastmod>2026-11-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://list.yorkseed.co/e/our-voice-matters-we-are-the-archive-youth-photovoice-2026-12-03/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -17348,6 +17426,12 @@
   </url>
   <url>
     <loc>https://list.yorkseed.co/e/founders-worldwide-incorporate-your-startup-manage-funds-and-fundraise-2026-12-03/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/yorkseed-delegation-global-founder-showcase-2026-12-03/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -18098,12 +18182,6 @@
   </url>
   <url>
     <loc>https://list.yorkseed.co/e/miami-worldcenter-night-market-art-week-friday-2026-12-04/</loc>
-    <lastmod>2026-11-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://list.yorkseed.co/e/nachofriday-art-basel-tech-founder-vc-mixer-2026-12-04/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -19075,6 +19153,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://list.yorkseed.co/e/govt-enterprise-ai-transformation-intensive-building-national-capabili-2026-12-05/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://list.yorkseed.co/e/builders-who-run-golden-gate-bridge-4m-2026-12-05/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -19658,6 +19742,12 @@
   </url>
   <url>
     <loc>https://list.yorkseed.co/e/onyx-mid-atlantic-national-day-of-wellness-2026-12-05/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/the-builder-series-wellness-launch-at-tmpl-fitness-december-5th-2026-12-05/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -21163,6 +21253,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://list.yorkseed.co/e/futurism-technologies-at-gitex-global-2026-enterprise-ai-innovation-2026-12-07/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://list.yorkseed.co/e/giant-health-event-2026-12-07/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -21176,6 +21272,24 @@
   </url>
   <url>
     <loc>https://list.yorkseed.co/e/vc-day-10th-anniversary-2026-12-07/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/infograins-exhibiting-at-gitex-global-dubai-2026-2026-12-07/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/meet-webkorps-at-gitex-dubai-2026-2026-12-07/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/gitex-dubai-2026-meet-cdn-solutions-group-2026-12-07/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -21919,6 +22033,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://list.yorkseed.co/e/how-to-fund-your-ai-startup-ask-an-investor-anything-2026-12-08/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://list.yorkseed.co/e/building-for-growth-in-the-age-of-ai-2026-12-08/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -21968,6 +22088,12 @@
   </url>
   <url>
     <loc>https://list.yorkseed.co/e/gtm-sprint-coworking-build-day-2026-12-08/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/meet-mtechzilla-at-gitex-dubai-2026-2026-12-08/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -22231,6 +22357,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://list.yorkseed.co/e/nachotuesday-nyc-founder-vc-annual-holiday-happy-hour-2026-12-08/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://list.yorkseed.co/e/berlin-quantum-barbq-xmas-special-2026-12-08/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -22304,6 +22436,12 @@
   </url>
   <url>
     <loc>https://list.yorkseed.co/e/ai-tinkerers-neo4j-context-connected-2026-12-08/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/civic-agents-2026-12-08/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -22711,6 +22849,24 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://list.yorkseed.co/e/tech-networking-event-by-startup-valley-in-dubai-2026-12-08/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/ai-tech-networking-event-in-dubai-by-startup-valley-2026-12-08/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/business-networking-startup-pitch-night-in-dubai-2026-12-08/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://list.yorkseed.co/e/show-tell-lightning-talks-tbd-2026-12-08/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -22933,12 +23089,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://list.yorkseed.co/e/nachotuesday-nyc-founder-vc-annual-holiday-happy-hour-2026-12-08/</loc>
-    <lastmod>2026-11-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://list.yorkseed.co/e/nachotuesday-c-suite-insights-2026-12-08/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -22946,6 +23096,12 @@
   </url>
   <url>
     <loc>https://list.yorkseed.co/e/citizen-ai-ai-cafe-2026-12-08/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/the-builder-series-supper-club-vol-1-2026-12-08/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -23024,6 +23180,12 @@
   </url>
   <url>
     <loc>https://list.yorkseed.co/e/how-to-start-your-business-in-fashion-design-2026-12-08/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/venture-vitality-health-tech-investor-virtual-roundtable-agetech-senio-2026-12-08/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -23749,6 +23911,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://list.yorkseed.co/e/speed-networking-mixer-gitex-ens-2026-12-09/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://list.yorkseed.co/e/founder-vc-dinner-pilot-2026-12-09/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -24091,6 +24259,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://list.yorkseed.co/e/odsc-ai-skills-accelerator-london-2026-12-09/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://list.yorkseed.co/e/philadelphia-dinner-leveraging-ai-agents-2026-12-09/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -24206,6 +24380,12 @@
   </url>
   <url>
     <loc>https://list.yorkseed.co/e/mama-hustler-after-hours-holiday-edition-2026-12-09/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/founders-operators-investors-data-center-drinks-2026-12-09/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -24901,12 +25081,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://list.yorkseed.co/e/techstars-nyc-demo-day-2026-2026-12-10/</loc>
-    <lastmod>2026-11-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://list.yorkseed.co/e/the-3rd-annual-winter-oasis-2026-12-10/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -25597,6 +25771,18 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://list.yorkseed.co/e/odsc-ai-skills-accelerator-raleigh-2026-12-10/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/the-builder-series-founder-investor-operator-nights-december-10th-2026-12-10/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://list.yorkseed.co/e/dubjug-2611-software-architect-dr-mirko-ebert-2026-12-10/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -25753,6 +25939,18 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://list.yorkseed.co/e/ai-demo-night-15-brought-to-you-by-techunited-betterfuturelabs-2026-12-10/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/civic-tech-montreal-meetup-17-2026-12-10/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://list.yorkseed.co/e/gallery-of-tomorrow-2026-12-10/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -25838,6 +26036,12 @@
   </url>
   <url>
     <loc>https://list.yorkseed.co/e/ai-tinkerers-milan-december-10-demo-night-with-clickhouse-2026-12-10/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/investor-roundtable-2026-12-10/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -27307,6 +27511,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://list.yorkseed.co/e/the-deployment-room-seed-series-b-founders-active-funds-dec-13-by-niur-2026-12-13/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://list.yorkseed.co/e/codex-ai-nfc-2026-12-13/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -27842,6 +28052,12 @@
   </url>
   <url>
     <loc>https://list.yorkseed.co/e/holiday-fiesta-north-sound-innovators-2026-12-15/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/ugly-sweater-holiday-fiesta-founders-north-of-seattle-2026-12-15/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -28873,6 +29089,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://list.yorkseed.co/e/social-pair-coding-2026-12-17/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://list.yorkseed.co/e/the-q4-reset-kl-by-founder-f-k-ups-2026-12-17/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -29875,6 +30097,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://list.yorkseed.co/e/the-best-way-to-learn-and-implement-ai-2026-12-20/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://list.yorkseed.co/e/python-over-coffee-2026-12-20/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -30152,6 +30380,18 @@
   </url>
   <url>
     <loc>https://list.yorkseed.co/e/tech-and-beers-2026-12-22/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/ai-tech-networking-event-in-dubai-by-ascent-valley-2026-12-22/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/startup-tech-ai-networking-in-dubai-2026-12-22/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -31471,6 +31711,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://list.yorkseed.co/e/the-builder-series-founder-investor-operator-nights-jan-7th-2027-01-07/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://list.yorkseed.co/e/startup-pitch-networking-in-miami-2027-01-07/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -31717,6 +31963,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://list.yorkseed.co/e/the-builder-series-run-club-2027-01-09/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://list.yorkseed.co/e/reality-check-pitch-your-idea-to-10-real-people-d2c-edition-2027-01-09/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -31819,6 +32071,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://list.yorkseed.co/e/the-deployment-room-6-active-funds-funding-founders-seed-to-series-b-j-2027-01-10/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://list.yorkseed.co/e/toronto-ai-social-walk-founders-builders-business-owners-2027-01-10/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -31879,7 +32137,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://list.yorkseed.co/e/london-2027-01-11/</loc>
+    <loc>https://list.yorkseed.co/e/london-ai-forum-2027-01-11/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -32641,6 +32899,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://list.yorkseed.co/e/civic-tech-montreal-meetup-18-2027-01-14/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://list.yorkseed.co/e/tech-leader-premium-series-new-york-city-miami-heat-new-york-knicks-2027-01-14/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -33301,6 +33565,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://list.yorkseed.co/e/the-builder-series-run-club-2027-01-20/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://list.yorkseed.co/e/fun-4-budget-dev-fun-ding-office-hours-2027-01-20/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -33392,6 +33662,12 @@
   </url>
   <url>
     <loc>https://list.yorkseed.co/e/defense-tech-happy-hour-washington-dc-2027-01-20/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/agent-evaluation-science-boston-working-group-2027-01-20/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -33979,6 +34255,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://list.yorkseed.co/e/the-builder-series-cafe-coworking-2027-01-25/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://list.yorkseed.co/e/inception-cohort-27-demo-day-2027-01-25/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -34100,6 +34382,18 @@
   </url>
   <url>
     <loc>https://list.yorkseed.co/e/tech-leader-dinner-series-portland-ringside-steakhouse-2027-01-26/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/investor-connect-pitch-deal-flow-night-dubai-2027-01-26/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/startups-networking-dubai-2027-01-26/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -34363,6 +34657,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://list.yorkseed.co/e/ciosurge-executive-forum-sunday-4am-your-ai-agent-has-been-hijacked-ho-2027-01-28/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://list.yorkseed.co/e/chicago-ai-forge-january-demo-day-2027-01-28/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -34382,6 +34682,18 @@
   </url>
   <url>
     <loc>https://list.yorkseed.co/e/ai-project-hub-2027-01-28/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/the-builder-series-founder-investor-operator-nights-jan-28th-2027-01-28/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/civic-tech-montreal-meetup-19-january-build-night-2027-01-28/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -35107,6 +35419,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://list.yorkseed.co/e/the-deployment-room-6-active-funds-funding-founders-seed-to-series-a-f-2027-02-07/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://list.yorkseed.co/e/2027-flagship-conference-2027-02-07/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -35593,6 +35911,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://list.yorkseed.co/e/aaai-27-bridge-from-agent-benchmarks-to-deployment-evidence-2027-02-16/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://list.yorkseed.co/e/women-in-ai-breakfast-cole-frieman-mallon-llp-2027-02-16/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -35630,6 +35954,12 @@
   </url>
   <url>
     <loc>https://list.yorkseed.co/e/startup-pitch-networking-in-dubai-2027-02-16/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/startup-pitch-networking-dubai-2027-02-16/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -36043,6 +36373,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://list.yorkseed.co/e/the-deployment-room-mixer-6-active-funds-funding-founders-seed-to-seri-2027-02-21/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://list.yorkseed.co/e/connected-by-design-building-canada-s-health-data-future-2027-02-22/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -36325,6 +36661,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://list.yorkseed.co/e/the-builder-series-founder-investor-operator-nights-feb-25th-2027-02-25/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://list.yorkseed.co/e/tech-leader-premium-series-san-francisco-dallas-mavericks-golden-state-2027-02-25/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -36512,6 +36854,12 @@
   </url>
   <url>
     <loc>https://list.yorkseed.co/e/founders-friends-welcome-to-denver-2027-03-02/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/nachotuesday-nyc-saas-ai-founder-vc-happy-hour-2027-03-02/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -36865,6 +37213,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://list.yorkseed.co/e/nachotuesday-sf-saas-ai-founder-investor-happy-hour-2027-03-09/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://list.yorkseed.co/e/new-tech-seattle-march-2027-meetup-2027-03-09/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -36980,6 +37334,12 @@
   </url>
   <url>
     <loc>https://list.yorkseed.co/e/member-networking-meetup-2027-03-10/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/nachotuesday-la-saas-ai-founder-investor-happy-hour-2027-03-10/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -37208,6 +37568,12 @@
   </url>
   <url>
     <loc>https://list.yorkseed.co/e/cpg-mixer-2027-03-15/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/austin-saas-ai-founder-investor-happy-hour-2027-03-15/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -37915,6 +38281,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://list.yorkseed.co/e/cxo-2-0-conference-dubai-2027-03-29/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://list.yorkseed.co/e/atlanta-startup-village-atlsv-110-2027-03-29/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -38485,6 +38857,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://list.yorkseed.co/e/vibe-coding-friends-social-gathering-for-founders-and-entrepreneurs-2027-04-14/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://list.yorkseed.co/e/founders-pizza-lab-2027-04-14/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -38618,6 +38996,12 @@
   </url>
   <url>
     <loc>https://list.yorkseed.co/e/fintech-week-2027-04-19/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/unchained-summit-dubai-2027-04-19/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -38953,6 +39337,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://list.yorkseed.co/e/novaucd-innovation-meetup-for-ucd-researchers-2027-04-28/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://list.yorkseed.co/e/austin-robotics-2027-04-28/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -39169,6 +39559,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://list.yorkseed.co/e/odsc-ai-east-2027-the-1-ai-builders-conference-2027-05-10/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://list.yorkseed.co/e/autonomous-vehicle-rc-beginners-and-builders-with-beer-part-of-diyrobo-2027-05-10/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -39206,6 +39602,12 @@
   </url>
   <url>
     <loc>https://list.yorkseed.co/e/salem-coffee-club-for-startups-and-entrepreneurs-2027-05-11/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/odsc-ai-east-2027-conference-ai-expo-pass-2027-05-11/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
