@@ -106156,5 +106156,19 @@
   "type": "Conferences",
   "desc": "",
   "src": "manual"
+ },
+ {
+  "title": "AI House Davos 2027",
+  "hub": "dav",
+  "date": "2027-01-18",
+  "start": null,
+  "end": null,
+  "noTime": true,
+  "venue": "Promenade, Davos",
+  "host": "ETH AI Center & Merantix Capital",
+  "link": "https://www.aihousedavos.com/",
+  "type": "Conferences",
+  "desc": "The AI hub of WEF week, run by the ETH AI Center and Merantix Capital: talks, founder and investor sessions all week.",
+  "src": "manual"
  }
 ]
