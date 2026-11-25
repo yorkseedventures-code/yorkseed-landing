@@ -384,7 +384,7 @@ def import_luma_calendars():
 # ---------- 1f. foundercal public API (free, no key; their terms ask for a credit link, shown on city pages) ----------
 FC_HUB = {"sf": "sf", "nyc": "nyc", "la": "la", "dc": "dc", "bangalore": "blr", "delhi": "del", "dubai": "dxb", "sao-paulo": "sao", "hong-kong": "hkg",
           "mexico-city": "mex", "tel-aviv": "tlv", "kuala-lumpur": "kul", "ho-chi-minh-city": "sgn", "denver": "den", "las-vegas": "lvs", "portland": "pdx",
-          "pune": "pnq", "chennai": "maa", "budapest": "bud", "kyiv": "iev", "belgrade": "beg", "san-diego": "sdg"}
+          "pune": "pnq", "chennai": "maa", "budapest": "bud", "kyiv": "iev", "belgrade": "beg", "rome": "rom", "roma": "rom", "marrakech": "rak", "marrakesh": "rak", "san-diego": "sdg"}
 FC_TYPE = {"conference": "Conferences", "demo_day": "Demo Days", "hackathon": "Hackathons", "pitch": "Pitch", "workshop": "Workshops", "dinner": "Communal Dining", "meetup": "Meetups"}
 class _NoRedirect(__import__("urllib.request").request.HTTPRedirectHandler):
     def redirect_request(self, *a, **k): return None
@@ -672,7 +672,7 @@ def import_techmeetups():
     return {}
 
 # ---------- 1c. daily sources: Luma discover categories (list/data/sources.json) ----------
-CITY_ALIAS = {"san francisco": "sf", "oakland": "sf", "berkeley": "sf", "palo alto": "sf", "mountain view": "sf", "san jose": "sf",
+CITY_ALIAS = {"roma": "rom", "marrakesh": "rak", "san francisco": "sf", "oakland": "sf", "berkeley": "sf", "palo alto": "sf", "mountain view": "sf", "san jose": "sf",
     "menlo park": "sf", "sunnyvale": "sf", "santa clara": "sf", "redwood city": "sf", "san mateo": "sf", "cupertino": "sf", "south san francisco": "sf",
     "new york": "nyc", "brooklyn": "nyc", "manhattan": "nyc", "queens": "nyc", "jersey city": "nyc", "hoboken": "nyc", "long island city": "nyc",
     "washington": "dc", "arlington": "dc", "abu dhabi": "dxb", "dubai": "dxb", "sao paulo": "sao", "rio de janeiro": "sao", "denver": "den",

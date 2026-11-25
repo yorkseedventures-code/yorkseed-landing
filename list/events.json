@@ -105498,5 +105498,33 @@
   "desc": "Inaugural Indian edition of GITEX in Karnataka: AI, deep tech, startups and investment. Check the official site for the final dates.",
   "src": "manual",
   "noTime": true
+ },
+ {
+  "title": "GITEX AI Mediterranean Italy 2027",
+  "hub": "rom",
+  "date": "2027-04-21",
+  "start": null,
+  "end": null,
+  "venue": "Roma Convention Center La Nuvola, Viale Asia 40/44, Rome",
+  "host": "GITEX",
+  "link": "https://www.gitexitaly.com/",
+  "type": "Conferences",
+  "desc": "GITEX's first Italian edition: AI, enterprise tech, startups and investors from across the Mediterranean.",
+  "src": "manual",
+  "noTime": true
+ },
+ {
+  "title": "GITEX Africa 2027",
+  "hub": "rak",
+  "date": "2027-04-26",
+  "start": null,
+  "end": null,
+  "venue": "Marrakech",
+  "host": "GITEX",
+  "link": "https://gitexafrica.com/",
+  "type": "Conferences",
+  "desc": "5th edition of Africa's largest tech and startup show, with the North Star Africa startup and investor track.",
+  "src": "manual",
+  "noTime": true
  }
 ]
