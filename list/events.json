@@ -9231,18 +9231,6 @@
   "src": "foundercal"
  },
  {
-  "title": "NachoThursday: Art Basel Tech Founder + VC Pre-Party",
-  "hub": "mia",
-  "date": "2026-12-03",
-  "start": "20:00",
-  "end": "23:00",
-  "venue": "Miami",
-  "host": "NachoNacho",
-  "link": "https://luma.com/nachon-6o9j",
-  "desc": "Details and registration on the event page.",
-  "src": "luma-cal"
- },
- {
   "title": "AI Coding Summit Berlin Edition",
   "hub": "ber",
   "date": "2026-12-04",
@@ -75470,19 +75458,6 @@
   "src": "unofficials-miami-art-week-2026"
  },
  {
-  "title": "NachoThursday: Art Basel SaaS & AI Founder + VC Pre-Party",
-  "hub": "mia",
-  "date": "2026-12-03",
-  "start": null,
-  "end": null,
-  "venue": "Miami (on registration)",
-  "host": "",
-  "link": "https://blog.nachonacho.com/?p=10108",
-  "desc": "Registration",
-  "type": "Networking",
-  "src": "unofficials-miami-art-week-2026"
- },
- {
   "title": "Our Voice Matters: We Are the Archive (youth photovoice)",
   "hub": "mia",
   "date": "2026-12-03",
@@ -75959,7 +75934,7 @@
   "venue": "BÂOLI Miami",
   "host": "NachoNacho",
   "link": "https://luma.com/nachon-6o9j",
-  "desc": "Hosted by NachoNacho · Free",
+  "desc": "NachoNacho's Art Basel mixer for tech founders and VCs at BÂOLI Miami. Free with registration. (Previously announced as NachoThursday on Dec 3.)",
   "type": "Networking",
   "src": "unofficials-miami-art-week-2026"
  },

@@ -1375,3 +1375,10 @@ input[type=date]::-webkit-date-and-time-value,input[type=time]::-webkit-date-and
 .wkspon.on img{max-width:100%!important;max-height:26px}
 .wkspon.on b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .wkspon.on a{text-decoration:none}
+/* placeholder over the week/city photo when an event has no picture of its own */
+.gc-photo{color:#fff;background:#151515}
+.gc-photo .gc-top,.gc-photo .gc-bot{position:relative;z-index:2;text-shadow:0 1px 6px rgba(0,0,0,.55)}
+.gc-photo .gc-top{color:#fff}
+.gcov img.gc-fbimg{z-index:0;filter:saturate(.85)}
+.gc-photo::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.05) 40%,rgba(0,0,0,.6))}
+.evimg .gc-photo .gc-bot{display:none}

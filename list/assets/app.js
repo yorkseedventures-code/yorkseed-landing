@@ -1388,15 +1388,19 @@ var PHOTOS={};
 function evImgTag(e,fb){const p=(e&&e.cover)||(e&&e.link&&(PHOTOS||{})[e.link]);
   // events with Yorkseed's own artwork (soiree, house, detail...) keep it; generic ev1..ev8 stock photos are replaced by a designed cover
   if(!(e&&/^ev\d$/.test(e.img||"")))return p?`<img src="${esc(p)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src=this.dataset.fb" data-fb="${fb}">`:`<img src="${fb}" alt="">`;
-  return genCover(e,p);}
-function genCover(e,p){const h=hubById(e.hub)||{name:""};let x=0;for(const c of String(e.hub||"")+String(e.title||""))x=(x*31+c.charCodeAt(0))>>>0;
+  if(p)return genCover(e,p);
+  /* no event photo (the organizer's site blocks image fetching): show the conference week's or the city's photo
+     behind the designed placeholder, so the card still looks like a picture */
+  const hh=hubById(e.hub)||{},fp=(e.week&&WIMG[e.week])||IMG[hh.img]||IMG[e.hub];
+  return fp?genCover(e,"",fp):genCover(e,p);}
+function genCover(e,p,fb){const h=hubById(e.hub)||{name:""};let x=0;for(const c of String(e.hub||"")+String(e.title||""))x=(x*31+c.charCodeAt(0))>>>0;
   x^=x>>>15;x=Math.imul(x,2246822519)>>>0;x^=x>>>13;const tone=["paper","ink","sand","paper","ink","red","sand","paper"][x%8],d=e.date?new Date(e.date+"T12:00:00"):null;
   const when=d?d.toLocaleDateString("en-US",{month:"short",day:"numeric"}):"";
   /* The title used to be baked into this placeholder art too (gc-t), but every caller already shows the
      real title right next to it -- the card's own <h3>, or the event page's own <h1> -- so it just read as
      the headline printed twice. Drop it; the eyebrow + hub/date/type strip is plenty to make an untitled
      placeholder still look designed rather than blank. */
-  return `<span class="gcov gc-${tone}" role="img" aria-label="${esc(e.title||"")}"><span class="gc-top">Yorkseed · The List</span><span class="gc-bot">${esc([h.name,when].filter(Boolean).join(" · "))}${e.type?`<i>${esc(e.type)}</i>`:""}</span>${p?`<img src="${esc(p)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">`:""}</span>`;}
+  return `<span class="gcov gc-${fb?"photo":tone}" role="img" aria-label="${esc(e.title||"")}"><span class="gc-top">Yorkseed · The List</span><span class="gc-bot">${esc([h.name,when].filter(Boolean).join(" · "))}${e.type?`<i>${esc(e.type)}</i>`:""}</span>${p?`<img src="${esc(p)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">`:""}${fb?`<img class="gc-fbimg" src="${esc(fb)}" alt="" loading="lazy">`:""}</span>`;}
 if(window.YS_STATIC){fetch(String(window.YS_STATIC).replace(/^1$/,"")+"data/photos.json",{cache:"no-cache"}).then(r=>r.ok?r.json():{}).then(m=>{let n=0;for(const k in m){if(m[k]&&m[k].img){PHOTOS[k]=m[k].img;n++;}}if(n&&typeof rerenderAll==="function")rerenderAll();}).catch(()=>{});}
 if(window.YS_STATIC){const J=f=>fetch(String(window.YS_STATIC).replace(/^1$/,"")+f,{cache:"no-cache"}).then(r=>r.ok?r.json():[]).catch(()=>[]);
   const whenIdle=fn=>("requestIdleCallback" in window)?requestIdleCallback(fn,{timeout:2500}):setTimeout(fn,600);
