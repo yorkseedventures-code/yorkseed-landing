@@ -544,7 +544,7 @@
    "tz": "Africa/Johannesburg",
    "country": "South Africa",
    "region": "",
-   "img": ""
+   "img": "cpt"
   },
   {
    "id": "jnb",
@@ -1404,7 +1404,8 @@
   "maa": "/list/img/maa_chennai.jpg",
   "osa": "/list/img/osa_osaka.jpg",
   "ngo": "/list/img/ngo_nagoya.jpg",
-  "sgn": "/list/img/sgn_ho_chi_minh_city.jpg"
+  "sgn": "/list/img/sgn_ho_chi_minh_city.jpg",
+  "cpt": "/list/img/cpt_cape_town.jpg"
  },
  "events": [
   {
