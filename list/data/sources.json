@@ -509,5 +509,82 @@
   "name": "TOKEN2049 Dubai side events",
   "all": true,
   "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-mtrIlKP99AxItIX",
+  "name": "NYC Startup Events",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-1VimvHYSCVGhHuk",
+  "name": "NYC B2B",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-ovY5OAHEpB4RSAL",
+  "name": "The AI Furnace (NYC)",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-UJKx9AKCHIKyu7R",
+  "name": "NY AI Engineers",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-osLA8RMssB43JC8",
+  "name": "NYC Founders & Operators",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-ZXqv5ppntTN2N3w",
+  "name": "NYC Founders Club",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-r8BcsXhhHYmA3tp",
+  "name": "GenerativeAI NY",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-UAliCb7j5QccLrn",
+  "name": "Startup Grind NYC",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-Byhuy8VcnWMbGWA",
+  "name": "New York Tech Week (NYTW)",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-B67UrKHhIwzOZvr",
+  "name": "AI agent meetup NYC",
+  "all": true,
+  "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-EDisCieHa0mXu0b",
+  "name": "AI After 5 (NYC, London, Toronto, Dublin)",
+  "all": true,
+  "max_pages": 20
  }
 ]

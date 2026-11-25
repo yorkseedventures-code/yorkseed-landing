@@ -1292,7 +1292,7 @@ if(window.YS_STATIC){const J=f=>fetch(String(window.YS_STATIC).replace(/^1$/,"")
   function mgrHost(m){if(m.series==="valois")return "Valois";if(m.type==="expert")return "Yorkseed Expert Series";if(m.type==="community")return (m.hosts&&m.hosts[0])||"";return "Yorkseed";}
   function mgrVenue(m){if(m.venue)return m.venue;const loc=String(m.location||"").replace(/\s+/g," ").trim();const low=loc.toLowerCase();const city=String(m.city||"").trim().toLowerCase();if(!loc||["virtual · online","virtual, online","online"].includes(low))return "";if(city&&low.startsWith(city+","))return "";return loc;}
   fetch(MGR_API,{cache:"no-store"}).then(r=>r.ok?r.json():{events:[]}).then(x=>{const a=(x&&x.events)||[];const seen=new Set(EVENTS.map(e=>(e.link||e.title)+"|"+e.date));let n=0;
-    a.forEach((m,i)=>{if(!m||!m.dateISO||!m.title)return;const link=m.lumaUrl||"";const k=(link||m.title)+"|"+m.dateISO;if(seen.has(k))return;seen.add(k);
+    a.forEach((m,i)=>{if(!m||!m.dateISO||!m.title)return;const link=m.lumaUrl||"";const k=(link||m.title)+"|"+m.dateISO;if(seen.has(k)){const c=/^https:\/\//.test(m.coverImage||"")?m.coverImage:"";if(c){const ex=EVENTS.find(e=>((e.link||e.title)+"|"+e.date)===k);if(ex&&!ex.cover){ex.cover=c;n++;}}return;}seen.add(k);
       const d={title:m.title,hub:mgrHub(m.city),date:m.dateISO,start:m.startTime||null,end:m.endTime||null,host:mgrHost(m),venue:mgrVenue(m),link,desc:m.description||"",type:m.type||"",
         yorkseed:["passport","expert","summit","house"].includes(m.type),img:/^https:\/\//.test(m.coverImage||"")?m.coverImage:""};
       const ev=dbEvent("mg"+i,d);ev.fj=1;EVENTS.push(ev);n++;});if(n)rerenderAll();applyChanges();}).catch(()=>{});})();

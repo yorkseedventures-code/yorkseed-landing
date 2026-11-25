@@ -339,6 +339,7 @@ def page(path, title, desc, canon, body, ld, img=None, index=True):
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="icon" href="/list/favicon.svg" type="image/svg+xml"/><link rel="icon" href="/list/favicon.ico" sizes="any"/><link rel="apple-touch-icon" href="/list/apple-touch-icon.png"/>
 <title>{e_(title)}</title>
 <meta name="description" content="{e_(desc)}"/>
 <meta name="robots" content="{'index, follow, max-snippet:-1, max-image-preview:large' if index else 'noindex, follow'}"/>
@@ -932,7 +933,7 @@ for w in weeks:
     dsc = f"Every {name} {yr} side event in one list, updated daily. Free to browse, free to add your event, with the option to feature it."
     os.makedirs(f"{REPO}/list/go/{hs}", exist_ok=True)
     open(f"{REPO}/list/go/{hs}/index.html", "w").write(f"""<!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/list/favicon.svg" type="image/svg+xml"/><link rel="icon" href="/list/favicon.ico" sizes="any"/><link rel="apple-touch-icon" href="/list/apple-touch-icon.png"/>
 <title>{e_(ttl)}</title><meta name="description" content="{e_(dsc)}"><meta name="robots" content="noindex">
 <link rel="canonical" href="{LIST}{w['slug']}/">
 <meta property="og:type" content="website"><meta property="og:site_name" content="The Yorkseed List"><meta property="og:url" content="{LISTHOST}/{camel}">
