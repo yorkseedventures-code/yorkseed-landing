@@ -989,9 +989,83 @@ def refresh_photos(seed):
     json.dump(cache, open(ph_p, "w"), ensure_ascii=False, indent=0)
     print(f"photos: {sum(1 for v in cache.values() if v.get('img'))} of {len(cache)} events have a real photo ({len(todo)} checked)")
 
+
+# ---------- 1z. every event must link straight to its final RSVP / ticket page ----------
+# Listing sites, news articles and calendars are not RSVP pages. Each run, any event whose link is on one of them is
+# opened once, and its link is replaced by the registration page it points to (Luma, Eventbrite, Meetup, the
+# organizer's own sign-up page, ...). Events whose real RSVP page can't be found are taken off the List.
+AGG_HOST = re.compile(r'(^|\.)(garysguide\.com|gary\.to|foundercal\.com|startupticker\.ch|geekwire\.com|miamiandbeaches\.com|thenationalnews\.com|'
+    r'khaleejtimes\.com|maddyness\.com|iamsterdam\.com|techevents\.au|startupmelas\.in|new-techevents\.com|startupsevents\.com|germantechjobs\.de|'
+    r'swissdevjobs\.ch|startupjobs\.[a-z]+|lastartupevents\.org|ainave\.com|torontostarts\.com|innovationbay\.com|hackevents\.net|premierguidemiami\.com|'
+    r'instagram\.com|facebook\.com|linkedin\.com|x\.com|twitter\.com|allevents\.in|10times\.com|confs\.tech|dev\.events|clocate\.com|conferenceindex\.org|'
+    r'startupblink\.com|eu-startups\.com|dealroom\.co|cespartylist\.com|davos101\.com|thedavoscollective\.com|dapp\.ing|whogoes\.co|causo\.ai|'
+    r'andresospina\.co|miamiartweek\.org|zeyzeymiami\.com|side-events-guide\.com|showsbee\.com|eventseye\.com|conferencealerts\.[a-z]+|'
+    r'tech\.eu|sifted\.eu|techcrunch\.com|forbes\.com|businessinsider\.com|bloomberg\.com|reuters\.com|timeout\.com|eventective\.com)$', re.I)
+AGG_PATH = re.compile(r'(eventbrite\.[a-z.]+/d/|meetup\.com/find|luma\.com/discover|lu\.ma/discover|/calendar/event-category/)', re.I)
+RSVP_HOST = re.compile(r'(^|\.)(luma\.com|lu\.ma|eventbrite\.[a-z.]+|meetup\.com|partiful\.com|posh\.vip|dice\.fm|ti\.to|tito\.io|zoom\.us|airmeet\.com|'
+    r'universe\.com|humanitix\.com|tickettailor\.com|peatix\.com|connpass\.com|splashthat\.com|bizzabo\.com|cvent\.com|swapcard\.com|b2match\.[a-z]+|'
+    r'eventcreate\.com|hopin\.com|addevent\.com|typeform\.com|tally\.so|forms\.gle|docs\.google\.com|unstop\.com|devpost\.com|ticketmaster\.[a-z.]+|'
+    r'shotgun\.live|ra\.co|eventim\.[a-z.]+|weezevent\.com|billetweb\.fr|yurplan\.com|hubilo\.com|accelevents\.com|whova\.com|sessionize\.com|'
+    r'events\.zoom\.us|lu\.ma|app\.livestorm\.co|livestorm\.co|on24\.com|goldcast\.io|run\.events|heysummit\.com)$', re.I)
+_GO_WORDS = re.compile(r'\b(register|registration|rsvp|tickets?|get tickets|buy tickets|sign ?up|book|apply|join|attend|official (web)?site|event (web)?site|website|more info)\b', re.I)
+def is_agg(link):
+    try: h = urlsplit(link).netloc.lower()
+    except Exception: return False
+    return bool(AGG_HOST.search(h) or AGG_PATH.search(link or ""))
+def _final_rsvp(url):
+    """The registration page an aggregator/article page points to, or '' if none can be found."""
+    try:
+        if re.search(r'(^|\.)gary\.to$', urlsplit(url).netloc, re.I):
+            final, _ = get(url); return "" if is_agg(final) else clean(final)
+        final, page = get(url)
+        if not is_agg(final): return clean(final)                     # the aggregator redirected to the real page
+        own = urlsplit(final).netloc.lower()
+        outs = re.findall(r'<a\b[^>]*href=["\'](https?://[^"\'#\s]+)["\'][^>]*>(.*?)</a>', page, re.I | re.S)
+        gary = [h for h, _ in outs if re.search(r'gary\.to/', h)]
+        if gary:
+            f2, _ = get(gary[0]); return "" if is_agg(f2) else clean(f2)
+        cands = []
+        for h, txt in outs:
+            hh = urlsplit(h).netloc.lower()
+            if not hh or hh == own or is_agg(h) or SKIP_HOSTS.search(hh): continue
+            t = re.sub(r'<[^>]+>', ' ', txt)
+            score = (3 if RSVP_HOST.search(hh) else 0) + (2 if _GO_WORDS.search(t) else 0)
+            if score: cands.append((score, h))
+        if not cands: return ""
+        best = sorted(cands, key=lambda x: -x[0])[0][1]
+        try:                                                          # follow redirects so we store the page people land on
+            f3, _ = get(best); best = f3 if not is_agg(f3) else best
+        except Exception: pass
+        return clean(best)
+    except Exception: return None                                     # page didn't load: try again next run
+
+def resolve_aggregator_links():
+    events = load(f"{REPO}/list/events.json", []); cp = f"{REPO}/list/data/aggregator-links.json"; cache = load(cp, {})
+    todo = sorted({e["link"] for e in events if e.get("link") and (e.get("date") or "") >= TODAY and is_agg(e["link"]) and e["link"] not in cache})
+    if todo:
+        with ThreadPoolExecutor(4) as ex: res = list(ex.map(lambda u: (time.sleep(0.3), _final_rsvp(u))[1], todo))
+        for u, r in zip(todo, res):
+            if r is not None: cache[u] = r                            # '' = looked, no RSVP page found
+    canon = lambda u: re.sub(r'^https?://(www\.)?lu\.ma/', 'https://luma.com/', (u or '').split("?")[0].rstrip("/"))
+    seen = {canon(e["link"]) for e in events if e.get("link") and not is_agg(e["link"])}
+    keep, fixed, dropped, waiting = [], 0, [], 0
+    for e in events:
+        l = e.get("link") or ""
+        if (e.get("date") or "") < TODAY or not is_agg(l): keep.append(e); continue
+        r = cache.get(l)
+        if r is None: waiting += 1; keep.append(e); continue           # not checked yet (page didn't load): retry next run
+        if not r or is_agg(r): dropped.append({"title": e.get("title"), "date": e.get("date"), "link": l}); continue
+        if canon(r) in seen: dropped.append({"title": e.get("title"), "date": e.get("date"), "link": l, "why": "already listed with its RSVP link"}); continue
+        e["link"] = r; seen.add(canon(r)); fixed += 1; keep.append(e)
+    json.dump(cache, open(cp, "w"), ensure_ascii=False, indent=0)
+    json.dump(keep, open(f"{REPO}/list/events.json", "w"), ensure_ascii=False, indent=1)
+    print(f"rsvp links: {len(todo)} listing pages opened, {fixed} events now link to their RSVP page, {len(dropped)} removed (no RSVP page found), {waiting} to retry")
+    REPORT.append({"rsvp_links": {"fixed": fixed, "removed": dropped, "retry": waiting}})
+    return {}
+
 if __name__ == "__main__":
     seed = {}
-    for step in (import_pending, import_cities, import_links, import_submissions, import_sources, import_luma_calendars, import_foundercal, import_confstech, import_techmeetups, import_meetup_groups, import_ical_feeds, import_garysguide, import_dealroom, fix_cities):
+    for step in (import_pending, import_cities, import_links, import_submissions, import_sources, import_luma_calendars, import_foundercal, import_confstech, import_techmeetups, import_meetup_groups, import_ical_feeds, import_garysguide, import_dealroom, fix_cities, resolve_aggregator_links):
         try: seed.update(step() or {})
         except Exception as ex: print(f"{step.__name__} failed: {ex}")
     try: fill_luma_descriptions()
