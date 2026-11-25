@@ -603,7 +603,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 .ww-card b{font-family:var(--f-display);font-weight:500;font-size:21px;line-height:1.2}
 .ww-card span{font-size:14.5px;color:var(--ink-2);line-height:1.5}
 .ww-card i{font-style:normal;font-family:var(--f-label);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-top:4px}
-@media (max-width:860px){.ww{grid-template-columns:1fr;gap:10px}.ww-card{padding:14px}.ww-card b{font-size:18px}.ww-card span{font-size:13.5px}}
+@media (max-width:860px){.ww-head{margin-bottom:10px}.ww-head h2{font-size:24px}.ww{grid-template-columns:1fr;gap:8px}.ww-card{padding:12px;gap:5px}.ww-card b{font-size:16px;line-height:1.15}.ww-card span{font-size:13px;line-height:1.4}.ww-card i{margin-top:1px}}
 .goals{display:flex;flex-wrap:wrap;gap:8px}.goals button{font:inherit;font-family:var(--f-body);font-size:14px;letter-spacing:0;text-transform:none;padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);cursor:pointer}.goals button:hover{border-color:var(--ink)}.goals button.on{border-color:#B3261E;background:var(--accent-soft)}
 @media(max-width:640px){.goals button{font-size:13px;padding:6px 11px}}
 .opts label{display:grid;grid-template-columns:auto 1fr auto;gap:2px 10px;align-items:center;padding:12px 4px;border-bottom:1px solid var(--line);cursor:pointer;font-size:15.5px;font-family:var(--f-body);letter-spacing:0;text-transform:none;color:var(--ink);margin:0}
