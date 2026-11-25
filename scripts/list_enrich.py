@@ -952,14 +952,34 @@ def fetch_photo(link):
     except Exception:
         return link, ""
 
+def _pulse_links():
+    """Yorkseed's own hosted events (dinners, lunches, Expert Series, partner events) live only as the
+    inline PULSE array in list/assets/app.js -- they never go through master.json/events.json, so without
+    this they were silently excluded from photo enrichment entirely. Every one of them links to a real Luma
+    event with a real cover photo, yet the site always fell back to the plain generic placeholder for them
+    because photos.json never had an entry for their link. Pull their links in here too."""
+    try:
+        js = open(f"{REPO}/list/assets/app.js", encoding="utf-8").read()
+        m = re.search(r"const PULSE=(\[.*?\]);", js, re.S)
+        pulse = json.loads(m.group(1)) if m else []
+        return {p["link"] for p in pulse if isinstance(p, dict) and p.get("link") and p.get("date", "") >= TODAY}
+    except Exception:
+        return set()
+
 def refresh_photos(seed):
     ph_p = f"{REPO}/list/data/photos.json"
     cache = load(ph_p, {})
     for k, v in seed.items(): cache[k] = {"img": v, "t": TODAY}
     master = load(f"{REPO}/list/data/master.json", {"events": []}); extra = load(f"{REPO}/list/events.json", [])
-    links = sorted({e["link"] for e in master["events"] + extra if e.get("link") and e.get("date", "") >= TODAY})
+    links = sorted({e["link"] for e in master["events"] + extra if e.get("link") and e.get("date", "") >= TODAY} | _pulse_links())
     retry_after = (dt.date.today() - dt.timedelta(days=2)).isoformat()
-    todo = [l for l in links if l not in cache or (not cache[l].get("img") and cache[l].get("t", "") < retry_after)][:600]
+    # This cap was 600/run: fine when it roughly kept pace with new events, but a check of the live cache found
+    # ~9,100 distinct upcoming links against only ~4,500 ever cached -- a backlog of thousands of events stuck
+    # on the generic placeholder cover indefinitely, since this only runs every 4 days (.github/workflows/
+    # list-pages.yml) and 600/run can't out-pace that backlog, let alone new events arriving meanwhile. The job
+    # has no explicit timeout (GitHub Actions' 6-hour default applies) and most of this is 12-wide parallel
+    # fetches of ordinary pages, so there's plenty of headroom to raise this and actually clear the backlog.
+    todo = [l for l in links if l not in cache or (not cache[l].get("img") and cache[l].get("t", "") < retry_after)][:3000]
     luma = [l for l in todo if re.search(r'(lu\.ma|luma\.com)', l)]; other = [l for l in todo if l not in luma]
     with ThreadPoolExecutor(12) as ex:            # other sites: in parallel
         for link, img in ex.map(fetch_photo, other): cache[link] = {"img": img or None, "t": TODAY}

@@ -25,12 +25,15 @@ for x in extra:
             "place": "featured" if x.get("featured") else ("spotlight" if x.get("yorkseed") else None)})
 
 # Yorkseed's own hosted events (dinners, socials, Expert Series, partner events) live only as the inline
-# `PULSE` array in list/index.html's client JS -- they never went through events.json, so the site never
-# built a real /e/<slug>/ page for them and sharing one always fell back to a #e/ link. Pull PULSE in here
-# too so every Yorkseed-hosted event gets the same real, SEO/OG-tagged static page as everything else.
+# `PULSE` array -- they never went through events.json, so the site never built a real /e/<slug>/ page for
+# them and sharing one always fell back to a #e/ link. Pull PULSE in here too so every Yorkseed-hosted event
+# gets the same real, SEO/OG-tagged static page as everything else.
+# PULSE moved from an inline script in list/index.html into list/assets/app.js itself at some point and this
+# regex was never updated to follow it, so it had been silently matching nothing (pulse=[]) and this whole
+# block had been a no-op for a while -- confirmed by checking the extracted file directly before this fix.
 try:
-    _idx_html = open(f"{REPO}/list/index.html", encoding="utf-8").read()
-    _m = re.search(r"const PULSE=(\[.*?\]);", _idx_html, re.S)
+    _appjs = open(f"{REPO}/list/assets/app.js", encoding="utf-8").read()
+    _m = re.search(r"const PULSE=(\[.*?\]);", _appjs, re.S)
     pulse = json.loads(_m.group(1)) if _m else []
 except Exception:
     pulse = []
