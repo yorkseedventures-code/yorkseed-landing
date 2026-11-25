@@ -903,7 +903,16 @@ block = ('<details id="ysSeoCities" style="max-width:1200px;margin:0 auto;paddin
          + (f'<p style="{_st}">Conference and tech week side events: ' + " · ".join(f'<a href="/{w["slug"]}/" style="{_st}">{e_(w["name"])} {w["start"][:4]} side events ({dlabel(w["start"])})</a>' for w in _wk) + '</p>' if _wk else '')
          + (f'<p style="{_st}">Coming up: ' + " · ".join(f'<a href="/e/{e["slug"]}/" style="{_st}">{e_(e["title"])}, {e_(hubs[e["hub"]]["name"])}, {dlabel(e["date"])}</a>' for e in _key) + '</p>' if _key else '')
          + '</details>')
-li = re.sub(r'<(section|details|p) id="ysSeoCities".*?</(section|details|p)>', '', li, flags=re.S)
+# This used to be `<(section|details|p) id="ysSeoCities".*?</(section|details|p)>` -- the two alternations
+# aren't backreferenced, so the lazy .*? matched up to the FIRST </p>, </section> or </details> it found, not
+# specifically the one that opened the block. Since this <details> wraps three <p> children, every single build
+# stripped only the opening <details>+<summary>+first <p> and left the other two <p>s plus a stray </details>
+# behind as permanently visible, unstyled plain text -- 14 generations of it had piled up in list/index.html by
+# the time this was caught. A correct, backreferenced regex going forward still can't clean those up, because
+# they no longer have a matching opening tag for it to find: sweep every trace by content signature instead.
+li = re.sub(r'<details id="ysSeoCities"[^>]*>.*?</summary>', '', li, flags=re.S)
+li = re.sub(r'<p style="font:400 11px \'DM Mono\',monospace;letter-spacing:\.06em;color:#888;text-decoration:none">.*?</p>', '', li, flags=re.S)
+li = re.sub(r'\n?</details>', '', li)
 # evergreen (year-free) links for recurring conference weeks: /web-summit-lisbon-side-events/ always points at the current edition
 def evergreen(name): return slugify(re.sub(r"\s*\b(19|20)\d\d\b", "", name)) + "-side-events"
 EVERGREEN = {}
