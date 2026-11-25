@@ -106407,5 +106407,70 @@
   "desc": "Lunch and conversations for women working in AI and finance during WEF week.",
   "end": null,
   "src": "manual"
+ },
+ {
+  "hub": "lvs",
+  "desc": "",
+  "src": "manual",
+  "title": "Dinner with Minerva: CES Opening Night",
+  "date": "2027-01-05",
+  "start": "20:30",
+  "end": "22:30",
+  "venue": "Carbone Riviera, 3600 S Las Vegas Blvd",
+  "host": "Minerva",
+  "link": "https://luma.com/mikqirfa",
+  "type": "Communal Dining"
+ },
+ {
+  "hub": "lvs",
+  "desc": "",
+  "src": "manual",
+  "title": "OrionStar Freedom Night @CES",
+  "date": "2027-01-07",
+  "start": "18:30",
+  "end": "21:00",
+  "venue": "Top of the World, Level 104, 2000 Las Vegas Blvd S",
+  "host": "OrionStar & Cheetah Community",
+  "link": "https://luma.com/jzkpiuak",
+  "type": "Networking"
+ },
+ {
+  "hub": "lvs",
+  "desc": "",
+  "src": "manual",
+  "title": "CES Roast Night & Chinese Founders Networking Night",
+  "date": "2027-01-07",
+  "start": "20:00",
+  "end": "22:00",
+  "venue": "Topgolf Las Vegas, 4627 Koval Ln",
+  "host": "NUS Business School",
+  "link": "https://luma.com/jt8cipg3",
+  "type": "Networking"
+ },
+ {
+  "hub": "lvs",
+  "desc": "",
+  "src": "manual",
+  "title": "Creator Dinner Party (CES week)",
+  "date": "2027-01-06",
+  "start": "19:00",
+  "end": "21:00",
+  "venue": "Las Vegas",
+  "host": "unofficials.club",
+  "link": "https://luma.com/lsk3d1km",
+  "type": "Communal Dining"
+ },
+ {
+  "hub": "lvs",
+  "desc": "",
+  "src": "manual",
+  "title": "Media in Retail Dinner at CES",
+  "date": "2027-01-06",
+  "start": "18:30",
+  "end": "21:00",
+  "venue": "PISCES, 3131 Las Vegas Blvd S",
+  "host": "Rethink Retail",
+  "link": "https://luma.com/rethink-ulx4",
+  "type": "Communal Dining"
  }
 ]
