@@ -1118,15 +1118,15 @@ function renderCityBanners(){
    plus the WhatsApp/LinkedIn link preview, using the week picked in the form and the logo once uploaded */
 function weekPrev(wid,logo){const w=weekById(wid)||WEEKS.filter(x=>x.end>=addDays(0)).sort((x,y)=>x.start<y.start?-1:1)[0]||{id:"",name:"CES",start:"2027-01-05",end:"2027-01-08"};
   const P=(window.YS_PATHS||{}).w||{},wp=P[w.id]||{},n=wp.n||"",h=hubById(w.hub)||{},card=wp.e?"/list/img/og-share-"+wp.e.replace(/-side-events$/,"")+".jpg":"";
-  const taken=weekSponsors(w.id),you=logo?`<img src="${esc(logo)}" alt="Your logo" style="max-height:22px;max-width:96px;object-fit:contain;display:block">`:`<b style="font:600 12px var(--f-body);letter-spacing:0;text-transform:none;color:#1A1714">Your logo</b>`;
-  const chip=(inner,me)=>`<span style="display:inline-flex;align-items:center;justify-content:center;height:32px;min-width:78px;padding:0 10px;background:#fff;border-radius:4px;letter-spacing:0;text-transform:none;${me?"outline:2px solid var(--accent);outline-offset:2px":"opacity:.55"}">${inner}</span>`;
+  const taken=weekSponsors(w.id),you=logo?`<img src="${esc(logo)}" alt="Your logo" style="max-height:22px;max-width:100%;object-fit:contain;display:block">`:`<b style="font:600 12px var(--f-body);letter-spacing:0;text-transform:none;color:#1A1714">Your logo</b>`;
+  const chip=(inner,me)=>`<span style="display:inline-flex;align-items:center;justify-content:center;height:36px;min-width:0;padding:0 8px;overflow:hidden;background:#fff;border-radius:4px;letter-spacing:0;text-transform:none;${me?"outline:2px solid var(--accent);outline-offset:2px":"opacity:.55"}">${inner}</span>`;
   const others=taken.slice(0,2).map(a=>chip(a.img?`<img src="${esc(a.img)}" alt="" style="max-height:20px;max-width:80px;object-fit:contain">`:`<b style="font:600 12px var(--f-body);color:#1A1714">${esc(a.brand)}</b>`,false));
-  while(others.length<2)others.push(chip(`<span style="font:12px var(--f-body);color:#8a8378">Sponsor ${others.length+2}</span>`,false));
+  while(others.length<2)others.push(chip(`<span style="font:12px var(--f-body);color:#8a8378;white-space:nowrap">Sponsor ${others.length+2}</span>`,false));
   return`<div aria-hidden="true" style="text-align:left;background:#ECE7DF;padding:18px 16px 16px;border-bottom:2px solid #1A1714">
     <div style="font:400 30px/1.05 var(--f-display);color:#1A1714">${esc(w.name)}</div>
     <div style="font:italic 400 17px/1.3 var(--f-display);color:var(--accent);margin:4px 0 10px">Yorkseed Master Side Event List</div>
     <div style="font:500 10px var(--f-label);letter-spacing:.18em;text-transform:uppercase;color:var(--accent)">${n?n+" events · ":""}${range(w.start,w.end)}${h.name?" · "+esc(h.name):""}</div>
-    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:14px;font:500 10.5px var(--f-label);letter-spacing:.16em;text-transform:uppercase;color:#1A1714"><span>Presented by</span>${chip(you,true)}${others.join("")}</div></div>
+    <div style="margin-top:14px;font:500 10.5px var(--f-label);letter-spacing:.16em;text-transform:uppercase;color:#1A1714">Presented by</div><div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:8px;max-width:420px">${chip(you,true)}${others.join("")}</div></div>
   <div aria-hidden="true" style="display:flex;gap:10px;align-items:center;text-align:left;margin:12px 0 0;padding:8px;background:#DCF8C6;border-radius:8px;font:13px/1.35 var(--f-body);color:#1A1714">
     ${card?`<img src="${card}" alt="" style="width:92px;height:48px;object-fit:cover;border-radius:4px;flex:none" onerror="this.remove()">`:""}
     <span><b>${esc(w.name)} side events${n?` (${n})`:""}</b><br><span style="opacity:.75">Presented by ${logo?"you":"your brand"}${taken.length?" and "+taken.map(a=>esc(a.brand)).join(", "):""} · list.yorkseed.co</span></span></div>`;}

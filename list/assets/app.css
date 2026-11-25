@@ -1368,3 +1368,10 @@ input[type=date]::-webkit-date-and-time-value,input[type=time]::-webkit-date-and
 .wkspon{flex-wrap:wrap}
 .wkspon .wkmore{border-style:dashed;padding:5px 9px;font-size:10px}
 .wkspon.on img{position:static!important;inset:auto!important;width:auto!important;height:auto!important;max-height:24px;max-width:120px;object-fit:contain;opacity:1!important;transform:none!important;filter:none!important}
+/* three sponsor logos in one row: label on its own line, then three equal spots */
+.wkspon.on{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;max-width:420px}
+.wkspon.on>span{grid-column:1/-1}
+.wkspon.on a,.wkspon.on .wkmore{min-width:0;justify-content:center;height:38px;padding:4px 8px;box-sizing:border-box}
+.wkspon.on img{max-width:100%!important;max-height:26px}
+.wkspon.on b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.wkspon.on a{text-decoration:none}
