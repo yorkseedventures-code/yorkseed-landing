@@ -17392,45 +17392,6 @@
   "src": "luma-cal"
  },
  {
-  "title": "The Founders Meet",
-  "hub": "del",
-  "date": "2026-11-28",
-  "start": "22:30",
-  "end": null,
-  "venue": "Hyatt Centric Janakpuri New Delhi, Janakpuri, New Delhi, Delhi",
-  "host": "BENGALURU - VENTURE CAPITAL WORLD SUMMIT 2026",
-  "link": "https://startupmelas.in/startup-events-calendar/the-founders-meet",
-  "type": "Meetups",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "ELEV8 Startup Conference 2026",
-  "hub": "del",
-  "date": "2026-11-28",
-  "start": "23:30",
-  "end": null,
-  "venue": "Radisson Gurugram Sohna Road City Center, Gurgaon, Haryana",
-  "host": "BENGALURU - VENTURE CAPITAL WORLD SUMMIT 2026",
-  "link": "https://startupmelas.in/startup-events-calendar/startup-summit-2026-spring-edition",
-  "type": "Conferences",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "Bharat Startup Summit 2026",
-  "hub": "blr",
-  "date": "2026-11-28",
-  "start": "23:30",
-  "end": null,
-  "venue": "Mahatma Mandir Convention & Exhibition Centre, Gandhinagar, Gujarat",
-  "host": "BENGALURU - VENTURE CAPITAL WORLD SUMMIT 2026",
-  "link": "https://startupmelas.in/startup-events-calendar/bharat-startup-summit-2026",
-  "type": "Conferences",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
   "title": "Media Accelerator & Startup Cohort",
   "hub": "syd",
   "date": "2026-11-29",
@@ -17532,7 +17493,7 @@
   "end": null,
   "venue": "虎ノ門ヒルズ 森タワー",
   "host": "Innovation Leaders Summit",
-  "link": "https://ils.tokyo/contact/#contact",
+  "link": "https://ils.tokyo/contact/",
   "type": "Meetups",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -22744,19 +22705,6 @@
   "src": "meetup"
  },
  {
-  "title": "TiE Global Summit 2026",
-  "hub": "blr",
-  "date": "2026-12-14",
-  "start": "23:00",
-  "end": null,
-  "venue": "Brilliant Convention Centre, Vijay Nagar, Indore, Madhya Pradesh",
-  "host": "BENGALURU - VENTURE CAPITAL WORLD SUMMIT 2026",
-  "link": "https://startupmelas.in/startup-events-calendar/tie-global-summit-2026",
-  "type": "Conferences",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
   "title": "Startup Chowdown - Sylvan",
   "hub": "atl",
   "date": "2026-12-15",
@@ -23212,19 +23160,6 @@
   "link": "https://luma.com/t3cb5lsg",
   "desc": "Details and registration on the event page.",
   "src": "luma-cal"
- },
- {
-  "title": "Pitch Point – RAISE’26",
-  "hub": "bom",
-  "date": "2026-12-16",
-  "start": "21:30",
-  "end": null,
-  "venue": "JIO World Convention Centre, Mumbai, Maharashtra",
-  "host": "BENGALURU - VENTURE CAPITAL WORLD SUMMIT 2026",
-  "link": "https://startupmelas.in/startup-events-calendar/pitch-point-raise26",
-  "type": "Pitch",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
  },
  {
   "title": "Tech a Drink - Winter Event",
@@ -36500,7 +36435,7 @@
   "end": "10:45",
   "venue": "CIS Stage, Pavilion 2, Web Summit, Lisbon",
   "host": "Intel",
-  "link": "https://www.intel.com/content/www/us/en/newsroom/news/artificial-intelligence/intel-at-web-summit-2026.html#places-that-think-back",
+  "link": "https://www.intel.com/content/www/us/en/newsroom/news/artificial-intelligence/intel-at-web-summit-2026.html",
   "desc": "Official Web Summit stage session from Intel on agentic and physical AI in cities and buildings. Web Summit ticket required.",
   "type": "Conferences",
   "src": "manual"
@@ -38326,7 +38261,7 @@
   "end": null,
   "venue": "Palácio Chiado, Lisbon",
   "host": "whatislove.pt",
-  "link": "https://whatislove.pt/events/moon-summit?ref=9",
+  "link": "https://whatislove.pt/events/moon-summit",
   "desc": "Hosted by whatislove.pt. Web Summit Lisbon 2026 side event. Check the registration page for details and access.",
   "type": "Social",
   "src": "side-event-guides"
@@ -41303,7 +41238,7 @@
   "end": "00:00",
   "venue": "Malja, Hietalahdenranta 6, 00120 Helsinki, Finland",
   "host": "Tim Hayden-Clark",
-  "link": "https://socialloop.ai/go/slush?utm_source=vlad-yorkseed-helsinki&utm_medium=community&utm_campaign=vlad-slush-2026",
+  "link": "https://socialloop.ai/go/slush",
   "desc": "An evening of live jazz, drinks and good conversation on the Helsinki waterfront.\n\nSlush Jazz Night brings together a curated group of 70 founders and investors for an intimate evening at Malja.\n\nWednesday, 18 November 2026\n8pm–midnight · Helsinki time\nMalja · Hietalahdenranta 6, Helsinki\n\nLive jazz: 9–9:45pm and 10–10:45pm.\n\nPresented by Deel and AWS. Hosted by GoPresent and Office of Tomorrow.\n\nAn independently organised Slush-week side event. Attendance is subject to approval.",
   "type": "Meetups"
  },
@@ -41386,7 +41321,7 @@
   "end": "12:00",
   "venue": "2 Fulton St W",
   "host": "Ted Velie & Corey Hart",
-  "link": "https://luma.com/qgst3fc7?tk=kswvqM",
+  "link": "https://luma.com/qgst3fc7",
   "desc": "December 2–3, 2026 · Bamboo Grand Rapids Last December, in the middle of a snowstorm, 500+ of you founders, packed into a brand-new Bamboo Grand Rapids to create a density of doers and dreamers real enough to feel like the future had arrived early. This year, we back, bigger and badder. Midwest House takes over Bamboo Grand Rapids DECEMBER 2 + 3 for two days of on-stage inspiration, curated connections, and \"this can happen here\" discovery that'll have you talking through the New Year. A decade of building the region's most trusted network taught us the room isn't the magic — who's in it is.…",
   "type": "Conferences"
  },
@@ -41410,7 +41345,7 @@
   "end": "13:30",
   "venue": "The Palazzo",
   "host": "Baz",
-  "link": "https://baz.ai/merge-and-mingle?utm_source=yorkseed&utm_medium=referral&utm_campaign=aws_reinvent_2026&utm_content=merge_and_mingle",
+  "link": "https://baz.ai/merge-and-mingle",
   "desc": "Step away from the bustle of re:Invent for an intimate gathering of engineering leaders at WAKUDA.\n\nAt Baz’s Merge & Mingle, you’ll ease into the morning with a green tea tasting and Japanese-inspired hors d’oeuvres. Then settle in for a curated multi-course lunch.\n\nThursday, December 3\n10:30 a.m.–1:30 p.m. PT\nWAKUDA at The Palazzo, Las Vegas\n\nRequest an invitation: https://baz.ai/merge-and-mingle\n\nYou can request to join us for the reception, lunch, or both. Space is limited, and submitting a request does not guarantee a place.",
   "type": "Communal Dining"
  },
@@ -41422,7 +41357,7 @@
   "end": "21:30",
   "venue": "Telegraph Hill",
   "host": "Dr Pavel Vinitsky & Synexis",
-  "link": "https://luma.com/vcmixer2?tk=KrH33i",
+  "link": "https://luma.com/vcmixer2",
   "desc": "Not another networking night. A room that was screened on purpose. 🔥🔥🔥 IN SEPTEMBER WE HAD 127 INVESTORS!!! ⚠️ All registrations are subject to review! A curated evening where founders who are actually raising meet investors who are actually investing. Both sides are screened before the doors open. Plus a panel with five different types of capital: venture funds, family offices, angels, angel groups, LPs, IBs, and corporate VC. 🥃🥪🥗 Drinks and yummy bites throughout the evening. Agenda If you're a GP raising funds or an LP, join us earlier at 3:00 for the private LP x FO x GP Dinner:…",
   "type": "Investor Events"
  },
@@ -41434,7 +41369,7 @@
   "end": "18:45",
   "venue": "Conference hall, Merkez, Darülaceze Cd. No:2/3, Şişli, Istanbul",
   "host": "Oskar Hartmann / Unicorn Fellowship",
-  "link": "https://forum.unicornfellowship.ru/?utm_source=unicorn_ai_forum_2026&utm_medium=afisha_vyaznikov&utm_campaign=yorkseed",
+  "link": "https://forum.unicornfellowship.ru/",
   "desc": "One-day forum by Oskar Hartmann / Unicorn Fellowship. Talks on AI trends and AI in marketing, plus hands-on workshops on sales, management, brand and content, AI agents and automation. For business owners, executives and marketers. Language: Russian. Paid tickets (RUB 17,000–250,000) on the official site.",
   "type": "Conferences"
  },
@@ -41446,7 +41381,7 @@
   "end": "19:00",
   "venue": "Microsoft Innovation Hub, second floor, Aon Center, 200 E Randolph St",
   "host": "qBraid",
-  "link": "https://luma.com/u6deuegi?utm_source=yorkseed&utm_medium=community&utm_campaign=quantum-developer-day-2026",
+  "link": "https://luma.com/u6deuegi",
   "desc": "Join qBraid for Quantum Developer Day 2026: Quantum in Production in Chicago on Monday, December 7, from noon to 7 PM Central. Technical sessions and live hardware demos explore quantum applications in production for developers, researchers, founders and enterprise teams. Venue: Microsoft Innovation Hub, second floor of Aon Center, 200 E Randolph St, Chicago, IL 60601. In-person admission is $300 and includes lunch and the demo floor. Free virtual attendance is available. Students can reserve one of 50 seats with a $50 deposit refunded at check-in. Registration requires organizer approval. Sig",
   "type": "Conferences"
  },
@@ -41458,7 +41393,7 @@
   "end": "21:00",
   "venue": "Encode Hub",
   "host": "Encode Club",
-  "link": "https://luma.com/encode-p4gz?utm_source=yorkseed",
+  "link": "https://luma.com/encode-p4gz",
   "desc": "Every search firm can now find the same candidates in seconds. The firms that win will be the ones AI makes better at the relationship. LinkedIn put every candidate a click away. ChatGPT made every outreach message sound the same. Clients now expect a shortlist faster, with sharper insight, at the same fee. The next edge in executive search isn't more data. It's AI that takes the admin off consultants so they spend their time with clients and candidates. In partnership with Nexco Nexco builds AI agents for executive search firms, headhunters and private equity talent teams: call notes,…",
   "type": "Meetups"
  },
@@ -41517,7 +41452,7 @@
   "end": "21:00",
   "venue": "New York",
   "host": "RTM Nexus Team & Vanessa Jean Louis",
-  "link": "https://luma.com/rtmnexus-5n5u?tk=ALB2S0",
+  "link": "https://luma.com/rtmnexus-5n5u",
   "desc": "A casual, pay-your-own-way networking event designed for professionals to connect, share ideas, and build lasting relationships across the broader business and technology ecosystem. Meet fellow professionals, expand your network, and enjoy a relaxed evening together. Food and beverages are available for individual purchase. Who Attends: Founders & startups PR & Agency teams Venture Capitalists Consultants Finance professionals Content & social media marketers Marketing technology professionals Attendance is limited to help keep conversations meaningful, so please apply for a spot. We look…",
   "type": "Meetups"
  },
@@ -70617,7 +70552,7 @@
   "end": null,
   "venue": "Aticco Monumental - Coworking Eixample Barcelona",
   "host": "The Barcelona Tech Scene",
-  "link": "https://luma.com/https://www.eventbrite.es/e/use-body-language-for-better-pitches-meetings-and-connections-tickets-2003260211218?aff=luma",
+  "link": "https://luma.com/https://www.eventbrite.es/e/use-body-language-for-better-pitches-meetings-and-connections-tickets-2003260211218",
   "desc": "Details and registration on the event page.",
   "src": "luma-cal"
  },
@@ -74493,7 +74428,7 @@
   "end": null,
   "venue": "Dubai",
   "host": "Orbis86 Events",
-  "link": "https://luma.com/https://blockchain-life.com/?utm_source=orbis86&utm_campaign=orbis86",
+  "link": "https://luma.com/https://blockchain-life.com/",
   "desc": "Details and registration on the event page.",
   "src": "luma-cal"
  },
@@ -75134,19 +75069,6 @@
   "src": "foundercal"
  },
  {
-  "title": "Founders Lunch | Finance for Growth",
-  "hub": "ldn",
-  "date": "2026-11-25",
-  "start": "12:30",
-  "end": "14:30",
-  "venue": "Plexal, Queen Elizabeth Olympic park, London, E20 3BS",
-  "host": "Berlin Tech Events: Week of 19 Oct 2026 | An Open Room",
-  "link": "https://www.anopenroom.com/london/events/founders-lunch-pricing-strategy-1125",
-  "type": "Communal Dining",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
   "title": "SHARED FREQUENCIES, STILL LIVE & DIRECT – Berlin Music Tech Meetup #25",
   "hub": "ber",
   "date": "2026-11-25",
@@ -75160,19 +75082,6 @@
   "src": "foundercal"
  },
  {
-  "title": "ProductTank London: Shipping Fast Isn't a Strategy",
-  "hub": "ldn",
-  "date": "2026-11-25",
-  "start": "18:00",
-  "end": "21:00",
-  "venue": "Rich Mix, 35-47 Bethnal Green Road, London E1 6LA, London",
-  "host": "Berlin Tech Events: Week of 19 Oct 2026 | An Open Room",
-  "link": "https://www.anopenroom.com/london/events/producttank-london-shipping-fast-isnt-a-strategy-1125",
-  "type": "Meetups",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
   "title": "PXR – Fundraising Masterclass",
   "hub": "ber",
   "date": "2026-11-26",
@@ -75181,19 +75090,6 @@
   "venue": "",
   "host": "Berlin | Businettes Female Founders Summit 2025",
   "link": "https://foundersphere.io/veranstaltung/fundraising-masterclass",
-  "type": "Workshops",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "DevFest South London 2026",
-  "hub": "ldn",
-  "date": "2026-11-26",
-  "start": "11:00",
-  "end": "16:00",
-  "venue": "London South Bank University, 103 Borough Road, London SE1 0AA, London",
-  "host": "Berlin Tech Events: Week of 19 Oct 2026 | An Open Room",
-  "link": "https://www.anopenroom.com/london/events/devfest-south-london-2026-1126",
   "type": "Workshops",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -75221,19 +75117,6 @@
   "host": "Food & Talk",
   "link": "https://www.meetup.com/berlin-vancouver-entrepreneurs-meetup-group/events/317344432",
   "type": "Communal Dining",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "Founder's Voyage - Learning from Successful Founders - November",
-  "hub": "ldn",
-  "date": "2026-11-26",
-  "start": "18:30",
-  "end": "20:30",
-  "venue": "Pilpel Lime Street, 21 Ship Tavern Passage, London, EC3V 1LY",
-  "host": "Berlin Tech Events: Week of 19 Oct 2026 | An Open Room",
-  "link": "https://www.anopenroom.com/london/events/founders-voyage-learning-from-successful-founders-november-1126",
-  "type": "Meetups",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
  },
@@ -75277,45 +75160,6 @@
   "src": "foundercal"
  },
  {
-  "title": "London Tech Meetup: Building Your First GenAI Solution",
-  "hub": "ldn",
-  "date": "2026-11-27",
-  "start": "18:30",
-  "end": "20:30",
-  "venue": "Warren Centre Basement, Basement 1 - 8 Suffolk House Whitfield Place, London, W1T 5JU",
-  "host": "Berlin Tech Events: Week of 19 Oct 2026 | An Open Room",
-  "link": "https://www.anopenroom.com/london/events/london-tech-meetup-building-your-first-genai-solution-1127",
-  "type": "Meetups",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "Consumer AI Hackathon: Ship an App People Love in a Day",
-  "hub": "ldn",
-  "date": "2026-11-29",
-  "start": "10:00",
-  "end": "19:00",
-  "venue": "Encode Hub, 41 Pitfield St, N1 6DA, London",
-  "host": "Berlin Tech Events: Week of 19 Oct 2026 | An Open Room",
-  "link": "https://www.anopenroom.com/london/events/consumer-ai-hackathon-ship-an-app-people-love-in-a-day-1129",
-  "type": "Hackathons",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "Global Open Source AI Summit",
-  "hub": "ldn",
-  "date": "2026-11-30",
-  "start": "09:00",
-  "end": "17:00",
-  "venue": "The Francis Crick Institute, 1 Midland Road, London NW1 1AT, London",
-  "host": "Berlin Tech Events: Week of 19 Oct 2026 | An Open Room",
-  "link": "https://www.anopenroom.com/london/events/global-open-source-ai-summit-1130",
-  "type": "Conferences",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
   "title": "AI Monday x Planetarium",
   "hub": "ber",
   "date": "2026-11-30",
@@ -75342,19 +75186,6 @@
   "src": "foundercal"
  },
  {
-  "title": "Edtech Founders Supper Club (December)",
-  "hub": "ldn",
-  "date": "2026-12-01",
-  "start": "18:00",
-  "end": "20:00",
-  "venue": "The Parcel Yard, King's Cross, London, N1C 4AH",
-  "host": "Berlin Tech Events: Week of 19 Oct 2026 | An Open Room",
-  "link": "https://www.anopenroom.com/london/events/edtech-founders-supper-club-december-1201",
-  "type": "Communal Dining",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
   "title": "Hacker House 36 hours",
   "hub": "ber",
   "date": "2026-12-02",
@@ -75364,19 +75195,6 @@
   "host": "Antler in Continental Europe",
   "link": "https://luma.com/48f5c33r",
   "type": "Hackathons",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "AI Futureproofing: London's Practical AI Conference",
-  "hub": "ldn",
-  "date": "2026-12-03",
-  "start": "09:00",
-  "end": "11:00",
-  "venue": "Coin Street Neighbourhood Centre, 108 Stamford Street, London, SE1 9NH",
-  "host": "Berlin Tech Events: Week of 19 Oct 2026 | An Open Room",
-  "link": "https://www.anopenroom.com/london/events/ai-futureproofing-londons-practical-ai-conference-1203",
-  "type": "Conferences",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
  },
@@ -75415,19 +75233,6 @@
   "venue": "w3.hub, Möckernstraße 120, 10963 Berlin, Germany",
   "host": "Superteam Germany",
   "link": "https://luma.com/03ep1jqk",
-  "type": "Meetups",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "London | Claude x RepresentAI x BCS Pride | Festive meet-up",
-  "hub": "ldn",
-  "date": "2026-12-04",
-  "start": "18:30",
-  "end": "20:30",
-  "venue": "BCS, The Chartered Institute for IT, 25 Copthall Avenue, London EC2R 7BP, London",
-  "host": "Berlin Tech Events: Week of 19 Oct 2026 | An Open Room",
-  "link": "https://www.anopenroom.com/london/events/london-claude-x-representai-x-bcs-pride-festive-meet-up-1204",
   "type": "Meetups",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -77988,7 +77793,7 @@
   "end": "18:00",
   "venue": "",
   "host": "GitNation",
-  "link": "https://aicodingsummit.com/nyc/checkout#workshops",
+  "link": "https://aicodingsummit.com/nyc/checkout",
   "type": "Workshops",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -80893,19 +80698,6 @@
   "src": "foundercal"
  },
  {
-  "title": "Startup Mahakumbh 6.0",
-  "hub": "del",
-  "date": "2027-03-12",
-  "start": "22:30",
-  "end": null,
-  "venue": "New Delhi, India",
-  "host": "BENGALURU - VENTURE CAPITAL WORLD SUMMIT 2026",
-  "link": "https://startupmelas.in/startup-events-calendar/startup-mahakumbh-60",
-  "type": "Meetups",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
   "title": "StartHub Mentoring",
   "hub": "hel",
   "date": "2026-11-17",
@@ -83643,7 +83435,7 @@
   "end": null,
   "venue": "",
   "host": "Angel Forum",
-  "link": "https://www.angelforum.ca/event-links#!event/2027/1/21/angel-forum-at-speed",
+  "link": "https://www.angelforum.ca/event-links",
   "type": "Pitch",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -85333,7 +85125,7 @@
   "end": null,
   "venue": "",
   "host": "ZIP Launchpad",
-  "link": "https://ziplaunchpad.sdsu.edu/calendar#event-details/990f4ec4-5d01-4767-88c6-a04966d23a0c",
+  "link": "https://ziplaunchpad.sdsu.edu/calendar",
   "type": "Meetups",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -88507,19 +88299,6 @@
   "host": "Events - Africa Vibe Coders",
   "link": "https://www.meetup.com/nivanlive/events/316767637",
   "type": "Communal Dining",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "Sankalp Africa Summit 2027",
-  "hub": "nbo",
-  "date": "2027-02-24",
-  "start": "00:00",
-  "end": null,
-  "venue": "The Edge Convention Centre, Nairobi",
-  "host": "Intellecap (Sankalp Forum)",
-  "link": "https://startupmaphub.com/events/sankalp-africa-summit-2027",
-  "type": "Conferences",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
  },
@@ -98732,18 +98511,6 @@
   "type": "Conference"
  },
  {
-  "title": "STEP Conference 2027",
-  "hub": "dxb",
-  "date": "2027-02-03",
-  "start": null,
-  "end": null,
-  "venue": "Dubai Internet City, Dubai",
-  "host": "STEP Conference",
-  "link": "https://dealroom.co/events/step-conference-dubai-2027/",
-  "desc": "Feb 3-4. MENA's flagship startup and fintech conference, with strong regional VC presence and a founder-heavy crowd.",
-  "type": "Conference"
- },
- {
   "title": "MWC Barcelona 2027",
   "hub": "bcn",
   "date": "2027-03-01",
@@ -100567,7 +100334,7 @@
   "end": "20:00",
   "venue": "The Meridian Hotel, 418 Meridian Ave, Miami Beach",
   "host": "Platform Wellness",
-  "link": "https://artweek.platform.miami/#konnekt-art-is-healing",
+  "link": "https://artweek.platform.miami/",
   "desc": "Hosted by Platform Wellness · RSVP",
   "type": "Wellness",
   "src": "unofficials-miami-art-week-2026"
@@ -101789,7 +101556,7 @@
   "end": "19:00",
   "venue": "El Fresco Art Space, 1340 SW 8th St",
   "host": "El Fresco Art Space x Miami-Dade Bar",
-  "link": "https://www.miamidadebar.org/calendar/#!event/2026/12/3/intellectual-property-law-technology-committee-beyond-the-gallery-wall-monetizing-art-through-merch",
+  "link": "https://www.miamidadebar.org/calendar/",
   "desc": "Hosted by El Fresco Art Space x Miami-Dade Bar · Free",
   "type": "Talk",
   "src": "unofficials-miami-art-week-2026"
@@ -105026,7 +104793,7 @@
   "end": null,
   "venue": "Etihad Arena, Yas Island",
   "host": "Yasalam",
-  "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/#bocelli",
+  "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/",
   "type": "Concert",
   "desc": "Andrea Bocelli opens the inaugural Yasalam Classics series ahead of Abu Dhabi Grand Prix race week. Doors 6pm, tickets from Dh295.",
   "src": "f1auh_research"
@@ -105039,7 +104806,7 @@
   "end": null,
   "venue": "Etihad Live, Yas Island",
   "host": "Yasalam / Abu Dhabi Grand Prix",
-  "link": "https://www.formula1.com/en/latest/article/kings-of-leon-complete-line-up-for-this-years-yasalam-after-race-concerts.1234567#capaldi-kol",
+  "link": "https://www.formula1.com/en/latest/article/kings-of-leon-complete-line-up-for-this-years-yasalam-after-race-concerts.1234567",
   "type": "Concert",
   "desc": "Opening night of the Yasalam After-Race Concerts, exclusive to Abu Dhabi Grand Prix ticket holders.",
   "src": "f1auh_research"
@@ -105052,7 +104819,7 @@
   "end": null,
   "venue": "Etihad Live, Yas Island",
   "host": "Yasalam / Abu Dhabi Grand Prix",
-  "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/#jlo",
+  "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/",
   "type": "Concert",
   "desc": "Exclusive to Abu Dhabi Grand Prix ticket holders, after Friday practice.",
   "src": "f1auh_research"
@@ -105065,7 +104832,7 @@
   "end": null,
   "venue": "Etihad Live, Yas Island",
   "host": "Yasalam / Abu Dhabi Grand Prix",
-  "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/#imaginedragons",
+  "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/",
   "type": "Concert",
   "desc": "After Saturday qualifying. Exclusive to Abu Dhabi Grand Prix ticket holders.",
   "src": "f1auh_research"
@@ -105078,7 +104845,7 @@
   "end": null,
   "venue": "Bla Bla Bar, Yas Island",
   "host": "Bla Bla Bar",
-  "link": "https://www.khaleejtimes.com/lifestyle/abu-dhabi-race-week-meets-national-day#blablabar",
+  "link": "https://www.khaleejtimes.com/lifestyle/abu-dhabi-race-week-meets-national-day",
   "type": "Brunch",
   "desc": "Race-themed brunch with pit-crew dancers and a champagne podium moment at 3pm. From Dh279.",
   "src": "f1auh_research"
@@ -105091,7 +104858,7 @@
   "end": null,
   "venue": "Etihad Live, Yas Island",
   "host": "Yasalam / Abu Dhabi Grand Prix",
-  "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/#chainsmokers",
+  "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/",
   "type": "Concert",
   "desc": "Season finale night: separate sets from The Chainsmokers and The Script after the race. Exclusive to Abu Dhabi Grand Prix ticket holders.",
   "src": "f1auh_research"
@@ -105104,7 +104871,7 @@
   "end": null,
   "venue": "Bar Du Port, Yas Marina",
   "host": "Bar Du Port",
-  "link": "https://www.khaleejtimes.com/lifestyle/abu-dhabi-race-week-meets-national-day#bardupor",
+  "link": "https://www.khaleejtimes.com/lifestyle/abu-dhabi-race-week-meets-national-day",
   "type": "Brunch",
   "desc": "Waterfront brunch running Fri-Sun of race week. Dh450 ladies / Dh700 gents.",
   "src": "f1auh_research"
@@ -105117,7 +104884,7 @@
   "end": null,
   "venue": "La Môme, Yas Marina waterfront",
   "host": "La Môme",
-  "link": "https://www.khaleejtimes.com/lifestyle/abu-dhabi-race-week-meets-national-day#lamome",
+  "link": "https://www.khaleejtimes.com/lifestyle/abu-dhabi-race-week-meets-national-day",
   "type": "Nightlife",
   "desc": "Waterfront pop-up running Dec 3-6 during race week. From Dh500pp.",
   "src": "f1auh_research"
@@ -105130,7 +104897,7 @@
   "end": "03:00",
   "venue": "Amazónico, Yas Marina waterfront",
   "host": "Amazónico",
-  "link": "https://www.khaleejtimes.com/lifestyle/abu-dhabi-race-week-meets-national-day#amazonico",
+  "link": "https://www.khaleejtimes.com/lifestyle/abu-dhabi-race-week-meets-national-day",
   "type": "Nightlife",
   "desc": "Waterfront pop-up open till 3am through race week.",
   "src": "f1auh_research"
@@ -105143,7 +104910,7 @@
   "end": null,
   "venue": "Yas Gateway Park",
   "host": "Abu Dhabi Grand Prix race week",
-  "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/#anyma",
+  "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/",
   "type": "DJ Set",
   "desc": "Doors 9pm, show 10:30pm. Tickets from Dh495.",
   "src": "f1auh_research"
@@ -105156,7 +104923,7 @@
   "end": null,
   "venue": "16/360, Yas Marina Circuit",
   "host": "Abu Dhabi Grand Prix race week",
-  "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/#shimza",
+  "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/",
   "type": "DJ Set",
   "desc": "Hospitality packages from Dh1,250.",
   "src": "f1auh_research"
@@ -105169,7 +104936,7 @@
   "end": null,
   "venue": "Bagatelle rooftop pop-up, W Abu Dhabi",
   "host": "Bagatelle",
-  "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/#bagatelle-dec4",
+  "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/",
   "type": "Nightlife",
   "desc": "Race week rooftop pop-up. Tables from Dh7,000.",
   "src": "f1auh_research"
@@ -105182,7 +104949,7 @@
   "end": null,
   "venue": "16/360, Yas Marina Circuit",
   "host": "Abu Dhabi Grand Prix race week",
-  "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/#camelphat",
+  "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/",
   "type": "DJ Set",
   "desc": "Hospitality packages from Dh1,250.",
   "src": "f1auh_research"
@@ -105195,7 +104962,7 @@
   "end": null,
   "venue": "Bagatelle, W Abu Dhabi",
   "host": "Bagatelle",
-  "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/#bagatelle-dec5",
+  "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/",
   "type": "Nightlife",
   "desc": "Tables from Dh10,000.",
   "src": "f1auh_research"
@@ -105208,7 +104975,7 @@
   "end": null,
   "venue": "Stars 'N' Bars, Yas Marina",
   "host": "Stars 'N' Bars",
-  "link": "https://www.khaleejtimes.com/lifestyle/abu-dhabi-race-week-meets-national-day#starsnbars",
+  "link": "https://www.khaleejtimes.com/lifestyle/abu-dhabi-race-week-meets-national-day",
   "type": "Brunch",
   "desc": "Live entertainment brunch during race week. From Dh399.",
   "src": "f1auh_research"
@@ -105221,7 +104988,7 @@
   "end": "16:00",
   "venue": "MIKA, Yas Marina",
   "host": "MIKA",
-  "link": "https://www.khaleejtimes.com/lifestyle/abu-dhabi-race-week-meets-national-day#mika",
+  "link": "https://www.khaleejtimes.com/lifestyle/abu-dhabi-race-week-meets-national-day",
   "type": "Brunch",
   "desc": "Riviera-style brunch on Sat and Sun of race weekend. From Dh899.",
   "src": "f1auh_research"
@@ -105234,7 +105001,7 @@
   "end": null,
   "venue": "16/360, Yas Marina Circuit",
   "host": "Abu Dhabi Grand Prix race week",
-  "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/#black-coffee",
+  "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/",
   "type": "DJ Set",
   "desc": "Closing night. Hospitality packages from Dh1,250.",
   "src": "f1auh_research"
@@ -105247,7 +105014,7 @@
   "end": null,
   "venue": "Bagatelle, W Abu Dhabi",
   "host": "Bagatelle",
-  "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/#bagatelle-dec6",
+  "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/",
   "type": "Nightlife",
   "desc": "Closing night. Tables from Dh10,000.",
   "src": "f1auh_research"
@@ -105260,9 +105027,93 @@
   "end": "16:00",
   "venue": "Diablito, Yas Marina",
   "host": "Diablito",
-  "link": "https://www.khaleejtimes.com/lifestyle/abu-dhabi-race-week-meets-national-day#diablito",
+  "link": "https://www.khaleejtimes.com/lifestyle/abu-dhabi-race-week-meets-national-day",
   "type": "Nightlife",
   "desc": "Race week pop-up, plus à la carte dining on other days of the week.",
   "src": "f1auh_research"
+ },
+ {
+  "title": "SuperReturn International 2027",
+  "hub": "ber",
+  "date": "2027-06-07",
+  "start": null,
+  "end": null,
+  "noTime": true,
+  "venue": "InterContinental Berlin",
+  "host": "Informa Connect",
+  "link": "https://informaconnect.com/superreturn-international/",
+  "type": "Investor Events",
+  "desc": "Europe's largest private capital conference: a week of GP and LP fundraising meetings, with 700+ LPs and 900+ GPs. Runs June 7–11, 2027.",
+  "src": "manual"
+ },
+ {
+  "title": "SuperReturn Venture (SuperVenture) 2027",
+  "hub": "ber",
+  "date": "2027-06-08",
+  "start": null,
+  "end": null,
+  "noTime": true,
+  "venue": "Hotel Palace Berlin",
+  "host": "Informa Connect",
+  "link": "https://informaconnect.com/superventure/",
+  "type": "Investor Events",
+  "desc": "The venture capital event alongside SuperReturn, bringing LPs and venture firms together for three days of LP–GP meetings. Runs June 8–10, 2027.",
+  "src": "manual"
+ },
+ {
+  "title": "Money20/20 Europe 2027",
+  "hub": "ams",
+  "date": "2027-06-08",
+  "start": null,
+  "end": null,
+  "noTime": true,
+  "venue": "RAI Amsterdam",
+  "host": "Money20/20",
+  "link": "https://europe.money2020.com/",
+  "type": "Conferences",
+  "desc": "Europe's biggest fintech show for banks, payments, infrastructure providers, regulators and startups. Runs June 8–10, 2027.",
+  "src": "manual"
+ },
+ {
+  "title": "Milken Institute Global Conference 2027",
+  "hub": "la",
+  "date": "2027-05-02",
+  "start": null,
+  "end": null,
+  "noTime": true,
+  "venue": "The Beverly Hilton, Beverly Hills",
+  "host": "Milken Institute",
+  "link": "https://milkeninstitute.org/events",
+  "type": "Conferences",
+  "desc": "The Milken Institute's flagship annual gathering of investors, asset managers, sovereign funds and leaders across finance, health and technology. Runs May 2–5, 2027.",
+  "src": "manual"
+ },
+ {
+  "title": "Asia Tech x Singapore 2027",
+  "hub": "sgp",
+  "date": "2027-05-26",
+  "start": null,
+  "end": null,
+  "noTime": true,
+  "venue": "Singapore EXPO & Capella Singapore",
+  "host": "IMDA & Informa",
+  "link": "https://asiatechxsg.com/",
+  "type": "Conferences",
+  "desc": "Singapore's flagship tech week: the invitation-only ATxSummit plus the ATxEnterprise expo on AI, cybersecurity and startups. Runs May 26–28, 2027.",
+  "src": "manual"
+ },
+ {
+  "title": "ETHDenver 2027",
+  "hub": "den",
+  "date": "2027-03-24",
+  "start": null,
+  "end": null,
+  "noTime": true,
+  "venue": "Denver",
+  "host": "ETHDenver",
+  "link": "https://www.ethdenver.com/",
+  "type": "Conferences",
+  "desc": "The 10th ETHDenver, the community-run Ethereum conference and #BUIDLathon. Never connect a wallet to attend. Runs March 24–25, 2027.",
+  "src": "manual"
  }
 ]

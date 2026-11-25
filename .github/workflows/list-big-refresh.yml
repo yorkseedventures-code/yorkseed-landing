@@ -1,5 +1,5 @@
 # One-off deep refresh of The Yorkseed List, run only on the list-big-refresh branch.
-# Imports from every source (FounderCal, Luma, Meetup, techmeetups, confs.tech, iCal feeds...) out to the end of June 2027,
+# Imports from every source (FounderCal, Luma, Meetup, techmeetups, confs.tech, iCal feeds, Gary's Guide, Dealroom...) out to the end of June 2027,
 # rebuilds the pages and commits the result back to this branch. It never touches main, and its commits carry no
 # [deploy] tag, so Netlify skips them (see netlify.toml "ignore"). Delete this file before merging the branch.
 name: List big refresh (branch only, no deploy)

@@ -668,7 +668,8 @@ CITY_ALIAS = {"san francisco": "sf", "oakland": "sf", "berkeley": "sf", "palo al
     "venice": "la", "bangalore": "blr", "bengaluru": "blr", "mumbai": "bom", "navi mumbai": "bom", "tel aviv yafo": "tlv", "tel aviv": "tlv",
     "kowloon": "hkg", "shibuya": "tyo", "minato city": "tyo", "chiyoda city": "tyo", "shinjuku city": "tyo", "bellevue": "sea", "redmond": "sea",
     "kirkland": "sea", "vancouver|canada": "yvr", "burnaby": "yvr", "espoo": "hel", "london|united kingdom": "ldn", "ciudad de mexico": "mex", "mexico city": "mex",
-    "delhi": "del", "gurugram": "del", "gurgaon": "del", "noida": "del", "raleigh": "rdu", "durham": "rdu", "chapel hill": "rdu", "cary": "rdu",
+    "delhi": "del", "gurugram": "del", "gurgaon": "del", "noida": "del", "raleigh": "rdu", "durham": "rdu", "chapel hill": "rdu", "cary": "rdu", "stanford": "sf", "half moon bay": "sf", "scotts valley": "sf", "hollywood": "la", "beverly hills": "la", "newport beach": "la",
+    "miami beach": "mia", "coral gables": "mia", "fort lauderdale": "mia", "richardson": "dal",
     "fort worth": "dal", "plano": "dal", "irving": "dal", "frisco": "dal", "sandton": "jnb", "makati": "mnl", "taguig": "mnl", "quezon city": "mnl",
     "thu duc": "sgn", "ho chi minh": "sgn", "lehi": "slc", "provo": "slc", "la jolla": "sdg", "cambridge|united kingdom": None, "victoria|canada": "yyj", "gandhinagar": "gift", "gift city": "gift", "ahmedabad": "gift"}
 def _n(s): return re.sub(r'\s+', ' ', re.sub(r'[^a-z ]', ' ', __import__("unicodedata").normalize("NFKD", s or "").encode("ascii", "ignore").decode().lower())).strip()
@@ -782,6 +783,125 @@ def fill_luma_descriptions(limit=250):
     json.dump(events, open(p, "w"), ensure_ascii=False, indent=1)
     print(f"descriptions: filled {sum(1 for e in todo if not e['desc'].startswith('Details and registration'))} of {len(todo)}")
 
+# ---------- 1k. Gary's Guide (garysguide.com/events): NYC, Bay Area and online startup events ----------
+# Each event page links out through a gary.to short link; we follow it to the organizer's own registration page
+# and list that final link (never Gary's Guide itself). Their tracking parameters are stripped by clean().
+GG_REGIONS = {"nyc": "https://www.garysguide.com/events?region=nyc", "sf": "https://www.garysguide.com/events?region=sf",
+              "virtual": "https://www.garysguide.com/events/online"}
+_GG_DATE = re.compile(r'\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.? (\d{1,2})\s*\((?:Mon|Tue|Wed|Thu|Fri|Sat|Sun)[a-z]*\)\s*@\s*(\d{1,2}:\d{2}\s*[AP]M)', re.I)
+def _gg_event(args):
+    url, hub = args
+    try:
+        _, page = get(url)
+        outs = re.findall(r'href=["\'](https?://(?:www\.)?gary\.to/[^"\']+)["\']', page)
+        if not outs: return None
+        final, rp = get(outs[0])
+        if "garysguide.com" in urlsplit(final).netloc or SKIP_HOSTS.search(urlsplit(final).netloc): return None
+        reg = clean(final)
+        info = luma_event(reg) if re.search(r'(lu\.ma|luma\.com)', urlsplit(reg).netloc) else ld_event(rp)
+        info = {k: v for k, v in (info or {}).items() if v}
+        if not info.get("start"):                                   # no structured date on the organizer page: use Gary's Guide's
+            text = re.sub(r'<[^>]+>', ' ', page); m = _GG_DATE.search(html.unescape(text))
+            if not m: return None
+            mon = ["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"].index(m.group(1)[:3].lower()) + 1
+            today = dt.date.today(); year = today.year + (1 if mon < today.month - 1 else 0)
+            t = dt.datetime.strptime(re.sub(r'\s+', ' ', m.group(3)).upper(), "%I:%M %p").strftime("%H:%M")
+            info["start"] = f"{year}-{mon:02d}-{int(m.group(2)):02d}T{t}"
+        if not info.get("title"):
+            info["title"] = re.sub(r'\s*[|-]\s*Gary\b.*$', '', meta(page, "og:title") or "", flags=re.I)
+        if not info.get("desc"): info["desc"] = short(meta(rp, "og:description", "description"))
+        if not info.get("photo"): info["photo"] = photo_from(final, rp)
+        return finish(info, reg, hub)
+    except Exception: return None
+
+def import_garysguide():
+    horizon = (dt.date.today() + dt.timedelta(days=HORIZON_DAYS)).isoformat()
+    todo = []
+    for hub, u in GG_REGIONS.items():
+        try:
+            _, page = get(u, timeout=30)
+            ids = dict.fromkeys(re.findall(r'href=["\'](?:https?://www\.garysguide\.com)?(/events/[a-z0-9]{5,9}/[^"\'#?]+)["\']', page))
+            todo += [("https://www.garysguide.com" + p, hub) for p in ids]; print(f"garysguide {hub}: {len(ids)} events listed")
+        except Exception as ex: print(f"garysguide {hub}: {ex}")
+    if not todo: return {}
+    with ThreadPoolExecutor(4) as ex: res = list(ex.map(lambda a: (time.sleep(0.4), _gg_event(a))[1], todo))
+    events = load(f"{REPO}/list/events.json", []); master = load(f"{REPO}/list/data/master.json", {"events": []})
+    norm = lambda s: re.sub(r'[^a-z0-9]+', '', (s or '').lower())[:40]
+    canon = lambda u: re.sub(r'^https?://(www\.)?lu\.ma/', 'https://luma.com/', (u or '').split("?")[0].rstrip("/"))
+    seen_l = {canon(e.get("link")) for e in events + master["events"] if e.get("link")}
+    seen_t = {(norm(e.get("title")), e.get("date")) for e in events + master["events"]}
+    photos, added = {}, 0
+    for r in res:
+        if not r or r["date"] < TODAY or r["date"] > horizon: continue
+        if canon(r["link"]) in seen_l or (norm(r["title"]), r["date"]) in seen_t: continue
+        seen_l.add(canon(r["link"])); seen_t.add((norm(r["title"]), r["date"]))
+        if r.get("_photo"): photos[r["link"]] = r["_photo"]
+        r.pop("_photo", None); r.pop("_city", None)
+        if not r.get("desc"): r["desc"] = "Details and registration on the event page."
+        r["src"] = "garysguide"; events.append(r); added += 1
+    json.dump(events, open(f"{REPO}/list/events.json", "w"), ensure_ascii=False, indent=1)
+    print(f"garysguide: {len(todo)} event pages read, {added} new"); REPORT.append({"source": "garysguide", "read": len(todo), "added": added})
+    return photos
+
+# ---------- 1l. Dealroom's curated startup & venture conference calendar (dealroom.co/events) ----------
+# Big conferences, investor summits and tech weeks. Each profile links to the event's own official site, which is
+# the link we list (never Dealroom's page). Multi-day events are listed on their first day with the dates in the text.
+_MON = {m: i + 1 for i, m in enumerate(["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"])}
+_DR_DATE = re.compile(r'\b(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC) (\d{1,2})(?:\s*[\u2013-]\s*(?:(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC) )?(\d{1,2}))?, (20\d\d)\b')
+def _dr_event(url):
+    try:
+        _, page = get(url, timeout=25)
+        m = re.search(r'href=["\'](https?://[^"\']+)["\'][^>]*>(?:\s|<[^>]+>)*Official site', page, re.I)
+        if not m or "dealroom.co" in m.group(1): return None
+        text = html.unescape(re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', page)))
+        d = _DR_DATE.search(text)
+        if not d: return None
+        y = int(d.group(5)); m1 = _MON[d.group(1)]; start = dt.date(y, m1, int(d.group(2)))
+        end = dt.date(y, _MON[d.group(3)] if d.group(3) else m1, int(d.group(4))) if d.group(4) else start
+        if end < start: end = dt.date(y + 1, end.month, end.day)
+        after = text[d.end():d.end() + 300]
+        loc = re.match(r'\s*(.*?)\s+\u00b7\s+(.*?)\s+\u00b7\s+(.+?)\s+(?:major|notable|Official site|\+ Add)', after)
+        venue, city, country = (loc.group(1), loc.group(2), loc.group(3)) if loc else ("", "", "")
+        name = re.sub(r'\s*[|\u2013-]\s*Dealroom.*$', '', meta(page, "og:title") or "", flags=re.I).replace("Event profile", "").strip()
+        h1 = re.search(r'<h1[^>]*>(.*?)</h1>', page, re.S | re.I)
+        if h1: name = html.unescape(re.sub(r'<[^>]+>', '', h1.group(1))).strip() or name
+        if not re.search(r"\b20\d\d\b", name): name = f"{name} {y}"
+        desc = meta(page, "og:description", "description")
+        return {"title": name, "start": start, "end": end, "venue": venue if venue != city else "", "city": city, "country": country,
+                "link": clean(m.group(1)), "desc": desc}
+    except Exception: return None
+
+def import_dealroom():
+    try: _, page = get("https://dealroom.co/events/", timeout=30)
+    except Exception as ex: print(f"dealroom: {ex}"); return {}
+    slugs = list(dict.fromkeys(re.findall(r'href=["\'](?:https?://dealroom\.co)?/events/([a-z0-9-]+-20\d\d[a-z0-9-]*)/?["\']', page)))
+    hubs = load(f"{REPO}/list/data/master.json", {"hubs": []})["hubs"]
+    horizon = (dt.date.today() + dt.timedelta(days=HORIZON_DAYS)).isoformat()
+    with ThreadPoolExecutor(4) as ex: res = list(ex.map(lambda sl: (time.sleep(0.4), _dr_event(f"https://dealroom.co/events/{sl}/"))[1], slugs))
+    events = load(f"{REPO}/list/events.json", []); master = load(f"{REPO}/list/data/master.json", {"events": []})
+    stop = {"the", "and", "of", "summit", "conference", "annual", "week", "2026", "2027", "2028"}
+    toks = lambda t: {w for w in re.findall(r'[a-z0-9]+', re.sub(r'\(.*?\)', ' ', (t or "").lower())) if len(w) > 1 and w not in stop}
+    have = [(toks(e.get("title")), e.get("date") or "", e.get("hub")) for e in events + master["events"]]
+    canon = lambda u: (u or "").split("?")[0].split("#")[0].rstrip("/").lower().replace("://www.", "://")
+    seen_l = {(canon(e.get("link")), e.get("date")) for e in events + master["events"]}
+    added, skipped_city = 0, 0
+    for r in res:
+        if not r: continue
+        date = r["start"].isoformat()
+        if date < TODAY or date > horizon: continue
+        hub = city_hub(r["city"], r["country"], hubs)
+        if not hub: skipped_city += 1; continue
+        t = toks(r["title"])
+        near = lambda d: abs((dt.date.fromisoformat(d) - r["start"]).days) <= 4 if re.match(r'\d{4}-\d\d-\d\d$', d) else False
+        if (canon(r["link"]), date) in seen_l or any(h == hub and near(d) and t and len(t & ts) / len(t) >= 0.6 for ts, d, h in have): continue
+        span = "" if r["end"] == r["start"] else f" Runs {r['start'].strftime('%b')} {r['start'].day}\u2013{(r['end'].strftime('%b') + ' ') if r['end'].month != r['start'].month else ''}{r['end'].day}, {r['end'].year}."
+        events.append({"title": r["title"][:200], "hub": hub, "date": date, "start": None, "end": None, "venue": (r["venue"] or r["city"])[:200], "host": "", "link": r["link"],
+                       "type": "Conferences", "noTime": True, "desc": (short(r["desc"], 230) + span).strip() or "Details and registration on the event site.", "src": "dealroom"})
+        have.append((t, date, hub)); seen_l.add((canon(r["link"]), date)); added += 1
+    json.dump(events, open(f"{REPO}/list/events.json", "w"), ensure_ascii=False, indent=1)
+    print(f"dealroom: {len(slugs)} listed, {added} new, {skipped_city} outside List cities"); REPORT.append({"source": "dealroom", "read": len(slugs), "added": added})
+    return {}
+
 # ---------- 2. real event photos ----------
 import time
 def luma_cover(link):
@@ -828,7 +948,7 @@ def refresh_photos(seed):
 
 if __name__ == "__main__":
     seed = {}
-    for step in (import_pending, import_cities, import_links, import_submissions, import_sources, import_luma_calendars, import_foundercal, import_confstech, import_techmeetups, import_meetup_groups, import_ical_feeds, fix_cities):
+    for step in (import_pending, import_cities, import_links, import_submissions, import_sources, import_luma_calendars, import_foundercal, import_confstech, import_techmeetups, import_meetup_groups, import_ical_feeds, import_garysguide, import_dealroom, fix_cities):
         try: seed.update(step() or {})
         except Exception as ex: print(f"{step.__name__} failed: {ex}")
     try: fill_luma_descriptions()
