@@ -1086,6 +1086,142 @@
       "start": "2026-12-02",
       "end": "2026-12-08",
       "re": "formula 1|\\bf1\\b|grand prix|yas marina|etihad airways|etihad arena|etihad live|paddock|pit lane|yasalam|bagatelle|16\\/360|w abu dhabi|race week"
+    },
+    {
+      "id": "consensushk",
+      "name": "Consensus Hong Kong",
+      "hub": "hkg",
+      "start": "2027-01-31",
+      "end": "2027-02-04",
+      "re": "consensus|coindesk|crypto|web3|bitcoin|blockchain|stablecoin|defi|digital asset"
+    },
+    {
+      "id": "gtcsj",
+      "name": "NVIDIA GTC San Jose",
+      "hub": "sf",
+      "start": "2027-03-14",
+      "end": "2027-03-19",
+      "re": "nvidia|\\bgtc\\b|gpu|cuda|physical ai|robotics"
+    },
+    {
+      "id": "ethden",
+      "name": "ETHDenver",
+      "hub": "den",
+      "start": "2027-03-21",
+      "end": "2027-03-27",
+      "re": "eth|ethereum|web3|crypto|blockchain|buidl|solidity|defi"
+    },
+    {
+      "id": "rsac",
+      "name": "RSAC Conference",
+      "hub": "sf",
+      "start": "2027-04-04",
+      "end": "2027-04-09",
+      "re": "rsac|rsa conference|security|cyber|infosec|zero trust"
+    },
+    {
+      "id": "m2020asia",
+      "name": "Money20/20 Asia",
+      "hub": "bkk",
+      "start": "2027-04-25",
+      "end": "2027-04-30",
+      "re": "money20|fintech|payments|banking|digital asset|stablecoin"
+    },
+    {
+      "id": "gitexasia",
+      "name": "GITEX AI Asia",
+      "hub": "sgp",
+      "start": "2027-04-27",
+      "end": "2027-05-01",
+      "re": "gitex|ai asia|north star"
+    },
+    {
+      "id": "milken",
+      "name": "Milken Global Conference",
+      "hub": "la",
+      "start": "2027-05-01",
+      "end": "2027-05-06",
+      "re": "milken|family office|private capital|allocator|\\blps?\\b|limited partner|sovereign|asset manag|investor"
+    },
+    {
+      "id": "consensusmia",
+      "name": "Consensus Miami",
+      "hub": "mia",
+      "start": "2027-05-02",
+      "end": "2027-05-07",
+      "re": "consensus|coindesk|crypto|web3|bitcoin|blockchain|stablecoin|defi|digital asset"
+    },
+    {
+      "id": "saastr",
+      "name": "SaaStr AI Annual",
+      "hub": "sf",
+      "start": "2027-05-10",
+      "end": "2027-05-13",
+      "re": "saastr|saas|\\bgtm\\b|go-to-market|b2b|revops"
+    },
+    {
+      "id": "sushitech",
+      "name": "SusHi Tech Tokyo",
+      "hub": "tyo",
+      "start": "2027-05-18",
+      "end": "2027-05-23",
+      "re": "sushi tech|sushitech|startup"
+    },
+    {
+      "id": "wsvan",
+      "name": "Web Summit Vancouver",
+      "hub": "yvr",
+      "start": "2027-05-24",
+      "end": "2027-05-29",
+      "re": "."
+    },
+    {
+      "id": "atxsg",
+      "name": "Asia Tech x Singapore",
+      "hub": "sgp",
+      "start": "2027-05-25",
+      "end": "2027-05-29",
+      "re": "atx|asia tech|ai summit|superai|imda"
+    },
+    {
+      "id": "ltw",
+      "name": "London Tech Week",
+      "hub": "ldn",
+      "start": "2027-06-06",
+      "end": "2027-06-12",
+      "re": "."
+    },
+    {
+      "id": "superreturn",
+      "name": "SuperReturn Berlin",
+      "hub": "ber",
+      "start": "2027-06-06",
+      "end": "2027-06-12",
+      "re": "superreturn|superventure|private equity|private capital|private credit|\\blps?\\b|\\bgps?\\b|limited partner|venture|family office|fund"
+    },
+    {
+      "id": "m2020eu",
+      "name": "Money20/20 Europe",
+      "hub": "ams",
+      "start": "2027-06-07",
+      "end": "2027-06-11",
+      "re": "money20|fintech|payments|banking|open banking|stablecoin"
+    },
+    {
+      "id": "wsrio",
+      "name": "Web Summit Rio",
+      "hub": "sao",
+      "start": "2027-06-13",
+      "end": "2027-06-18",
+      "re": "web summit|rio"
+    },
+    {
+      "id": "vivatech",
+      "name": "VivaTech",
+      "hub": "par",
+      "start": "2027-06-14",
+      "end": "2027-06-20",
+      "re": "."
     }
   ],
   "img": {

@@ -864,8 +864,23 @@ open(f"{REPO}/list/llms.txt","w").write("\n".join(L) + "\n")
 
 # ---- static city index injected into the interactive List (crawlable links) ----
 li = open(f"{REPO}/list/index.html").read()
-block = ('<p id="ysSeoCities" style="max-width:1200px;margin:0 auto;padding:16px 20px;font:400 11px \'DM Mono\',monospace;letter-spacing:.1em;text-transform:uppercase">'
-         '<a href="/cities/" style="color:#888;text-decoration:none">Browse startup events by city →</a></p>')
+# A collapsed <details> keeps the page looking the same (one small "Browse" line) while giving search engines and
+# AI crawlers, which mostly don't run the app's JavaScript, real links: every city, every upcoming conference week
+# and the next notable founder and investor events, each to its own static page.
+_st = 'font:400 11px \'DM Mono\',monospace;letter-spacing:.06em;color:#888;text-decoration:none'
+_cities = sorted([h for h in hubs.values() if by_hub.get(h["id"]) and h["id"] != "virtual" and os.path.exists(f"{REPO}/list/{h['slug']}/index.html")], key=lambda h: -len(by_hub[h["id"]]))
+_wk = sorted([w for w in weeks if os.path.exists(f"{REPO}/list/{w['slug']}/index.html")], key=lambda w: w["start"])
+_soon = (TODAY + dt.timedelta(days=30)).isoformat()
+_key = [e for e in events if TODAY.isoformat() <= e["date"] <= _soon and (e.get("type") in ("Conferences", "Investor Events", "Demo Days", "Pitch") or e.get("yorkseed"))
+        and os.path.exists(f"{REPO}/list/e/{e['slug']}/index.html")]
+_key = sorted(_key, key=lambda e: e["date"])[:40]
+block = ('<details id="ysSeoCities" style="max-width:1200px;margin:0 auto;padding:16px 20px">'
+         f'<summary style="{_st};text-transform:uppercase;letter-spacing:.1em;cursor:pointer">Browse startup events by city →</summary>'
+         f'<p style="{_st}"><a href="/cities/" style="{_st}">All {len(_cities)} cities</a>: '
+         + " · ".join(f'<a href="/{h["slug"]}/" style="{_st}">Startup events in {e_(h["name"])} ({len(by_hub[h["id"]])})</a>' for h in _cities) + '</p>'
+         + (f'<p style="{_st}">Conference and tech week side events: ' + " · ".join(f'<a href="/{w["slug"]}/" style="{_st}">{e_(w["name"])} {w["start"][:4]} side events ({dlabel(w["start"])})</a>' for w in _wk) + '</p>' if _wk else '')
+         + (f'<p style="{_st}">Coming up: ' + " · ".join(f'<a href="/e/{e["slug"]}/" style="{_st}">{e_(e["title"])}, {e_(hubs[e["hub"]]["name"])}, {dlabel(e["date"])}</a>' for e in _key) + '</p>' if _key else '')
+         + '</details>')
 li = re.sub(r'<(section|details|p) id="ysSeoCities".*?</(section|details|p)>', '', li, flags=re.S)
 # evergreen (year-free) links for recurring conference weeks: /web-summit-lisbon-side-events/ always points at the current edition
 def evergreen(name): return slugify(re.sub(r"\s*\b(19|20)\d\d\b", "", name)) + "-side-events"
@@ -947,6 +962,7 @@ paths = {"h": {h["id"]: h["slug"] for h in hubs.values() if os.path.exists(f"{RE
                for w in weeks if os.path.exists(f"{REPO}/list/{w['slug']}/index.html")}}
 li = re.sub(r'<script id="ysPaths">.*?</script>\n?', '', li, flags=re.S)
 li = li.replace("</head>", '<script id="ysPaths">window.YS_PATHS=' + json.dumps(paths, separators=(",", ":")) + ';</script>\n</head>', 1)
+li = re.sub(r'<span id="cityN">\d+</span>', f'<span id="cityN">{len(_cities)}</span>', li)   # crawlers see the real count, not the template default
 i = li.find('<footer class="foot ysfoot"')
 li = li[:i] + block + "\n" + li[i:] if i > 0 else li.replace("</body>", block + "</body>")
 open(f"{REPO}/list/index.html","w").write(li)
