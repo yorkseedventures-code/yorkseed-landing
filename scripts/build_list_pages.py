@@ -706,6 +706,21 @@ for w in weeks:
 
 # ---- one page per event: /e/<slug>/ ----
 import shutil
+# Snapshot every existing event page's HTML before wiping the directory below. The "orphan recovery" step further
+# down re-hydrates a page whose event dropped out of master.json by reading the JSON-LD this script wrote into it
+# on an earlier run -- but it can only do that for a file that still exists on disk. This rmtree (added for the
+# big update) wipes list/e/ clean before that step ever runs, so every event not in *this* run's data was
+# silently deleted for good instead of recovered, breaking the "never removes a page" guarantee the comment below
+# still describes. Keep each old page's bytes in memory so a genuinely-dropped event can be written back after
+# the fresh pages are built, which is what lets the recovery step below find and re-hydrate it as before.
+_PRE_RMTREE_PAGES = {}
+_e_dir = f"{REPO}/list/e"
+if os.path.isdir(_e_dir):
+    for _slug in os.listdir(_e_dir):
+        _p = f"{_e_dir}/{_slug}/index.html"
+        if os.path.exists(_p):
+            try: _PRE_RMTREE_PAGES[_slug] = open(_p, encoding="utf-8").read()
+            except Exception: pass
 shutil.rmtree(f"{REPO}/list/e", ignore_errors=True)
 wk = {w["id"]: w for w in weeks}
 for e in events:
@@ -808,8 +823,15 @@ def _versioned_assets(doc):
 # event data from the JSON-LD this script itself wrote into the page on the run that built it, and feed that
 # into the same EVENT_HTML_DATA/HYDRATE_PATHS the loop above uses, so it gets hydrated (and gains YS_EVENT) too.
 _slug_to_hub = {h["slug"]: hid for hid, h in hubs.items()}
+_slug_to_week_hub = {w["slug"]: w["hub"] for w in weeks}
 _current_event_paths = set(HYDRATE_PATHS)
 _orphan_dir = f"{REPO}/list/e"
+# Write back any pre-rmtree page whose slug didn't get regenerated this run (its event dropped out of current
+# data, or was re-slugged) so the recovery loop just below -- which only looks at what's on disk -- can find it.
+for _slug, _html in _PRE_RMTREE_PAGES.items():
+    if not os.path.exists(f"{_orphan_dir}/{_slug}/index.html"):
+        os.makedirs(f"{_orphan_dir}/{_slug}", exist_ok=True)
+        open(f"{_orphan_dir}/{_slug}/index.html", "w", encoding="utf-8").write(_html)
 _orphans_recovered = 0
 if os.path.isdir(_orphan_dir):
     for _slug in sorted(os.listdir(_orphan_dir)):
@@ -825,7 +847,11 @@ if os.path.isdir(_orphan_dir):
             if not _ev_ld or not _crumbs: continue
             _city_item = _crumbs.get("itemListElement", [{}])[-2] if len(_crumbs.get("itemListElement", [])) >= 2 else None
             _hub_slug = urlsplit(_city_item["item"]).path.strip("/") if _city_item and _city_item.get("item") else None
-            _hid = _slug_to_hub.get(_hub_slug)
+            # The crumb right before an event is its city page for a city-only event, but its conference-week
+            # page when the event belongs to one (e.g. "NRF: Retail's Big Show side events") -- that slug isn't
+            # in _slug_to_hub at all, so an event like that was silently dropped here (never recovered) until the
+            # week-slug fallback below was added.
+            _hid = _slug_to_hub.get(_hub_slug) or _slug_to_week_hub.get(_hub_slug)
             _sd = _ev_ld.get("startDate") or ""
             if not _hid or not _sd: continue
             _date = _sd[:10]
