@@ -18,7 +18,7 @@ seen = {(e.get("link") or e.get("title"), e.get("date")) for e in data["events"]
 for x in extra:
     if isinstance(x, dict) and x.get("hub") and x.get("date") and (x.get("link") or x.get("title"), x["date"]) not in seen:
         seen.add((x.get("link") or x.get("title"), x["date"]))
-        data["events"].append({"title": x.get("title") or "Untitled", "hub": x["hub"], "date": x["date"], "start": x.get("start"), "end": x.get("end"),
+        data["events"].append({"title": x.get("title") or "Untitled", "hub": x["hub"], "date": x["date"], "start": x.get("start"), "end": x.get("end"), "until": x.get("until") or None,
             "host": x.get("host", ""), "venue": x.get("venue", ""), "link": x.get("link", ""), "desc": x.get("desc", ""), "type": x.get("type", ""),
             "week": next((w["id"] for w in data["weeks"] if w["hub"] == x["hub"] and w["start"] <= x["date"] <= w["end"]
                           and (not w.get("re") or re.search(w["re"], (x.get("title") or "") + " " + (x.get("link") or ""), re.I))), None),
@@ -172,7 +172,7 @@ for s in _sub.get("events", []):
     seen.add(key)
     hub = s["hub"]
     data["events"].append({"title": s["title"], "hub": hub, "date": s["date"], "start": s.get("start") or None,
-        "end": s.get("end") or None, "host": s.get("host") or "", "venue": s.get("venue") or "",
+        "end": s.get("end") or None, "until": s.get("until") or None, "host": s.get("host") or "", "venue": s.get("venue") or "",
         "link": link, "desc": s.get("desc") or "", "type": s.get("type", ""),
         "week": next((w["id"] for w in data["weeks"] if w["hub"] == hub and w["start"] <= s["date"] <= w["end"]
                       and (not w.get("re") or re.search(w["re"], s["title"] + " " + link, re.I))), None),
@@ -193,7 +193,11 @@ for ch in _sub.get("changes", []):
         e["week"] = next((w["id"] for w in data["weeks"] if w["hub"] == e["hub"] and w["start"] <= e["date"] <= w["end"]
                            and (not w.get("re") or re.search(w["re"], e["title"] + " " + (e.get("link") or ""), re.I))), None)
 
-events = [e for e in data["events"] if e["hub"] in hubs and TODAY <= dt.date.fromisoformat(e["date"]) <= HORIZON]
+# multi-day events ("until" = last day) stay on the site until their last day, not just their first
+def _last_day(e):
+    u = e.get("until")
+    return u if isinstance(u, str) and re.match(r"^\d{4}-\d{2}-\d{2}$", u) and u > e["date"] else e["date"]
+events = [e for e in data["events"] if e["hub"] in hubs and TODAY <= dt.date.fromisoformat(_last_day(e)) and dt.date.fromisoformat(e["date"]) <= HORIZON]
 # Several source feeds can carry the exact same real-world event (same hub, same date, same title) under
 # different links/venue text -- without this, both survive the client's link-based dedup (which only catches
 # an identical URL) and the event shows up twice in that city's list. Key on (hub, date, normalized title) and
@@ -289,6 +293,8 @@ def event_ld(e, camp):
           "eventAttendanceMode":"https://schema.org/OnlineEventAttendanceMode" if online else "https://schema.org/OfflineEventAttendanceMode",
           "url": ref(e["link"], camp) if e["link"] else LIST + h["slug"] + "/"}
     if e["end"]: ld["endDate"] = iso(e, "end")
+    if _last_day(e) != e["date"]:
+        ld["endDate"] = iso({**e, "date": _last_day(e)}, "end") if e["end"] else _last_day(e)
     if e["link"]: ld["offers"] = {"@type": "Offer", "url": ref(e["link"], camp), "availability": "https://schema.org/InStock", "validFrom": TODAY.isoformat()}
     if e["desc"]: ld["description"] = e["desc"]
     if online: ld["location"] = {"@type":"VirtualLocation","url":ld["url"]}
@@ -773,6 +779,9 @@ for e in events:
     h = hubs[e["hub"]]; w = wk.get(e.get("week")); camp = "list_event"; dd = dt.date.fromisoformat(e["date"])
     nice = dd.strftime("%A, %B ") + str(dd.day) + f", {dd.year}"
     when = nice + (f" · {t12(e['start'])}" if e.get("start") else "") + (f" to {t12(e['end'])}" if e.get("end") else "")
+    if _last_day(e) != e["date"]:
+        ud = dt.date.fromisoformat(_last_day(e))
+        when = f"{nice} to {ud.strftime('%A, %B ')}{ud.day}, {ud.year}" + (f" · {t12(e['start'])}" if e.get("start") else "") + (f" to {t12(e['end'])}" if e.get("end") else "") + f" ({(ud - dd).days + 1} days)"
     city_country = f'{h["name"]}, {h["country"]}' if h["country"] and h["id"] != "virtual" else h["name"]
     where = place(e) or city_country
     ctx = f"{w['name']} side event" if w else f"Startup event in {h['name']}"
@@ -815,7 +824,7 @@ for e in events:
     page(f"{REPO}/list/e/{e['slug']}/index.html", title, desc, canon, body, ld, img)
     HYDRATE_PATHS.append(f"{REPO}/list/e/{e['slug']}/index.html")
     EVENT_HTML_DATA[f"{REPO}/list/e/{e['slug']}/index.html"] = {
-        "title": e["title"], "hub": e["hub"], "date": e["date"], "start": e.get("start"), "end": e.get("end"),
+        "title": e["title"], "hub": e["hub"], "date": e["date"], "start": e.get("start"), "end": e.get("end"), "until": e.get("until"),
         "link": e.get("link"), "venue": e.get("venue"), "desc": e.get("desc"), "host": e.get("host"), "type": e.get("type"),
     }
     written.append((canon, True, "weekly", "0.6"))

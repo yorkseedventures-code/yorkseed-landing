@@ -98,6 +98,15 @@ def import_pending():
 
 # ---------- 1b. import whole city calendars (list/data/pending-cities.json) ----------
 from zoneinfo import ZoneInfo
+
+def span_end(date, ed, et):
+    """end time + last day for a feed event. Same day: just the end time. Ends the next morning (a late party): no
+    end time, one day. Ends later than that, within 21 days: a multi-day event, listed through its last day."""
+    if not ed or ed == date: return {"end": et}
+    try: days = (dt.date.fromisoformat(ed) - dt.date.fromisoformat(date)).days
+    except Exception: return {"end": None}
+    if days < 1 or days > 21 or (days == 1 and (et or "00:00") < "12:00"): return {"end": None}
+    return {"end": et, "until": ed}
 _TZ = {}
 def hub_tz(hub):
     if not _TZ:
@@ -192,7 +201,7 @@ def finish(info, reg, hub):
         if not date: return None
         end = to_local(info["end"], tz) if info.get("end") else (None, None)
         return {"title": re.sub(r'\s*[|·-]\s*(Luma|Eventbrite|Meetup|Partiful)\s*$', '', info["title"]).strip(), "hub": hub, "date": date,
-                "start": start, "end": end[1] if end[0] == date else None, "venue": info.get("venue", ""), "host": info.get("host", ""),
+                "start": start, **span_end(date, end[0], end[1]), "venue": info.get("venue", ""), "host": info.get("host", ""),
                 "link": reg, "desc": info.get("desc", ""), "_photo": info.get("photo", ""), "_city": info.get("city", "")}
     except Exception: return None
 
@@ -296,7 +305,7 @@ def import_submissions():
         k = (d.get("link") or "").split("?")[0].rstrip("/")
         if (k and k in seen_l) or (norm(d.get("title")), d["date"]) in seen_t: continue
         seen_l.add(k); seen_t.add((norm(d.get("title")), d["date"]))
-        events.append({x: d.get(x) for x in ("title", "hub", "date", "start", "end", "venue", "host", "link", "desc", "type", "partner", "yorkseed") if d.get(x)})
+        events.append({x: d.get(x) for x in ("title", "hub", "date", "until", "start", "end", "venue", "host", "link", "desc", "type", "partner", "yorkseed") if d.get(x)})
         added += 1
     if added: json.dump(events, open(f"{REPO}/list/events.json", "w"), ensure_ascii=False, indent=1)
     print(f"submissions: {added} approved events copied into events.json, {len(covers)} with an uploaded cover")
@@ -378,7 +387,7 @@ def import_luma_calendars():
                 ed, et = to_local(e["end_at"], hub_tz(hub)) if e.get("end_at") else (None, None)
                 venue = (g.get("sublocality") if g.get("mode") == "obfuscated" else (g.get("address") or "")) or ""
                 host = known[cid].get("name") or " & ".join([h.get("name") for h in (en.get("hosts") or []) if h.get("name")][:2])
-                events.append({"title": e["name"].strip(), "hub": hub, "date": date, "start": start, "end": et if ed == date else None,
+                events.append({"title": e["name"].strip(), "hub": hub, "date": date, "start": start, **span_end(date, ed, et),
                                "venue": venue, "host": host, "link": link, "desc": "Details and registration on the event page.", "src": "luma-cal"})
                 if e.get("cover_url"): photos[link] = e["cover_url"]
                 seen_l.add(link); seen_t.add((norm(e["name"]), date)); kept += 1
@@ -456,7 +465,7 @@ def import_foundercal():
             if not link: continue                                   # no organizer page we can link to directly
             if link in seen_l: continue
             fh, fv = _fc_clean(e.get("organizer"), e.get("venue"))
-            events.append({"title": title[:200], "hub": hub, "date": date, "start": st, "end": et if ed == date else None,
+            events.append({"title": title[:200], "hub": hub, "date": date, "start": st, **span_end(date, ed, et),
                            "venue": fv[:200], "host": fh[:120], "link": link,
                            **({"type": FC_TYPE[e["type"]]} if e.get("type") in FC_TYPE else {}),
                            "desc": "Details and registration on the event page.", "src": "foundercal"})
@@ -672,7 +681,7 @@ def import_techmeetups():
             if link in seen_l or (norm(title), date) in seen_t: continue
             v = e.get("venue") or {}; org = e.get("organizer") or {}
             venue = ", ".join(x for x in [v.get("name"), v.get("address")] if x and x.lower() not in ("online", "tba"))[:200]
-            events.append({"title": title[:200], "hub": hub, "date": date, "start": st, "end": et if ed == date else None, "venue": venue,
+            events.append({"title": title[:200], "hub": hub, "date": date, "start": st, **span_end(date, ed, et), "venue": venue,
                            "host": (org.get("name") or "")[:120], "link": link, "desc": "Details and registration on the event page.", "src": "techmeetups"})
             seen_l.add(link); seen_t.add((norm(title), date)); kept += 1
         if found: print(f"techmeetups {hub}: {len(found)} found, {kept} new"); REPORT.append({"source": "techmeetups.io", "hub": hub, "found": len(found), "added": kept})
@@ -780,7 +789,7 @@ def import_sources():
                 ed, et = to_local(e["end_at"], tz) if e.get("end_at") else (None, None)
                 venue = (g.get("sublocality") if g.get("mode") == "obfuscated" else (g.get("address") or "")) or ""
                 host = " & ".join([h.get("name") for h in (en.get("hosts") or []) if h.get("name")][:2]) or ((en.get("calendar") or {}).get("name") or "")
-                events.append({"title": e["name"].strip(), "hub": hub, "date": date, "start": start, "end": et if ed == date else None,
+                events.append({"title": e["name"].strip(), "hub": hub, "date": date, "start": start, **span_end(date, ed, et),
                                "venue": venue, "host": host, "link": link, "desc": "Details and registration on the event page.", "src": "luma"})
                 if e.get("cover_url"): photos[link] = e["cover_url"]
                 seen_l.add(link); seen_t.add((norm(e["name"]), date)); added += 1; kept += 1

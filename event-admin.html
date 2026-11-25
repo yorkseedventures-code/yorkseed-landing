@@ -365,7 +365,7 @@ $('delBtn').onclick=function(){
 };
 var SUB='https://yorkseed-backend-production.up.railway.app/api/list-submissions',subs=[],subTab='pending',trusted=[],trustSet={};
 function subApi(path,opt){var keep=API;API=SUB;try{return api(path,opt)}finally{API=keep}}
-function when(x){var t=x.date;try{t=new Date(x.date+'T12:00:00').toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric',year:'numeric'})}catch(e){}
+function when(x){var t=x.date;try{t=new Date(x.date+'T12:00:00').toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric',year:'numeric'})}catch(e){}if(x.until)try{t+=' to '+new Date(x.until+'T12:00:00').toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'})}catch(e){}
   var hm=function(v){var p=v.split(':'),h=+p[0];return (h%12||12)+(p[1]!=='00'?':'+p[1]:'')+(h<12?'am':'pm')};
   if(x.start)t+=' · '+hm(x.start)+(x.end?'–'+hm(x.end):'');return t}
 function loadSubs(){
