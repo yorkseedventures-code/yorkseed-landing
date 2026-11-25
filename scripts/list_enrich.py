@@ -388,6 +388,16 @@ FC_HUB = {"sf": "sf", "nyc": "nyc", "la": "la", "dc": "dc", "bangalore": "blr", 
 FC_TYPE = {"conference": "Conferences", "demo_day": "Demo Days", "hackathon": "Hackathons", "pitch": "Pitch", "workshop": "Workshops", "dinner": "Communal Dining", "meetup": "Meetups"}
 class _NoRedirect(__import__("urllib.request").request.HTTPRedirectHandler):
     def redirect_request(self, *a, **k): return None
+# FounderCal's "organizer" and "venue" fields are sometimes another page's title ("Berlin Tech Events: Week of 19 Oct 2026 |
+# An Open Room", "INiTS Demo Day #8", "New York Tech Week 2026"). Those read as wrong on an event page, so they are left blank.
+_FC_HOST_BAD = re.compile(r'(\||\bweek of\b|\b(19|20)\d\d\b|demo ?day\s*#?\s*\d|#\s?\d+\b)', re.I)
+_FC_VENUE_BAD = re.compile(r'(tech ?week|demo ?day|tech events)', re.I)
+def _fc_clean(host, venue):
+    host, venue = (host or "").strip(), (venue or "").strip()
+    if _FC_HOST_BAD.search(host): host = ""
+    if "," not in venue and _FC_VENUE_BAD.search(venue): venue = ""
+    return host, venue
+
 def import_foundercal():
     import urllib.request as ur
     get = lambda u: json.loads(urlopen(Request(u, headers={**UA, "Accept": "application/json"}), timeout=30).read().decode("utf-8", "ignore"))
@@ -435,8 +445,9 @@ def import_foundercal():
             link = canon(real(e.get("register_url")))
             if not link: continue                                   # no organizer page we can link to directly
             if link in seen_l: continue
+            fh, fv = _fc_clean(e.get("organizer"), e.get("venue"))
             events.append({"title": title[:200], "hub": hub, "date": date, "start": st, "end": et if ed == date else None,
-                           "venue": (e.get("venue") or "")[:200], "host": (e.get("organizer") or "")[:120], "link": link,
+                           "venue": fv[:200], "host": fh[:120], "link": link,
                            **({"type": FC_TYPE[e["type"]]} if e.get("type") in FC_TYPE else {}),
                            "desc": "Details and registration on the event page.", "src": "foundercal"})
             seen_l.add(link); seen_t.add((norm(title), date)); kept += 1
