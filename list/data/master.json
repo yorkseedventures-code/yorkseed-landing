@@ -801,6 +801,54 @@
    "country": "Morocco",
    "region": "",
    "img": ""
+  },
+  {
+   "id": "per",
+   "name": "Perth",
+   "tz": "Australia/Perth",
+   "country": "Australia",
+   "region": "",
+   "img": ""
+  },
+  {
+   "id": "mrs",
+   "name": "Marseille",
+   "tz": "Europe/Paris",
+   "country": "France",
+   "region": "",
+   "img": ""
+  },
+  {
+   "id": "idr",
+   "name": "Indore",
+   "tz": "Asia/Kolkata",
+   "country": "India",
+   "region": "",
+   "img": ""
+  },
+  {
+   "id": "ngo",
+   "name": "Nagoya",
+   "tz": "Asia/Tokyo",
+   "country": "Japan",
+   "region": "",
+   "img": ""
+  },
+  {
+   "id": "osa",
+   "name": "Osaka",
+   "tz": "Asia/Tokyo",
+   "country": "Japan",
+   "region": "",
+   "img": ""
+  },
+  {
+   "id": "han",
+   "name": "Hanoi",
+   "tz": "Asia/Ho_Chi_Minh",
+   "country": "Vietnam",
+   "region": "",
+   "img": ""
   }
  ],
  "weeks": [

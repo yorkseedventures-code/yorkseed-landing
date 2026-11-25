@@ -20256,7 +20256,7 @@
  },
  {
   "title": "West Tech Fest 2026 — Perth",
-  "hub": "sgp",
+  "hub": "per",
   "date": "2026-12-07",
   "start": null,
   "end": null,
@@ -82666,7 +82666,7 @@
  },
  {
   "title": "TechGALA Japan 2026: BEYOND",
-  "hub": "tyo",
+  "hub": "ngo",
   "date": "2026-12-15",
   "start": null,
   "end": null,
@@ -107457,6 +107457,62 @@
   "start": null,
   "end": null,
   "noTime": true,
+  "src": "manual"
+ },
+ {
+  "title": "GITEX AI Vietnam 2026",
+  "hub": "han",
+  "date": "2026-11-26",
+  "start": null,
+  "end": null,
+  "noTime": true,
+  "venue": "Hanoi",
+  "host": "GITEX",
+  "link": "https://gitexvietnam.com/",
+  "type": "Conferences",
+  "desc": "",
+  "src": "manual"
+ },
+ {
+  "title": "BioFIT 2026",
+  "hub": "mrs",
+  "date": "2026-12-10",
+  "start": null,
+  "end": null,
+  "noTime": true,
+  "venue": "Marseille",
+  "host": "BioFIT",
+  "link": "https://www.biofit-event.com/",
+  "type": "Conferences",
+  "desc": "",
+  "src": "manual"
+ },
+ {
+  "title": "TiE Global Summit 2026",
+  "hub": "idr",
+  "date": "2026-12-13",
+  "start": null,
+  "end": null,
+  "noTime": true,
+  "venue": "Indore",
+  "host": "TiE",
+  "link": "https://tieglobalsummit.org/",
+  "type": "Conferences",
+  "desc": "",
+  "src": "manual"
+ },
+ {
+  "title": "Tech Osaka Summit 2027",
+  "hub": "osa",
+  "date": "2027-01-26",
+  "start": null,
+  "end": null,
+  "noTime": true,
+  "venue": "Osaka",
+  "host": "Innovation Hub Osaka",
+  "link": "https://www.innovation-osaka.jp/tech-osaka-summit/en",
+  "type": "Conferences",
+  "desc": "",
   "src": "manual"
  }
 ]

@@ -7351,6 +7351,19 @@
    "list_page": "https://list.yorkseed.co/new-york/"
   },
   {
+   "title": "GITEX AI Vietnam 2026",
+   "city": "Hanoi",
+   "country": "Vietnam",
+   "start": "2026-11-26",
+   "end": null,
+   "host": "GITEX",
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://gitexvietnam.com/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/hanoi/"
+  },
+  {
    "title": "Ship 'n Run: a run club for founders & builders",
    "city": "New York",
    "country": "United States",
@@ -7477,7 +7490,7 @@
    "type": null,
    "conference_week": null,
    "description": "Details and registration on the event page.",
-   "register_url": "https://luma.com/https://offers.hubspot.com/the-revenue-engine-hackathon-berlin?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "register_url": "https://offers.hubspot.com/the-revenue-engine-hackathon-berlin?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/berlin/"
   },
   {
@@ -13106,7 +13119,7 @@
    "type": null,
    "conference_week": null,
    "description": "Details and registration on the event page.",
-   "register_url": "https://luma.com/https://www.sportsventureweek.com?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "register_url": "https://www.sportsventureweek.com?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/seattle/"
   },
   {
@@ -13526,6 +13539,19 @@
    "list_page": "https://list.yorkseed.co/milan/"
   },
   {
+   "title": "AfricArena Summit 2026",
+   "city": "Cape Town",
+   "country": "South Africa",
+   "start": "2026-11-30",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://www.africarena.com/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/cape-town/"
+  },
+  {
    "title": "Swiss InsurTech Summit & Awards 2026",
    "city": "Zurich",
    "country": "Switzerland",
@@ -13613,7 +13639,7 @@
    "type": null,
    "conference_week": null,
    "description": "Details and registration on the event page.",
-   "register_url": "https://luma.com/https://osloaibreakfastclub.lovable.app/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "register_url": "https://osloaibreakfastclub.lovable.app/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/oslo/"
   },
   {
@@ -14796,7 +14822,7 @@
    "type": null,
    "conference_week": null,
    "description": "Details and registration on the event page.",
-   "register_url": "https://luma.com/https://app.gametimehero.com/event/9p6rLsVW4wya02ipCfGg?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "register_url": "https://app.gametimehero.com/event/9p6rLsVW4wya02ipCfGg?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/seattle/"
   },
   {
@@ -35003,8 +35029,8 @@
   },
   {
    "title": "West Tech Fest 2026 — Perth",
-   "city": "Singapore",
-   "country": "Singapore",
+   "city": "Perth",
+   "country": "Australia",
    "start": "2026-12-07",
    "end": null,
    "host": null,
@@ -35012,7 +35038,7 @@
    "conference_week": null,
    "description": "Details and registration on the event page.",
    "register_url": "https://westtechfest.com.au?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
-   "list_page": "https://list.yorkseed.co/singapore/"
+   "list_page": "https://list.yorkseed.co/perth/"
   },
   {
    "title": "Open Source Summit Japan",
@@ -36898,6 +36924,19 @@
    "description": "Quantum computing conference for researchers, startups, investors and enterprises. Runs December 8–10, 2026.",
    "register_url": "https://q2b.qcware.com/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/chicago/"
+  },
+  {
+   "title": "Startup Dangal 2026",
+   "city": "New Delhi",
+   "country": "India",
+   "start": "2026-12-08",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://www.startupdangal.com/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/new-delhi/"
   },
   {
    "title": "Founders Dinner",
@@ -40865,6 +40904,19 @@
    "list_page": "https://list.yorkseed.co/barcelona/"
   },
   {
+   "title": "BioFIT 2026",
+   "city": "Marseille",
+   "country": "France",
+   "start": "2026-12-10",
+   "end": null,
+   "host": "BioFIT",
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://www.biofit-event.com/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/marseille/"
+  },
+  {
    "title": "Ship 'n Run: a run club for founders & builders",
    "city": "New York",
    "country": "United States",
@@ -42867,6 +42919,19 @@
    "list_page": "https://list.yorkseed.co/belgrade/"
   },
   {
+   "title": "TiE Global Summit 2026",
+   "city": "Indore",
+   "country": "India",
+   "start": "2026-12-13",
+   "end": null,
+   "host": "TiE",
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://tieglobalsummit.org/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/indore/"
+  },
+  {
    "title": "Go4Israel Investment Conference 2026 @ Miami Beach",
    "city": "Tel Aviv",
    "country": "Israel",
@@ -43817,7 +43882,7 @@
   },
   {
    "title": "TechGALA Japan 2026: BEYOND",
-   "city": "Tokyo",
+   "city": "Nagoya",
    "country": "Japan",
    "start": "2026-12-15",
    "end": null,
@@ -43826,7 +43891,7 @@
    "conference_week": null,
    "description": "Details and registration on the event page.",
    "register_url": "https://blackboxjp.com/event/tech-gala-japan-2026-beyond?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
-   "list_page": "https://list.yorkseed.co/tokyo/"
+   "list_page": "https://list.yorkseed.co/nagoya/"
   },
   {
    "title": "SIMBIOSYX: Matching Startups with Verified Experts to Fuel Innovation",
@@ -46663,6 +46728,19 @@
    "list_page": "https://list.yorkseed.co/belgrade/"
   },
   {
+   "title": "CryptoMondays Vegas: CES Week Kickoff",
+   "city": "Las Vegas",
+   "country": "United States",
+   "start": "2027-01-04T18:30:00-08:00",
+   "end": "2027-01-04T20:00:00-08:00",
+   "host": "CryptoMondays Vegas",
+   "type": "Meetups",
+   "conference_week": "CES",
+   "description": null,
+   "register_url": "https://luma.com/8cncaxcm?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/las-vegas/"
+  },
+  {
    "title": "CES Unveiled Las Vegas",
    "city": "Las Vegas",
    "country": "United States",
@@ -46673,6 +46751,19 @@
    "conference_week": "CES",
    "description": "Details and registration on the event page.",
    "register_url": "https://www.ces.tech?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/las-vegas/"
+  },
+  {
+   "title": "Silicon Valley Funding Summit 2027 (CES week)",
+   "city": "Las Vegas",
+   "country": "United States",
+   "start": "2027-01-05T08:00:00-08:00",
+   "end": "2027-01-05T20:00:00-08:00",
+   "host": "ENRICHers",
+   "type": "Pitch",
+   "conference_week": "CES",
+   "description": "Investor pitch day and competition for startups in town for CES, the day before the show opens.",
+   "register_url": "https://www.eventbrite.com/e/2001510719441?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/las-vegas/"
   },
   {
@@ -46741,6 +46832,19 @@
    "list_page": "https://list.yorkseed.co/toronto/"
   },
   {
+   "title": "Beyond the Show: A CES 2027 Networking Evening",
+   "city": "Las Vegas",
+   "country": "United States",
+   "start": "2027-01-05T13:00:00-08:00",
+   "end": "2027-01-05T14:00:00-08:00",
+   "host": "HabileLabs",
+   "type": "Networking",
+   "conference_week": "CES",
+   "description": null,
+   "register_url": "https://luma.com/uq0bdblz?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/las-vegas/"
+  },
+  {
    "title": "Pitch Practice SYLVAN",
    "city": "Atlanta",
    "country": "United States",
@@ -46754,6 +46858,19 @@
    "list_page": "https://list.yorkseed.co/atlanta/"
   },
   {
+   "title": "Las Vegas Investor Mixer (CES week)",
+   "city": "Las Vegas",
+   "country": "United States",
+   "start": "2027-01-05T14:00:00-08:00",
+   "end": "2027-01-05T16:00:00-08:00",
+   "host": "unofficials.club & Grapeleaf",
+   "type": "Investor Events",
+   "conference_week": "CES",
+   "description": null,
+   "register_url": "https://luma.com/59o9gvfo?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/las-vegas/"
+  },
+  {
    "title": "Seattle Startup Drinks",
    "city": "Seattle",
    "country": "United States",
@@ -46765,6 +46882,19 @@
    "description": "Details and registration on the event page.",
    "register_url": "https://www.meetup.com/startupfriends/events/317116593?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/seattle/"
+  },
+  {
+   "title": "staaake: 2nd Annual CES Opening AI/Tech Power Walk",
+   "city": "Las Vegas",
+   "country": "United States",
+   "start": "2027-01-05T17:00:00-08:00",
+   "end": "2027-01-05T18:00:00-08:00",
+   "host": "staaake",
+   "type": "Networking",
+   "conference_week": "CES",
+   "description": null,
+   "register_url": "https://luma.com/staaake-q6ax?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/las-vegas/"
   },
   {
    "title": "Kickoff Middle Aged Female Startup Founders Meetup",
@@ -46819,6 +46949,19 @@
    "list_page": "https://list.yorkseed.co/melbourne/"
   },
   {
+   "title": "CES Tech Pre-Mixer",
+   "city": "Las Vegas",
+   "country": "United States",
+   "start": "2027-01-05T18:00:00-08:00",
+   "end": "2027-01-05T20:00:00-08:00",
+   "host": "Crazy Startup Guy & unofficials.club",
+   "type": "Networking",
+   "conference_week": "CES",
+   "description": null,
+   "register_url": "https://luma.com/npr47umu?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/las-vegas/"
+  },
+  {
    "title": "Denver AI Lodge: First Round, First Builds 🍻🤖",
    "city": "Denver & Boulder",
    "country": "United States",
@@ -46858,6 +47001,19 @@
    "list_page": "https://list.yorkseed.co/toronto/"
   },
   {
+   "title": "Dinner with Minerva: CES Opening Night",
+   "city": "Las Vegas",
+   "country": "United States",
+   "start": "2027-01-05T20:30:00-08:00",
+   "end": "2027-01-05T22:30:00-08:00",
+   "host": "Minerva",
+   "type": "Communal Dining",
+   "conference_week": "CES",
+   "description": null,
+   "register_url": "https://luma.com/mikqirfa?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/las-vegas/"
+  },
+  {
    "title": "Startup Chowdown SYLVAN",
    "city": "Atlanta",
    "country": "United States",
@@ -46884,6 +47040,32 @@
    "list_page": "https://list.yorkseed.co/vancouver/"
   },
   {
+   "title": "Silicon Dragon CES 2027",
+   "city": "Las Vegas",
+   "country": "United States",
+   "start": "2027-01-06T17:00:00-08:00",
+   "end": "2027-01-06T19:00:00-08:00",
+   "host": "Silicon Dragon Ventures",
+   "type": "Investor Events",
+   "conference_week": "CES",
+   "description": null,
+   "register_url": "https://www.eventbrite.com/e/silicon-dragon-ces-2027-tickets-2004082065406?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/las-vegas/"
+  },
+  {
+   "title": "Growlink 2027 CES Forum and Global Tech Entrepreneurs Dinner",
+   "city": "Las Vegas",
+   "country": "United States",
+   "start": "2027-01-06T17:30:00-08:00",
+   "end": "2027-01-06T22:30:00-08:00",
+   "host": "Growlink & 985 Alumni Circle",
+   "type": "Communal Dining",
+   "conference_week": "CES",
+   "description": null,
+   "register_url": "https://luma.com/3k8ea3ia?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/las-vegas/"
+  },
+  {
    "title": "Startup Pitch Events NYC: 5 Founders on Stage",
    "city": "New York",
    "country": "United States",
@@ -46908,6 +47090,45 @@
    "description": "Details and registration on the event page.",
    "register_url": "https://www.meetup.com/woman-in-technogy-barcelona/events/316661392/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/barcelona/"
+  },
+  {
+   "title": "Synexis Investor Dinner at CES: Vertical AI, Consumer & Creator Economy",
+   "city": "Las Vegas",
+   "country": "United States",
+   "start": "2027-01-06T18:00:00-08:00",
+   "end": "2027-01-06T22:00:00-08:00",
+   "host": "Synexis",
+   "type": "Investor Events",
+   "conference_week": "CES",
+   "description": null,
+   "register_url": "https://luma.com/prem22sept?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/las-vegas/"
+  },
+  {
+   "title": "An Informal Party to Rock CES",
+   "city": "Las Vegas",
+   "country": "United States",
+   "start": "2027-01-06T18:30:00-08:00",
+   "end": "2027-01-06T23:30:00-08:00",
+   "host": "Nate Padgett & Sam Holland",
+   "type": "Party",
+   "conference_week": "CES",
+   "description": null,
+   "register_url": "https://luma.com/ied4o5gj?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/las-vegas/"
+  },
+  {
+   "title": "Media in Retail Dinner at CES",
+   "city": "Las Vegas",
+   "country": "United States",
+   "start": "2027-01-06T18:30:00-08:00",
+   "end": "2027-01-06T21:00:00-08:00",
+   "host": "Rethink Retail",
+   "type": "Communal Dining",
+   "conference_week": "CES",
+   "description": null,
+   "register_url": "https://luma.com/rethink-ulx4?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/las-vegas/"
   },
   {
    "title": "Startup Pitch & Networking in San Francisco",
@@ -47053,6 +47274,32 @@
    "list_page": "https://list.yorkseed.co/madrid/"
   },
   {
+   "title": "Creator Dinner Party (CES week)",
+   "city": "Las Vegas",
+   "country": "United States",
+   "start": "2027-01-06T19:00:00-08:00",
+   "end": "2027-01-06T21:00:00-08:00",
+   "host": "unofficials.club",
+   "type": "Communal Dining",
+   "conference_week": "CES",
+   "description": null,
+   "register_url": "https://luma.com/lsk3d1km?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/las-vegas/"
+  },
+  {
+   "title": "TKO/ipX + EDGE AI Foundation After Party at CES",
+   "city": "Las Vegas",
+   "country": "United States",
+   "start": "2027-01-06T20:00:00-08:00",
+   "end": "2027-01-06T23:59:00-08:00",
+   "host": "TKO/ipX & EDGE AI Foundation",
+   "type": "Party",
+   "conference_week": "CES",
+   "description": null,
+   "register_url": "https://luma.com/luzno0b5?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/las-vegas/"
+  },
+  {
    "title": "CES 2027",
    "city": "Las Vegas",
    "country": "United States",
@@ -47090,6 +47337,32 @@
    "description": "Details and registration on the event page.",
    "register_url": "https://iati.co.il/event/iati-mini-mixiii-miami-2027?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/tel-aviv/"
+  },
+  {
+   "title": "CES 2027 Investor and Startup Breakfast (invite only)",
+   "city": "Las Vegas",
+   "country": "United States",
+   "start": "2027-01-07T07:00:00-08:00",
+   "end": "2027-01-07T09:00:00-08:00",
+   "host": "CTA",
+   "type": "Investor Events",
+   "conference_week": "CES",
+   "description": null,
+   "register_url": "https://www.ces.tech/schedule/ces-2027-investor-and-startup-breakfast/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/las-vegas/"
+  },
+  {
+   "title": "Physical Product Development Networking Breakfast @ CES 2027",
+   "city": "Las Vegas",
+   "country": "United States",
+   "start": "2027-01-07T07:30:00-08:00",
+   "end": "2027-01-07T09:00:00-08:00",
+   "host": "Why Design Events",
+   "type": "Networking",
+   "conference_week": "CES",
+   "description": null,
+   "register_url": "https://luma.com/o67fmj3o?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/las-vegas/"
   },
   {
    "title": "Founder’s Therapy - Coffee Roundtable",
@@ -47144,6 +47417,32 @@
    "list_page": "https://list.yorkseed.co/san-francisco-bay-area/"
   },
   {
+   "title": "M-Lab Unplugged 2027: The AI Mobility Lounge",
+   "city": "Las Vegas",
+   "country": "United States",
+   "start": "2027-01-07T15:00:00-08:00",
+   "end": "2027-01-07T17:30:00-08:00",
+   "host": "M-Lab",
+   "type": "Networking",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://www.eventbrite.com/e/m-lab-unplugged-2027-the-ai-mobility-lounge-tickets-2003944230137?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/las-vegas/"
+  },
+  {
+   "title": "CES 2027 Investor Networking Reception",
+   "city": "Las Vegas",
+   "country": "United States",
+   "start": "2027-01-07T16:00:00-08:00",
+   "end": "2027-01-07T17:30:00-08:00",
+   "host": "CTA",
+   "type": "Investor Events",
+   "conference_week": "CES",
+   "description": null,
+   "register_url": "https://www.ces.tech/schedule/ces-2027-investor-networking-reception/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/las-vegas/"
+  },
+  {
    "title": "CES 2027 AI MeetUp",
    "city": "Las Vegas",
    "country": "United States",
@@ -47181,6 +47480,45 @@
    "description": "Details and registration on the event page.",
    "register_url": "https://www.meetup.com/betreute-intelligenz/events/317289417?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/munich/"
+  },
+  {
+   "title": "Startup World Cup Las Vegas Regional 2027",
+   "city": "Las Vegas",
+   "country": "United States",
+   "start": "2027-01-07T17:00:00-08:00",
+   "end": "2027-01-07T20:30:00-08:00",
+   "host": "Pegasus Tech Ventures",
+   "type": "Pitch",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://www.eventbrite.com/e/startup-world-cup-las-vegas-regional-2027-tickets-2002566288677?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/las-vegas/"
+  },
+  {
+   "title": "LevelUp: A Night to Elevate Startups",
+   "city": "Las Vegas",
+   "country": "United States",
+   "start": "2027-01-07T17:00:00-08:00",
+   "end": "2027-01-07T20:00:00-08:00",
+   "host": "StartUp Vegas",
+   "type": "Meetups",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://www.meetup.com/startup-vegas/events/312891546/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/las-vegas/"
+  },
+  {
+   "title": "Global Innovation Forum 2027 at CES (media and VC only)",
+   "city": "Las Vegas",
+   "country": "United States",
+   "start": "2027-01-07T17:30:00-08:00",
+   "end": "2027-01-07T21:00:00-08:00",
+   "host": "Global Innovation Forum",
+   "type": "Investor Events",
+   "conference_week": "CES",
+   "description": null,
+   "register_url": "https://www.eventbrite.com/e/global-innovation-forum-2027-ces-2027-media-vc-only-tickets-2004342276705?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/las-vegas/"
   },
   {
    "title": "TFF: The Raven Scholar",
@@ -47248,6 +47586,32 @@
    "list_page": "https://list.yorkseed.co/new-york/"
   },
   {
+   "title": "Investors Wine Mixer (CES week)",
+   "city": "Las Vegas",
+   "country": "United States",
+   "start": "2027-01-07T18:00:00-08:00",
+   "end": "2027-01-07T20:00:00-08:00",
+   "host": "unofficials.club & Grapeleaf",
+   "type": "Investor Events",
+   "conference_week": "CES",
+   "description": null,
+   "register_url": "https://luma.com/592hdzh3?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/las-vegas/"
+  },
+  {
+   "title": "Investors and Innovators at CES in Las Vegas",
+   "city": "Las Vegas",
+   "country": "United States",
+   "start": "2027-01-07T18:00:00-08:00",
+   "end": "2027-01-07T21:00:00-08:00",
+   "host": "Black Dog Venture Partners",
+   "type": "Investor Events",
+   "conference_week": "CES",
+   "description": null,
+   "register_url": "https://luma.com/CESLasVegas?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/las-vegas/"
+  },
+  {
    "title": "Startup Pitch & Networking in Miami",
    "city": "Miami",
    "country": "United States",
@@ -47259,6 +47623,32 @@
    "description": "Details and registration on the event page.",
    "register_url": "https://luma.com/djfgmz4k?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/miami/"
+  },
+  {
+   "title": "Tech on Ice at CES",
+   "city": "Las Vegas",
+   "country": "United States",
+   "start": "2027-01-07T18:30:00-08:00",
+   "end": "2027-01-07T22:00:00-08:00",
+   "host": "Association for Competitive Technology (ACT)",
+   "type": "Social",
+   "conference_week": "CES",
+   "description": null,
+   "register_url": "https://luma.com/c81xmvkl?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/las-vegas/"
+  },
+  {
+   "title": "OrionStar Freedom Night @CES",
+   "city": "Las Vegas",
+   "country": "United States",
+   "start": "2027-01-07T18:30:00-08:00",
+   "end": "2027-01-07T21:00:00-08:00",
+   "host": "OrionStar & Cheetah Community",
+   "type": "Networking",
+   "conference_week": "CES",
+   "description": null,
+   "register_url": "https://luma.com/jzkpiuak?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/las-vegas/"
   },
   {
    "title": "Startup Pitch & Networking in Toronto",
@@ -47313,6 +47703,19 @@
    "list_page": "https://list.yorkseed.co/las-vegas/"
   },
   {
+   "title": "CES Roast Night & Chinese Founders Networking Night",
+   "city": "Las Vegas",
+   "country": "United States",
+   "start": "2027-01-07T20:00:00-08:00",
+   "end": "2027-01-07T22:00:00-08:00",
+   "host": "NUS Business School",
+   "type": "Networking",
+   "conference_week": "CES",
+   "description": null,
+   "register_url": "https://luma.com/jt8cipg3?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/las-vegas/"
+  },
+  {
    "title": "Tech on Ice",
    "city": "São Paulo & Rio",
    "country": "Brazil",
@@ -47324,6 +47727,19 @@
    "description": "Details and registration on the event page.",
    "register_url": "https://actonline.org/event/tech-on-ice?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/sao-paulo-rio/"
+  },
+  {
+   "title": "AGC Partners' Austin Software Summit 2027",
+   "city": "Austin",
+   "country": "United States",
+   "start": "2027-01-07",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://www.agcpartners.com/events/agc-partners-austin-software-summit?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/austin/"
   },
   {
    "title": "Venture Capital Investment Competition (VCIC)",
@@ -47378,6 +47794,32 @@
    "list_page": "https://list.yorkseed.co/pune/"
   },
   {
+   "title": "Meet Korea's Next Movers: 1:1 Meetings with Hwaseong Startups",
+   "city": "Las Vegas",
+   "country": "United States",
+   "start": "2027-01-08T13:00:00-08:00",
+   "end": "2027-01-08T17:00:00-08:00",
+   "host": "Zephyrus Lab",
+   "type": "Investor Events",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://luma.com/wm6dkrg0?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/las-vegas/"
+  },
+  {
+   "title": "CES Asia Night 2027: Business Forum and Innovation Gala",
+   "city": "Las Vegas",
+   "country": "United States",
+   "start": "2027-01-08T13:30:00-08:00",
+   "end": "2027-01-08T22:00:00-08:00",
+   "host": "Network of America China Commerce",
+   "type": "Conferences",
+   "conference_week": "CES",
+   "description": null,
+   "register_url": "https://www.eventbrite.com/e/ces-asia-night-2027-business-forum-innovation-gala-tickets-2004110922719?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/las-vegas/"
+  },
+  {
    "title": "#30. AI/ML Code And Learn",
    "city": "Seattle",
    "country": "United States",
@@ -47389,6 +47831,19 @@
    "description": "Details and registration on the event page.",
    "register_url": "https://www.meetup.com/seattle-ai-ml-skills/events/317172219/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/seattle/"
+  },
+  {
+   "title": "CES 2027 Afterparty & Demo Day",
+   "city": "Las Vegas",
+   "country": "United States",
+   "start": "2027-01-08T15:00:00-08:00",
+   "end": "2027-01-08T17:30:00-08:00",
+   "host": "EPIC Connector · FounderGro",
+   "type": "Demo Days",
+   "conference_week": "CES",
+   "description": null,
+   "register_url": "https://luma.com/ces27?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/las-vegas/"
   },
   {
    "title": "AI Happy Hour at FriendsQuarters #9: Come Out of Hibernation",
@@ -47415,6 +47870,19 @@
    "description": "Details and registration on the event page.",
    "register_url": "https://luma.com/q6z8vdgl?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/madrid/"
+  },
+  {
+   "title": "Founders & Investors Break Bread (CES week)",
+   "city": "Las Vegas",
+   "country": "United States",
+   "start": "2027-01-08T19:00:00-08:00",
+   "end": "2027-01-08T21:00:00-08:00",
+   "host": "unofficials.club",
+   "type": "Communal Dining",
+   "conference_week": "CES",
+   "description": null,
+   "register_url": "https://luma.com/r9g0ouy7?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/las-vegas/"
   },
   {
    "title": "Pitch Practice- ATV Buckhead",
@@ -47560,6 +48028,19 @@
    "list_page": "https://list.yorkseed.co/new-york/"
   },
   {
+   "title": "CES Party List Party: 21st Annual",
+   "city": "Las Vegas",
+   "country": "United States",
+   "start": "2027-01-09T18:00:00-08:00",
+   "end": "2027-01-09T21:00:00-08:00",
+   "host": "BitAngels, Michael Terpin & Joyce Chow",
+   "type": "Party",
+   "conference_week": "CES",
+   "description": null,
+   "register_url": "https://luma.com/jzgsgy3p?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/las-vegas/"
+  },
+  {
    "title": "⚕️ SF HealthTech Week 2027 Passport! ⚕️(@ JPM)",
    "city": "Bay Area",
    "country": "United States",
@@ -47635,6 +48116,19 @@
    "conference_week": "JPM Healthcare Week",
    "description": "Details and registration on the event page.",
    "register_url": "https://luma.com/jk3scmjz?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/san-francisco-bay-area/"
+  },
+  {
+   "title": "Astia Investor Reception (JPM Week)",
+   "city": "Bay Area",
+   "country": "United States",
+   "start": "2027-01-10T16:00:00-08:00",
+   "end": "2027-01-10T18:00:00-08:00",
+   "host": "Astia",
+   "type": "Investor Events",
+   "conference_week": "JPM Healthcare Week",
+   "description": null,
+   "register_url": "https://luma.com/twgp9mgg?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/san-francisco-bay-area/"
   },
   {
@@ -47716,6 +48210,19 @@
    "list_page": "https://list.yorkseed.co/new-york/"
   },
   {
+   "title": "Lux Capital x Benchling Executive JPM Breakfast",
+   "city": "Bay Area",
+   "country": "United States",
+   "start": "2027-01-11T08:00:00-08:00",
+   "end": "2027-01-11T11:00:00-08:00",
+   "host": "Lux Capital & Benchling",
+   "type": "Investor Events",
+   "conference_week": "JPM Healthcare Week",
+   "description": null,
+   "register_url": "https://luma.com/3aclita0?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/san-francisco-bay-area/"
+  },
+  {
    "title": "Present to Lifesciences CVC's/VC's/angels during JP Morgan",
    "city": "Bay Area",
    "country": "United States",
@@ -47726,6 +48233,19 @@
    "conference_week": "JPM Healthcare Week",
    "description": "Details and registration on the event page.",
    "register_url": "https://luma.com/722bpgtn?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/san-francisco-bay-area/"
+  },
+  {
+   "title": "BLOC at JPM Reception",
+   "city": "Bay Area",
+   "country": "United States",
+   "start": "2027-01-11T16:30:00-08:00",
+   "end": "2027-01-11T19:30:00-08:00",
+   "host": "BLOC",
+   "type": "Networking",
+   "conference_week": "JPM Healthcare Week",
+   "description": null,
+   "register_url": "https://luma.com/r9l10iie?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/san-francisco-bay-area/"
   },
   {
@@ -47794,6 +48314,58 @@
    "list_page": "https://list.yorkseed.co/san-francisco-bay-area/"
   },
   {
+   "title": "Biotech Showcase 2027",
+   "city": "Bay Area",
+   "country": "United States",
+   "start": "2027-01-11",
+   "end": null,
+   "host": "Demy-Colton / Informa",
+   "type": "Conferences",
+   "conference_week": "JPM Healthcare Week",
+   "description": "Three days of company presentations and one-to-one meetings with 1,100+ life science investors during JPM Week, January 11–13.",
+   "register_url": "https://informaconnect.com/biotech-showcase/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/san-francisco-bay-area/"
+  },
+  {
+   "title": "RESI JPM 2027",
+   "city": "Bay Area",
+   "country": "United States",
+   "start": "2027-01-11",
+   "end": null,
+   "host": "RESI / Life Science Nation",
+   "type": "Investor Events",
+   "conference_week": "JPM Healthcare Week",
+   "description": "Early-stage life science fundraising and investor partnering during JPM Week.",
+   "register_url": "https://resiconference.com/resi-jpm/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/san-francisco-bay-area/"
+  },
+  {
+   "title": "BIO Partnering @ JPM Week 2027",
+   "city": "Bay Area",
+   "country": "United States",
+   "start": "2027-01-11",
+   "end": null,
+   "host": "BIO",
+   "type": "Investor Events",
+   "conference_week": "JPM Healthcare Week",
+   "description": "BIO's one-to-one partnering system and meeting space for JPM Week.",
+   "register_url": "https://bpjw.bio.org/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/san-francisco-bay-area/"
+  },
+  {
+   "title": "Global Entrepreneurship Congress 2027",
+   "city": "Paris",
+   "country": "France",
+   "start": "2027-01-11",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://entrepreneurship.insightconferences.com/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/paris/"
+  },
+  {
    "title": "Lunch & Learn: Risk Mitigation - Commercialization Roadmap",
    "city": "Vancouver",
    "country": "Canada",
@@ -47829,7 +48401,7 @@
    "type": null,
    "conference_week": "JPM Healthcare Week",
    "description": "Details and registration on the event page.",
-   "register_url": "https://luma.com/https://www.nixonpeabody.com/events/global-life-sciences-breakfast?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "register_url": "https://www.nixonpeabody.com/events/global-life-sciences-breakfast?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/san-francisco-bay-area/"
   },
   {
@@ -47870,6 +48442,19 @@
    "description": "Details and registration on the event page.",
    "register_url": "https://www.launchmidvalley.org/event-info/salem-coffee-club-for-startups-and-entrepreneurs-2027-01-12-09-00?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/portland/"
+  },
+  {
+   "title": "Investor Speed Dating (JPM Week)",
+   "city": "Bay Area",
+   "country": "United States",
+   "start": "2027-01-12T09:00:00-08:00",
+   "end": "2027-01-12T12:00:00-08:00",
+   "host": "ScaleSpark.ai",
+   "type": "Investor Events",
+   "conference_week": "JPM Healthcare Week",
+   "description": null,
+   "register_url": "https://luma.com/xvci3m3m?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/san-francisco-bay-area/"
   },
   {
    "title": "Women in AI Breakfast @ Focus Innovation Studio",
@@ -47924,6 +48509,32 @@
    "list_page": "https://list.yorkseed.co/seattle/"
   },
   {
+   "title": "JPM Innovation Networking Lounge",
+   "city": "Bay Area",
+   "country": "United States",
+   "start": "2027-01-12T13:00:00-08:00",
+   "end": "2027-01-12T16:00:00-08:00",
+   "host": "ScaleSpark.ai",
+   "type": "Networking",
+   "conference_week": "JPM Healthcare Week",
+   "description": null,
+   "register_url": "https://luma.com/5ruyhy2l?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/san-francisco-bay-area/"
+  },
+  {
+   "title": "Global IR Pitching @ JPM 2027",
+   "city": "Bay Area",
+   "country": "United States",
+   "start": "2027-01-12T14:00:00-08:00",
+   "end": "2027-01-12T17:00:00-08:00",
+   "host": "KoreaBIO & Sidley",
+   "type": "Pitch",
+   "conference_week": "JPM Healthcare Week",
+   "description": null,
+   "register_url": "https://www.sidley.com/en/insights/resources/2027-jpmorgan-healthcare-conference-sidley-events?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/san-francisco-bay-area/"
+  },
+  {
    "title": "MBC BioLabs Sky Lounge & Reception",
    "city": "Bay Area",
    "country": "United States",
@@ -47934,6 +48545,19 @@
    "conference_week": null,
    "description": "Details and registration on the event page.",
    "register_url": "https://luma.com/mbc-9yhr?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/san-francisco-bay-area/"
+  },
+  {
+   "title": "Healthcare VC Mixer during JPM Week 2027",
+   "city": "Bay Area",
+   "country": "United States",
+   "start": "2027-01-12T16:00:00-08:00",
+   "end": "2027-01-12T18:00:00-08:00",
+   "host": "The Healthcare Community",
+   "type": "Investor Events",
+   "conference_week": "JPM Healthcare Week",
+   "description": null,
+   "register_url": "https://luma.com/yq0t13de?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/san-francisco-bay-area/"
   },
   {
@@ -48130,6 +48754,19 @@
    "description": "Details and registration on the event page.",
    "register_url": "https://luma.com/ylgo8hot?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/singapore/"
+  },
+  {
+   "title": "The Programmable Brain @ JPM Healthcare 2027",
+   "city": "Bay Area",
+   "country": "United States",
+   "start": "2027-01-12T18:00:00-08:00",
+   "end": "2027-01-12T21:00:00-08:00",
+   "host": "Marko Tvrdic & Gabriel Ocana Santero",
+   "type": "Talk",
+   "conference_week": "JPM Healthcare Week",
+   "description": null,
+   "register_url": "https://luma.com/jqzr6dw6?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/san-francisco-bay-area/"
   },
   {
    "title": "AI for PR: Mastering GEO",
@@ -48652,6 +49289,19 @@
    "list_page": "https://list.yorkseed.co/san-francisco-bay-area/"
   },
   {
+   "title": "DLD Munich 2027",
+   "city": "Munich",
+   "country": "Germany",
+   "start": "2027-01-14",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://www.dld-conference.com/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/munich/"
+  },
+  {
    "title": "Startup Ski Day - Vail",
    "city": "Denver & Boulder",
    "country": "United States",
@@ -48782,6 +49432,19 @@
    "list_page": "https://list.yorkseed.co/chicago/"
   },
   {
+   "title": "Physical AI Investment Summit 2027",
+   "city": "Bay Area",
+   "country": "United States",
+   "start": "2027-01-16T09:00:00-08:00",
+   "end": "2027-01-16T18:00:00-08:00",
+   "host": "SESE",
+   "type": "Investor Events",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://luma.com/sesepais2027?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/san-francisco-bay-area/"
+  },
+  {
    "title": "nwHacks 2027",
    "city": "Vancouver",
    "country": "Canada",
@@ -48860,6 +49523,19 @@
    "list_page": "https://list.yorkseed.co/sao-paulo-rio/"
   },
   {
+   "title": "Startup Greece Delegation at Davos",
+   "city": "Davos",
+   "country": "Switzerland",
+   "start": "2027-01-17T08:00:00+01:00",
+   "end": null,
+   "host": "Startup Greece",
+   "type": "Networking",
+   "conference_week": "WEF Davos",
+   "description": null,
+   "register_url": "https://www.eventbrite.com/e/startup-greece-delegation-at-davos2026-registration-2004738089592?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/davos/"
+  },
+  {
    "title": "ICE ’27 Barcelona Coffee Run by VC Startups Run Club & EasyStaff",
    "city": "Barcelona",
    "country": "Spain",
@@ -48871,6 +49547,45 @@
    "description": "Details and registration on the event page.",
    "register_url": "https://luma.com/jtseumk4?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/barcelona/"
+  },
+  {
+   "title": "House of Collaboration Davos: Welcome Reception",
+   "city": "Davos",
+   "country": "Switzerland",
+   "start": "2027-01-17T16:30:00+01:00",
+   "end": "2027-01-17T18:00:00+01:00",
+   "host": "J3D.AI / House of Collaboration Davos",
+   "type": "Networking",
+   "conference_week": "WEF Davos",
+   "description": null,
+   "register_url": "https://luma.com/cdtenz1k?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/davos/"
+  },
+  {
+   "title": "WEF Art & Startup Night",
+   "city": "Davos",
+   "country": "Switzerland",
+   "start": "2027-01-17T18:00:00+01:00",
+   "end": "2027-01-17T20:00:00+01:00",
+   "host": "SwissFemale Angel Club & SwissFinTechLadies",
+   "type": "Networking",
+   "conference_week": "WEF Davos",
+   "description": null,
+   "register_url": "https://luma.com/mvf7l142?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/davos/"
+  },
+  {
+   "title": "WEF Pre-Mixer",
+   "city": "Davos",
+   "country": "Switzerland",
+   "start": "2027-01-17T18:00:00+01:00",
+   "end": "2027-01-17T20:00:00+01:00",
+   "host": "unofficials.club & Crazy Startup Guy",
+   "type": "Networking",
+   "conference_week": "WEF Davos",
+   "description": null,
+   "register_url": "https://luma.com/dcspbywy?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/davos/"
   },
   {
    "title": "Belgrade Entrepreneurs and Startups Weekly Meetup",
@@ -48912,6 +49627,32 @@
    "list_page": "https://list.yorkseed.co/davos/"
   },
   {
+   "title": "Wealth Tech Executive Forum: Davos Edition",
+   "city": "Davos",
+   "country": "Switzerland",
+   "start": "2027-01-18T09:00:00+01:00",
+   "end": "2027-01-18T12:30:00+01:00",
+   "host": "CV VC & The Hub Davos",
+   "type": "Conferences",
+   "conference_week": "WEF Davos",
+   "description": null,
+   "register_url": "https://luma.com/gfx017da?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/davos/"
+  },
+  {
+   "title": "Future Investments Circle",
+   "city": "Davos",
+   "country": "Switzerland",
+   "start": "2027-01-18T10:00:00+01:00",
+   "end": "2027-01-18T15:00:00+01:00",
+   "host": "Future Investments",
+   "type": "Investor Events",
+   "conference_week": "WEF Davos",
+   "description": null,
+   "register_url": "https://luma.com/urvi312y?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/davos/"
+  },
+  {
    "title": "Gamma Prime Investing Summit 2027 Davos🇨🇭",
    "city": "Davos",
    "country": "Switzerland",
@@ -48922,6 +49663,58 @@
    "conference_week": "WEF Davos",
    "description": "Details and registration on the event page.",
    "register_url": "https://luma.com/worldeconomicforum2027?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/davos/"
+  },
+  {
+   "title": "The Digital Economist: Davos Agenda 2027",
+   "city": "Davos",
+   "country": "Switzerland",
+   "start": "2027-01-18T12:00:00+01:00",
+   "end": "2027-01-18T15:30:00+01:00",
+   "host": "The Digital Economist",
+   "type": "Talk",
+   "conference_week": "WEF Davos",
+   "description": null,
+   "register_url": "https://luma.com/jd9smx60?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/davos/"
+  },
+  {
+   "title": "Davos Space Day 2027",
+   "city": "Davos",
+   "country": "Switzerland",
+   "start": "2027-01-18T13:00:00+01:00",
+   "end": "2027-01-18T18:30:00+01:00",
+   "host": "Davos Space Day",
+   "type": "Conferences",
+   "conference_week": "WEF Davos",
+   "description": null,
+   "register_url": "https://davosspaceday.com/space-day?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/davos/"
+  },
+  {
+   "title": "Africa Collective Davos Briefing",
+   "city": "Davos",
+   "country": "Switzerland",
+   "start": "2027-01-18T16:00:00+01:00",
+   "end": null,
+   "host": "Africa Collective",
+   "type": "Talk",
+   "conference_week": "WEF Davos",
+   "description": null,
+   "register_url": "https://www.africacollective.com/davos?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/davos/"
+  },
+  {
+   "title": "SACC Swiss Asian Night 2027",
+   "city": "Davos",
+   "country": "Switzerland",
+   "start": "2027-01-18T17:30:00+01:00",
+   "end": "2027-01-18T23:00:00+01:00",
+   "host": "Swiss-Asian Chamber of Commerce",
+   "type": "Networking",
+   "conference_week": "WEF Davos",
+   "description": null,
+   "register_url": "https://luma.com/xk193qcs?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/davos/"
   },
   {
@@ -48936,6 +49729,19 @@
    "description": "Details and registration on the event page.",
    "register_url": "https://www.meetup.com/secure-ai-devops-boulder/events/sbpgvtykccbxb?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/denver-boulder/"
+  },
+  {
+   "title": "Norway Nights Davos 2027",
+   "city": "Davos",
+   "country": "Switzerland",
+   "start": "2027-01-18T20:00:00+01:00",
+   "end": "2027-01-18T23:59:00+01:00",
+   "host": "Norway Nights Davos",
+   "type": "Party",
+   "conference_week": "WEF Davos",
+   "description": null,
+   "register_url": "https://luma.com/7pfrvrbe?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/davos/"
   },
   {
    "title": "World Economic Forum Annual Meeting 2027",
@@ -48961,6 +49767,110 @@
    "conference_week": "WEF Davos",
    "description": "Invitation-only sessions from The Economist Group's events arm, January 18 to 22. Register interest on the page.",
    "register_url": "https://events.economistenterprise.com/davos-hub/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/davos/"
+  },
+  {
+   "title": "Davos Innovation Week 2027",
+   "city": "Davos",
+   "country": "Switzerland",
+   "start": "2027-01-18",
+   "end": null,
+   "host": "Davos Innovation Week",
+   "type": "Conferences",
+   "conference_week": "WEF Davos",
+   "description": null,
+   "register_url": "https://www.davosinnovationweek.com/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/davos/"
+  },
+  {
+   "title": "Family Office Investors Summit Davos 2027",
+   "city": "Davos",
+   "country": "Switzerland",
+   "start": "2027-01-18",
+   "end": null,
+   "host": "FamilyOfficesInvestors",
+   "type": "Investor Events",
+   "conference_week": "WEF Davos",
+   "description": null,
+   "register_url": "https://luma.com/FOIS_DAVOS2027?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/davos/"
+  },
+  {
+   "title": "Global Innovation Week 2027 (WEF week, Zurich)",
+   "city": "Zurich",
+   "country": "Switzerland",
+   "start": "2027-01-18",
+   "end": null,
+   "host": "House of Innovation Switzerland",
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://hoi.swiss/en/global-innovation-week?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/zurich/"
+  },
+  {
+   "title": "Alpine Tech Forum Davos 2027",
+   "city": "Davos",
+   "country": "Switzerland",
+   "start": "2027-01-18",
+   "end": null,
+   "host": "Alpine Tech Forum",
+   "type": "Conferences",
+   "conference_week": "WEF Davos",
+   "description": null,
+   "register_url": "https://alpinetechforum.com?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/davos/"
+  },
+  {
+   "title": "Ai Growth Summit Davos 2027",
+   "city": "Davos",
+   "country": "Switzerland",
+   "start": "2027-01-18",
+   "end": null,
+   "host": "Ai Growth Association",
+   "type": "Conferences",
+   "conference_week": "WEF Davos",
+   "description": null,
+   "register_url": "https://aigrowthassociation.com?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/davos/"
+  },
+  {
+   "title": "AI House Davos 2027",
+   "city": "Davos",
+   "country": "Switzerland",
+   "start": "2027-01-18",
+   "end": null,
+   "host": "ETH AI Center & Merantix Capital",
+   "type": "Conferences",
+   "conference_week": "WEF Davos",
+   "description": "The AI hub of WEF week, run by the ETH AI Center and Merantix Capital: talks, founder and investor sessions all week.",
+   "register_url": "https://www.aihousedavos.com/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/davos/"
+  },
+  {
+   "title": "The Hub Davos 2027",
+   "city": "Davos",
+   "country": "Switzerland",
+   "start": "2027-01-18",
+   "end": null,
+   "host": "The Hub Davos (CV VC & CV Labs)",
+   "type": "Conferences",
+   "conference_week": "WEF Davos",
+   "description": "Four days of founder, investor and tech sessions during WEF week, January 18 to 21.",
+   "register_url": "https://luma.com/thehubdavos?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/davos/"
+  },
+  {
+   "title": "AGENTIC AI Davos 2027",
+   "city": "Davos",
+   "country": "Switzerland",
+   "start": "2027-01-18",
+   "end": null,
+   "host": "Modev",
+   "type": "Conferences",
+   "conference_week": "WEF Davos",
+   "description": null,
+   "register_url": "https://www.modev.com/agentic-ai/davos?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/davos/"
   },
   {
@@ -48990,6 +49900,71 @@
    "list_page": "https://list.yorkseed.co/munich/"
   },
   {
+   "title": "Cyber Future Dialogue 2027",
+   "city": "Davos",
+   "country": "Switzerland",
+   "start": "2027-01-19T10:00:00+01:00",
+   "end": "2027-01-19T18:00:00+01:00",
+   "host": "Cyber Future Foundation",
+   "type": "Conferences",
+   "conference_week": "WEF Davos",
+   "description": null,
+   "register_url": "https://cyberfuturedialogue.org/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/davos/"
+  },
+  {
+   "title": "Longevity Investors Lunch Davos 2027",
+   "city": "Davos",
+   "country": "Switzerland",
+   "start": "2027-01-19T11:00:00+01:00",
+   "end": null,
+   "host": "Longevity Investors",
+   "type": "Investor Events",
+   "conference_week": "WEF Davos",
+   "description": null,
+   "register_url": "https://www.longevityinvestors.ch/davos-2027?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/davos/"
+  },
+  {
+   "title": "Davos Women in AI & Finance 2027",
+   "city": "Davos",
+   "country": "Switzerland",
+   "start": "2027-01-19T11:30:00+01:00",
+   "end": null,
+   "host": null,
+   "type": "Communal Dining",
+   "conference_week": "WEF Davos",
+   "description": "Lunch and conversations for women working in AI and finance during WEF week.",
+   "register_url": "https://www.eventbrite.com/e/davos-women-in-ai-finance-2027-fine-dining-meaningful-conversations-tickets-2004764579825?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/davos/"
+  },
+  {
+   "title": "House of Collaboration Davos: Fintech & Digital Assets",
+   "city": "Davos",
+   "country": "Switzerland",
+   "start": "2027-01-19T12:00:00+01:00",
+   "end": "2027-01-19T13:30:00+01:00",
+   "host": "J3D.AI / House of Collaboration Davos",
+   "type": "Talk",
+   "conference_week": "WEF Davos",
+   "description": null,
+   "register_url": "https://luma.com/50ynf5wb?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/davos/"
+  },
+  {
+   "title": "House of Collaboration Davos: Deep Tech & Resilience",
+   "city": "Davos",
+   "country": "Switzerland",
+   "start": "2027-01-19T14:00:00+01:00",
+   "end": "2027-01-19T15:30:00+01:00",
+   "host": "J3D.AI / House of Collaboration Davos",
+   "type": "Talk",
+   "conference_week": "WEF Davos",
+   "description": null,
+   "register_url": "https://luma.com/2xiytsaj?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/davos/"
+  },
+  {
    "title": "Founder's Cut: AI Demo Night",
    "city": "Copenhagen",
    "country": "Denmark",
@@ -49014,6 +49989,32 @@
    "description": "Details and registration on the event page.",
    "register_url": "https://luma.com/ds8kq57z?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/san-francisco-bay-area/"
+  },
+  {
+   "title": "MRS Robotics Leadership Forum: Davos 2027",
+   "city": "Davos",
+   "country": "Switzerland",
+   "start": "2027-01-19T16:00:00+01:00",
+   "end": "2027-01-19T18:00:00+01:00",
+   "host": "Monaco Robot Show",
+   "type": "Talk",
+   "conference_week": "WEF Davos",
+   "description": null,
+   "register_url": "https://luma.com/waib-55dp?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/davos/"
+  },
+  {
+   "title": "Davos Super Intelligence Summit 2027",
+   "city": "Davos",
+   "country": "Switzerland",
+   "start": "2027-01-19T16:00:00+01:00",
+   "end": "2027-01-19T20:00:00+01:00",
+   "host": "Davos Premier",
+   "type": "Conferences",
+   "conference_week": "WEF Davos",
+   "description": null,
+   "register_url": "https://luma.com/davossummit.ai?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/davos/"
   },
   {
    "title": "Investors Night - January",
@@ -49066,6 +50067,19 @@
    "description": "Details and registration on the event page.",
    "register_url": "https://www.meetup.com/women-in-ai-austria/events/317035013/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/vienna/"
+  },
+  {
+   "title": "Finnish Flow Dinner & Nightcap",
+   "city": "Davos",
+   "country": "Switzerland",
+   "start": "2027-01-19T18:00:00+01:00",
+   "end": "2027-01-19T21:00:00+01:00",
+   "host": "Finnish Flow",
+   "type": "Communal Dining",
+   "conference_week": "WEF Davos",
+   "description": null,
+   "register_url": "https://luma.com/mn0ym2zm?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/davos/"
   },
   {
    "title": "Cybersecurity n' Chill Networking Monthly Meetup by BlackHack Society",
@@ -49159,6 +50173,19 @@
    "list_page": "https://list.yorkseed.co/atlanta/"
   },
   {
+   "title": "Startup-Days 2027",
+   "city": "Berlin",
+   "country": "Germany",
+   "start": "2027-01-19",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://www.gruenewoche.de/en/events/startup-days?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/berlin/"
+  },
+  {
    "title": "Imagination in Action: Davos AI Summit",
    "city": "Davos",
    "country": "Switzerland",
@@ -49169,6 +50196,19 @@
    "conference_week": "WEF Davos",
    "description": "The tenth Davos AI Summit from Imagination in Action, with MIT CSAIL and Stanford HAI, on frontier AI and science. RSVP on Luma.",
    "register_url": "https://luma.com/zgtg3oxg?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/davos/"
+  },
+  {
+   "title": "Energy Shift Forum Davos: Energy Capital & Innovation",
+   "city": "Davos",
+   "country": "Switzerland",
+   "start": "2027-01-20T09:00:00+01:00",
+   "end": "2027-01-20T13:00:00+01:00",
+   "host": "Energy Shift Forum",
+   "type": "Conferences",
+   "conference_week": "WEF Davos",
+   "description": null,
+   "register_url": "https://luma.com/93jbg49a?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/davos/"
   },
   {
@@ -49183,6 +50223,32 @@
    "description": "Details and registration on the event page.",
    "register_url": "https://luma.com/48n2y5gu?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/san-diego/"
+  },
+  {
+   "title": "Venture Investor Forum Davos",
+   "city": "Davos",
+   "country": "Switzerland",
+   "start": "2027-01-20T10:30:00+01:00",
+   "end": "2027-01-20T14:30:00+01:00",
+   "host": "VNTR",
+   "type": "Investor Events",
+   "conference_week": "WEF Davos",
+   "description": null,
+   "register_url": "https://os.vntr.vc/e/mEaL4OCO?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/davos/"
+  },
+  {
+   "title": "Litestream Ventures Family Office & Venture Capital Forum 2027",
+   "city": "Davos",
+   "country": "Switzerland",
+   "start": "2027-01-20T12:00:00+01:00",
+   "end": "2027-01-20T16:00:00+01:00",
+   "host": "Litestream Ventures",
+   "type": "Investor Events",
+   "conference_week": "WEF Davos",
+   "description": null,
+   "register_url": "https://luma.com/ms8v06ao?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/davos/"
   },
   {
    "title": "UGLY TALK: INVESTOR READY FINANCIALS (HOW TO NAIL YOUR FINANCIAL PITCH)",
@@ -49208,6 +50274,19 @@
    "conference_week": "WEF Davos",
    "description": "Creators House Davos 2027 Where AI, creators, capital and influence meet during Davos week. 18–22 January 2027 · Davos-Klosters, Switzerland Creators House Davos is an invitation-led gathering bringing together carefully curated founders, creators, CMOs, investors, technology leaders and policymakers during World Economic Forum week. While Davos brings the world’s biggest conversations around business, technology and global change, Creators House brings together the people building, shaping and communicating what comes next . This is a high-signal environment designed for meaningful…",
    "register_url": "https://luma.com/ihgzq4k3?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/davos/"
+  },
+  {
+   "title": "DavosWeb3 Roundtable 2027",
+   "city": "Davos",
+   "country": "Switzerland",
+   "start": "2027-01-20T15:00:00+01:00",
+   "end": "2027-01-20T18:00:00+01:00",
+   "host": "DavosWeb3",
+   "type": "Talk",
+   "conference_week": "WEF Davos",
+   "description": null,
+   "register_url": "https://davosweb3.com/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/davos/"
   },
   {
@@ -49354,6 +50433,32 @@
    "list_page": "https://list.yorkseed.co/barcelona/"
   },
   {
+   "title": "European Resilience Summit Davos",
+   "city": "Davos",
+   "country": "Switzerland",
+   "start": "2027-01-20",
+   "end": null,
+   "host": "CVC / Open Innovation Summit",
+   "type": "Conferences",
+   "conference_week": "WEF Davos",
+   "description": null,
+   "register_url": "https://www.europeanresiliencesummit.com/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/davos/"
+  },
+  {
+   "title": "Pyth at Davos: Finance, Elevated",
+   "city": "Davos",
+   "country": "Switzerland",
+   "start": "2027-01-20",
+   "end": null,
+   "host": "Pyth Network",
+   "type": "Networking",
+   "conference_week": "WEF Davos",
+   "description": null,
+   "register_url": "https://miragather.com/e/PythatDavosFinanceElevated2027?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/davos/"
+  },
+  {
    "title": "Angel Forum at Speed, 65th Edition",
    "city": "Vancouver",
    "country": "Canada",
@@ -49406,6 +50511,19 @@
    "list_page": "https://list.yorkseed.co/hong-kong/"
   },
   {
+   "title": "Digital Lounge @ Davos 2027",
+   "city": "Davos",
+   "country": "Switzerland",
+   "start": "2027-01-21T09:00:00+01:00",
+   "end": "2027-01-21T20:00:00+01:00",
+   "host": "Digital Lounge @ Davos",
+   "type": "Conferences",
+   "conference_week": "WEF Davos",
+   "description": null,
+   "register_url": "https://2027.digitalloungedavos.com/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/davos/"
+  },
+  {
    "title": "Agent Build Day with MongoDB & Cerebral Valley",
    "city": "Seattle",
    "country": "United States",
@@ -49443,6 +50561,32 @@
    "description": "Details and registration on the event page.",
    "register_url": "https://luma.com/j4o5os8s?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
    "list_page": "https://list.yorkseed.co/boston/"
+  },
+  {
+   "title": "EmTech Invest Davos 2027",
+   "city": "Davos",
+   "country": "Switzerland",
+   "start": "2027-01-21T11:00:00+01:00",
+   "end": "2027-01-21T20:30:00+01:00",
+   "host": "EmTech Invest",
+   "type": "Investor Events",
+   "conference_week": "WEF Davos",
+   "description": "One-day investor event on regulation, tokenization and frontier tech during WEF week.",
+   "register_url": "https://luma.com/z37hvaw3?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/davos/"
+  },
+  {
+   "title": "House of Collaboration Davos: Decacorns, Unicorns, Soonicorns",
+   "city": "Davos",
+   "country": "Switzerland",
+   "start": "2027-01-21T12:00:00+01:00",
+   "end": "2027-01-21T13:30:00+01:00",
+   "host": "J3D.AI / House of Collaboration Davos",
+   "type": "Talk",
+   "conference_week": "WEF Davos",
+   "description": null,
+   "register_url": "https://luma.com/dqgkubkb?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/davos/"
   },
   {
    "title": "Canada to the Valley: A Fireside Chat for Canadian Founders",
@@ -49679,6 +50823,19 @@
    "list_page": "https://list.yorkseed.co/tel-aviv/"
   },
   {
+   "title": "Responsible AI Governance Investor & CEO Dinner",
+   "city": "Davos",
+   "country": "Switzerland",
+   "start": "2027-01-21T19:00:00+01:00",
+   "end": null,
+   "host": "The Digital Economist",
+   "type": "Communal Dining",
+   "conference_week": "WEF Davos",
+   "description": null,
+   "register_url": "https://luma.com/4sr7rj8i?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/davos/"
+  },
+  {
    "title": "UpStart'26 Grand Finale - Elevator Pitch & VC Funding",
    "city": "Hyderabad",
    "country": "India",
@@ -49692,6 +50849,32 @@
    "list_page": "https://list.yorkseed.co/hyderabad/"
   },
   {
+   "title": "TechCon SouthWest 2027",
+   "city": "Dallas",
+   "country": "United States",
+   "start": "2027-01-21",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://techconglobal.com/techcon-southwest-2027?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/dallas/"
+  },
+  {
+   "title": "Davos, Off Script.",
+   "city": "Davos",
+   "country": "Switzerland",
+   "start": "2027-01-22T08:30:00+01:00",
+   "end": "2027-01-22T16:00:00+01:00",
+   "host": "Human Business Labs",
+   "type": "Networking",
+   "conference_week": "WEF Davos",
+   "description": null,
+   "register_url": "https://www.eventbrite.ch/e/davos-off-script-tickets-2000965413416?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/davos/"
+  },
+  {
    "title": "AFTERHOURS.exe 2027",
    "city": "Mumbai",
    "country": "India",
@@ -49703,6 +50886,19 @@
    "description": "Details and registration on the event page.",
    "register_url": "https://hackindia.org/2027/afterhoursexe-2027?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/mumbai/"
+  },
+  {
+   "title": "Davos Catalyst: AI Summit 2027",
+   "city": "Davos",
+   "country": "Switzerland",
+   "start": "2027-01-22T09:00:00+01:00",
+   "end": "2027-01-22T20:30:00+01:00",
+   "host": "Davos Catalyst",
+   "type": "Conferences",
+   "conference_week": "WEF Davos",
+   "description": null,
+   "register_url": "https://luma.com/vj2smfne?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/davos/"
   },
   {
    "title": "Find a Cofounder, Help or Join a Tech Startup",
@@ -49835,6 +51031,19 @@
    "list_page": "https://list.yorkseed.co/sao-paulo-rio/"
   },
   {
+   "title": "Hackbridge × neXus AI Hackathon 2027",
+   "city": "Cambridge",
+   "country": "United Kingdom",
+   "start": "2027-01-23T10:00:00+00:00",
+   "end": "2027-01-23T18:00:00+00:00",
+   "host": "Hackbridge",
+   "type": "Hackathons",
+   "conference_week": null,
+   "description": "Two-day AI hackathon, January 23–24.",
+   "register_url": "https://luma.com/nywthv75?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed&ref=yorkseed",
+   "list_page": "https://list.yorkseed.co/cambridge/"
+  },
+  {
    "title": "Weekly Coffee Sabbath",
    "city": "Denver & Boulder",
    "country": "United States",
@@ -49911,6 +51120,19 @@
    "description": "Details and registration on the event page.",
    "register_url": "https://devopsdays.org/events/2027-vitoria?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/amsterdam/"
+  },
+  {
+   "title": "Global Startup Summit Mumbai 2027",
+   "city": "Mumbai",
+   "country": "India",
+   "start": "2027-01-23",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://globalstartups.club/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/mumbai/"
   },
   {
    "title": "Build with AI: learning and coworking (at Trimble)",
@@ -50158,6 +51380,19 @@
    "description": "Details and registration on the event page.",
    "register_url": "https://waifc.finance/events/asian-financial-forum-2027?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/hong-kong/"
+  },
+  {
+   "title": "Tech Osaka Summit 2027",
+   "city": "Osaka",
+   "country": "Japan",
+   "start": "2027-01-26",
+   "end": null,
+   "host": "Innovation Hub Osaka",
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://www.innovation-osaka.jp/tech-osaka-summit/en?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/osaka/"
   },
   {
    "title": "Brain & Breakfast 4 | RedButton EDU: Keď prídeš o všetko. Ako myslieť za seba v ére AI",
@@ -50576,6 +51811,19 @@
    "list_page": "https://list.yorkseed.co/hong-kong/"
   },
   {
+   "title": "Healthcare Shares Venture Capital Conference 2027",
+   "city": "New York",
+   "country": "United States",
+   "start": "2027-01-28",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://www.healthcareshares.com/conference?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
    "title": "Rattan L. Khosa SeedCon",
    "city": "Chicago",
    "country": "United States",
@@ -50730,6 +51978,19 @@
    "description": "10th edition of the region's largest entrepreneurship festival: founders, investors, policymakers and creatives, with the SEF pitch competition and Startup Town.",
    "register_url": "https://sef.ae/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/dubai-uae/"
+  },
+  {
+   "title": "SPIE Startup Challenge at Photonics West 2027",
+   "city": "Bay Area",
+   "country": "United States",
+   "start": "2027-01-30",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://spie.org/conferences-and-exhibitions/photonics-west/program/industry-program/startup-challenge?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/san-francisco-bay-area/"
   },
   {
    "title": "Web Summit Qatar 2027",
@@ -51317,6 +52578,19 @@
    "list_page": "https://list.yorkseed.co/amsterdam/"
   },
   {
+   "title": "Boston Innovation Summit 2027",
+   "city": "Boston",
+   "country": "United States",
+   "start": "2027-02-04",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://www.newnorthvc.com/summit?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/boston/"
+  },
+  {
    "title": "Startup Ski Day - Copper",
    "city": "Denver & Boulder",
    "country": "United States",
@@ -51380,6 +52654,19 @@
    "description": "Details and registration on the event page.",
    "register_url": "https://www.meetup.com/san-diego-hardware-startups-network/events/rszkbvykcdbhb/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/san-diego/"
+  },
+  {
+   "title": "Rotary Startup Award 2027",
+   "city": "Berlin",
+   "country": "Germany",
+   "start": "2027-02-05",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://www.rotary-startup.org/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/berlin/"
   },
   {
    "title": "SpaceXAI Hackathon Indonesia",
@@ -52240,6 +53527,19 @@
    "list_page": "https://list.yorkseed.co/denver-boulder/"
   },
   {
+   "title": "BioAsia 2027",
+   "city": "Hyderabad",
+   "country": "India",
+   "start": "2027-02-15",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://bioasia.co.in/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/hyderabad/"
+  },
+  {
    "title": "Fireside Chat with Shanaz Hemmati: Startup Scaling, Tech Leadership & Entrepreneurship",
    "city": "Austin",
    "country": "United States",
@@ -52329,6 +53629,19 @@
    "description": "The Association for the Advancement of AI's annual research conference, February 16 to 23.",
    "register_url": "https://aaai.org/conference/aaai/aaai-27/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/montreal/"
+  },
+  {
+   "title": "BIO Investment & Growth Summit 2027",
+   "city": "Miami",
+   "country": "United States",
+   "start": "2027-02-16",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://bigs.bio.org/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/miami/"
   },
   {
    "title": "In-Space Physical AI Workshop 2027 (ISPAI 2027)",
@@ -52524,6 +53837,19 @@
    "description": "Details and registration on the event page.",
    "register_url": "https://startupweeklasvegas.com?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/las-vegas/"
+  },
+  {
+   "title": "DxPx Europe 2027",
+   "city": "Munich",
+   "country": "Germany",
+   "start": "2027-02-17",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://dxpx-conference.com/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/munich/"
   },
   {
    "title": "Tech Weekend Feb 18-19, 2027 | Menlo Park | Silicon Valley",
@@ -52955,6 +54281,32 @@
    "list_page": "https://list.yorkseed.co/tokyo/"
   },
   {
+   "title": "Fintech Meetup 2027",
+   "city": "Las Vegas",
+   "country": "United States",
+   "start": "2027-02-22",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://fintechmeetup.com/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/las-vegas/"
+  },
+  {
+   "title": "Lagos Tech Fest 2027",
+   "city": "Lagos",
+   "country": "Nigeria",
+   "start": "2027-02-22",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://tech.eventhive.ng/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/lagos/"
+  },
+  {
    "title": "Biocom California Global Partnering & Investor Conference 2027",
    "city": "San Diego",
    "country": "United States",
@@ -53031,6 +54383,19 @@
    "description": "Details and registration on the event page.",
    "register_url": "https://www.womenintechfest.com.au?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/sydney/"
+  },
+  {
+   "title": "Climate Investor Forum 2027",
+   "city": "Melbourne",
+   "country": "Australia",
+   "start": "2027-02-23",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://climateinvestorforum.com/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/melbourne/"
   },
   {
    "title": "Generative AI Summit Austin",
@@ -53304,6 +54669,19 @@
    "description": "La segunda edición del FinTech México Festival es un hito en la evolución del ecosistema.",
    "register_url": "https://www.fintechmexicofestival.com/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/mexico-city/"
+  },
+  {
+   "title": "Tech Revolution Africa Summit 2027",
+   "city": "Lagos",
+   "country": "Nigeria",
+   "start": "2027-02-25",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://techrevolutionafrica.org/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/lagos/"
   },
   {
    "title": "Denver Space Summit | Attendee Registration",
@@ -53683,6 +55061,19 @@
    "list_page": "https://list.yorkseed.co/davos/"
   },
   {
+   "title": "Black Hat Startup Spotlight Competition 2027",
+   "city": "Singapore",
+   "country": "Singapore",
+   "start": "2027-03-02",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://blackhat.com/asia/spotlight.html?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/singapore/"
+  },
+  {
    "title": "VDW 9 | Life's a Pitch",
    "city": "Houston",
    "country": "United States",
@@ -53720,6 +55111,19 @@
    "description": "Details and registration on the event page.",
    "register_url": "https://www.meetup.com/daobrussels/events/qkzvvtykcfbfb/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/brussels/"
+  },
+  {
+   "title": "European Life Sciences CEO Forum 2027",
+   "city": "Zurich",
+   "country": "Switzerland",
+   "start": "2027-03-03",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://sachsforum.com/events/20th-elsf?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/zurich/"
   },
   {
    "title": "Founder Nation: Breakie @ The Savoy (£5m+ Annual Rev)",
@@ -53798,6 +55202,19 @@
    "description": "Details and registration on the event page.",
    "register_url": "https://www.meetup.com/hackers-and-founders-amsterdam-nl/events/316287308/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/amsterdam/"
+  },
+  {
+   "title": "Desjardins Startup Prize 2027",
+   "city": "Toronto",
+   "country": "Canada",
+   "start": "2027-03-04",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://entrepreneurs.utoronto.ca/for-entrepreneurs/2027-desjardins-startup-prize?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/toronto/"
   },
   {
    "title": "1ST FRIDAYS South Bay San Diego Tech Coffee Meetup",
@@ -54047,6 +55464,32 @@
    "list_page": "https://list.yorkseed.co/berlin/"
   },
   {
+   "title": "Georgia Tech InVenture Prize 2027",
+   "city": "Atlanta",
+   "country": "United States",
+   "start": "2027-03-09",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://inventureprize.gatech.edu/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/atlanta/"
+  },
+  {
+   "title": "World Agri-Tech Innovation Summit San Francisco 2027",
+   "city": "Bay Area",
+   "country": "United States",
+   "start": "2027-03-09",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://worldagritechusa.com/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/san-francisco-bay-area/"
+  },
+  {
    "title": "Cộng đồng Web3 Việt Nam | Quantova QVM TP. Hồ Chí Minh 🇻🇳",
    "city": "Ho Chi Minh City",
    "country": "Vietnam",
@@ -54294,6 +55737,19 @@
    "list_page": "https://list.yorkseed.co/new-delhi/"
   },
   {
+   "title": "ABS Business Open 2027",
+   "city": "Tokyo",
+   "country": "Japan",
+   "start": "2027-03-13",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://anniversary-aoba-bbt.com/abs-open/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/tokyo/"
+  },
+  {
    "title": "🇺🇸 America House: Startup & Tech Ecosystem Leaders Gather From Across the United States 2027",
    "city": "Austin",
    "country": "United States",
@@ -54463,6 +55919,19 @@
    "list_page": "https://list.yorkseed.co/austin/"
   },
   {
+   "title": "UK Tech Week 2027",
+   "city": "Leeds",
+   "country": "United Kingdom",
+   "start": "2027-03-15",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://uktechweek.org/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/leeds/"
+  },
+  {
    "title": "GITEX AI LATAM 2027",
    "city": "São Paulo & Rio",
    "country": "Brazil",
@@ -54606,6 +56075,32 @@
    "list_page": "https://list.yorkseed.co/amsterdam/"
   },
   {
+   "title": "Fintech Americas Miami 2027",
+   "city": "Miami",
+   "country": "United States",
+   "start": "2027-03-16",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://www.fintechamericas.co/en?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/miami/"
+  },
+  {
+   "title": "Stockholm Fintech Week 2027",
+   "city": "Stockholm",
+   "country": "Sweden",
+   "start": "2027-03-17",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://stockholmfintechweek.com/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/stockholm/"
+  },
+  {
    "title": "A Day of Culture, Connection & Growth — SXSW 2027",
    "city": "Austin",
    "country": "United States",
@@ -54630,6 +56125,19 @@
    "description": "Four weeks in Seoul. Real feedback. Founders who build.",
    "register_url": "https://www.zerobasekorea.com/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/seoul/"
+  },
+  {
+   "title": "Silicon Slopes SUMMIT 2027",
+   "city": "Salt Lake City",
+   "country": "United States",
+   "start": "2027-03-18",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://siliconslopessummit.org/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/salt-lake-city/"
   },
   {
    "title": "Shoptalk Spring 2027",
@@ -54671,6 +56179,19 @@
    "list_page": "https://list.yorkseed.co/cannes/"
   },
   {
+   "title": "AI Council 2027",
+   "city": "Bay Area",
+   "country": "United States",
+   "start": "2027-03-23",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://www.aicouncil.com/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/san-francisco-bay-area/"
+  },
+  {
    "title": "VDW 10 | Legal Leg Up: Startup Structure, Incorporation & Beyond",
    "city": "Houston",
    "country": "United States",
@@ -54708,6 +56229,19 @@
    "description": "A day-long pitch tournament bringing founders, investors, accelerators and operators together in Chicago.",
    "register_url": "https://www.startupgrind.com/events/details/startup-grind-startup-mania-presents-startup-mania-iii-the-ultimate-startup-pitch-tournament/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/chicago/"
+  },
+  {
+   "title": "Tech Unite Africa 2027",
+   "city": "Lagos",
+   "country": "Nigeria",
+   "start": "2027-03-24",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://www.techuniteafrica.com/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/lagos/"
   },
   {
    "title": "Investor House: Hong Kong",
@@ -54762,6 +56296,58 @@
    "list_page": "https://list.yorkseed.co/paris/"
   },
   {
+   "title": "Israel Tech Week 2027",
+   "city": "Miami",
+   "country": "United States",
+   "start": "2027-04-04",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://www.israeltechweek.com/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/miami/"
+  },
+  {
+   "title": "HIMSS Global Health Conference 2027",
+   "city": "Chicago",
+   "country": "United States",
+   "start": "2027-04-05",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://www.himssconference.com/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/chicago/"
+  },
+  {
+   "title": "RSA Conference 2027",
+   "city": "Bay Area",
+   "country": "United States",
+   "start": "2027-04-05",
+   "end": null,
+   "host": "RSAC",
+   "type": "Conferences",
+   "conference_week": "RSAC Conference",
+   "description": null,
+   "register_url": "https://www.rsaconference.com/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/san-francisco-bay-area/"
+  },
+  {
+   "title": "MedTech Innovator Radar Forum 2027",
+   "city": "Washington D.C.",
+   "country": "United States",
+   "start": "2027-04-06",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://medtechinnovator.org?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/washington-dc/"
+  },
+  {
    "title": "ClimateTech Connect",
    "city": "Washington D.C.",
    "country": "United States",
@@ -54788,6 +56374,71 @@
    "list_page": "https://list.yorkseed.co/warsaw/"
   },
   {
+   "title": "FIBE Fintech Festival Berlin 2027",
+   "city": "Berlin",
+   "country": "Germany",
+   "start": "2027-04-07",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://www.fibe-berlin.com/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/berlin/"
+  },
+  {
+   "title": "Ignite Investment Summit Hong Kong 2027",
+   "city": "Hong Kong",
+   "country": "China",
+   "start": "2027-04-07",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://weareignite.com/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/hong-kong/"
+  },
+  {
+   "title": "Dempsey Startup Competition 2027",
+   "city": "Seattle",
+   "country": "United States",
+   "start": "2027-04-08",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://foster.uw.edu/centers/buerk-ctr-entrepreneurship/entrepreneurship-competitions/dempsey-startup-competition?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/seattle/"
+  },
+  {
+   "title": "Rice Business Plan Competition 2027",
+   "city": "Houston",
+   "country": "United States",
+   "start": "2027-04-08",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://rbpc.rice.edu/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/houston/"
+  },
+  {
+   "title": "Duke Startup Showcase 2027",
+   "city": "Raleigh-Durham",
+   "country": "United States",
+   "start": "2027-04-08",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://entrepreneurship.duke.edu/startup-support/duke-startup-showcase?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/raleigh-durham/"
+  },
+  {
    "title": "LEAP 2027",
    "city": "Riyadh",
    "country": "Saudi Arabia",
@@ -54812,6 +56463,19 @@
    "description": "The Annual Investment Meeting, a global platform on foreign direct investment, startups and economic growth. Runs April 12–14, 2027.",
    "register_url": "https://www.aimcongress.com/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/dubai-uae/"
+  },
+  {
+   "title": "EthCC 2027",
+   "city": "Cannes",
+   "country": "France",
+   "start": "2027-04-12",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://ethcc.io/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/cannes/"
   },
   {
    "title": "New Tech Northwest",
@@ -54983,6 +56647,19 @@
    "list_page": "https://list.yorkseed.co/marrakech/"
   },
   {
+   "title": "Swiss Biotech Day 2027",
+   "city": "Zurich",
+   "country": "Switzerland",
+   "start": "2027-04-26",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://swissbiotechday.ch/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/zurich/"
+  },
+  {
    "title": "Startup Grind Conference 2027",
    "city": "Bay Area",
    "country": "United States",
@@ -55007,6 +56684,32 @@
    "description": "Reuters' conference on enterprise AI adoption. Runs April 27–28, 2027.",
    "register_url": "https://events.reutersevents.com/momentum/nyc?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
+   "title": "Innovation Summit Dublin 2027",
+   "city": "Dublin",
+   "country": "Ireland",
+   "start": "2027-04-27",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://www.medtechstrategist.com/innovation-summit-dublin-2027?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/dublin/"
+  },
+  {
+   "title": "Money20/20 Asia 2027",
+   "city": "Bangkok",
+   "country": "Thailand",
+   "start": "2027-04-27",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": "Money20/20 Asia",
+   "description": null,
+   "register_url": "https://asia.money2020.com/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/bangkok/"
   },
   {
    "title": "GITEX AI ASIA 2027",
@@ -55061,6 +56764,19 @@
    "list_page": "https://list.yorkseed.co/los-angeles/"
   },
   {
+   "title": "Philly Tech Week 2027",
+   "city": "Philadelphia",
+   "country": "United States",
+   "start": "2027-05-03",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://www.phillytechweek.com/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/philadelphia/"
+  },
+  {
    "title": "Consensus Miami 2027: Most Influential Event in digital assets, finance, and technology.",
    "city": "Miami",
    "country": "United States",
@@ -55098,6 +56814,32 @@
    "description": "Die re:publica Berlin ist das Festival für die digitale Gesellschaft und die größte Konferenz ihrer Art in Europa. Die Teilnehmer*innen der re:publica bilden einen Querschnitt unserer (digitalen) Gesellschaft.",
    "register_url": "https://re-publica.com/en?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/berlin/"
+  },
+  {
+   "title": "ViennaUP 2027",
+   "city": "Vienna",
+   "country": "Austria",
+   "start": "2027-05-10",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://viennaup.com/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/vienna/"
+  },
+  {
+   "title": "SaaStr Annual 2027",
+   "city": "Bay Area",
+   "country": "United States",
+   "start": "2027-05-11",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": "SaaStr AI Annual",
+   "description": null,
+   "register_url": "https://www.saastrannual.com/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/san-francisco-bay-area/"
   },
   {
    "title": "Deep Tech Momentum | Europe",
@@ -55152,6 +56894,19 @@
    "list_page": "https://list.yorkseed.co/nairobi/"
   },
   {
+   "title": "London Venture Capital Summit 2027",
+   "city": "London",
+   "country": "United Kingdom",
+   "start": "2027-05-14",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://www.londonvcnetwork.com/summit?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/london/"
+  },
+  {
    "title": "TransformIT Europe Expo & Conference 18-21 May 2027",
    "city": "Brussels",
    "country": "Belgium",
@@ -55163,6 +56918,19 @@
    "description": "TransformIT Europe is Europe’s first pan-European, cross-sector AI- and IT-driven GreenTech trade fair. In Brussels, it brings industries, business, research and policy together to explore innovations in digital sovereignty, energy, mobility and the circular economy.\n\n18–21 May 2027 · Brussels Expo\n\nVisitor tickets: https://transformiteurope.tickets.brussels-expo.com/selection?language=en\n\nExhibitor registration: https://transformit.eu/exhibit",
    "register_url": "https://transformit.eu/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/brussels/"
+  },
+  {
+   "title": "Bio-IT World Venture Innovation & Partnering Conference 2027",
+   "city": "Boston",
+   "country": "United States",
+   "start": "2027-05-18",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://www.bio-itworldexpo.com/investor?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/boston/"
   },
   {
    "title": "SaaS on the Beach 2027",
@@ -55230,6 +56998,19 @@
    "list_page": "https://list.yorkseed.co/london/"
   },
   {
+   "title": "SXSW London 2027",
+   "city": "London",
+   "country": "United Kingdom",
+   "start": "2027-05-24",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://sxswlondon.com/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/london/"
+  },
+  {
    "title": "Web Summit Vancouver",
    "city": "Vancouver",
    "country": "Canada",
@@ -55241,6 +57022,19 @@
    "description": "In May 2027, thousands of international entrepreneurs, investors, media and leaders will gather in Vancouver to connect the tech world at Web Summit Vancouver.",
    "register_url": "https://vancouver.websummit.com/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/vancouver/"
+  },
+  {
+   "title": "Accelerate: The UK Venture Conference 2027",
+   "city": "London",
+   "country": "United Kingdom",
+   "start": "2027-05-25",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://www.ukprivatecapital.co.uk/events/calendar/accelerate-the-uk-venture-conference-2027.html?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/london/"
   },
   {
    "title": "Dublin Tech Summit | May, 2027 | RDS Dublin",
@@ -55360,6 +57154,19 @@
    "list_page": "https://list.yorkseed.co/bengaluru/"
   },
   {
+   "title": "Hello Tomorrow Global Summit 2027",
+   "city": "Amsterdam",
+   "country": "Netherlands",
+   "start": "2027-06-02",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://hello-tomorrow.org/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/amsterdam/"
+  },
+  {
    "title": "USC and Techstars Accelerator | Techstars Accelerators",
    "city": "Los Angeles",
    "country": "United States",
@@ -55438,6 +57245,19 @@
    "list_page": "https://list.yorkseed.co/new-york/"
   },
   {
+   "title": "BIO International Convention 2027",
+   "city": "Philadelphia",
+   "country": "United States",
+   "start": "2027-06-07",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://convention.bio.org/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/philadelphia/"
+  },
+  {
    "title": "SuperReturn Venture (SuperVenture) 2027",
    "city": "Berlin",
    "country": "Germany",
@@ -55490,6 +57310,19 @@
    "list_page": "https://list.yorkseed.co/munich/"
   },
   {
+   "title": "Insurtech Insights USA 2027",
+   "city": "New York",
+   "country": "United States",
+   "start": "2027-06-09",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://www.insurtechinsights.com/america?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/new-york/"
+  },
+  {
    "title": "Forum UnternehmerTUM 2027",
    "city": "Munich",
    "country": "Germany",
@@ -55529,6 +57362,19 @@
    "list_page": "https://list.yorkseed.co/new-york/"
   },
   {
+   "title": "Web Summit Rio 2027",
+   "city": "São Paulo & Rio",
+   "country": "Brazil",
+   "start": "2027-06-14",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": "Web Summit Rio",
+   "description": null,
+   "register_url": "https://rio.websummit.com/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/sao-paulo-rio/"
+  },
+  {
    "title": "IESE Founders Forum 2027",
    "city": "Barcelona",
    "country": "Spain",
@@ -55540,6 +57386,19 @@
    "description": "Invitation-only forum for 300+ scaleup founders from 50+ nationalities. Runs June 15–16, 2027.",
    "register_url": "https://www.iese.edu/school-founders/iese-founders-forum-2027/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/barcelona/"
+  },
+  {
+   "title": "Accelerate Tomorrow AI Summit 2027",
+   "city": "Berlin",
+   "country": "Germany",
+   "start": "2027-06-15",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://www.acceleratetomorrow.com?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/berlin/"
   },
   {
    "title": "VivaTech 2027",
@@ -55555,6 +57414,19 @@
    "list_page": "https://list.yorkseed.co/paris/"
   },
   {
+   "title": "Arctic15 2027",
+   "city": "Helsinki",
+   "country": "Finland",
+   "start": "2027-06-16",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://arctic15.com/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/helsinki/"
+  },
+  {
    "title": "Cannes Lions 2027",
    "city": "Cannes",
    "country": "France",
@@ -55568,6 +57440,32 @@
    "list_page": "https://list.yorkseed.co/cannes/"
   },
   {
+   "title": "venture Startup Competition Award Ceremony 2027",
+   "city": "Zurich",
+   "country": "Switzerland",
+   "start": "2027-06-22",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://www.venture.ch/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/zurich/"
+  },
+  {
+   "title": "Swiss Fintech Week 2027",
+   "city": "Zurich",
+   "country": "Switzerland",
+   "start": "2027-06-28",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://swissfintechweek.com/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/zurich/"
+  },
+  {
    "title": "AI Engineer",
    "city": "Bay Area",
    "country": "United States",
@@ -55579,6 +57477,19 @@
    "description": "AI Engineer is the community and conference series for software engineers building with AI. Join thousands of AI engineers at our events worldwide.",
    "register_url": "https://ai.engineer/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/san-francisco-bay-area/"
+  },
+  {
+   "title": "bio:cap 2027",
+   "city": "Berlin",
+   "country": "Germany",
+   "start": "2027-06-29",
+   "end": null,
+   "host": null,
+   "type": "Conferences",
+   "conference_week": null,
+   "description": null,
+   "register_url": "https://www.biocap-europe.com/en?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
+   "list_page": "https://list.yorkseed.co/berlin/"
   },
   {
    "title": "AI Growth Summit Berlin – June 2027",
