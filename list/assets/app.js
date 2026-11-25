@@ -338,18 +338,21 @@ function shareEv(e,btn){const h=hubById(e.hub),d=dParts(e.date),url=evUrl(e),P=w
 let NAV_SILENT=false,NAV_DEPTH=0;
 function navKey(){return st.view+"|"+(st.view==="city"?st.hub+"|"+(st.week||"")+"|"+(st.day||""):"")+"|"+(st.view==="event"?st.evId:"");}
 function navState(){return{ys:1,view:st.view,hub:st.hub,evId:st.evId,week:st.week||null,day:st.day||null};}
-function navUrl(){const e=st.view==="event"&&EVENTS.find(x=>x.id===st.evId);if(e)return evPath(e);if(st.view==="city"&&!st.savedOnly)return listHash();return APP_PATH+location.search;}
+function navUrl(){const e=st.view==="event"&&EVENTS.find(x=>x.id===st.evId);if(e)return evPath(e);if(st.view==="city"&&!st.savedOnly)return listUrl();return APP_PATH+location.search;}
 /* shareable list links: #<city>, #events, #w/<week>, #w/<week>/<YYYY-MM-DD> */
 /* readable list links: #web-summit-lisbon, #web-summit-lisbon/2026-11-09, #lisbon, #events (old #w/<id> and #<hub id> still open) */
 function nslug(t){return String(t||"").toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g,"").replace(/&/g," and ").replace(/\b(19|20)\d\d\b/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"");}
 function hubSlug(h){const P=window.YS_PATHS;return (P&&P.h&&P.h[h.id])||nslug(h.name);}
 function weekSlug(w){return nslug(w.name);}
+const LIST_BASE=/^list\./.test(location.hostname)?"/":"/list/";
+function listPathFor(w,day,hubId){const P=window.YS_PATHS;if(!P)return"";if(w){const wp=P.w&&P.w[w.id];if(!wp)return"";if(day&&(wp.d||[]).includes(day))return LIST_BASE+wp.s+"/"+day+"/";return LIST_BASE+wp.s+"/";}const hs=hubId&&P.h&&P.h[hubId];return hs?LIST_BASE+hs+"/":"";}
+function listUrl(){const w=st.week&&weekById(st.week);if(w)return listPathFor(w,st.day)||listHash();if(st.hub&&st.hub!=="all")return listPathFor(null,null,st.hub)||listHash();return listHash();}
 function listHash(){const w=st.week&&weekById(st.week);if(w)return "#"+weekSlug(w)+(st.day?"/"+st.day:"");const h=st.hub&&st.hub!=="all"&&hubById(st.hub);return h?"#"+hubSlug(h):"#events";}
 let NAV_SHOWING=false;
 /* Never true on the home page's own "/" (hash-routed) city switches, only on a dedicated clean static path
    (/paris/, /web-summit-lisbon/2026-11-09/, …) that was already correct when the page loaded: leave it alone
    instead of rewriting it into a #hash form. */
-function syncListUrl(){if(NAV_SHOWING||st.view!=="city"||st.savedOnly||(!location.hash&&location.pathname!=="/"))return;const u=listHash();if(location.hash!==u){try{history.replaceState(navState(),"",u);}catch(err){}}}
+function syncListUrl(){if(NAV_SHOWING||st.view!=="city"||st.savedOnly)return;const u=listUrl();const same=u.charAt(0)==="#"?location.hash===u:(location.pathname===u&&!location.hash);if(!same){try{history.replaceState(navState(),"",u);}catch(err){}}}
 function openListFromHash(h){h=decodeURIComponent((h||"").replace(/^#/,"")).toLowerCase();
   const goWeek=(w,day)=>{st.week=w.id;st.topic=null;st.q="";st.ysOnly=false;st.date="any";st.type="all";goCity(w.hub);day=day||firstCoreDay(w);if(day){st.day=day;st.mode="list";renderCity();}return true;};
   let m=h.match(/^w\/([a-z0-9]+)(?:\/(\d{4}-\d{2}-\d{2}))?$/);if(m&&weekById(m[1]))return goWeek(weekById(m[1]),m[2]);
@@ -416,7 +419,7 @@ const YS_HOSTS=["Yorkseed","Valois","Yorkseed Expert Series"];
 function ysHubCount(id){return upcoming().filter(e=>e.hub===id&&YS_HOSTS.includes(e.host)).length;}
 function renderCityRow(){
   const t=Date.now();
-  $("#cityRow").innerHTML=[...HUBS].filter(h=>h.id!=="virtual").sort((a,b)=>hubCount(b.id)-hubCount(a.id)).slice(0,8).map(h=>{const n=hubCount(h.id);return h.img?`<a class="city" href="#${hubSlug(h)}" data-city="${h.id}"><img src="${IMG[h.img]}" alt="" style="object-position:${IMGPOS[h.img]||"50% 50%"}"><span class="clk">${fT(t,h.tz)}</span><span><b>${h.name}</b>${n} event${n===1?"":"s"}</span></a>`:`<a class="city noimg" href="#${hubSlug(h)}" data-city="${h.id}"><span class="clk">${h.id==="virtual"?"Online":fT(t,h.tz)}</span><i>${h.code}</i><span><b>${h.name}</b>${n} event${n===1?"":"s"}</span></a>`}).join("");
+  $("#cityRow").innerHTML=[...HUBS].filter(h=>h.id!=="virtual").sort((a,b)=>hubCount(b.id)-hubCount(a.id)).slice(0,8).map(h=>{const n=hubCount(h.id);return h.img?`<a class="city" href="${listPathFor(null,null,h.id)||"#"+hubSlug(h)}" data-city="${h.id}"><img src="${IMG[h.img]}" alt="" style="object-position:${IMGPOS[h.img]||"50% 50%"}"><span class="clk">${fT(t,h.tz)}</span><span><b>${h.name}</b>${n} event${n===1?"":"s"}</span></a>`:`<a class="city noimg" href="${listPathFor(null,null,h.id)||"#"+hubSlug(h)}" data-city="${h.id}"><span class="clk">${h.id==="virtual"?"Online":fT(t,h.tz)}</span><i>${h.code}</i><span><b>${h.name}</b>${n} event${n===1?"":"s"}</span></a>`}).join("");
   renderMap();
 }
 const REGIONS=[["world","World"],["na","North America"],["eu","Europe"],["mea","Middle East & Asia"],["latam","Latin America"],["oc","Australia"]];
@@ -511,7 +514,7 @@ function renderWeeks(){
   const ws=[...WEEKS].filter(w=>w.end>=today&&weekOk(w)&&(cnt[w.id]||0)>0).sort((a,b)=>(soon(b)-soon(a))||(soon(a)?(cnt[b.id]||0)-(cnt[a.id]||0):a.start.localeCompare(b.start)));
   const show=st.allWeeks?ws:[...ws.slice(0,6),...ws.slice(6).filter(w=>w.ys)];
   $("#weekGrid").innerHTML=show.map(w=>{const n=upcoming().filter(e=>e.week===w.id).length;const live=today>=w.start&&today<=w.end;
-    const wh=hubById(w.hub),wi=WIMG[w.id]||(wh&&wh.img&&IMG[wh.img]);return`<a class="wrow" href="#${weekSlug(w)}" data-weekgo="${w.id}"><span class="wt">${wi?`<img src="${wi}" alt="" loading="lazy" decoding="async" style="object-position:${WIMG[w.id]?"50% 50%":IMGPOS[wh.img]||"50% 50%"}">`:""}</span><span class="wd">${range(w.start,w.end)}${live?'<span class="badge b-now live">This week</span>':""}</span><span class="wn">${esc(w.name)}<small>${hubById(w.hub).name} · Yorkseed Master Side Event List${w.ys?" "+ysProgramsHtml(w,true):""}</small></span><span class="wc">${n} event${n===1?"":"s"}</span><span class="ar">→</span></a>`}).join("");
+    const wh=hubById(w.hub),wi=WIMG[w.id]||(wh&&wh.img&&IMG[wh.img]);return`<a class="wrow" href="${listPathFor(w)||"#"+weekSlug(w)}" data-weekgo="${w.id}"><span class="wt">${wi?`<img src="${wi}" alt="" loading="lazy" decoding="async" style="object-position:${WIMG[w.id]?"50% 50%":IMGPOS[wh.img]||"50% 50%"}">`:""}</span><span class="wd">${range(w.start,w.end)}${live?'<span class="badge b-now live">This week</span>':""}</span><span class="wn">${esc(w.name)}<small>${hubById(w.hub).name} · Yorkseed Master Side Event List${w.ys?" "+ysProgramsHtml(w,true):""}</small></span><span class="wc">${n} event${n===1?"":"s"}</span><span class="ar">→</span></a>`}).join("");
   const mb=$("#moreWeeks");mb.parentElement.hidden=ws.length<=6;mb.textContent=st.allWeeks?"Show fewer":`All ${ws.length} conference weeks`;
 }
 
@@ -642,7 +645,7 @@ function ysUpcomingHtml(excludeId){const YS_HOSTS=["Yorkseed","Valois","Yorkseed
 function cityUpcomingHtml(hub,excludeId){const YS_HOSTS=["Yorkseed","Valois","Yorkseed Expert Series"];const h=hubById(hub);
   const list=upcoming().filter(x=>x.hub===hub&&x.id!==excludeId&&!YS_HOSTS.includes(x.host)).sort((a,b)=>(a.date+(a.start||"99")).localeCompare(b.date+(b.start||"99"))).slice(0,6);
   if(!list.length)return "";
-  return `<div style="margin-top:18px"><b>More events in ${esc(h.name)}</b><div style="margin-top:4px">${list.map(x=>{const dd=dParts(x.date);return `<a href="#" data-ev="${x.id}" style="display:flex;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line);text-decoration:none;color:inherit"><span style="flex:none;width:56px;height:56px;overflow:hidden;border-radius:4px;background:var(--line)">${ysThumb(x)}</span><span style="min-width:0"><b style="font-size:14px">${esc(x.title)}</b><div class="note" style="font-size:12.5px;margin-top:2px">${dd.long}${x.venue?" · "+esc(x.venue):""}</div></span></a>`;}).join("")}</div><a class="link" href="#${hubSlug(h)}" style="margin-top:10px;display:inline-block">See all events in ${esc(h.name)} →</a></div>`;}
+  return `<div style="margin-top:18px"><b>More events in ${esc(h.name)}</b><div style="margin-top:4px">${list.map(x=>{const dd=dParts(x.date);return `<a href="#" data-ev="${x.id}" style="display:flex;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line);text-decoration:none;color:inherit"><span style="flex:none;width:56px;height:56px;overflow:hidden;border-radius:4px;background:var(--line)">${ysThumb(x)}</span><span style="min-width:0"><b style="font-size:14px">${esc(x.title)}</b><div class="note" style="font-size:12.5px;margin-top:2px">${dd.long}${x.venue?" · "+esc(x.venue):""}</div></span></a>`;}).join("")}</div><a class="link" href="${listPathFor(null,null,h.id)||"#"+hubSlug(h)}" style="margin-top:10px;display:inline-block">See all events in ${esc(h.name)} →</a></div>`;}
 function cardHtml(e){const h=hubById(e.hub),d=dParts(e.date);return`<article class="card" data-ev="${e.id}" tabindex="0">
     <div class="ph">${evImgTag(e,IMG[e.img])}${badge(e.place)}${heartBtn(e,"heart")}</div>
     <div class="body"><h3>${esc(e.title)}</h3>
@@ -672,9 +675,9 @@ function renderUpcoming(){
   const ysAllL=list.filter(e=>e.place==="spotlight"),ys=window.__ysAll?ysAllL:ysAllL.slice(0,4);
   $("#railYs").innerHTML=ys.map(e=>{const d=dParts(e.date);return`<button class="ritem" type="button" data-ev="${e.id}"><span class="rd">${d.mon} <b>${d.day}</b></span><span class="rt">${esc(e.title)}<small>${hubById(e.hub).name}</small></span></button>`}).join("")+(ysAllL.length>4?`<button class="link ysmore" type="button" data-ysall="1">${window.__ysAll?"Show fewer":"See all "+ysAllL.length+" Yorkseed events"} ${window.__ysAll?"↑":"→"}</button>`:"");
   const today=addDays(0);const ws0=[...WEEKS].filter(w=>w.end>=today&&weekOk(w)).sort((a,b)=>a.start.localeCompare(b.start));const ws=[...ws0.slice(0,3),...ws0.slice(3).filter(w=>w.ys).slice(0,1)];
-  $("#railWeeks").innerHTML=ws.map(w=>{const live=today>=w.start;const n=upcoming().filter(e=>e.week===w.id).length;return`<a class="ritem" href="#${weekSlug(w)}" data-weekgo="${w.id}"><span class="rd">${live?'<em>Now</em>':range(w.start,w.end).split(/[–-]/)[0]}</span><span class="rt">${esc(w.name)}<small>${hubById(w.hub).name} · ${n} event${n===1?"":"s"}${w.ys?" "+ysProgramsHtml(w,2):""}</small></span></a>`}).join("");
+  $("#railWeeks").innerHTML=ws.map(w=>{const live=today>=w.start;const n=upcoming().filter(e=>e.week===w.id).length;return`<a class="ritem" href="${listPathFor(w)||"#"+weekSlug(w)}" data-weekgo="${w.id}"><span class="rd">${live?'<em>Now</em>':range(w.start,w.end).split(/[–-]/)[0]}</span><span class="rt">${esc(w.name)}<small>${hubById(w.hub).name} · ${n} event${n===1?"":"s"}${w.ys?" "+ysProgramsHtml(w,2):""}</small></span></a>`}).join("");
   const tc=[...HUBS].filter(h=>h.id!=="virtual").sort((a,b)=>hubCount(b.id)-hubCount(a.id)).slice(0,6);
-  $("#railCities").innerHTML=`<div class="rcities">${tc.map(h=>`<a href="#${hubSlug(h)}" data-city="${h.id}">${h.name}<span>${hubCount(h.id)}</span></a>`).join("")}</div>`;
+  $("#railCities").innerHTML=`<div class="rcities">${tc.map(h=>`<a href="${listPathFor(null,null,h.id)||"#"+hubSlug(h)}" data-city="${h.id}">${h.name}<span>${hubCount(h.id)}</span></a>`).join("")}</div>`;
 }
 
 // event

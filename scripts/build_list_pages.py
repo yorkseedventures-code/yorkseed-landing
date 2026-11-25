@@ -562,6 +562,12 @@ for h in hubs.values():
 # ---- conference week pages ----
 # Extra content for the conferences Yorkseed is strongest on
 WEEK_OG = {"lisws": "/list/img/og-web-summit-lisbon.jpg"}
+def week_img(w, h):
+    """The week's own link-preview card (scripts/make_share_cards.py) if it exists, else its custom or city photo."""
+    t = unicodedata.normalize("NFKD", str(w["name"] or "").lower()); t = "".join(c for c in t if not unicodedata.combining(c))
+    t = re.sub(r"[^a-z0-9]+", "-", re.sub(r"\b(19|20)\d\d\b", "", t.replace("&", " and "))).strip("-")
+    card = f"/list/img/og-share-{t}.jpg"
+    return card if os.path.exists(REPO + card) else (WEEK_OG.get(w["id"]) or IMGPATH.get(h["img"] or h["id"]))
 WEEK_ABOUT = json.load(open(f"{REPO}/list/data/week-about.json"))
 WEEK_EXTRA = {
  "lisws": {
@@ -594,7 +600,7 @@ for w in weeks:
     title = f"{w['name']} {s.year} Events & Side Events ({n}) | Yorkseed List"
     if len(title) > 66: title = f"{w['name']} {s.year} Events & Side Events | Yorkseed"
     desc = (f"{w['name']} {s.year} events: all {n} side events in {h['name']}, {rng}. Parties, founder meetups, investor dinners, pitch events and breakfasts. Updated daily. Free to browse, free to add your event, with the option to feature it.")
-    canon = f"{LIST}{w['slug']}/"; img = WEEK_OG.get(w["id"]) or IMGPATH.get(h["img"] or h["id"])
+    canon = f"{LIST}{w['slug']}/"; img = week_img(w, h)
     lead_q = [(f"What events are happening at {w['name']} {s.year}?", f"The Yorkseed List tracks {n} events around {w['name']} {s.year} in {h['name']}, {rng}: opening night parties, founder breakfasts and lunches, investor dinners, pitch events, workshops and conference side events. Browse them by day on this page, or filter by type and sector in the interactive List.")]
     qs = lead_q + ([(q, a.replace("{n}", str(n))) for q, a in X.get("faq", [])] or [
           (f"What are the best {w['name']} {s.year} side events?", f"The Yorkseed List tracks {n} side events around {w['name']} in {h['name']}, {rng}, from founder and investor meetups to dinners, parties and pitch events."),
@@ -666,7 +672,7 @@ for w in data["weeks"]:
     title = f"{w['name']} {s.year} Side Events (concluded) | Yorkseed List"
     desc = f"{w['name']} {s.year} ({rng}) has concluded. See what's happening now in {h['name']} on The Yorkseed List."
     canon = f"{LIST}{w['slug']}/"
-    img = WEEK_OG.get(w["id"]) or IMGPATH.get(h["img"] or h["id"])
+    img = week_img(w, h)
     body = f"""<div class="crumb"><a href="https://yorkseed.co/">Yorkseed</a> / <a href="/">The List</a> / <a href="/{h['slug']}/">{e_(h['name'])}</a> / {e_(w['name'])}</div>
 <div class="hero"><div><h1>{e_(w['name'])} {s.year} <em>has concluded</em></h1>
 <p class="lede">This edition ran {rng} in {e_(h['name'])}. The side-event list for it is no longer being updated, but founder, investor and startup events keep happening in {e_(h['name'])} year-round.</p>
@@ -715,7 +721,7 @@ for w in weeks:
         ld = [ORG, {"@type":"CollectionPage","@id":canon,"url":canon,"name":title,"description":desc,"publisher":{"@id":ORG["@id"]},"dateModified":TODAY.isoformat()},
               {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"The List","item":LIST},{"@type":"ListItem","position":2,"name":f"{w['name']} side events","item":f"{LIST}{w['slug']}/"},{"@type":"ListItem","position":3,"name":nice,"item":canon}]},
               {"@type":"ItemList","numberOfItems":n,"itemListElement":[{"@type":"ListItem","position":k+1,"url":f"{LIST}e/{e['slug']}/","name":e["title"]} for k, e in enumerate(evs)]}]
-        page(f"{REPO}/list/{w['slug']}/{d}/index.html", title, desc, canon, body, ld, WEEK_OG.get(w["id"]) or IMGPATH.get(h["img"] or h["id"]), index=n >= 2)
+        page(f"{REPO}/list/{w['slug']}/{d}/index.html", title, desc, canon, body, ld, week_img(w, h), index=n >= 2)
         HYDRATE_PATHS.append(f"{REPO}/list/{w['slug']}/{d}/index.html")
         written.append((canon, n >= 2, "daily", "0.8"))
 
