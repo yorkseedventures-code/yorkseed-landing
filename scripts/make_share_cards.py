@@ -32,7 +32,7 @@ def wrap(d, words, f, maxw):
         else: cur = t
     return lines + [cur]
 
-def card(x, out):
+def card(x, out, sponsors=None):
     img = Image.new("RGB", (W, H), BG)
     photo = x.get("photo") and os.path.join(REPO, x["photo"].lstrip("/"))
     textw = 1056
@@ -73,7 +73,22 @@ def card(x, out):
     def chip(x0, y0, t, bg):
         tw = sum(d.textlength(c, font=b) + 3 for c in t)
         d.rectangle([x0, y0, x0 + tw + 36, y0 + 44], fill=bg); spaced(x0 + 18, y0 + 13, t, b, BG, 3); return x0 + tw + 46
-    x0 = chip(72, 450, "FREE TO BROWSE", INK); chip(x0, 450, "FREE TO ADD", INK); chip(72, 504, "FEATURE YOUR EVENT", RED)
+    if sponsors:
+        # "Presented by" with up to 3 sponsor logos (white tiles), in place of the free/feature chips
+        spaced(74, 452, "PRESENTED BY", font("Inter-SemiBold.otf", 17), INK, 3.5)
+        bw, bh, gap = 176, 72, 14
+        for i, sp in enumerate(sponsors[:3]):
+            bx, by = 72 + i * (bw + gap), 482
+            d.rounded_rectangle([bx, by, bx + bw, by + bh], radius=8, fill="#FFFFFF")
+            logo = sp.get("logo")
+            if logo is not None:
+                lg = logo.convert("RGBA"); s_ = min((bw - 28) / lg.width, (bh - 22) / lg.height); lg = lg.resize((max(1, int(lg.width * s_)), max(1, int(lg.height * s_))))
+                img.paste(lg, (bx + (bw - lg.width) // 2, by + (bh - lg.height) // 2), lg)
+            else:
+                f = font("Inter-Bold.otf", 20); t = sp.get("brand", "")[:16]
+                d.text((bx + (bw - d.textlength(t, font=f)) / 2, by + 24), t, font=f, fill=INK)
+    else:
+        x0 = chip(72, 450, "FREE TO BROWSE", INK); chip(x0, 450, "FREE TO ADD", INK); chip(72, 504, "FEATURE YOUR EVENT", RED)
     spaced(74, 575, f"LIST.YORKSEED.CO/{x['camel'].upper()}", font("Inter-SemiBold.otf", 18), INK, 3.5)
     img.save(out, quality=88)
 

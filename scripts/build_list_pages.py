@@ -593,8 +593,17 @@ for h in hubs.values():
 # ---- conference week pages ----
 # Extra content for the conferences Yorkseed is strongest on
 WEEK_OG = {"lisws": "/list/img/og-web-summit-lisbon.jpg"}
+# live conference week sponsors (list/data/week-sponsors.json, kept by scripts/week_sponsor_cards.py)
+try: WEEK_SP = json.load(open(f"{REPO}/list/data/week-sponsors.json"))
+except Exception: WEEK_SP = {}
+def week_presented(w):
+    b = [x for x in (WEEK_SP.get(w["id"], {}).get("brands") or []) if x]
+    return ("Presented by " + (", ".join(b[:-1]) + " and " + b[-1] if len(b) > 1 else b[0]) + ". ") if b else ""
 def week_img(w, h):
-    """The week's own link-preview card (scripts/make_share_cards.py) if it exists, else its custom or city photo."""
+    """The week's own link-preview card (scripts/make_share_cards.py) if it exists, else its custom or city photo.
+    With live sponsors, their "Presented by" card comes first."""
+    sp = WEEK_SP.get(w["id"], {}).get("card")
+    if sp and os.path.exists(REPO + sp): return sp
     t = unicodedata.normalize("NFKD", str(w["name"] or "").lower()); t = "".join(c for c in t if not unicodedata.combining(c))
     t = re.sub(r"[^a-z0-9]+", "-", re.sub(r"\b(19|20)\d\d\b", "", t.replace("&", " and "))).strip("-")
     card = f"/list/img/og-share-{t}.jpg"
@@ -630,7 +639,7 @@ for w in weeks:
     rng = f"{s.strftime('%B')} {s.day} to {en.strftime('%B') + ' ' if en.month != s.month else ''}{en.day}, {en.year}"
     title = f"{w['name']} {s.year} Events & Side Events ({n}) | Yorkseed List"
     if len(title) > 66: title = f"{w['name']} {s.year} Events & Side Events | Yorkseed"
-    desc = (f"{w['name']} {s.year} events: all {n} side events in {h['name']}, {rng}. Parties, founder meetups, investor dinners, pitch events and breakfasts. Updated daily. Free to browse, free to add your event, with the option to feature it.")
+    desc = week_presented(w) + (f"{w['name']} {s.year} events: all {n} side events in {h['name']}, {rng}. Parties, founder meetups, investor dinners, pitch events and breakfasts. Updated daily. Free to browse, free to add your event, with the option to feature it.")
     canon = f"{LIST}{w['slug']}/"; img = week_img(w, h)
     lead_q = [(f"What events are happening at {w['name']} {s.year}?", f"The Yorkseed List tracks {n} events around {w['name']} {s.year} in {h['name']}, {rng}: opening night parties, founder breakfasts and lunches, investor dinners, pitch events, workshops and conference side events. Browse them by day on this page, or filter by type and sector in the interactive List.")]
     qs = lead_q + ([(q, a.replace("{n}", str(n))) for q, a in X.get("faq", [])] or [
@@ -1037,12 +1046,13 @@ for w in weeks:
     hs = hslug(w["name"]); n = len(w["events"]); h = hubs[w["hub"]]
     if not hs or n < 1: continue
     camel = CAMEL.get(hs) or "".join(p[:1].upper() + p[1:] for p in hs.split("-"))
-    card = f"/list/img/og-share-{hs}.jpg"
+    card = WEEK_SP.get(w["id"], {}).get("card") or f"/list/img/og-share-{hs}.jpg"
+    if not os.path.exists(REPO + card): card = f"/list/img/og-share-{hs}.jpg"
     img = card if os.path.exists(REPO + card) else (WEEK_OG.get(w["id"]) or IMGPATH.get(h.get("img") or h["id"]) or "/og-image.png")
     img = LISTHOST + img if img.startswith("/") else img
     yr = w["start"][:4]; name = re.sub(r"\s*\b(19|20)\d\d\b", "", w["name"]).strip()
     ttl = f"{n} {name} {yr} Side Events | The Yorkseed List"
-    dsc = f"Every {name} {yr} side event in one list, updated daily. Free to browse, free to add your event, with the option to feature it."
+    dsc = week_presented(w) + f"Every {name} {yr} side event in one list, updated daily. Free to browse, free to add your event, with the option to feature it."
     os.makedirs(f"{REPO}/list/go/{hs}", exist_ok=True)
     open(f"{REPO}/list/go/{hs}/index.html", "w").write(f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/list/favicon.svg" type="image/svg+xml"/><link rel="icon" href="/list/favicon.ico" sizes="any"/><link rel="apple-touch-icon" href="/list/apple-touch-icon.png"/>

@@ -1,0 +1,33 @@
+# Puts conference week sponsors' logos on that week's link-preview card (WhatsApp, LinkedIn, iMessage...).
+# Every 2 hours it checks the live sponsors; only when they changed does it redraw the card and commit with [deploy].
+name: Week sponsor share cards
+on:
+  schedule:
+    - cron: "17 */2 * * *"
+  workflow_dispatch: {}
+permissions:
+  contents: write
+concurrency:
+  group: list-pages
+  cancel-in-progress: false
+jobs:
+  cards:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pillow
+      - id: cards
+        run: python3 scripts/week_sponsor_cards.py | tee /tmp/out.txt
+      - if: ${{ hashFiles('list/data/week-sponsors.json') != '' }}
+        run: |
+          grep -q CHANGED /tmp/out.txt || exit 0
+          git config user.name "yorkseed-list-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A list/img list/data/week-sponsors.json
+          git commit -m "The List: week sponsor share cards [deploy]" || exit 0
+          for i in 1 2 3; do git pull --rebase -q origin main && git push && break; sleep 5; done
