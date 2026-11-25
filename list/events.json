@@ -5104,19 +5104,6 @@
   "src": "confstech"
  },
  {
-  "title": "programmier.con - Web & AI Edition 2026",
-  "hub": "ber",
-  "date": "2026-11-25",
-  "start": null,
-  "end": null,
-  "venue": "",
-  "host": "programmier.bar",
-  "link": "https://germantechjobs.de/en/events/programmiercon---Web--AI-Edition-2026-Berlin",
-  "type": "Conferences",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
   "title": "AAGEF Entrepreneur Challenge 2026",
   "hub": "tor",
   "date": "2026-11-25",
@@ -5463,19 +5450,6 @@
   "host": "NorthX Climate Tech",
   "link": "https://northx.ca/event/building-to-scale",
   "type": "Pitch",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "Agentiq World Amsterdam 2026",
-  "hub": "ams",
-  "date": "2026-11-25",
-  "start": "15:00",
-  "end": null,
-  "venue": "Mövenpick Hotel Amsterdam City Centre, Piet Heinkade 11, 1019 BR, Amsterdam",
-  "host": "Business events",
-  "link": "https://www.iamsterdam.com/en/business/calendar/events/all/agentiq-world-amsterdam-2026",
-  "type": "Conferences",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
  },
@@ -5830,19 +5804,6 @@
   "src": "foundercal"
  },
  {
-  "title": "Meeting C++ 2026",
-  "hub": "ber",
-  "date": "2026-11-26",
-  "start": null,
-  "end": null,
-  "venue": "",
-  "host": "",
-  "link": "https://germantechjobs.de/en/events/Meeting-C-2026-Berlin",
-  "type": "Conferences",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
   "title": "Open i - The Swiss Innovation Platform",
   "hub": "zrh",
   "date": "2026-11-26",
@@ -5987,7 +5948,7 @@
   "end": "20:30",
   "venue": "Koninklijk Instituut voor de Tropen - Conferences & Events, Mauritskade 63, 1092 AD, Amsterdam",
   "host": "Business events",
-  "link": "https://www.iamsterdam.com/en/business/calendar/events/all/ai-and-chips-amsterdam-aica-summit",
+  "link": "https://aica-summit.com/",
   "type": "Conferences",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -6511,19 +6472,6 @@
   "host": "AI Startup Center",
   "link": "https://ai-startup-center.com/hack-apertus-onsite-hackathon",
   "type": "Hackathons",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "PMF Europe 2026",
-  "hub": "zrh",
-  "date": "2026-11-27",
-  "start": null,
-  "end": null,
-  "venue": "",
-  "host": "",
-  "link": "https://swissdevjobs.ch/events/PMF-Europe-2026-Zurich",
-  "type": "Conferences",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
  },
@@ -9305,19 +9253,6 @@
   "src": "confstech"
  },
  {
-  "title": "React Day Berlin 2026",
-  "hub": "ber",
-  "date": "2026-12-04",
-  "start": null,
-  "end": null,
-  "venue": "",
-  "host": "",
-  "link": "https://germantechjobs.de/en/events/React-Day-Berlin-2026-Berlin",
-  "type": "Conferences",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
   "title": "On-Site Hackathon Basel",
   "hub": "zrh",
   "date": "2026-12-04",
@@ -9500,7 +9435,7 @@
   "end": "15:30",
   "venue": "901 King St W, Toronto, ON M5V 3H5, Canada, 901 King St W, Toronto",
   "host": "TorontoStarts",
-  "link": "https://torontostarts.com/events/ai-builder-cafe-build-your-ai-revenue-operations-team--evt-jewqgfjvyp4fj2j",
+  "link": "https://luma.com/6wd7mggt",
   "type": "Workshops",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -12606,19 +12541,6 @@
   "src": "foundercal"
  },
  {
-  "title": "DevFest Ciudad de México 2026",
-  "hub": "mex",
-  "date": "2026-12-16",
-  "start": null,
-  "end": null,
-  "venue": "",
-  "host": "México City AI, ML and Computer Vision Meetup",
-  "link": "https://andresospina.co/eventos-ia/evento/devfest-cdmx-2026",
-  "type": "Conferences",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
   "title": "December 16th, 2026 #VAI36",
   "hub": "yvr",
   "date": "2026-12-16",
@@ -13377,45 +13299,6 @@
   "link": "https://www.meetup.com/israel-web3-developer-underground/events/313046772/",
   "desc": "Details and registration on the event page.",
   "src": "meetup"
- },
- {
-  "title": "Founder Events",
-  "hub": "syd",
-  "date": "2026-12-31",
-  "start": null,
-  "end": null,
-  "venue": "",
-  "host": "Innovation Bay",
-  "link": "https://innovationbay.com/events-for-tech-founders-and-investors/founder-events",
-  "type": "Meetups",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "VC Events",
-  "hub": "syd",
-  "date": "2026-12-31",
-  "start": null,
-  "end": null,
-  "venue": "",
-  "host": "Innovation Bay",
-  "link": "https://innovationbay.com/events-for-tech-founders-and-investors/vc-events",
-  "type": "Meetups",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "Angel Investor Events",
-  "hub": "syd",
-  "date": "2026-12-31",
-  "start": null,
-  "end": null,
-  "venue": "",
-  "host": "Innovation Bay",
-  "link": "https://innovationbay.com/events-for-tech-founders-and-investors/angel-investor-events",
-  "type": "Meetups",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
  },
  {
   "title": "Quasar 5.0: 36-Hour International Hackathon",
@@ -15196,7 +15079,7 @@
   "end": null,
   "venue": "Stockholm, Sweden, Stockholm",
   "host": "",
-  "link": "https://ainave.com/events/conferences/jfokus-2026",
+  "link": "https://www.jfokus.se/",
   "type": "Conferences",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -15408,19 +15291,6 @@
   "venue": "Turbinenstrasse 22",
   "host": "Hack Integration",
   "link": "https://hackwinterthur.ch",
-  "type": "Hackathons",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "Hack Winterthur 2027",
-  "hub": "zrh",
-  "date": "2027-02-12",
-  "start": null,
-  "end": null,
-  "venue": "",
-  "host": "",
-  "link": "https://swissdevjobs.ch/events/Hack-Winterthur-2027-Winterthur",
   "type": "Hackathons",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -22828,7 +22698,7 @@
   "venue": "Kafé",
   "host": "Etienne Bourdon",
   "link": "https://luma.com/7nyhq1eu",
-  "desc": "Details and registration on the event page.",
+  "desc": "Run & Talk with Stripe & Kotcha L'application d'entrainement à la course à pied co-fondée par conçue par Eliud Kipchoge and Kilian Jornet Nos partenaires pour cet événement : VIVATECH, Reify & Kafé Martel 📍 Kafé Martel :: le QG Pitch in Motion Paris 🕖 19h ::…",
   "src": "luma"
  },
  {
@@ -22840,7 +22710,7 @@
   "venue": "Saint-Merri",
   "host": "Sophie Palmer & Anna Logacheva",
   "link": "https://luma.com/ifryicgz",
-  "desc": "Details and registration on the event page.",
+  "desc": "Pour cette 12e édition, on parle d'un problème qu'on rencontre souvent avec Spicy AI : comment faire de la localisation avec l’IA . Au programme 1.",
   "src": "luma"
  },
  {
@@ -22852,7 +22722,7 @@
   "venue": "Porte-Saint-Denis",
   "host": "ClickHouse Events & Mistral",
   "link": "https://luma.com/clickh-mistral-hack-paris",
-  "desc": "Details and registration on the event page.",
+  "desc": "AHEAD OF TIME Mistral and ClickHouse are teaming up for a weekend of building agents that see what’s coming. Forecast it, then decide what to do about it. Come build with us! 200 spots, approval-based.",
   "src": "luma"
  },
  {
@@ -22864,7 +22734,7 @@
   "venue": "Café Contre Allée",
   "host": "Suran Jang & Sascha Rosbach",
   "link": "https://luma.com/2vub4eep",
-  "desc": "Details and registration on the event page.",
+  "desc": "Join us for Physical AI Night , a relaxed evening for engineers and researchers working on computer vision, VLMs and robotics, during NeurIPS week in Paris.",
   "src": "luma"
  },
  {
@@ -22936,7 +22806,7 @@
   "venue": "Kollwitzkiez",
   "host": "Matthew Senyonyi & Rohan Bedi",
   "link": "https://luma.com/zajdu5nt",
-  "desc": "Details and registration on the event page.",
+  "desc": "Good products start with users, not features. Analytics has often worked the other way round: build the dashboard first, then hope someone opens it.",
   "src": "luma"
  },
  {
@@ -22948,7 +22818,7 @@
   "venue": "Engelnest Coworking Space and Event Venue",
   "host": "Yashvir Chawla & AsiaBerlin",
   "link": "https://luma.com/WomenOfAsiaBerlin",
-  "desc": "Details and registration on the event page.",
+  "desc": "During AsiaBerlin Summit week, we're bringing together Asian female founders, Berlin founders and the people who back them for an evening to celebrate and connect. This event is an official Satellite Event of the AsiaBerlin Summit 2026.",
   "src": "luma"
  },
  {
@@ -22960,7 +22830,7 @@
   "venue": "Neue Grünstraße 17",
   "host": "Women of SaaS & Julia Goelles",
   "link": "https://luma.com/09nxgoro",
-  "desc": "Details and registration on the event page.",
+  "desc": "SaaS Growth Got Harder. Now What? Staying Ahead in Times of Change SaaS isn’t what it was a few years ago. Growth is slower, budgets are tighter, and AI is changing how work gets done – fast.",
   "src": "luma"
  },
  {
@@ -22972,7 +22842,7 @@
   "venue": "Bezirk Charlottenburg-Wilmersdorf",
   "host": "START Berlin",
   "link": "https://luma.com/i50c46oh",
-  "desc": "Details and registration on the event page.",
+  "desc": "🤖 START BERLIN HACKATHON: IBM Bob x ICEYE START Berlin’s first-ever hackathon is here! We’re teaming up with IBM and ICEYE to bring together 50 students for one standout challenge inspired by a real-world case in the Baltic Sea.",
   "src": "luma"
  },
  {
@@ -22984,7 +22854,7 @@
   "venue": "",
   "host": "{Tech: Europe} & Google DeepMind",
   "link": "https://luma.com/bbh",
-  "desc": "Details and registration on the event page.",
+  "desc": "BIG BERLIN HACK BIG BERLIN HACK is back! Bigger, Better and full of new ideas and amazing partners! Looking forward to seeing you there! This time with 350 participants – secure your spot now!",
   "src": "luma"
  },
  {
@@ -22996,7 +22866,7 @@
   "venue": "Bezirk Charlottenburg-Wilmersdorf",
   "host": "Punktum & Startup Colors",
   "link": "https://luma.com/wwjlcdft",
-  "desc": "Details and registration on the event page.",
+  "desc": "Berlin Health AI Night Berlin Health AI Night is a recurring evening meetup for the people working where health meets AI: founders, engineers, clinicians, researchers and operators. The format is simple.",
   "src": "luma"
  },
  {
@@ -23008,7 +22878,7 @@
   "venue": "ESMT Berlin",
   "host": "Fiola Tariang & Alexander Berner",
   "link": "https://luma.com/s4t13zrh",
-  "desc": "Details and registration on the event page.",
+  "desc": "How to Secure Non-Dilutive Funding for Your Startup Raising capital usually means giving up equity, but it doesn’t have to.",
   "src": "luma"
  },
  {
@@ -23032,7 +22902,7 @@
   "venue": "Tacto",
   "host": "Tacto Technology",
   "link": "https://luma.com/tacto-uptu",
-  "desc": "Details and registration on the event page.",
+  "desc": "Industrial AI Night Vol. 1 - with Tacto The next chapter of AI will be written in the physical world. Europe is uniquely positioned to win it. For years, AI has lived in bits: on our screens, writing, searching and coding.",
   "src": "luma"
  },
  {
@@ -23044,7 +22914,7 @@
   "venue": "Schwabing-Freimann",
   "host": "Dr. Florian Steiner & Michael Whelehan",
   "link": "https://luma.com/claude-sl4m",
-  "desc": "Details and registration on the event page.",
+  "desc": "Join a Claude Community Event, organized by local enthusiasts for everyone who loves building with Claude! The Build Day : participants build their own projects with Claude Code and agents all day, with community workshops running in parallel rooms.",
   "src": "luma"
  },
  {
@@ -23056,7 +22926,7 @@
   "venue": "Capital C Bloemenmarkt",
   "host": "Yoëlle Haurissa & Yeni Joseph",
   "link": "https://luma.com/4ljf46g7",
-  "desc": "Details and registration on the event page.",
+  "desc": "International Tech Drinks are back by popular demand! 🌍 Whether you’re building a startup, growing your business or finding your feet in the Dutch tech ecosystem, one thing makes it easier: knowing the right people.",
   "src": "luma"
  },
  {
@@ -23068,7 +22938,7 @@
   "venue": "Keizersgracht 316",
   "host": "Equals",
   "link": "https://luma.com/equals-utwi",
-  "desc": "Details and registration on the event page.",
+  "desc": "Calling all women working in AI: help build solutions that make a difference to other women's lives. Your expertise could help another woman find work, build her business, develop new skills or access opportunities.",
   "src": "luma"
  },
  {
@@ -23080,7 +22950,7 @@
   "venue": "Benelux Bar",
   "host": "Founders Mesh",
   "link": "https://luma.com/8tpg5nhf",
-  "desc": "Details and registration on the event page.",
+  "desc": "The year-end gathering for founders, investors & their teams. Obsessively curated. Big companies throw office parties. We figured startups deserve one too. So, this December, we're doing Founders Mesh a little differently.",
   "src": "luma"
  },
  {
@@ -23092,7 +22962,7 @@
   "venue": "Brouwerij Troost",
   "host": "Ajoy & Salome",
   "link": "https://luma.com/bnxfw9xb",
-  "desc": "Details and registration on the event page.",
+  "desc": "This is a community event by Webfuse . Forward Deployed Engineers sit at the intersection of customers, technology, product, and real-world delivery.",
   "src": "luma"
  },
  {
@@ -23116,7 +22986,7 @@
   "venue": "Eixample",
   "host": "Cristina from TMC & bïrch events",
   "link": "https://luma.com/699u79gq",
-  "desc": "Details and registration on the event page.",
+  "desc": "Six marketers. 90 seconds each. One project that worked, and one room full of people ready to steal the learnings.",
   "src": "luma"
  },
  {
@@ -23128,7 +22998,7 @@
   "venue": "Tech Barcelona - Pier 07",
   "host": "Alex López & Alejandro Flores",
   "link": "https://luma.com/8i1vvqq9",
-  "desc": "Details and registration on the event page.",
+  "desc": "Every fragrance, flavour and cosmetic you’ve ever used started in a lab. That lab still runs on decades-old tools. Its most valuable knowledge lives in lab files nobody can search and in the heads of a few experts.",
   "src": "luma"
  },
  {
@@ -23140,7 +23010,7 @@
   "venue": "Puerta Innovación",
   "host": "Asier Marqués",
   "link": "https://luma.com/dr5oz7ra",
-  "desc": "Details and registration on the event page.",
+  "desc": "Los modelos de lenguaje son cada vez más capaces de razonar, utilizar herramientas y coordinarse con otros agentes. Sin embargo, ¿qué cambia cuando un agente no puede limitarse a generar una respuesta y tiene que actuar en el mundo físico?",
   "src": "luma"
  },
  {
@@ -23188,7 +23058,7 @@
   "venue": "Heden Workspaces - Rossio",
   "host": "Kate Shifman",
   "link": "https://luma.com/claude-gyoj",
-  "desc": "Details and registration on the event page.",
+  "desc": "Join the first official Claude Community event in Lisbon, kicking off our local community with a showcase of standout projects built with Claude across industries - from architecture to art and marketing.",
   "src": "luma"
  },
  {
@@ -23200,7 +23070,7 @@
   "venue": "The Clubhouse | Founder's Cowork Community",
   "host": "Vincent Schweiger & Georgie Darling",
   "link": "https://luma.com/2jar88r4",
-  "desc": "Details and registration on the event page.",
+  "desc": "Freelancers, founders and solopreneurs in Lisbon: our monthly picnic is moving indoors for winter ☀️➝🏠 This month, we're hosting it at \"The Clubhouse\", and trust us when we say it's the perfect space for an indoor picnic/get-together :) The idea is simple:…",
   "src": "luma"
  },
  {
@@ -23272,7 +23142,7 @@
   "venue": "Zürich's Town Hall",
   "host": "Tsüri.ch Stadtmagazin",
   "link": "https://luma.com/tsri-w1u7",
-  "desc": "Details and registration on the event page.",
+  "desc": "Google, Meta, OpenAI, Nvidia: Kaum eine Stadt in Europa zieht so viele Tech-Giganten an wie Zürich.",
   "src": "luma"
  },
  {
@@ -23284,7 +23154,7 @@
   "venue": "Amazon Web Services - ZRH15",
   "host": "Tarek Muqbel & Guido Sironi",
   "link": "https://luma.com/u4ykka8r",
-  "desc": "Details and registration on the event page.",
+  "desc": "How FinTech Startups Win Enterprise Customers What's next for Swiss FinTech — and what does it take to turn innovation into real business?",
   "src": "luma"
  },
  {
@@ -23296,7 +23166,7 @@
   "venue": "",
   "host": "Dominique Paul",
   "link": "https://luma.com/93erzptn",
-  "desc": "Details and registration on the event page.",
+  "desc": "Show us your robotics projects! The drone you built (and crashed) during your semester project, your weekend mini-research project, something you hacked on during an internship, your hackathon build, your master’s thesis, a blog post you wrote, or the…",
   "src": "luma"
  },
  {
@@ -23308,7 +23178,7 @@
   "venue": "Google Zurich - Europaallee",
   "host": "Mira S.",
   "link": "https://luma.com/q6o56k21",
-  "desc": "Details and registration on the event page.",
+  "desc": "For years the story went like this: the US builds, Asia scales, Europe regulates. In 2026, that story is being rewritten. Europe-based AI startups raised a record $9.2B in a single quarter this year, more than half of all European venture funding.",
   "src": "luma"
  },
  {
@@ -23320,7 +23190,7 @@
   "venue": "Langstrasse",
   "host": "Association Brainforest & Heloise Le Masne",
   "link": "https://luma.com/vntp0lka",
-  "desc": "Details and registration on the event page.",
+  "desc": "Pitch. Connect. Celebrate 🎤 🎉. Join us at Google Zürich on Thursday, December 10th 2026, for Brainforest's in-person Pitch Event. We are proud to bring this edition to Google's Zürich office at Europaallee, with Google opening the event.",
   "src": "luma"
  },
  {
@@ -23332,7 +23202,7 @@
   "venue": "Talstrasse 65",
   "host": "LIMA & Max Felner",
   "link": "https://luma.com/236gn5yc",
-  "desc": "Details and registration on the event page.",
+  "desc": "Beim LIMA Founders Dinner bringen wir eine kuratierte Runde von Gründer:innen aus der Schweiz zusammen – Menschen, die etwas aufbauen und Lust haben, offen über die Höhen und Tiefen davon zu sprechen. Kein Pitch-Deck, keine Visitenkarten-Schlacht.",
   "src": "luma"
  },
  {
@@ -23344,7 +23214,7 @@
   "venue": "King",
   "host": "Gabriela Moraes & Anastasia Potekhina",
   "link": "https://luma.com/31y83rfz",
-  "desc": "Details and registration on the event page.",
+  "desc": "PyLadies Stockholm is excited to team up with King, the gaming company behind games played by millions around the world, and Women@King for an evening all about data! What we’ll talk about: How do you turn raw data into insights and clear, meaningful visuals?",
   "src": "luma"
  },
  {
@@ -23356,7 +23226,7 @@
   "venue": "Luntmakargatan 18",
   "host": "Johannes Lundberg & Igor Chapot",
   "link": "https://luma.com/ubsq00ih",
-  "desc": "Details and registration on the event page.",
+  "desc": "Techarena invites founders to a November after-work, where we bring the founder community together before the year winds down and start building momentum toward Techarena 2027.",
   "src": "luma"
  },
  {
@@ -23368,7 +23238,7 @@
   "venue": "Sickla Central",
   "host": "Seyed Mosayeb Alam",
   "link": "https://luma.com/f1fzktv0",
-  "desc": "Details and registration on the event page.",
+  "desc": "AI in Hardware: Real or Hype? A Fireside Chat with Siddharth Khullar, Founder & CEO of Aris Machina Sid previously worked at Apple, on Apple Watch within Apple’s Health Technologies group, following experience at MIT Media Lab and Microsoft.",
   "src": "luma"
  },
  {
@@ -23380,7 +23250,7 @@
   "venue": "Netlight Consulting AB",
   "host": "Patrick Couch",
   "link": "https://luma.com/stockholm-rzxp",
-  "desc": "Details and registration on the event page.",
+  "desc": "All right!!! Meetup #43 will take place December 3 at Netlight's offices and will focus on \"AI & Gaming Industry\" and will feature speakers from King , ScyllaDB , Netlight , Supercell and our sponsor Nebius , plus a panel moderated by Sweden AI Factory with…",
   "src": "luma"
  },
  {
@@ -23392,7 +23262,7 @@
   "venue": "A house Ark",
   "host": "Capable & Adam Fakirni",
   "link": "https://luma.com/glbtr3yz",
-  "desc": "Details and registration on the event page.",
+  "desc": "Welcome to this Salesathon hosted by Capable. Product is easy now. Sales is the hard part. Building something has never been faster. Getting customers is still slow, manual work.",
   "src": "luma"
  },
  {
@@ -23404,7 +23274,7 @@
   "venue": "Södermalm",
   "host": "Ingrid af Sandeberg & Melina Diamantoglou",
   "link": "https://luma.com/yiba2wqx",
-  "desc": "Details and registration on the event page.",
+  "desc": "Join us for AI Salon - AI x Defence Tech demo event at evroc! Supported by our long-term sponsor Synch.",
   "src": "luma"
  },
  {
@@ -23428,7 +23298,7 @@
   "venue": "TUH Skylab",
   "host": "baby vc",
   "link": "https://luma.com/026arf31",
-  "desc": "Details and registration on the event page.",
+  "desc": "baby vc is opening up one of our bootcamp sessions to the wider community - together with DTU Skylab. Join us for an evening where founders share real, unfiltered insights on raising money from VCs. What actually works? What doesn't?",
   "src": "luma"
  },
  {
@@ -23440,7 +23310,7 @@
   "venue": "Danske Bank Erhverv",
   "host": "Even Founders & Nina Berchoux",
   "link": "https://luma.com/mcn42xu0",
-  "desc": "Details and registration on the event page.",
+  "desc": "Christmas edition: Networking evening for women founders & investors in Copenhagen | Danske Bank Growth x Even Founders The year is almost wrapped up.",
   "src": "luma"
  },
  {
@@ -23452,7 +23322,7 @@
   "venue": "Corti",
   "host": "Corti & Sofie Tram Pedersen",
   "link": "https://luma.com/AI-i-offentlige-sektor",
-  "desc": "Details and registration on the event page.",
+  "desc": "Alle taler om digital suverænitet. Færre taler om hvad det kræver at få det til at fungere i praksis, når man som offentlig myndighed skal i gang med implementeringen og få det til at fungere i hverdagen: hvor skal data ligge, hvem driver modellerne, hvad…",
   "src": "luma"
  },
  {
@@ -23464,7 +23334,7 @@
   "venue": "Soho House Copenhagen",
   "host": "Even Founders",
   "link": "https://luma.com/ofjo44q1",
-  "desc": "Details and registration on the event page.",
+  "desc": "We’ve had a big year, and so have you. Before it slips away, let’s get everyone in one room. Somewhere between the late nights, the pivots, the “quick calls” that ran an hour and the launches that finally went live, the year got away from us.",
   "src": "luma"
  },
  {
@@ -23584,7 +23454,7 @@
   "venue": "Itämerenkatu 23",
   "host": "Viivi",
   "link": "https://luma.com/njhy3034",
-  "desc": "Details and registration on the event page.",
+  "desc": "Welcome to Femcode Collective! We’re a meetup and online-based community for women and non-binary people who are ready to build and launch their own AI-coded solutions.",
   "src": "luma"
  },
  {
@@ -23596,7 +23466,7 @@
   "venue": "Dogpatch Labs",
   "host": "AI² Events",
   "link": "https://luma.com/fx2q5u7u",
-  "desc": "Details and registration on the event page.",
+  "desc": "AI² is delighted to announce its second meet-up in the current series titled “AI in the Classroom”. Speaker announcements will be made in advance of the event. The rapid adoption of generative AI presents schools with more than a technological challenge.",
   "src": "luma"
  },
  {
@@ -23608,7 +23478,7 @@
   "venue": "Twilio",
   "host": "Twilio & Iris Ouyang",
   "link": "https://luma.com/d72jnyb6",
-  "desc": "Details and registration on the event page.",
+  "desc": "Join us for some festive holiday hacking! In partnership with MongoDB , we’ll be coming together to build a fully functional, AI-powered phone line directly to Santa. The Twilio team is in town for AI Week, and we’re kicking things off early.",
   "src": "luma"
  },
  {
@@ -23620,7 +23490,7 @@
   "venue": "The Mill Enterprise Centre",
   "host": "Give(a)Go & Base44",
   "link": "https://luma.com/sustainability-drogheda",
-  "desc": "Details and registration on the event page.",
+  "desc": "Join Give(a)Go and The Mill in Drogheda for a one-day hackathon on sustainability problems in energy, waste, food, transport and climate. Pick a problem you care about, build something that works with AI and tech, and demo it to the room at 4:15pm.",
   "src": "luma"
  },
  {
@@ -23632,7 +23502,7 @@
   "venue": "Teeling Whiskey Distillery",
   "host": "Conor Moynagh",
   "link": "https://luma.com/7q80r7t1",
-  "desc": "Details and registration on the event page.",
+  "desc": "9 December 2026 · Teeling Whiskey Distillery, Dublin 8 · 12.30pm - 4.00pm Ireland is home to some of the world’s best revenue & GTM leaders, but they rarely get to compare notes in one room. Distilling GTM is that room.",
   "src": "luma"
  },
  {
@@ -23656,7 +23526,7 @@
   "venue": "Wola",
   "host": "Julia Ostaszewska Kania",
   "link": "https://luma.com/2puy4fr0",
-  "desc": "Details and registration on the event page.",
+  "desc": "Join us to help build the world's most trusted driver At Waymo, we're not just imagining the future of autonomous vehicles - we're actively building and scaling it right here at our engineering hub in Warsaw is part of this mission.",
   "src": "luma"
  },
  {
@@ -23668,7 +23538,7 @@
   "venue": "Prześwit - Kolektywna Instytucja Kultury",
   "host": "CreativeTech Poland",
   "link": "https://luma.com/8aue6mzl",
-  "desc": "Details and registration on the event page.",
+  "desc": "Women in Creative Tech (Kobiety w Creative Tech) to spotkanie networkingowe dla kobiet działających na styku technologii i kreatywności.",
   "src": "luma"
  },
  {
@@ -23680,7 +23550,7 @@
   "venue": "CIC Warsaw",
   "host": "Przemek Jurgiel-Zyla & CIC Warsaw",
   "link": "https://luma.com/iqdd5aii",
-  "desc": "Details and registration on the event page.",
+  "desc": "AI agents now finish on their own tasks that take an expert many hours, and that horizon doubles every few months.",
   "src": "luma"
  },
  {
@@ -23692,7 +23562,7 @@
   "venue": "Warsaw School of Economics",
   "host": "Tomek Syta",
   "link": "https://luma.com/aay1lxfj",
-  "desc": "Details and registration on the event page.",
+  "desc": "Most people in their 20s pick a career they close friends are choosing. Consulting, banking, a corporate grad program is a common option. But there is another path that few people talk about that has much more potential in the AI era.",
   "src": "luma"
  },
  {
@@ -23704,7 +23574,7 @@
   "venue": "Downtown Toronto",
   "host": "Jia Ming Huang & Kaan UN⚡️",
   "link": "https://luma.com/og0rsa52",
-  "desc": "Details and registration on the event page.",
+  "desc": "IMPORTANT: - Bring your laptop! - Doors close at 6:15PM sharp Join us for our monthly Grok Bot meetup in Toronto at 800 Bay! We'll still be giving away Cursor credits that you can use with Grok Bot as well.",
   "src": "luma"
  },
  {
@@ -23716,7 +23586,7 @@
   "venue": "University of Toronto Bookstore",
   "host": "U of T Entrepreneurship",
   "link": "https://luma.com/nlxebgap",
-  "desc": "Details and registration on the event page.",
+  "desc": "Celebrate the season with us at the U of T Bookstore as we wrap up the Startup Holiday Market with the U of T Entrepreneurship (UTE) Winter Social!",
   "src": "luma"
  },
  {
@@ -23728,7 +23598,7 @@
   "venue": "Concordia University",
   "host": "Sherif Morsi",
   "link": "https://luma.com/aurtwdq2",
-  "desc": "Details and registration on the event page.",
+  "desc": "Montréal’s first SpaceXSI community meetup! Bring your laptop and leave with a working AI agent that handles a real part of your life: tracking job applications, planning your week, or automating a side project.",
   "src": "luma"
  },
  {
@@ -23740,7 +23610,7 @@
   "venue": "Fairview",
   "host": "Itamar Titievsky & Sanket Mittal",
   "link": "https://luma.com/p347lj5r",
-  "desc": "Details and registration on the event page.",
+  "desc": "Pitch Night!! Come rapid-fire pitch your Idea/Startup/Project, and chat with others doing the same. Its a low pressure environment for anyone building to connect and geek out over what your working on.",
   "src": "luma"
  },
  {
@@ -52894,19 +52764,6 @@
   "src": "foundercal"
  },
  {
-  "title": "R&D Tax Incentive and Government Grant Support Office Hours with Hamish Sinclair",
-  "hub": "syd",
-  "date": "2026-11-25",
-  "start": "08:30",
-  "end": "09:00",
-  "venue": "Western Sydney Startup Hub, 5 Fleet St, North Parramatta NSW 2151, AU, 5 Fleet St, North Parramatta NSW 2151, AU, 2151, North Parramatta",
-  "host": "Sydney Startup Events",
-  "link": "https://techevents.au/sydney/events/r-d-tax-incentive-and-government-grant-support-office-hours-with-hamish-sinclair",
-  "type": "Workshops",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
   "title": "Grok Bot Sydney Meetup",
   "hub": "syd",
   "date": "2026-11-25",
@@ -52955,19 +52812,6 @@
   "host": "Sydney Startup Events",
   "link": "https://techevents.au/sydney/events/navigator-energy-and-critical-resources-cicada-innovations",
   "type": "Conferences",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "The Questions Every Founder Should Ask a Startup Lawyer",
-  "hub": "syd",
-  "date": "2026-12-02",
-  "start": "12:00",
-  "end": "13:00",
-  "venue": "International Tower 3, Room 17.08, Level 17/300 Barangaroo Ave, Barangaroo NSW 2000, AU",
-  "host": "Sydney Startup Events",
-  "link": "https://techevents.au/sydney/events/the-questions-every-founder-should-ask-a-startup-lawyer",
-  "type": "Workshops",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
  },
@@ -53252,7 +53096,7 @@
   "end": "00:00",
   "venue": "Technopark Winterthur, Winterthur",
   "host": "Startup Campus / RUNWAY Incubator",
-  "link": "https://www.startupticker.ch/en/events/startup-stories-meet-the-founders-at-runway-startup-incubator-%282%29",
+  "link": "https://www.startup-campus.ch/offer/startup-stories-meet-the-founders-at-runway-startup-incubator-7/",
   "type": "Meetups",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -53265,7 +53109,7 @@
   "end": "14:00",
   "venue": "FONGIT HQ, Route de la Galaise 34, 6th floor, 1228 Plan-les-Ouates",
   "host": "The Zurich Startup Meetup",
-  "link": "https://startupticker.ch/en/events/fongit-force-with-brigid-o-donovan",
+  "link": "https://www.fongit.ch/event-details-registration/fongit-force-with-brigid-odonovan",
   "type": "Meetups",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -53278,7 +53122,7 @@
   "end": "20:00",
   "venue": "Kinokoni",
   "host": "The Zurich Startup Meetup",
-  "link": "https://startupticker.ch/en/events/fempresents-neue-ideen-fuer-dein-business-die-richtigen-frauen-an-deiner-seite",
+  "link": "https://fempreneurs.ch/fempresents/",
   "type": "Meetups",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -53304,7 +53148,7 @@
   "end": "20:30",
   "venue": "Hochschule Luzern Walter-von-Moos-Promenade 1 6005 Luzern Raum D515, Trakt D, 5. Stock",
   "host": "The Zurich Startup Meetup",
-  "link": "https://startupticker.ch/en/events/playshop-steckt-in-deiner-idee-ein-start-up",
+  "link": "https://entrepreneurship-training.ch/events/playshop-lucerne/",
   "type": "Workshops",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -53317,7 +53161,7 @@
   "end": "20:00",
   "venue": "Chaya, Beethovenstrasse 20, 8002 Zurich",
   "host": "The Zurich Startup Meetup",
-  "link": "https://startupticker.ch/index.php/en/events/the-art-of-backing-yourself-up",
+  "link": "https://www.salesacademyglobal.com/event-26-nov-2026",
   "type": "Meetups",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -53330,7 +53174,7 @@
   "end": "21:30",
   "venue": "Technopark Graubünden, Bahnhofstrasse 11, 7302 Landquart - 4. Stock",
   "host": "The Zurich Startup Meetup",
-  "link": "https://startupticker.ch/en/events/pitch-night-graubuenden",
+  "link": "https://www.technopark-graubuenden.ch/events/pitch-night-graubuenden/",
   "type": "Pitch",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -53343,7 +53187,7 @@
   "end": "20:00",
   "venue": "Voisins Blandonnet, Chem. de Blandonnet 8, 1214 Vernier",
   "host": "The Zurich Startup Meetup",
-  "link": "https://startupticker.ch/en/events/de-la-passion-a-l-entreprise-comment-transformer-son-expertise-en-projet-entrepreneurial",
+  "link": "https://www.ifj.ch/index.cfm?page=129509&amp%3Bevent_id=13462",
   "type": "Meetups",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -53369,7 +53213,7 @@
   "end": null,
   "venue": "AI Startup Center, Technopark, Zurich",
   "host": "aiLights Association",
-  "link": "https://www.hackevents.net/ch/events/hack-apertus-join-us-zurich",
+  "link": "https://hackapertus.ch",
   "type": "Hackathons",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -53382,33 +53226,7 @@
   "end": "11:30",
   "venue": "",
   "host": "The Zurich Startup Meetup",
-  "link": "https://startupticker.ch/en/events/onboarding-chinese-investors-and-doing-business-with-china",
-  "type": "Meetups",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "«Hack Apertus» Zurich Finals",
-  "hub": "zrh",
-  "date": "2026-11-28",
-  "start": "19:00",
-  "end": "23:30",
-  "venue": "Technopark, Zurich",
-  "host": "aiLights Association",
-  "link": "https://www.hackevents.net/ch/events/hack-apertus-zurich-finals",
-  "type": "Pitch",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "Open Mic: Next in Health series",
-  "hub": "zrh",
-  "date": "2026-11-30",
-  "start": "16:30",
-  "end": "17:45",
-  "venue": "Novartis Pavillon, St. Johanns-Hafen-Weg, 5, 4056 Basel",
-  "host": "The Zurich Startup Meetup",
-  "link": "https://startupticker.ch/index.php/en/events/open-mic-next-in-health-series",
+  "link": "https://luma.com/l0loia1g",
   "type": "Meetups",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -53447,7 +53265,7 @@
   "end": "11:15",
   "venue": "Westhive Zurich, Hardturmstrasse 161, 8005 Zürich, Hall of Fame",
   "host": "The Zurich Startup Meetup",
-  "link": "https://startupticker.ch/en/events/a3f-startup-breakfast-christmas-pitch-edition",
+  "link": "https://forms.gle/KzAzEFb5fJd34URx6",
   "type": "Pitch",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -53566,19 +53384,6 @@
   "host": "Business Angels Switzerland",
   "link": "https://businessangels.ch/calendar",
   "type": "Pitch",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "Voxxed Days Zürich",
-  "hub": "zrh",
-  "date": "2027-03-09",
-  "start": "01:00",
-  "end": "01:00",
-  "venue": "Zurich, Switzerland",
-  "host": "",
-  "link": "https://dev.events/conferences/voxxed-days-zuerich-gnjtwlsl",
-  "type": "Conferences",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
  },
@@ -55572,32 +55377,6 @@
   "src": "foundercal"
  },
  {
-  "title": "World AI Cannes Festival",
-  "hub": "par",
-  "date": "2027-02-10",
-  "start": null,
-  "end": null,
-  "venue": "",
-  "host": "Agenda Maddyness - Les événements à ne pas rater",
-  "link": "https://www.maddyness.com/evenement/world-ai-cannes-festival",
-  "type": "Conferences",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "Be a boss Women Tour Hauts-de-France 2027",
-  "hub": "par",
-  "date": "2027-02-11",
-  "start": null,
-  "end": null,
-  "venue": "",
-  "host": "Agenda Maddyness - Les événements à ne pas rater",
-  "link": "https://www.maddyness.com/evenement/be-a-boss-women-tour-hauts-de-france-2027",
-  "type": "Meetups",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
   "title": "Outbound Cup Competition 01",
   "hub": "par",
   "date": "2027-03-01",
@@ -56502,7 +56281,7 @@
   "end": "15:00",
   "venue": "Starthub Lahti, Starthub Lahti, Mukkulankatu, Verstaskatu 19, 15210 Lahti, Finland, Lahti, Starthub Lahti, Mukkulankatu, Verstaskatu 19, 15210 Lahti, Finland, Lahti",
   "host": "Startup-tapahtumat: Helsinki",
-  "link": "https://www.startupjobs.fi/tapahtumat/5192-wellbeing-day-lab-welltech",
+  "link": "https://luma.com/starthub-yqqg?amp%3Butm_medium=referral&amp%3Butm_campaign=startupjobs.fi",
   "type": "Meetups",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -56534,32 +56313,6 @@
   "src": "foundercal"
  },
  {
-  "title": "BusinessOulu How to: Build a Funding Strategy for Growth",
-  "hub": "hel",
-  "date": "2026-11-26",
-  "start": "09:00",
-  "end": null,
-  "venue": "Startup Station, Technopolis Ydinkeskusta, Sepänkatu 20, 4. krs, 90100 Oulu, Oulu, Sepänkatu 20, 4. krs, 90100 Oulu, Oulu",
-  "host": "Startup-tapahtumat: Helsinki",
-  "link": "https://www.startupjobs.fi/tapahtumat/4699-businessoulu-how-to-build-a-funding-strategy-for-growth",
-  "type": "Workshops",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "GTM the Smart Way: From Product to Traction",
-  "hub": "hel",
-  "date": "2026-11-26",
-  "start": "15:00",
-  "end": "16:30",
-  "venue": "Tampereen yliopisto, päärakennus (Cincinnati-sali), Korkeakoulunkatu 10, 33720 Tampere, Tampere, Korkeakoulunkatu 10, 33720 Tampere, Tampere",
-  "host": "Startup-tapahtumat: Helsinki",
-  "link": "https://www.startupjobs.fi/tapahtumat/5822-gtm-the-smart-way-from-product-to-traction",
-  "type": "Meetups",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
   "title": "Startup 101 Night 1: Ecosystem, Funding & Getting Started in Finland",
   "hub": "hel",
   "date": "2026-11-26",
@@ -56569,19 +56322,6 @@
   "host": "Wecode",
   "link": "https://www.meetup.com/espoo-application-architecture-meetup-group/events/317296462",
   "type": "Meetups",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "BusinessOulu How to: Pitch for Impact",
-  "hub": "hel",
-  "date": "2026-11-30",
-  "start": "09:00",
-  "end": "14:00",
-  "venue": "Startup Station, Technopolis Ydinkeskusta, Sepänkatu 20, 4. krs, 90100 Oulu, Oulu, Sepänkatu 20, 4. krs, 90100 Oulu, Oulu",
-  "host": "Startup-tapahtumat: Helsinki",
-  "link": "https://www.startupjobs.fi/tapahtumat/4700-businessoulu-how-to-pitch-for-impact",
-  "type": "Workshops",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
  },
@@ -56606,21 +56346,8 @@
   "end": "10:00",
   "venue": "Starthub Lahti, Starthub Lahti, Mukkulankatu, Verstaskatu 19, 15210 Lahti, Finland, Lahti, Starthub Lahti, Mukkulankatu, Verstaskatu 19, 15210 Lahti, Finland, Lahti",
   "host": "Startup-tapahtumat: Helsinki",
-  "link": "https://www.startupjobs.fi/tapahtumat/1472-what-s-brewing",
+  "link": "https://luma.com/sxac88qz?amp%3Butm_medium=referral&amp%3Butm_campaign=startupjobs.fi",
   "type": "Meetups",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "Arctic Lion Defence Summit 2026",
-  "hub": "hel",
-  "date": "2026-12-02",
-  "start": null,
-  "end": null,
-  "venue": "Tampereen Messu- ja Urheilukeskus, Ilmailunkatu 20, Tampere, Ilmailunkatu 20, Tampere",
-  "host": "Startup-tapahtumat: Helsinki",
-  "link": "https://www.startupjobs.fi/tapahtumat/491-arctic-lion-defence-summit-2026",
-  "type": "Conferences",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
  },
@@ -56633,19 +56360,6 @@
   "venue": "I-Wing, 4th floor, Otakaari 5, 02150 Espoo",
   "host": "Aalto Startup Center",
   "link": "https://startupcenter.aalto.fi/events/from-research-to-market-how-to-build-technology-that-customers-actually-need",
-  "type": "Workshops",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "Founder Forward: Customer Acquisition Mini-hack",
-  "hub": "hel",
-  "date": "2026-12-03",
-  "start": "14:00",
-  "end": "19:00",
-  "venue": "Business Helsinki, Innovation Home Kamppi, Kansakoulukatu 3, 00100 Helsinki, Helsinki, Kansakoulukatu 3, 00100 Helsinki, Helsinki",
-  "host": "Startup-tapahtumat: Helsinki",
-  "link": "https://www.startupjobs.fi/tapahtumat/5287-founder-forward-customer-acquisition-mini-hack",
   "type": "Workshops",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -56684,7 +56398,7 @@
   "end": "20:00",
   "venue": "Starthub Lahti, Starthub Lahti, Mukkulankatu, Verstaskatu 19, 15210 Lahti, Finland, Lahti, Starthub Lahti, Mukkulankatu, Verstaskatu 19, 15210 Lahti, Finland, Lahti",
   "host": "Startup-tapahtumat: Helsinki",
-  "link": "https://www.startupjobs.fi/tapahtumat/4791-starthub-pikkujoulu-2026",
+  "link": "https://luma.com/starthub-k6g9?amp%3Butm_medium=referral&amp%3Butm_campaign=startupjobs.fi",
   "type": "Communal Dining",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -56710,33 +56424,7 @@
   "end": "17:00",
   "venue": "Platform6, Platform6, Åkerlundinkatu 8, 33100 Tampere, Finland, Tampere, Platform6, Åkerlundinkatu 8, 33100 Tampere, Finland, Tampere",
   "host": "Startup-tapahtumat: Helsinki",
-  "link": "https://www.startupjobs.fi/tapahtumat/1455-fiban-startup-clinic-in-tampere-winning-industrial-customers",
-  "type": "Workshops",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "AI Share: AIStart Community Event",
-  "hub": "hel",
-  "date": "2026-12-08",
-  "start": "17:00",
-  "end": "20:00",
-  "venue": "Helsinki XR Center (HXRC), Hämeentie 135 A, 3. krs, Helsinki, Helsinki, Hämeentie 135 A, 3. krs, Helsinki",
-  "host": "Startup-tapahtumat: Helsinki",
-  "link": "https://www.startupjobs.fi/tapahtumat/5826-ai-share-aistart-community-event",
-  "type": "Meetups",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "Monthly AI Meetup @ Helsinki XR Center",
-  "hub": "hel",
-  "date": "2026-12-09",
-  "start": "16:30",
-  "end": "19:00",
-  "venue": "Helsinki XR Center (HXRC), Hämeentie 135 A, 00560 Helsinki, Helsinki, Hämeentie 135 A, 00560 Helsinki, Helsinki",
-  "host": "Startup-tapahtumat: Helsinki",
-  "link": "https://www.startupjobs.fi/tapahtumat/5289-monthly-ai-meetup-helsinki-xr-center",
+  "link": "https://luma.com/SC-Tampere?amp%3Butm_medium=referral&amp%3Butm_campaign=startupjobs.fi",
   "type": "Workshops",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -56751,45 +56439,6 @@
   "host": "ProductTank Helsinki",
   "link": "https://www.meetup.com/producttank-helsinki/events/317379627",
   "type": "Meetups",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "JYU Venture Capital Pitching Day 2026",
-  "hub": "hel",
-  "date": "2026-12-11",
-  "start": "11:00",
-  "end": "17:00",
-  "venue": "Jyväskylän yliopiston päärakennus, Juhlasali, Seminaarinkatu 15, 40100 Jyväskylä, Jyväskylä, Seminaarinkatu 15, 40100 Jyväskylä, Jyväskylä",
-  "host": "Startup-tapahtumat: Helsinki",
-  "link": "https://www.startupjobs.fi/tapahtumat/3388-jyu-venture-capital-pitching-day-2026",
-  "type": "Pitch",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "ARCTIC Conference 2027",
-  "hub": "hel",
-  "date": "2027-02-02",
-  "start": null,
-  "end": null,
-  "venue": "Teatteri Rio, Oulu, Oulu",
-  "host": "Startup-tapahtumat: Helsinki",
-  "link": "https://www.startupjobs.fi/tapahtumat/492-arctic-conference-2027",
-  "type": "Conferences",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "Polar Bear Pitching 2027",
-  "hub": "hel",
-  "date": "2027-02-18",
-  "start": null,
-  "end": null,
-  "venue": "Oulu",
-  "host": "Startup-tapahtumat: Helsinki",
-  "link": "https://www.startupjobs.fi/tapahtumat/495-polar-bear-pitching-2027",
-  "type": "Pitch",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
  },
@@ -59583,7 +59232,7 @@
   "end": "21:00",
   "venue": "",
   "host": "Seattle AI Week: AI Startup Day @ SURF",
-  "link": "https://www.geekwire.com/calendar-event/ai-tinkerers-seattle-ai-dev-tools-track-december",
+  "link": "https://seattle.aitinkerers.org/p/ai-dev-tools-track-seattle-december-2",
   "type": "Meetups",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -59596,7 +59245,7 @@
   "end": "23:59",
   "venue": "Rough & Tumble Pub, 5309 22nd Ave NW, Seattle, 98107, United States, 5309 22nd Ave NW, 98107, Seattle",
   "host": "Seattle AI Week: AI Startup Day @ SURF",
-  "link": "https://www.geekwire.com/calendar-event/the-business-of-womens-sports-conference",
+  "link": "https://thebusinessofwomenssports.com/",
   "type": "Conferences",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -61013,7 +60662,7 @@
   "end": "16:00",
   "venue": "",
   "host": "GDG Cloud Toronto",
-  "link": "https://torontostarts.com/events/community-promotion-devfest-toronto-2026-hosted-by-gdg-cloud-toronto--promo-eventbrite-2004248355785",
+  "link": "https://www.eventbrite.ca/e/google-developer-group-devfest-toronto-2026-tickets-2004248355785?discount=GDGNWCP5X26",
   "type": "Conferences",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -61162,32 +60811,6 @@
   "src": "foundercal"
  },
  {
-  "title": "Connect Pitch Meetup / AW | November 2026 2nd Edition",
-  "hub": "sto",
-  "date": "2026-11-26",
-  "start": "09:00",
-  "end": null,
-  "venue": "Stockholm",
-  "host": "Connect Sverige",
-  "link": "https://startupsevents.com/event/scraped-1ef07667-f2f2-449c-bce1-69a4e92852ac",
-  "type": "Pitch",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "Fintech Day 2026",
-  "hub": "sto",
-  "date": "2026-11-26",
-  "start": "10:00",
-  "end": null,
-  "venue": "Epicenter, Stockholm",
-  "host": "Breakit",
-  "link": "https://startupsevents.com/event/scraped-64ad104e-9e50-4df5-b43c-722b39471f46",
-  "type": "Conferences",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
   "title": "AI Catalyst Network",
   "hub": "sto",
   "date": "2026-11-26",
@@ -61214,19 +60837,6 @@
   "src": "foundercal"
  },
  {
-  "title": "Norrsken After Work",
-  "hub": "sto",
-  "date": "2026-11-27",
-  "start": "18:00",
-  "end": null,
-  "venue": "Stockholm",
-  "host": "Norrsken",
-  "link": "https://startupsevents.com/event/scraped-c3825dc4-0143-46bd-b073-0d7f18af0597",
-  "type": "Communal Dining",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
   "title": "Sweden Sustaintech Venture Day 2026",
   "hub": "sto",
   "date": "2026-12-02",
@@ -61249,32 +60859,6 @@
   "host": "FoundHers Network",
   "link": "https://luma.com/3mcgyo6t",
   "type": "Workshops",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "Connect Creative Tech-X Day (Fall 2026)",
-  "hub": "sto",
-  "date": "2026-12-04",
-  "start": "10:00",
-  "end": null,
-  "venue": "Stockholm",
-  "host": "Connect Sverige",
-  "link": "https://startupsevents.com/event/scraped-3dfddf7e-9f66-4932-b216-9c687612963d",
-  "type": "Meetups",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "Fixathon 2026 - Stockholm Edition",
-  "hub": "sto",
-  "date": "2026-12-04",
-  "start": "18:00",
-  "end": null,
-  "venue": "Special Occasion, Stockholm",
-  "host": "Norrsken",
-  "link": "https://startupsevents.com/event/scraped-d1b3b4a1-6efb-4ff5-9ad1-d1ca591e4f26",
-  "type": "Hackathons",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
  },
@@ -62261,7 +61845,7 @@
   "end": "18:30",
   "venue": "Los Angeles, CA",
   "host": "USC Viterbi and USC Stevens",
-  "link": "https://lastartupevents.org/lastartup-events-calendar/la-raise-summit-roundtables",
+  "link": "https://luma.com/q3e61hn3",
   "type": "Meetups",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -62274,7 +61858,7 @@
   "end": "22:30",
   "venue": "Silicon Valley Bank, 1540 2nd Court, Santa Monica, CA",
   "host": "USC Viterbi and USC Stevens",
-  "link": "https://lastartupevents.org/lastartup-events-calendar/hae-socal-pitch-competition",
+  "link": "https://StartupCouncil.org",
   "type": "Pitch",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -62976,7 +62560,7 @@
   "end": "20:00",
   "venue": "Nairobi Garage Kilimani, 7th Floor, Pinetree Plaza, Kaburu Drive off Ngong Road, Nairobi, 7th Floor, Pinetree Plaza, Kaburu Drive off Ngong Road, Nairobi",
   "host": "Startup events in Kenya",
-  "link": "https://www.startupjobs.ke/events/5096-africa-s-talking-open-hackathon-hospitality-tourism-nairobi",
+  "link": "https://community.africastalking.com/events/details/africas-talking-africas-talking-open-community-east-africa-presents-africas-talking-open-hackathon-hospitality-amp-tourism-nairobi-kenya-1/?amp%3Butm_medium=referral&amp%3Butm_campaign=startupjobs.ke",
   "type": "Hackathons",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -63002,7 +62586,7 @@
   "end": "17:30",
   "venue": "Westerwelle Startup Haus, Third Floor, Mwembe Tayari, Naivas, Mombasa, Third Floor, Mwembe Tayari, Naivas, Mombasa",
   "host": "Startup events in Kenya",
-  "link": "https://www.startupjobs.ke/events/4503-innovate-mombasa-hospitality-and-tourism-hackathon",
+  "link": "https://community.africastalking.com/events/details/africas-talking-africas-talking-open-community-east-africa-presents-innovate-mombasa-hospitality-and-tourism-hackathon/?amp%3Butm_medium=referral&amp%3Butm_campaign=startupjobs.ke",
   "type": "Hackathons",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -63017,19 +62601,6 @@
   "host": "Events - Africa Vibe Coders",
   "link": "https://www.meetup.com/acm-chicago/events/317393464",
   "type": "Meetups",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "Latitude59 x Kenya 2026",
-  "hub": "nbo",
-  "date": "2026-12-04",
-  "start": "09:00",
-  "end": "17:00",
-  "venue": "Aspire Centre Westlands, Waiyaki Way / Chiromo Road, Westlands, Nairobi, Waiyaki Way / Chiromo Road, Westlands, Nairobi",
-  "host": "Startup events in Kenya",
-  "link": "https://www.startupjobs.ke/events/5625-latitude59-x-kenya-2026",
-  "type": "Conferences",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
  },
@@ -64412,19 +63983,6 @@
   "src": "foundercal"
  },
  {
-  "title": "México Tech Summit",
-  "hub": "mex",
-  "date": "2026-12-08",
-  "start": null,
-  "end": null,
-  "venue": "",
-  "host": "México City AI, ML and Computer Vision Meetup",
-  "link": "https://andresospina.co/eventos-ia/evento/mexico-tech-summit-ciudad-de-mexico",
-  "type": "Conferences",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
   "title": "UGLY TALK: INVESTOR READY FINANCIALS (HOW TO NAIL YOUR FINANCIAL PITCH)",
   "hub": "mex",
   "date": "2027-01-20",
@@ -64434,19 +63992,6 @@
   "host": "Ugly Talk",
   "link": "https://greyjournal.net/event/ugly-talk-investor-ready-financials-how-to-nail-your-financial-pitch",
   "type": "Meetups",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "FinTech México Festival 2026",
-  "hub": "mex",
-  "date": "2027-02-26",
-  "start": null,
-  "end": null,
-  "venue": "",
-  "host": "México City AI, ML and Computer Vision Meetup",
-  "link": "https://andresospina.co/eventos-ia/evento/fintech-mexico-festival-2026",
-  "type": "Conferences",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
  },
@@ -65368,7 +64913,7 @@
   "end": "19:00",
   "venue": "Seda Ayala Center Cebu, Cardinal Rosales Avenue, Cebu Business Park, Cebu City",
   "host": "",
-  "link": "https://www.startupjobs.ph/events/5294-devfest-cebu-2026",
+  "link": "https://gdg.community.dev/events/details/google-gdg-cebu-presents-devfest-cebu-2026/?amp%3Butm_medium=referral&amp%3Butm_campaign=startupjobs.ph",
   "type": "Conferences",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -70523,17 +70068,6 @@
   "type": "Party"
  },
  {
-  "title": "Miami Design District Art Week openings (Jeffrey Deitch x Urs Fischer, Open Invitational, David Castillo, Spinello, The Moore, etc.)",
-  "hub": "mia",
-  "date": "2026-11-30",
-  "start": null,
-  "end": null,
-  "venue": "Miami Design District",
-  "link": "https://www.miamidesigndistrict.com/calendar/event-category/miami-art-week/",
-  "desc": "Mostly free. Calendar lists multiple events",
-  "type": "Exhibition"
- },
- {
   "title": "NMG Book Club: November Edition (women only)",
   "hub": "mia",
   "date": "2026-11-30",
@@ -70543,16 +70077,6 @@
   "link": "https://luma.com/c1tmy3xx",
   "desc": "Free",
   "type": "Networking"
- },
- {
-  "title": "Official Miami Art Week Kickoff Party",
-  "hub": "mia",
-  "date": "2026-11-30",
-  "start": "22:00",
-  "end": null,
-  "link": "https://www.miamiartweek.org/events",
-  "desc": "Invite only",
-  "type": "Party"
  },
  {
   "title": "SereniTea · Night I (ALUR gallery)",
@@ -70629,36 +70153,6 @@
   "link": "https://www.artmiami.com/",
   "desc": "Ticket includes CONTEXT",
   "type": "Art Fair"
- },
- {
-  "title": "arteNXT Contemporary Art Exhibition",
-  "hub": "mia",
-  "date": "2026-12-01",
-  "start": null,
-  "end": null,
-  "venue": "Miami Art Week Gallery, 2300 N Miami Ave, Wynwood",
-  "link": "https://www.miamiartweek.org/",
-  "type": "Exhibition"
- },
- {
-  "title": "Capital One x Shelborne: Sound Sessions",
-  "hub": "mia",
-  "date": "2026-12-01",
-  "start": "22:00",
-  "end": null,
-  "venue": "Pauline, The Shelborne by Proper, Collins Ave",
-  "link": "https://premierguidemiami.com/events/capital-one-shelborne-by-proper-sound-sessions-dec-1-4-2026",
-  "type": "Party"
- },
- {
-  "title": "Citi Strata Elite x Mastercard: The Curated Table (J Balvin x Sophie Tea)",
-  "hub": "mia",
-  "date": "2026-12-01",
-  "start": null,
-  "end": null,
-  "link": "https://premierguidemiami.com/events/citi-strata-elite-mastercard-the-curated-table-miami-art-week-2026",
-  "desc": "Citi Strata Elite cardmembers",
-  "type": "Food & Drink"
  },
  {
   "title": "Coffee at the Warehouse (Margulies Collection)",
@@ -70864,27 +70358,6 @@
   "venue": "Club Space, 34 NE 11th St",
   "link": "https://link.dice.fm/prospabasel26",
   "type": "Party"
- },
- {
-  "title": "Andrew Tess Polaroid Christmas tree",
-  "hub": "mia",
-  "date": "2026-12-01",
-  "start": null,
-  "end": null,
-  "venue": "Lobby Bar, The Miami Beach EDITION",
-  "link": "https://www.instagram.com/p/DfuuL1IgkzM/",
-  "type": "Public Art"
- },
- {
-  "title": "Chase Sapphire Reserve x Faena Art Grand Opening",
-  "hub": "mia",
-  "date": "2026-12-01",
-  "start": null,
-  "end": null,
-  "venue": "Faena District beachfront",
-  "link": "https://premierguidemiami.com/events/chase-sapphire-reserve-faena-grand-opening-dec-1-2026",
-  "desc": "Chase cardmembers (register)",
-  "type": "Brand Activation"
  },
  {
   "title": "Diego Singh: Deeper and Deeper (ICA Miami)",
@@ -71283,7 +70756,7 @@
   "start": null,
   "end": null,
   "venue": "Untitled Art, Ocean Dr & 12th St",
-  "link": "https://premierguidemiami.com/events/chase-sapphire-reserve-untitled-art-vip-access-dec-2-6-2026",
+  "link": "https://untitledartfairs.com",
   "desc": "Walk-up w/ card",
   "type": "Brand Activation"
  },
@@ -71338,16 +70811,6 @@
   "venue": "Little River Studios",
   "link": "https://dice.fm/event/6a867dae2edeb20001249e76",
   "type": "Party"
- },
- {
-  "title": "Museum of Graffiti Art Week program (incl. Lucky 7)",
-  "hub": "mia",
-  "date": "2026-12-02",
-  "start": null,
-  "end": null,
-  "venue": "Museum of Graffiti / Wynwood Art Gallery, Wynwood",
-  "link": "https://www.miamiandbeaches.com/event/museum-of-graffiti-2026-art-week/43970",
-  "type": "Exhibition"
  },
  {
   "title": "Queen Miami Beach: WhoMadeWho (Hybrid DJ Set)",
@@ -71522,17 +70985,6 @@
   "type": "Food & Drink"
  },
  {
-  "title": "Capital One x The Cultivist: Marcel Dzama 'Who Loves the Moon?'",
-  "hub": "mia",
-  "date": "2026-12-03",
-  "start": "10:30",
-  "end": "16:00",
-  "venue": "434 Lincoln Rd, Miami Beach",
-  "link": "https://premierguidemiami.com/events/capital-one-the-cultivist-marcel-dzama-who-loves-the-moon-dec-3-4-2026",
-  "desc": "Free",
-  "type": "Public Art"
- },
- {
   "title": "Family Office Forum x BitBasel",
   "hub": "mia",
   "date": "2026-12-03",
@@ -71587,16 +71039,6 @@
   "type": "Party"
  },
  {
-  "title": "Miami Art Week Forum / Art Coral Gables panels",
-  "hub": "mia",
-  "date": "2026-12-03",
-  "start": "21:00",
-  "end": null,
-  "venue": "Coral Gables Art Cinema, 260 Aragon Ave",
-  "link": "https://www.miamiartweek.org/forum-2026-panel-discussion-series",
-  "type": "Talk"
- },
- {
   "title": "Pantone Color of the Year 2027 public activation",
   "hub": "mia",
   "date": "2026-12-03",
@@ -71606,17 +71048,6 @@
   "link": "https://pantone.rumor.events/751118",
   "desc": "Free, RSVP",
   "type": "Brand Activation"
- },
- {
-  "title": "Rochelle Jordan + Hercules & Love Affair (DJ)",
-  "hub": "mia",
-  "date": "2026-12-03",
-  "start": null,
-  "end": null,
-  "venue": "ZeyZey, Little River",
-  "link": "https://calendar.zeyzeymiami.com",
-  "desc": "Ticketed",
-  "type": "Concert"
  },
  {
   "title": "Ruinart Commission by Tadashi Kawamata",
@@ -72337,16 +71768,6 @@
   "type": "Community"
  },
  {
-  "title": "ARTWEEK Miami Media Festival (Frost Science Planetarium)",
-  "hub": "mia",
-  "date": "2026-12-05",
-  "start": "11:00",
-  "end": "16:00",
-  "venue": "1101 Biscayne Blvd, Miami",
-  "link": "https://www.miamiartweek.org/events",
-  "type": "Talk"
- },
- {
   "title": "Bike Art Tour (The Underline)",
   "hub": "mia",
   "date": "2026-12-05",
@@ -72507,17 +71928,6 @@
   "link": "https://shotgun.live/en/events/sangomia1205",
   "desc": "Ticketed",
   "type": "Concert"
- },
- {
-  "title": "Soulection & Friends",
-  "hub": "mia",
-  "date": "2026-12-05",
-  "start": null,
-  "end": null,
-  "venue": "ZeyZey, Little River",
-  "link": "https://calendar.zeyzeymiami.com/shows/soulection-friends-05-dec",
-  "desc": "Sold out, waitlist",
-  "type": "Party"
  },
  {
   "title": "The Coffee Party (Tala Beach)",
@@ -72947,7 +72357,7 @@
   "end": null,
   "venue": "Little Haiti Cultural Complex, 212 NE 59th Terrace",
   "host": "",
-  "link": "https://www.miamiandbeaches.com/event/previews-of-iwitness-art-basel/44076",
+  "link": "https://www.eventbrite.com/e/previews-of-iwitness-art-basel-events-tickets-2004785827377",
   "desc": "Incl. Edouard Duval-Carrié 'From Venice with Love' homecoming preview · Runs through 2026-12-01",
   "type": "Exhibition",
   "src": "unofficials-miami-art-week-2026"
@@ -72976,19 +72386,6 @@
   "link": "https://progressiveartbrunch.com/",
   "desc": "Free",
   "type": "Art",
-  "src": "unofficials-miami-art-week-2026"
- },
- {
-  "title": "Piero Atchugarry Gallery: Algorithms for the Future & Enter Blue Opening",
-  "hub": "mia",
-  "date": "2026-11-29",
-  "start": "11:00",
-  "end": "18:00",
-  "venue": "Piero Atchugarry Gallery, 5520 NE 4th Ave",
-  "host": "Piero Atchugarry Gallery",
-  "link": "https://www.instagram.com/p/Df4xqUeEY_n/",
-  "desc": "Hosted by Piero Atchugarry Gallery",
-  "type": "Exhibition",
   "src": "unofficials-miami-art-week-2026"
  },
  {
@@ -73053,19 +72450,6 @@
   "host": "",
   "link": "https://partiful.com/e/IbDlhmlDRYLp15M0Rrkl",
   "desc": "Details on the event page.",
-  "type": "Party",
-  "src": "unofficials-miami-art-week-2026"
- },
- {
-  "title": "The Art of Storytelling: Preserve Voices Art Week Kickoff",
-  "hub": "mia",
-  "date": "2026-11-29",
-  "start": null,
-  "end": null,
-  "venue": "TomorrowLand Miami, 1368 N Miami Ave",
-  "host": "Preserve Voices x Wilkine Brutus",
-  "link": "https://www.instagram.com/reel/DgC6sxxB9bE/",
-  "desc": "Hosted by Preserve Voices x Wilkine Brutus",
   "type": "Party",
   "src": "unofficials-miami-art-week-2026"
  },
@@ -73236,19 +72620,6 @@
   "link": "https://www.thebetsyhotel.com/calendar",
   "desc": "Hosted by The Betsy - South Beach · Free · Runs through 2026-12-06",
   "type": "Live Music",
-  "src": "unofficials-miami-art-week-2026"
- },
- {
-  "title": "Mitrani Art: Inaugural Exhibition",
-  "hub": "mia",
-  "date": "2026-11-30",
-  "start": "18:00",
-  "end": "21:00",
-  "venue": "Mitrani Art, 7325 N Miami Ave",
-  "host": "Mitrani Art",
-  "link": "https://www.instagram.com/mitraniart/p/DfknDe8MOk7/",
-  "desc": "Hosted by Mitrani Art · Free",
-  "type": "Exhibition",
   "src": "unofficials-miami-art-week-2026"
  },
  {
@@ -73603,19 +72974,6 @@
   "src": "unofficials-miami-art-week-2026"
  },
  {
-  "title": "Once the Spectacle Ends: Opening Reception",
-  "hub": "mia",
-  "date": "2026-12-01",
-  "start": "16:00",
-  "end": "20:00",
-  "venue": "HiNT Miami, 59 NE 54th St",
-  "host": "Ananda Art Advisory x Aliona Ortega Fine Art",
-  "link": "https://www.instagram.com/p/DgAr_6YKj_7/",
-  "desc": "Hosted by Ananda Art Advisory x Aliona Ortega Fine Art",
-  "type": "Exhibition",
-  "src": "unofficials-miami-art-week-2026"
- },
- {
   "title": "Private VVIP Reception at ICA Miami",
   "hub": "mia",
   "date": "2026-12-01",
@@ -73743,19 +73101,6 @@
   "link": "https://www.therumor.com/p/miamiartweek_soundsession-global-groove-night",
   "desc": "Hosted by CultureFresh x Miami Art Week · Free, RSVP",
   "type": "Live Music",
-  "src": "unofficials-miami-art-week-2026"
- },
- {
-  "title": "LOUD Week (Love of Urban Design)",
-  "hub": "mia",
-  "date": "2026-12-01",
-  "start": null,
-  "end": null,
-  "venue": "Miami Gardens",
-  "host": "",
-  "link": "https://www.miamiandbeaches.com/event/loud-week/27722",
-  "desc": "Exhibitions, runway, talks · Runs through 2026-12-04",
-  "type": "Exhibition",
   "src": "unofficials-miami-art-week-2026"
  },
  {
@@ -73941,19 +73286,6 @@
   "src": "unofficials-miami-art-week-2026"
  },
  {
-  "title": "Justin Nozuka",
-  "hub": "mia",
-  "date": "2026-12-01",
-  "start": null,
-  "end": null,
-  "venue": "ZeyZey Miami, 353 NE 61st St",
-  "host": "ZeyZey",
-  "link": "https://calendar.zeyzeymiami.com/shows/justin-nozuka-01-dec",
-  "desc": "Hosted by ZeyZey · Sold out",
-  "type": "Live Music",
-  "src": "unofficials-miami-art-week-2026"
- },
- {
   "title": "Vernissage: Living Stories (Platform Wellness)",
   "hub": "mia",
   "date": "2026-12-01",
@@ -74016,19 +73348,6 @@
   "link": "https://eventbrite.com/e/retro-couture-art-basel-after-party-at-the-sylvester-tickets-2004665193558",
   "desc": "Hosted by Third Dream Media · Free",
   "type": "Party",
-  "src": "unofficials-miami-art-week-2026"
- },
- {
-  "title": "Blake's Swirlavision Painting Session",
-  "hub": "mia",
-  "date": "2026-12-01",
-  "start": "15:00",
-  "end": "18:00",
-  "venue": "Hotel Continental, 4000 Collins Ave, Miami Beach",
-  "host": "",
-  "link": "https://www.instagram.com/p/DfZvsMjo1Su/",
-  "desc": "Free",
-  "type": "Live Art",
   "src": "unofficials-miami-art-week-2026"
  },
  {
@@ -74097,45 +73416,6 @@
   "src": "unofficials-miami-art-week-2026"
  },
  {
-  "title": "Historic Hampton House: These Arms of Mine",
-  "hub": "mia",
-  "date": "2026-12-01",
-  "start": null,
-  "end": null,
-  "venue": "Historic Hampton House, 6161 NW 22nd Ave",
-  "host": "",
-  "link": "https://www.miamiandbeaches.com/event/historic-hampton-house-miami-art-week/43202",
-  "desc": "VIP opening Nov 30 (invite only); on view through Feb 28, 2027 · From $25 · Runs through 2026-12-06",
-  "type": "Exhibition",
-  "src": "unofficials-miami-art-week-2026"
- },
- {
-  "title": "Littlest Art Fair (El Fresco, Little Havana)",
-  "hub": "mia",
-  "date": "2026-12-01",
-  "start": "10:00",
-  "end": "17:00",
-  "venue": "El Fresco Art Space, Calle Ocho, Little Havana",
-  "host": "",
-  "link": "https://www.miamiandbeaches.com/event/littlest-art-fair/43953",
-  "desc": "Runs through 2026-12-07",
-  "type": "Art Fair",
-  "src": "unofficials-miami-art-week-2026"
- },
- {
-  "title": "Meet the Artists at Trinity Cathedral",
-  "hub": "mia",
-  "date": "2026-12-01",
-  "start": null,
-  "end": null,
-  "venue": "Trinity Cathedral, 464 NE 16th St",
-  "host": "Trinity Episcopal Cathedral Miami",
-  "link": "https://www.instagram.com/p/Df-5JvYll8U/",
-  "desc": "Hosted by Trinity Episcopal Cathedral Miami · Free · Runs through 2026-12-05",
-  "type": "Exhibition",
-  "src": "unofficials-miami-art-week-2026"
- },
- {
   "title": "NINE1NINE Basel Week (Le Twins 12/1, Diplo 12/2)",
   "hub": "mia",
   "date": "2026-12-01",
@@ -74182,7 +73462,7 @@
   "end": null,
   "venue": "The Moore, 4040 NE 2nd Ave",
   "host": "",
-  "link": "https://www.miamiandbeaches.com/event/the-moore-elastika-lumia/43940",
+  "link": "https://www.miamidesigndistrict.com/event/the-moore-elastika-lumia/",
   "desc": "Free · Runs through 2026-12-06",
   "type": "Public Art",
   "src": "unofficials-miami-art-week-2026"
@@ -74208,7 +73488,7 @@
   "end": null,
   "venue": "The Café, The Shelborne by Proper, Miami Beach",
   "host": "",
-  "link": "https://www.miamiandbeaches.com/event/who-loves-the-sun-bistro/44033",
+  "link": "https://www.thecultivist.com/capital-one-marcel-dzama-who-loves-the-moon",
   "desc": "Open to public · Runs through 2026-12-04",
   "type": "Food & Drink",
   "src": "unofficials-miami-art-week-2026"
@@ -74526,19 +73806,6 @@
   "src": "unofficials-miami-art-week-2026"
  },
  {
-  "title": "Shop.Sip.Glow Art Week Party with N2B4B",
-  "hub": "mia",
-  "date": "2026-12-02",
-  "start": "14:00",
-  "end": "18:00",
-  "venue": "Jessie Boutique Flagship, 1560 Lenox Ave, Miami Beach",
-  "host": "Jessie Boutique x N2B4B",
-  "link": "https://www.instagram.com/p/Df0s5dSRimd/",
-  "desc": "Hosted by Jessie Boutique x N2B4B · Free",
-  "type": "Party",
-  "src": "unofficials-miami-art-week-2026"
- },
- {
   "title": "Untitled Artist Activation: Isabelle Wenzel, Body in the Loop",
   "hub": "mia",
   "date": "2026-12-02",
@@ -74630,19 +73897,6 @@
   "src": "unofficials-miami-art-week-2026"
  },
  {
-  "title": "The Business of Entertainment Panel",
-  "hub": "mia",
-  "date": "2026-12-02",
-  "start": "17:00",
-  "end": "19:00",
-  "venue": "305 Hip Hop Museum, 6701 NW 18th Ave",
-  "host": "The Couture Counsel",
-  "link": "https://www.instagram.com/p/Df2AaZMx9uz/",
-  "desc": "Hosted by The Couture Counsel",
-  "type": "Talk",
-  "src": "unofficials-miami-art-week-2026"
- },
- {
   "title": "Fridge Art Fair: Art / Fashion Party",
   "hub": "mia",
   "date": "2026-12-02",
@@ -74705,19 +73959,6 @@
   "link": "https://www.loveofurbandesign.com/",
   "desc": "Hosted by Love of Urban Design (LOUD)",
   "type": "Talk",
-  "src": "unofficials-miami-art-week-2026"
- },
- {
-  "title": "photoMIAMI After Dark: The Art of Photography",
-  "hub": "mia",
-  "date": "2026-12-02",
-  "start": "18:00",
-  "end": "22:00",
-  "venue": "The Miami Art Week Gallery, 2300 N Miami Ave, Wynwood",
-  "host": "Miami Art Week x photoMIAMI",
-  "link": "https://www.miamiartweek.org/tickets",
-  "desc": "Hosted by Miami Art Week x photoMIAMI · Free (invite only)",
-  "type": "Party",
   "src": "unofficials-miami-art-week-2026"
  },
  {
@@ -74825,19 +74066,6 @@
   "src": "unofficials-miami-art-week-2026"
  },
  {
-  "title": "Justin Nozuka (second show)",
-  "hub": "mia",
-  "date": "2026-12-02",
-  "start": null,
-  "end": null,
-  "venue": "ZeyZey Miami, 353 NE 61st St",
-  "host": "ZeyZey",
-  "link": "https://calendar.zeyzeymiami.com/shows/justin-nozuka-second-show-02-dec",
-  "desc": "Hosted by ZeyZey · Sold out",
-  "type": "Live Music",
-  "src": "unofficials-miami-art-week-2026"
- },
- {
   "title": "NDÀ ÈBÓTÁN Launch: Legacy, Pattern & Art",
   "hub": "mia",
   "date": "2026-12-02",
@@ -74847,19 +74075,6 @@
   "host": "",
   "link": "https://luma.com/96gc8rj4",
   "desc": "Free",
-  "type": "Party",
-  "src": "unofficials-miami-art-week-2026"
- },
- {
-  "title": "SG Lewis Presents Forever Days",
-  "hub": "mia",
-  "date": "2026-12-02",
-  "start": null,
-  "end": null,
-  "venue": "ZeyZey Miami, 353 NE 61st St",
-  "host": "ZeyZey",
-  "link": "https://calendar.zeyzeymiami.com/shows/sg-lewis-02-dec",
-  "desc": "Hosted by ZeyZey · From $53",
   "type": "Party",
   "src": "unofficials-miami-art-week-2026"
  },
@@ -75020,19 +74235,6 @@
   "src": "unofficials-miami-art-week-2026"
  },
  {
-  "title": "Rio Kosta DJ Set (free entry)",
-  "hub": "mia",
-  "date": "2026-12-02",
-  "start": null,
-  "end": null,
-  "venue": "ZeyZey Miami, 353 NE 61st St",
-  "host": "ZeyZey",
-  "link": "https://calendar.zeyzeymiami.com/shows/rio-kosta-dj-set-free-entry-02-dec",
-  "desc": "Hosted by ZeyZey · Free RSVP",
-  "type": "Party",
-  "src": "unofficials-miami-art-week-2026"
- },
- {
   "title": "Soundtuary Music Label Showcase @ Lunasol",
   "hub": "mia",
   "date": "2026-12-02",
@@ -75053,22 +74255,9 @@
   "end": null,
   "venue": "Multiple venues, Opa-locka",
   "host": "",
-  "link": "https://www.miamiandbeaches.com/event/art-of-transformation-afrotypes-and-the-anti-archive/43094",
+  "link": "https://www.tennorthgroup.com/art-of-transformation-2026",
   "desc": "13th annual; Art Basel affiliate event",
   "type": "Exhibition",
-  "src": "unofficials-miami-art-week-2026"
- },
- {
-  "title": "Chase Sapphire Reserve Faena Art Dinner + After-Party",
-  "hub": "mia",
-  "date": "2026-12-02",
-  "start": null,
-  "end": null,
-  "venue": "Faena Beach, inside A Lore Supreme",
-  "host": "",
-  "link": "https://premierguidemiami.com/events/chase-sapphire-reserve-faena-art-dinner-after-party-dec-2-2026",
-  "desc": "Chase Sapphire Reserve cardmembers",
-  "type": "Food & Drink",
   "src": "unofficials-miami-art-week-2026"
  },
  {
@@ -75449,19 +74638,6 @@
   "src": "unofficials-miami-art-week-2026"
  },
  {
-  "title": "FAIRly NEW TO YOU: Art House (Day 1)",
-  "hub": "mia",
-  "date": "2026-12-03",
-  "start": "14:00",
-  "end": "21:00",
-  "venue": "The Clevelander (private rooftop), 1020 Ocean Dr, Miami Beach",
-  "host": "Roosevelt Allen Co. x No RSVP",
-  "link": "https://www.instagram.com/p/DgAuQmtm2OB/",
-  "desc": "Hosted by Roosevelt Allen Co. x No RSVP · Free · Runs through 2026-12-04",
-  "type": "Art Fair",
-  "src": "unofficials-miami-art-week-2026"
- },
- {
   "title": "Freedom Tower: Whale-Roads and Weaving the Ocean (screening & conversation)",
   "hub": "mia",
   "date": "2026-12-03",
@@ -75612,7 +74788,7 @@
   "end": null,
   "venue": "The Roof at The Moore, enter via Jade Alley, 160 NE 41st St",
   "host": "",
-  "link": "https://www.miamiandbeaches.com/event/benny-benassi-sunset-party-at-the-roof/43943",
+  "link": "https://www.eventbrite.com/e/benny-benassi-sunset-at-the-roof-miami-art-week-tickets-2001645634977",
   "desc": "Rain or shine · 21+, cash bar",
   "type": "Party",
   "src": "unofficials-miami-art-week-2026"
@@ -75638,7 +74814,7 @@
   "end": "18:00",
   "venue": "Museum of Graffiti, 276 NW 26th St, Wynwood",
   "host": "Museum of Graffiti",
-  "link": "https://www.miamiandbeaches.com/event/meet-the-artists-of-the-wynwood-public-mural-project/43969",
+  "link": "https://www.eventbrite.com/e/meet-the-artists-of-the-wynwood-public-mural-project-at-museum-of-graffiti-tickets-2004618830886",
   "desc": "Hosted by Museum of Graffiti",
   "type": "Art",
   "src": "unofficials-miami-art-week-2026"
@@ -75706,19 +74882,6 @@
   "link": "https://www.therumor.com/p/miamiartweek_the-gallery-social",
   "desc": "Hosted by CultureFresh x Miami Art Week · Free, RSVP",
   "type": "Exhibition",
-  "src": "unofficials-miami-art-week-2026"
- },
- {
-  "title": "German American Business Chamber Reception at Art Miami",
-  "hub": "mia",
-  "date": "2026-12-03",
-  "start": null,
-  "end": null,
-  "venue": "Art Miami, Booth AM307",
-  "host": "German American Business Chamber of South Florida",
-  "link": "https://www.instagram.com/reel/Df-ab2sKo5f/",
-  "desc": "Hosted by German American Business Chamber of South Florida · GABC members $30, non-members $55",
-  "type": "Networking",
   "src": "unofficials-miami-art-week-2026"
  },
  {
@@ -75823,19 +74986,6 @@
   "link": "https://shotgun.live/en/events/vice-city-world-art-basel-show-2026",
   "desc": "Hosted by Vice City World",
   "type": "Party",
-  "src": "unofficials-miami-art-week-2026"
- },
- {
-  "title": "ADBASEL 2026",
-  "hub": "mia",
-  "date": "2026-12-03",
-  "start": "18:00",
-  "end": "21:00",
-  "venue": "2750 NW 3rd Ave, Suite 8",
-  "host": "Círculo Creativo USA",
-  "link": "https://www.instagram.com/p/Df-IDlFFFai/",
-  "desc": "Hosted by Círculo Creativo USA",
-  "type": "Exhibition",
   "src": "unofficials-miami-art-week-2026"
  },
  {
@@ -76086,19 +75236,6 @@
   "src": "unofficials-miami-art-week-2026"
  },
  {
-  "title": "CARLA'S HOME: A Listening Experience by CARLA",
-  "hub": "mia",
-  "date": "2026-12-03",
-  "start": null,
-  "end": null,
-  "venue": "ZeyZey Miami, 353 NE 61st St",
-  "host": "ZeyZey",
-  "link": "https://calendar.zeyzeymiami.com/shows/carla-s-home-a-listening-experience-by-carla-03-dec",
-  "desc": "Hosted by ZeyZey · Free",
-  "type": "Live Music",
-  "src": "unofficials-miami-art-week-2026"
- },
- {
   "title": "CORE Afterglow Miami Benefit Concert",
   "hub": "mia",
   "date": "2026-12-03",
@@ -76184,7 +75321,7 @@
   "end": null,
   "venue": "Habibi Miami, 452 NW N River Dr",
   "host": "",
-  "link": "https://www.miamiandbeaches.com/event/christian-siriano-at-habibi-for-miami-art-week/43947",
+  "link": "https://habibimia.com/",
   "desc": "Reserve via habibimia.com",
   "type": "Fashion",
   "src": "unofficials-miami-art-week-2026"
@@ -76314,7 +75451,7 @@
   "end": null,
   "venue": "not sure yet",
   "host": "",
-  "link": "https://www.miamiandbeaches.com/event/we-da-south-an-ode-to-the-black-miami/43544",
+  "link": "https://www.whoistaylorjay.com/theblackmiamiartistcall",
   "desc": "The Love Below Collective · Runs through 2026-12-05",
   "type": "Exhibition",
   "src": "unofficials-miami-art-week-2026"
@@ -76353,7 +75490,7 @@
   "end": null,
   "venue": "Historic Overtown (Soul Basel)",
   "host": "",
-  "link": "https://www.miamiandbeaches.com/event/our-voice-matters-we-are-the-archive-stories-of-place-people-and-possibility/24029",
+  "link": "https://www.urgentinc.org/",
   "desc": "Presented by URGENT, Inc. · Runs through 2026-12-05",
   "type": "Exhibition",
   "src": "unofficials-miami-art-week-2026"
@@ -77048,19 +76185,6 @@
   "src": "unofficials-miami-art-week-2026"
  },
  {
-  "title": "arteNXT: Artist Reception and After-Party",
-  "hub": "mia",
-  "date": "2026-12-04",
-  "start": "19:00",
-  "end": "00:00",
-  "venue": "The Miami Art Week Gallery, 2300 N Miami Ave, Wynwood",
-  "host": "Miami Art Week",
-  "link": "https://www.miamiartweek.org/tickets",
-  "desc": "Hosted by Miami Art Week",
-  "type": "Party",
-  "src": "unofficials-miami-art-week-2026"
- },
- {
   "title": "Bison at Basel: Alumni & Friends Welcome Reception",
   "hub": "mia",
   "date": "2026-12-04",
@@ -77214,19 +76338,6 @@
   "link": "https://www.eventbrite.com/e/2004136233424",
   "desc": "Hosted by Copperbridge Foundation",
   "type": "Exhibition",
-  "src": "unofficials-miami-art-week-2026"
- },
- {
-  "title": "Brickell Basel",
-  "hub": "mia",
-  "date": "2026-12-04",
-  "start": "19:30",
-  "end": "00:00",
-  "venue": "Barsecco, Brickell",
-  "host": "Brickell Basel",
-  "link": "https://www.instagram.com/p/Df30SMvnOfv/",
-  "desc": "Hosted by Brickell Basel · Runs through 2026-12-05",
-  "type": "Party",
   "src": "unofficials-miami-art-week-2026"
  },
  {
@@ -77477,19 +76588,6 @@
   "src": "unofficials-miami-art-week-2026"
  },
  {
-  "title": "A-Trak & Friends with Melé, BNYX & Natasha Diggs",
-  "hub": "mia",
-  "date": "2026-12-04",
-  "start": null,
-  "end": null,
-  "venue": "ZeyZey Miami, 353 NE 61st St",
-  "host": "ZeyZey",
-  "link": "https://calendar.zeyzeymiami.com/shows/a-trak-friends-04-dec",
-  "desc": "Hosted by ZeyZey · Free RSVP / paid tiers",
-  "type": "Party",
-  "src": "unofficials-miami-art-week-2026"
- },
- {
   "title": "Floyd Basel: Ciao Melódie!",
   "hub": "mia",
   "date": "2026-12-04",
@@ -77594,19 +76692,6 @@
   "src": "unofficials-miami-art-week-2026"
  },
  {
-  "title": "GLD Wynwood Flagship Pop-Up",
-  "hub": "mia",
-  "date": "2026-12-04",
-  "start": "11:00",
-  "end": "20:00",
-  "venue": "30 NE 25th St, Wynwood",
-  "host": "",
-  "link": "https://www.instagram.com/p/DfnZMmtFJMd/",
-  "desc": "Free; first 100 get exclusive piece · Runs through 2026-12-06",
-  "type": "Brand Activation",
-  "src": "unofficials-miami-art-week-2026"
- },
- {
   "title": "Jay-Z 30 Tribute Party",
   "hub": "mia",
   "date": "2026-12-04",
@@ -77679,7 +76764,7 @@
   "end": "03:00",
   "venue": "Wynwood Marketplace, 2250 NW 2nd Ave",
   "host": "K. Foxx",
-  "link": "https://www.miamiandbeaches.com/event/vibes-305-basel/44066",
+  "link": "https://www.eventbrite.com/e/vibes-305-basel-tickets-2004520016329",
   "desc": "Hosted by K. Foxx",
   "type": "Party",
   "src": "unofficials-miami-art-week-2026"
@@ -78335,19 +77420,6 @@
   "src": "unofficials-miami-art-week-2026"
  },
  {
-  "title": "Sam Gellaitry + Darius",
-  "hub": "mia",
-  "date": "2026-12-05",
-  "start": null,
-  "end": null,
-  "venue": "ZeyZey Miami, 353 NE 61st St",
-  "host": "ZeyZey",
-  "link": "https://calendar.zeyzeymiami.com/shows/sam-gellaitry-darius-05-dec",
-  "desc": "Hosted by ZeyZey · From $41",
-  "type": "Party",
-  "src": "unofficials-miami-art-week-2026"
- },
- {
   "title": "Souled Out Dates Miami: Art Basel 12.5",
   "hub": "mia",
   "date": "2026-12-05",
@@ -78422,19 +77494,6 @@
   "host": "Victor Kyrr",
   "link": "https://www.eventbrite.com/e/art-bassel-house-party-tickets-2005097538714",
   "desc": "Hosted by Victor Kyrr · Runs through 2026-12-06",
-  "type": "Party",
-  "src": "unofficials-miami-art-week-2026"
- },
- {
-  "title": "AZULUM: Art Week",
-  "hub": "mia",
-  "date": "2026-12-05",
-  "start": "22:00",
-  "end": "03:00",
-  "venue": "Lunasol Lounge, Wynwood",
-  "host": "Lunasol",
-  "link": "https://www.instagram.com/reel/Df3BUbzPtAz/",
-  "desc": "Hosted by Lunasol · Runs through 2026-12-06",
   "type": "Party",
   "src": "unofficials-miami-art-week-2026"
  },
@@ -78894,19 +77953,6 @@
   "src": "unofficials-miami-art-week-2026"
  },
  {
-  "title": "Shintaro Sakamoto",
-  "hub": "mia",
-  "date": "2026-12-06",
-  "start": null,
-  "end": null,
-  "venue": "ZeyZey Miami, 353 NE 61st St",
-  "host": "ZeyZey",
-  "link": "https://calendar.zeyzeymiami.com/shows/shintaro-sakamoto-06-dec",
-  "desc": "Hosted by ZeyZey",
-  "type": "Live Music",
-  "src": "unofficials-miami-art-week-2026"
- },
- {
   "title": "Baby Girl! x Brown Sugar: Closing Party",
   "hub": "mia",
   "date": "2026-12-06",
@@ -79128,19 +78174,6 @@
   "src": "unofficials-miami-art-week-2026"
  },
  {
-  "title": "Andrea Bocelli — Yasalam Classics",
-  "hub": "dxb",
-  "date": "2026-12-02",
-  "start": "18:00",
-  "end": null,
-  "venue": "Etihad Arena, Yas Island",
-  "host": "Yasalam",
-  "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/",
-  "type": "Concert",
-  "desc": "Andrea Bocelli opens the inaugural Yasalam Classics series ahead of Abu Dhabi Grand Prix race week. Doors 6pm, tickets from Dh295.",
-  "src": "f1auh_research"
- },
- {
   "title": "Lewis Capaldi and Kings of Leon — Yasalam After-Race Concerts",
   "hub": "dxb",
   "date": "2026-12-03",
@@ -79154,32 +78187,6 @@
   "src": "f1auh_research"
  },
  {
-  "title": "Jennifer Lopez with Alex Warren — Yasalam After-Race Concerts",
-  "hub": "dxb",
-  "date": "2026-12-04",
-  "start": null,
-  "end": null,
-  "venue": "Etihad Live, Yas Island",
-  "host": "Yasalam / Abu Dhabi Grand Prix",
-  "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/",
-  "type": "Concert",
-  "desc": "Exclusive to Abu Dhabi Grand Prix ticket holders, after Friday practice.",
-  "src": "f1auh_research"
- },
- {
-  "title": "Imagine Dragons — Yasalam After-Race Concerts",
-  "hub": "dxb",
-  "date": "2026-12-05",
-  "start": null,
-  "end": null,
-  "venue": "Etihad Live, Yas Island",
-  "host": "Yasalam / Abu Dhabi Grand Prix",
-  "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/",
-  "type": "Concert",
-  "desc": "After Saturday qualifying. Exclusive to Abu Dhabi Grand Prix ticket holders.",
-  "src": "f1auh_research"
- },
- {
   "title": "Bla Bla Bar Grand Prix Race Week Brunch",
   "hub": "dxb",
   "date": "2026-12-05",
@@ -79190,19 +78197,6 @@
   "link": "https://www.khaleejtimes.com/lifestyle/abu-dhabi-race-week-meets-national-day",
   "type": "Brunch",
   "desc": "Race-themed brunch with pit-crew dancers and a champagne podium moment at 3pm. From Dh279.",
-  "src": "f1auh_research"
- },
- {
-  "title": "The Chainsmokers and The Script — Yasalam After-Race Concerts",
-  "hub": "dxb",
-  "date": "2026-12-06",
-  "start": null,
-  "end": null,
-  "venue": "Etihad Live, Yas Island",
-  "host": "Yasalam / Abu Dhabi Grand Prix",
-  "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/",
-  "type": "Concert",
-  "desc": "Season finale night: separate sets from The Chainsmokers and The Script after the race. Exclusive to Abu Dhabi Grand Prix ticket holders.",
   "src": "f1auh_research"
  },
  {
@@ -79245,71 +78239,6 @@
   "src": "f1auh_research"
  },
  {
-  "title": "Anyma",
-  "hub": "dxb",
-  "date": "2026-12-04",
-  "start": "22:30",
-  "end": null,
-  "venue": "Yas Gateway Park",
-  "host": "Abu Dhabi Grand Prix race week",
-  "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/",
-  "type": "DJ Set",
-  "desc": "Doors 9pm, show 10:30pm. Tickets from Dh495.",
-  "src": "f1auh_research"
- },
- {
-  "title": "Shimza — 16/360",
-  "hub": "dxb",
-  "date": "2026-12-04",
-  "start": null,
-  "end": null,
-  "venue": "16/360, Yas Marina Circuit",
-  "host": "Abu Dhabi Grand Prix race week",
-  "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/",
-  "type": "DJ Set",
-  "desc": "Hospitality packages from Dh1,250.",
-  "src": "f1auh_research"
- },
- {
-  "title": "Mont Rouge and Moojo — Bagatelle Rooftop",
-  "hub": "dxb",
-  "date": "2026-12-04",
-  "start": null,
-  "end": null,
-  "venue": "Bagatelle rooftop pop-up, W Abu Dhabi",
-  "host": "Bagatelle",
-  "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/",
-  "type": "Nightlife",
-  "desc": "Race week rooftop pop-up. Tables from Dh7,000.",
-  "src": "f1auh_research"
- },
- {
-  "title": "CamelPhat — 16/360",
-  "hub": "dxb",
-  "date": "2026-12-05",
-  "start": null,
-  "end": null,
-  "venue": "16/360, Yas Marina Circuit",
-  "host": "Abu Dhabi Grand Prix race week",
-  "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/",
-  "type": "DJ Set",
-  "desc": "Hospitality packages from Dh1,250.",
-  "src": "f1auh_research"
- },
- {
-  "title": "Gordo — Bagatelle",
-  "hub": "dxb",
-  "date": "2026-12-05",
-  "start": null,
-  "end": null,
-  "venue": "Bagatelle, W Abu Dhabi",
-  "host": "Bagatelle",
-  "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/",
-  "type": "Nightlife",
-  "desc": "Tables from Dh10,000.",
-  "src": "f1auh_research"
- },
- {
   "title": "Stars 'N' Bars Race Week Brunch",
   "hub": "dxb",
   "date": "2026-12-05",
@@ -79333,32 +78262,6 @@
   "link": "https://www.khaleejtimes.com/lifestyle/abu-dhabi-race-week-meets-national-day",
   "type": "Brunch",
   "desc": "Riviera-style brunch on Sat and Sun of race weekend. From Dh899.",
-  "src": "f1auh_research"
- },
- {
-  "title": "Black Coffee — 16/360",
-  "hub": "dxb",
-  "date": "2026-12-06",
-  "start": null,
-  "end": null,
-  "venue": "16/360, Yas Marina Circuit",
-  "host": "Abu Dhabi Grand Prix race week",
-  "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/",
-  "type": "DJ Set",
-  "desc": "Closing night. Hospitality packages from Dh1,250.",
-  "src": "f1auh_research"
- },
- {
-  "title": "Carl Cox — Bagatelle",
-  "hub": "dxb",
-  "date": "2026-12-06",
-  "start": null,
-  "end": null,
-  "venue": "Bagatelle, W Abu Dhabi",
-  "host": "Bagatelle",
-  "link": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/",
-  "type": "Nightlife",
-  "desc": "Closing night. Tables from Dh10,000.",
   "src": "f1auh_research"
  },
  {
@@ -82041,17 +80944,6 @@
   "host": "Intellecap (Sankalp Forum)",
   "link": "https://startupmaphub.com/events/sankalp-africa-summit-2027",
   "desc": "Pan-African impact summit aiming to unlock funding for startups via live deal rooms and pitches, with 1,500+ global delegates expected:contentReference[oaicite:4]{index=4}."
- },
- {
-  "title": "Step Conference Dubai",
-  "hub": "dxb",
-  "date": "2027-02-03",
-  "start": null,
-  "end": null,
-  "venue": "Dubai Internet City",
-  "host": "",
-  "link": "https://dealroom.co/css/dealroom-theme-3da7d8e.css?v=c1e5a66514cc2ee1",
-  "desc": "Details and registration on the event page."
  },
  {
   "title": "Yorkseed NYC | The Holiday Soirée",
@@ -90083,19 +88975,6 @@
   "src": "foundercal"
  },
  {
-  "title": "OutGeekWomen x Berlin 2027",
-  "hub": "ber",
-  "date": "2027-02-18",
-  "start": null,
-  "end": null,
-  "venue": "",
-  "host": "OutGeekWomen",
-  "link": "https://germantechjobs.de/en/events/OutGeekWomen-x-Berlin-2027-Berlin",
-  "type": "Meetups",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
   "title": "Transform",
   "hub": "ber",
   "date": "2027-03-17",
@@ -91201,19 +90080,6 @@
   "src": "foundercal"
  },
  {
-  "title": "Built Fast, Now Build to Scale: A founder roundtable on moving to AWS for scalable and secure technology",
-  "hub": "syd",
-  "date": "2026-12-10",
-  "start": "12:00",
-  "end": "14:00",
-  "venue": "Nobu Sydney, Level 2/1 Barangaroo Ave, Barangaroo NSW 2000, AU",
-  "host": "Sydney Startup Events",
-  "link": "https://techevents.au/sydney/events/built-fast-now-build-to-scale-a-founder-roundtable-on-moving-to-aws-for-scalable",
-  "type": "Meetups",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
   "title": "Join Our End-of-Year Celebration: Ignition Demo Day",
   "hub": "syd",
   "date": "2026-12-10",
@@ -91286,7 +90152,7 @@
   "end": "18:00",
   "venue": "IMD Business School Campus, Lausanne",
   "host": "The Zurich Startup Meetup",
-  "link": "https://startupticker.ch/en/events/the-pioneers-forum",
+  "link": "https://solarimpulse.com/events/the-pioneers-forum",
   "type": "Conferences",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -91312,7 +90178,7 @@
   "end": "20:00",
   "venue": "Lombard Odier, Chemin de Messidor 1, 1293 Bellevue",
   "host": "The Zurich Startup Meetup",
-  "link": "https://startupticker.ch/en/events/pret-partez-pitch-2026-la-finale",
+  "link": "https://pitch.genilem.ch/finale/",
   "type": "Pitch",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -91396,19 +90262,6 @@
   "src": "foundercal"
  },
  {
-  "title": "Pitch'n'Bar Economie de proximité",
-  "hub": "zrh",
-  "date": "2026-12-03",
-  "start": "19:30",
-  "end": "21:00",
-  "venue": "LE CUBE Escalade & Bar, Chem. du Rionzi 52 A, 1052 Le Mont-sur-Lausanne",
-  "host": "The Zurich Startup Meetup",
-  "link": "https://startupticker.ch/en/events/pitch-n-bar-economie-de-proximite",
-  "type": "Pitch",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
   "title": "EO Zürich I X-Mas Party 2026",
   "hub": "zrh",
   "date": "2026-12-04",
@@ -91429,7 +90282,7 @@
   "end": null,
   "venue": "Expo City Dubai Vereinigte Arabische Emirate",
   "host": "The Zurich Startup Meetup",
-  "link": "https://startupticker.ch/en/events/swiss-pavilion-gitex-global-2026",
+  "link": "https://www.s-ge.com/export/de/veranstaltungen/swiss-pavilion/gitex-global-2026",
   "type": "Conferences",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -91442,7 +90295,7 @@
   "end": "13:00",
   "venue": "Healthtechpark, Rütistrasse 14",
   "host": "The Zurich Startup Meetup",
-  "link": "https://startupticker.ch/en/events/beyond-the-deal-how-healthtech-startups-can-build-successful-distribution-partnerships",
+  "link": "https://www.eventbrite.ch/e/beyond-the-deal-how-healthtech-startups-can-build-successful-distribution-tickets-2004058490894",
   "type": "Meetups",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -91468,7 +90321,7 @@
   "end": "19:00",
   "venue": "Gehry Auditorium on Novartis Campus in Basel",
   "host": "The Zurich Startup Meetup",
-  "link": "https://startupticker.ch/en/events/dayone-innovation-showcase",
+  "link": "https://www.dayone.swiss/innovation-showcase/",
   "type": "Demo Days",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -91481,7 +90334,7 @@
   "end": "19:00",
   "venue": "Josefstrasse 214a",
   "host": "The Zurich Startup Meetup",
-  "link": "https://startupticker.ch/en/events/medkap-pitchevent-at-at-orbiz-josef-%281%29",
+  "link": "https://medkap.org/",
   "type": "Pitch",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -91507,21 +90360,8 @@
   "end": null,
   "venue": "",
   "host": "The Zurich Startup Meetup",
-  "link": "https://startupticker.ch/en/events/m01n-startup-camp",
+  "link": "https://moin.camp/en",
   "type": "Hackathons",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "Winterkongress 2027",
-  "hub": "zrh",
-  "date": "2027-03-05",
-  "start": "01:00",
-  "end": null,
-  "venue": "Zurich, Switzerland",
-  "host": "",
-  "link": "https://dev.events/conferences/winterkongress-2027-i9xoiizs",
-  "type": "Conferences",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
  },
@@ -91604,19 +90444,6 @@
   "src": "foundercal"
  },
  {
-  "title": "DevOpsDays Zurich 2027",
-  "hub": "zrh",
-  "date": "2027-04-14",
-  "start": "00:00",
-  "end": null,
-  "venue": "Winterthur",
-  "host": "",
-  "link": "https://www.hackevents.net/ch/events/devopsdays-zurich-2027-n5b118lc",
-  "type": "Conferences",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
   "title": "Founders' Pizza Lab",
   "hub": "zrh",
   "date": "2027-04-14",
@@ -91630,19 +90457,6 @@
   "src": "foundercal"
  },
  {
-  "title": "Future Symposium - Bridging AI Human Impact 2027",
-  "hub": "zrh",
-  "date": "2027-04-15",
-  "start": "00:00",
-  "end": null,
-  "venue": "",
-  "host": "",
-  "link": "https://swissdevjobs.ch/events/Future-Symposium---Bridging-AI-Human-Impact-2027-Zurich",
-  "type": "Conferences",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
   "title": "A3F 2027",
   "hub": "zrh",
   "date": "2027-05-12",
@@ -91651,19 +90465,6 @@
   "venue": "Kaufleuten Zürich, Zurich",
   "host": "Alan Frei",
   "link": "https://eventfrog.ch/de/p/kurse-seminare/wirtschaft/a3f-2027-zuerich-7442140828221329340.html",
-  "type": "Conferences",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "Swiss Fintech Week — 28–30 June 2027, Zurich",
-  "hub": "zrh",
-  "date": "2027-06-28",
-  "start": "00:00",
-  "end": null,
-  "venue": "Zurich",
-  "host": "Finanz und Wirtschaft Forum and Tenity",
-  "link": "https://www.hackevents.net/ch/events/swiss-fintech-week-28-30-june-2027-zurich-q7phcoq2",
   "type": "Conferences",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -91832,7 +90633,7 @@
   "end": "23:00",
   "venue": "Register to See Address, Amsterdam",
   "host": "Business events",
-  "link": "https://www.iamsterdam.com/en/business/calendar/events/all/amsterdam-startup-xmas-party-2026",
+  "link": "https://luma.com/0te6gfc4",
   "type": "Communal Dining",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -91845,7 +90646,7 @@
   "end": "19:30",
   "venue": "Capital C Bloemenmarkt, Singel 542, 1017 AZ, Amsterdam",
   "host": "Business events",
-  "link": "https://www.iamsterdam.com/en/business/calendar/events/all/open-lab-women-and-ai",
+  "link": "https://luma.com/s2a289ge",
   "type": "Workshops",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -91858,7 +90659,7 @@
   "end": "19:30",
   "venue": "Capital C Bloemenmarkt, Singel 542, 1017 AZ, Amsterdam",
   "host": "Business events",
-  "link": "https://www.iamsterdam.com/en/business/calendar/events/all/open-lab-ai-agents-at-work",
+  "link": "https://luma.com/tyx7kbtr",
   "type": "Workshops",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -92067,32 +90868,6 @@
   "venue": "",
   "host": "",
   "link": "https://devopsdays.org/events/2027-nashville",
-  "type": "Conferences",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "JSNation 2027",
-  "hub": "ams",
-  "date": "2027-05-21",
-  "start": "08:00",
-  "end": null,
-  "venue": "Kromhouthal, Gedempt Hamerkanaal 231, 1021 KP, Amsterdam",
-  "host": "Business events",
-  "link": "https://www.iamsterdam.com/en/business/calendar/events/all/jsnation-2027",
-  "type": "Conferences",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "React Summit 2027",
-  "hub": "ams",
-  "date": "2027-05-21",
-  "start": "08:00",
-  "end": null,
-  "venue": "Kromhouthal, Gedempt Hamerkanaal 231, 1021 KP, Amsterdam",
-  "host": "Business events",
-  "link": "https://www.iamsterdam.com/en/business/calendar/events/all/react-summit-2027",
   "type": "Conferences",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -93736,19 +92511,6 @@
   "src": "foundercal"
  },
  {
-  "title": "Be a boss Women Tour Occitanie 2027",
-  "hub": "par",
-  "date": "2027-03-18",
-  "start": null,
-  "end": null,
-  "venue": "",
-  "host": "Agenda Maddyness - Les événements à ne pas rater",
-  "link": "https://www.maddyness.com/evenement/be-a-boss-women-tour-occitanie-2027",
-  "type": "Meetups",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
   "title": "European Hackathon 2027",
   "hub": "par",
   "date": "2027-03-19",
@@ -93758,32 +92520,6 @@
   "host": "Université Gustave Eiffel",
   "link": "https://www.univ-gustave-eiffel.fr/en/international/european-hackathon",
   "type": "Hackathons",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "Be a boss Women Tour Nouvelle Aquitaine 2027",
-  "hub": "par",
-  "date": "2027-04-06",
-  "start": null,
-  "end": null,
-  "venue": "",
-  "host": "Agenda Maddyness - Les événements à ne pas rater",
-  "link": "https://www.maddyness.com/evenement/be-a-boss-women-tour-nouvelle-aquitaine-2027",
-  "type": "Meetups",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "Be a boss Women Tour Ile-de-France 2027",
-  "hub": "par",
-  "date": "2027-04-22",
-  "start": null,
-  "end": null,
-  "venue": "",
-  "host": "Agenda Maddyness - Les événements à ne pas rater",
-  "link": "https://www.maddyness.com/evenement/be-a-boss-women-tour-ile-de-france-2027",
-  "type": "Meetups",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
  },
@@ -93801,45 +92537,6 @@
   "src": "foundercal"
  },
  {
-  "title": "Be a boss Women Tour Pays de la Loire 2027",
-  "hub": "par",
-  "date": "2027-05-13",
-  "start": null,
-  "end": null,
-  "venue": "",
-  "host": "Agenda Maddyness - Les événements à ne pas rater",
-  "link": "https://www.maddyness.com/evenement/be-a-boss-women-tour-pays-de-la-loire-2027",
-  "type": "Meetups",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "Tech for Industry Show",
-  "hub": "par",
-  "date": "2027-05-19",
-  "start": "00:00",
-  "end": null,
-  "venue": "",
-  "host": "Agenda Maddyness - Les événements à ne pas rater",
-  "link": "https://www.maddyness.com/evenement/tech-for-industry-show-2",
-  "type": "Conferences",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "Be a boss Women Tour Auvergne Rhône-Alpes 2027",
-  "hub": "par",
-  "date": "2027-06-01",
-  "start": null,
-  "end": null,
-  "venue": "",
-  "host": "Agenda Maddyness - Les événements à ne pas rater",
-  "link": "https://www.maddyness.com/evenement/be-a-boss-women-tour-auvergne-rhne-alpes-2027",
-  "type": "Meetups",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
   "title": "France Quantum 2027",
   "hub": "par",
   "date": "2027-06-15",
@@ -93849,19 +92546,6 @@
   "host": "France Quantum",
   "link": "https://www.francequantum.fr",
   "type": "Conferences",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "Be a boss Women Tour Sud 2027",
-  "hub": "par",
-  "date": "2027-06-24",
-  "start": null,
-  "end": null,
-  "venue": "",
-  "host": "Agenda Maddyness - Les événements à ne pas rater",
-  "link": "https://www.maddyness.com/evenement/be-a-boss-women-tour-sud-2027",
-  "type": "Meetups",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
  },
@@ -93953,45 +92637,6 @@
   "host": "Alisha Fernandes",
   "link": "https://luma.com/j469tz7q",
   "type": "Meetups",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "The Founders Meet",
-  "hub": "del",
-  "date": "2026-11-28",
-  "start": "22:30",
-  "end": null,
-  "venue": "Hyatt Centric Janakpuri New Delhi, Janakpuri, New Delhi, Delhi",
-  "host": "",
-  "link": "https://startupmelas.in/startup-events-calendar/the-founders-meet",
-  "type": "Meetups",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "ELEV8 Startup Conference 2026",
-  "hub": "del",
-  "date": "2026-11-28",
-  "start": "23:30",
-  "end": null,
-  "venue": "Radisson Gurugram Sohna Road City Center, Gurgaon, Haryana",
-  "host": "",
-  "link": "https://startupmelas.in/startup-events-calendar/startup-summit-2026-spring-edition",
-  "type": "Conferences",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "Bharat Startup Summit 2026",
-  "hub": "blr",
-  "date": "2026-11-28",
-  "start": "23:30",
-  "end": null,
-  "venue": "Mahatma Mandir Convention & Exhibition Centre, Gandhinagar, Gujarat",
-  "host": "",
-  "link": "https://startupmelas.in/startup-events-calendar/bharat-startup-summit-2026",
-  "type": "Conferences",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
  },
@@ -94191,32 +92836,6 @@
   "src": "foundercal"
  },
  {
-  "title": "TiE Global Summit 2026",
-  "hub": "idr",
-  "date": "2026-12-14",
-  "start": "23:00",
-  "end": null,
-  "venue": "Brilliant Convention Centre, Vijay Nagar, Indore, Madhya Pradesh",
-  "host": "",
-  "link": "https://startupmelas.in/startup-events-calendar/tie-global-summit-2026",
-  "type": "Conferences",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "Pitch Point – RAISE’26",
-  "hub": "bom",
-  "date": "2026-12-16",
-  "start": "21:30",
-  "end": null,
-  "venue": "JIO World Convention Centre, Mumbai, Maharashtra",
-  "host": "",
-  "link": "https://startupmelas.in/startup-events-calendar/pitch-point-raise26",
-  "type": "Pitch",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
   "title": "AGENTIC FRONTIER - Founder's & VC",
   "hub": "blr",
   "date": "2026-12-18",
@@ -94239,19 +92858,6 @@
   "host": "",
   "link": "https://meraevents.com/events/shineconference2027",
   "type": "Conferences",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "Startup Mahakumbh 6.0",
-  "hub": "del",
-  "date": "2027-03-12",
-  "start": "22:30",
-  "end": null,
-  "venue": "New Delhi, India",
-  "host": "",
-  "link": "https://startupmelas.in/startup-events-calendar/startup-mahakumbh-60",
-  "type": "Meetups",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
  },
@@ -94289,7 +92895,7 @@
   "end": "18:00",
   "venue": "9Zero Climate Innovation Hub, 1215 4th Ave 15th Floor, Seattle, WA, 98101, United States, 1215 4th Ave 15th Floor, 98101, Seattle",
   "host": "Seattle AI Week: AI Startup Day @ SURF",
-  "link": "https://www.geekwire.com/calendar-event/9zero-founder-peer-group-from-fundraising-to-exit-with-emil-davityan",
+  "link": "https://luma.com/05fdvhrw",
   "type": "Workshops",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -94328,7 +92934,7 @@
   "end": "12:30",
   "venue": "Redmond Library, 15990 NE 85th St, Redmond, WA, 98052, United States, 15990 NE 85th St, 98052, Redmond",
   "host": "Seattle AI Week: AI Startup Day @ SURF",
-  "link": "https://www.geekwire.com/calendar-event/seattle-orbit-satellite-sovereignty-the-future-of-space",
+  "link": "https://luma.com/39o2itzq",
   "type": "Meetups",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -94341,7 +92947,7 @@
   "end": "18:00",
   "venue": "9Zero Climate Innovation Hub, 1215 4th Ave 15th Floor, Seattle, WA, 98101, United States, 1215 4th Ave 15th Floor, 98101, Seattle",
   "host": "Seattle AI Week: AI Startup Day @ SURF",
-  "link": "https://www.geekwire.com/calendar-event/bioeconomy-holiday-happy-hour-with-bits-in-bio",
+  "link": "https://luma.com/ckldq9pb",
   "type": "Communal Dining",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -94360,19 +92966,6 @@
   "src": "foundercal"
  },
  {
-  "title": "TiE Seattle Holiday Celebration- Builders of Seattle, Now & Next",
-  "hub": "sea",
-  "date": "2026-12-03",
-  "start": "17:30",
-  "end": "20:30",
-  "venue": "Hilton Bellevue, 300 112th Ave SE, Bellevue, WA, 98004, United States, 300 112th Ave SE, 98004, Bellevue",
-  "host": "Seattle AI Week: AI Startup Day @ SURF",
-  "link": "https://www.geekwire.com/calendar-event/tie-seattle-holiday-celebration-builders-of-seattle-now-next",
-  "type": "Meetups",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
   "title": "Plug and Play Seattle: Batch 4 Expo",
   "hub": "sea",
   "date": "2026-12-03",
@@ -94380,34 +92973,8 @@
   "end": "21:00",
   "venue": "Boeing Future of Flight, 8415 Paine Field Blvd, Mukilteo, 98275, United States, 8415 Paine Field Blvd, 98275, Mukilteo",
   "host": "Seattle AI Week: AI Startup Day @ SURF",
-  "link": "https://www.geekwire.com/calendar-event/plug-and-play-seattle-batch-4-expo",
+  "link": "https://luma.com/uivg4xdz",
   "type": "Demo Days",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "AI Founders & Investors Christmas Party 2026",
-  "hub": "sea",
-  "date": "2026-12-06",
-  "start": "18:00",
-  "end": "22:00",
-  "venue": "Mirra, Lincoln Square South, 3rd Floor, Bellevue, WA, Lincoln Square South, 3rd Floor, Bellevue",
-  "host": "Seattle AI Week: AI Startup Day @ SURF",
-  "link": "https://www.geekwire.com/calendar-event/ai-founders-investors-christmas-party-2026",
-  "type": "Communal Dining",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "AI Tinkerers Seattle: Games & AI Meetup",
-  "hub": "sea",
-  "date": "2026-12-08",
-  "start": "18:00",
-  "end": "21:00",
-  "venue": "WA",
-  "host": "Seattle AI Week: AI Startup Day @ SURF",
-  "link": "https://www.geekwire.com/calendar-event/ai-tinkerers-seattle-games-ai-meetup",
-  "type": "Meetups",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
  },
@@ -94419,7 +92986,7 @@
   "end": "17:00",
   "venue": "Bell Harbor Conference Center, 2211 Alaskan Way, Seattle, WA, 98121, United States, 2211 Alaskan Way, 98121, Seattle",
   "host": "Seattle AI Week: AI Startup Day @ SURF",
-  "link": "https://www.geekwire.com/calendar-event/clarify-horizons-gtm-conference-in-seattle",
+  "link": "https://www.clarify.ai",
   "type": "Conferences",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -94438,19 +93005,6 @@
   "src": "foundercal"
  },
  {
-  "title": "Investor fireside chat - Jordan Baker Athenaeum Ventures and Mack Hopen Acequia Capital",
-  "hub": "sea",
-  "date": "2026-12-10",
-  "start": "16:30",
-  "end": "18:00",
-  "venue": "9Zero Climate Innovation Hub, 1215 4th Ave 15th Floor, Seattle, WA, 98101, United States, 1215 4th Ave 15th Floor, 98101, Seattle",
-  "host": "Seattle AI Week: AI Startup Day @ SURF",
-  "link": "https://www.geekwire.com/calendar-event/investor-fireside-chat-jordan-baker-athenaeum-ventures-and-mack-hopen-acequia-capital",
-  "type": "Meetups",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
   "title": "2026 GeekWire Gala",
   "hub": "sea",
   "date": "2026-12-10",
@@ -94458,7 +93012,7 @@
   "end": "22:00",
   "venue": "The Shop, 2233 6th Avenue South, Seattle, WA, 98134, United States, 2233 6th Avenue South, 98134, Seattle",
   "host": "Seattle AI Week: AI Startup Day @ SURF",
-  "link": "https://www.geekwire.com/calendar-event/2026-geekwire-gala",
+  "link": "https://luma.com/i81x9egk",
   "type": "Communal Dining",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -95816,19 +94370,6 @@
   "src": "foundercal"
  },
  {
-  "title": "Founders Club: Founders to Founders, Honest Stories",
-  "hub": "hel",
-  "date": "2026-11-27",
-  "start": "14:00",
-  "end": "15:00",
-  "venue": "Platform6, Åkerlundinkatu 8, 33100 Tampere, Tampere, Åkerlundinkatu 8, 33100 Tampere, Tampere",
-  "host": "Startup-tapahtumat: Helsinki",
-  "link": "https://www.startupjobs.fi/tapahtumat/6359-founders-club-founders-to-founders-honest-stories",
-  "type": "Meetups",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
   "title": "Europe in the loop",
   "hub": "hel",
   "date": "2026-11-30",
@@ -95838,19 +94379,6 @@
   "host": "Learning Futures Hackathon",
   "link": "https://lumi-ai-factory.eu/events/europe-in-the-loop",
   "type": "Meetups",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "AAIF Community Helsinki #12: Real-World Business AI Hackathon",
-  "hub": "hel",
-  "date": "2026-12-03",
-  "start": "09:00",
-  "end": "19:00",
-  "venue": "Haaga-Helia ammattikorkeakoulu, Pasilan kampus, Ratapihantie 13, 00520 Helsinki, Helsinki, Ratapihantie 13, 00520 Helsinki, Helsinki",
-  "host": "Startup-tapahtumat: Helsinki",
-  "link": "https://www.startupjobs.fi/tapahtumat/6361-aaif-community-helsinki-12-real-world-business-ai-hackathon",
-  "type": "Hackathons",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
  },
@@ -95901,7 +94429,7 @@
   "end": "14:30",
   "venue": "Maria 01, Maria 01, Lapinlahdenkatu 16, 00180 Helsinki, Finland, Helsinki, Maria 01, Lapinlahdenkatu 16, 00180 Helsinki, Finland, Helsinki",
   "host": "Startup-tapahtumat: Helsinki",
-  "link": "https://www.startupjobs.fi/tapahtumat/5951-building-a-sales-pipeline-in-notion",
+  "link": "https://luma.com/929xdw0m?amp%3Butm_medium=referral&amp%3Butm_campaign=startupjobs.fi",
   "type": "Workshops",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -95933,19 +94461,6 @@
   "src": "foundercal"
  },
  {
-  "title": "Kasvupiiri: Myynnillä törkeää kilpailuetua!",
-  "hub": "hel",
-  "date": "2026-12-11",
-  "start": "13:00",
-  "end": "16:00",
-  "venue": "Innovation Home Kamppi, Kansakoulukatu 3, 00100 Helsinki, Helsinki, Kansakoulukatu 3, 00100 Helsinki, Helsinki",
-  "host": "Startup-tapahtumat: Helsinki",
-  "link": "https://www.startupjobs.fi/tapahtumat/6362-kasvupiiri-myynnilla-torkeaa-kilpailuetua",
-  "type": "Workshops",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
   "title": "Monda's Pikkujoulu 🎆",
   "hub": "hel",
   "date": "2026-12-11",
@@ -95966,7 +94481,7 @@
   "end": "18:00",
   "venue": "Fabianinkatu 33, Fabianinkatu 33, Stud, Stud, Fabianinkatu 33, Stud",
   "host": "Startup-tapahtumat: Helsinki",
-  "link": "https://www.startupjobs.fi/tapahtumat/6205-helsinki-incubators-advanced-track-finale-showcase",
+  "link": "https://luma.com/m9s97b6z?amp%3Butm_medium=referral&amp%3Butm_campaign=startupjobs.fi",
   "type": "Demo Days",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -95979,7 +94494,7 @@
   "end": "21:00",
   "venue": "Out of Context, Vilhonkatu 4 B 18, 00100 Helsinki, Helsinki, Vilhonkatu 4 B 18, 00100 Helsinki, Helsinki",
   "host": "Startup-tapahtumat: Helsinki",
-  "link": "https://www.startupjobs.fi/tapahtumat/6363-out-of-context-demoilta-4",
+  "link": "https://luma.com/2gh6fn1p?amp%3Butm_medium=referral&amp%3Butm_campaign=startupjobs.fi",
   "type": "Meetups",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -95992,7 +94507,7 @@
   "end": "19:00",
   "venue": "Scandic Grand Central Helsinki, Vilhonkatu 13, 00100 Helsinki, Helsinki, Vilhonkatu 13, 00100 Helsinki, Helsinki",
   "host": "Startup-tapahtumat: Helsinki",
-  "link": "https://www.startupjobs.fi/tapahtumat/6364-the-ai-club-ai-afterwork-vol-14",
+  "link": "https://luma.com/5tcst0kp?amp%3Butm_medium=referral&amp%3Butm_campaign=startupjobs.fi",
   "type": "Meetups",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -96369,7 +94884,7 @@
   "end": null,
   "venue": "Stockholm, Sweden, Stockholm",
   "host": "",
-  "link": "https://ainave.com/events/conferences/ai-fokus-2026",
+  "link": "https://www.ai-fokus.se/",
   "type": "Conferences",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -96382,7 +94897,7 @@
   "end": "02:00",
   "venue": "Stockholm, Sweden, Stockholm",
   "host": "",
-  "link": "https://ainave.com/events/conferences/data-innovation-summit",
+  "link": "https://datainnovationsummit.com/region/nordics/",
   "type": "Conferences",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -96674,19 +95189,6 @@
   "src": "foundercal"
  },
  {
-  "title": "StrictlyVC 2027 Events",
-  "hub": "bos",
-  "date": "2026-12-31",
-  "start": "19:00",
-  "end": null,
-  "venue": "",
-  "host": "TechCrunch",
-  "link": "https://techcrunch.com/events/strictlyvc-2027-events",
-  "type": "Meetups",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
   "title": "Hackathon - March 2027",
   "hub": "bos",
   "date": "2027-03-15",
@@ -96915,7 +95417,7 @@
   "end": "17:00",
   "venue": "Darul Salaam (House of Peace), Thika Street, Mombasa, Thika Street, Mombasa",
   "host": "Startup events in Kenya",
-  "link": "https://www.startupjobs.ke/events/6181-pre-devfest-pwani-2026-build-with-google-antigravity",
+  "link": "https://gdg.community.dev/events/details/google-gdg-pwani-presents-pre-devfest-pwani-2026-build-with-google-antigravity-hands-on-workshop/?amp%3Butm_medium=referral&amp%3Butm_campaign=startupjobs.ke",
   "type": "Workshops",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -96928,7 +95430,7 @@
   "end": "18:00",
   "venue": "Web3Clubs Foundation Limited, Web3Clubs Foundation Limited, AppleWood Adams, Nairobi, Kenya, Nairobi, Web3Clubs Foundation Limited, AppleWood Adams, Nairobi, Kenya",
   "host": "Startup events in Kenya",
-  "link": "https://www.startupjobs.ke/events/6411-building-community-and-impact-from-scratch-the-ecorave-story",
+  "link": "https://luma.com/op1wu38b?amp%3Butm_medium=referral&amp%3Butm_campaign=startupjobs.ke",
   "type": "Meetups",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -97019,7 +95521,7 @@
   "end": "15:30",
   "venue": "Antler East Africa, Antler East Africa, ABC Place, 10th Floor Waiyaki Wy, Nairobi, Kenya, Nairobi, Antler East Africa, ABC Place, 10th Floor Waiyaki Wy, Nairobi, Kenya",
   "host": "Startup events in Kenya",
-  "link": "https://www.startupjobs.ke/events/5887-zindua-5-0-graduation-the-future-of-work",
+  "link": "https://luma.com/0o392og6?amp%3Butm_medium=referral&amp%3Butm_campaign=startupjobs.ke",
   "type": "Meetups",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -97188,7 +95690,7 @@
   "end": "20:00",
   "venue": "",
   "host": "Health2Tech",
-  "link": "https://torontostarts.com/events/community-promotion-health2tech-toronto-december-2-hosted-by-health2tech--promo-luma-t5uh3an6",
+  "link": "https://luma.com/t5uh3an6",
   "type": "Meetups",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -97747,7 +96249,7 @@
   "end": "20:30",
   "venue": "Santa Monica, CA",
   "host": "USC Viterbi and USC Stevens",
-  "link": "https://lastartupevents.org/lastartup-events-calendar/foundersboost-la-demo-day-fall-2026",
+  "link": "https://luma.com/lademoday",
   "type": "Demo Days",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -97814,19 +96316,6 @@
   "host": "LA Hacks",
   "link": "https://lahacks.com",
   "type": "Hackathons",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "HUMANOID ROBOTS CONFERENCE 2027",
-  "hub": "la",
-  "date": "2027-04-28",
-  "start": "00:00",
-  "end": null,
-  "venue": "",
-  "host": "USC Viterbi and USC Stevens",
-  "link": "https://lastartupevents.org/lastartup-events-calendar/humanoid-robots-conference-2027",
-  "type": "Conferences",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
  },
@@ -98256,84 +96745,6 @@
   "host": "Founder Led Marketing Tel Aviv",
   "link": "https://www.meetup.com/founder-led-marketing-tel-aviv/events/317488471",
   "type": "Workshops",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "NEW-TECH EXHIBITION 2027",
-  "hub": "tlv",
-  "date": "2027-06-08",
-  "start": "09:00",
-  "end": null,
-  "venue": "EXPO Tel-Aviv, Pavilion 1",
-  "host": "New Tech Events",
-  "link": "https://www.new-techevents.com/new-tech-exhibition",
-  "type": "Conferences",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "EMBEDDED AI",
-  "hub": "tlv",
-  "date": "2027-06-08",
-  "start": "09:30",
-  "end": "15:00",
-  "venue": "EXPO Tel-Aviv, Pavilion 1",
-  "host": "New Tech Events",
-  "link": "https://www.new-techevents.com/embedded-ai",
-  "type": "Conferences",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "ROBOTICS & AUTOMATION",
-  "hub": "tlv",
-  "date": "2027-06-08",
-  "start": "09:30",
-  "end": "15:00",
-  "venue": "EXPO Tel-Aviv, Pavilion 1",
-  "host": "New Tech Events",
-  "link": "https://www.new-techevents.com/robotics",
-  "type": "Conferences",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "Next-Generation Computing Systems",
-  "hub": "tlv",
-  "date": "2027-06-09",
-  "start": "08:30",
-  "end": "15:00",
-  "venue": "EXPO Tel-Aviv",
-  "host": "New Tech Events",
-  "link": "https://www.new-techevents.com/next-generation-computing-systems",
-  "type": "Conferences",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "INDUSTRY 4.O – SMART FACTORY / Physical AI",
-  "hub": "tlv",
-  "date": "2027-06-09",
-  "start": "09:30",
-  "end": "15:00",
-  "venue": "EXPO Tel-Aviv, Pavilion 1",
-  "host": "New Tech Events",
-  "link": "https://www.new-techevents.com/industry-4-o-smart-factory",
-  "type": "Conferences",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "3D – DAY",
-  "hub": "tlv",
-  "date": "2027-06-09",
-  "start": "09:30",
-  "end": "15:00",
-  "venue": "EXPO Tel-Aviv, Pavilion 1",
-  "host": "New Tech Events",
-  "link": "https://www.new-techevents.com/3d-day-nt",
-  "type": "Conferences",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
  },
@@ -99508,19 +97919,6 @@
   "src": "foundercal"
  },
  {
-  "title": "Talent Land México 2026",
-  "hub": "mex",
-  "date": "2027-04-07",
-  "start": "00:00",
-  "end": null,
-  "venue": "",
-  "host": "México City AI, ML and Computer Vision Meetup",
-  "link": "https://andresospina.co/eventos-ia/evento/talent-land-mexico-2026",
-  "type": "Conferences",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
   "title": "StartCo",
   "hub": "mde",
   "date": "2027-04-21",
@@ -99530,45 +97928,6 @@
   "host": "",
   "link": "https://startco.com.co",
   "type": "Pitch",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "México AI, Cloud & Data Summit 2026",
-  "hub": "mex",
-  "date": "2027-04-22",
-  "start": null,
-  "end": null,
-  "venue": "",
-  "host": "México City AI, ML and Computer Vision Meetup",
-  "link": "https://andresospina.co/eventos-ia/evento/mexico-ai-cloud-data-summit-2026",
-  "type": "Conferences",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "Talent Land México 2027",
-  "hub": "mex",
-  "date": "2027-04-27",
-  "start": "00:00",
-  "end": null,
-  "venue": "",
-  "host": "México City AI, ML and Computer Vision Meetup",
-  "link": "https://andresospina.co/eventos-ia/evento/talent-land-mexico-2027",
-  "type": "Conferences",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "12° Congreso IA, Tecnología y Negocios America Digital México 2027",
-  "hub": "mex",
-  "date": "2027-06-16",
-  "start": "00:00",
-  "end": null,
-  "venue": "",
-  "host": "México City AI, ML and Computer Vision Meetup",
-  "link": "https://andresospina.co/eventos-ia/evento/congreso-america-digital-mexico-2027",
-  "type": "Conferences",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
  },
@@ -100243,7 +98602,7 @@
   "end": "18:00",
   "venue": "The Green Lounge, BTTC Centre, 288 Ortigas Avenue corner Roosevelt, San Juan, 288 Ortigas Avenue corner Roosevelt, San Juan",
   "host": "",
-  "link": "https://www.startupjobs.ph/events/5843-devfest-manila-2026-main-stage",
+  "link": "https://gdg.community.dev/events/details/google-gdg-manila-presents-devfest-manila-2026-main-stage/?amp%3Butm_medium=referral&amp%3Butm_campaign=startupjobs.ph",
   "type": "Conferences",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -100295,7 +98654,7 @@
   "end": null,
   "venue": "Hilton Clark Sun Valley Resort, Jose Abad Santos Avenue, Clark Freeport, Angeles, Jose Abad Santos Avenue, Clark Freeport, Angeles",
   "host": "",
-  "link": "https://www.startupjobs.ph/events/6378-gamedev-summit-2027",
+  "link": "https://gamedevsummit.co/?amp%3Butm_medium=referral&amp%3Butm_campaign=startupjobs.ph",
   "type": "Conferences",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
@@ -104772,17 +103131,6 @@
   "desc": "A focused Pitch and Networking night with live startup pitches, direct investor feedback, and time to meet relevant founders and peers."
  },
  {
-  "title": "Tech.Rocks Summit",
-  "hub": "par",
-  "date": "2026-11-30",
-  "start": "01:00",
-  "end": null,
-  "venue": "Paris, France",
-  "host": "",
-  "link": "https://dev.events/favicon.ico",
-  "desc": "Tech leadership conference in Paris, France"
- },
- {
   "title": "AI Tinkerers × Neo4j — Context, Connected",
   "hub": "par",
   "date": "2026-12-08",
@@ -108633,6 +106981,541 @@
   "venue": "",
   "host": "Shipai",
   "link": "https://www.meetup.com/shipai/events/317559690/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "Beyond the Paper: AI Research Dinner",
+  "hub": "atl",
+  "date": "2026-12-11",
+  "start": "18:00",
+  "end": "21:00",
+  "venue": "Buckhead",
+  "host": "Nebius Events",
+  "link": "https://luma.com/nebius-dqpd",
+  "desc": "Details and registration on the event page.",
+  "src": "luma-cal"
+ },
+ {
+  "title": "Mindstone Zurich December AI Meetup",
+  "hub": "zrh",
+  "date": "2026-12-02",
+  "start": "18:00",
+  "end": "21:00",
+  "venue": "Unit8 SA",
+  "host": "Mindstone AI Meetup",
+  "link": "https://luma.com/vf0f471k",
+  "desc": "Details and registration on the event page.",
+  "src": "luma-cal"
+ },
+ {
+  "title": "Mindstone Toronto December AI Meetup",
+  "hub": "tor",
+  "date": "2026-12-08",
+  "start": "18:00",
+  "end": "21:00",
+  "venue": "St. Paul's Bloor Street",
+  "host": "Mindstone AI Meetup",
+  "link": "https://luma.com/o4i33x3v",
+  "desc": "Details and registration on the event page.",
+  "src": "luma-cal"
+ },
+ {
+  "title": "Integral x ATFX Connect | Crypto Conversations: Networking Drinks",
+  "hub": "syd",
+  "date": "2026-11-26",
+  "start": "18:00",
+  "end": "21:00",
+  "venue": "",
+  "host": "CryptoCon - Australia's largest crypto event",
+  "link": "https://luma.com/rzlwq5ax",
+  "desc": "Details and registration on the event page.",
+  "src": "luma-cal"
+ },
+ {
+  "title": "☕ Product of SYD: AI Week Edition",
+  "hub": "syd",
+  "date": "2026-12-08",
+  "start": "07:30",
+  "end": "08:30",
+  "venue": "",
+  "host": "Product of SYD",
+  "link": "https://luma.com/xf5qmhff",
+  "desc": "Details and registration on the event page.",
+  "src": "luma-cal"
+ },
+ {
+  "title": "Fierce Founders Coworking Day",
+  "hub": "nyc",
+  "date": "2026-12-02",
+  "start": "10:00",
+  "end": "17:00",
+  "venue": "Luminary",
+  "host": "Fierce Foundry",
+  "link": "https://luma.com/fierce-21zh",
+  "desc": "Details and registration on the event page.",
+  "src": "luma-cal"
+ },
+ {
+  "title": "Female Founders and Funders: EOY Fundraiser!",
+  "hub": "nyc",
+  "date": "2026-12-02",
+  "start": "17:00",
+  "end": "19:00",
+  "venue": "Luminary",
+  "host": "Fierce Foundry",
+  "link": "https://luma.com/fierce-vlkk",
+  "desc": "Details and registration on the event page.",
+  "src": "luma-cal"
+ },
+ {
+  "title": "Founders Running Club :: New York",
+  "hub": "nyc",
+  "date": "2027-01-30",
+  "start": "09:00",
+  "venue": "",
+  "host": "Founders Running Club New York",
+  "link": "https://www.meetup.com/founders-running-club-new-york/events/qtrdwtykccbnc/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "Tech Project",
+  "hub": "bom",
+  "date": "2027-01-30",
+  "start": "11:00",
+  "venue": "",
+  "host": "Technology Square",
+  "link": "https://www.meetup.com/technology-square/events/zhmbppykccbnc/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "Unstuck Tuesday: Startup Pitches, Feedback, and Action Steps!",
+  "hub": "dc",
+  "date": "2027-01-26",
+  "start": "10:30",
+  "venue": "",
+  "host": "Unstucklabs",
+  "link": "https://www.meetup.com/unstucklabs/events/dfzzvtykccbjc/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "Unstuck Tuesday: Startup Pitches, Feedback, and Action Steps!",
+  "hub": "dc",
+  "date": "2027-02-02",
+  "start": "10:30",
+  "venue": "",
+  "host": "Unstucklabs",
+  "link": "https://www.meetup.com/unstucklabs/events/dfzzvtykcdbdb/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "🚀Toronto Founder Walk Entrepreneurs, Startups & Business Owners",
+  "hub": "tor",
+  "date": "2026-12-13",
+  "start": "14:45",
+  "venue": "",
+  "host": "Toronto Business Startups",
+  "link": "https://www.meetup.com/toronto-business-startups/events/317411315/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "The Venture Walk #024 (High Park)",
+  "hub": "tor",
+  "date": "2026-12-19",
+  "start": "09:30",
+  "venue": "",
+  "host": "Toronto Business Startups",
+  "link": "https://www.meetup.com/toronto-business-startups/events/cpjfbvyjcqbzb/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "🔥Toronto Founder Walk | Marketers, Entrepreneurs & Business Owners",
+  "hub": "tor",
+  "date": "2027-01-31",
+  "start": "14:45",
+  "venue": "",
+  "host": "Internet Marketing Strategy Group",
+  "link": "https://www.meetup.com/internet-marketing-strategy-group/events/mxmbcvykccbpc/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "AI This Week: Open Circle",
+  "hub": "blr",
+  "date": "2027-01-22",
+  "start": "09:30",
+  "venue": "",
+  "host": "Bengaluru Artificial Intelligence Group",
+  "link": "https://www.meetup.com/bengaluru-artificial-intelligence-group/events/317538233/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "AI This Week: Open Circle",
+  "hub": "blr",
+  "date": "2027-01-29",
+  "start": "09:30",
+  "venue": "",
+  "host": "Bengaluru Artificial Intelligence Group",
+  "link": "https://www.meetup.com/bengaluru-artificial-intelligence-group/events/317538235/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "AI This Week: Open Circle",
+  "hub": "blr",
+  "date": "2027-02-05",
+  "start": "09:30",
+  "venue": "",
+  "host": "Bengaluru Artificial Intelligence Group",
+  "link": "https://www.meetup.com/bengaluru-artificial-intelligence-group/events/317538238/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "ATX Founder Office Hours",
+  "hub": "atx",
+  "date": "2027-01-20",
+  "start": "12:00",
+  "venue": "",
+  "host": "Atx Startup Network",
+  "link": "https://www.meetup.com/atx-startup-network/events/lrrvztykccbbc/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "ATX Founder Office Hours",
+  "hub": "atx",
+  "date": "2027-01-27",
+  "start": "12:00",
+  "venue": "",
+  "host": "Atx Startup Network",
+  "link": "https://www.meetup.com/atx-startup-network/events/lrrvztykccbkc/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "ATX Founder Office Hours",
+  "hub": "atx",
+  "date": "2027-02-03",
+  "start": "12:00",
+  "venue": "",
+  "host": "Atx Startup Network",
+  "link": "https://www.meetup.com/atx-startup-network/events/lrrvztykcdbfb/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "Friday Founder Review",
+  "hub": "den",
+  "date": "2027-01-29",
+  "start": "16:00",
+  "venue": "",
+  "host": "Friday Founder Review",
+  "link": "https://www.meetup.com/friday-founder-review/events/hnvjbvykccbmc/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "AI Engineers Barcelona",
+  "hub": "bcn",
+  "date": "2027-01-25",
+  "start": "19:00",
+  "venue": "",
+  "host": "Ai Engineers Barcelona",
+  "link": "https://www.meetup.com/ai-engineers-barcelona/events/mstmbvykccbhc/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "AI Engineers Barcelona",
+  "hub": "bcn",
+  "date": "2027-02-01",
+  "start": "19:00",
+  "venue": "",
+  "host": "Ai Engineers Barcelona",
+  "link": "https://www.meetup.com/ai-engineers-barcelona/events/mstmbvykcdbcb/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "[🌴 Startup Oasis] Innovation Café - Malaga!",
+  "hub": "bcn",
+  "date": "2026-12-18",
+  "start": "10:00",
+  "venue": "",
+  "host": "Startup Oasis",
+  "link": "https://www.meetup.com/startup-oasis/events/315666640/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "[🌴 Startup Oasis] Innovation Café - MADRID!",
+  "hub": "bcn",
+  "date": "2026-12-18",
+  "start": "10:00",
+  "venue": "",
+  "host": "Startup Oasis",
+  "link": "https://www.meetup.com/startup-oasis/events/317507345/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "AI Cowork, Build & Talk AI",
+  "hub": "vie",
+  "date": "2027-01-19",
+  "start": "13:00",
+  "venue": "",
+  "host": "Practicalaiacademy",
+  "link": "https://www.meetup.com/practicalaiacademy/events/xfjtbvykccbzb/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "AI Cowork, Build & Talk AI",
+  "hub": "vie",
+  "date": "2027-01-26",
+  "start": "13:00",
+  "venue": "",
+  "host": "Practicalaiacademy",
+  "link": "https://www.meetup.com/practicalaiacademy/events/xfjtbvykccbjc/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "AI Cowork, Build & Talk AI",
+  "hub": "vie",
+  "date": "2027-02-02",
+  "start": "13:00",
+  "venue": "",
+  "host": "Practicalaiacademy",
+  "link": "https://www.meetup.com/practicalaiacademy/events/xfjtbvykcdbdb/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "Founders Running Club :: Warsaw",
+  "hub": "waw",
+  "date": "2027-01-30",
+  "start": "09:30",
+  "venue": "",
+  "host": "Founders Running Club Warsaw",
+  "link": "https://www.meetup.com/founders-running-club-warsaw/events/bptsxtykccbnc/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "AI Engineers - Taipei",
+  "hub": "tpe",
+  "date": "2027-01-23",
+  "start": "10:30",
+  "venue": "",
+  "host": "Ai Engineers In Taiwan",
+  "link": "https://www.meetup.com/ai-engineers-in-taiwan/events/tzhwbvykccbfc/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "AI Engineers - Taipei",
+  "hub": "tpe",
+  "date": "2027-01-30",
+  "start": "10:30",
+  "venue": "",
+  "host": "Ai Engineers In Taiwan",
+  "link": "https://www.meetup.com/ai-engineers-in-taiwan/events/tzhwbvykccbnc/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "Code & Coffee with Mentorship Saturdays @ Roseline Coffee",
+  "hub": "pdx",
+  "date": "2027-01-02",
+  "start": "10:00",
+  "venue": "",
+  "host": "Portland Code Coffee",
+  "link": "https://www.meetup.com/portland-code-coffee/events/pzmwztykccbdb/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "Wealth, Property & Private Capital Networking for Investors & Professionals",
+  "hub": "ldn",
+  "date": "2026-12-15",
+  "start": "18:30",
+  "venue": "",
+  "host": "London Networking For Startups Professionals",
+  "link": "https://www.meetup.com/london-networking-for-startups-professionals/events/317416603/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "Finance, Banking, Investments & Fintech for Startups & Professionals",
+  "hub": "ldn",
+  "date": "2026-12-15",
+  "start": "18:30",
+  "venue": "",
+  "host": "London Networking For Startups Professionals",
+  "link": "https://www.meetup.com/london-networking-for-startups-professionals/events/317416703/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "AI Project Hub",
+  "hub": "syd",
+  "date": "2027-01-21",
+  "start": "18:00",
+  "venue": "",
+  "host": "Western Sydney Tech Innovators",
+  "link": "https://www.meetup.com/western-sydney-tech-innovators/events/hhfxztykccbcc/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "AI Project Hub",
+  "hub": "syd",
+  "date": "2027-01-28",
+  "start": "18:00",
+  "venue": "",
+  "host": "Western Sydney Tech Innovators",
+  "link": "https://www.meetup.com/western-sydney-tech-innovators/events/hhfxztykccblc/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "Free Startup Fundraising Office Hours Expert AMA with Angel Investor Scott Fox!",
+  "hub": "syd",
+  "date": "2027-01-20",
+  "start": "05:00",
+  "venue": "",
+  "host": "Sydney Technology Startups Mastermind Group",
+  "link": "https://www.meetup.com/sydney-technology-startups-mastermind-group/events/prxrbvykccbbc/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "Free Startup Fundraising Office Hours Expert AMA with Angel Investor Scott Fox!",
+  "hub": "syd",
+  "date": "2027-01-27",
+  "start": "05:00",
+  "venue": "",
+  "host": "Sydney Technology Startups Mastermind Group",
+  "link": "https://www.meetup.com/sydney-technology-startups-mastermind-group/events/prxrbvykccbkc/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "Free Startup Fundraising Office Hours Expert AMA with Angel Investor Scott Fox!",
+  "hub": "syd",
+  "date": "2027-02-03",
+  "start": "05:00",
+  "venue": "",
+  "host": "Sydney Technology Startups Mastermind Group",
+  "link": "https://www.meetup.com/sydney-technology-startups-mastermind-group/events/prxrbvykcdbfb/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "How to Build Your Personal Brand with AI in 2027",
+  "hub": "syd",
+  "date": "2026-12-16",
+  "start": "10:00",
+  "venue": "",
+  "host": "Sydney Startup Idea To Ipo",
+  "link": "https://www.meetup.com/sydney-startup-idea-to-ipo/events/317437530/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "Join Biggest Tech Community | Developers, Founders & Mentors",
+  "hub": "dxb",
+  "date": "2026-12-12",
+  "start": "11:00",
+  "venue": "",
+  "host": "Dubaidata",
+  "link": "https://www.meetup.com/dubaidata/events/317408704/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "The best way to learn and Implement AI",
+  "hub": "dxb",
+  "date": "2026-12-13",
+  "start": "12:00",
+  "venue": "",
+  "host": "Dubaidata",
+  "link": "https://www.meetup.com/dubaidata/events/317408716/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "Join Biggest Tech Community | Developers, Founders & Mentors",
+  "hub": "dxb",
+  "date": "2026-12-19",
+  "start": "11:00",
+  "venue": "",
+  "host": "Dubaidata",
+  "link": "https://www.meetup.com/dubaidata/events/317272509/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "The Venture Garden, Jersey City (Entrepreneurs Welcome!)",
+  "hub": "nyc",
+  "date": "2027-01-09",
+  "start": "11:00",
+  "venue": "",
+  "host": "Jersey City Entrepreneurs",
+  "link": "https://www.meetup.com/jersey-city-entrepreneurs/events/krpkbvykccbmb/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "The Venture Garden, Jersey City (Entrepreneurs Welcome!)",
+  "hub": "nyc",
+  "date": "2027-01-16",
+  "start": "11:00",
+  "venue": "",
+  "host": "Jersey City Entrepreneurs",
+  "link": "https://www.meetup.com/jersey-city-entrepreneurs/events/krpkbvykccbvb/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "The Venture Garden, Jersey City (Entrepreneurs Welcome!)",
+  "hub": "nyc",
+  "date": "2027-01-23",
+  "start": "11:00",
+  "venue": "",
+  "host": "Jersey City Entrepreneurs",
+  "link": "https://www.meetup.com/jersey-city-entrepreneurs/events/krpkbvykccbfc/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "Side Project Saturday for Engineers",
+  "hub": "sf",
+  "date": "2027-01-23",
+  "start": "11:00",
+  "venue": "",
+  "host": "Mission Creatives Engineers",
+  "link": "https://www.meetup.com/mission-creatives-engineers/events/mhvbcvykccbfc/",
+  "desc": "Details and registration on the event page.",
+  "src": "meetup"
+ },
+ {
+  "title": "Side Project Saturday for Engineers",
+  "hub": "sf",
+  "date": "2027-01-30",
+  "start": "11:00",
+  "venue": "",
+  "host": "Mission Creatives Engineers",
+  "link": "https://www.meetup.com/mission-creatives-engineers/events/mhvbcvykccbnc/",
   "desc": "Details and registration on the event page.",
   "src": "meetup"
  }
