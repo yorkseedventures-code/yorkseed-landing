@@ -106173,7 +106173,7 @@
  },
  {
   "hub": "dav",
-  "end": null,
+  "end": "20:00",
   "desc": "",
   "src": "manual",
   "start": "18:00",
@@ -106277,5 +106277,70 @@
   "host": "The Digital Economist",
   "link": "https://luma.com/4sr7rj8i",
   "type": "Communal Dining"
+ },
+ {
+  "hub": "dav",
+  "desc": "",
+  "src": "manual",
+  "title": "Davos Super Intelligence Summit 2027",
+  "date": "2027-01-19",
+  "start": "16:00",
+  "end": "20:00",
+  "venue": "Grandhotel Belvédère, Promenade 89, Davos",
+  "host": "Davos Premier",
+  "link": "https://luma.com/davossummit.ai",
+  "type": "Conferences"
+ },
+ {
+  "hub": "dav",
+  "desc": "",
+  "src": "manual",
+  "title": "WEF Pre-Mixer",
+  "date": "2027-01-17",
+  "start": "18:00",
+  "end": "20:00",
+  "venue": "Davos",
+  "host": "unofficials.club & Crazy Startup Guy",
+  "link": "https://luma.com/dcspbywy",
+  "type": "Networking"
+ },
+ {
+  "hub": "dav",
+  "desc": "",
+  "src": "manual",
+  "title": "Future Investments Circle",
+  "date": "2027-01-18",
+  "start": "10:00",
+  "end": "15:00",
+  "venue": "Morosani Posthotel, Promenade 42, Davos",
+  "host": "Future Investments",
+  "link": "https://luma.com/urvi312y",
+  "type": "Investor Events"
+ },
+ {
+  "hub": "dav",
+  "desc": "",
+  "src": "manual",
+  "title": "Wealth Tech Executive Forum: Davos Edition",
+  "date": "2027-01-18",
+  "start": "09:00",
+  "end": "12:30",
+  "venue": "Obere Strasse 33, Davos Platz",
+  "host": "CV VC & The Hub Davos",
+  "link": "https://luma.com/gfx017da",
+  "type": "Conferences"
+ },
+ {
+  "hub": "dav",
+  "desc": "",
+  "src": "manual",
+  "title": "The Digital Economist: Davos Agenda 2027",
+  "date": "2027-01-18",
+  "start": "12:00",
+  "end": "15:30",
+  "venue": "Davos",
+  "host": "The Digital Economist",
+  "link": "https://luma.com/jd9smx60",
+  "type": "Talk"
  }
 ]
