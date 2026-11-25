@@ -261,9 +261,11 @@ function evSlug(e){return ((e.title||"event").toLowerCase().normalize("NFKD").re
    the visitor was already on and just appends the hash -- which is why, e.g., clicking any non-Yorkseed event
    from a conference week's hub page left that week's URL in the address bar with the wrong event's hash stuck
    on the end, instead of navigating to that event's own page. */
-function evStatic(e){const n=Date.now()-5*36e5,t=new Date(n).toISOString().slice(0,10),z=new Date(n+120*864e5).toISOString().slice(0,10),a=e.d0||e.date;return !!((e.until||a)>=t&&a<=z);}
-function evPath(e){return evStatic(e)?"/e/"+evSlug(e)+"/":"#e/"+evSlug(e);}
-function evUrl(e){const n=Date.now()-5*36e5,t=new Date(n).toISOString().slice(0,10),z=new Date(n+120*864e5).toISOString().slice(0,10);return e.fj&&(e.until||e.d0||e.date)>=t&&(e.d0||e.date)<=z?"https://list.yorkseed.co/e/"+evSlug(e)+"/":"https://list.yorkseed.co/#e/"+evSlug(e);}
+function evStatic(e){if(e.mine||(e.live&&!e.fj))return false; /* just submitted or approved since the last build: no page yet */
+  const n=Date.now()-5*36e5,t=new Date(n).toISOString().slice(0,10),z=new Date(n+120*864e5).toISOString().slice(0,10),a=e.d0||e.date;return !!((e.until||a)>=t&&a<=z);}
+/* never a #hash link: an event with its own page gets /e/<slug>/ (real link preview), anything else ?e=<slug> */
+function evPath(e){return evStatic(e)?"/e/"+evSlug(e)+"/":"?e="+evSlug(e);}
+function evUrl(e){return evStatic(e)?"https://list.yorkseed.co/e/"+evSlug(e)+"/":"https://list.yorkseed.co/?e="+evSlug(e);}
 const HUB_LL={jc:[40.72,-74.04],nyc:[40.71,-74.01],sf:[37.77,-122.42],atx:[30.27,-97.74],bos:[42.36,-71.06],chi:[41.88,-87.63],la:[34.05,-118.24],mia:[25.76,-80.19],dc:[38.91,-77.04],mtl:[45.5,-73.57],tor:[43.65,-79.38],ams:[52.37,4.9],bcn:[41.39,2.17],ber:[52.52,13.4],can:[43.55,7.02],cph:[55.68,12.57],dub:[53.35,-6.26],hel:[60.17,24.94],lis:[38.72,-9.14],ldn:[51.51,-0.13],mil:[45.46,9.19],muc:[48.14,11.58],par:[48.86,2.35],sto:[59.33,18.07],zrh:[47.38,8.54],dav:[46.80,9.84],bue:[-34.6,-58.38],mex:[19.43,-99.13],sao:[-23.55,-46.63],tlv:[32.09,34.78],dxb:[25.2,55.27],hkg:[22.32,114.17],kul:[3.14,101.69],sgp:[1.35,103.82],syd:[-33.87,151.21],sea:[47.61,-122.33],tyo:[35.68,139.69],blr:[12.97,77.59],mad:[40.42,-3.7],yvr:[49.28,-123.12],den:[39.74,-104.99],tpe:[25.03,121.57],sel:[37.57,126.98],bkk:[13.76,100.5],jkt:[-6.21,106.85],nbo:[-1.29,36.82],los:[6.52,3.38],mel:[-37.81,144.96],phl:[39.95,-75.17],waw:[52.23,21.01],bom:[19.08,72.88],riy:[24.71,46.68],doh:[25.29,51.53],hou:[29.76,-95.37],dal:[32.78,-96.8],atl:[33.75,-84.39],sdg:[32.72,-117.16],slc:[40.76,-111.89],rdu:[35.85,-78.75],nsh:[36.16,-86.78],man:[53.48,-2.24],edi:[55.95,-3.19],osl:[59.91,10.75],vie:[48.21,16.37],prg:[50.08,14.44],bru:[50.85,4.35],ist:[41.01,28.98],cpt:[-33.92,18.42],jnb:[-26.2,28.05],cai:[30.04,31.24],sha:[31.23,121.47],szx:[22.54,114.06],mnl:[14.6,120.98],sgn:[10.82,106.63],akl:[-36.85,174.76],bog:[4.71,-74.07],mde:[6.24,-75.58],scl:[-33.45,-70.67],lim:[-12.05,-77.04],del:[28.61,77.21],hyd:[17.39,78.49],lvs:[36.17,-115.14],pdx:[45.52,-122.68],pnq:[18.52,73.86],maa:[13.08,80.27],bud:[47.5,19.04],iev:[50.45,30.52],beg:[44.79,20.45],han:[21.03,105.85],osa:[34.69,135.5],ngo:[35.18,136.91],idr:[22.72,75.86],mrs:[43.3,5.37],per:[-31.95,115.86],rak:[31.63,-8.01],rom:[41.9,12.5],sat:[29.42,-98.49],yyj:[48.43,-123.37],gift:[23.16,72.68]};
 /* Open the visitor's own city on landing: the geo-city edge function sets ys_geo (lat|lon|country) from Netlify's
    location data. Only on a bare visit (no #link), only within ~500 km of a city; shared links and search engines are untouched. */
@@ -307,7 +309,7 @@ function openFromHash(){const m=(location.hash||"").match(/^#e\/(.+)$/);
   /* Not resolved yet (events.json still loading). If the slug's own date falls in the static-build window, a real /e/<slug>/ page already exists on disk — jump straight there instead of sitting on a #e/ URL that strips to a generic preview when shared before the JS data finishes loading.
      Skip this when we just came FROM that exact static page (its own "Add to calendar · Share" link sends people here on purpose to reach the interactive app) -- otherwise we'd bounce them straight back before the Share button ever mounts. */
   const cameFromOwnStatic=pm||(()=>{try{return document.referrer&&new URL(document.referrer).pathname===("/e/"+s+"/");}catch(err){return false;}})();
-  const dm=s.match(/-(\d{4}-\d{2}-\d{2})$/);if(dm&&!cameFromOwnStatic){const n=Date.now()-5*36e5,t=new Date(n).toISOString().slice(0,10),z=new Date(n+120*864e5).toISOString().slice(0,10);if(dm[1]>=t&&dm[1]<=z){location.replace("https://list.yorkseed.co/e/"+s+"/");return true;}}
+  const dm=s.match(/-(\d{4}-\d{2}-\d{2})$/);if(dm&&!cameFromOwnStatic&&!window.YS_QE){const n=Date.now()-5*36e5,t=new Date(n).toISOString().slice(0,10),z=new Date(n+120*864e5).toISOString().slice(0,10);if(dm[1]>=t&&dm[1]<=z){location.replace("https://list.yorkseed.co/e/"+s+"/");return true;}}
   PENDING_EV=s;return false;}
 function setEvHash(e){try{history.replaceState(null,"",evPath(e));}catch(err){}}
 function clearEvHash(){try{if(/^#e\//.test(location.hash)||/^\/e\//.test(location.pathname))history.replaceState(null,"",APP_PATH+location.search);}catch(err){}}
@@ -1346,6 +1348,8 @@ document.querySelectorAll("input[name=place]").forEach(r=>r.onchange=updSum);
 if($("#tiers"))$("#tiers").innerHTML=TIERS.map(t=>`<div class="tier${t.rec?" rec":""}"><b>${t.name}</b><div class="price">$${t.price}</div><div class="unit">${t.unit}</div><ul>${t.items.map(i=>`<li>${i}</li>`).join("")}</ul><button class="btn ${t.price?"btn-primary":"btn-line"}" type="button" data-tier="${t.id}">${t.cta}</button></div>`).join("");
 syncWeeks();renderHome();paneShow();
 setInterval(()=>{if(st.view==="home")renderCityRow();},30000);
+/* ?e=<slug> share links (events without their own page yet) open like the old #e/<slug> links */
+{const qe=new URLSearchParams(location.search).get("e");if(qe&&/^[a-z0-9-]{3,90}$/.test(qe)&&!location.hash){window.YS_QE=1;try{history.replaceState(null,"",location.pathname+"#e/"+qe);}catch(err){}}}
 const hash=(location.hash||"").slice(1);
 /* hydrating a static, pre-rendered page (/paris/, /e/<slug>/, /<week>/<date>/, /cities/) with no hash: boot straight into the matching
    interactive view instead of the home screen, keeping the clean URL already in the address bar. */
