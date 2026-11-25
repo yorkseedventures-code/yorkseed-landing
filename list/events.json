@@ -20320,19 +20320,6 @@
   "src": "foundercal"
  },
  {
-  "title": "GITEX Summit",
-  "hub": "dxb",
-  "date": "2026-12-07",
-  "start": "00:00",
-  "end": "00:00",
-  "venue": "Dubai Exhibition Centre, Expo City Dubai",
-  "host": "GITEX GLOBAL",
-  "link": "https://www.gitex.com",
-  "type": "Conferences",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
   "title": "Hackathon do Crea-SP – Presencial no Coworking Crea-SP",
   "hub": "sao",
   "date": "2026-12-07",
@@ -82102,19 +82089,6 @@
   "host": "MobileHeads Austria",
   "link": "https://www.meetup.com/mobileheads-austria/events/317317322",
   "type": "Meetups",
-  "desc": "Details and registration on the event page.",
-  "src": "foundercal"
- },
- {
-  "title": "GITEX Global Summit 2026",
-  "hub": "vie",
-  "date": "2026-12-07",
-  "start": "00:00",
-  "end": "23:59",
-  "venue": "",
-  "host": "",
-  "link": "https://myconnectivity.lu/en/event/gitex-global-summit-2026",
-  "type": "Conferences",
   "desc": "Details and registration on the event page.",
   "src": "foundercal"
  },
