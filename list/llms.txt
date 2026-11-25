@@ -124,7 +124,7 @@
 - [SXSW 2027 side events](https://list.yorkseed.co/sxsw-2027-side-events/): Austin, 2027-03-15 to 2027-03-21, 7 events
 - [Shoptalk Spring 2027 side events](https://list.yorkseed.co/shoptalk-spring-2027-side-events/): Las Vegas, 2027-03-22 to 2027-03-24, 1 events
 - [LEAP 2027 side events](https://list.yorkseed.co/leap-2027-side-events/): Riyadh, 2027-04-12 to 2027-04-15, 0 events
-- [F1 Abu Dhabi 2026 side events](https://list.yorkseed.co/f1-abu-dhabi-2026-side-events/): UAE, 2026-12-03 to 2026-12-06, 1 events
+- [F1 Abu Dhabi 2026 side events](https://list.yorkseed.co/f1-abu-dhabi-2026-side-events/): UAE, 2026-12-02 to 2026-12-08, 1 events
 
 ## Machine-readable data
 
