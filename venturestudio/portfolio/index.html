@@ -83,50 +83,11 @@ a{color:inherit;text-decoration:none}
 .hero-meta small{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
 .hero-meta strong{display:block;margin-top:6px;font-size:13px}
 
-/* FILTER */
-.filterbar{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#faf9f5}
-.filterin{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:30px}
-.filters{display:flex;gap:20px;flex-wrap:wrap}
-.filters label{
-  background:none;border:0;padding:12px 0;font-size:12px;color:var(--muted);cursor:pointer;
-  -webkit-tap-highlight-color:transparent;user-select:none;touch-action:manipulation
-}
-.filters label:hover{color:var(--ink)}
-.count{font-family:var(--mono);font-size:10px;color:var(--muted)}
-.filter-radio{position:absolute;opacity:0;pointer-events:none}
-
-/* Pure CSS portfolio filtering — works even when JavaScript is disabled */
-#filter-all:checked ~ .filterbar label[for="filter-all"],
-#filter-ai:checked ~ .filterbar label[for="filter-ai"],
-#filter-future:checked ~ .filterbar label[for="filter-future"],
-#filter-infra:checked ~ .filterbar label[for="filter-infra"],
-#filter-network:checked ~ .filterbar label[for="filter-network"]{color:var(--ink)}
-#filter-all:checked ~ .filterbar label[for="filter-all"]:after,
-#filter-ai:checked ~ .filterbar label[for="filter-ai"]:after,
-#filter-future:checked ~ .filterbar label[for="filter-future"]:after,
-#filter-infra:checked ~ .filterbar label[for="filter-infra"]:after,
-#filter-network:checked ~ .filterbar label[for="filter-network"]:after{
-  content:"";display:block;border-bottom:1px solid var(--ink);margin-top:4px
-}
-
-#filter-ai:checked ~ .portfolio .card:not([data-category~="ai"]),
-#filter-future:checked ~ .portfolio .card:not([data-category~="future"]),
-#filter-infra:checked ~ .portfolio .card:not([data-category~="infra"]),
-#filter-network:checked ~ .portfolio .card:not([data-category~="network"]){display:none}
-
-#filter-all:checked ~ .filterbar .count::before{content:"04"}
-#filter-ai:checked ~ .filterbar .count::before{content:"02"}
-#filter-future:checked ~ .filterbar .count::before{content:"01"}
-#filter-infra:checked ~ .filterbar .count::before{content:"01"}
-#filter-network:checked ~ .filterbar .count::before{content:"02"}
-.count{font-size:0}
-.count::before{font-family:var(--mono);font-size:10px}
-.count::after{content:" COMPANIES";font-family:var(--mono);font-size:10px}
-
 /* PORTFOLIO */
 .portfolio{padding:82px 0 120px}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
-@media(max-width:860px){.grid{grid-template-columns:1fr}}
+.grid{display:grid;grid-template-columns:1fr;gap:24px}
+.portfolio{border-top:1px solid var(--line)}
+
 .card{
   min-height:530px;border:1px solid var(--line);background:var(--white);
   display:flex;flex-direction:column;overflow:hidden;transition:transform .2s ease
@@ -154,24 +115,6 @@ a{color:inherit;text-decoration:none}
 .koi .visual-logo{position:relative;z-index:2;font-family:var(--display);font-size:64px;letter-spacing:-.06em;font-weight:600}
 .koi .visual-logo span{color:var(--accent)}
 
-.lumae{background:#e8e2d8}
-.lumae:before{content:"";position:absolute;inset:28px;border:1px solid #bdb5a8}
-.lumae .visual-logo{font-family:Georgia,serif;font-size:72px;font-style:italic;letter-spacing:-.05em;position:relative;z-index:2}
-.lumae .orb{position:absolute;width:170px;height:170px;border-radius:50%;background:#d7c6a7;right:40px;top:40px}
-
-.relay{background:#dfe6e2}
-.relay .visual-logo{font-family:var(--mono);font-size:58px;letter-spacing:-.08em;position:relative;z-index:2}
-.relay .lines{position:absolute;inset:0;background:
-linear-gradient(90deg,transparent 24%,rgba(0,0,0,.08) 25%,transparent 26%),
-linear-gradient(0deg,transparent 24%,rgba(0,0,0,.08) 25%,transparent 26%);
-background-size:80px 80px}
-
-.nest{background:#efe6e4}
-.nest .visual-logo{font-family:var(--display);font-size:70px;font-weight:600;letter-spacing:-.07em;position:relative;z-index:2}
-.nest .stack{position:absolute;right:36px;top:38px;width:170px;height:170px}
-.nest .stack i{position:absolute;display:block;border:1px solid #bca6a2;width:130px;height:86px;transform:rotate(-7deg);background:rgba(255,255,255,.25)}
-.nest .stack i:nth-child(2){transform:translate(16px,20px) rotate(4deg)}
-.nest .stack i:nth-child(3){transform:translate(30px,42px) rotate(10deg)}
 
 /* FEATURE STRIP */
 .feature{padding:90px 0;border-top:1px solid var(--line)}
@@ -197,6 +140,7 @@ footer p,footer a{font-size:11.5px;line-height:1.9;color:#888}
 footer a:hover{color:#fff}
 .note{margin-top:18px;font-size:10px;color:var(--muted);line-height:1.6}
 .hidden{display:none}
+@media(min-width:861px){.card{flex-direction:row;min-height:440px}.card-visual{height:auto;width:46%;flex:none;justify-content:center;align-items:center}.card-body{padding:44px 48px}}
 </style>
 
 <style id="plain-text-arrow-fix">
@@ -243,30 +187,13 @@ footer a:hover{color:#fff}
   </div>
 </header>
 
-<input class="filter-radio" type="radio" name="portfolio-filter" id="filter-all" checked>
-<input class="filter-radio" type="radio" name="portfolio-filter" id="filter-ai">
-<input class="filter-radio" type="radio" name="portfolio-filter" id="filter-future">
-<input class="filter-radio" type="radio" name="portfolio-filter" id="filter-infra">
-<input class="filter-radio" type="radio" name="portfolio-filter" id="filter-network">
 
-<div class="filterbar">
-  <div class="wrap filterin">
-    <div class="filters" role="group" aria-label="Filter portfolio companies">
-      <label for="filter-all">All</label>
-      <label for="filter-ai">AI</label>
-      <label for="filter-future">Future of Work</label>
-      <label for="filter-infra">Infrastructure</label>
-      <label for="filter-network">Network Technology</label>
-    </div>
-    <div class="count" aria-live="polite"></div>
-  </div>
-</div>
 
 <main class="portfolio">
   <div class="wrap">
     <div class="grid" id="portfolioGrid">
 
-      <article class="card" data-category="ai network">
+      <article class="card">
         <div class="card-visual koi">
           <div class="visual-logo">koi<span>card</span></div>
         </div>
@@ -282,62 +209,9 @@ footer a:hover{color:#fff}
         </div>
       </article>
 
-      <article class="card" data-category="ai">
-        <div class="card-visual lumae">
-          <div class="orb"></div>
-          <div class="visual-logo">Lumae</div>
-        </div>
-        <div class="card-body">
-          <div class="card-top"><span class="index">02 · Concept Company</span><span class="status">Preview</span></div>
-          <div class="logo" style="font-family:Georgia,serif;font-weight:400">Lumae</div>
-          <div class="tag">Market intelligence for founders entering unfamiliar markets.</div>
-          <div class="desc">An AI-native research layer that helps global founders understand customers, competitors, regulation and go-to-market conditions before expansion.</div>
-          <div class="card-foot">
-            <div class="tags"><span class="pill">AI</span><span class="pill">Market Intelligence</span></div>
-            <span class="visit" style="color:#aaa;border-color:#aaa">Concept</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="card" data-category="network infra">
-        <div class="card-visual relay">
-          <div class="lines"></div>
-          <div class="visual-logo">relay/</div>
-        </div>
-        <div class="card-body">
-          <div class="card-top"><span class="index">03 · Concept Company</span><span class="status">Preview</span></div>
-          <div class="logo" style="font-family:var(--mono);letter-spacing:-.08em">relay/</div>
-          <div class="tag">Relationship infrastructure for high-trust professional communities.</div>
-          <div class="desc">A platform for communities and membership networks to turn introductions, referrals and trusted connections into structured relationship infrastructure.</div>
-          <div class="card-foot">
-            <div class="tags"><span class="pill">Network Technology</span><span class="pill">Infrastructure</span></div>
-            <span class="visit" style="color:#aaa;border-color:#aaa">Concept</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="card" data-category="future">
-        <div class="card-visual nest">
-          <div class="stack"><i></i><i></i><i></i></div>
-          <div class="visual-logo">NEST.</div>
-        </div>
-        <div class="card-body">
-          <div class="card-top"><span class="index">04 · Concept Company</span><span class="status">Preview</span></div>
-          <div class="logo">NEST.</div>
-          <div class="tag">A lightweight operating layer for founders managing fundraising relationships.</div>
-          <div class="desc">Track investor conversations, updates, follow-ups and fundraising momentum without turning founder relationship management into another CRM job.</div>
-          <div class="card-foot">
-            <div class="tags"><span class="pill">Future of Work</span><span class="pill">Founder Tools</span></div>
-            <span class="visit" style="color:#aaa;border-color:#aaa">Concept</span>
-          </div>
-        </div>
-      </article>
 
     </div>
 
-    <div class="note">
-      Lumae, Relay and Nest are fictional concept companies included only to preview the future portfolio experience.
-    </div>
   </div>
 </main>
 
