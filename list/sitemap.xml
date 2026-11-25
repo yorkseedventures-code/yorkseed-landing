@@ -217,12 +217,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://list.yorkseed.co/online/</loc>
-    <lastmod>2026-11-25</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://list.yorkseed.co/seattle/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>daily</changefreq>
@@ -17359,12 +17353,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://list.yorkseed.co/e/yorkseed-delegation-global-founder-showcase-2026-12-03/</loc>
-    <lastmod>2026-11-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://list.yorkseed.co/e/the-grand-start-up-christmas-party-2026-12-04/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -22243,12 +22231,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://list.yorkseed.co/e/nachotuesday-nyc-founder-vc-annual-holiday-happy-hour-2026-12-08/</loc>
-    <lastmod>2026-11-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://list.yorkseed.co/e/berlin-quantum-barbq-xmas-special-2026-12-08/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -22951,6 +22933,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://list.yorkseed.co/e/nachotuesday-nyc-founder-vc-annual-holiday-happy-hour-2026-12-08/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://list.yorkseed.co/e/nachotuesday-c-suite-insights-2026-12-08/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -23036,12 +23024,6 @@
   </url>
   <url>
     <loc>https://list.yorkseed.co/e/how-to-start-your-business-in-fashion-design-2026-12-08/</loc>
-    <lastmod>2026-11-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://list.yorkseed.co/e/venture-vitality-health-tech-investor-virtual-roundtable-agetech-senio-2026-12-08/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -24914,6 +24896,12 @@
   </url>
   <url>
     <loc>https://list.yorkseed.co/e/how-to-get-more-paying-customers-for-your-ai-product-free-workshop-2026-12-10/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://list.yorkseed.co/e/techstars-nyc-demo-day-2026-2026-12-10/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -31891,7 +31879,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://list.yorkseed.co/e/london-ai-forum-2027-01-11/</loc>
+    <loc>https://list.yorkseed.co/e/london-2027-01-11/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>

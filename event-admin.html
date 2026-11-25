@@ -193,7 +193,7 @@ body{overflow-wrap:anywhere}
 <div class="card" id="ads" data-sec="ads">
   <h2>Ads &amp; Pulse spots on The List</h2>
   <div id="adList"><div class="hint">Loading...</div></div>
-  <div class="hint">Banner ads (sidebar, city, map, event page, homepage) go live the moment they're paid and come down by themselves when the time is up - take one down early if you need to (refunds are done in Stripe). Featured events, conference spreadsheets and Pulse newsletter spots are marked "Paid · fulfill by hand" instead - do that part yourself (pin the sponsor, add the feature) the same way you'd handle any manual booking.</div>
+  <div class="hint">Banner ads (sidebar, city, map, event page, homepage) go live the moment they're paid and come down by themselves when the time is up - take one down early if you need to (refunds are done in Stripe). Featured events go live by themselves too (the event with the same link gets the ★ until its date). Conference week sponsors wait for your approval like banners. Conference spreadsheets and Pulse newsletter spots are marked "Paid · fulfill by hand" instead - do that part yourself (pin the sponsor, add the feature) the same way you'd handle any manual booking.</div>
 </div>
 
 <div class="card" data-sec="events">
@@ -629,7 +629,7 @@ function loadAds(){
       // fulfilled by hand (see ListAd.js), so they never get startAt/endAt the way a banner does. Without this
       // branch they fell into the catch-all "Ended" label below, which reads as "this already ran" even on the
       // day it was paid for and before anyone did anything with it.
-      var manual=['pulse','feat','sheet'].indexOf(x.kind)!==-1;
+      var manual=['pulse','sheet'].indexOf(x.kind)!==-1||x.status==='paid';
       var statusHtml=on?'<span style="color:var(--green);font-weight:600">Live</span>'
         :x.status==='pending_review'?'<span style="font-weight:600">Paid, waiting for your approval</span>'
         :x.status==='taken_down'?'Taken down'
@@ -642,7 +642,7 @@ function loadAds(){
       else if(manual&&x.kind==='sheet'&&x.extras&&x.extras.sheetName) whenHtml=esc(x.extras.sheetName);
       else whenHtml=d10(x.startAt)+' to '+d10(x.endAt);
       return '<div class="sub-it" style="display:grid;grid-template-columns:120px 1fr;gap:12px"><img src="'+esc(x.img)+'" alt="" style="width:120px;height:100px;object-fit:cover;border:1px solid var(--line)"><div><b>'+esc(x.brand)+'</b>'
-        +'<div class="meta">'+esc(x.hubName||x.hub)+' · '+statusHtml+' · '+whenHtml+' · $'+(x.amount/100).toLocaleString()+'</div>'
+        +'<div class="meta">'+esc(({side:'Sidebar ad',city:'City banner',map:'Map sponsor',event:'Event page banner',home:'Homepage feature',feat:'Featured event',sheet:'Conference spreadsheet',pulse:'Pulse newsletter',week:'Conference week sponsor'})[x.kind]||x.kind)+' · '+esc(x.hubName||x.hub)+' · '+statusHtml+' · '+whenHtml+' · $'+(x.amount/100).toLocaleString()+'</div>'
         +(manual?'':'<div class="meta">'+(x.views||0).toLocaleString()+' views · '+(x.clicks||0).toLocaleString()+' clicks'+(x.views?' · '+((x.clicks||0)/x.views*100).toFixed(1)+'% click rate':'')+'</div>')
         +'<div class="meta">'+esc(x.email)+' · <a href="'+esc(x.url)+'" target="_blank" rel="noopener">link</a></div>'
         +'<div class="acts">'+(x.status==='pending_review'?'<button data-ad-up="'+x.id+'">Approve and go live</button>':'')+(x.status==='paid'?'<button data-ad-done="'+x.id+'">Mark as done</button>':'')+(on?'<button data-ad-down="'+x.id+'">Take down</button>':(x.status==='taken_down'&&new Date(x.endAt).getTime()>now?'<button data-ad-up="'+x.id+'">Put back up</button>':''))+'</div></div></div>'}).join(''):'<div class="hint">No sidebar ads yet.</div>';
