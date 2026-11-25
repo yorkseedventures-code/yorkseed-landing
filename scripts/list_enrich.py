@@ -973,13 +973,13 @@ def refresh_photos(seed):
     master = load(f"{REPO}/list/data/master.json", {"events": []}); extra = load(f"{REPO}/list/events.json", [])
     links = sorted({e["link"] for e in master["events"] + extra if e.get("link") and e.get("date", "") >= TODAY} | _pulse_links())
     retry_after = (dt.date.today() - dt.timedelta(days=2)).isoformat()
-    # This cap was 600/run: fine when it roughly kept pace with new events, but a check of the live cache found
-    # ~9,100 distinct upcoming links against only ~4,500 ever cached -- a backlog of thousands of events stuck
-    # on the generic placeholder cover indefinitely, since this only runs every 4 days (.github/workflows/
-    # list-pages.yml) and 600/run can't out-pace that backlog, let alone new events arriving meanwhile. The job
-    # has no explicit timeout (GitHub Actions' 6-hour default applies) and most of this is 12-wide parallel
-    # fetches of ordinary pages, so there's plenty of headroom to raise this and actually clear the backlog.
-    todo = [l for l in links if l not in cache or (not cache[l].get("img") and cache[l].get("t", "") < retry_after)][:3000]
+    # This cap was 600/run, then raised to 3000/run (see the Nov 25 2026 run: finished in ~77 minutes total,
+    # nowhere near GitHub Actions' 6-hour default timeout). That run cleared most of the backlog -- 5,075 of
+    # 5,831 cached links now have a real photo -- but ~9,033 distinct upcoming links exist in total, so ~3,200
+    # of them weren't even attempted yet in that one pass. Raised again to 6000 so a single run can clear
+    # essentially the whole remaining backlog instead of draining it over several more 4-day cycles, still with
+    # comfortable headroom under the timeout.
+    todo = [l for l in links if l not in cache or (not cache[l].get("img") and cache[l].get("t", "") < retry_after)][:6000]
     luma = [l for l in todo if re.search(r'(lu\.ma|luma\.com)', l)]; other = [l for l in todo if l not in luma]
     with ThreadPoolExecutor(12) as ex:            # other sites: in parallel
         for link, img in ex.map(fetch_photo, other): cache[link] = {"img": img or None, "t": TODAY}
