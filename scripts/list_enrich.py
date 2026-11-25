@@ -363,7 +363,7 @@ def import_luma_calendars():
                 if not hub: continue
                 date, start = to_local(e["start_at"], hub_tz(hub))
                 if not date or date < TODAY or date > horizon: continue
-                link = "https://luma.com/" + e["url"]
+                link = e["url"] if str(e["url"]).startswith("http") else "https://luma.com/" + e["url"]
                 if link in seen_l or (norm(e["name"]), date) in seen_t: continue
                 ed, et = to_local(e["end_at"], hub_tz(hub)) if e.get("end_at") else (None, None)
                 venue = (g.get("sublocality") if g.get("mode") == "obfuscated" else (g.get("address") or "")) or ""
@@ -765,7 +765,7 @@ def import_sources():
                 tz = hub_tz(hub) if hub != "virtual" else "America/New_York"
                 date, start = to_local(e["start_at"], tz)
                 if not date or date < TODAY or date > horizon: continue
-                link = "https://luma.com/" + e["url"]
+                link = e["url"] if str(e["url"]).startswith("http") else "https://luma.com/" + e["url"]
                 if link in seen_l or (norm(e["name"]), date) in seen_t: continue
                 ed, et = to_local(e["end_at"], tz) if e.get("end_at") else (None, None)
                 venue = (g.get("sublocality") if g.get("mode") == "obfuscated" else (g.get("address") or "")) or ""
