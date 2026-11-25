@@ -785,6 +785,22 @@ _app_js, _n = re.subn(r"const BAKED_EVENTS=\[.*?\];", lambda m: _baked_js, _app_
 if _n: open(_app_js_path, "w").write(_app_js)
 print(f"{len(_baked)} events baked into app.js's BAKED_EVENTS" + ("" if _n else " -- MARKER NOT FOUND, app.js unchanged"))
 
+# ---- cache-busting for app.js/app.css ----
+# Neither tag below ever carried a version query string, so once a browser or Netlify's/a CDN's edge cache had
+# cached either file, a later redesign of the List's markup/CSS could keep rendering against the old cached
+# app.js (or vice versa) indefinitely -- with no visible error, since the old file is still valid JS/CSS, just
+# stale. Fingerprint both files by content hash so every real change busts every cached copy, on list/index.html
+# and on every hydrated static page (list/<city>/, list/<week>/, etc.), while an unchanged file keeps its old,
+# already-cached URL.
+def _fingerprint(path):
+    return hashlib.md5(open(path, "rb").read()).hexdigest()[:10]
+APP_JS_V = _fingerprint(_app_js_path)
+APP_CSS_V = _fingerprint(f"{REPO}/list/assets/app.css")
+def _versioned_assets(doc):
+    doc = re.sub(r'(/list/assets/app\.css)(\?v=[a-f0-9]+)?(["\'])', rf'\1?v={APP_CSS_V}\3', doc)
+    doc = re.sub(r'(/list/assets/app\.js)(\?v=[a-f0-9]+)?(["\'])', rf'\1?v={APP_JS_V}\3', doc)
+    return doc
+
 # Orphaned event pages: an event can disappear from master.json (its upstream feed aged it out, or dropped it)
 # while its own /e/<slug>/ page -- built on a previous run, when the event was still in master.json -- stays on
 # disk forever (this script only ever adds pages, never removes one no longer backed by current data). Such a
@@ -971,6 +987,7 @@ li = li.replace("</head>", '<script id="ysPaths">window.YS_PATHS=' + json.dumps(
 li = re.sub(r'<span id="cityN">\d+</span>', f'<span id="cityN">{len(_cities)}</span>', li)   # crawlers see the real count, not the template default
 i = li.find('<footer class="foot ysfoot"')
 li = li[:i] + block + "\n" + li[i:] if i > 0 else li.replace("</body>", block + "</body>")
+li = _versioned_assets(li)
 open(f"{REPO}/list/index.html","w").write(li)
 
 # ---- hydrate static pages: graft the same interactive app onto every city/week/day/event/cities page ----
@@ -993,8 +1010,9 @@ if _shell_body_m:
         _head_tags = _ys_paths_tag
         if hp in EVENT_HTML_DATA:
             _head_tags += '\n<script id="ysEvent">window.YS_EVENT=' + json.dumps(EVENT_HTML_DATA[hp], separators=(",", ":"), ensure_ascii=False) + ';</script>'
-        doc = doc.replace("</head>", _head_tags + '\n<link rel="stylesheet" href="/list/assets/app.css">\n</head>', 1)
+        doc = doc.replace("</head>", _head_tags + f'\n<link rel="stylesheet" href="/list/assets/app.css?v={APP_CSS_V}">\n</head>', 1)
         doc = re.sub(r"<body>.*</body>", SHELL_BODY, doc, count=1, flags=re.S)
+        doc = _versioned_assets(doc)
         open(hp, "w").write(doc)
     print(f"{len(HYDRATE_PATHS)} static pages hydrated with the interactive app")
 else:
