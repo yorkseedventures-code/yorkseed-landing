@@ -15,6 +15,9 @@ REPO = os.environ.get("YS_REPO", ".")
 UA = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126 Safari/537.36",
       "Accept": "text/html,application/xhtml+xml", "Accept-Language": "en-US,en;q=0.9"}
 TODAY = dt.date.today().isoformat()
+# how far ahead the importers look (days); the scheduled run uses the defaults, a one-off deep refresh can raise them
+HORIZON_DAYS = int(os.environ.get("YS_HORIZON_DAYS", "120"))
+TM_DAYS = int(os.environ.get("YS_HORIZON_DAYS", "90"))
 DROP_KEYS = re.compile(r'^(utm_.*|ref|ref_src|source|src|via|aff|affiliate|fbclid|gclid|mc_[a-z]+|_gl|tk|lu_ref)$', re.I)
 REG_HOSTS = re.compile(r'(lu\.ma|luma\.com|eventbrite\.|partiful\.com|meetup\.com|ti\.to|tito\.io|posh\.vip|dice\.fm)', re.I)
 SKIP_HOSTS = re.compile(r'(foundercal\.com|side-events-guide\.com|sobremesa[a-z.-]*|google\.[a-z.]+|goo\.gl|maps\.|facebook\.com|instagram\.com|twitter\.com|x\.com|linkedin\.com|tiktok\.com|youtube\.com|apple\.com|play\.google)', re.I)
@@ -330,7 +333,7 @@ def import_luma_calendars():
     norm = lambda s: re.sub(r'[^a-z0-9]+', '', (s or '').lower())[:40]
     seen_l = {(e.get("link") or "").split("?")[0].rstrip("/") for e in events + master["events"]}
     seen_t = {(norm(e.get("title")), e.get("date")) for e in events + master["events"]}
-    horizon = (dt.date.today() + dt.timedelta(days=120)).isoformat()
+    horizon = (dt.date.today() + dt.timedelta(days=HORIZON_DAYS)).isoformat()
     photos, added, ok, failed = {}, 0, 0, 0
     # official conference calendars (sources.json "luma_calendar"): every event, no title filter, more pages
     trusted = {x["id"]: x for x in load(f"{REPO}/list/data/sources.json", []) if x.get("type") == "luma_calendar" and x.get("id")}
@@ -407,7 +410,7 @@ def import_foundercal():
         except Exception as ex: loc = (getattr(ex, "headers", None) or {}).get("Location") or ""
         resolved[k] = loc if loc.startswith("http") and "foundercal.com" not in loc else ""; time.sleep(0.25)
         return resolved[k]
-    horizon = (dt.date.today() + dt.timedelta(days=120)).isoformat(); added, seen_n = 0, 0
+    horizon = (dt.date.today() + dt.timedelta(days=HORIZON_DAYS)).isoformat(); added, seen_n = 0, 0
     for slug in [s for s in slugs if s]:
         hub = FC_HUB.get(slug) or city_hub(slug.replace("-", " "), "", hubs)
         if hub not in hub_ids: continue
@@ -485,7 +488,7 @@ def import_confstech():
     norm = lambda s: re.sub(r'[^a-z0-9]+', '', (s or '').lower())[:40]
     seen_l = {(e.get("link") or "").split("?")[0].rstrip("/") for e in events + master["events"]}
     seen_t = {(norm(e.get("title")), e.get("date")) for e in events + master["events"]}
-    horizon = (dt.date.today() + dt.timedelta(days=120)).isoformat(); added = 0
+    horizon = (dt.date.today() + dt.timedelta(days=HORIZON_DAYS)).isoformat(); added = 0
     for year in sorted({TODAY[:4], horizon[:4]}):
         for topic in CONFS_TOPICS:
             try:
@@ -529,7 +532,7 @@ def import_meetup_groups():
     norm = lambda s: re.sub(r'[^a-z0-9]+', '', (s or '').lower())[:40]
     seen_l = {(e.get("link") or "").split("?")[0].rstrip("/") for e in events + master["events"]}
     seen_t = {(norm(e.get("title")), e.get("date")) for e in events + master["events"]}
-    horizon = (dt.date.today() + dt.timedelta(days=120)).isoformat(); added, ok, refused = 0, 0, 0
+    horizon = (dt.date.today() + dt.timedelta(days=HORIZON_DAYS)).isoformat(); added, ok, refused = 0, 0, 0
     # rotate: groups not read recently go first, so a run cut short by rate limits continues tomorrow where it stopped
     lp = f"{REPO}/list/data/meetup-read.json"; last = load(lp, {})
     t_end = time.time() + 20 * 60                                        # at most 20 minutes a run
@@ -570,7 +573,7 @@ def import_ical_feeds():
     norm = lambda s: re.sub(r'[^a-z0-9]+', '', (s or '').lower())[:40]
     seen_l = {(e.get("link") or "").split("?")[0].rstrip("/") for e in events + master["events"]}
     seen_t = {(norm(e.get("title")), e.get("date")) for e in events + master["events"]}
-    horizon = (dt.date.today() + dt.timedelta(days=120)).isoformat(); added = 0
+    horizon = (dt.date.today() + dt.timedelta(days=HORIZON_DAYS)).isoformat(); added = 0
     for fd in feeds:
         try: text = urlopen(Request(fd["url"], headers=UA), timeout=30).read().decode("utf-8", "ignore")
         except Exception as ex: print(f"ical {fd['url']}: {ex}"); continue
@@ -631,7 +634,7 @@ def import_techmeetups():
         if d.get("total_matches", 0) > 50 and d1 > d0:
             mid = d0 + (d1 - d0) // 2; window(lat, lng, d0, mid, out); window(lat, lng, mid + dt.timedelta(days=1), d1, out)
         else: out.extend(d.get("results") or [])
-    start, end = dt.date.today(), dt.date.today() + dt.timedelta(days=90)
+    start, end = dt.date.today(), dt.date.today() + dt.timedelta(days=TM_DAYS)
     added = 0
     for hub, (lat, lng) in coords.items():
         if hub not in hubs or hub == "virtual": continue
@@ -686,7 +689,7 @@ def import_sources():
     norm = lambda s: re.sub(r'[^a-z0-9]+', '', (s or '').lower())[:40]
     seen_l = {(e.get("link") or "").split("?")[0].rstrip("/") for e in events + master["events"]}
     seen_t = {(norm(e.get("title")), e.get("date")) for e in events + master["events"]}
-    horizon = (dt.date.today() + dt.timedelta(days=120)).isoformat()
+    horizon = (dt.date.today() + dt.timedelta(days=HORIZON_DAYS)).isoformat()
     photos, added = {}, 0
     feeds = []
     for src in srcs:
