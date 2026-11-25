@@ -460,7 +460,17 @@ function renderMap(){
   const box=$("#worldMap");if(!box)return;
   if(!MZ.built){MZ.built=true;
     $("#regions").innerHTML=REGIONS.map(([id,l])=>`<button type="button" class="dchip" data-reg="${id}" aria-pressed="${id==="world"}">${l}</button>`).join("");
-    box.insertAdjacentHTML("afterbegin",`<svg viewBox="0 0 ${MAP.W} ${MAP.H}" id="mzSvg" role="img" aria-label="Interactive map of Yorkseed cities"><rect width="${MAP.W}" height="${MAP.H}" class="sea"/><g id="mzLand"><path d="${MAP.land}" class="land"/><path d="${MAP.borders}" class="border"/></g><g id="mzDots"></g></svg>`);
+    // The land/border path data (now lazy-loaded from map-paths.json) has always spanned roughly
+    // x:[-55,1944] y:[-160,1757] -- the viewBox below used to be a hardcoded "0 0 2000 1150", built from
+    // MAP.W/MAP.H, which only covers x:[0,2000] y:[0,1150]. Since <svg> clips to its viewBox by default, well
+    // over a third of the map's vertical extent (everything south of ~y=1150: most of South America, southern
+    // Africa, Australia, Antarctica) was being silently clipped to nothing, which is why the map renders as a
+    // handful of disconnected fragments instead of a recognizable world. All 49 baked-in hub dots (MAP.pts) sit
+    // within y:[338,985], well inside both the old and new bounds, so they're unaffected either way -- only the
+    // SVG's own viewBox/background rect needed to grow to the data's real extent; MAP.W/MAP.H (used for the
+    // zoom/pan and dot-culling math elsewhere, which already tolerates some negative slack) are untouched.
+    const MVB="-80 -180 2080 1960";
+    box.insertAdjacentHTML("afterbegin",`<svg viewBox="${MVB}" id="mzSvg" role="img" aria-label="Interactive map of Yorkseed cities"><rect x="-80" y="-180" width="2080" height="1960" class="sea"/><g id="mzLand"><path d="${MAP.land}" class="land"/><path d="${MAP.borders}" class="border"/></g><g id="mzDots"></g></svg>`);
     loadMapPaths();
     const svg=$("#mzSvg"),tip=$("#mapTip"),ptrs=new Map();let start=null,moved=0,pinch=null;
     svg.addEventListener("wheel",e=>{e.preventDefault();const p=mapSvgPt(svg,e.clientX,e.clientY);zoomAt(Math.exp(-e.deltaY*0.0018),p.x,p.y);},{passive:false});
