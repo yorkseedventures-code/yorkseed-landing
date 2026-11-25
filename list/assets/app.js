@@ -1410,6 +1410,9 @@ function genCover(e,p,fb){const h=hubById(e.hub)||{name:""};let x=0;for(const c 
      the headline printed twice. Drop it; the eyebrow + hub/date/type strip is plenty to make an untitled
      placeholder still look designed rather than blank. */
   return `<span class="gcov gc-${fb?"photo":tone}" role="img" aria-label="${esc(e.title||"")}"><span class="gc-top">Yorkseed · The List</span><span class="gc-bot">${esc([h.name,when].filter(Boolean).join(" · "))}${e.type?`<i>${esc(e.type)}</i>`:""}</span>${p?`<img src="${esc(p)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">`:""}${fb?`<img class="gc-fbimg" src="${esc(fb)}" alt="" loading="lazy">`:""}</span>`;}
+/* the hydrated static pages (/miami/, /e/<slug>/, week pages...) never set YS_STATIC, so they skipped the full event
+   file and the cover photos: events past the baked-in 45 days were missing there and every event showed a placeholder */
+if(!window.YS_STATIC&&/^https?:$/.test(location.protocol)&&/(^|\.)yorkseed\.co$|localhost|netlify\.app$/.test(location.hostname))window.YS_STATIC="/list/";
 if(window.YS_STATIC){fetch(String(window.YS_STATIC).replace(/^1$/,"")+"data/photos.json",{cache:"no-cache"}).then(r=>r.ok?r.json():{}).then(m=>{let n=0;for(const k in m){if(m[k]&&m[k].img){PHOTOS[k]=m[k].img;n++;}}if(n&&typeof rerenderAll==="function")rerenderAll();}).catch(()=>{});}
 if(window.YS_STATIC){const J=f=>fetch(String(window.YS_STATIC).replace(/^1$/,"")+f,{cache:"no-cache"}).then(r=>r.ok?r.json():[]).catch(()=>[]);
   const whenIdle=fn=>("requestIdleCallback" in window)?requestIdleCallback(fn,{timeout:2500}):setTimeout(fn,600);
