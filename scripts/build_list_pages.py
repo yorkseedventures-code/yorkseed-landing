@@ -1065,7 +1065,7 @@ if os.path.exists(rd_p):
 
 # clean share links for the interactive List's Share button: city -> /<slug>/, week -> /<week-slug>/ (+ /<day>/)
 paths = {"h": {h["id"]: h["slug"] for h in hubs.values() if os.path.exists(f"{REPO}/list/{h['slug']}/index.html")},
-         "w": {w["id"]: {"s": w["slug"], "e": w["evergreen"], "d": sorted({e["date"] for e in w["events"] if os.path.exists(f"{REPO}/list/{w['slug']}/{e['date']}/index.html")})}
+         "w": {w["id"]: {"s": w["slug"], "e": w["evergreen"], "n": len(w["events"]), "d": sorted({e["date"] for e in w["events"] if os.path.exists(f"{REPO}/list/{w['slug']}/{e['date']}/index.html")})}
                for w in weeks if os.path.exists(f"{REPO}/list/{w['slug']}/index.html")}}
 li = re.sub(r'<script id="ysPaths">.*?</script>\n?', '', li, flags=re.S)
 li = li.replace("</head>", '<script id="ysPaths">window.YS_PATHS=' + json.dumps(paths, separators=(",", ":")) + ';</script>\n</head>', 1)

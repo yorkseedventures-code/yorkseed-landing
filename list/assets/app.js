@@ -505,15 +505,17 @@ function ysProgramsHtml(w,compact){
   if(compact)return`<span class="ystags">${w.ys.map(p=>`<span class="ystag">★ ${compact===2?"":"Yorkseed "}${esc(p.kind)}</span>`).join("")}</span>`;
   return`<div class="ysprog"><div class="yshead"><span class="eyebrow">★ Yorkseed at ${esc(w.name)}</span></div><div class="yscards">${w.ys.map(p=>`<div class="yscard"><span class="kind">${esc(p.kind==="House"?"Yorkseed House":"Yorkseed "+p.kind)}</span><h3>${esc(p.title)}</h3><p>${esc(p.blurb)}</p><div class="acts"><a class="btn btn-gold btn-sm" href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.cta)} →</a>${(p.more||[]).map(([l,u])=>`<a class="link" href="${esc(u)}" target="_blank" rel="noopener">${esc(l)} →</a>`).join("")}</div></div>`).join("")}${ev.length?`<div class="yscard evs"><span class="kind">Yorkseed events · ${range(w.start,w.end)}</span>${ev.map((e,i)=>{const d=dParts(e.date);return`<button class="ritem${i>=4?" more":""}" type="button" data-ev="${e.id}"><span class="rd">${d.mon} <b>${d.day}</b></span><span class="rt">${esc(e.title)}</span></button>`}).join("")}${ev.length>4?`<button class="link ysall" type="button" onclick="this.parentElement.classList.add('open');this.remove()">All ${ev.length} Yorkseed events ↓</button>`:""}</div>`:""}</div></div>`;
 }
-const weekOk=w=>!!w.ys||upcoming().filter(e=>e.week===w.id).length>=5;
+const weekOk=w=>!!w.ys||Math.max(upcoming().filter(e=>e.week===w.id).length,((((window.YS_PATHS||{}).w||{})[w.id])||{}).n||0)>=5;
 function renderWeeks(){
   const today=dKey(Date.now(),myTz);
   const cnt={};upcoming().forEach(e=>{if(e.week)cnt[e.week]=(cnt[e.week]||0)+1;});
+  /* the page first loads ~45 days of events and the rest when idle: use the build-time count so later weeks show right away */
+  {const PW=(window.YS_PATHS||{}).w||{};Object.keys(PW).forEach(id=>{if((PW[id].n||0)>(cnt[id]||0))cnt[id]=PW[id].n;});}
   // weeks on now or starting within 10 days come first, biggest first; then the rest by date
   const soonCut=addDays(10),soon=w=>w.start<=soonCut;
   const ws=[...WEEKS].filter(w=>w.end>=today&&weekOk(w)&&(cnt[w.id]||0)>0).sort((a,b)=>(soon(b)-soon(a))||(soon(a)?(cnt[b.id]||0)-(cnt[a.id]||0):a.start.localeCompare(b.start)));
   const show=st.allWeeks?ws:[...ws.slice(0,6),...ws.slice(6).filter(w=>w.ys)];
-  $("#weekGrid").innerHTML=show.map(w=>{const n=upcoming().filter(e=>e.week===w.id).length;const live=today>=w.start&&today<=w.end;
+  $("#weekGrid").innerHTML=show.map(w=>{const n=cnt[w.id]||0;const live=today>=w.start&&today<=w.end;
     const wh=hubById(w.hub),wi=WIMG[w.id]||(wh&&wh.img&&IMG[wh.img]);return`<a class="wrow" href="${listPathFor(w)||"#"+weekSlug(w)}" data-weekgo="${w.id}"><span class="wt">${wi?`<img src="${wi}" alt="" loading="lazy" decoding="async" style="object-position:${WIMG[w.id]?"50% 50%":IMGPOS[wh.img]||"50% 50%"}">`:""}</span><span class="wd">${range(w.start,w.end)}${live?'<span class="badge b-now live">This week</span>':""}</span><span class="wn">${esc(w.name)}<small>${hubById(w.hub).name} · Yorkseed Master Side Event List${w.ys?" "+ysProgramsHtml(w,true):""}</small></span><span class="wc">${n} event${n===1?"":"s"}</span><span class="ar">→</span></a>`}).join("");
   const mb=$("#moreWeeks");mb.parentElement.hidden=ws.length<=6;mb.textContent=st.allWeeks?"Show fewer":`All ${ws.length} conference weeks`;
 }
