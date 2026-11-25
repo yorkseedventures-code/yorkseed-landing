@@ -424,7 +424,7 @@
    "tz": "Asia/Qatar",
    "country": "Qatar",
    "region": "",
-   "img": ""
+   "img": "doh"
   },
   {
    "id": "hou",
@@ -576,7 +576,7 @@
    "tz": "Asia/Shanghai",
    "country": "China",
    "region": "",
-   "img": ""
+   "img": "szx"
   },
   {
    "id": "mnl",
@@ -616,7 +616,7 @@
    "tz": "America/Bogota",
    "country": "Colombia",
    "region": "",
-   "img": ""
+   "img": "mde"
   },
   {
    "id": "scl",
@@ -688,7 +688,7 @@
    "tz": "Europe/Budapest",
    "country": "Hungary",
    "region": "",
-   "img": ""
+   "img": "bud"
   },
   {
    "id": "iev",
@@ -1405,7 +1405,11 @@
   "osa": "/list/img/osa_osaka.jpg",
   "ngo": "/list/img/ngo_nagoya.jpg",
   "sgn": "/list/img/sgn_ho_chi_minh_city.jpg",
-  "cpt": "/list/img/cpt_cape_town.jpg"
+  "cpt": "/list/img/cpt_cape_town.jpg",
+  "doh": "/list/img/doh_doha.jpg",
+  "bud": "/list/img/bud_budapest.jpg",
+  "szx": "/list/img/szx_shenzhen.jpg",
+  "mde": "/list/img/mde_medellin.jpg"
  },
  "events": [
   {
