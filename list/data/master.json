@@ -1085,7 +1085,7 @@
       "hub": "dxb",
       "start": "2026-12-02",
       "end": "2026-12-08",
-      "re": "formula 1|\\bf1\\b|grand prix|yas marina|etihad airways|paddock|pit lane"
+      "re": "formula 1|\\bf1\\b|grand prix|yas marina|etihad airways|etihad arena|etihad live|paddock|pit lane|yasalam|bagatelle|16\\/360|w abu dhabi|race week"
     }
   ],
   "img": {

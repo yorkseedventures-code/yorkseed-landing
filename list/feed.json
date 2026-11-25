@@ -21053,6 +21053,19 @@
    "list_page": "https://list.yorkseed.co/miami/"
   },
   {
+   "title": "Andrea Bocelli — Yasalam Classics",
+   "city": "UAE",
+   "country": "United Arab Emirates",
+   "start": "2026-12-02T18:00:00+04:00",
+   "end": null,
+   "host": "Yasalam",
+   "type": "Concert",
+   "conference_week": "F1 Abu Dhabi",
+   "description": "Andrea Bocelli opens the inaugural Yasalam Classics series ahead of Abu Dhabi Grand Prix race week. Doors 6pm, tickets from Dh295.",
+   "register_url": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed#bocelli",
+   "list_page": "https://list.yorkseed.co/dubai-uae/"
+  },
+  {
    "title": "Art Basel Conversations: Koo Jeong A and Emily Watlington",
    "city": "Miami",
    "country": "United States",
@@ -22637,6 +22650,19 @@
    "description": "$15 cocktail + crudo · Runs through 2026-12-05",
    "register_url": "https://viceversamia.com/reservations/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/miami/"
+  },
+  {
+   "title": "Amazónico Race Week Pop-Up",
+   "city": "UAE",
+   "country": "United Arab Emirates",
+   "start": "2026-12-02",
+   "end": "2026-12-02T03:00:00+04:00",
+   "host": "Amazónico",
+   "type": "Nightlife",
+   "conference_week": "F1 Abu Dhabi",
+   "description": "Waterfront pop-up open till 3am through race week.",
+   "register_url": "https://www.khaleejtimes.com/lifestyle/abu-dhabi-race-week-meets-national-day?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed#amazonico",
+   "list_page": "https://list.yorkseed.co/dubai-uae/"
   },
   {
    "title": "Season Opening Party 2026",
@@ -27319,6 +27345,32 @@
    "list_page": "https://list.yorkseed.co/miami/"
   },
   {
+   "title": "Lewis Capaldi and Kings of Leon — Yasalam After-Race Concerts",
+   "city": "UAE",
+   "country": "United Arab Emirates",
+   "start": "2026-12-03",
+   "end": null,
+   "host": "Yasalam / Abu Dhabi Grand Prix",
+   "type": "Concert",
+   "conference_week": "F1 Abu Dhabi",
+   "description": "Opening night of the Yasalam After-Race Concerts, exclusive to Abu Dhabi Grand Prix ticket holders.",
+   "register_url": "https://www.formula1.com/en/latest/article/kings-of-leon-complete-line-up-for-this-years-yasalam-after-race-concerts.1234567?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed#capaldi-kol",
+   "list_page": "https://list.yorkseed.co/dubai-uae/"
+  },
+  {
+   "title": "La Môme Grand Prix Race Week Pop-Up",
+   "city": "UAE",
+   "country": "United Arab Emirates",
+   "start": "2026-12-03",
+   "end": null,
+   "host": "La Môme",
+   "type": "Nightlife",
+   "conference_week": "F1 Abu Dhabi",
+   "description": "Waterfront pop-up running Dec 3-6 during race week. From Dh500pp.",
+   "register_url": "https://www.khaleejtimes.com/lifestyle/abu-dhabi-race-week-meets-national-day?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed#lamome",
+   "list_page": "https://list.yorkseed.co/dubai-uae/"
+  },
+  {
    "title": "Yorkseed Delegation: Global Founder Showcase",
    "city": "Virtual",
    "country": "Online",
@@ -28344,6 +28396,19 @@
    "description": "Hosted by The Center for Cultural Power · Free",
    "register_url": "https://posh.vip/e/the-art-of-joy-together-we-have-the-recipes-for-the-futureexhibition?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/miami/"
+  },
+  {
+   "title": "Diablito Race Week Pop-Up",
+   "city": "UAE",
+   "country": "United Arab Emirates",
+   "start": "2026-12-04T13:00:00+04:00",
+   "end": "2026-12-04T16:00:00+04:00",
+   "host": "Diablito",
+   "type": "Nightlife",
+   "conference_week": "F1 Abu Dhabi",
+   "description": "Race week pop-up, plus à la carte dining on other days of the week.",
+   "register_url": "https://www.khaleejtimes.com/lifestyle/abu-dhabi-race-week-meets-national-day?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed#diablito",
+   "list_page": "https://list.yorkseed.co/dubai-uae/"
   },
   {
    "title": "Founder Fridays: The AI Collective x Unstuck Labs",
@@ -29854,6 +29919,19 @@
    "list_page": "https://list.yorkseed.co/miami/"
   },
   {
+   "title": "Anyma",
+   "city": "UAE",
+   "country": "United Arab Emirates",
+   "start": "2026-12-04T22:30:00+04:00",
+   "end": null,
+   "host": "Abu Dhabi Grand Prix race week",
+   "type": "DJ Set",
+   "conference_week": "F1 Abu Dhabi",
+   "description": "Doors 9pm, show 10:30pm. Tickets from Dh495.",
+   "register_url": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed#anyma",
+   "list_page": "https://list.yorkseed.co/dubai-uae/"
+  },
+  {
    "title": "Art Basel Opening Ceremony (Aventura)",
    "city": "Miami",
    "country": "United States",
@@ -30450,6 +30528,58 @@
    "description": null,
    "register_url": "https://www.eventbrite.com/e/1909128758509/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/miami/"
+  },
+  {
+   "title": "Jennifer Lopez with Alex Warren — Yasalam After-Race Concerts",
+   "city": "UAE",
+   "country": "United Arab Emirates",
+   "start": "2026-12-04",
+   "end": null,
+   "host": "Yasalam / Abu Dhabi Grand Prix",
+   "type": "Concert",
+   "conference_week": "F1 Abu Dhabi",
+   "description": "Exclusive to Abu Dhabi Grand Prix ticket holders, after Friday practice.",
+   "register_url": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed#jlo",
+   "list_page": "https://list.yorkseed.co/dubai-uae/"
+  },
+  {
+   "title": "Bar Du Port Grand Prix Race Week Brunch",
+   "city": "UAE",
+   "country": "United Arab Emirates",
+   "start": "2026-12-04",
+   "end": null,
+   "host": "Bar Du Port",
+   "type": "Brunch",
+   "conference_week": "F1 Abu Dhabi",
+   "description": "Waterfront brunch running Fri-Sun of race week. Dh450 ladies / Dh700 gents.",
+   "register_url": "https://www.khaleejtimes.com/lifestyle/abu-dhabi-race-week-meets-national-day?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed#bardupor",
+   "list_page": "https://list.yorkseed.co/dubai-uae/"
+  },
+  {
+   "title": "Shimza — 16/360",
+   "city": "UAE",
+   "country": "United Arab Emirates",
+   "start": "2026-12-04",
+   "end": null,
+   "host": "Abu Dhabi Grand Prix race week",
+   "type": "DJ Set",
+   "conference_week": "F1 Abu Dhabi",
+   "description": "Hospitality packages from Dh1,250.",
+   "register_url": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed#shimza",
+   "list_page": "https://list.yorkseed.co/dubai-uae/"
+  },
+  {
+   "title": "Mont Rouge and Moojo — Bagatelle Rooftop",
+   "city": "UAE",
+   "country": "United Arab Emirates",
+   "start": "2026-12-04",
+   "end": null,
+   "host": "Bagatelle",
+   "type": "Nightlife",
+   "conference_week": "F1 Abu Dhabi",
+   "description": "Race week rooftop pop-up. Tables from Dh7,000.",
+   "register_url": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed#bagatelle-dec4",
+   "list_page": "https://list.yorkseed.co/dubai-uae/"
   },
   {
    "title": "DevOpsDays Salvador",
@@ -31607,6 +31737,32 @@
    "description": "Hosted by Untitled Art · Fair admission, RSVP",
    "register_url": "https://untitledartfairs.com/program/events/panel-discussion-partnering-for-impact-how-art-fair-prizes-support-long-term-artist-growth_5-12-2026?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/miami/"
+  },
+  {
+   "title": "Bla Bla Bar Grand Prix Race Week Brunch",
+   "city": "UAE",
+   "country": "United Arab Emirates",
+   "start": "2026-12-05T13:00:00+04:00",
+   "end": null,
+   "host": "Bla Bla Bar",
+   "type": "Brunch",
+   "conference_week": "F1 Abu Dhabi",
+   "description": "Race-themed brunch with pit-crew dancers and a champagne podium moment at 3pm. From Dh279.",
+   "register_url": "https://www.khaleejtimes.com/lifestyle/abu-dhabi-race-week-meets-national-day?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed#blablabar",
+   "list_page": "https://list.yorkseed.co/dubai-uae/"
+  },
+  {
+   "title": "MIKA Riviera Brunch (Abu Dhabi Grand Prix Race Week)",
+   "city": "UAE",
+   "country": "United Arab Emirates",
+   "start": "2026-12-05T13:00:00+04:00",
+   "end": "2026-12-05T16:00:00+04:00",
+   "host": "MIKA",
+   "type": "Brunch",
+   "conference_week": "F1 Abu Dhabi",
+   "description": "Riviera-style brunch on Sat and Sun of race weekend. From Dh899.",
+   "register_url": "https://www.khaleejtimes.com/lifestyle/abu-dhabi-race-week-meets-national-day?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed#mika",
+   "list_page": "https://list.yorkseed.co/dubai-uae/"
   },
   {
    "title": "AI郵報年會 OPEN LAB 2026 台北｜主題分享 × AI 體驗 × 社群交流",
@@ -32974,6 +33130,58 @@
    "list_page": "https://list.yorkseed.co/miami/"
   },
   {
+   "title": "Imagine Dragons — Yasalam After-Race Concerts",
+   "city": "UAE",
+   "country": "United Arab Emirates",
+   "start": "2026-12-05",
+   "end": null,
+   "host": "Yasalam / Abu Dhabi Grand Prix",
+   "type": "Concert",
+   "conference_week": "F1 Abu Dhabi",
+   "description": "After Saturday qualifying. Exclusive to Abu Dhabi Grand Prix ticket holders.",
+   "register_url": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed#imaginedragons",
+   "list_page": "https://list.yorkseed.co/dubai-uae/"
+  },
+  {
+   "title": "CamelPhat — 16/360",
+   "city": "UAE",
+   "country": "United Arab Emirates",
+   "start": "2026-12-05",
+   "end": null,
+   "host": "Abu Dhabi Grand Prix race week",
+   "type": "DJ Set",
+   "conference_week": "F1 Abu Dhabi",
+   "description": "Hospitality packages from Dh1,250.",
+   "register_url": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed#camelphat",
+   "list_page": "https://list.yorkseed.co/dubai-uae/"
+  },
+  {
+   "title": "Gordo — Bagatelle",
+   "city": "UAE",
+   "country": "United Arab Emirates",
+   "start": "2026-12-05",
+   "end": null,
+   "host": "Bagatelle",
+   "type": "Nightlife",
+   "conference_week": "F1 Abu Dhabi",
+   "description": "Tables from Dh10,000.",
+   "register_url": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed#bagatelle-dec5",
+   "list_page": "https://list.yorkseed.co/dubai-uae/"
+  },
+  {
+   "title": "Stars 'N' Bars Race Week Brunch",
+   "city": "UAE",
+   "country": "United Arab Emirates",
+   "start": "2026-12-05",
+   "end": null,
+   "host": "Stars 'N' Bars",
+   "type": "Brunch",
+   "conference_week": "F1 Abu Dhabi",
+   "description": "Live entertainment brunch during race week. From Dh399.",
+   "register_url": "https://www.khaleejtimes.com/lifestyle/abu-dhabi-race-week-meets-national-day?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed#starsnbars",
+   "list_page": "https://list.yorkseed.co/dubai-uae/"
+  },
+  {
    "title": "AI Week",
    "city": "Sydney",
    "country": "Australia",
@@ -34194,6 +34402,45 @@
    "description": "Hosted by She's Gotta Have It",
    "register_url": "https://eventbrite.com/e/nightshift-the-urban-suite-queer-basel-registration-2003674434170?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed",
    "list_page": "https://list.yorkseed.co/miami/"
+  },
+  {
+   "title": "The Chainsmokers and The Script — Yasalam After-Race Concerts",
+   "city": "UAE",
+   "country": "United Arab Emirates",
+   "start": "2026-12-06",
+   "end": null,
+   "host": "Yasalam / Abu Dhabi Grand Prix",
+   "type": "Concert",
+   "conference_week": "F1 Abu Dhabi",
+   "description": "Season finale night: separate sets from The Chainsmokers and The Script after the race. Exclusive to Abu Dhabi Grand Prix ticket holders.",
+   "register_url": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed#chainsmokers",
+   "list_page": "https://list.yorkseed.co/dubai-uae/"
+  },
+  {
+   "title": "Black Coffee — 16/360",
+   "city": "UAE",
+   "country": "United Arab Emirates",
+   "start": "2026-12-06",
+   "end": null,
+   "host": "Abu Dhabi Grand Prix race week",
+   "type": "DJ Set",
+   "conference_week": "F1 Abu Dhabi",
+   "description": "Closing night. Hospitality packages from Dh1,250.",
+   "register_url": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed#black-coffee",
+   "list_page": "https://list.yorkseed.co/dubai-uae/"
+  },
+  {
+   "title": "Carl Cox — Bagatelle",
+   "city": "UAE",
+   "country": "United Arab Emirates",
+   "start": "2026-12-06",
+   "end": null,
+   "host": "Bagatelle",
+   "type": "Nightlife",
+   "conference_week": "F1 Abu Dhabi",
+   "description": "Closing night. Tables from Dh10,000.",
+   "register_url": "https://www.thenationalnews.com/arts-culture/music-stage/2026/10/20/abu-dhabi-f1-concert-and-clubbing-guide-from-andrea-bocelli-and-imagine-dragons-to-black-coffee/?utm_source=yorkseed&utm_medium=the_list&utm_campaign=list_feed#bagatelle-dec6",
+   "list_page": "https://list.yorkseed.co/dubai-uae/"
   },
   {
    "title": "West Tech Fest 2026 — Perth",

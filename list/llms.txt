@@ -1,6 +1,6 @@
 # The Yorkseed List
 
-> The Yorkseed List (https://list.yorkseed.co/) is a free global calendar of startup, tech, founder and investor events in 50+ cities and around the major tech weeks and conferences, run by Yorkseed. 4224 upcoming events as of 2026-11-25. Updated continuously. Anyone can list an event for free.
+> The Yorkseed List (https://list.yorkseed.co/) is a free global calendar of startup, tech, founder and investor events in 50+ cities and around the major tech weeks and conferences, run by Yorkseed. 4243 upcoming events as of 2026-11-25. Updated continuously. Anyone can list an event for free.
 
 ## Startup and tech events by city
 
@@ -12,6 +12,7 @@
 - [Startup events in Berlin](https://list.yorkseed.co/berlin/): 108 upcoming
 - [Startup events in Denver & Boulder](https://list.yorkseed.co/denver-boulder/): 108 upcoming
 - [Startup events in Vancouver](https://list.yorkseed.co/vancouver/): 96 upcoming
+- [Startup events in UAE](https://list.yorkseed.co/dubai-uae/): 94 upcoming
 - [Startup events in Zurich](https://list.yorkseed.co/zurich/): 94 upcoming
 - [Startup events in Sydney](https://list.yorkseed.co/sydney/): 93 upcoming
 - [Startup events in Atlanta](https://list.yorkseed.co/atlanta/): 90 upcoming
@@ -20,7 +21,6 @@
 - [Startup events in Barcelona](https://list.yorkseed.co/barcelona/): 83 upcoming
 - [Startup events in Bengaluru](https://list.yorkseed.co/bengaluru/): 83 upcoming
 - [Startup events in Munich](https://list.yorkseed.co/munich/): 78 upcoming
-- [Startup events in UAE](https://list.yorkseed.co/dubai-uae/): 75 upcoming
 - [Startup events in Tokyo](https://list.yorkseed.co/tokyo/): 73 upcoming
 - [Startup events in Chicago](https://list.yorkseed.co/chicago/): 72 upcoming
 - [Startup events in Boston](https://list.yorkseed.co/boston/): 70 upcoming
@@ -124,7 +124,7 @@
 - [SXSW 2027 side events](https://list.yorkseed.co/sxsw-2027-side-events/): Austin, 2027-03-15 to 2027-03-21, 7 events
 - [Shoptalk Spring 2027 side events](https://list.yorkseed.co/shoptalk-spring-2027-side-events/): Las Vegas, 2027-03-22 to 2027-03-24, 1 events
 - [LEAP 2027 side events](https://list.yorkseed.co/leap-2027-side-events/): Riyadh, 2027-04-12 to 2027-04-15, 0 events
-- [F1 Abu Dhabi 2026 side events](https://list.yorkseed.co/f1-abu-dhabi-2026-side-events/): UAE, 2026-12-02 to 2026-12-08, 1 events
+- [F1 Abu Dhabi 2026 side events](https://list.yorkseed.co/f1-abu-dhabi-2026-side-events/): UAE, 2026-12-02 to 2026-12-08, 20 events
 
 ## Machine-readable data
 
