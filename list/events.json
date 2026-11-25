@@ -106381,5 +106381,31 @@
   "type": "Hackathons",
   "desc": "Two-day AI hackathon, January 23–24.",
   "src": "manual"
+ },
+ {
+  "title": "Startup Greece Delegation at Davos",
+  "hub": "dav",
+  "date": "2027-01-17",
+  "start": "08:00",
+  "venue": "Davos",
+  "host": "Startup Greece",
+  "link": "https://www.eventbrite.com/e/startup-greece-delegation-at-davos2026-registration-2004738089592",
+  "type": "Networking",
+  "desc": "",
+  "end": null,
+  "src": "manual"
+ },
+ {
+  "title": "Davos Women in AI & Finance 2027",
+  "hub": "dav",
+  "date": "2027-01-19",
+  "start": "11:30",
+  "venue": "Hard Rock Hotel Davos",
+  "host": "",
+  "link": "https://www.eventbrite.com/e/davos-women-in-ai-finance-2027-fine-dining-meaningful-conversations-tickets-2004764579825",
+  "type": "Communal Dining",
+  "desc": "Lunch and conversations for women working in AI and finance during WEF week.",
+  "end": null,
+  "src": "manual"
  }
 ]
