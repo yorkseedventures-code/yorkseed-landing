@@ -1,106 +1,106 @@
 # The Yorkseed List
 
-> The Yorkseed List (https://list.yorkseed.co/) is a free global calendar of startup, tech, founder and investor events in 50+ cities and around the major tech weeks and conferences, run by Yorkseed. 4173 upcoming events as of 2026-11-22. Updated continuously. Anyone can list an event for free.
+> The Yorkseed List (https://list.yorkseed.co/) is a free global calendar of startup, tech, founder and investor events in 50+ cities and around the major tech weeks and conferences, run by Yorkseed. 4224 upcoming events as of 2026-11-25. Updated continuously. Anyone can list an event for free.
 
 ## Startup and tech events by city
 
-- [Startup events in Miami](https://list.yorkseed.co/miami/): 275 upcoming
-- [Startup events in Bay Area](https://list.yorkseed.co/san-francisco-bay-area/): 241 upcoming
-- [Startup events in London](https://list.yorkseed.co/london/): 188 upcoming
-- [Startup events in New York](https://list.yorkseed.co/new-york/): 168 upcoming
+- [Startup events in Miami](https://list.yorkseed.co/miami/): 746 upcoming
+- [Startup events in Bay Area](https://list.yorkseed.co/san-francisco-bay-area/): 223 upcoming
+- [Startup events in London](https://list.yorkseed.co/london/): 170 upcoming
+- [Startup events in New York](https://list.yorkseed.co/new-york/): 156 upcoming
 - [Startup events in Las Vegas](https://list.yorkseed.co/las-vegas/): 143 upcoming
-- [Startup events in Berlin](https://list.yorkseed.co/berlin/): 126 upcoming
-- [Startup events in Denver & Boulder](https://list.yorkseed.co/denver-boulder/): 113 upcoming
-- [Startup events in Vancouver](https://list.yorkseed.co/vancouver/): 108 upcoming
-- [Startup events in Paris](https://list.yorkseed.co/paris/): 106 upcoming
-- [Startup events in Zurich](https://list.yorkseed.co/zurich/): 106 upcoming
-- [Startup events in Sydney](https://list.yorkseed.co/sydney/): 103 upcoming
-- [Startup events in Bengaluru](https://list.yorkseed.co/bengaluru/): 100 upcoming
-- [Startup events in Atlanta](https://list.yorkseed.co/atlanta/): 95 upcoming
-- [Startup events in Barcelona](https://list.yorkseed.co/barcelona/): 94 upcoming
-- [Startup events in Amsterdam](https://list.yorkseed.co/amsterdam/): 89 upcoming
-- [Startup events in Munich](https://list.yorkseed.co/munich/): 88 upcoming
-- [Startup events in Tokyo](https://list.yorkseed.co/tokyo/): 85 upcoming
-- [Startup events in Toronto](https://list.yorkseed.co/toronto/): 82 upcoming
-- [Startup events in UAE](https://list.yorkseed.co/dubai-uae/): 78 upcoming
-- [Startup events in Austin](https://list.yorkseed.co/austin/): 76 upcoming
-- [Startup events in Boston](https://list.yorkseed.co/boston/): 76 upcoming
-- [Startup events in Singapore](https://list.yorkseed.co/singapore/): 75 upcoming
-- [Startup events in Chicago](https://list.yorkseed.co/chicago/): 74 upcoming
-- [Startup events in Seattle](https://list.yorkseed.co/seattle/): 68 upcoming
-- [Startup events in Vienna](https://list.yorkseed.co/vienna/): 66 upcoming
-- [Startup events in Stockholm](https://list.yorkseed.co/stockholm/): 59 upcoming
-- [Startup events in Tel Aviv](https://list.yorkseed.co/tel-aviv/): 58 upcoming
-- [Startup events in Brussels](https://list.yorkseed.co/brussels/): 54 upcoming
-- [Startup events in Helsinki](https://list.yorkseed.co/helsinki/): 52 upcoming
-- [Startup events in Los Angeles](https://list.yorkseed.co/los-angeles/): 52 upcoming
-- [Startup events in Copenhagen](https://list.yorkseed.co/copenhagen/): 51 upcoming
-- [Startup events in Washington D.C.](https://list.yorkseed.co/washington-dc/): 49 upcoming
-- [Startup events in Madrid](https://list.yorkseed.co/madrid/): 42 upcoming
-- [Startup events in Warsaw](https://list.yorkseed.co/warsaw/): 42 upcoming
-- [Startup events in Lisbon](https://list.yorkseed.co/lisbon/): 40 upcoming
-- [Startup events in San Diego](https://list.yorkseed.co/san-diego/): 39 upcoming
-- [Startup events in Hong Kong](https://list.yorkseed.co/hong-kong/): 36 upcoming
-- [Startup events in Seoul](https://list.yorkseed.co/seoul/): 36 upcoming
-- [Startup events in Milan](https://list.yorkseed.co/milan/): 35 upcoming
-- [Startup events in New Delhi](https://list.yorkseed.co/new-delhi/): 35 upcoming
-- [Startup events in Houston](https://list.yorkseed.co/houston/): 33 upcoming
-- [Startup events in Mumbai](https://list.yorkseed.co/mumbai/): 33 upcoming
-- [Startup events in Nairobi](https://list.yorkseed.co/nairobi/): 32 upcoming
-- [Startup events in Portland](https://list.yorkseed.co/portland/): 30 upcoming
-- [Startup events in São Paulo & Rio](https://list.yorkseed.co/sao-paulo-rio/): 29 upcoming
-- [Startup events in Dublin](https://list.yorkseed.co/dublin/): 28 upcoming
-- [Startup events in Bangkok](https://list.yorkseed.co/bangkok/): 27 upcoming
-- [Startup events in Melbourne](https://list.yorkseed.co/melbourne/): 27 upcoming
-- [Startup events in Montreal](https://list.yorkseed.co/montreal/): 25 upcoming
+- [Startup events in Berlin](https://list.yorkseed.co/berlin/): 108 upcoming
+- [Startup events in Denver & Boulder](https://list.yorkseed.co/denver-boulder/): 108 upcoming
+- [Startup events in Vancouver](https://list.yorkseed.co/vancouver/): 96 upcoming
+- [Startup events in Zurich](https://list.yorkseed.co/zurich/): 94 upcoming
+- [Startup events in Sydney](https://list.yorkseed.co/sydney/): 93 upcoming
+- [Startup events in Atlanta](https://list.yorkseed.co/atlanta/): 90 upcoming
+- [Startup events in Amsterdam](https://list.yorkseed.co/amsterdam/): 84 upcoming
+- [Startup events in Paris](https://list.yorkseed.co/paris/): 84 upcoming
+- [Startup events in Barcelona](https://list.yorkseed.co/barcelona/): 83 upcoming
+- [Startup events in Bengaluru](https://list.yorkseed.co/bengaluru/): 83 upcoming
+- [Startup events in Munich](https://list.yorkseed.co/munich/): 78 upcoming
+- [Startup events in UAE](https://list.yorkseed.co/dubai-uae/): 75 upcoming
+- [Startup events in Tokyo](https://list.yorkseed.co/tokyo/): 73 upcoming
+- [Startup events in Chicago](https://list.yorkseed.co/chicago/): 72 upcoming
+- [Startup events in Boston](https://list.yorkseed.co/boston/): 70 upcoming
+- [Startup events in Austin](https://list.yorkseed.co/austin/): 68 upcoming
+- [Startup events in Seattle](https://list.yorkseed.co/seattle/): 64 upcoming
+- [Startup events in Toronto](https://list.yorkseed.co/toronto/): 64 upcoming
+- [Startup events in Singapore](https://list.yorkseed.co/singapore/): 62 upcoming
+- [Startup events in Vienna](https://list.yorkseed.co/vienna/): 53 upcoming
+- [Startup events in Stockholm](https://list.yorkseed.co/stockholm/): 51 upcoming
+- [Startup events in Helsinki](https://list.yorkseed.co/helsinki/): 47 upcoming
+- [Startup events in Los Angeles](https://list.yorkseed.co/los-angeles/): 45 upcoming
+- [Startup events in Tel Aviv](https://list.yorkseed.co/tel-aviv/): 45 upcoming
+- [Startup events in Washington D.C.](https://list.yorkseed.co/washington-dc/): 45 upcoming
+- [Startup events in Brussels](https://list.yorkseed.co/brussels/): 44 upcoming
+- [Startup events in Copenhagen](https://list.yorkseed.co/copenhagen/): 43 upcoming
+- [Startup events in San Diego](https://list.yorkseed.co/san-diego/): 37 upcoming
+- [Startup events in Madrid](https://list.yorkseed.co/madrid/): 35 upcoming
+- [Startup events in Milan](https://list.yorkseed.co/milan/): 34 upcoming
+- [Startup events in New Delhi](https://list.yorkseed.co/new-delhi/): 33 upcoming
+- [Startup events in Warsaw](https://list.yorkseed.co/warsaw/): 33 upcoming
+- [Startup events in Lisbon](https://list.yorkseed.co/lisbon/): 32 upcoming
+- [Startup events in Mumbai](https://list.yorkseed.co/mumbai/): 32 upcoming
+- [Startup events in Houston](https://list.yorkseed.co/houston/): 31 upcoming
+- [Startup events in Hong Kong](https://list.yorkseed.co/hong-kong/): 30 upcoming
+- [Startup events in Nairobi](https://list.yorkseed.co/nairobi/): 28 upcoming
+- [Startup events in Portland](https://list.yorkseed.co/portland/): 28 upcoming
+- [Startup events in Dublin](https://list.yorkseed.co/dublin/): 27 upcoming
+- [Startup events in São Paulo & Rio](https://list.yorkseed.co/sao-paulo-rio/): 27 upcoming
+- [Startup events in Bangkok](https://list.yorkseed.co/bangkok/): 25 upcoming
+- [Startup events in Seoul](https://list.yorkseed.co/seoul/): 25 upcoming
+- [Startup events in Montreal](https://list.yorkseed.co/montreal/): 24 upcoming
+- [Startup events in Melbourne](https://list.yorkseed.co/melbourne/): 22 upcoming
 - [Startup events in Pune](https://list.yorkseed.co/pune/): 22 upcoming
-- [Startup events in Taipei](https://list.yorkseed.co/taipei/): 21 upcoming
-- [Startup events in Oslo](https://list.yorkseed.co/oslo/): 20 upcoming
-- [Startup events in Istanbul](https://list.yorkseed.co/istanbul/): 19 upcoming
-- [Startup events in Kuala Lumpur](https://list.yorkseed.co/kuala-lumpur/): 19 upcoming
-- [Startup events in Manila](https://list.yorkseed.co/manila/): 19 upcoming
-- [Startup events in Prague](https://list.yorkseed.co/prague/): 18 upcoming
-- [Startup events in Budapest](https://list.yorkseed.co/budapest/): 17 upcoming
+- [Startup events in Istanbul](https://list.yorkseed.co/istanbul/): 17 upcoming
+- [Startup events in Kuala Lumpur](https://list.yorkseed.co/kuala-lumpur/): 17 upcoming
 - [Startup events in Manchester](https://list.yorkseed.co/manchester/): 17 upcoming
-- [Startup events in Buenos Aires](https://list.yorkseed.co/buenos-aires/): 15 upcoming
+- [Startup events in Manila](https://list.yorkseed.co/manila/): 17 upcoming
+- [Startup events in Prague](https://list.yorkseed.co/prague/): 16 upcoming
 - [Startup events in Dallas](https://list.yorkseed.co/dallas/): 15 upcoming
-- [Startup events in Mexico City](https://list.yorkseed.co/mexico-city/): 15 upcoming
+- [Startup events in Oslo](https://list.yorkseed.co/oslo/): 15 upcoming
 - [Startup events in Salt Lake City](https://list.yorkseed.co/salt-lake-city/): 15 upcoming
+- [Startup events in Taipei](https://list.yorkseed.co/taipei/): 15 upcoming
 - [Startup events in Hyderabad](https://list.yorkseed.co/hyderabad/): 14 upcoming
-- [Startup events in Belgrade](https://list.yorkseed.co/belgrade/): 13 upcoming
+- [Startup events in Mexico City](https://list.yorkseed.co/mexico-city/): 14 upcoming
+- [Startup events in Buenos Aires](https://list.yorkseed.co/buenos-aires/): 13 upcoming
 - [Startup events in Davos](https://list.yorkseed.co/davos/): 13 upcoming
 - [Startup events in Chennai](https://list.yorkseed.co/chennai/): 11 upcoming
 - [Startup events in Philadelphia](https://list.yorkseed.co/philadelphia/): 11 upcoming
-- [Startup events in Jakarta](https://list.yorkseed.co/jakarta/): 9 upcoming
-- [Startup events in Lagos](https://list.yorkseed.co/lagos/): 9 upcoming
+- [Startup events in Belgrade](https://list.yorkseed.co/belgrade/): 9 upcoming
+- [Startup events in Budapest](https://list.yorkseed.co/budapest/): 9 upcoming
 - [Startup events in Bristol](https://list.yorkseed.co/bristol/): 8 upcoming
-- [Startup events in Edinburgh](https://list.yorkseed.co/edinburgh/): 8 upcoming
+- [Startup events in Jakarta](https://list.yorkseed.co/jakarta/): 8 upcoming
+- [Startup events in Lagos](https://list.yorkseed.co/lagos/): 8 upcoming
+- [Startup events in Edinburgh](https://list.yorkseed.co/edinburgh/): 6 upcoming
 - [Startup events in Ho Chi Minh City](https://list.yorkseed.co/ho-chi-minh-city/): 6 upcoming
-- [Startup events in Auckland](https://list.yorkseed.co/auckland/): 5 upcoming
-- [Startup events in Bogotá](https://list.yorkseed.co/bogot/): 5 upcoming
 - [Startup events in Lima](https://list.yorkseed.co/lima/): 5 upcoming
 - [Startup events in Nashville](https://list.yorkseed.co/nashville/): 5 upcoming
-- [Startup events in Riyadh](https://list.yorkseed.co/riyadh/): 5 upcoming
+- [Startup events in Auckland](https://list.yorkseed.co/auckland/): 4 upcoming
 - [Startup events in Birmingham](https://list.yorkseed.co/birmingham/): 4 upcoming
+- [Startup events in Bogotá](https://list.yorkseed.co/bogot/): 4 upcoming
 - [Startup events in Online](https://list.yorkseed.co/online/): 4 upcoming
 - [Startup events in Cape Town](https://list.yorkseed.co/cape-town/): 3 upcoming
 - [Startup events in Johannesburg](https://list.yorkseed.co/johannesburg/): 3 upcoming
 - [Startup events in Kyiv](https://list.yorkseed.co/kyiv/): 3 upcoming
-- [Startup events in Raleigh-Durham](https://list.yorkseed.co/raleigh-durham/): 3 upcoming
-- [Startup events in Shanghai](https://list.yorkseed.co/shanghai/): 3 upcoming
+- [Startup events in Riyadh](https://list.yorkseed.co/riyadh/): 3 upcoming
+- [Startup events in Shenzhen](https://list.yorkseed.co/shenzhen/): 3 upcoming
 - [Startup events in Cannes](https://list.yorkseed.co/cannes/): 2 upcoming
 - [Startup events in Doha](https://list.yorkseed.co/doha/): 2 upcoming
 - [Startup events in Glasgow](https://list.yorkseed.co/glasgow/): 2 upcoming
 - [Startup events in Jersey City](https://list.yorkseed.co/jersey-city/): 2 upcoming
 - [Startup events in Leeds](https://list.yorkseed.co/leeds/): 2 upcoming
 - [Startup events in Liverpool](https://list.yorkseed.co/liverpool/): 2 upcoming
-- [Startup events in Medellín](https://list.yorkseed.co/medell-n/): 2 upcoming
+- [Startup events in Raleigh-Durham](https://list.yorkseed.co/raleigh-durham/): 2 upcoming
 - [Startup events in San Antonio](https://list.yorkseed.co/san-antonio/): 2 upcoming
-- [Startup events in Santiago](https://list.yorkseed.co/santiago/): 2 upcoming
-- [Startup events in Shenzhen](https://list.yorkseed.co/shenzhen/): 2 upcoming
+- [Startup events in Shanghai](https://list.yorkseed.co/shanghai/): 2 upcoming
 - [Startup events in Cairo](https://list.yorkseed.co/cairo/): 1 upcoming
 - [Startup events in Cambridge](https://list.yorkseed.co/cambridge/): 1 upcoming
 - [Startup events in GIFT City](https://list.yorkseed.co/gift-city/): 1 upcoming
+- [Startup events in Medellín](https://list.yorkseed.co/medell-n/): 1 upcoming
+- [Startup events in Santiago](https://list.yorkseed.co/santiago/): 1 upcoming
 - [Startup events in Victoria, BC](https://list.yorkseed.co/victoria-bc/): 1 upcoming
 
 ## Conference and tech week side events
@@ -108,14 +108,13 @@
 - [WEF Davos 2027 side events](https://list.yorkseed.co/wef-davos-2027-side-events/): Davos, 2027-01-17 to 2027-01-22, 11 events
 - [Asian Financial Forum 2027 side events](https://list.yorkseed.co/asian-financial-forum-2027-side-events/): Hong Kong, 2027-01-25 to 2027-01-28, 4 events
 - [TOKEN2049 Dubai 2027 side events](https://list.yorkseed.co/token2049-dubai-2027-side-events/): UAE, 2027-04-19 to 2027-04-24, 0 events
-- [Chile Tech Week 2026 side events](https://list.yorkseed.co/chile-tech-week-2026-side-events/): Santiago, 2026-11-16 to 2026-11-22, 0 events
 - [AWS re:Invent 2026 side events](https://list.yorkseed.co/aws-re-invent-2026-side-events/): Las Vegas, 2026-11-29 to 2026-12-04, 82 events
 - [GITEX & Expand North Star 2026 side events](https://list.yorkseed.co/gitex-and-expand-north-star-2026-side-events/): UAE, 2026-12-06 to 2026-12-11, 13 events
 - [CES 2027 side events](https://list.yorkseed.co/ces-2027-side-events/): Las Vegas, 2027-01-04 to 2027-01-09, 7 events
 - [JPM Healthcare Week 2027 side events](https://list.yorkseed.co/jpm-healthcare-week-2027-side-events/): Bay Area, 2027-01-10 to 2027-01-15, 20 events
 - [Web Summit Qatar 2027 side events](https://list.yorkseed.co/web-summit-qatar-2027-side-events/): Doha, 2027-01-30 to 2027-02-04, 1 events
-- [Toronto Blockchain Week 2026 side events](https://list.yorkseed.co/toronto-blockchain-week-2026-side-events/): Toronto, 2026-11-23 to 2026-11-26, 1 events
-- [Miami Art Week 2026 side events](https://list.yorkseed.co/miami-art-week-2026-side-events/): Miami, 2026-11-30 to 2026-12-06, 244 events
+- [Toronto Blockchain Week 2026 side events](https://list.yorkseed.co/toronto-blockchain-week-2026-side-events/): Toronto, 2026-11-23 to 2026-11-26, 0 events
+- [Miami Art Week 2026 side events](https://list.yorkseed.co/miami-art-week-2026-side-events/): Miami, 2026-11-30 to 2026-12-06, 706 events
 - [Korea Fintech Week 2026 side events](https://list.yorkseed.co/korea-fintech-week-2026-side-events/): Seoul, 2026-11-25 to 2026-11-27, 11 events
 - [Abu Dhabi Finance Week 2026 side events](https://list.yorkseed.co/abu-dhabi-finance-week-2026-side-events/): UAE, 2026-12-07 to 2026-12-10, 2 events
 - [NRF: Retail's Big Show 2027 side events](https://list.yorkseed.co/nrf-retail-s-big-show-2027-side-events/): New York, 2027-01-10 to 2027-01-12, 8 events
