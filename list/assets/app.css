@@ -1326,3 +1326,18 @@ input::placeholder,textarea::placeholder{font-size:13.5px;color:var(--soft);opac
 .dayhead{top:calc(var(--navh,64px) + var(--dsh,0px))!important}
 .dayhead .coretag{font-family:var(--f-label);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);padding:2px 6px;margin-left:10px;vertical-align:middle;white-space:nowrap}
 @media (max-width:640px){.dstrip{gap:5px;padding:8px 0}.dstrip button{min-width:50px;padding:6px 6px}.dstrip b{font-size:19px}.dstrip button.core{padding-top:4px}.dayhead .coretag{font-size:8.5px;margin-left:6px;padding:1px 5px}}
+
+/* designed cover for events with no photo of their own (see genCover in app.js) */
+.gcov{position:relative;display:flex;flex-direction:column;justify-content:space-between;width:100%;height:100%;aspect-ratio:4/3;overflow:hidden;padding:7% 7.5%;box-sizing:border-box;text-decoration:none;
+  background-image:repeating-linear-gradient(0deg,transparent 0 23px,rgba(127,127,127,.09) 23px 24px),repeating-linear-gradient(90deg,transparent 0 23px,rgba(127,127,127,.09) 23px 24px)}
+.gcov img{position:absolute;inset:0;width:100%!important;height:100%!important;aspect-ratio:auto!important;object-fit:cover;z-index:1}
+.gc-top,.gc-bot{font:400 10px/1.3 'DM Mono',ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase}
+.gc-bot{display:flex;justify-content:space-between;gap:8px;border-top:1px solid currentColor;padding-top:8px;opacity:.9}.gc-bot i{font-style:normal;opacity:.75}
+.gc-t{font:400 clamp(17px,2.4vw,30px)/1.12 'Playfair Display',Georgia,serif;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;margin:auto 0 10px}
+.gc-ink{background-color:#151515;color:#faf7f1}.gc-ink .gc-top{color:#e8485f}
+.gc-red{background-color:#c8102e;color:#fff}.gc-red .gc-top{color:#ffd5db}
+.gc-paper{background-color:#f3efe6;color:#151515}.gc-paper .gc-top{color:#c8102e}
+.gc-sand{background-color:#e6dccb;color:#151515}.gc-sand .gc-top{color:#c8102e}
+.card .ph .gcov{aspect-ratio:auto}.card .ph .gc-t{font-size:clamp(16px,1.6vw,22px)}
+.evimg .gcov .gc-t{font-size:clamp(24px,3.2vw,44px)}
+@media (max-width:900px){.evimg .gcov{aspect-ratio:16/10}}

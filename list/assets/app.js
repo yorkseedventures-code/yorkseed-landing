@@ -1272,7 +1272,14 @@ function rerenderAll(){if(PENDING_EV&&openFromHash())return;try{renderHome();}ca
 function dbEvent(id,d){const w=WEEKS.find(x=>x.hub===d.hub&&d.date>=x.start&&d.date<=x.end);
   return decorate({id:"d_"+id,title:d.title||"Untitled",hub:d.hub,date:d.date,start:d.start||null,end:d.start?(d.end||null):null,type:d.type||inferType(d.title||""),xsectors:String(d.sector||"").split(",").filter(Boolean),xcats:String(d.tags||"").split(",").filter(Boolean),host:d.host||"",tags:(()=>{const t=inferTags((d.title||"")+" "+(d.desc||""));return t.length?t.slice(0,3):["Founders"];})(),aud:[],place:d.featured?"featured":(d.yorkseed?"spotlight":null),partner:!!d.partner,house:!!d.house,week:w?w.id:null,img:"ev"+(1+(id.charCodeAt(0)%8)),venue:d.venue||"",link:d.link||"",desc:d.desc||"",cover:/^https:\/\//.test(d.img||"")?d.img:"",live:true});}
 var PHOTOS={};
-function evImgTag(e,fb){const p=(e&&e.cover)||(e&&e.link&&(PHOTOS||{})[e.link]);return p?`<img src="${esc(p)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src=this.dataset.fb" data-fb="${fb}">`:`<img src="${fb}" alt="">`;}
+function evImgTag(e,fb){const p=(e&&e.cover)||(e&&e.link&&(PHOTOS||{})[e.link]);
+  // events with Yorkseed's own artwork (soiree, house, detail...) keep it; generic ev1..ev8 stock photos are replaced by a designed cover
+  if(!(e&&/^ev\d$/.test(e.img||"")))return p?`<img src="${esc(p)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src=this.dataset.fb" data-fb="${fb}">`:`<img src="${fb}" alt="">`;
+  return genCover(e,p);}
+function genCover(e,p){const h=hubById(e.hub)||{name:""};let x=0;for(const c of String(e.hub||"")+String(e.title||""))x=(x*31+c.charCodeAt(0))>>>0;
+  x^=x>>>15;x=Math.imul(x,2246822519)>>>0;x^=x>>>13;const tone=["paper","ink","sand","paper","ink","red","sand","paper"][x%8],d=e.date?new Date(e.date+"T12:00:00"):null;
+  const when=d?d.toLocaleDateString("en-US",{month:"short",day:"numeric"}):"";
+  return `<span class="gcov gc-${tone}" role="img" aria-label="${esc(e.title||"")}"><span class="gc-top">Yorkseed · The List</span><span class="gc-t">${esc(e.title||"")}</span><span class="gc-bot">${esc([h.name,when].filter(Boolean).join(" · "))}${e.type?`<i>${esc(e.type)}</i>`:""}</span>${p?`<img src="${esc(p)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">`:""}</span>`;}
 if(window.YS_STATIC){fetch(String(window.YS_STATIC).replace(/^1$/,"")+"data/photos.json",{cache:"no-cache"}).then(r=>r.ok?r.json():{}).then(m=>{let n=0;for(const k in m){if(m[k]&&m[k].img){PHOTOS[k]=m[k].img;n++;}}if(n&&typeof rerenderAll==="function")rerenderAll();}).catch(()=>{});}
 if(window.YS_STATIC){const J=f=>fetch(String(window.YS_STATIC).replace(/^1$/,"")+f,{cache:"no-cache"}).then(r=>r.ok?r.json():[]).catch(()=>[]);
   const whenIdle=fn=>("requestIdleCallback" in window)?requestIdleCallback(fn,{timeout:2500}):setTimeout(fn,600);

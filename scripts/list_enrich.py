@@ -428,6 +428,7 @@ def import_foundercal():
             if not e.get("title") or not e.get("start_at"): continue
             seen_n += 1
             date, st = to_local(e["start_at"], tz); ed, et = to_local(e["end_at"], tz) if e.get("end_at") else (None, None)
+            if st == "00:00" and not et: st = None                  # a bare midnight is foundercal's "no time given"
             if not date or date < TODAY or date > horizon: continue
             title = re.sub(r"\s+", " ", e["title"]).strip()
             if (norm(title), date) in seen_t: continue
