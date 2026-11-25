@@ -1317,8 +1317,14 @@ NAV_SILENT=true;try{
   else if(openFromHash()){} // path-based /e/<slug>/
   else if(pathKey==="cities"){goCity("all");keepCleanPath();}
   else if(pathKey&&openFromPath(pathKey)){keepCleanPath();}
-  else if(!hash&&!pathKey&&!/[?&]home\b/.test(location.search)){const nh=nearHub();if(nh)goCity(nh);}
+  else if(!hash&&!pathKey&&!/[?&](home|feature)\b/.test(location.search)){const nh=nearHub();if(nh)goCity(nh);}
 }finally{NAV_SILENT=false;}
+/* one-click "Feature this event" links from the approval email: ?feature=1&t=<title>&d=<date>&h=<hub>&u=<link>&o=<host>&n=<name>&em=<email>
+   open the Featured checkout already filled in for that event, then drop the parameters from the address bar. */
+(function featureFromEmail(){const q=new URLSearchParams(location.search);if(!q.has("feature"))return;
+  const g=k=>(q.get(k)||"").slice(0,500),hub=g("h");
+  try{openFeature({title:g("t"),date:/^\d{4}-\d{2}-\d{2}$/.test(g("d"))?g("d"):"",hub:HUBS.some(x=>x.id===hub)?hub:"",link:/^https?:\/\//.test(g("u"))?g("u"):"",host:g("o")},{name:g("n"),email:g("em")});}catch(e){}
+  try{["feature","t","d","h","u","o","n","em"].forEach(k=>q.delete(k));const s=q.toString();history.replaceState(null,"",location.pathname+(s?"?"+s:"")+location.hash);}catch(e){}})();
 
 makePicker($("#homeSel"));makePicker($("#hHub"),true);makePicker($("#fCity"),true);
 $("#dStrip").addEventListener("click",ev=>{const b=ev.target.closest("button[data-dsday]");if(!b)return;ev.stopPropagation();
