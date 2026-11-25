@@ -587,5 +587,12 @@
   "name": "AI After 5 (NYC, London, Toronto, Dublin)",
   "all": true,
   "max_pages": 20
+ },
+ {
+  "type": "luma_calendar",
+  "id": "cal-Czjn5gNV8aBqMXp",
+  "name": "CES (official Luma calendar)",
+  "all": true,
+  "max_pages": 20
  }
 ]
