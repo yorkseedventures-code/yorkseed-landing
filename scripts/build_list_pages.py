@@ -180,7 +180,9 @@ for s in _sub.get("events", []):
         "cover": s["img"] if (s.get("img") or "").startswith("http") else ""})
 for ch in _sub.get("changes", []):
     tl = (ch.get("link") or "").strip(); tt = (ch.get("title") or "").strip(); td = (ch.get("date") or "").strip()
-    matches = ([e for e in data["events"] if (e.get("link") or "").strip() == tl] if tl
+    # match on the link (or title) AND the date: one link can carry several dates (an event moved to another
+    # day keeps its Luma link), and removing the old date must not remove the new one
+    matches = ([e for e in data["events"] if (e.get("link") or "").strip() == tl and (not td or e.get("date") == td)] if tl
                else [e for e in data["events"] if e.get("title") == tt and e.get("date") == td])
     if not matches: continue
     if ch.get("remove"):
