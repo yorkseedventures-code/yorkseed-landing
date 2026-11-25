@@ -106342,5 +106342,44 @@
   "host": "The Digital Economist",
   "link": "https://luma.com/jd9smx60",
   "type": "Talk"
+ },
+ {
+  "title": "EmTech Invest Davos 2027",
+  "hub": "dav",
+  "date": "2027-01-21",
+  "start": "11:00",
+  "end": "20:30",
+  "venue": "Grandhotel Belvédère, East Lounge, Promenade 89, Davos",
+  "host": "EmTech Invest",
+  "link": "https://luma.com/z37hvaw3",
+  "type": "Investor Events",
+  "desc": "One-day investor event on regulation, tokenization and frontier tech during WEF week.",
+  "src": "manual"
+ },
+ {
+  "title": "Physical AI Investment Summit 2027",
+  "hub": "sf",
+  "date": "2027-01-16",
+  "start": "09:00",
+  "end": "18:00",
+  "venue": "Plug and Play Tech Center, Sunnyvale",
+  "host": "SESE",
+  "link": "https://luma.com/sesepais2027",
+  "type": "Investor Events",
+  "desc": "",
+  "src": "manual"
+ },
+ {
+  "title": "Hackbridge × neXus AI Hackathon 2027",
+  "hub": "cam",
+  "date": "2027-01-23",
+  "start": "10:00",
+  "end": "18:00",
+  "venue": "Cambridge",
+  "host": "Hackbridge",
+  "link": "https://luma.com/nywthv75",
+  "type": "Hackathons",
+  "desc": "Two-day AI hackathon, January 23–24.",
+  "src": "manual"
  }
 ]
