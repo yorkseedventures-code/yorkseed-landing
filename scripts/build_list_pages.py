@@ -131,7 +131,10 @@ def adslot(kind, hub, label, where, price):
             'var l=document.createElement("a");l.href=a.url;l.target="_blank";l.rel="sponsored noopener";var i=document.createElement("img");i.src=a.img;i.alt=a.alt||a.brand||"";l.appendChild(i);'
             'var v=document.createElement("a");v.className="adv";v.href=bk;v.textContent="Advertise here";el.className="adslot live";el.innerHTML="";el.appendChild(l);el.appendChild(v);}).catch(function(){});})();</script>')
 
-def slugify(s): return re.sub(r'[^a-z0-9]+', '-', s.lower().replace("&","and").replace("ã","a").replace("é","e").replace("ü","u").replace("ö","o")).strip('-')
+def slugify(s):
+    import unicodedata as _u   # strip every accent: Bogotá -> bogota, Medellín -> medellin, São Paulo -> sao-paulo
+    s = "".join(c for c in _u.normalize("NFKD", s.lower().replace("&", "and")) if not _u.combining(c))
+    return re.sub(r'[^a-z0-9]+', '-', s).strip('-')
 hubs = {h["id"]: h for h in data["hubs"]}
 for h in hubs.values():
     h["slug"] = SLUG.get(h["id"]) or slugify(h["name"])
@@ -994,6 +997,7 @@ for w in sorted(data["weeks"], key=lambda w: w["start"]):
     elif not live and exists and (not cur or not cur["live"]):
         EVERGREEN[eg] = {"target": yslug, "live": False}           # otherwise the latest past edition
 for w in weeks: w["evergreen"] = evergreen(w["name"])
+OLD_CITY_SLUGS = {"bogot": "bogota", "medell-n": "medellin"}
 rd_p = f"{REPO}/_redirects"
 if os.path.exists(rd_p):
     rd = open(rd_p).read()
@@ -1002,6 +1006,9 @@ if os.path.exists(rd_p):
     for eg, v in sorted(EVERGREEN.items()):
         lines.append(f"https://list.yorkseed.co/{eg}    https://list.yorkseed.co/{v['target']}/    302!")
         lines.append(f"https://list.yorkseed.co/{eg}/*  https://list.yorkseed.co/{v['target']}/:splat  302!")
+    for old, new in OLD_CITY_SLUGS.items():                         # city pages whose address changed (accents used to be dropped)
+        lines.append(f"https://list.yorkseed.co/{old}    https://list.yorkseed.co/{new}/    301!")
+        lines.append(f"https://list.yorkseed.co/{old}/*  https://list.yorkseed.co/{new}/:splat  301!")
     lines.append("# END evergreen week links\n")
     i = rd.find("\n") + 1                                          # right after the header comment, before the catch-all rules
     rd = rd[:i] + "\n".join(lines) + rd[i:]

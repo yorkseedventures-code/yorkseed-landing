@@ -475,7 +475,12 @@ https://list.yorkseed.co/wef-davos-side-events    https://list.yorkseed.co/wef-d
 https://list.yorkseed.co/wef-davos-side-events/*  https://list.yorkseed.co/wef-davos-2027-side-events/:splat  302!
 https://list.yorkseed.co/world-governments-summit-side-events    https://list.yorkseed.co/world-governments-summit-2027-side-events/    302!
 https://list.yorkseed.co/world-governments-summit-side-events/*  https://list.yorkseed.co/world-governments-summit-2027-side-events/:splat  302!
+https://list.yorkseed.co/bogot    https://list.yorkseed.co/bogota/    301!
+https://list.yorkseed.co/bogot/*  https://list.yorkseed.co/bogota/:splat  301!
+https://list.yorkseed.co/medell-n    https://list.yorkseed.co/medellin/    301!
+https://list.yorkseed.co/medell-n/*  https://list.yorkseed.co/medellin/:splat  301!
 # END evergreen week links
+
 
 
 

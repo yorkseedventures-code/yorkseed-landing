@@ -76,7 +76,7 @@
 - [Startup events in Edinburgh](https://list.yorkseed.co/edinburgh/): 10 upcoming
 - [Startup events in Jakarta](https://list.yorkseed.co/jakarta/): 10 upcoming
 - [Startup events in Auckland](https://list.yorkseed.co/auckland/): 9 upcoming
-- [Startup events in Bogotá](https://list.yorkseed.co/bogot/): 8 upcoming
+- [Startup events in Bogotá](https://list.yorkseed.co/bogota/): 8 upcoming
 - [Startup events in Bristol](https://list.yorkseed.co/bristol/): 8 upcoming
 - [Startup events in Nashville](https://list.yorkseed.co/nashville/): 7 upcoming
 - [Startup events in Lima](https://list.yorkseed.co/lima/): 5 upcoming
@@ -89,7 +89,7 @@
 - [Startup events in Johannesburg](https://list.yorkseed.co/johannesburg/): 3 upcoming
 - [Startup events in Kyiv](https://list.yorkseed.co/kyiv/): 3 upcoming
 - [Startup events in Leeds](https://list.yorkseed.co/leeds/): 3 upcoming
-- [Startup events in Medellín](https://list.yorkseed.co/medell-n/): 3 upcoming
+- [Startup events in Medellín](https://list.yorkseed.co/medellin/): 3 upcoming
 - [Startup events in Rome](https://list.yorkseed.co/rome/): 3 upcoming
 - [Startup events in San Antonio](https://list.yorkseed.co/san-antonio/): 3 upcoming
 - [Startup events in Cambridge](https://list.yorkseed.co/cambridge/): 2 upcoming
