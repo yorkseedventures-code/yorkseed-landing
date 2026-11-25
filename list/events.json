@@ -106128,5 +106128,33 @@
   "type": "Conferences",
   "desc": "",
   "src": "manual"
+ },
+ {
+  "title": "Alpine Tech Forum Davos 2027",
+  "hub": "dav",
+  "date": "2027-01-18",
+  "start": null,
+  "end": null,
+  "noTime": true,
+  "venue": "Mountain Plaza Hotel, Oberwiesstrasse 3, Davos",
+  "host": "Alpine Tech Forum",
+  "link": "https://alpinetechforum.com",
+  "type": "Conferences",
+  "desc": "",
+  "src": "manual"
+ },
+ {
+  "title": "Ai Growth Summit Davos 2027",
+  "hub": "dav",
+  "date": "2027-01-18",
+  "start": null,
+  "end": null,
+  "noTime": true,
+  "venue": "Davos",
+  "host": "Ai Growth Association",
+  "link": "https://aigrowthassociation.com",
+  "type": "Conferences",
+  "desc": "",
+  "src": "manual"
  }
 ]
