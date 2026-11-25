@@ -867,12 +867,12 @@ function toast(m){const t=$("#toast");t.textContent=m;t.hidden=false;clearTimeou
 
 
 // ---------- chat submit (paste a link, check the card, done) ----------
-const chat={state:"ask",draft:null};
+const chat={state:"ask",draft:null,queue:[],idx:1,total:1};
 function scrollLog(){const l=$("#dlog");l.scrollTop=l.scrollHeight;}
 function me(text){const b=document.createElement("div");b.className="bub me";b.textContent=text;$("#dlog").append(b);scrollLog();}
 function bot(html,delay=500){return new Promise(r=>{const t=document.createElement("div");t.className="bub bot typing";t.textContent="•••";$("#dlog").append(t);scrollLog();setTimeout(()=>{t.classList.remove("typing");t.innerHTML=html;scrollLog();r(t);},delay);});}
 function quick(arr){const d=document.createElement("div");d.className="quick";d.innerHTML=arr.map(a=>`<button type="button" class="dchip">${esc(a)}</button>`).join("");d.querySelectorAll("button").forEach(b=>b.onclick=()=>{d.remove();handle(b.textContent);});$("#dlog").append(d);scrollLog();}
-function startChat(){$("#dlog").innerHTML="";chat.state="ask";chat.draft=null;bot("Great. Do you have a link to your event page? Luma, Partiful, Eventbrite or anything else works.",300).then(()=>quick(["I don't have a link"]));}
+function startChat(){$("#dlog").innerHTML="";chat.state="ask";chat.draft=null;chat.queue=[];chat.idx=1;chat.total=1;bot("Great. Do you have a link to your event page? Luma, Partiful, Eventbrite or anything else works. Got more than one? Paste up to 3 links at once and I'll take them one at a time.",300).then(()=>quick(["I don't have a link"]));}
 function openChat(prefill){$("#drawer").hidden=false;if(!$("#dlog").children.length||chat.state==="done")startChat();setTimeout(()=>{if(prefill)handle(prefill);else $("#dMsg").focus();},prefill?450:60);}
 function closeChat(){$("#drawer").hidden=true;}
 function blank(link){return{title:"",hub:st.hub!=="all"?st.hub:"nyc",date:"",start:"",end:"",venue:"",type:"Meetups",host:"",desc:"",link:link||""};}
@@ -890,18 +890,31 @@ async function extractLink(url){
     const has=s=>s&&/T\d\d:\d\d/.test(s);const s=x.start?(has(x.start)?isoLocal(x.start,tz):{date:x.start.slice(0,10),time:""}):null;const e=has(x.end)?isoLocal(x.end,tz):null;
     return{title:x.title,hub:hub||(st.hub!=="all"?st.hub:"nyc"),hubFound:!!hub,city:x.city||"",date:s?s.date:"",start:s?s.time:"",end:e&&s&&e.date===s.date?e.time:"",venue:x.venue||"",type:inferType(x.title),host:x.host||"",desc:x.desc||"",photo:x.image||""};
   }catch(err){return null;}}
+const MAX_BATCH=3;
+// Resolve one link (or none, for the "no link" path) and show its editable card. Pulled out of handle() so
+// a multi-link paste can call it again for link 2 and 3 without re-running the "which state are we in" logic.
+async function resolveAndShowCard(url){
+  if(url){const key=url.split("?")[0].replace(/\/$/,"");const known=EVENTS.find(e=>e.link&&e.link.split("?")[0].replace(/\/$/,"")===key);
+    chat.draft=known?{title:known.title,hub:known.hub,date:known.date,start:known.start||"",end:known.end||"",venue:known.venue||"",type:known.type,host:known.host||"",desc:/^(Time, venue|Details and registration|A Yorkseed event\. Apply|Submitted to the List)/.test(known.desc||"")?"":(known.desc||""),link:url,dup:known.id}:blank(url);
+    if(known){await bot("That event is already on the List. Review or edit the details in the card below, and let me know if everything looks right.",700);}
+    else{const t=await bot("Reading your event page…",300);const x=await extractLink(url);
+      if(x){chat.draft={...blank(url),...x,link:url};t.innerHTML="I pulled your event details from the link. Check the card below and edit anything that's off."+(x.hubFound?"":(x.city?` I couldn't match <b>${esc(x.city)}</b> to a List city, so pick the closest one.`:" Pick the city below."));}
+      else{t.innerHTML="I couldn't read the details from that page, so fill in the card below. It only takes a minute.";}}
+  }else{chat.draft=blank("");await bot("No problem. Fill in the card below.",450);}
+  showCard();chat.state="card";
+}
 async function handle(text){
   me(text);
   if(chat.state==="ask"){
-    const url=(text.match(/https?:\/\/\S+/)||[])[0];
-    if(url){const key=url.split("?")[0].replace(/\/$/,"");const known=EVENTS.find(e=>e.link&&e.link.split("?")[0].replace(/\/$/,"")===key);
-      chat.draft=known?{title:known.title,hub:known.hub,date:known.date,start:known.start||"",end:known.end||"",venue:known.venue||"",type:known.type,host:known.host||"",desc:/^(Time, venue|Details and registration|A Yorkseed event\. Apply|Submitted to the List)/.test(known.desc||"")?"":(known.desc||""),link:url,dup:known.id}:blank(url);
-      if(known){await bot("That event is already on the List. Review or edit the details in the card below, and let me know if everything looks right.",700);}
-      else{const t=await bot("Reading your event page…",300);const x=await extractLink(url);
-        if(x){chat.draft={...blank(url),...x,link:url};t.innerHTML="I pulled your event details from the link. Check the card below and edit anything that's off."+(x.hubFound?"":(x.city?` I couldn't match <b>${esc(x.city)}</b> to a List city, so pick the closest one.`:" Pick the city below."));}
-        else{t.innerHTML="I couldn't read the details from that page, so fill in the card below. It only takes a minute.";}}
-    }else{chat.draft=blank("");await bot("No problem. Fill in the card below.",450);}
-    showCard();chat.state="card";
+    const urls=[...new Set(text.match(/https?:\/\/\S+/g)||[])];
+    if(urls.length>1){
+      const take=urls.slice(0,MAX_BATCH);chat.queue=take.slice(1);chat.idx=1;chat.total=take.length;
+      await bot(`Got it — ${take.length} events. I'll take them one at a time, starting with the first.`+(urls.length>MAX_BATCH?` I can only do ${MAX_BATCH} at once, so send the rest after these.`:""),400);
+      await resolveAndShowCard(take[0]);
+    }else{
+      chat.queue=[];chat.idx=1;chat.total=1;
+      await resolveAndShowCard(urls[0]||null);
+    }
   }else if(chat.state==="card"){await bot("Edit the card above, then tap <b>Looks right</b>.",350);}
   else{await bot("Want to add another? Tap + at the top to start over.",350);}
 }
@@ -954,8 +967,19 @@ function confirmCard(){
       try{const s=JSON.parse(localStorage.getItem("yl-subs2")||"[]");const c={...e};delete c.utc;delete c.utcEnd;delete c.cover;s.push(c);localStorage.setItem("yl-subs2",JSON.stringify(s));}catch(x){}}
     const h=hubById(e.hub);
     st2.innerHTML=`<span class="done">✓</span><span><b>${esc(e.title)}</b><small>${res.ok?(res.live?"Live on the List":"Sent for review"):"Not sent yet"} · ${h.name} · ${dParts(e.date).wd} ${dParts(e.date).day} ${dParts(e.date).mon}</small></span>`;
-    chat.state="done";
-    bot(res.ok?`<b>Received.</b> ${res.dup?"We already have this event, so nothing more to do.":res.live?"Your event is live on the List now.":`We review every event within a day, and it goes live on the List once approved. If we need anything, we'll email ${esc(chat.who.email)}.`} Some events also get picked for the weekly email.<br><br><button class="btn btn-sm btn-line" type="button" data-ev="${e.id}" id="seeMine">Preview your event</button><small style="display:block;margin-top:10px;color:var(--muted)">Want Yorkseed as co-host? <a href="https://yorkseed.co/event-partner-request.html" target="_blank" rel="noopener" style="color:var(--accent)">Request an event partnership →</a></small>`:`${res.msg?esc(res.msg)+" ":"We couldn't reach our server just now. "}Send it to the Yorkseed team by email instead:<br><br><a class="btn btn-sm btn-primary" href="${esc(mailYS("New event for The List: "+e.title,["Event: "+e.title,"City: "+h.name+(chat.newHub?" (new city, "+(chat.newHub.country||"")+")":""),"Date: "+e.date+(e.start?" "+e.start+(e.end?"–"+e.end:""):"")+" ("+h.tz+")","Venue: "+(e.venue||""),"Type: "+e.type,"Host: "+(e.host||""),"Link: "+(e.link||""),"","Description:",(e.desc&&e.desc!=="Submitted to the List.")?e.desc:"",d.dup?"(Update to an event already on the List)":""]))}" target="_blank" rel="noopener">Send to Yorkseed</a> <button class="btn btn-sm btn-line" type="button" data-ev="${e.id}" id="seeMine">Preview your event</button><br><small style="display:block;margin-top:8px;color:var(--muted)">Opens your email with the details filled in. Or email ${YS_INBOX}.</small><small style="display:block;margin-top:10px;color:var(--muted)">Want Yorkseed as co-host? <a href="https://yorkseed.co/event-partner-request.html" target="_blank" rel="noopener" style="color:var(--accent)">Request an event partnership →</a></small>`,600).then(()=>{const b=$("#seeMine");if(b)b.addEventListener("click",closeChat);});
+    // A multi-link paste queues the other links in chat.queue (see handle()/resolveAndShowCard). Each one still
+    // gets its own full result message below -- nothing is skipped on a failure -- we just don't stop at "done"
+    // until the last one, and chain straight into the next link's card instead of waiting for the person to
+    // tap + and paste again.
+    const hasMore=chat.queue&&chat.queue.length>0;
+    chat.state=hasMore?"card":"done";
+    bot(res.ok?`<b>Received.</b> ${res.dup?"We already have this event, so nothing more to do.":res.live?"Your event is live on the List now.":`We review every event within a day, and it goes live on the List once approved. If we need anything, we'll email ${esc(chat.who.email)}.`} Some events also get picked for the weekly email.<br><br><button class="btn btn-sm btn-line" type="button" data-ev="${e.id}" id="seeMine">Preview your event</button>${hasMore?"":`<small style="display:block;margin-top:10px;color:var(--muted)">Want Yorkseed as co-host? <a href="https://yorkseed.co/event-partner-request.html" target="_blank" rel="noopener" style="color:var(--accent)">Request an event partnership →</a></small>`}`:`${res.msg?esc(res.msg)+" ":"We couldn't reach our server just now. "}Send it to the Yorkseed team by email instead:<br><br><a class="btn btn-sm btn-primary" href="${esc(mailYS("New event for The List: "+e.title,["Event: "+e.title,"City: "+h.name+(chat.newHub?" (new city, "+(chat.newHub.country||"")+")":""),"Date: "+e.date+(e.start?" "+e.start+(e.end?"–"+e.end:""):"")+" ("+h.tz+")","Venue: "+(e.venue||""),"Type: "+e.type,"Host: "+(e.host||""),"Link: "+(e.link||""),"","Description:",(e.desc&&e.desc!=="Submitted to the List.")?e.desc:"",d.dup?"(Update to an event already on the List)":""]))}" target="_blank" rel="noopener">Send to Yorkseed</a> <button class="btn btn-sm btn-line" type="button" data-ev="${e.id}" id="seeMine">Preview your event</button><br><small style="display:block;margin-top:8px;color:var(--muted)">Opens your email with the details filled in. Or email ${YS_INBOX}.</small>${hasMore?"":`<small style="display:block;margin-top:10px;color:var(--muted)">Want Yorkseed as co-host? <a href="https://yorkseed.co/event-partner-request.html" target="_blank" rel="noopener" style="color:var(--accent)">Request an event partnership →</a></small>`}`,600).then(bub=>{
+      // scope to this bubble, not a global $("#seeMine") -- a batch of 2-3 events puts more than one
+      // #seeMine button in the DOM at once, and querySelector would otherwise always grab the first one
+      // in document order instead of the one that was just shown.
+      const b=bub.querySelector("#seeMine");if(b&&!hasMore)b.addEventListener("click",closeChat);
+      if(hasMore){chat.idx=(chat.idx||1)+1;const next=chat.queue.shift();bot(`Next up, event ${chat.idx} of ${chat.total}…`,450).then(()=>resolveAndShowCard(next));}
+    });
     renderHome();if(st.view==="city")renderCity();
   },1500);
 }
