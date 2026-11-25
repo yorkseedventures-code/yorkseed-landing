@@ -1078,6 +1078,14 @@
       "hub": "riy",
       "start": "2027-04-12",
       "end": "2027-04-15"
+    },
+    {
+      "id": "f1auh",
+      "name": "F1 Abu Dhabi",
+      "hub": "dxb",
+      "start": "2026-12-03",
+      "end": "2026-12-06",
+      "re": "formula 1|\\bf1\\b|grand prix|yas marina|etihad airways|paddock|pit lane"
     }
   ],
   "img": {

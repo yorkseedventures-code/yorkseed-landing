@@ -206,5 +206,18 @@
   "end": "2027-03-24",
   "photo": null,
   "custom": false
+ },
+ {
+  "id": "f1auh",
+  "hash": "f1-abu-dhabi",
+  "camel": "F1AbuDhabi",
+  "name": "F1 Abu Dhabi",
+  "year": "2026",
+  "n": 1,
+  "city": "UAE",
+  "start": "2026-12-03",
+  "end": "2026-12-06",
+  "photo": "/list/img/381db1fea0.jpg",
+  "custom": false
  }
 ]
