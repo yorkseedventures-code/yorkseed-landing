@@ -128,6 +128,16 @@ def luma_event(link):
                 "desc": short(txt(d.get("description_mirror"))), "photo": e.get("cover_url") or ""}
     except Exception: return None
 
+def _ld_venue(loc, addr):
+    """Join a JSON-LD location's name and street address, same as before, except: Meetup (and others)
+    sometimes set the location's "name" to just the start of its own "address.streetAddress" (same venue,
+    one field truncated), which used to print the street twice: "5765 Arapahoe Ave unit b, 5765 Arapahoe Ave
+    unit b, Boulder, CO". Drop the name when the address already starts with it."""
+    name = (loc.get("name") if isinstance(loc, dict) else "") or ""
+    street = (addr.get("streetAddress") if isinstance(addr, dict) else "") or ""
+    if name and street and street.lower().startswith(name.lower()): name = ""
+    return ", ".join(x for x in [name, street] if x)
+
 def ld_event(page):
     for b in re.findall(r'<script[^>]+application/ld\+json[^>]*>(.*?)</script>', page, re.S | re.I):
         try: data = json.loads(b.strip())
@@ -140,7 +150,7 @@ def ld_event(page):
                 img = it.get("image"); img = img[0] if isinstance(img, list) and img else img
                 return {"title": html.unescape(it.get("name") or ""), "start": it.get("startDate"), "end": it.get("endDate"),
                         "city": addr.get("addressLocality", "") if isinstance(addr, dict) else "",
-                        "venue": ", ".join(x for x in [loc.get("name") if isinstance(loc, dict) else "", addr.get("streetAddress") if isinstance(addr, dict) else ""] if x),
+                        "venue": _ld_venue(loc, addr),
                         "host": org.get("name", "") if isinstance(org, dict) else "", "desc": short(html.unescape(it.get("description") or "")),
                         "photo": img if isinstance(img, str) else ((img or {}).get("url") if isinstance(img, dict) else "")}
     return None

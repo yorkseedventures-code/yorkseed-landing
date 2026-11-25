@@ -205,6 +205,18 @@ for e in events:
     _seen_etd[k] = e
     _deduped.append(e)
 events = _deduped
+
+# Some sources (confirmed: Meetup's JSON-LD) give a venue whose location "name" is just the start of its own
+# "address.streetAddress" (Meetup sets both from the same underlying venue, one truncated) --
+# scripts/list_enrich.py's ld_event() joined them unconditionally, producing venues like "5765 Arapahoe Ave
+# unit b, 5765 Arapahoe Ave unit b, Boulder, CO". Collapse a leading "X, X" repeat wherever it survived into
+# events.json/master.json already, so this displays correctly everywhere the venue is used (JSON-LD,
+# BAKED_EVENTS, the live event page, the venue map) without waiting on a fresh scrape.
+def _dedupe_venue(v):
+    if not v: return v
+    return re.sub(r'^(.+?), \1(,.*)?$', lambda m: m.group(1) + (m.group(2) or ""), v)
+for e in events:
+    e["venue"] = _dedupe_venue(e.get("venue"))
 # A handful of source feeds (mostly Miami Art Week venue listings) put the admission/price text in the
 # description field instead of an actual description, e.g. an event whose entire "About this event" ends up
 # reading just "Free" or "~$24". That's not a description, so clear it here, in one place, rather than patching
