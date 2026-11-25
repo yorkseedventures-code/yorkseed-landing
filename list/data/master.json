@@ -392,7 +392,7 @@
    "tz": "America/New_York",
    "country": "United States",
    "region": "",
-   "img": ""
+   "img": "phl"
   },
   {
    "id": "waw",
@@ -440,7 +440,7 @@
    "tz": "America/Chicago",
    "country": "United States",
    "region": "",
-   "img": ""
+   "img": "dal"
   },
   {
    "id": "atl",
@@ -464,7 +464,7 @@
    "tz": "America/Denver",
    "country": "United States",
    "region": "",
-   "img": ""
+   "img": "slc"
   },
   {
    "id": "rdu",
@@ -520,7 +520,7 @@
    "tz": "Europe/Prague",
    "country": "Czech Republic",
    "region": "",
-   "img": ""
+   "img": "prg"
   },
   {
    "id": "bru",
@@ -648,7 +648,7 @@
    "tz": "Asia/Kolkata",
    "country": "India",
    "region": "",
-   "img": ""
+   "img": "hyd"
   },
   {
    "id": "lvs",
@@ -704,7 +704,7 @@
    "tz": "Europe/Belgrade",
    "country": "Serbia",
    "region": "",
-   "img": ""
+   "img": "beg"
   },
   {
    "id": "sat",
@@ -1391,7 +1391,13 @@
   "pdx": "/list/img/pdx_portland.jpg",
   "hou": "/list/img/hou_houston.jpg",
   "mnl": "/list/img/mnl_manila.jpg",
-  "ist": "/list/img/ist_istanbul.jpg"
+  "ist": "/list/img/ist_istanbul.jpg",
+  "dal": "/list/img/dal_dallas_fort_worth.jpg",
+  "slc": "/list/img/slc_salt_lake_city.jpg",
+  "prg": "/list/img/prg_prague.jpg",
+  "hyd": "/list/img/hyd_hyderabad.jpg",
+  "phl": "/list/img/phl_philadelphia.jpg",
+  "beg": "/list/img/beg_belgrade.jpg"
  },
  "events": [
   {
