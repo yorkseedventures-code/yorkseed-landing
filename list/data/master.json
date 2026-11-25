@@ -1222,6 +1222,30 @@
       "start": "2027-06-14",
       "end": "2027-06-20",
       "re": "."
+    },
+    {
+      "id": "nytw",
+      "name": "NY Tech Week",
+      "hub": "nyc",
+      "start": "2027-06-06",
+      "end": "2027-06-14",
+      "re": "tech ?week|#techweek|nytw|a16z"
+    },
+    {
+      "id": "bostw",
+      "name": "Boston Tech Week",
+      "hub": "bos",
+      "start": "2027-04-25",
+      "end": "2027-05-03",
+      "re": "tech ?week|#techweek|a16z"
+    },
+    {
+      "id": "ttw",
+      "name": "Toronto Tech Week",
+      "hub": "tor",
+      "start": "2027-05-30",
+      "end": "2027-06-05",
+      "re": "."
     }
   ],
   "img": {

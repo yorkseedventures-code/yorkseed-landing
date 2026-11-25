@@ -668,7 +668,7 @@ CITY_ALIAS = {"san francisco": "sf", "oakland": "sf", "berkeley": "sf", "palo al
     "venice": "la", "bangalore": "blr", "bengaluru": "blr", "mumbai": "bom", "navi mumbai": "bom", "tel aviv yafo": "tlv", "tel aviv": "tlv",
     "kowloon": "hkg", "shibuya": "tyo", "minato city": "tyo", "chiyoda city": "tyo", "shinjuku city": "tyo", "bellevue": "sea", "redmond": "sea",
     "kirkland": "sea", "vancouver|canada": "yvr", "burnaby": "yvr", "espoo": "hel", "london|united kingdom": "ldn", "ciudad de mexico": "mex", "mexico city": "mex",
-    "delhi": "del", "gurugram": "del", "gurgaon": "del", "noida": "del", "raleigh": "rdu", "durham": "rdu", "chapel hill": "rdu", "cary": "rdu", "stanford": "sf", "half moon bay": "sf", "scotts valley": "sf", "hollywood": "la", "beverly hills": "la", "newport beach": "la",
+    "delhi": "del", "gurugram": "del", "gurgaon": "del", "noida": "del", "raleigh": "rdu", "durham": "rdu", "chapel hill": "rdu", "cary": "rdu", "stanford": "sf", "half moon bay": "sf", "scotts valley": "sf", "beverly hills": "la", "newport beach": "la",
     "miami beach": "mia", "coral gables": "mia", "fort lauderdale": "mia", "richardson": "dal",
     "fort worth": "dal", "plano": "dal", "irving": "dal", "frisco": "dal", "sandton": "jnb", "makati": "mnl", "taguig": "mnl", "quezon city": "mnl",
     "thu duc": "sgn", "ho chi minh": "sgn", "lehi": "slc", "provo": "slc", "la jolla": "sdg", "cambridge|united kingdom": None, "victoria|canada": "yyj", "gandhinagar": "gift", "gift city": "gift", "ahmedabad": "gift"}
@@ -891,6 +891,7 @@ def import_dealroom():
         if date < TODAY or date > horizon: continue
         hub = city_hub(r["city"], r["country"], hubs)
         if not hub: skipped_city += 1; continue
+        if re.search(r"family office|private wealth|\ballocate\b|beyond summit|operating partners|\blps?\b only", r["title"] + " " + r["desc"], re.I): continue   # LP / family office events are curated for Valois, not bulk-listed
         t = toks(r["title"])
         near = lambda d: abs((dt.date.fromisoformat(d) - r["start"]).days) <= 4 if re.match(r'\d{4}-\d\d-\d\d$', d) else False
         if (canon(r["link"]), date) in seen_l or any(h == hub and near(d) and t and len(t & ts) / len(t) >= 0.6 for ts, d, h in have): continue

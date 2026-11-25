@@ -105,6 +105,9 @@ const WEEKS=[
  ,{id:"m2020eu",about:"Money20/20 Europe is Europe's biggest fintech show, held Jun 8-10, 2027 at RAI Amsterdam, for banks, payments, infrastructure providers, regulators and startups.",name:"Money20/20 Europe",hub:"ams",start:"2027-06-07",end:"2027-06-11",re:/money20|fintech|payments|banking|open banking|stablecoin/i}
  ,{id:"wsrio",about:"Web Summit Rio is Web Summit's Latin American conference, held Jun 14-17, 2027 in Rio de Janeiro, with startups, investors and side events across the city.",name:"Web Summit Rio",hub:"sao",start:"2027-06-13",end:"2027-06-18",re:/web summit|rio/i}
  ,{id:"vivatech",about:"VivaTech is Europe's largest startup and tech event, held Jun 16-19, 2027 in Paris, with founder, investor and corporate side events across the city.",name:"VivaTech",hub:"par",start:"2027-06-14",end:"2027-06-20",re:/./i}
+ ,{id:"nytw",about:"NY Tech Week is a16z's decentralized tech week, Jun 7-13, 2027: hundreds of independently hosted founder, investor, hackathon and AI events across New York.",name:"NY Tech Week",hub:"nyc",start:"2027-06-06",end:"2027-06-14",re:/tech ?week|#techweek|nytw|a16z/i}
+ ,{id:"bostw",about:"Boston Tech Week is a16z's decentralized tech week, Apr 26-May 2, 2027, with founder, investor and builder events hosted across Boston and Cambridge.",name:"Boston Tech Week",hub:"bos",start:"2027-04-25",end:"2027-05-03",re:/tech ?week|#techweek|a16z/i}
+ ,{id:"ttw",about:"Toronto Tech Week is Canada's largest grassroots tech event, May 31-Jun 4, 2027, with hundreds of community-led events for founders, investors and builders across Toronto.",name:"Toronto Tech Week",hub:"tor",start:"2027-05-30",end:"2027-06-05",re:/./i}
 ];
 const TIERS=[
  {id:"free",name:"Free Listing",price:0,unit:"Basic event listing",items:["Event details","Listed in search","Appears on city page","Local time + viewer's time","Event link and RSVP"],cta:"List for Free"},
