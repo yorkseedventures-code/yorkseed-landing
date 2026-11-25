@@ -384,7 +384,7 @@
    "tz": "Australia/Melbourne",
    "country": "Australia",
    "region": "",
-   "img": ""
+   "img": "mel"
   },
   {
    "id": "phl",
@@ -456,7 +456,7 @@
    "tz": "America/Los_Angeles",
    "country": "United States",
    "region": "",
-   "img": ""
+   "img": "sdg"
   },
   {
    "id": "slc",
@@ -640,7 +640,7 @@
    "tz": "Asia/Kolkata",
    "country": "India",
    "region": "",
-   "img": ""
+   "img": "del"
   },
   {
    "id": "hyd",
@@ -672,7 +672,7 @@
    "tz": "Asia/Kolkata",
    "country": "India",
    "region": "",
-   "img": ""
+   "img": "pnq"
   },
   {
    "id": "maa",
@@ -1382,7 +1382,11 @@
   "den": "/list/img/den_denver_boulder.jpg",
   "atl": "/list/img/atl_atlanta.jpg",
   "blr": "/list/img/blr_bengaluru.jpg",
-  "bru": "/list/img/bru_brussels.jpg"
+  "bru": "/list/img/bru_brussels.jpg",
+  "sdg": "/list/img/sdg_san_diego.jpg",
+  "del": "/list/img/del_new_delhi.jpg",
+  "pnq": "/list/img/pnq_pune.jpg",
+  "mel": "/list/img/mel_melbourne.jpg"
  },
  "events": [
   {
