@@ -9,7 +9,7 @@
   "city": "Davos",
   "start": "2027-01-17",
   "end": "2027-01-22",
-  "photo": null,
+  "photo": "/list/img/dav_davos.jpg",
   "custom": false
  },
  {
@@ -48,7 +48,7 @@
   "city": "Las Vegas",
   "start": "2026-11-29",
   "end": "2026-12-04",
-  "photo": null,
+  "photo": "/list/img/lvs_vegas.jpg",
   "custom": false
  },
  {
@@ -74,7 +74,7 @@
   "city": "Las Vegas",
   "start": "2027-01-04",
   "end": "2027-01-09",
-  "photo": null,
+  "photo": "/list/img/lvs_vegas.jpg",
   "custom": false
  },
  {
@@ -204,7 +204,7 @@
   "city": "Las Vegas",
   "start": "2027-03-22",
   "end": "2027-03-24",
-  "photo": null,
+  "photo": "/list/img/lvs_vegas.jpg",
   "custom": false
  },
  {

@@ -96,7 +96,7 @@
    "tz": "Europe/Madrid",
    "country": "Spain",
    "region": "",
-   "img": ""
+   "img": "bcn"
   },
   {
    "id": "ber",
@@ -368,7 +368,7 @@
    "tz": "Africa/Nairobi",
    "country": "Kenya",
    "region": "",
-   "img": ""
+   "img": "nbo"
   },
   {
    "id": "los",
@@ -400,7 +400,7 @@
    "tz": "Europe/Warsaw",
    "country": "Poland",
    "region": "",
-   "img": ""
+   "img": "waw"
   },
   {
    "id": "bom",
@@ -488,7 +488,7 @@
    "tz": "Europe/London",
    "country": "United Kingdom",
    "region": "",
-   "img": ""
+   "img": "man"
   },
   {
    "id": "edi",
@@ -496,7 +496,7 @@
    "tz": "Europe/London",
    "country": "United Kingdom",
    "region": "",
-   "img": ""
+   "img": "edi"
   },
   {
    "id": "osl",
@@ -728,7 +728,7 @@
    "tz": "Asia/Kolkata",
    "country": "India",
    "region": "",
-   "img": ""
+   "img": "gift"
   },
   {
    "id": "jc",
@@ -1409,7 +1409,9 @@
   "doh": "/list/img/doh_doha.jpg",
   "bud": "/list/img/bud_budapest.jpg",
   "szx": "/list/img/szx_shenzhen.jpg",
-  "mde": "/list/img/mde_medellin.jpg"
+  "mde": "/list/img/mde_medellin.jpg",
+  "dav": "/list/img/dav_davos.jpg",
+  "lvs": "/list/img/lvs_vegas.jpg"
  },
  "events": [
   {

@@ -1341,3 +1341,10 @@ input::placeholder,textarea::placeholder{font-size:13.5px;color:var(--soft);opac
 .card .ph .gcov{aspect-ratio:auto}.card .ph .gc-t{font-size:clamp(16px,1.6vw,22px)}
 .evimg .gcov .gc-t{font-size:clamp(24px,3.2vw,44px)}
 @media (max-width:900px){.evimg .gcov{aspect-ratio:16/10}}
+
+/* week thumbnails */
+.wrow{grid-template-columns:96px 150px minmax(0,1fr) 120px 28px;align-items:center}
+.wrow .wt{display:block;width:96px;height:64px;overflow:hidden;background:var(--ink);position:relative}
+.wrow .wt img{width:100%;height:100%;object-fit:cover;display:block}
+
+@media (max-width:640px){.wrow{grid-template-columns:60px minmax(0,1fr) auto!important;align-items:center}.wrow .wt{width:60px;height:44px;grid-row:1/span 2}.wrow .wd{grid-column:2/-1!important}}
