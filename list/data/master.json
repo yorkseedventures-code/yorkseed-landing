@@ -376,7 +376,7 @@
    "tz": "Africa/Lagos",
    "country": "Nigeria",
    "region": "",
-   "img": ""
+   "img": "los"
   },
   {
    "id": "mel",
@@ -680,7 +680,7 @@
    "tz": "Asia/Kolkata",
    "country": "India",
    "region": "",
-   "img": ""
+   "img": "maa"
   },
   {
    "id": "bud",
@@ -1399,7 +1399,9 @@
   "phl": "/list/img/phl_philadelphia.jpg",
   "beg": "/list/img/beg_belgrade.jpg",
   "mrs": "/list/img/mrs_marseille.jpg",
-  "rom": "/list/img/rom_rome.jpg"
+  "rom": "/list/img/rom_rome.jpg",
+  "los": "/list/img/los_lagos.jpg",
+  "maa": "/list/img/maa_chennai.jpg"
  },
  "events": [
   {
