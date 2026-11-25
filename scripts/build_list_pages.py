@@ -102,7 +102,7 @@ for m in manager_events:
         "cover": cov if cov.startswith("http") else ""})
 
 SITE = "https://yorkseed.co"; LISTHOST = "https://list.yorkseed.co"; LIST = LISTHOST + "/"
-TODAY = dt.datetime.now(ZoneInfo("America/New_York")).date(); HORIZON = TODAY + dt.timedelta(days=120)
+TODAY = dt.datetime.now(ZoneInfo("America/New_York")).date(); HORIZON = TODAY + dt.timedelta(days=int(os.environ.get("YS_PAGES_DAYS", "240")))   # how far ahead pages are built
 e_ = lambda s: html.escape(str(s or ""), quote=True)
 
 # ---- city photos (same hashed files build_site.py writes) ----
@@ -770,9 +770,12 @@ def _js_str(s):
     # U+2028/U+2029 are valid inside a JSON string but are literal line terminators inside a JS string literal --
     # unescaped, either one throws "Invalid or unexpected token" the moment scraped text happens to contain one.
     return json.dumps(s or "", ensure_ascii=False).replace("\u2028", "\\u2028").replace("\u2029", "\\u2029")
+# Only the next 45 days are baked in, so app.js stays light on first load; later events arrive a moment after
+# first paint from /list/events.json (fetched when the browser is idle, and revalidated rather than re-downloaded).
+_bake_until = (TODAY + dt.timedelta(days=45)).isoformat()
 _baked = [
     f'[{_js_str(e["hub"])},{_js_str(e["date"])},{_js_str(e.get("start"))},{_js_str(e.get("end"))},{_js_str(e["title"])},{_js_str(e["link"])},{_js_str(e.get("venue"))},{_js_str(e.get("host"))}]'
-    for e in events if e.get("link")
+    for e in events if e.get("link") and e["date"] <= _bake_until
 ]
 _app_js_path = f"{REPO}/list/assets/app.js"
 _app_js = open(_app_js_path).read()
