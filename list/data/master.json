@@ -432,7 +432,7 @@
    "tz": "America/Chicago",
    "country": "United States",
    "region": "",
-   "img": ""
+   "img": "hou"
   },
   {
    "id": "dal",
@@ -512,7 +512,7 @@
    "tz": "Europe/Vienna",
    "country": "Austria",
    "region": "",
-   "img": ""
+   "img": "vie"
   },
   {
    "id": "prg",
@@ -536,7 +536,7 @@
    "tz": "Europe/Istanbul",
    "country": "Turkey",
    "region": "",
-   "img": ""
+   "img": "ist"
   },
   {
    "id": "cpt",
@@ -584,7 +584,7 @@
    "tz": "Asia/Manila",
    "country": "Philippines",
    "region": "",
-   "img": ""
+   "img": "mnl"
   },
   {
    "id": "sgn",
@@ -664,7 +664,7 @@
    "tz": "America/Los_Angeles",
    "country": "United States",
    "region": "",
-   "img": ""
+   "img": "pdx"
   },
   {
    "id": "pnq",
@@ -1386,7 +1386,12 @@
   "sdg": "/list/img/sdg_san_diego.jpg",
   "del": "/list/img/del_new_delhi.jpg",
   "pnq": "/list/img/pnq_pune.jpg",
-  "mel": "/list/img/mel_melbourne.jpg"
+  "mel": "/list/img/mel_melbourne.jpg",
+  "vie": "/list/img/vie_vienna.jpg",
+  "pdx": "/list/img/pdx_portland.jpg",
+  "hou": "/list/img/hou_houston.jpg",
+  "mnl": "/list/img/mnl_manila.jpg",
+  "ist": "/list/img/ist_istanbul.jpg"
  },
  "events": [
   {
