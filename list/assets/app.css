@@ -1299,3 +1299,30 @@ input::placeholder,textarea::placeholder{font-size:13.5px;color:var(--soft);opac
   .bksum .sum{font-size:22px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* day strip: one tile per day with its event count, sticks under the nav.
+   Previously only defined inline in list/index.html, so every other generated
+   page (hub/week/event) rendered #dStrip unstyled the moment it had >1 day of
+   events -- harmless while daily counts stayed single/double digit, but once a
+   week's daily count ran into the hundreds (e.g. Miami Art Week) the day-number
+   and count ran together into unreadable text like "Mon3039". Moving it here
+   (shared by every page) plus an explicit flex column (not a bare display:grid,
+   which auto-places all children in one row with no line breaks) fixes both:
+   every page gets it, and the three labels always stack on their own lines
+   regardless of how many digits the count needs. */
+.dstrip{position:sticky;top:var(--navh,64px);z-index:12;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;background:var(--bg);padding:10px 0;margin:2px 0 4px;border-bottom:1px solid var(--line)}
+.dstrip::-webkit-scrollbar{display:none}
+.dstrip button{flex:0 0 auto;min-width:56px;display:flex;flex-direction:column;align-items:center;gap:3px;padding:7px 8px 7px;border:1px solid var(--line);border-radius:0;background:var(--surface);color:var(--ink);cursor:pointer}
+.dstrip small{font-family:var(--f-label);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.dstrip b{font-family:var(--f-display);font-weight:400;font-size:22px;line-height:1}
+.dstrip span{font-family:var(--f-label);font-size:11px;color:var(--soft);font-variant-numeric:tabular-nums}
+.dstrip button.core{border-top:3px solid var(--accent);padding-top:5px}
+.dstrip button.none{opacity:.45}
+.dstrip button.dsall b{font-family:var(--f-label);font-size:12px;letter-spacing:.14em;text-transform:uppercase;line-height:22px}
+.dstrip button[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.dstrip button[aria-pressed=true] small,.dstrip button[aria-pressed=true] span{color:var(--bg);opacity:.75}
+.dstrip button.core[aria-pressed=true]{border-top-color:var(--accent)}
+.dstrip button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.dayhead{top:calc(var(--navh,64px) + var(--dsh,0px))!important}
+.dayhead .coretag{font-family:var(--f-label);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);padding:2px 6px;margin-left:10px;vertical-align:middle;white-space:nowrap}
+@media (max-width:640px){.dstrip{gap:5px;padding:8px 0}.dstrip button{min-width:50px;padding:6px 6px}.dstrip b{font-size:19px}.dstrip button.core{padding-top:4px}.dayhead .coretag{font-size:8.5px;margin-left:6px;padding:1px 5px}}

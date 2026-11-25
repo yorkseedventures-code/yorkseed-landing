@@ -26,7 +26,7 @@
 /* day strip: one tile per day with its event count, sticks under the nav */
 .dstrip{position:sticky;top:var(--navh,64px);z-index:12;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;background:var(--bg);padding:10px 0;margin:2px 0 4px;border-bottom:1px solid var(--line)}
 .dstrip::-webkit-scrollbar{display:none}
-.dstrip button{flex:0 0 auto;min-width:56px;display:grid;justify-items:center;gap:2px;padding:7px 8px 7px;border:1px solid var(--line);border-radius:0;background:var(--surface);color:var(--ink);cursor:pointer}
+.dstrip button{flex:0 0 auto;min-width:56px;display:flex;flex-direction:column;align-items:center;gap:3px;padding:7px 8px 7px;border:1px solid var(--line);border-radius:0;background:var(--surface);color:var(--ink);cursor:pointer}
 .dstrip small{font-family:var(--f-label);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .dstrip b{font-family:var(--f-display);font-weight:400;font-size:22px;line-height:1}
 .dstrip span{font-family:var(--f-label);font-size:11px;color:var(--soft);font-variant-numeric:tabular-nums}
