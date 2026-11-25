@@ -792,7 +792,7 @@
    "tz": "Europe/Rome",
    "country": "Italy",
    "region": "",
-   "img": ""
+   "img": "rom"
   },
   {
    "id": "rak",
@@ -816,7 +816,7 @@
    "tz": "Europe/Paris",
    "country": "France",
    "region": "",
-   "img": ""
+   "img": "mrs"
   },
   {
    "id": "idr",
@@ -1397,7 +1397,9 @@
   "prg": "/list/img/prg_prague.jpg",
   "hyd": "/list/img/hyd_hyderabad.jpg",
   "phl": "/list/img/phl_philadelphia.jpg",
-  "beg": "/list/img/beg_belgrade.jpg"
+  "beg": "/list/img/beg_belgrade.jpg",
+  "mrs": "/list/img/mrs_marseille.jpg",
+  "rom": "/list/img/rom_rome.jpg"
  },
  "events": [
   {
