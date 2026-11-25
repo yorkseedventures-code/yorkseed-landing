@@ -4,94 +4,6 @@
   {
    "links_import": [
     {
-     "url": "https://luma.com/6mvjcoys",
-     "title": "Building A $100M+ Company - Leveraging Relationships As Growth Capital",
-     "skipped": "could not read the page"
-    },
-    {
-     "url": "https://startupmelas.in/startup-events-calendar/the-founders-meet",
-     "added": "The Founders Meet \u2014 StartupMelas.in India Startup Conferences Calendar",
-     "date": "2026-11-28"
-    },
-    {
-     "url": "https://startupmelas.in/startup-events-calendar/startup-summit-2026-spring-edition",
-     "skipped": "already on the List"
-    },
-    {
-     "url": "https://startupmelas.in/startup-events-calendar/bharat-startup-summit-2026",
-     "skipped": "already on the List"
-    },
-    {
-     "url": "https://startupmelas.in/startup-events-calendar/tie-global-summit-2026",
-     "skipped": "already on the List"
-    },
-    {
-     "url": "https://startupmelas.in/startup-events-calendar/pitch-point-raise26",
-     "skipped": "already on the List"
-    },
-    {
-     "url": "https://www.anopenroom.com/london/events/founders-lunch-pricing-strategy-1125",
-     "title": "Founders Lunch | Finance for Growth",
-     "skipped": "page date 2026-12-03 is not 2026-11-25"
-    },
-    {
-     "url": "https://www.anopenroom.com/london/events/producttank-london-shipping-fast-isnt-a-strategy-1125",
-     "skipped": "already on the List"
-    },
-    {
-     "url": "https://www.anopenroom.com/london/events/devfest-south-london-2026-1126",
-     "added": "DevFest South London 2026",
-     "date": "2026-11-26"
-    },
-    {
-     "url": "https://www.anopenroom.com/london/events/founders-voyage-learning-from-successful-founders-november-1126",
-     "added": "Founder's Voyage - Learning from Successful Founders - November",
-     "date": "2026-11-26"
-    },
-    {
-     "url": "https://www.anopenroom.com/london/events/london-tech-meetup-building-your-first-genai-solution-1127",
-     "added": "London Tech Meetup: Building Your First GenAI Solution",
-     "date": "2026-11-27"
-    },
-    {
-     "url": "https://www.anopenroom.com/london/events/consumer-ai-hackathon-ship-an-app-people-love-in-a-day-1129",
-     "skipped": "already on the List"
-    },
-    {
-     "url": "https://www.anopenroom.com/london/events/global-open-source-ai-summit-1130",
-     "added": "Global Open Source AI Summit",
-     "date": "2026-11-30"
-    },
-    {
-     "url": "https://www.anopenroom.com/london/events/edtech-founders-supper-club-december-1201",
-     "added": "Edtech Founders Supper Club (December)",
-     "date": "2026-12-01"
-    },
-    {
-     "url": "https://www.anopenroom.com/london/events/ai-futureproofing-londons-practical-ai-conference-1203",
-     "added": "AI Futureproofing: London's Practical AI Conference",
-     "date": "2026-12-03"
-    },
-    {
-     "url": "https://www.anopenroom.com/london/events/london-claude-x-representai-x-bcs-pride-festive-meet-up-1204",
-     "added": "London | Claude x RepresentAI x BCS Pride | Festive meet-up",
-     "date": "2026-12-04"
-    },
-    {
-     "url": "https://startupmelas.in/startup-events-calendar/startup-mahakumbh-60",
-     "skipped": "already on the List"
-    },
-    {
-     "url": "https://startupmaphub.com/events/sankalp-africa-summit-2027",
-     "added": "Sankalp Africa Summit 2027",
-     "date": "2027-02-24"
-    },
-    {
-     "url": "https://dealroom.co/events/step-conference-dubai-2027/",
-     "added": "Step Conference Dubai",
-     "date": "2027-02-03"
-    },
-    {
      "url": "https://innovationscene.pt/lisbon/events/5z1yx/",
      "title": "Hangout #57 | Reverse PITCH!",
      "skipped": "could not read the page"
@@ -140,9 +52,209 @@
      "url": "https://innovationscene.pt/lisbon/events/5z1yh/",
      "title": "OLX Masterclass Building with AI",
      "skipped": "could not read the page"
+    },
+    {
+     "url": "https://www.eventbrite.com/e/startup-business-networking-in-nyc-tickets-1999718918115",
+     "added": "Startup & Business Networking in NYC",
+     "date": "2026-12-02"
+    },
+    {
+     "url": "https://www.eventbrite.com/e/nyc-ai-startups-lunch-and-happy-hour-networking-event-exchange-biz-cards-tickets-1995356653464",
+     "added": "NYC AI Startups Lunch and Happy Hour Networking Event Exchange Biz Cards",
+     "date": "2026-12-11"
+    },
+    {
+     "url": "https://www.eventbrite.com/e/nyc-ai-tech-startups-investors-innovators-networking-mixer-tickets-2004164363562",
+     "added": "NYC AI & Tech Startups, Investors, Innovators Networking Mixer",
+     "date": "2026-12-08"
+    },
+    {
+     "url": "https://www.eventbrite.com/e/ai-tech-startup-night-i-manhattan-new-york-tickets-2004250218356",
+     "added": "AI Tech & Startup Night I Manhattan, New York",
+     "date": "2026-12-02"
+    },
+    {
+     "url": "https://www.eventbrite.com/e/women-in-business-startups-professionals-social-networking-event-nyc-tickets-2004434436357",
+     "added": "Women in Business, Startups, Professionals Social Networking Event NYC",
+     "date": "2026-12-14"
+    },
+    {
+     "url": "https://www.eventbrite.com/e/nyc-tech-startups-networking-elevator-pitches-event-tickets-2004513350391",
+     "added": "NYC Tech Startups Networking & Elevator Pitches Event",
+     "date": "2026-12-15"
+    },
+    {
+     "url": "https://www.eventbrite.com/e/nyc-future-tech-startups-digital-innovation-networking-mixer-tickets-2004513358415",
+     "added": "NYC Future Tech: Startups & Digital Innovation Networking Mixer",
+     "date": "2026-12-15"
+    },
+    {
+     "url": "https://www.eventbrite.com/e/tech-startups-after-hours-startup-tickets-2005098470501",
+     "added": "Tech Startups After Hours | Startup+",
+     "date": "2026-12-03"
+    },
+    {
+     "url": "https://www.eventbrite.com/e/startups-networking-paris-tickets-2002423836599",
+     "added": "Startups & Networking Paris",
+     "date": "2026-12-15"
+    },
+    {
+     "url": "https://www.eventbrite.com/e/ai-tech-startup-night-i-paris-tickets-2004860111563",
+     "added": "AI Tech & Startup Night I Paris",
+     "date": "2026-12-17"
+    },
+    {
+     "url": "https://www.eventbrite.com/e/founders-pitch-networking-night-in-paris-tickets-1302539222879",
+     "title": "Founders Pitch & Networking Night in Paris",
+     "skipped": "page date 2025-04-29 is not 2026-12-15"
+    },
+    {
+     "url": "https://www.eventbrite.com/e/investor-connect-pitch-networking-i-paris-tickets-2004860112566",
+     "added": "Investor Connect: Pitch & Networking I Paris",
+     "date": "2026-12-17"
+    },
+    {
+     "url": "https://www.eventbrite.fr/e/startup-networking-workshop50-station-f-paris-7th-december-6pm-cet-tickets-2004949087693",
+     "added": "Startup Networking Workshop#50, Station F, Paris \u2022 7th December, 6pm (CET)",
+     "date": "2026-12-07"
+    },
+    {
+     "url": "https://www.eventbrite.fr/e/startup-networking-workshop51-station-f-paris-14th-december-6pm-cet-tickets-2005027663716",
+     "added": "Startup Networking Workshop#51, Station F, Paris \u2022 14th December, 6pm (CET)",
+     "date": "2026-12-14"
+    },
+    {
+     "url": "https://www.eventbrite.com/e/tech-and-business-networking-elevating-your-potential-paris-tickets-2002460166262",
+     "added": "Tech and Business Networking | Elevating Your Potential - Paris",
+     "date": "2026-12-30"
+    },
+    {
+     "url": "https://luma.com/l27el96p",
+     "added": "OKX in Paris",
+     "date": "2026-11-26"
+    },
+    {
+     "url": "https://luma.com/v221z51f",
+     "skipped": "already on the List"
+    },
+    {
+     "url": "https://luma.com/p7en2ff5",
+     "added": "Test Forward 2027 - Software Quality in the Age of AI",
+     "date": "2027-01-19"
+    },
+    {
+     "url": "https://www.eventbrite.com/e/tech-networking-event-by-startup-valley-in-paris-tickets-2002423842617",
+     "added": "Tech Networking Event by Startup Valley in Paris",
+     "date": "2026-12-15"
+    },
+    {
+     "url": "https://www.eventbrite.com/e/tech-networking-event-by-startup-valley-in-paris-tickets-2002930175071",
+     "added": "Tech Networking Event by Startup Valley in Paris",
+     "date": "2027-01-12"
+    },
+    {
+     "url": "https://www.eventbrite.com/e/tech-networking-event-by-startup-valley-in-paris-tickets-2004909806201",
+     "added": "Tech Networking Event by Startup Valley in Paris",
+     "date": "2027-02-09"
+    },
+    {
+     "url": "https://www.eventbrite.com/e/tech-networking-event-by-startup-valley-in-paris-tickets-2005372211267",
+     "added": "Tech Networking Event by Startup Valley in Paris",
+     "date": "2027-03-09"
+    },
+    {
+     "url": "https://dev.events/conferences/tech-rocks-summit-aaxn2xuq",
+     "added": "Tech.Rocks Summit",
+     "date": "2026-11-30"
+    },
+    {
+     "url": "https://dev.events/conferences/apidays-paris-i1tmdbpu",
+     "skipped": "already on the List"
+    },
+    {
+     "url": "https://dev.events/conferences/cloud-native-ai-summit-europe-2026-vdg-ebb1",
+     "skipped": "already on the List"
+    },
+    {
+     "url": "https://dev.events/conferences/dev-ops-rex-oopvczio",
+     "skipped": "already on the List"
+    },
+    {
+     "url": "https://dev.events/conferences/data-ai-sovereignty-summit-fndhc22o",
+     "skipped": "already on the List"
+    },
+    {
+     "url": "https://dev.events/conferences/huntcon-2027-gkplarcc",
+     "skipped": "already on the List"
+    },
+    {
+     "url": "https://dev.events/conferences/observability-con-on-the-road-paris-qhhvalv",
+     "skipped": "already on the List"
+    },
+    {
+     "url": "https://dev.events/conferences/entrypoint-2027-mz3cnwfz",
+     "skipped": "already on the List"
+    },
+    {
+     "url": "https://dev.events/conferences/agile-france-2027-transformons-dans-un-monde-incertain-1xdf7y4w",
+     "skipped": "already on the List"
+    },
+    {
+     "url": "https://dev.events/conferences/paris-test-conf-2027-qrmvy10v",
+     "skipped": "already on the List"
+    },
+    {
+     "url": "https://dev.events/conferences/symfony-live-paris-2027-rfcbtpkn",
+     "skipped": "already on the List"
+    },
+    {
+     "url": "https://dev.events/conferences/devoxx-france-tq1dnu-n",
+     "skipped": "already on the List"
+    },
+    {
+     "url": "https://dev.events/conferences/mobile-makers-2027-ymqomp-u",
+     "skipped": "already on the List"
+    },
+    {
+     "url": "https://dev.events/conferences/ow-2con-27-meltkfz0",
+     "skipped": "already on the List"
+    },
+    {
+     "url": "https://dev.events/conferences/cloud-native-days-france-2027-wg01toln",
+     "skipped": "already on the List"
+    },
+    {
+     "url": "https://dev.events/conferences/signal-week-vl7ev2oy",
+     "skipped": "already on the List"
+    },
+    {
+     "url": "https://dev.events/conferences/machina-summit-2027-82bnvlnn",
+     "skipped": "already on the List"
+    },
+    {
+     "url": "https://dev.events/conferences/dot-ai-2027-nfjcu1n9",
+     "skipped": "already on the List"
+    },
+    {
+     "url": "https://dev.events/conferences/dot-js-2027-s9s4cgyh",
+     "skipped": "already on the List"
+    },
+    {
+     "url": "https://paris.aitinkerers.org/p/physical-ai-builders-day",
+     "title": "Physical AI \u2014 Builders Day",
+     "skipped": "page date 2026-12-03 is not 2026-12-01"
+    },
+    {
+     "url": "https://paris.aitinkerers.org/p/pair-ed-builder-summit-summit-physical-ai-robotics-edge-and-drones-paris-dec-1-2026",
+     "skipped": "already on the List"
+    },
+    {
+     "url": "https://paris.aitinkerers.org/p/ai-tinkerers-x-neo4j-context-connected",
+     "added": "AI Tinkerers \u00d7 Neo4j \u2014 Context, Connected",
+     "date": "2026-12-08"
     }
    ],
-   "added": 10
+   "added": 22
   },
   {
    "source": "luma place nashville",
@@ -162,37 +274,37 @@
   {
    "source": "place:nyc",
    "hub": "nyc",
-   "pages": 4,
-   "seen": 74,
-   "added": 11
+   "pages": 5,
+   "seen": 76,
+   "added": 0
   },
   {
    "source": "place:sf",
    "hub": "sf",
    "pages": 3,
-   "seen": 47,
-   "added": 9
+   "seen": 49,
+   "added": 0
   },
   {
    "source": "place:london",
    "hub": "ldn",
    "pages": 4,
-   "seen": 67,
-   "added": 10
+   "seen": 68,
+   "added": 0
   },
   {
    "source": "place:paris",
    "hub": "par",
    "pages": 3,
-   "seen": 37,
-   "added": 3
+   "seen": 36,
+   "added": 0
   },
   {
    "source": "place:berlin",
    "hub": "ber",
    "pages": 4,
    "seen": 55,
-   "added": 7
+   "added": 0
   },
   {
    "source": "place:munich",
@@ -227,7 +339,7 @@
    "hub": "lis",
    "pages": 2,
    "seen": 22,
-   "added": 1
+   "added": 0
   },
   {
    "source": "place:milan",
@@ -240,22 +352,22 @@
    "source": "place:zurich",
    "hub": "zrh",
    "pages": 3,
-   "seen": 28,
-   "added": 2
+   "seen": 27,
+   "added": 0
   },
   {
    "source": "place:stockholm",
    "hub": "sto",
    "pages": 2,
-   "seen": 22,
-   "added": 1
+   "seen": 20,
+   "added": 0
   },
   {
    "source": "place:copenhagen",
    "hub": "cph",
    "pages": 2,
    "seen": 19,
-   "added": 1
+   "added": 0
   },
   {
    "source": "place:helsinki",
@@ -269,7 +381,7 @@
    "hub": "dub",
    "pages": 2,
    "seen": 12,
-   "added": 1
+   "added": 0
   },
   {
    "source": "place:warsaw",
@@ -282,15 +394,15 @@
    "source": "place:toronto",
    "hub": "tor",
    "pages": 3,
-   "seen": 31,
-   "added": 3
+   "seen": 32,
+   "added": 0
   },
   {
    "source": "place:montreal",
    "hub": "mtl",
    "pages": 2,
    "seen": 21,
-   "added": 1
+   "added": 0
   },
   {
    "source": "place:vancouver",
@@ -304,14 +416,14 @@
    "hub": "la",
    "pages": 3,
    "seen": 30,
-   "added": 2
+   "added": 0
   },
   {
    "source": "place:boston",
    "hub": "bos",
    "pages": 2,
-   "seen": 14,
-   "added": 5
+   "seen": 15,
+   "added": 0
   },
   {
    "source": "place:chicago",
@@ -346,7 +458,7 @@
    "hub": "dc",
    "pages": 2,
    "seen": 20,
-   "added": 1
+   "added": 0
   },
   {
    "source": "place:denver",
@@ -374,28 +486,28 @@
    "hub": "bue",
    "pages": 2,
    "seen": 11,
-   "added": 1
+   "added": 0
   },
   {
    "source": "place:tel-aviv",
    "hub": "tlv",
    "pages": 2,
-   "seen": 14,
-   "added": 2
+   "seen": 12,
+   "added": 0
   },
   {
    "source": "place:dubai",
    "hub": "dxb",
    "pages": 2,
    "seen": 14,
-   "added": 2
+   "added": 0
   },
   {
    "source": "place:singapore",
    "hub": "sgp",
    "pages": 3,
    "seen": 27,
-   "added": 3
+   "added": 0
   },
   {
    "source": "place:tokyo",
@@ -409,42 +521,42 @@
    "hub": "sel",
    "pages": 2,
    "seen": 14,
-   "added": 2
+   "added": 0
   },
   {
    "source": "place:taipei",
    "hub": "tpe",
    "pages": 2,
    "seen": 9,
-   "added": 1
+   "added": 0
   },
   {
    "source": "place:bangkok",
    "hub": "bkk",
    "pages": 2,
-   "seen": 21,
-   "added": 1
+   "seen": 23,
+   "added": 0
   },
   {
    "source": "place:jakarta",
    "hub": "jkt",
    "pages": 2,
-   "seen": 6,
-   "added": 1
+   "seen": 7,
+   "added": 0
   },
   {
    "source": "place:kuala-lumpur",
    "hub": "kul",
    "pages": 2,
-   "seen": 9,
-   "added": 3
+   "seen": 10,
+   "added": 0
   },
   {
    "source": "place:bengaluru",
    "hub": "blr",
    "pages": 2,
    "seen": 14,
-   "added": 2
+   "added": 0
   },
   {
    "source": "place:mumbai",
@@ -458,28 +570,28 @@
    "hub": "syd",
    "pages": 3,
    "seen": 36,
-   "added": 5
+   "added": 0
   },
   {
    "source": "place:melbourne",
    "hub": "mel",
    "pages": 2,
    "seen": 10,
-   "added": 1
+   "added": 0
   },
   {
    "source": "place:nairobi",
    "hub": "nbo",
    "pages": 2,
    "seen": 10,
-   "added": 2
+   "added": 0
   },
   {
    "source": "place:lagos",
    "hub": "los",
    "pages": 2,
    "seen": 12,
-   "added": 1
+   "added": 0
   },
   {
    "source": "place:houston",
@@ -535,7 +647,7 @@
    "hub": "prg",
    "pages": 2,
    "seen": 12,
-   "added": 3
+   "added": 0
   },
   {
    "source": "place:brussels",
@@ -549,7 +661,7 @@
    "hub": "ist",
    "pages": 2,
    "seen": 13,
-   "added": 2
+   "added": 0
   },
   {
    "source": "place:manila",
@@ -563,42 +675,42 @@
    "hub": "sgn",
    "pages": 2,
    "seen": 6,
-   "added": 1
+   "added": 0
   },
   {
    "source": "place:auckland",
    "hub": "akl",
    "pages": 2,
-   "seen": 5,
-   "added": 1
+   "seen": 4,
+   "added": 0
   },
   {
    "source": "place:bogota",
    "hub": "bog",
    "pages": 2,
    "seen": 11,
-   "added": 2
+   "added": 0
   },
   {
    "source": "place:medellin",
    "hub": "mde",
    "pages": 2,
    "seen": 2,
-   "added": 1
+   "added": 0
   },
   {
    "source": "place:new-delhi",
    "hub": "del",
    "pages": 2,
    "seen": 8,
-   "added": 1
+   "added": 0
   },
   {
    "source": "place:hongkong",
    "hub": "hkg",
    "pages": 2,
    "seen": 10,
-   "added": 1
+   "added": 0
   },
   {
    "source": "place:saopaulo",
@@ -612,40 +724,40 @@
    "hub": "sao",
    "pages": 2,
    "seen": 7,
-   "added": 1
+   "added": 0
   },
   {
    "source": "place:rome",
    "hub": "rom",
    "pages": 2,
    "seen": 5,
-   "added": 1
+   "added": 0
   },
   {
    "source": "place:osaka",
    "hub": "osa",
    "pages": 2,
    "seen": 4,
-   "added": 1
+   "added": 0
   },
   {
    "source": "luma calendars",
-   "known": 1900,
-   "added": 480
+   "known": 1908,
+   "added": 29
   },
   {
    "source": "foundercal",
-   "read": 2975,
-   "added": 870
+   "read": 3022,
+   "added": 57
   },
   {
    "source": "confs.tech",
-   "added": 27
+   "added": 0
   },
   {
    "source": "meetup groups",
-   "groups": 835,
-   "added": 343
+   "groups": 836,
+   "added": 126
   },
   {
    "source": "ical feeds",
@@ -658,7 +770,7 @@
   },
   {
    "source": "dealroom",
-   "read": 181,
+   "read": 186,
    "added": 0
   }
  ]
