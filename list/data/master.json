@@ -304,7 +304,7 @@
    "tz": "Asia/Kolkata",
    "country": "India",
    "region": "",
-   "img": ""
+   "img": "blr"
   },
   {
    "id": "mad",
@@ -328,7 +328,7 @@
    "tz": "America/Denver",
    "country": "United States",
    "region": "",
-   "img": ""
+   "img": "den"
   },
   {
    "id": "tpe",
@@ -448,7 +448,7 @@
    "tz": "America/New_York",
    "country": "United States",
    "region": "",
-   "img": ""
+   "img": "atl"
   },
   {
    "id": "sdg",
@@ -528,7 +528,7 @@
    "tz": "Europe/Brussels",
    "country": "Belgium",
    "region": "",
-   "img": ""
+   "img": "bru"
   },
   {
    "id": "ist",
@@ -808,7 +808,7 @@
    "tz": "Australia/Perth",
    "country": "Australia",
    "region": "",
-   "img": ""
+   "img": "per"
   },
   {
    "id": "mrs",
@@ -848,7 +848,7 @@
    "tz": "Asia/Ho_Chi_Minh",
    "country": "Vietnam",
    "region": "",
-   "img": ""
+   "img": "han"
   }
  ],
  "weeks": [
@@ -1376,7 +1376,13 @@
   "lpl": "/list/img/818f20b731.jpg",
   "gla": "/list/img/d54cccf1af.jpg",
   "bham": "/list/img/6e2454b2b8.jpg",
-  "osl": "/list/img/30870a47ae.jpg"
+  "osl": "/list/img/30870a47ae.jpg",
+  "per": "/list/img/per_perth.jpg",
+  "han": "/list/img/han_hanoi.jpg",
+  "den": "/list/img/den_denver_boulder.jpg",
+  "atl": "/list/img/atl_atlanta.jpg",
+  "blr": "/list/img/blr_bengaluru.jpg",
+  "bru": "/list/img/bru_brussels.jpg"
  },
  "events": [
   {
