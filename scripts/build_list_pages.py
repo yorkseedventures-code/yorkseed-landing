@@ -343,12 +343,34 @@ h2{font:400 24px/1.2 var(--serif);margin:30px 0 5px}h2 em{color:var(--red)}
 @media(max-width:720px){.hero{grid-template-columns:1fr}.hero img{aspect-ratio:16/9;max-height:220px}.ev{grid-template-columns:64px 1fr;gap:10px}}
 """
 
+_SIZES = {}
+def _img_size(path):
+    if path not in _SIZES:
+        _SIZES[path] = None
+        try:   # read the JPEG/PNG header directly (the Netlify build has no Pillow)
+            b = open(path, "rb").read(200000)
+            if b[:8] == b"\x89PNG\r\n\x1a\n": _SIZES[path] = (int.from_bytes(b[16:20], "big"), int.from_bytes(b[20:24], "big"))
+            elif b[:2] == b"\xff\xd8":
+                i = 2
+                while i < len(b) - 9:
+                    if b[i] != 0xFF: i += 1; continue
+                    m = b[i + 1]; ln = int.from_bytes(b[i + 2:i + 4], "big")
+                    if 0xC0 <= m <= 0xCF and m not in (0xC4, 0xC8, 0xCC):
+                        _SIZES[path] = (int.from_bytes(b[i + 7:i + 9], "big"), int.from_bytes(b[i + 5:i + 7], "big")); break
+                    i += 2 + ln
+        except Exception: pass
+    return _SIZES[path]
 def page(path, title, desc, canon, body, ld, img=None, index=True):
     og = (img if img.startswith("http") else LISTHOST + img) if img else SITE + "/og-image.png"
     if og.startswith("http") and "yorkseed.co" not in og.split("/")[2]:
         # WhatsApp/iMessage reject many hotlinked CDN images (webp/avif, odd sizes): proxy via Netlify Image CDN as 1200x630 JPEG
         og = LISTHOST + "/.netlify/images?url=" + urllib.parse.quote(og, safe="") + "&w=1200&h=630&fit=cover&fm=jpg&q=75"
     ogx = '<meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/>' if "/.netlify/images" in og else ""
+    if not ogx and og.startswith(LISTHOST + "/list/img/"):
+        # Our own images: give WhatsApp/Facebook the size up front, so the picture shows on the very first share of a new link
+        wh = _img_size(REPO + og[len(LISTHOST):].split("?")[0])
+        if wh: ogx = f'<meta property="og:image:width" content="{wh[0]}"/><meta property="og:image:height" content="{wh[1]}"/>'
+    if ogx: ogx += '<meta property="og:image:type" content="image/jpeg"/>' + f'<meta property="og:image:alt" content="{e_(title)}"/>'
     doc = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
