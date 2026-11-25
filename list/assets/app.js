@@ -524,7 +524,8 @@ function renderWeeks(){
   const ws=[...WEEKS].filter(w=>w.end>=today&&weekOk(w)&&(cnt[w.id]||0)>0).sort((a,b)=>(soon(b)-soon(a))||(soon(a)?(cnt[b.id]||0)-(cnt[a.id]||0):a.start.localeCompare(b.start)));
   const show=st.allWeeks?ws:[...ws.slice(0,6),...ws.slice(6).filter(w=>w.ys)];
   $("#weekGrid").innerHTML=show.map(w=>{const n=cnt[w.id]||0;const live=today>=w.start&&today<=w.end;
-    const wh=hubById(w.hub),wi=WIMG[w.id]||(wh&&wh.img&&IMG[wh.img]);return`<a class="wrow" href="${listPathFor(w)||"#"+weekSlug(w)}" data-weekgo="${w.id}"><span class="wt">${wi?`<img src="${wi}" alt="" loading="lazy" decoding="async" style="object-position:${WIMG[w.id]?"50% 50%":IMGPOS[wh.img]||"50% 50%"}">`:""}</span><span class="wd">${range(w.start,w.end)}${live?'<span class="badge b-now live">This week</span>':""}</span><span class="wn">${esc(w.name)}<small>${hubById(w.hub).name} · Yorkseed Master Side Event List${w.ys?" "+ysProgramsHtml(w,true):""}</small></span><span class="wc">${n} event${n===1?"":"s"}</span><span class="ar">→</span></a>`}).join("");
+    const wh=hubById(w.hub),wi=WIMG[w.id]||(wh&&wh.img&&IMG[wh.img]);
+    return`<a class="wkcard${wi?"":" noimg"}" href="${listPathFor(w)||"#"+weekSlug(w)}" data-weekgo="${w.id}">${wi?`<img src="${wi}" alt="" loading="lazy" decoding="async" style="object-position:${WIMG[w.id]?"50% 50%":IMGPOS[wh.img]||"50% 50%"}">`:""}<span class="wk-when${live?" live":""}">${live?"This week":range(w.start,w.end)}</span><span class="wk-body"><b>${esc(w.name)}</b><span>${hubById(w.hub).name} · ${n} event${n===1?"":"s"}${w.ys?" "+ysProgramsHtml(w,true):""}</span></span></a>`}).join("");
   const mb=$("#moreWeeks");mb.parentElement.hidden=ws.length<=6;mb.textContent=st.allWeeks?"Show fewer":`All ${ws.length} conference weeks`;
 }
 
