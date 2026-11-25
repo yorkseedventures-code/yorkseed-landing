@@ -548,7 +548,7 @@ function addDays(n){return dKey(NOW+n*864e5,myTz);}
 function filtered(skipType,skipTopic){
   const q=st.q.trim().toLowerCase(),today=addDays(0);
   const inDate=e=>{switch(st.date){case"today":return e.date===today;case"week":return e.date<=addDays(6);case"weekend":{const wd=new Date(e.date+"T12:00:00Z").getUTCDay();return e.date<=addDays(7)&&(wd===0||wd===6);}case"30":return e.date<=addDays(29);case"weeks":return!!e.week;default:return true;}};
-  return upcoming().filter(e=>(!st.savedOnly||saved.has(e.id))&&(!st.ysOnly||["Yorkseed","Valois","Yorkseed Expert Series"].includes(e.host))&&(st.hub==="all"||e.hub===st.hub)&&(skipType||st.type==="all"||e.type===st.type||(e.cats||[]).includes(st.type))&&(skipTopic||!st.topic||e.tags.includes(st.topic)||(e.sectors||[]).includes(st.topic))&&(!st.week||e.week===st.week)&&(st.ignoreDate||((!st.day||e.date===st.day)&&inDate(e)))&&(!q||[e.title,e.host,e.type,hubById(e.hub).name,...e.tags].join(" ").toLowerCase().includes(q)))
+  return upcoming().filter(e=>(!st.savedOnly||saved.has(e.id))&&(!st.ysOnly||["Yorkseed","Valois","Yorkseed Expert Series"].includes(e.host))&&(st.hub==="all"||e.hub===st.hub)&&(skipType||st.type==="all"||e.type===st.type||(e.cats||[]).includes(st.type))&&(skipTopic||!st.topic||e.tags.includes(st.topic)||(e.sectors||[]).includes(st.topic))&&(!st.week||e.week===st.week)&&(st.ignoreDate||((!st.day||q||e.date===st.day)&&inDate(e)))&&(!q||[e.title,e.host,e.type,hubById(e.hub).name,...e.tags].join(" ").toLowerCase().includes(q)))
     .sort((a,b)=>a.date.localeCompare(b.date)||((RANK[a.place]??9)-(RANK[b.place]??9))||a.utc-b.utc);
 }
 const DATES=[["any","Any time"],["today","Today"],["week","This week"],["weekend","Weekend"],["30","Next 30 days"]];
