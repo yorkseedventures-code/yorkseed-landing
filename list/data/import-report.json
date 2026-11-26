@@ -1,5 +1,5 @@
 {
- "date": "2026-11-25",
+ "date": "2026-11-26",
  "report": [
   {
    "links_import": [
@@ -52,9 +52,168 @@
      "url": "https://innovationscene.pt/lisbon/events/5z1yh/",
      "title": "OLX Masterclass Building with AI",
      "skipped": "could not read the page"
+    },
+    {
+     "url": "https://www.eventbrite.com/e/big-ballers-dinner-with-entrepreneurs-abu-dhabi-social-club-tickets-1980810818480",
+     "title": "Big Ballers: Dinner with Entrepreneurs | Abu Dhabi Social Club",
+     "skipped": "page date 2026-01-24 is not 2026-11-27"
+    },
+    {
+     "url": "https://www.eventbrite.com/e/global-blockchain-show-abu-dhabi-december-2026-tickets-1995451457024",
+     "added": "Global Blockchain Show Abu Dhabi - December 2026",
+     "date": "2026-12-10"
+    },
+    {
+     "url": "https://www.eventbrite.com/e/global-trading-show-abu-dhabi-december-2026-tickets-1995455296508",
+     "added": "Global Trading Show Abu Dhabi - December 2026",
+     "date": "2026-12-10"
+    },
+    {
+     "url": "https://www.eventbrite.com/e/abu-dhabi-private-wealth-funds-forum-tickets-1981293945526",
+     "added": "Abu Dhabi Private Wealth & Funds Forum",
+     "date": "2026-12-10"
+    },
+    {
+     "url": "https://www.eventbrite.com/e/global-ai-show-abu-dhabi-march-2027-tickets-1995439753017",
+     "added": "Global AI Show Abu Dhabi - March 2027",
+     "date": "2027-03-23"
+    },
+    {
+     "url": "https://os.vntr.vc/e/5lrflRzI",
+     "added": "VNTR Investor Roundtable Bangkok",
+     "date": "2026-11-30"
+    },
+    {
+     "url": "https://os.vntr.vc/e/xU1KK2zl",
+     "added": "VNTR Investor Roundtable Miami",
+     "date": "2026-12-04"
+    },
+    {
+     "url": "https://os.vntr.vc/e/ATcdNjBz",
+     "added": "VNTR Investor Forum Dubai",
+     "date": "2026-12-09"
+    },
+    {
+     "url": "https://os.vntr.vc/e/7tuGfvtW",
+     "added": "VNTR Investor Roundtable Abu Dhabi",
+     "date": "2026-12-10"
+    },
+    {
+     "url": "https://os.vntr.vc/e/suSuNEAW",
+     "skipped": "already on the List"
+    },
+    {
+     "url": "https://os.vntr.vc/e/kjN99CPw",
+     "added": "VNTR Summit Lisbon 2027",
+     "date": "2027-11-09"
+    },
+    {
+     "url": "https://luma.com/daoshub-m78j",
+     "title": "Startup Pitch Night + Fireside Chat",
+     "skipped": "page date 2026-12-09 is not 2026-12-03"
+    },
+    {
+     "url": "https://luma.com/my3m1ane",
+     "added": "CAPITAL GATHERING F1",
+     "date": "2026-12-05"
+    },
+    {
+     "url": "https://luma.com/16y1q9k0",
+     "added": "Meet Manus 2.0 | Dubai | Session #1",
+     "date": "2026-12-07"
+    },
+    {
+     "url": "https://luma.com/5tw24sq3",
+     "added": "Meet the Next Generation of Palestinian Founders | Dubai Demo Showcase",
+     "date": "2026-12-07"
+    },
+    {
+     "url": "https://luma.com/SolanaArcadeSuperweek",
+     "added": "Solana Arcade Night",
+     "date": "2026-12-07"
+    },
+    {
+     "url": "https://luma.com/trust-circle-wealth-abu-dhabi",
+     "added": "Trust Circle: The Future Of Global Wealth co-hosted by Plasma",
+     "date": "2026-12-07"
+    },
+    {
+     "url": "https://www.gitexfdx.com/",
+     "title": "GITEX Future Digital Assets Forum (FDX)",
+     "skipped": "could not read the page"
+    },
+    {
+     "url": "https://luma.com/xjx196jr",
+     "added": "\ud83e\udebd\u26a1AngelSpark Pitch event @ GITEX ENS",
+     "date": "2026-12-08"
+    },
+    {
+     "url": "https://luma.com/c26nj1vb",
+     "added": "GITEX Networking Yacht Cruise",
+     "date": "2026-12-08"
+    },
+    {
+     "url": "https://luma.com/HSC_Abu_Dhabi",
+     "added": "HSC Asset Management Abu Dhabi 9-10 December",
+     "date": "2026-12-09"
+    },
+    {
+     "url": "https://www.weka.io/event/above-the-noise-weka-after-gitex-meetup-2026",
+     "title": "Above the Noise: WEKA After Gitex Meetup 2026",
+     "skipped": "could not read the page"
+    },
+    {
+     "url": "https://luma.com/rzfas8d7",
+     "added": "An evening during GITEX GLOBAL / Expand North Star week \u2014 The Agentic Enterprise",
+     "date": "2026-12-09"
+    },
+    {
+     "url": "https://swcabudhabi.com/",
+     "title": "Startup World Cup Abu Dhabi 2026",
+     "skipped": "could not read the page"
+    },
+    {
+     "url": "https://bitbasel.miami/program/seed2table/",
+     "title": "Dinner: Seed2Table by BitBasel",
+     "skipped": "title differs: BitBasel Miami Art Week 2026: The Next Renaissance"
+    },
+    {
+     "url": "https://bitbasel.miami/program/family-office-forum/",
+     "title": "Family Office Forum @ BitBasel",
+     "skipped": "page date 2026-12-02 is not 2026-12-03"
+    },
+    {
+     "url": "https://2056.club/events/davos-jan2027",
+     "title": "20...56 Club Ski Retreat Davos",
+     "skipped": "could not read the page"
+    },
+    {
+     "url": "https://www.baselinvestorforum.com/davos-edition-2027",
+     "title": "Wealth & Family Office Forum (Davos Edition)",
+     "skipped": "could not read the page"
+    },
+    {
+     "url": "https://luma.com/4vsn571x",
+     "added": "The Magic Mountain Lunch",
+     "date": "2027-01-19"
+    },
+    {
+     "url": "https://luma.com/bf7xjzlx",
+     "added": "BORN UP \u2014 SXSW Austin Community Networking Meetup",
+     "date": "2027-03-15"
+    },
+    {
+     "url": "https://www.socostomp.com/?utm_source=luma",
+     "title": "SoCo Stomp 2027",
+     "skipped": "could not read the page"
+    },
+    {
+     "url": "https://luma.com/sxsw2027",
+     "added": "Moovers Journey | Imers\u00e3o SXSW 2027 Austin, Texas.",
+     "date": "2027-03-15"
     }
    ],
-   "added": 0
+   "added": 21
   },
   {
    "source": "luma place nashville",
@@ -62,8 +221,58 @@
    "error": "place not found"
   },
   {
+   "source": "luma place ho-chi-minh-city",
+   "hub": "sgn",
+   "error": "place not found"
+  },
+  {
+   "source": "luma place auckland",
+   "hub": "akl",
+   "error": "place not found"
+  },
+  {
+   "source": "luma place bogota",
+   "hub": "bog",
+   "error": "place not found"
+  },
+  {
+   "source": "luma place medellin",
+   "hub": "mde",
+   "error": "place not found"
+  },
+  {
+   "source": "luma place new-delhi",
+   "hub": "del",
+   "error": "place not found"
+  },
+  {
+   "source": "luma place hongkong",
+   "hub": "hkg",
+   "error": "place not found"
+  },
+  {
+   "source": "luma place saopaulo",
+   "hub": "sao",
+   "error": "place not found"
+  },
+  {
+   "source": "luma place rio",
+   "hub": "sao",
+   "error": "place not found"
+  },
+  {
+   "source": "luma place rome",
+   "hub": "rom",
+   "error": "place not found"
+  },
+  {
    "source": "luma place perth",
    "hub": "per",
+   "error": "place not found"
+  },
+  {
+   "source": "luma place osaka",
+   "hub": "osa",
    "error": "place not found"
   },
   {
@@ -75,35 +284,35 @@
    "source": "place:nyc",
    "hub": "nyc",
    "pages": 5,
-   "seen": 76,
+   "seen": 77,
    "added": 0
   },
   {
    "source": "place:sf",
    "hub": "sf",
-   "pages": 3,
-   "seen": 49,
-   "added": 0
+   "pages": 4,
+   "seen": 51,
+   "added": 1
   },
   {
    "source": "place:london",
    "hub": "ldn",
    "pages": 4,
-   "seen": 61,
+   "seen": 63,
    "added": 0
   },
   {
    "source": "place:paris",
    "hub": "par",
    "pages": 3,
-   "seen": 33,
+   "seen": 34,
    "added": 0
   },
   {
    "source": "place:berlin",
    "hub": "ber",
    "pages": 4,
-   "seen": 51,
+   "seen": 52,
    "added": 0
   },
   {
@@ -117,14 +326,14 @@
    "source": "place:amsterdam",
    "hub": "ams",
    "pages": 3,
-   "seen": 34,
+   "seen": 35,
    "added": 0
   },
   {
    "source": "place:barcelona",
    "hub": "bcn",
    "pages": 3,
-   "seen": 26,
+   "seen": 27,
    "added": 0
   },
   {
@@ -180,7 +389,7 @@
    "source": "place:dublin",
    "hub": "dub",
    "pages": 2,
-   "seen": 9,
+   "seen": 10,
    "added": 0
   },
   {
@@ -195,7 +404,7 @@
    "hub": "tor",
    "pages": 3,
    "seen": 32,
-   "added": 0
+   "added": 1
   },
   {
    "source": "place:montreal",
@@ -208,28 +417,28 @@
    "source": "place:vancouver",
    "hub": "yvr",
    "pages": 2,
-   "seen": 24,
+   "seen": 25,
    "added": 0
   },
   {
    "source": "place:la",
    "hub": "la",
    "pages": 3,
-   "seen": 30,
+   "seen": 33,
    "added": 0
   },
   {
    "source": "place:boston",
    "hub": "bos",
    "pages": 2,
-   "seen": 15,
+   "seen": 16,
    "added": 0
   },
   {
    "source": "place:chicago",
    "hub": "chi",
    "pages": 2,
-   "seen": 12,
+   "seen": 13,
    "added": 0
   },
   {
@@ -243,14 +452,14 @@
    "source": "place:austin",
    "hub": "atx",
    "pages": 2,
-   "seen": 6,
+   "seen": 8,
    "added": 0
   },
   {
    "source": "place:seattle",
    "hub": "sea",
    "pages": 2,
-   "seen": 15,
+   "seen": 16,
    "added": 0
   },
   {
@@ -271,21 +480,21 @@
    "source": "place:philadelphia",
    "hub": "phl",
    "pages": 2,
-   "seen": 11,
-   "added": 0
+   "seen": 13,
+   "added": 1
   },
   {
    "source": "place:mexico-city",
    "hub": "mex",
    "pages": 2,
-   "seen": 12,
+   "seen": 13,
    "added": 0
   },
   {
    "source": "place:buenos-aires",
    "hub": "bue",
    "pages": 2,
-   "seen": 11,
+   "seen": 10,
    "added": 0
   },
   {
@@ -306,8 +515,8 @@
    "source": "place:singapore",
    "hub": "sgp",
    "pages": 3,
-   "seen": 27,
-   "added": 0
+   "seen": 30,
+   "added": 1
   },
   {
    "source": "place:tokyo",
@@ -334,7 +543,7 @@
    "source": "place:bangkok",
    "hub": "bkk",
    "pages": 2,
-   "seen": 23,
+   "seen": 24,
    "added": 0
   },
   {
@@ -348,28 +557,28 @@
    "source": "place:kuala-lumpur",
    "hub": "kul",
    "pages": 2,
-   "seen": 10,
+   "seen": 11,
    "added": 0
   },
   {
    "source": "place:bengaluru",
    "hub": "blr",
    "pages": 2,
-   "seen": 14,
+   "seen": 15,
    "added": 0
   },
   {
    "source": "place:mumbai",
    "hub": "bom",
    "pages": 2,
-   "seen": 9,
+   "seen": 10,
    "added": 0
   },
   {
    "source": "place:sydney",
    "hub": "syd",
    "pages": 3,
-   "seen": 36,
+   "seen": 37,
    "added": 0
   },
   {
@@ -383,7 +592,7 @@
    "source": "place:nairobi",
    "hub": "nbo",
    "pages": 2,
-   "seen": 10,
+   "seen": 11,
    "added": 0
   },
   {
@@ -432,7 +641,7 @@
    "source": "place:oslo",
    "hub": "osl",
    "pages": 2,
-   "seen": 11,
+   "seen": 12,
    "added": 0
   },
   {
@@ -471,84 +680,14 @@
    "added": 0
   },
   {
-   "source": "place:ho-chi-minh-city",
-   "hub": "sgn",
-   "pages": 2,
-   "seen": 6,
-   "added": 0
-  },
-  {
-   "source": "place:auckland",
-   "hub": "akl",
-   "pages": 2,
-   "seen": 4,
-   "added": 0
-  },
-  {
-   "source": "place:bogota",
-   "hub": "bog",
-   "pages": 2,
-   "seen": 11,
-   "added": 0
-  },
-  {
-   "source": "place:medellin",
-   "hub": "mde",
-   "pages": 2,
-   "seen": 2,
-   "added": 0
-  },
-  {
-   "source": "place:new-delhi",
-   "hub": "del",
-   "pages": 2,
-   "seen": 8,
-   "added": 0
-  },
-  {
-   "source": "place:hongkong",
-   "hub": "hkg",
-   "pages": 2,
-   "seen": 10,
-   "added": 0
-  },
-  {
-   "source": "place:saopaulo",
-   "hub": "sao",
-   "pages": 2,
-   "seen": 11,
-   "added": 0
-  },
-  {
-   "source": "place:rio",
-   "hub": "sao",
-   "pages": 2,
-   "seen": 6,
-   "added": 0
-  },
-  {
-   "source": "place:rome",
-   "hub": "rom",
-   "pages": 2,
-   "seen": 5,
-   "added": 0
-  },
-  {
-   "source": "place:osaka",
-   "hub": "osa",
-   "pages": 2,
-   "seen": 4,
-   "added": 0
-  },
-  {
    "source": "luma calendars",
-   "known": 1923,
-   "added": 37
+   "known": 1929,
+   "added": 10
   },
   {
    "source": "foundercal",
-   "read": 3012,
-   "added": 74
+   "read": 2976,
+   "added": 72
   },
   {
    "source": "confs.tech",
@@ -556,8 +695,8 @@
   },
   {
    "source": "meetup groups",
-   "groups": 836,
-   "added": 7
+   "groups": 837,
+   "added": 5
   },
   {
    "source": "ical feeds",
@@ -575,13 +714,8 @@
   },
   {
    "rsvp_links": {
-    "fixed": 1,
+    "fixed": 0,
     "removed": [
-     {
-      "title": "Meeting C++ 2026",
-      "date": "2026-11-26",
-      "link": "https://germantechjobs.de/en/events/Meeting-C-2026-Berlin"
-     },
      {
       "title": "React Day Berlin 2026",
       "date": "2026-12-04",
@@ -683,6 +817,42 @@
       "why": "already listed with its RSVP link"
      },
      {
+      "title": "The Founders Meet",
+      "date": "2026-11-28",
+      "link": "https://startupmelas.in/startup-events-calendar/the-founders-meet",
+      "why": "already listed with its RSVP link"
+     },
+     {
+      "title": "ELEV8 Startup Conference 2026",
+      "date": "2026-11-28",
+      "link": "https://startupmelas.in/startup-events-calendar/startup-summit-2026-spring-edition",
+      "why": "already listed with its RSVP link"
+     },
+     {
+      "title": "Bharat Startup Summit 2026",
+      "date": "2026-11-28",
+      "link": "https://startupmelas.in/startup-events-calendar/bharat-startup-summit-2026",
+      "why": "already listed with its RSVP link"
+     },
+     {
+      "title": "TiE Global Summit 2026",
+      "date": "2026-12-14",
+      "link": "https://startupmelas.in/startup-events-calendar/tie-global-summit-2026",
+      "why": "already listed with its RSVP link"
+     },
+     {
+      "title": "Pitch Point \u2013 RAISE\u201926",
+      "date": "2026-12-16",
+      "link": "https://startupmelas.in/startup-events-calendar/pitch-point-raise26",
+      "why": "already listed with its RSVP link"
+     },
+     {
+      "title": "Startup Mahakumbh 6.0",
+      "date": "2027-03-12",
+      "link": "https://startupmelas.in/startup-events-calendar/startup-mahakumbh-60",
+      "why": "already listed with its RSVP link"
+     },
+     {
       "title": "World AI Cannes Festival",
       "date": "2027-02-10",
       "link": "https://www.maddyness.com/evenement/world-ai-cannes-festival"
@@ -726,42 +896,6 @@
       "title": "Be a boss Women Tour Sud 2027",
       "date": "2027-06-24",
       "link": "https://www.maddyness.com/evenement/be-a-boss-women-tour-sud-2027"
-     },
-     {
-      "title": "The Founders Meet",
-      "date": "2026-11-28",
-      "link": "https://startupmelas.in/startup-events-calendar/the-founders-meet",
-      "why": "already listed with its RSVP link"
-     },
-     {
-      "title": "ELEV8 Startup Conference 2026",
-      "date": "2026-11-28",
-      "link": "https://startupmelas.in/startup-events-calendar/startup-summit-2026-spring-edition",
-      "why": "already listed with its RSVP link"
-     },
-     {
-      "title": "Bharat Startup Summit 2026",
-      "date": "2026-11-28",
-      "link": "https://startupmelas.in/startup-events-calendar/bharat-startup-summit-2026",
-      "why": "already listed with its RSVP link"
-     },
-     {
-      "title": "TiE Global Summit 2026",
-      "date": "2026-12-14",
-      "link": "https://startupmelas.in/startup-events-calendar/tie-global-summit-2026",
-      "why": "already listed with its RSVP link"
-     },
-     {
-      "title": "Pitch Point \u2013 RAISE\u201926",
-      "date": "2026-12-16",
-      "link": "https://startupmelas.in/startup-events-calendar/pitch-point-raise26",
-      "why": "already listed with its RSVP link"
-     },
-     {
-      "title": "Startup Mahakumbh 6.0",
-      "date": "2027-03-12",
-      "link": "https://startupmelas.in/startup-events-calendar/startup-mahakumbh-60",
-      "why": "already listed with its RSVP link"
      },
      {
       "title": "TiE Seattle Holiday Celebration- Builders of Seattle, Now & Next",
@@ -960,7 +1094,7 @@
       "link": "https://andresospina.co/eventos-ia/evento/congreso-america-digital-mexico-2027"
      }
     ],
-    "retry": 32
+    "retry": 31
    }
   }
  ]
