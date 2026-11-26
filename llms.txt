@@ -220,6 +220,9 @@ URL: https://yorkseed.co/connect | App: https://app.yorkseed.co
 **Yorkseed Capital** - Deal-by-deal SPV co-investments. Not a fund. Accredited investors only.
 URL: https://yorkseed.co/capital
 
+**Yorkseed Venture Studio** - Yorkseed's New York venture studio. Builds and selectively co-builds tech companies from what the Yorkseed network knows. No cohort, accelerator or open application. Venture 01: KoiCard (koicard.app), an AI business-card scanner and relationship tool.
+URL: https://yorkseed.co/venturestudio/ | Portfolio: https://yorkseed.co/venturestudio/portfolio/ | Contact: studio@yorkseed.co
+
 **Valois by Yorkseed** - Invitation-only curated network for family offices, HNWIs, sovereign wealth funds, GP/LPs. Selected founder deals pushed into Valois deal room.
 URL: https://thevalois.com
 
